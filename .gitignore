@@ -1,6 +1,0 @@
-scripts/__pycache__/
-scripts/unittesting/__pycache__/
-scripts/inputs/
-scripts/outputs/
-scripts/"perf_format_converter - Copy.py"
-scripts/*.sh
