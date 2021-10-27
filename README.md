@@ -53,7 +53,8 @@ Example: “> 0.2 & P” means the current node’s values is above 20% and the 
 -   CORES_PER_SOCKET: The number of cores per socket.
 -   DURATIONTIMEINSECONDS: The time interval in seconds that performance monitoring counter data was collected.
 -   SOCKET_COUNT: The number of sockets on the system.
--   SYSTEM_TSC_FREQ: The TSC frequency metadata specific to the system being profiled in MHz. TSC is the Time Stamp Counter
+-   TSC: Duration in time cycles
+-   SYSTEM_TSC_FREQ: The TSC frequency metadata specific to the system being profiled in MHz. 
 
 ### Perf Script
 
