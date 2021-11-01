@@ -120,3 +120,6 @@ The perf script in /scripts will take the metrics.json file and convert that gen
 #### Good Reads
 
 1. A Top-Down Method for Performance Analysis and Counters Architecture. Ahmad Yasin. In IEEE International Symposium on Performance Analysis of Systems and Software, ISPASS 2014.
+
+	
+## Making Contribution
