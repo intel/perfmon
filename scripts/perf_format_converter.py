@@ -40,8 +40,9 @@ import re
 import sys
 import json
 import argparse
+from pathlib import Path
 
-REPLACEMENT_CONFIG_FILE = "\\config\\replacements_config.json"
+REPLACEMENT_CONFIG_FILE = Path("config/replacements_config.json")
 
 
 def main():
@@ -107,10 +108,7 @@ class PerfFormatConverter:
         Loads dictionaries to be used for metric name replacements
         and metric association (events and constants) replacements.
         """
-        base_dir = os.path.dirname(__file__)
-
-        replacement_config_fp = open(base_dir + REPLACEMENT_CONFIG_FILE,
-                                 "r")
+        replacement_config_fp = open(REPLACEMENT_CONFIG_FILE, "r")
 
         try:
             config_dict = json.load(replacement_config_fp)
