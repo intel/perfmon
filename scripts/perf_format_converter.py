@@ -40,8 +40,9 @@ import re
 import sys
 import json
 import argparse
+from pathlib import Path
 
-REPLACEMENT_CONFIG_FILE = "\\config\\replacements_config.json"
+REPLACEMENT_CONFIG_FILE = Path("config/replacements_config.json")
 
 
 def main():
@@ -107,20 +108,14 @@ class PerfFormatConverter:
         Loads dictionaries to be used for metric name replacements
         and metric association (events and constants) replacements.
         """
-        base_dir = os.path.dirname(__file__)
-
-        replacement_config_fp = open(base_dir + REPLACEMENT_CONFIG_FILE,
-                                 "r")
-
-        try:
+        with open(REPLACEMENT_CONFIG_FILE, "r") as replacement_config_fp:
             config_dict = json.load(replacement_config_fp)
 
+        try:
             self.metric_name_replacement_dict = config_dict["metric_name_replacements"]
             self.metric_assoc_replacement_dict = config_dict["metric_association_replacements"]
         except KeyError as error:
             sys.exit("Error in config JSON format " + str(error) + ". Exiting")
-
-        replacement_config_fp.close()
 
     def deserialize_input(self):
         """

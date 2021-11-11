@@ -8,6 +8,7 @@
         "PERF_METRICS.FRONTEND_BOUND":"topdown-fe-bound",
         "PERF_METRICS.BACKEND_BOUND":"topdown-be-bound",
         "PERF_METRICS.BAD_SPECULATION":"topdown-bad-spec",
-        "TOPDOWN.SLOTS:perf_metrics":"slots"
+        "TOPDOWN.SLOTS:perf_metrics":"slots",
+        "SOCKET_COUNT":"num_packages"
     }
 }
