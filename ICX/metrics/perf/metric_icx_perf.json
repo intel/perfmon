@@ -78,32 +78,38 @@
         "MetricName": "metric_llc_data_read_mpi_demand_plus_prefetch"
     },
     {
+        "BriefDescription": "Ratio of number of code read requests missing last level core cache (includes demand w/ prefetches) to the total number of completed instructions",
+        "MetricExpr": "( UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFCRD  +  UNC_CHA_TOR_INSERTS.IA_MISS_CRD  +  UNC_CHA_TOR_INSERTS.IA_MISS_CRD_PREF ) /  INST_RETIRED.ANY ",
+        "MetricGroup": "",
+        "MetricName": "metric_llc_code_read_mpi_demand_plus_prefetch"
+    },
+    {
         "BriefDescription": "Average latency of a LLC demand data read miss (read memory access) in nano seconds ",
-        "MetricExpr": "1000000000 * ( UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD  /  UNC_CHA_TOR_INSERTS.IA_MISS_DRD ) / ( UNC_CHA_CLOCKTICKS  / ( #CHAS_PER_SOCKET  *  #SOCKET_COUNT ) )",
+        "MetricExpr": "1000000000 * ( UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD  /  UNC_CHA_TOR_INSERTS.IA_MISS_DRD ) / ( UNC_CHA_CLOCKTICKS  / ( #CHAS_PER_SOCKET  *  #num_packages ) )",
         "MetricGroup": "",
         "MetricName": "metric_average_llc_demand_data_read_miss_latency_in_ns"
     },
     {
         "BriefDescription": "Average latency of a LLC demand data read miss (read memory access) addressed to local memory in nano seconds ",
-        "MetricExpr": "1000000000 * ( UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_LOCAL  /  UNC_CHA_TOR_INSERTS.IA_MISS_DRD_LOCAL ) / ( UNC_CHA_CLOCKTICKS  / ( #CHAS_PER_SOCKET  *  #SOCKET_COUNT ) )",
+        "MetricExpr": "1000000000 * ( UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_LOCAL  /  UNC_CHA_TOR_INSERTS.IA_MISS_DRD_LOCAL ) / ( UNC_CHA_CLOCKTICKS  / ( #CHAS_PER_SOCKET  *  #num_packages ) )",
         "MetricGroup": "",
         "MetricName": "metric_average_llc_demand_data_read_miss_latency_for_local_requests_in_ns"
     },
     {
         "BriefDescription": "Average latency of a LLC demand data read miss (read memory access) addressed to remote memory in nano seconds ",
-        "MetricExpr": "1000000000 * ( UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_REMOTE  /  UNC_CHA_TOR_INSERTS.IA_MISS_DRD_REMOTE ) / ( UNC_CHA_CLOCKTICKS  / ( #CHAS_PER_SOCKET  *  #SOCKET_COUNT ) )",
+        "MetricExpr": "1000000000 * ( UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_REMOTE  /  UNC_CHA_TOR_INSERTS.IA_MISS_DRD_REMOTE ) / ( UNC_CHA_CLOCKTICKS  / ( #CHAS_PER_SOCKET  *  #num_packages ) )",
         "MetricGroup": "",
         "MetricName": "metric_average_llc_demand_data_read_miss_latency_for_remote_requests_in_ns"
     },
     {
         "BriefDescription": "Average latency of a LLC demand data read miss (read memory access) addressed to PMEM in nano seconds ",
-        "MetricExpr": "1000000000 * ( UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_PMM  /  UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PMM ) / ( UNC_CHA_CLOCKTICKS  / ( #CHAS_PER_SOCKET  *  #SOCKET_COUNT ) )",
+        "MetricExpr": "1000000000 * ( UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_PMM  /  UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PMM ) / ( UNC_CHA_CLOCKTICKS  / ( #CHAS_PER_SOCKET  *  #num_packages ) )",
         "MetricGroup": "",
         "MetricName": "metric_average_llc_demand_data_read_miss_to_pmem_latency_in_ns"
     },
     {
         "BriefDescription": "Average latency of a LLC demand data read miss (read memory access) addressed to DRAM in nano seconds ",
-        "MetricExpr": "1000000000 * ( UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_DDR  /  UNC_CHA_TOR_INSERTS.IA_MISS_DRD_DDR ) / ( UNC_CHA_CLOCKTICKS  / ( #CHAS_PER_SOCKET  *  #SOCKET_COUNT ) )",
+        "MetricExpr": "1000000000 * ( UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_DDR  /  UNC_CHA_TOR_INSERTS.IA_MISS_DRD_DDR ) / ( UNC_CHA_CLOCKTICKS  / ( #CHAS_PER_SOCKET  *  #num_packages ) )",
         "MetricGroup": "",
         "MetricName": "metric_average_llc_demand_data_read_miss_to_dram_latency_in_ns"
     },
@@ -151,7 +157,7 @@
     },
     {
         "BriefDescription": "Uncore operating frequency in GHz",
-        "MetricExpr": " UNC_CHA_CLOCKTICKS  / ( #CHAS_PER_SOCKET  *  #SOCKET_COUNT ) / 1000000000",
+        "MetricExpr": " UNC_CHA_CLOCKTICKS  / ( #CHAS_PER_SOCKET  *  #num_packages ) / 1000000000",
         "MetricGroup": "",
         "MetricName": "metric_uncore_frequency_GHz"
     },

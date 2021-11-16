@@ -312,6 +312,37 @@
     "MetricGroup": ""
   },
   {
+    "MetricName": "metric_llc_code_read_mpi_demand_plus_prefetch",
+    "LegacyName": "metric_LLC code read MPI (demand+prefetch)",
+    "Level": 1,
+    "BriefDescription": "Ratio of number of code read requests missing last level core cache (includes demand w/ prefetches) to the total number of completed instructions",
+    "UnitOfMeasure": "per instruction",
+    "Events": [
+      {
+        "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFCRD",
+        "Alias": "a"
+      },
+      {
+        "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_CRD",
+        "Alias": "b"
+      },
+      {
+        "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_CRD_PREF",
+        "Alias": "c"
+      },
+      {
+        "Name": "INST_RETIRED.ANY",
+        "Alias": "d"
+      }
+    ],
+    "Constants": [],
+    "Formula": "(a + b + c) / d",
+    "Category": "",
+    "Threshold": "",
+    "ResolutionLevels": "SOCKET, SYSTEM",
+    "MetricGroup": ""
+  },
+  {
     "MetricName": "metric_average_llc_demand_data_read_miss_latency_in_ns",
     "LegacyName": "metric_Average LLC demand data read miss latency (in ns)",
     "Level": 1,
