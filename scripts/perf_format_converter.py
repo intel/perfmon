@@ -99,7 +99,7 @@ class PerfFormatConverter:
         self.input_data = None
         self.metric_name_replacement_dict = None
         self.metric_assoc_replacement_dict = None
-        self.metric_assoc_prefix_dict = None
+        self.metric_source_event_dict = None
         self.perf_metrics = None
         self.init_dictionaries()
 
@@ -114,6 +114,7 @@ class PerfFormatConverter:
         try:
             self.metric_name_replacement_dict = config_dict["metric_name_replacements"]
             self.metric_assoc_replacement_dict = config_dict["metric_association_replacements"]
+            self.metric_source_event_dict = config_dict["metric_source_events"]
         except KeyError as error:
             sys.exit("Error in config JSON format " + str(error) + ". Exiting")
 
@@ -131,7 +132,7 @@ class PerfFormatConverter:
         metrics = []
 
         try:
-            for metric in self.input_data:
+            for metric in self.input_data["Metrics"]:
                 # Temporary check to not output any TMA metrics
                 if "tma" not in metric["MetricName"]:
                     # Add new metric object for each metric dictionary
@@ -142,7 +143,7 @@ class PerfFormatConverter:
                         metric_name=self.translate_metric_name(metric["MetricName"]))
                     metrics.append(new_metric)
         except KeyError as error:
-            sys.exit("Error in input JSON format " + str(error) + ". Exiting")
+            sys.exit("Error in input JSON format during convert_to_perf_metrics():" + str(error) + ". Exiting")
 
         self.perf_metrics = metrics
 
@@ -165,16 +166,16 @@ class PerfFormatConverter:
             for event in events:
                 reg = r"((?<=[^A-Za-z])|(?<=^))({})((?=[^A-Za-z])|(?=$))".format(event["Alias"].lower())
                 expression = re.sub(reg,
-                                    pad(self.translate_metric_assoc(event["Name"])),
+                                    pad(self.translate_metric_event(event["Name"])),
                                     expression)
             for const in constants:
                 reg = r"((?<=[^A-Za-z])|(?<=^))({})((?=[^A-Za-z])|(?=$))".format(const["Alias"].lower())
                 expression = re.sub(reg,
-                                    pad("#" + self.translate_metric_assoc(const["Name"])),
+                                    pad(self.translate_metric_constant(const["Name"], metric)),
                                     expression)
 
         except KeyError as error:
-            sys.exit("Error in input JSON format " + str(error) + ". Exiting")
+            sys.exit("Error in input JSON format during get_expressions(): " + str(error) + ". Exiting")
 
         return expression
 
@@ -189,9 +190,9 @@ class PerfFormatConverter:
         else:
             return metric_name
 
-    def translate_metric_assoc(self, association_name):
+    def translate_metric_event(self, association_name):
         """
-        Replaces the association name with a replacement found in the metric 
+        Replaces the event name with a replacement found in the metric
         association replacements json file. (An "association" is either an event
         or a constant. "Association" is the encompassing term for them both.
         """
@@ -200,6 +201,24 @@ class PerfFormatConverter:
             return self.metric_assoc_replacement_dict[association_name]
         else:
             return association_name
+
+    def translate_metric_constant(self, association_name, metric):
+        """
+        Replaces the constant name with a replacement found in the metric
+        association replacements json file. (An "association" is either an event
+        or a constant. "Association" is the encompassing term for them both.
+        """
+        # Check if association has replacement
+        if association_name in self.metric_assoc_replacement_dict:
+            # 1:1 constant replacement
+            return "#" + self.metric_assoc_replacement_dict[association_name]
+        elif association_name in self.metric_source_event_dict:
+            # source@ formatting
+            source_event = self.metric_source_event_dict[association_name]
+            for event in metric["Events"]:
+                if source_event in event["Name"]:
+                    return "source_count(" + event["Name"] + ")"
+        return "#" + association_name
 
     def serialize_output(self):
         """

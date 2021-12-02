@@ -9,6 +9,10 @@
         "PERF_METRICS.BACKEND_BOUND":"topdown-be-bound",
         "PERF_METRICS.BAD_SPECULATION":"topdown-bad-spec",
         "TOPDOWN.SLOTS:perf_metrics":"slots",
-        "SOCKET_COUNT":"num_packages"
+        "SOCKET_COUNT":"NUM_PACKAGES",
+        "HYPERTHREADING_ON":"SMT_on"
+    },
+    "metric_source_events":{
+        "CHA_COUNT":"UNC_CHA"
     }
 }
