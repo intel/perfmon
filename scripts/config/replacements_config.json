@@ -13,6 +13,6 @@
         "HYPERTHREADING_ON":"SMT_on"
     },
     "metric_source_events":{
-        "CHA_COUNT":"UNC_CHA"
+        "CHAS_PER_SOCKET":"UNC_CHA"
     }
 }

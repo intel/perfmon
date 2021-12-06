@@ -213,7 +213,7 @@ class PerfFormatConverter:
             # 1:1 constant replacement
             return "#" + self.metric_assoc_replacement_dict[association_name]
         elif association_name in self.metric_source_event_dict:
-            # source@ formatting
+            # source_count() formatting
             source_event = self.metric_source_event_dict[association_name]
             for event in metric["Events"]:
                 if source_event in event["Name"]:
