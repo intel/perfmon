@@ -157,7 +157,7 @@ class PerfFormatConverter:
         """
         try:
             # Get formula and events for conversion
-            base_formula = metric["Formula"]
+            base_formula = metric["Formula"].replace("DURATIONTIMEINSECONDS", "duration_time")
             events = metric["Events"]
             constants = metric["Constants"]
 
