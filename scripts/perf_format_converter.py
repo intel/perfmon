@@ -134,14 +134,14 @@ class PerfFormatConverter:
         try:
             for metric in self.input_data["Metrics"]:
                 # Temporary check to not output any TMA metrics
-                if "tma" not in metric["MetricName"]:
-                    # Add new metric object for each metric dictionary
-                    new_metric = Metric(
-                        brief_description=metric["BriefDescription"],
-                        metric_expr=self.get_expression(metric),
-                        metric_group=metric["MetricGroup"],
-                        metric_name=self.translate_metric_name(metric["MetricName"]))
-                    metrics.append(new_metric)
+                #if "tma" not in metric["MetricName"]:
+                # Add new metric object for each metric dictionary
+                new_metric = Metric(
+                    brief_description=metric["BriefDescription"],
+                    metric_expr=self.get_expression(metric),
+                    metric_group=metric["MetricGroup"],
+                    metric_name=self.translate_metric_name(metric["MetricName"]))
+                metrics.append(new_metric)
         except KeyError as error:
             sys.exit("Error in input JSON format during convert_to_perf_metrics():" + str(error) + ". Exiting")
 
