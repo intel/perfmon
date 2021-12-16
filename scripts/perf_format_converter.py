@@ -43,6 +43,7 @@ import argparse
 from pathlib import Path
 
 REPLACEMENT_CONFIG_FILE = Path("config/replacements_config.json")
+PERSISTENT_FIELDS = ["MetricGroup"]
 
 
 def main():
@@ -83,8 +84,14 @@ def get_args():
     return args.finput, args.fout
 
 
-def pad(name):
-    return " " + name + " "
+def pad(string):
+    """
+    Adds a one space padding to an inputted string
+
+    @param string: string to pad
+    @returns: padded string
+    """
+    return " " + string.strip() + " "
 
 
 class PerfFormatConverter:
@@ -100,6 +107,7 @@ class PerfFormatConverter:
         self.metric_name_replacement_dict = None
         self.metric_assoc_replacement_dict = None
         self.metric_source_event_dict = None
+        self.scale_unit_replacement_dict = None
         self.perf_metrics = None
         self.init_dictionaries()
 
@@ -115,6 +123,7 @@ class PerfFormatConverter:
             self.metric_name_replacement_dict = config_dict["metric_name_replacements"]
             self.metric_assoc_replacement_dict = config_dict["metric_association_replacements"]
             self.metric_source_event_dict = config_dict["metric_source_events"]
+            self.scale_unit_replacement_dict = config_dict["scale_unit_replacements"]
         except KeyError as error:
             sys.exit("Error in config JSON format " + str(error) + ". Exiting")
 
@@ -133,14 +142,13 @@ class PerfFormatConverter:
 
         try:
             for metric in self.input_data["Metrics"]:
-                # Temporary check to not output any TMA metrics
-                #if "tma" not in metric["MetricName"]:
                 # Add new metric object for each metric dictionary
                 new_metric = Metric(
                     brief_description=metric["BriefDescription"],
                     metric_expr=self.get_expression(metric),
                     metric_group=metric["MetricGroup"],
-                    metric_name=self.translate_metric_name(metric["MetricName"]))
+                    metric_name=self.translate_metric_name(metric["MetricName"]).replace("m_", ""),
+                    scale_unit=self.get_scale_unit(metric))
                 metrics.append(new_metric)
         except KeyError as error:
             sys.exit("Error in input JSON format during convert_to_perf_metrics():" + str(error) + ". Exiting")
@@ -190,43 +198,71 @@ class PerfFormatConverter:
         else:
             return metric_name
 
-    def translate_metric_event(self, association_name):
+    def translate_metric_event(self, event_name):
         """
         Replaces the event name with a replacement found in the metric
         association replacements json file. (An "association" is either an event
         or a constant. "Association" is the encompassing term for them both.
+
+        @param event_name: string containing event name
+        @returns: string containing un-aliased expression
         """
         # Check if association has replacement
-        if association_name in self.metric_assoc_replacement_dict:
-            return self.metric_assoc_replacement_dict[association_name]
+        if event_name in self.metric_assoc_replacement_dict:
+            return self.metric_assoc_replacement_dict[event_name]
         else:
-            return association_name
+            return event_name
 
-    def translate_metric_constant(self, association_name, metric):
+    def translate_metric_constant(self, constant_name, metric):
         """
         Replaces the constant name with a replacement found in the metric
-        association replacements json file. (An "association" is either an event
-        or a constant. "Association" is the encompassing term for them both.
+        association replacements json file. Also handles the source_count()
+        formatting for specific constants using the config file.
+
+        @param constant_name: string containing constant name
+        @param metric: metric data as a dictionary
+        @returns: string containing un-aliased expression
         """
         # Check if association has replacement
-        if association_name in self.metric_assoc_replacement_dict:
+        if constant_name in self.metric_assoc_replacement_dict:
             # 1:1 constant replacement
-            return "#" + self.metric_assoc_replacement_dict[association_name]
-        elif association_name in self.metric_source_event_dict:
+            return "#" + self.metric_assoc_replacement_dict[constant_name]
+        elif constant_name in self.metric_source_event_dict:
             # source_count() formatting
-            source_event = self.metric_source_event_dict[association_name]
+            source_event = self.metric_source_event_dict[constant_name]
             for event in metric["Events"]:
                 if source_event in event["Name"]:
                     return "source_count(" + event["Name"] + ")"
-        return "#" + association_name
+        return "#" + constant_name
 
     def serialize_output(self):
         """
         Serializes the list of perf metrics into a json file output.
         """
         # Dump new metric object list to output json file
-        json.dump(self.perf_metrics, self.output_fp,
-                  default=lambda obj: obj.__dict__, indent=4)
+        json.dump(self.perf_metrics,
+                  self.output_fp,
+                  # default=lambda obj: obj.__dict__,
+                  default=lambda obj: dict((key, value) for key, value in obj.__dict__.items()
+                                           if value or key in PERSISTENT_FIELDS),
+                  indent=4)
+
+    def get_scale_unit(self, metric):
+        """
+        Converts a metrics unit of measure field into a scale unit. Scale unit
+        is formatted as a scale factor x and a unit. Eg. 1ns, 10Ghz, etc
+
+        @param metric: metric data as a dictionary
+        @returns: string containing the scale unit of the metric
+        """
+
+        # Get the unit of measure of the metric
+        unit = metric["UnitOfMeasure"]
+
+        if unit in self.scale_unit_replacement_dict:
+            return "1 " + self.scale_unit_replacement_dict[unit]
+        else:
+            return None
 
 
 class Metric:
@@ -235,11 +271,12 @@ class Metric:
     """
 
     def __init__(self, brief_description, metric_expr,
-                 metric_group, metric_name):
+                 metric_group, metric_name, scale_unit):
         self.BriefDescription = brief_description
         self.MetricExpr = metric_expr
         self.MetricGroup = metric_group
         self.MetricName = metric_name
+        self.ScaleUnit = scale_unit
 
 
 if __name__ == "__main__":
