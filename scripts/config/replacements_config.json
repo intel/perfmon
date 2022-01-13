@@ -17,12 +17,12 @@
     },
     "scale_unit_replacements": {
         "per instruction":"per_instr",
-        "per second":"s",
+        "per second":"per_sec",
         "percent": "%",
         "ns": "ns",
         "GHz": "GHz",
         "MB/sec":"MB/s",
         "GT/sec":"GT/s",
-        "Watts":"Watt"
+        "Watts":"Watts"
     }
 }

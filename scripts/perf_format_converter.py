@@ -28,14 +28,17 @@
 # USAGE: Run from command line with the following parameters -
 #
 # perf_format_converter.py
-# -i (--finput) <Path to Input File>
-# -o (--foutput) <Path to Output File>
+# -i (--finput) <Path to Input File> (optional)
 #
 # ASSUMES: That the script is being run in the scripts folder of the repo and that all files
 #          are JSON format
-# EXAMPLE: python perf_format_converter -i ./inputs/input_file.json -o ./outputs/output_file.json
+# OUTPUT: The converted files are outputted to the outputs directory
+#
+# EXAMPLE: python perf_format_converter -i ./inputs/input_file.json
+#   -> Converts single file input_file.json
+# EXAMPLE: python perf_format_converter
+#   -> Converts all files in input dir
 
-import os
 import re
 import sys
 import json
@@ -43,24 +46,44 @@ import argparse
 from pathlib import Path
 
 REPLACEMENT_CONFIG_FILE = Path("config/replacements_config.json")
+INPUT_DIR_PATH = Path("inputs/")
+OUTPUT_DIR_PATH = Path("outputs/")
+
 PERSISTENT_FIELDS = ["MetricGroup"]
 
 
 def main():
     # Get file pointers from args
-    input_file, output_file = get_args()
+    arg_input_file = get_args()
 
-    # Initialize converter with input and output files
-    format_converter = PerfFormatConverter(input_file, output_file)
+    # Check for input file arg
+    if arg_input_file:
 
-    # Deserialize input DB Json to dictionary
-    format_converter.deserialize_input()
+        # If input file given, convert just input file
+        convert_file(arg_input_file)
+    else:
+        # If no input file, convert all files in input dir
+        glob = INPUT_DIR_PATH.glob("*")
+        for file in glob:
+            convert_file(file)
 
-    # Convert the dictionary to list of Perf format metric objects
-    format_converter.convert_to_perf_metrics()
 
-    # Serialize metrics to Json file
-    format_converter.serialize_output()
+def convert_file(file_path):
+    with open(file_path, "r") as input_file:
+        # Initialize converter with input file
+        format_converter = PerfFormatConverter(input_file)
+
+        # Deserialize input DB Json to dictionary
+        format_converter.deserialize_input()
+
+        # Convert the dictionary to list of Perf format metric objects
+        format_converter.convert_to_perf_metrics()
+
+        # Get the output file
+        output_file_path = get_output_file(input_file.name)
+        with open(output_file_path, "w+") as output_file_fp:
+            # Serialize metrics to Json file
+            format_converter.serialize_output(output_file_fp)
 
 
 def get_args():
@@ -74,14 +97,24 @@ def get_args():
 
     # Arguments
     parser.add_argument("-i", "--finput", type=argparse.FileType('r'),
-                        help="Path of input json file", required=True)
-    parser.add_argument("-o", "--fout", type=argparse.FileType('w'),
-                        help="Path of output json file", required=True)
+                        help="Path of input json file", required=False)
 
     # Get arguments
     args = parser.parse_args()
 
-    return args.finput, args.fout
+    return args.finput
+
+
+def get_output_file(path):
+    """
+    Takes the path to the input file and converts it to the output file path.
+    eg. inputs/input_file.json -> outputs/input_file_perf.json
+
+    @param path: string containing the path to input file
+    @returns: string containing output file path
+    """
+    file_name = Path(path).stem + "_perf.json"
+    return Path(OUTPUT_DIR_PATH, file_name)
 
 
 def pad(string):
@@ -100,9 +133,8 @@ class PerfFormatConverter:
     methods required to load, transform, and output perf metrics.
     """
 
-    def __init__(self, input_fp, output_fp):
+    def __init__(self, input_fp):
         self.input_fp = input_fp
-        self.output_fp = output_fp
         self.input_data = None
         self.metric_name_replacement_dict = None
         self.metric_assoc_replacement_dict = None
@@ -235,13 +267,13 @@ class PerfFormatConverter:
                     return "source_count(" + event["Name"] + ")"
         return "#" + constant_name
 
-    def serialize_output(self):
+    def serialize_output(self, output_fp):
         """
         Serializes the list of perf metrics into a json file output.
         """
         # Dump new metric object list to output json file
         json.dump(self.perf_metrics,
-                  self.output_fp,
+                  output_fp,
                   # default=lambda obj: obj.__dict__,
                   default=lambda obj: dict((key, value) for key, value in obj.__dict__.items()
                                            if value or key in PERSISTENT_FIELDS),
@@ -260,7 +292,7 @@ class PerfFormatConverter:
         unit = metric["UnitOfMeasure"]
 
         if unit in self.scale_unit_replacement_dict:
-            return "1 " + self.scale_unit_replacement_dict[unit]
+            return "1" + self.scale_unit_replacement_dict[unit]
         else:
             return None
 
