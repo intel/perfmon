@@ -45,10 +45,13 @@ import json
 import argparse
 from pathlib import Path
 
-REPLACEMENT_CONFIG_FILE = Path("config/replacements_config.json")
-INPUT_DIR_PATH = Path("inputs/")
-OUTPUT_DIR_PATH = Path("outputs/")
+# File locations
+FILE_PATH = Path(__file__).parent.resolve()
+CONFIG_FILE_PATH = Path("./config/replacements_config.json")
+INPUT_DIR_PATH = Path("./inputs/")
+OUTPUT_DIR_PATH = Path("./outputs/")
 
+# Fields to always display event if empty
 PERSISTENT_FIELDS = ["MetricGroup"]
 
 
@@ -63,7 +66,7 @@ def main():
         convert_file(arg_input_file)
     else:
         # If no input file, convert all files in input dir
-        glob = INPUT_DIR_PATH.glob("*")
+        glob = Path(FILE_PATH, INPUT_DIR_PATH).glob("*")
         for file in glob:
             convert_file(file)
 
@@ -114,7 +117,7 @@ def get_output_file(path):
     @returns: string containing output file path
     """
     file_name = Path(path).stem + "_perf.json"
-    return Path(OUTPUT_DIR_PATH, file_name)
+    return Path(FILE_PATH, OUTPUT_DIR_PATH, file_name)
 
 
 def pad(string):
@@ -148,7 +151,9 @@ class PerfFormatConverter:
         Loads dictionaries to be used for metric name replacements
         and metric association (events and constants) replacements.
         """
-        with open(REPLACEMENT_CONFIG_FILE, "r") as replacement_config_fp:
+
+        full_config_path = Path(FILE_PATH, CONFIG_FILE_PATH)
+        with open(full_config_path, "r") as replacement_config_fp:
             config_dict = json.load(replacement_config_fp)
 
         try:
