@@ -72,13 +72,19 @@ def main():
 
 
 def convert_file(file_path):
+    """
+    Takes a standard json file and outputs a converted perf file
+
+    @param file_path: path to standard json file
+    """
     with open(file_path, "r") as input_file:
         # Initialize converter with input file
         format_converter = PerfFormatConverter(input_file)
 
         # Deserialize input DB Json to dictionary
         format_converter.deserialize_input()
-
+        print("Processing file: <" + str(file_path.name) + ">")
+        
         # Convert the dictionary to list of Perf format metric objects
         format_converter.convert_to_perf_metrics()
 
@@ -99,7 +105,7 @@ def get_args():
     parser = argparse.ArgumentParser(description="Perf Converter Script")
 
     # Arguments
-    parser.add_argument("-i", "--finput", type=argparse.FileType('r'),
+    parser.add_argument("-i", "--finput", type=Path,
                         help="Path of input json file", required=False)
 
     # Get arguments
