@@ -4,11 +4,25 @@
         "example_metric_name2":"example_perf_name2"
     },
     "metric_association_replacements":{
-        "PERF_METRICS.RETIRING":"topdown-retiring",
-        "PERF_METRICS.FRONTEND_BOUND":"topdown-fe-bound",
-        "PERF_METRICS.BACKEND_BOUND":"topdown-be-bound",
-        "PERF_METRICS.BAD_SPECULATION":"topdown-bad-spec",
+        "PERF_METRICS.RETIRING":"topdown\\-retiring",
+        "PERF_METRICS.FRONTEND_BOUND":"topdown\\-fe\\-bound",
+        "PERF_METRICS.BACKEND_BOUND":"topdown\\-be\\-bound",
+        "PERF_METRICS.BAD_SPECULATION":"topdown\\-bad\\-spec",
         "TOPDOWN.SLOTS:perf_metrics":"slots",
-        "SOCKET_COUNT":"num_packages"
+        "SOCKET_COUNT":"NUM_PACKAGES",
+        "HYPERTHREADING_ON":"SMT_on"
+    },
+    "metric_source_events":{
+        "CHAS_PER_SOCKET":"UNC_CHA"
+    },
+    "scale_unit_replacements": {
+        "per instruction":"per_instr",
+        "per second":"per_sec",
+        "percent": "%",
+        "ns": "ns",
+        "GHz": "GHz",
+        "MB/sec":"MB/s",
+        "GT/sec":"GT/s",
+        "Watts":"Watts"
     }
 }

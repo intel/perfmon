@@ -38,7 +38,7 @@ from perf_format_converter import PerfFormatConverter
 class Testing(unittest.TestCase):
 
     def test_init(self):
-        perf_format_converter = PerfFormatConverter(None, None)
+        perf_format_converter = PerfFormatConverter(None)
 
         # Checks that format converter initializes
         self.assertIsNotNone(perf_format_converter)
@@ -48,7 +48,7 @@ class Testing(unittest.TestCase):
         test_input_file = current_dir + "/test_inputs/test_input_1.json"
         test_input_fp = open(test_input_file, "r")
 
-        perf_format_converter = PerfFormatConverter(test_input_fp, None)
+        perf_format_converter = PerfFormatConverter(test_input_fp)
 
         perf_format_converter.deserialize_input()
 
