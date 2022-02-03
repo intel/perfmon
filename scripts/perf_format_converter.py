@@ -189,7 +189,7 @@ class PerfFormatConverter:
                 new_metric = Metric(
                     brief_description=metric["BriefDescription"],
                     metric_expr=self.get_expression(metric),
-                    metric_group=self.fix_groups(metric["MetricGroup"]),
+                    metric_group=self.fix_groups(metric),
                     metric_name=self.translate_metric_name(metric["MetricName"]).replace("m_", ""),
                     scale_unit=self.get_scale_unit(metric))
                 metrics.append(new_metric)
@@ -307,19 +307,31 @@ class PerfFormatConverter:
         else:
             return None
 
-    def fix_groups(self, groups):
+    def fix_groups(self, metric):
         """
         Converts a metrics group field delimited by commas to a new list
         delimited by semi-colons
 
-        @param groups: string of old list of groups. delimited by commas
+        @param metric: metric json object
         @returns: new string list of groups delimited by semi-colons
         """
+
+        # Get current groups
+        groups = metric["MetricGroup"]
         if groups.isspace() or groups == "":
-            return ""
+            new_groups = []
         else:
-            split_groups = [g.strip() for g in groups.split(",") if not g.isspace() and g != ""]
-            return ";".join(split_groups)
+            new_groups = [g.strip() for g in groups.split(",") if not g.isspace() and g != ""]
+
+        # Add level and parent groups
+        if metric["Level"] != 1:
+            level_group = "TmaL" + str(metric["Level"])
+            level_mem_group = "TmaL" + str(metric["Level"]) + "mem"
+            if level_group not in new_groups and level_mem_group not in new_groups:
+                new_groups.append("TmaL" + str(metric["Level"]))
+            new_groups.append(metric["ParentCategory"])
+
+        return ";".join(new_groups) if new_groups.count != 0 else ""
 
 
 class Metric:
