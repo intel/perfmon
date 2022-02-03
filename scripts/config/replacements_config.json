@@ -18,14 +18,14 @@
         "TOPDOWN.SLOTS:perf_metrics":"slots",
         "SOCKET_COUNT":"NUM_PACKAGES",
         "HYPERTHREADING_ON":"SMT_on",
-        "UNC_CHA_TOR_INSERTS.IA_MISS:filter1=0x12D40433":"uncore_cha\\/unc_cha_tor_inserts.ia_miss,config1=0x12D4043300000000\\/",
-        "UNC_CHA_TOR_INSERTS.IA_MISS:filter1=0x12CC0233":"uncore_cha\\/unc_cha_tor_inserts.ia_miss,config1=0x12CC023300000000\\/",
-        "UNC_CHA_TOR_OCCUPANCY.IA_MISS:filter1=0x40433":"uncore_cha\\/unc_cha_tor_occupancy.ia_miss,config1=0x4043300000000\\/",
-        "UNC_CHA_TOR_INSERTS.IA_MISS:filter1=0x40433":"uncore_cha\\/unc_cha_tor_inserts.ia_miss,config1=0x4043300000000\\/",
-        "UNC_CHA_TOR_OCCUPANCY.IA_MISS:filter1=0x40432":"uncore_cha\\/unc_cha_tor_occupancy.ia_miss,config1=0x4043200000000\\/",
-        "UNC_CHA_TOR_INSERTS.IA_MISS:filter1=0x40432":"uncore_cha\\/unc_cha_tor_inserts.ia_miss,config1=0x4043200000000\\/",
-        "UNC_CHA_TOR_OCCUPANCY.IA_MISS:filter1=0x40431":"uncore_cha\\/unc_cha_tor_occupancy.ia_miss,config1=0x4043100000000\\/",
-        "UNC_CHA_TOR_INSERTS.IA_MISS:filter1=0x40431":"uncore_cha\\/unc_cha_tor_inserts.ia_miss,config1=0x4043100000000\\/"
+        "UNC_CHA_TOR_INSERTS.IA_MISS:filter1=0x12D40433":"cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x12D4043300000000@",
+        "UNC_CHA_TOR_INSERTS.IA_MISS:filter1=0x12CC0233":"cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x12CC023300000000@",
+        "UNC_CHA_TOR_OCCUPANCY.IA_MISS:filter1=0x40433":"cha@unc_cha_tor_occupancy.ia_miss\\,config1\\=0x4043300000000@",
+        "UNC_CHA_TOR_INSERTS.IA_MISS:filter1=0x40433":"cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043300000000@",
+        "UNC_CHA_TOR_OCCUPANCY.IA_MISS:filter1=0x40432":"cha@unc_cha_tor_occupancy.ia_miss\\,config1\\=0x4043200000000@",
+        "UNC_CHA_TOR_INSERTS.IA_MISS:filter1=0x40432":"cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043200000000@",
+        "UNC_CHA_TOR_OCCUPANCY.IA_MISS:filter1=0x40431":"cha@unc_cha_tor_occupancy.ia_miss\\,config1\\=0x4043100000000@",
+        "UNC_CHA_TOR_INSERTS.IA_MISS:filter1=0x40431":"cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043100000000@"
     },
     "metric_source_events":{
         "CHAS_PER_SOCKET":"UNC_CHA"
