@@ -189,7 +189,7 @@ class PerfFormatConverter:
                 new_metric = Metric(
                     brief_description=metric["BriefDescription"],
                     metric_expr=self.get_expression(metric),
-                    metric_group=metric["MetricGroup"],
+                    metric_group=self.fix_groups(metric["MetricGroup"]),
                     metric_name=self.translate_metric_name(metric["MetricName"]).replace("m_", ""),
                     scale_unit=self.get_scale_unit(metric))
                 metrics.append(new_metric)
@@ -306,6 +306,20 @@ class PerfFormatConverter:
             return "1" + self.scale_unit_replacement_dict[unit]
         else:
             return None
+
+    def fix_groups(self, groups):
+        """
+        Converts a metrics group field delimited by commas to a new list
+        delimited by semi-colons
+
+        @param groups: string of old list of groups. delimited by commas
+        @returns: new string list of groups delimited by semi-colons
+        """
+        if groups.isspace() or groups == "":
+            return ""
+        else:
+            split_groups = [g.strip() for g in groups.split(",") if not g.isspace() and g != ""]
+            return ";".join(split_groups)
 
 
 class Metric:
