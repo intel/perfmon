@@ -1,7 +1,14 @@
 {
     "metric_name_replacements":{
         "example_metric_name1":"example_perf_name1",
-        "example_metric_name2":"example_perf_name2"
+        "example_metric_name2":"example_perf_name2",
+        "m_llc_data_read_mpi_demand_plus_prefetch":"*m_llc_data_read_mpi_demand_plus_prefetch",
+        "m_llc_code_read_mpi_demand_plus_prefetch":"*m_llc_code_read_mpi_demand_plus_prefetch",
+        "m_llc_data_read_demand_plus_prefetch_miss_latency":"*m_llc_data_read_demand_plus_prefetch_miss_latency",
+        "m_llc_data_read_demand_plus_prefetch_miss_latency_for_local_requests":"*m_llc_data_read_demand_plus_prefetch_miss_latency_for_local_requests",
+        "m_llc_data_read_demand_plus_prefetch_miss_latency_for_remote_requests":"*m_llc_data_read_demand_plus_prefetch_miss_latency_for_remote_requests",
+        "m_numa_percent_reads_addressed_to_local_dram":"*m_numa_percent_reads_addressed_to_local_dram",
+        "m_numa_percent_reads_addressed_to_remote_dram":"*m_numa_percent_reads_addressed_to_remote_dram"
     },
     "metric_association_replacements":{
         "PERF_METRICS.RETIRING":"topdown\\-retiring",
@@ -10,7 +17,15 @@
         "PERF_METRICS.BAD_SPECULATION":"topdown\\-bad\\-spec",
         "TOPDOWN.SLOTS:perf_metrics":"slots",
         "SOCKET_COUNT":"NUM_PACKAGES",
-        "HYPERTHREADING_ON":"SMT_on"
+        "HYPERTHREADING_ON":"SMT_on",
+        "UNC_CHA_TOR_INSERTS.IA_MISS:filter1=0x12D40433":"cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x12D4043300000000@",
+        "UNC_CHA_TOR_INSERTS.IA_MISS:filter1=0x12CC0233":"cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x12CC023300000000@",
+        "UNC_CHA_TOR_OCCUPANCY.IA_MISS:filter1=0x40433":"cha@unc_cha_tor_occupancy.ia_miss\\,config1\\=0x4043300000000@",
+        "UNC_CHA_TOR_INSERTS.IA_MISS:filter1=0x40433":"cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043300000000@",
+        "UNC_CHA_TOR_OCCUPANCY.IA_MISS:filter1=0x40432":"cha@unc_cha_tor_occupancy.ia_miss\\,config1\\=0x4043200000000@",
+        "UNC_CHA_TOR_INSERTS.IA_MISS:filter1=0x40432":"cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043200000000@",
+        "UNC_CHA_TOR_OCCUPANCY.IA_MISS:filter1=0x40431":"cha@unc_cha_tor_occupancy.ia_miss\\,config1\\=0x4043100000000@",
+        "UNC_CHA_TOR_INSERTS.IA_MISS:filter1=0x40431":"cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043100000000@"
     },
     "metric_source_events":{
         "CHAS_PER_SOCKET":"UNC_CHA"
@@ -18,9 +33,9 @@
     "scale_unit_replacements": {
         "per instruction":"per_instr",
         "per second":"per_sec",
-        "percent": "%",
-        "ns": "ns",
-        "GHz": "GHz",
+        "percent":"%",
+        "ns":"ns",
+        "GHz":"GHz",
         "MB/sec":"MB/s",
         "GT/sec":"GT/s",
         "Watts":"Watts"

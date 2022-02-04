@@ -105,9 +105,7 @@ The perf script in /scripts will take the metrics.json file and convert that gen
 
 #### Notes
 
-1. Currently there is an issue with the constants that are being used in the metric formulas. In a future perf patch, these constants will be captured automatically. A short term fix is to manually replace the constants from the running platform with their corresponding values. For example, on a two-socket Icelake machine, replace #SOCKET_COUNT value with 2
-
-2. There is a critical issue in perf with 4 events that are parsed incorrectly. This implies that 10 TMA metrics will be not able to be able to be calculated with perf. This is why TMA metrics are not included in this release of the perf metric json file. A future perf patch will fix this
+1. Metric names starting a '*' character in the perfmon-metrics/SKX/metrics/perf/metrics_skx_perf.json file have known issues with Linux perf and do not produce valid results.
 
 #### How to contribute
 
