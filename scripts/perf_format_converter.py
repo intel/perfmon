@@ -215,12 +215,12 @@ class PerfFormatConverter:
             # Replace event/const aliases with names
             expression = base_formula.lower()
             for event in events:
-                reg = r"((?<=[^A-Za-z])|(?<=^))({})((?=[^A-Za-z])|(?=$))".format(event["Alias"].lower())
+                reg = r"((?<=[\s+\-*\/\(\)])|(?<=^))({})((?=[\s+\-*\/\(\)])|(?=$))".format(event["Alias"].lower())
                 expression = re.sub(reg,
                                     pad(self.translate_metric_event(event["Name"])),
                                     expression)
             for const in constants:
-                reg = r"((?<=[^A-Za-z])|(?<=^))({})((?=[^A-Za-z])|(?=$))".format(const["Alias"].lower())
+                reg = r"((?<=[\s+\-*\/\(\)])|(?<=^))({})((?=[\s+\-*\/\(\)])|(?=$))".format(const["Alias"].lower())
                 expression = re.sub(reg,
                                     pad(self.translate_metric_constant(const["Name"], metric)),
                                     expression)
@@ -228,7 +228,7 @@ class PerfFormatConverter:
         except KeyError as error:
             sys.exit("Error in input JSON format during get_expressions(): " + str(error) + ". Exiting")
 
-        return expression
+        return re.sub(r"[\s]{2,}", " ", expression.strip())
 
     def translate_metric_name(self, metric_name):
         """
@@ -327,7 +327,7 @@ class PerfFormatConverter:
         if metric["Level"] != 1:
             level_group = "TmaL" + str(metric["Level"])
             level_mem_group = "TmaL" + str(metric["Level"]) + "mem"
-            if level_group not in new_groups and level_mem_group not in new_groups:
+            if level_group not in new_groups:# and level_mem_group not in new_groups:
                 new_groups.append("TmaL" + str(metric["Level"]))
             new_groups.append(metric["ParentCategory"])
 
