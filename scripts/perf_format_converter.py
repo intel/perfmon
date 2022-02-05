@@ -190,7 +190,7 @@ class PerfFormatConverter:
                     brief_description=metric["BriefDescription"],
                     metric_expr=self.get_expression(metric),
                     metric_group=self.fix_groups(metric),
-                    metric_name=self.translate_metric_name(metric["MetricName"]).replace("m_", ""),
+                    metric_name=self.translate_metric_name(re.sub(r"(^m_)", "", metric["MetricName"])),
                     scale_unit=self.get_scale_unit(metric))
                 metrics.append(new_metric)
         except KeyError as error:
@@ -228,6 +228,7 @@ class PerfFormatConverter:
         except KeyError as error:
             sys.exit("Error in input JSON format during get_expressions(): " + str(error) + ". Exiting")
 
+        # Remove any extra spaces in expression
         return re.sub(r"[\s]{2,}", " ", expression.strip())
 
     def translate_metric_name(self, metric_name):
