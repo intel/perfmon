@@ -1,7 +1,7 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2007 - 2021 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Metrics for Intel® Xeon® Processor Scalable Family based on Skylake microarchitecture",
+    "Info": "Performance Monitoring Metrics for 2nd Generation Intel® Xeon® Processor Scalable Family based on Cascade Lake product",
     "DatePublished": "02/08/2022",
     "TmaVersion": "4.3",
     "TmaFlavor": "full"
@@ -712,6 +712,67 @@
       "MetricGroup": ""
     },
     {
+      "MetricName": "m_pmem_memory_bandwidth_read",
+      "LegacyName": "metric_3DXP_memory bandwidth read (MB/sec)",
+      "Level": 1,
+      "BriefDescription": "Intel(R) Optane(TM) Persistent Memory(PMEM) memory read bandwidth (MB/sec)",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_M_PMM_RPQ_INSERTS",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "CHANNEL, IMC, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_pmem_memory_bandwidth_write",
+      "LegacyName": "metric_3DXP_memory bandwidth write (MB/sec)",
+      "Level": 1,
+      "BriefDescription": "Intel(R) Optane(TM) Persistent Memory(PMEM) memory write bandwidth (MB/sec)",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_M_PMM_WPQ_INSERTS",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "CHANNEL, IMC, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_pmem_memory_bandwidth_total",
+      "LegacyName": "metric_3DXP_memory bandwidth total (MB/sec)",
+      "Level": 1,
+      "BriefDescription": "Intel(R) Optane(TM) Persistent Memory(PMEM) memory bandwidth (MB/sec)",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_M_PMM_RPQ_INSERTS",
+          "Alias": "a"
+        },
+        {
+          "Name": "UNC_M_PMM_WPQ_INSERTS",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "((a + b) * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "CHANNEL, IMC, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
       "MetricName": "m_percent_uops_delivered_from_decoded_icache_dsb",
       "LegacyName": "metric_% Uops delivered from decoded Icache (DSB)",
       "Level": 1,
@@ -723,12 +784,20 @@
           "Alias": "a"
         },
         {
-          "Name": "UOPS_ISSUED.ANY",
+          "Name": "IDQ.MITE_UOPS",
           "Alias": "b"
+        },
+        {
+          "Name": "IDQ.MS_UOPS",
+          "Alias": "c"
+        },
+        {
+          "Name": "LSD.UOPS",
+          "Alias": "d"
         }
       ],
       "Constants": [],
-      "Formula": "100 * (a / b)",
+      "Formula": "100 * (a / (a + b + c + d) )",
       "Category": "",
       "Threshold": "",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -742,16 +811,24 @@
       "UnitOfMeasure": "percent",
       "Events": [
         {
-          "Name": "IDQ.MITE_UOPS",
+          "Name": "IDQ.DSB_UOPS",
           "Alias": "a"
         },
         {
-          "Name": "UOPS_ISSUED.ANY",
+          "Name": "IDQ.MITE_UOPS",
           "Alias": "b"
+        },
+        {
+          "Name": "IDQ.MS_UOPS",
+          "Alias": "c"
+        },
+        {
+          "Name": "LSD.UOPS",
+          "Alias": "d"
         }
       ],
       "Constants": [],
-      "Formula": "100 * (a / b)",
+      "Formula": "100 * (b / (a + b + c + d) )",
       "Category": "",
       "Threshold": "",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -765,16 +842,24 @@
       "UnitOfMeasure": "percent",
       "Events": [
         {
-          "Name": "IDQ.MS_UOPS",
+          "Name": "IDQ.DSB_UOPS",
           "Alias": "a"
         },
         {
-          "Name": "UOPS_ISSUED.ANY",
+          "Name": "IDQ.MITE_UOPS",
           "Alias": "b"
+        },
+        {
+          "Name": "IDQ.MS_UOPS",
+          "Alias": "c"
+        },
+        {
+          "Name": "LSD.UOPS",
+          "Alias": "d"
         }
       ],
       "Constants": [],
-      "Formula": "100 * (a / b)",
+      "Formula": "100 * (c / (a + b + c + d) )",
       "Category": "",
       "Threshold": "",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -788,16 +873,24 @@
       "UnitOfMeasure": "percent",
       "Events": [
         {
-          "Name": "LSD.UOPS",
+          "Name": "IDQ.DSB_UOPS",
           "Alias": "a"
         },
         {
-          "Name": "UOPS_ISSUED.ANY",
+          "Name": "IDQ.MITE_UOPS",
           "Alias": "b"
+        },
+        {
+          "Name": "IDQ.MS_UOPS",
+          "Alias": "c"
+        },
+        {
+          "Name": "LSD.UOPS",
+          "Alias": "d"
         }
       ],
       "Constants": [],
-      "Formula": "100 * (a / b)",
+      "Formula": "100 * (d / (a + b + c + d) )",
       "Category": "",
       "Threshold": "",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -1204,9 +1297,50 @@
       ],
       "Formula": "100 * ( ( a - b ) / ( ( c / 2 ) if smt_on else ( d ) ) / 2 )",
       "Category": "TMA",
-      "Threshold": "> 15 & P",
+      "Threshold": "> 15 &  P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "DSB;FetchBW"
+    },
+    {
+      "MetricName": "m_tma_lsd_percent",
+      "LegacyName": "metric_TMA_....LSD(%)",
+      "ParentCategory": "m_tma_fetch_bandwidth_percent",
+      "Level": 3,
+      "BriefDescription": "This metric represents Core fraction of cycles in which CPU was likely limited due to LSD (Loop Stream Detector) unit.  LSD typically does well sustaining Uop supply. However; in some rare cases; optimal uop-delivery could not be reached for small loops whose size (in terms of number of uops) does not suit well the LSD structure.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "LSD.CYCLES_ACTIVE",
+          "Alias": "a"
+        },
+        {
+          "Name": "LSD.CYCLES_4_UOPS",
+          "Alias": "b"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD_ANY",
+          "Alias": "c"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Alias": "d"
+        }
+      ],
+      "Constants": [
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        },
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        }
+      ],
+      "Formula": "100 * ( ( a - b ) / ( ( c / 2 ) if smt_on else ( d ) ) / 2 )",
+      "Category": "TMA",
+      "Threshold": "&gt; 15 &amp; P",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "FetchBW;LSD"
     },
     {
       "MetricName": "m_tma_bad_speculation_percent",
@@ -1630,14 +1764,110 @@
         {
           "Name": "L1D_PEND_MISS.FB_FULL:c1",
           "Alias": "h"
+        },
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM",
+          "Alias": "i"
+        },
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM",
+          "Alias": "j"
+        },
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD",
+          "Alias": "k"
+        },
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM",
+          "Alias": "l"
+        },
+        {
+          "Name": "MEM_LOAD_RETIRED.LOCAL_PMM",
+          "Alias": "m"
+        },
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM",
+          "Alias": "n"
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( ( a / ( b ) + ( ( c - d ) / ( b ) ) - ( ( ( e * ( 1 + ( f / ( g ) ) ) ) / ( ( e * ( 1 + ( f / ( g ) ) ) ) + h ) ) * ( ( c - d ) / ( b ) ) ) ) )",
+      "Formula": "100 * ( ( ( a / ( b ) + ( ( c - d ) / ( b ) ) - ( ( ( e * ( 1 + ( f / ( g ) ) ) ) / ( ( e * ( 1 + ( f / ( g ) ) ) ) + h ) ) * ( ( c - d ) / ( b ) ) ) ) - ( ( ( ( 1 - ( ( ( 19 * ( i * ( 1 + ( f / ( g ) ) ) ) + 10 * ( ( j * ( 1 + ( f / ( g ) ) ) ) + ( k * ( 1 + ( f / ( g ) ) ) ) + ( l * ( 1 + ( f / ( g ) ) ) ) ) ) / ( ( 19 * ( i * ( 1 + ( f / ( g ) ) ) ) + 10 * ( ( j * ( 1 + ( f / ( g ) ) ) ) + ( k * ( 1 + ( f / ( g ) ) ) ) + ( l * ( 1 + ( f / ( g ) ) ) ) ) ) + ( 25 * ( ( m * ( 1 + ( f / ( g ) ) ) ) ) + 33 * ( ( n * ( 1 + ( f / ( g ) ) ) ) ) ) ) ) ) ) * ( a / ( b ) + ( ( c - d ) / ( b ) ) - ( ( ( e * ( 1 + ( f / ( g ) ) ) ) / ( ( e * ( 1 + ( f / ( g ) ) ) ) + h ) ) * ( ( c - d ) / ( b ) ) ) ) ) if ( ( 1000000 ) * ( n + m ) > g ) else 0 ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "MemoryBound;TmaL3mem"
+    },
+    {
+      "MetricName": "m_tma_pmm_bound_percent",
+      "LegacyName": "metric_TMA_....PMM_Bound(%)",
+      "ParentCategory": "m_tma_memory_bound_percent",
+      "Level": 3,
+      "BriefDescription": "This metric roughly estimates (based on idle latencies) how often the CPU was stalled on accesses to external 3D-Xpoint (Crystal Ridge, a.k.a. IXP) memory by loads, PMM stands for Persistent Memory Module.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM",
+          "Alias": "a"
+        },
+        {
+          "Name": "MEM_LOAD_RETIRED.FB_HIT",
+          "Alias": "b"
+        },
+        {
+          "Name": "MEM_LOAD_RETIRED.L1_MISS",
+          "Alias": "c"
+        },
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM",
+          "Alias": "d"
+        },
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD",
+          "Alias": "e"
+        },
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM",
+          "Alias": "f"
+        },
+        {
+          "Name": "MEM_LOAD_RETIRED.LOCAL_PMM",
+          "Alias": "g"
+        },
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM",
+          "Alias": "h"
+        },
+        {
+          "Name": "CYCLE_ACTIVITY.STALLS_L3_MISS",
+          "Alias": "i"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Alias": "j"
+        },
+        {
+          "Name": "CYCLE_ACTIVITY.STALLS_L1D_MISS",
+          "Alias": "k"
+        },
+        {
+          "Name": "CYCLE_ACTIVITY.STALLS_L2_MISS",
+          "Alias": "l"
+        },
+        {
+          "Name": "MEM_LOAD_RETIRED.L2_HIT",
+          "Alias": "m"
+        },
+        {
+          "Name": "L1D_PEND_MISS.FB_FULL:c1",
+          "Alias": "n"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( ( ( ( 1 - ( ( ( 19 * ( a * ( 1 + ( b / ( c ) ) ) ) + 10 * ( ( d * ( 1 + ( b / ( c ) ) ) ) + ( e * ( 1 + ( b / ( c ) ) ) ) + ( f * ( 1 + ( b / ( c ) ) ) ) ) ) / ( ( 19 * ( a * ( 1 + ( b / ( c ) ) ) ) + 10 * ( ( d * ( 1 + ( b / ( c ) ) ) ) + ( e * ( 1 + ( b / ( c ) ) ) ) + ( f * ( 1 + ( b / ( c ) ) ) ) ) ) + ( 25 * ( ( g * ( 1 + ( b / ( c ) ) ) ) ) + 33 * ( ( h * ( 1 + ( b / ( c ) ) ) ) ) ) ) ) ) ) * ( i / ( j ) + ( ( k - l ) / ( j ) ) - ( ( ( m * ( 1 + ( b / ( c ) ) ) ) / ( ( m * ( 1 + ( b / ( c ) ) ) ) + n ) ) * ( ( k - l ) / ( j ) ) ) ) ) if ( ( 1000000 ) * ( h + g ) &gt; c ) else 0 ) )",
+      "Category": "TMA",
+      "Threshold": "&gt; 10 &amp; P",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "MemoryBound;Server;TmaL3mem"
     },
     {
       "MetricName": "m_tma_store_bound_percent",
@@ -2020,7 +2250,7 @@
       ],
       "Formula": "100 * ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * f / e )",
       "Category": "TMA",
-      "Threshold": "&gt; 10 &amp; P",
+      "Threshold": "&amp;gt; 10 &amp;amp; P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "Pipeline"
     },
@@ -2163,7 +2393,7 @@
       ],
       "Formula": "100 * ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * f / ( a ) )",
       "Category": "TMA",
-      "Threshold": "> 10 & P",
+      "Threshold": "&gt; 10 &amp; P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "Pipeline"
     },
@@ -2172,7 +2402,7 @@
       "LegacyName": "metric_TMA_....Other_Light_Ops(%)",
       "ParentCategory": "m_tma_light_operations_percent",
       "Level": 3,
-      "BriefDescription": "%",
+      "BriefDescription": "This metric represents the remaining light uops fraction the CPU has executed - remaining means not covered by other sibling nodes. May undercount due to FMA double counting",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -2258,9 +2488,9 @@
           "Alias": "smt_on"
         }
       ],
-      "Formula": "100 * ( max( 0 , ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) - ( ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) * f / g ) + ( ( h + i ) / ( a ) ) + ( ( j + k + l + m + n + o ) / ( a ) ) ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * MEM_e / e ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * d / ( a ) ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * ( q - d ) / ( a ) ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * r / ( a ) ) ) ) )",
+      "Formula": "100 * ( max( 0 , ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) - ( ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) * f / g ) + ( ( h + i ) / ( a ) ) + ( ( j + k + l + m + n + o ) / ( a ) ) ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * p / e ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * d / ( a ) ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * ( q - d ) / ( a ) ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * r / ( a ) ) ) ) )",
       "Category": "TMA",
-      "Threshold": "&gt; 30 &amp; P",
+      "Threshold": "&amp;amp;gt; 30 &amp;amp;amp; P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "Pipeline"
     },
