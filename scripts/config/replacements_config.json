@@ -9,7 +9,7 @@
         "PERF_METRICS.BACKEND_BOUND":"topdown\\-be\\-bound",
         "PERF_METRICS.BAD_SPECULATION":"topdown\\-bad\\-spec",
         "TOPDOWN.SLOTS:perf_metrics":"slots",
-        "SOCKET_COUNT":"NUM_PACKAGES",
+        "SOCKET_COUNT":"num_packages",
         "HYPERTHREADING_ON":"SMT_on",
         "UNC_CHA_TOR_INSERTS.IA_MISS:filter1=0x12D40433":"cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x12D4043300000000@",
         "UNC_CHA_TOR_INSERTS.IA_MISS:filter1=0x12CC0233":"cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x12CC023300000000@",

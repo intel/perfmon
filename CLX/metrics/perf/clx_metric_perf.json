@@ -99,21 +99,21 @@
     },
     {
         "BriefDescription": "Average latency of a last level cache (LLC) demand and prefetch data read miss (read memory access) in nano seconds",
-        "MetricExpr": "1000000000 * ( cha@unc_cha_tor_occupancy.ia_miss\\,config1\\=0x4043300000000@ / cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043300000000@ ) / ( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_CLOCKTICKS) * #NUM_PACKAGES ) )",
+        "MetricExpr": "1000000000 * ( cha@unc_cha_tor_occupancy.ia_miss\\,config1\\=0x4043300000000@ / cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043300000000@ ) / ( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_CLOCKTICKS) * #num_packages ) )",
         "MetricGroup": "",
         "MetricName": "llc_data_read_demand_plus_prefetch_miss_latency",
         "ScaleUnit": "1ns"
     },
     {
         "BriefDescription": "Average latency of a last level cache (LLC) demand and prefetch data read miss (read memory access) addressed to local memory in nano seconds",
-        "MetricExpr": "1000000000 * ( cha@unc_cha_tor_occupancy.ia_miss\\,config1\\=0x4043200000000@ / cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043200000000@ ) / ( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_CLOCKTICKS) * #NUM_PACKAGES ) )",
+        "MetricExpr": "1000000000 * ( cha@unc_cha_tor_occupancy.ia_miss\\,config1\\=0x4043200000000@ / cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043200000000@ ) / ( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_CLOCKTICKS) * #num_packages ) )",
         "MetricGroup": "",
         "MetricName": "llc_data_read_demand_plus_prefetch_miss_latency_for_local_requests",
         "ScaleUnit": "1ns"
     },
     {
         "BriefDescription": "Average latency of a last level cache (LLC) demand and prefetch data read miss (read memory access) addressed to remote memory in nano seconds",
-        "MetricExpr": "1000000000 * ( cha@unc_cha_tor_occupancy.ia_miss\\,config1\\=0x4043100000000@ / cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043100000000@ ) / ( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_CLOCKTICKS) * #NUM_PACKAGES ) )",
+        "MetricExpr": "1000000000 * ( cha@unc_cha_tor_occupancy.ia_miss\\,config1\\=0x4043100000000@ / cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043100000000@ ) / ( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_CLOCKTICKS) * #num_packages ) )",
         "MetricGroup": "",
         "MetricName": "llc_data_read_demand_plus_prefetch_miss_latency_for_remote_requests",
         "ScaleUnit": "1ns"
@@ -169,7 +169,7 @@
     },
     {
         "BriefDescription": "Uncore operating frequency in GHz",
-        "MetricExpr": "UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_CLOCKTICKS) * #NUM_PACKAGES ) / 1000000000",
+        "MetricExpr": "UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_CLOCKTICKS) * #num_packages ) / 1000000000",
         "MetricGroup": "",
         "MetricName": "uncore_frequency",
         "ScaleUnit": "1GHz"
