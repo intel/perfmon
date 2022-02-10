@@ -276,7 +276,7 @@ class PerfFormatConverter:
             source_event = self.metric_source_event_dict[constant_name]
             for event in metric["Events"]:
                 if source_event in event["Name"]:
-                    return "source_count(" + event["Name"] + ")"
+                    return "source_count(" + event["Name"].split(":")[0] + ")"
         return "#" + constant_name
 
     def serialize_output(self, output_fp):
