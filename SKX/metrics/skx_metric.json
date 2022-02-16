@@ -2,7 +2,7 @@
   "Header": {
     "Copyright": "Copyright (c) 2007 - 2021 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for Intel® Xeon® Processor Scalable Family based on Skylake microarchitecture",
-    "DatePublished": "02/08/2022",
+    "DatePublished": "02/16/2022",
     "TmaVersion": "4.3",
     "TmaFlavor": "full"
   },
@@ -367,7 +367,7 @@
       "Formula": "1000000000 * (a / b) / (c / (d * socket_count) )",
       "Category": "",
       "Threshold": "",
-      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
+      "ResolutionLevels": "SYSTEM",
       "MetricGroup": ""
     },
     {
@@ -403,7 +403,7 @@
       "Formula": "1000000000 * (a / b) / (c / (d * socket_count) )",
       "Category": "",
       "Threshold": "",
-      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
+      "ResolutionLevels": "SYSTEM",
       "MetricGroup": ""
     },
     {
@@ -439,7 +439,7 @@
       "Formula": "1000000000 * (a / b) / (c / (d * socket_count) )",
       "Category": "",
       "Threshold": "",
-      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
+      "ResolutionLevels": "SYSTEM",
       "MetricGroup": ""
     },
     {
@@ -628,7 +628,7 @@
       "Formula": "a / (b * socket_count) / 1000000000",
       "Category": "",
       "Threshold": "",
-      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
+      "ResolutionLevels": "SYSTEM",
       "MetricGroup": ""
     },
     {
@@ -1850,7 +1850,7 @@
       "Formula": "100 * ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) )",
       "Category": "TMA",
       "Threshold": "(> 70 | Heavy_Operations)",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "ResolutionLevels": "CORE, THREAD, SOCKET, SYSTEM",
       "MetricGroup": "TmaL1"
     },
     {
@@ -2020,7 +2020,7 @@
       ],
       "Formula": "100 * ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * f / e )",
       "Category": "TMA",
-      "Threshold": "&gt; 10 &amp; P",
+      "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "Pipeline"
     },
@@ -2172,7 +2172,7 @@
       "LegacyName": "metric_TMA_....Other_Light_Ops(%)",
       "ParentCategory": "m_tma_light_operations_percent",
       "Level": 3,
-      "BriefDescription": "%",
+      "BriefDescription": "This metric represents the remaining light uops fraction the CPU has executed - remaining means not covered by other sibling nodes. May undercount due to FMA double counting",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -2258,9 +2258,9 @@
           "Alias": "smt_on"
         }
       ],
-      "Formula": "100 * ( max( 0 , ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) - ( ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) * f / g ) + ( ( h + i ) / ( a ) ) + ( ( j + k + l + m + n + o ) / ( a ) ) ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * MEM_e / e ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * d / ( a ) ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * ( q - d ) / ( a ) ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * r / ( a ) ) ) ) )",
+      "Formula": "100 * ( max( 0 , ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) - ( ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) * f / g ) + ( ( h + i ) / ( a ) ) + ( ( j + k + l + m + n + o ) / ( a ) ) ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * p / e ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * d / ( a ) ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * ( q - d ) / ( a ) ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * r / ( a ) ) ) ) )",
       "Category": "TMA",
-      "Threshold": "&gt; 30 &amp; P",
+      "Threshold": "> 30 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "Pipeline"
     },
