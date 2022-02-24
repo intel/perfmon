@@ -252,10 +252,10 @@ class PerfFormatConverter:
         @returns: string containing un-aliased expression
         """
         # Check if association has replacement
-        if event_name in self.metric_assoc_replacement_dict:
-            return self.metric_assoc_replacement_dict[event_name]
-        else:
-            return event_name
+        for replacement in self.metric_assoc_replacement_dict:
+            if re.match(replacement, event_name):
+                return self.metric_assoc_replacement_dict[replacement]
+        return event_name
 
     def translate_metric_constant(self, constant_name, metric):
         """
@@ -268,15 +268,18 @@ class PerfFormatConverter:
         @returns: string containing un-aliased expression
         """
         # Check if association has replacement
-        if constant_name in self.metric_assoc_replacement_dict:
-            # 1:1 constant replacement
-            return "#" + self.metric_assoc_replacement_dict[constant_name]
-        elif constant_name in self.metric_source_event_dict:
+
+        for replacement in self.metric_assoc_replacement_dict:
+            if re.match(replacement, constant_name):
+                return "#" + self.metric_assoc_replacement_dict[replacement]
+
+        for replacement in self.metric_assoc_replacement_dict:
             # source_count() formatting
-            source_event = self.metric_source_event_dict[constant_name]
-            for event in metric["Events"]:
-                if source_event in event["Name"]:
-                    return "source_count(" + event["Name"].split(":")[0] + ")"
+            if re.match(replacement, constant_name):
+                for event in metric["Events"]:
+                    if re.match(self.metric_assoc_replacement_dict[replacement], event["Name"]):
+                        return "source_count(" + event["Name"].split(":")[0] + ")"
+
         return "#" + constant_name
 
     def serialize_output(self, output_fp):
