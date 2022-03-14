@@ -25,7 +25,7 @@
         "UOPS_DECODED.DEC0:c1":"cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@"
     },
     "metric_source_events":{
-        "CHAS_PER_SOCKET":"UNC_CHA"
+        "CHAS_PER_SOCKET":"UNC_CHA([^\\s]*)"
     },
     "scale_unit_replacements": {
         "per instruction":"per_instr",
