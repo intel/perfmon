@@ -66,7 +66,7 @@ Example: “> 0.2 & P” means the current node’s values is above 20% and the 
 
 3. linux kernel version v5.11
 
-The perf script in /scripts will take the metrics.json file and convert that generic format to a perf specific metrics file. Scripts will be added in the next release. See the pre-built metrics_icx_perf.json file in the scripts folder as a perf compatible version of the metrics that the script will generate.
+The perf script in /scripts will take the metrics.json file and convert that generic format to a perf specific metrics file. See the pre-built metrics_icx_perf.json file in the scripts folder as a perf compatible version of the metrics that the script will generate.
 
 1. How to build with perf
 

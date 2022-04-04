@@ -8,7 +8,7 @@
     },
     {
         "BriefDescription": "CPU operating frequency (in GHz)",
-        "MetricExpr": "( CPU_CLK_UNHALTED.THREAD / CPU_CLK_UNHALTED.REF_TSC * #SYSTEM_TSC_FREQ ) / 1000000000",
+        "MetricExpr": "(( CPU_CLK_UNHALTED.THREAD / CPU_CLK_UNHALTED.REF_TSC * #SYSTEM_TSC_FREQ ) / 1000000000) / duration_time",
         "MetricGroup": "",
         "MetricName": "cpu_operating_frequency",
         "ScaleUnit": "1GHz"
@@ -99,21 +99,21 @@
     },
     {
         "BriefDescription": "Average latency of a last level cache (LLC) demand and prefetch data read miss (read memory access) in nano seconds",
-        "MetricExpr": "1000000000 * ( cha@unc_cha_tor_occupancy.ia_miss\\,config1\\=0x4043300000000@ / cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043300000000@ ) / ( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_TOR_OCCUPANCY.IA_MISS) * #num_packages ) )",
+        "MetricExpr": "( ( 1000000000 * ( cha@unc_cha_tor_occupancy.ia_miss\\,config1\\=0x4043300000000@ / cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043300000000@ ) / ( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_TOR_OCCUPANCY.IA_MISS) * #num_packages ) ) ) * duration_time )",
         "MetricGroup": "",
         "MetricName": "llc_data_read_demand_plus_prefetch_miss_latency",
         "ScaleUnit": "1ns"
     },
     {
         "BriefDescription": "Average latency of a last level cache (LLC) demand and prefetch data read miss (read memory access) addressed to local memory in nano seconds",
-        "MetricExpr": "1000000000 * ( cha@unc_cha_tor_occupancy.ia_miss\\,config1\\=0x4043200000000@ / cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043200000000@ ) / ( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_TOR_OCCUPANCY.IA_MISS) * #num_packages ) )",
+        "MetricExpr": "( ( 1000000000 * ( cha@unc_cha_tor_occupancy.ia_miss\\,config1\\=0x4043200000000@ / cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043200000000@ ) / ( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_TOR_OCCUPANCY.IA_MISS) * #num_packages ) ) ) * duration_time )",
         "MetricGroup": "",
         "MetricName": "llc_data_read_demand_plus_prefetch_miss_latency_for_local_requests",
         "ScaleUnit": "1ns"
     },
     {
         "BriefDescription": "Average latency of a last level cache (LLC) demand and prefetch data read miss (read memory access) addressed to remote memory in nano seconds",
-        "MetricExpr": "1000000000 * ( cha@unc_cha_tor_occupancy.ia_miss\\,config1\\=0x4043100000000@ / cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043100000000@ ) / ( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_TOR_OCCUPANCY.IA_MISS) * #num_packages ) )",
+        "MetricExpr": "( ( 1000000000 * ( cha@unc_cha_tor_occupancy.ia_miss\\,config1\\=0x4043100000000@ / cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043100000000@ ) / ( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_TOR_OCCUPANCY.IA_MISS) * #num_packages ) ) ) * duration_time )",
         "MetricGroup": "",
         "MetricName": "llc_data_read_demand_plus_prefetch_miss_latency_for_remote_requests",
         "ScaleUnit": "1ns"
@@ -169,7 +169,7 @@
     },
     {
         "BriefDescription": "Uncore operating frequency in GHz",
-        "MetricExpr": "UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_CLOCKTICKS) * #num_packages ) / 1000000000",
+        "MetricExpr": "( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_CLOCKTICKS) * #num_packages ) / 1000000000) / duration_time",
         "MetricGroup": "",
         "MetricName": "uncore_frequency",
         "ScaleUnit": "1GHz"
@@ -200,6 +200,20 @@
         "MetricExpr": "(( UNC_M_CAS_COUNT.RD + UNC_M_CAS_COUNT.WR ) * 64 / 1000000) / duration_time",
         "MetricGroup": "",
         "MetricName": "memory_bandwidth_total",
+        "ScaleUnit": "1MB/s"
+    },
+    {
+        "BriefDescription": "Bandwidth of IO reads that are initiated by end device controllers that are requesting memory from the CPU.",
+        "MetricExpr": "(( UNC_IIO_PAYLOAD_BYTES_IN.MEM_READ.PART0 + UNC_IIO_PAYLOAD_BYTES_IN.MEM_READ.PART1 + UNC_IIO_PAYLOAD_BYTES_IN.MEM_READ.PART2 + UNC_IIO_PAYLOAD_BYTES_IN.MEM_READ.PART3 ) * 4 / 1000000) / duration_time",
+        "MetricGroup": "",
+        "MetricName": "metric_io_bandwidth_read",
+        "ScaleUnit": "1MB/s"
+    },
+    {
+        "BriefDescription": "Bandwidth of IO writes that are initiated by end device controllers that are writing memory to the CPU.",
+        "MetricExpr": "(( UNC_IIO_PAYLOAD_BYTES_IN.MEM_WRITE.PART0 + UNC_IIO_PAYLOAD_BYTES_IN.MEM_WRITE.PART1 + UNC_IIO_PAYLOAD_BYTES_IN.MEM_WRITE.PART2 + UNC_IIO_PAYLOAD_BYTES_IN.MEM_WRITE.PART3 ) * 4 / 1000000) / duration_time",
+        "MetricGroup": "",
+        "MetricName": "metric_io_bandwidth_write",
         "ScaleUnit": "1MB/s"
     },
     {

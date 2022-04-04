@@ -2,7 +2,7 @@
   "Header": {
     "Copyright": "Copyright (c) 2007 - 2021 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for 2nd Generation Intel® Xeon® Processor Scalable Family based on Cascade Lake product",
-    "DatePublished": "02/08/2022",
+    "DatePublished": "03/30/2022",
     "TmaVersion": "4.3",
     "TmaFlavor": "full"
   },
@@ -364,10 +364,10 @@
           "Alias": "d"
         }
       ],
-      "Formula": "1000000000 * (a / b) / (c / (d * socket_count) )",
+      "Formula": "( ( 1000000000 * (a / b) / (c / (d * socket_count) ) ) * DURATIONTIMEINSECONDS ) ",
       "Category": "",
       "Threshold": "",
-      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
+      "ResolutionLevels": "SYSTEM",
       "MetricGroup": ""
     },
     {
@@ -400,10 +400,10 @@
           "Alias": "d"
         }
       ],
-      "Formula": "1000000000 * (a / b) / (c / (d * socket_count) )",
+      "Formula": "( ( 1000000000 * (a / b) / (c / (d * socket_count) ) ) * DURATIONTIMEINSECONDS ) ",
       "Category": "",
       "Threshold": "",
-      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
+      "ResolutionLevels": "SYSTEM",
       "MetricGroup": ""
     },
     {
@@ -436,10 +436,10 @@
           "Alias": "d"
         }
       ],
-      "Formula": "1000000000 * (a / b) / (c / (d * socket_count) )",
+      "Formula": "( ( 1000000000 * (a / b) / (c / (d * socket_count) ) ) * DURATIONTIMEINSECONDS ) ",
       "Category": "",
       "Threshold": "",
-      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
+      "ResolutionLevels": "SYSTEM",
       "MetricGroup": ""
     },
     {
@@ -628,7 +628,7 @@
       "Formula": "a / (b * socket_count) / 1000000000",
       "Category": "",
       "Threshold": "",
-      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
+      "ResolutionLevels": "SYSTEM",
       "MetricGroup": ""
     },
     {
@@ -770,6 +770,68 @@
       "Category": "",
       "Threshold": "",
       "ResolutionLevels": "CHANNEL, IMC, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "metric_io_bandwidth_read",
+      "LegacyName": "metric_IO_bandwidth_disk_or_network_writes (MB/sec)",
+      "Level": 1,
+      "BriefDescription": "Bandwidth of IO reads that are initiated by end device controllers that are requesting memory from the CPU.",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_IIO_PAYLOAD_BYTES_IN.MEM_READ.PART0",
+          "Alias": "a"
+        },
+        {
+          "Name": "UNC_IIO_PAYLOAD_BYTES_IN.MEM_READ.PART1",
+          "Alias": "b"
+        },
+        {
+          "Name": "UNC_IIO_PAYLOAD_BYTES_IN.MEM_READ.PART2",
+          "Alias": "c"
+        },
+        {
+          "Name": "UNC_IIO_PAYLOAD_BYTES_IN.MEM_READ.PART3",
+          "Alias": "d"
+        }
+      ],
+      "Constants": [],
+      "Formula": "((a + b + c + d) * 4 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "IIO, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "metric_io_bandwidth_write",
+      "LegacyName": "metric_IO_bandwidth_disk_or_network_reads (MB/sec)",
+      "Level": 1,
+      "BriefDescription": "Bandwidth of IO writes that are initiated by end device controllers that are writing memory to the CPU.",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_IIO_PAYLOAD_BYTES_IN.MEM_WRITE.PART0",
+          "Alias": "a"
+        },
+        {
+          "Name": "UNC_IIO_PAYLOAD_BYTES_IN.MEM_WRITE.PART1",
+          "Alias": "b"
+        },
+        {
+          "Name": "UNC_IIO_PAYLOAD_BYTES_IN.MEM_WRITE.PART2",
+          "Alias": "c"
+        },
+        {
+          "Name": "UNC_IIO_PAYLOAD_BYTES_IN.MEM_WRITE.PART3",
+          "Alias": "d"
+        }
+      ],
+      "Constants": [],
+      "Formula": "((a + b + c + d) * 4 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "IIO, SOCKET, SYSTEM",
       "MetricGroup": ""
     },
     {
@@ -1338,7 +1400,7 @@
       ],
       "Formula": "100 * ( ( a - b ) / ( ( c / 2 ) if smt_on else ( d ) ) / 2 )",
       "Category": "TMA",
-      "Threshold": "&gt; 15 &amp; P",
+      "Threshold": "> 15 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "FetchBW;LSD"
     },
@@ -1865,7 +1927,7 @@
       "Constants": [],
       "Formula": "100 * ( ( ( ( 1 - ( ( ( 19 * ( a * ( 1 + ( b / ( c ) ) ) ) + 10 * ( ( d * ( 1 + ( b / ( c ) ) ) ) + ( e * ( 1 + ( b / ( c ) ) ) ) + ( f * ( 1 + ( b / ( c ) ) ) ) ) ) / ( ( 19 * ( a * ( 1 + ( b / ( c ) ) ) ) + 10 * ( ( d * ( 1 + ( b / ( c ) ) ) ) + ( e * ( 1 + ( b / ( c ) ) ) ) + ( f * ( 1 + ( b / ( c ) ) ) ) ) ) + ( 25 * ( ( g * ( 1 + ( b / ( c ) ) ) ) ) + 33 * ( ( h * ( 1 + ( b / ( c ) ) ) ) ) ) ) ) ) ) * ( i / ( j ) + ( ( k - l ) / ( j ) ) - ( ( ( m * ( 1 + ( b / ( c ) ) ) ) / ( ( m * ( 1 + ( b / ( c ) ) ) ) + n ) ) * ( ( k - l ) / ( j ) ) ) ) ) if ( ( 1000000 ) * ( h + g ) > c ) else 0 ) )",
       "Category": "TMA",
-      "Threshold": "&gt; 10 &amp; P",
+      "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "MemoryBound;Server;TmaL3mem"
     },
@@ -2250,7 +2312,7 @@
       ],
       "Formula": "100 * ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * f / e )",
       "Category": "TMA",
-      "Threshold": "&amp;gt; 10 &amp;amp; P",
+      "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "Pipeline"
     },
@@ -2393,7 +2455,7 @@
       ],
       "Formula": "100 * ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * f / ( a ) )",
       "Category": "TMA",
-      "Threshold": "&gt; 10 &amp; P",
+      "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "Pipeline"
     },
@@ -2490,7 +2552,7 @@
       ],
       "Formula": "100 * ( max( 0 , ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) - ( ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) * f / g ) + ( ( h + i ) / ( a ) ) + ( ( j + k + l + m + n + o ) / ( a ) ) ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * p / e ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * d / ( a ) ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * ( q - d ) / ( a ) ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * r / ( a ) ) ) ) )",
       "Category": "TMA",
-      "Threshold": "&amp;amp;gt; 30 &amp;amp;amp; P",
+      "Threshold": "> 30 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "Pipeline"
     },
