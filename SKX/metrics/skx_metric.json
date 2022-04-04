@@ -2,7 +2,7 @@
   "Header": {
     "Copyright": "Copyright (c) 2007 - 2021 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for Intel® Xeon® Processor Scalable Family based on Skylake microarchitecture",
-    "DatePublished": "02/16/2022",
+    "DatePublished": "03/30/2022",
     "TmaVersion": "4.3",
     "TmaFlavor": "full"
   },
@@ -52,7 +52,7 @@
           "Alias": "c"
         }
       ],
-      "Formula": "(a / b * c) / 1000000000",
+      "Formula": "((a / b * c) / 1000000000) / DURATIONTIMEINSECONDS",
       "Category": "",
       "Threshold": "",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -364,7 +364,7 @@
           "Alias": "d"
         }
       ],
-      "Formula": "1000000000 * (a / b) / (c / (d * socket_count) )",
+      "Formula": "( ( 1000000000 * (a / b) / (c / (d * socket_count) ) ) * DURATIONTIMEINSECONDS ) ",
       "Category": "",
       "Threshold": "",
       "ResolutionLevels": "SYSTEM",
@@ -400,7 +400,7 @@
           "Alias": "d"
         }
       ],
-      "Formula": "1000000000 * (a / b) / (c / (d * socket_count) )",
+      "Formula": "( ( 1000000000 * (a / b) / (c / (d * socket_count) ) ) * DURATIONTIMEINSECONDS ) ",
       "Category": "",
       "Threshold": "",
       "ResolutionLevels": "SYSTEM",
@@ -436,7 +436,7 @@
           "Alias": "d"
         }
       ],
-      "Formula": "1000000000 * (a / b) / (c / (d * socket_count) )",
+      "Formula": "( ( 1000000000 * (a / b) / (c / (d * socket_count) ) ) * DURATIONTIMEINSECONDS ) ",
       "Category": "",
       "Threshold": "",
       "ResolutionLevels": "SYSTEM",
@@ -625,7 +625,7 @@
           "Alias": "socket_count"
         }
       ],
-      "Formula": "a / (b * socket_count) / 1000000000",
+      "Formula": "(a / (b * socket_count) / 1000000000) / DURATIONTIMEINSECONDS",
       "Category": "",
       "Threshold": "",
       "ResolutionLevels": "SYSTEM",
@@ -709,6 +709,68 @@
       "Category": "",
       "Threshold": "",
       "ResolutionLevels": "CHANNEL, IMC, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "metric_io_bandwidth_read",
+      "LegacyName": "metric_IO_bandwidth_disk_or_network_writes (MB/sec)",
+      "Level": 1,
+      "BriefDescription": "Bandwidth of IO reads that are initiated by end device controllers that are requesting memory from the CPU.",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_IIO_PAYLOAD_BYTES_IN.MEM_READ.PART0",
+          "Alias": "a"
+        },
+        {
+          "Name": "UNC_IIO_PAYLOAD_BYTES_IN.MEM_READ.PART1",
+          "Alias": "b"
+        },
+        {
+          "Name": "UNC_IIO_PAYLOAD_BYTES_IN.MEM_READ.PART2",
+          "Alias": "c"
+        },
+        {
+          "Name": "UNC_IIO_PAYLOAD_BYTES_IN.MEM_READ.PART3",
+          "Alias": "d"
+        }
+      ],
+      "Constants": [],
+      "Formula": "((a + b + c + d) * 4 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "IIO, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "metric_io_bandwidth_write",
+      "LegacyName": "metric_IO_bandwidth_disk_or_network_reads (MB/sec)",
+      "Level": 1,
+      "BriefDescription": "Bandwidth of IO writes that are initiated by end device controllers that are writing memory to the CPU.",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_IIO_PAYLOAD_BYTES_IN.MEM_WRITE.PART0",
+          "Alias": "a"
+        },
+        {
+          "Name": "UNC_IIO_PAYLOAD_BYTES_IN.MEM_WRITE.PART1",
+          "Alias": "b"
+        },
+        {
+          "Name": "UNC_IIO_PAYLOAD_BYTES_IN.MEM_WRITE.PART2",
+          "Alias": "c"
+        },
+        {
+          "Name": "UNC_IIO_PAYLOAD_BYTES_IN.MEM_WRITE.PART3",
+          "Alias": "d"
+        }
+      ],
+      "Constants": [],
+      "Formula": "((a + b + c + d) * 4 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "IIO, SOCKET, SYSTEM",
       "MetricGroup": ""
     },
     {
