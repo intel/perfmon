@@ -103,9 +103,9 @@ The perf script in /scripts will take the metrics.json file and convert that gen
 	`./perf stat -M memory_bandwidth -a -- ./mlc`
 
 
-#### Notes
+#### Known Issues
 
-1. Metric names starting a '*' character in the perfmon-metrics/SKX/metrics/perf/metrics_skx_perf.json file have known issues with Linux perf and do not produce valid results.
+1. There are four metrics (tma_fp_arith_percent, tma_other_light_ops_percent, tma_ports_utilization_percent, tma_retiring_percent) that are currently not working with perf.
 
 #### How to contribute
 
