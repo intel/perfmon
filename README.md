@@ -86,7 +86,7 @@ The perf script in /scripts will take the metrics.json file and convert that gen
     
     1.4 Copy the ICX metric file in the linux perf codebase
     
-    `cp ICX/metrics/perf/metrics_icx_perf.json <linux kernel source root dir>/perfmon-metrics/pmu-events/arch/x86/icelakex/`
+    `cp ICX/metrics/perf/icx_metrics_perf.json <linux kernel source root dir>/tools/perf/pmu-events/arch/x86/icelakex/`
     
 	1.5 Build linux perf (Note: You will need to install dependencies)
     
@@ -100,7 +100,7 @@ The perf script in /scripts will take the metrics.json file and convert that gen
 
 2. Examples
 
-	`./perf stat -M memory_bandwidth -a -- ./mlc`
+	`./perf stat -M cpu_utilization_percent -a -- ./mlc`
 
 
 #### Known Issues
