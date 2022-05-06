@@ -225,6 +225,11 @@ class PerfFormatConverter:
                                     pad(self.translate_metric_constant(const["Name"], metric)),
                                     expression)
 
+            # Add slots to metrics that have topdown events but not slots
+            if any(event["Name"] for event in events if "PERF_METRICS" in event["Name"]):
+                if not any(event["Name"] for event in events if "SLOTS" in event["Name"]):
+                    expression = "( " + expression + " ) + ( 0 * slots )"
+
         except KeyError as error:
             sys.exit("Error in input JSON format during get_expressions(): " + str(error) + ". Exiting")
 
