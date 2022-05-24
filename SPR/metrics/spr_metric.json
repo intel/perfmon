@@ -1,0 +1,2570 @@
+{
+  "Header": {
+    "Copyright": "Copyright (c) 2007 - 2022 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Metrics for 4th Generation Intel® Xeon® Processor Scalable Family based on Sapphire Rapids microarchitecture",
+    "DatePublished": "05/24/2022",
+    "TmaFlavor": "full"
+  },
+  "Metrics": [
+    {
+      "MetricName": "m_cpu_utilization_percent",
+      "LegacyName": "metric_CPU utilization %",
+      "Level": 1,
+      "BriefDescription": "Percentage of time spent in the active CPU power state C0",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "TSC",
+          "Alias": "b"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.REF_TSC",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * a / b",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_cpu_operating_frequency",
+      "LegacyName": "metric_CPU operating frequency (in GHz)",
+      "Level": 1,
+      "BriefDescription": "CPU operating frequency (in GHz)",
+      "UnitOfMeasure": "GHz",
+      "Events": [
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Alias": "a"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.REF_TSC",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [
+        {
+          "Name": "SYSTEM_TSC_FREQ",
+          "Alias": "c"
+        }
+      ],
+      "Formula": "((a / b * c) / 1000000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_cpi",
+      "LegacyName": "metric_CPI",
+      "Level": 1,
+      "BriefDescription": "Cycles per instruction retired; indicating how much time each executed instruction took; in units of cycles.",
+      "UnitOfMeasure": "per instruction",
+      "Events": [
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Alias": "a"
+        },
+        {
+          "Name": "INST_RETIRED.ANY",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "a / b",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_loads_per_instr",
+      "LegacyName": "metric_loads per instr",
+      "Level": 1,
+      "BriefDescription": "The ratio of number of completed memory load instructions to the total number completed instructions",
+      "UnitOfMeasure": "per instruction",
+      "Events": [
+        {
+          "Name": "MEM_INST_RETIRED.ALL_LOADS",
+          "Alias": "a"
+        },
+        {
+          "Name": "INST_RETIRED.ANY",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "a / b",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_stores_per_instr",
+      "LegacyName": "metric_stores per instr",
+      "Level": 1,
+      "BriefDescription": "The ratio of number of completed memory store instructions to the total number completed instructions",
+      "UnitOfMeasure": "per instruction",
+      "Events": [
+        {
+          "Name": "MEM_INST_RETIRED.ALL_STORES",
+          "Alias": "a"
+        },
+        {
+          "Name": "INST_RETIRED.ANY",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "a / b",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_l1d_mpi_includes_data_plus_rfo_with_prefetches",
+      "LegacyName": "metric_L1D MPI (includes data+rfo w/ prefetches)",
+      "Level": 1,
+      "BriefDescription": "Ratio of number of requests missing L1 data cache (includes data+rfo w/ prefetches) to the total number of completed instructions",
+      "UnitOfMeasure": "per instruction",
+      "Events": [
+        {
+          "Name": "L1D.REPLACEMENT",
+          "Alias": "a"
+        },
+        {
+          "Name": "INST_RETIRED.ANY",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "a / b",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_l1d_demand_data_read_hits_per_instr",
+      "LegacyName": "metric_L1D demand data read hits per instr",
+      "Level": 1,
+      "BriefDescription": "Ratio of number of demand load requests hitting in L1 data cache to the total number of completed instructions ",
+      "UnitOfMeasure": "per instruction",
+      "Events": [
+        {
+          "Name": "MEM_LOAD_RETIRED.L1_HIT",
+          "Alias": "a"
+        },
+        {
+          "Name": "INST_RETIRED.ANY",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "a / b",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_l1_i_code_read_misses_with_prefetches_per_instr",
+      "LegacyName": "metric_L1-I code read misses (w/ prefetches) per instr",
+      "Level": 1,
+      "BriefDescription": "Ratio of number of code read requests missing in L1 instruction cache (includes prefetches) to the total number of completed instructions",
+      "UnitOfMeasure": "per instruction",
+      "Events": [
+        {
+          "Name": "L2_RQSTS.ALL_CODE_RD",
+          "Alias": "a"
+        },
+        {
+          "Name": "INST_RETIRED.ANY",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "a / b",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_l2_demand_data_read_hits_per_instr",
+      "LegacyName": "metric_L2 demand data read hits per instr",
+      "Level": 1,
+      "BriefDescription": "Ratio of number of completed demand load requests hitting in L2 cache to the total number of completed instructions ",
+      "UnitOfMeasure": "per instruction",
+      "Events": [
+        {
+          "Name": "MEM_LOAD_RETIRED.L2_HIT",
+          "Alias": "a"
+        },
+        {
+          "Name": "INST_RETIRED.ANY",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "a / b",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_l2_mpi_includes_code_plus_data_plus_rfo_with_prefetches",
+      "LegacyName": "metric_L2 MPI (includes code+data+rfo w/ prefetches)",
+      "Level": 1,
+      "BriefDescription": "Ratio of number of requests missing L2 cache (includes code+data+rfo w/ prefetches) to the total number of completed instructions",
+      "UnitOfMeasure": "per instruction",
+      "Events": [
+        {
+          "Name": "L2_LINES_IN.ALL",
+          "Alias": "a"
+        },
+        {
+          "Name": "INST_RETIRED.ANY",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "a / b",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_l2_demand_data_read_mpi",
+      "LegacyName": "metric_L2 demand data read MPI",
+      "Level": 1,
+      "BriefDescription": "Ratio of number of completed data read request missing L2 cache to the total number of completed instructions",
+      "UnitOfMeasure": "per instruction",
+      "Events": [
+        {
+          "Name": "MEM_LOAD_RETIRED.L2_MISS",
+          "Alias": "a"
+        },
+        {
+          "Name": "INST_RETIRED.ANY",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "a / b",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_l2_demand_code_mpi",
+      "LegacyName": "metric_L2 demand code MPI",
+      "Level": 1,
+      "BriefDescription": "Ratio of number of code read request missing L2 cache to the total number of completed instructions",
+      "UnitOfMeasure": "per instruction",
+      "Events": [
+        {
+          "Name": "L2_RQSTS.CODE_RD_MISS",
+          "Alias": "a"
+        },
+        {
+          "Name": "INST_RETIRED.ANY",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "a / b",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_llc_data_read_mpi_demand_plus_prefetch",
+      "LegacyName": "metric_LLC data read MPI (demand+prefetch)",
+      "Level": 1,
+      "BriefDescription": "Ratio of number of data read requests missing last level core cache (includes demand w/ prefetches) to the total number of completed instructions",
+      "UnitOfMeasure": "per instruction",
+      "Events": [
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFDATA",
+          "Alias": "a"
+        },
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD",
+          "Alias": "b"
+        },
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PREF",
+          "Alias": "c"
+        },
+        {
+          "Name": "INST_RETIRED.ANY",
+          "Alias": "d"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(a + b + c) / d",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_llc_code_read_mpi_demand_plus_prefetch",
+      "LegacyName": "metric_LLC code read MPI (demand+prefetch)",
+      "Level": 1,
+      "BriefDescription": "Ratio of number of code read requests missing last level core cache (includes demand w/ prefetches) to the total number of completed instructions",
+      "UnitOfMeasure": "per instruction",
+      "Events": [
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_CRD",
+          "Alias": "b"
+        },
+        {
+          "Name": "INST_RETIRED.ANY",
+          "Alias": "d"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(b) / d",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_llc_demand_data_read_miss_latency",
+      "LegacyName": "metric_Average LLC demand data read miss latency (in ns)",
+      "Level": 1,
+      "BriefDescription": "Average latency of a last level cache (LLC) demand data read miss (read memory access) in nano seconds",
+      "UnitOfMeasure": "ns",
+      "Events": [
+        {
+          "Name": "UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD",
+          "Alias": "a"
+        },
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD",
+          "Alias": "b"
+        },
+        {
+          "Name": "UNC_CHA_CLOCKTICKS",
+          "Alias": "c"
+        }
+      ],
+      "Constants": [
+        {
+          "Name": "SOCKET_COUNT",
+          "Alias": "socket_count"
+        },
+        {
+          "Name": "CHAS_PER_SOCKET",
+          "Alias": "d"
+        }
+      ],
+      "Formula": "( ( 1000000000 * (a / b) / (c / (d * socket_count) ) ) * DURATIONTIMEINSECONDS ) ",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_llc_demand_data_read_miss_latency_for_local_requests",
+      "LegacyName": "metric_Average LLC demand data read miss latency for LOCAL requests (in ns)",
+      "Level": 1,
+      "BriefDescription": "Average latency of a last level cache (LLC) demand data read miss (read memory access) addressed to local memory in nano seconds",
+      "UnitOfMeasure": "ns",
+      "Events": [
+        {
+          "Name": "UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_LOCAL",
+          "Alias": "a"
+        },
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_LOCAL",
+          "Alias": "b"
+        },
+        {
+          "Name": "UNC_CHA_CLOCKTICKS",
+          "Alias": "c"
+        }
+      ],
+      "Constants": [
+        {
+          "Name": "SOCKET_COUNT",
+          "Alias": "socket_count"
+        },
+        {
+          "Name": "CHAS_PER_SOCKET",
+          "Alias": "d"
+        }
+      ],
+      "Formula": "( ( 1000000000 * (a / b) / (c / (d * socket_count) ) ) * DURATIONTIMEINSECONDS ) ",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_llc_demand_data_read_miss_latency_for_remote_requests",
+      "LegacyName": "metric_Average LLC demand data read miss latency for REMOTE requests (in ns)",
+      "Level": 1,
+      "BriefDescription": "Average latency of a last level cache (LLC) demand data read miss (read memory access) addressed to remote memory in nano seconds",
+      "UnitOfMeasure": "ns",
+      "Events": [
+        {
+          "Name": "UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_REMOTE",
+          "Alias": "a"
+        },
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_REMOTE",
+          "Alias": "b"
+        },
+        {
+          "Name": "UNC_CHA_CLOCKTICKS",
+          "Alias": "c"
+        }
+      ],
+      "Constants": [
+        {
+          "Name": "SOCKET_COUNT",
+          "Alias": "socket_count"
+        },
+        {
+          "Name": "CHAS_PER_SOCKET",
+          "Alias": "d"
+        }
+      ],
+      "Formula": "( ( 1000000000 * (a / b) / (c / (d * socket_count) ) ) * DURATIONTIMEINSECONDS ) ",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_llc_demand_data_read_miss_to_pmem_latency",
+      "LegacyName": "metric_Average LLC demand data read miss to DCPMEM latency (in ns)",
+      "Level": 1,
+      "BriefDescription": "Average latency of a last level cache (LLC) demand data read miss (read memory access) addressed to Intel(R) Optane(TM) Persistent Memory(PMEM) in nano seconds",
+      "UnitOfMeasure": "ns",
+      "Events": [
+        {
+          "Name": "UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_PMM",
+          "Alias": "a"
+        },
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PMM",
+          "Alias": "b"
+        },
+        {
+          "Name": "UNC_CHA_CLOCKTICKS",
+          "Alias": "c"
+        }
+      ],
+      "Constants": [
+        {
+          "Name": "SOCKET_COUNT",
+          "Alias": "socket_count"
+        },
+        {
+          "Name": "CHAS_PER_SOCKET",
+          "Alias": "d"
+        }
+      ],
+      "Formula": "( ( 1000000000 * (a / b) / (c / (d * socket_count) ) ) * DURATIONTIMEINSECONDS ) ",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_llc_demand_data_read_miss_to_dram_latency",
+      "LegacyName": "metric_Average LLC demand data read miss to DRAM latency (in ns)",
+      "Level": 1,
+      "BriefDescription": "Average latency of a last level cache (LLC) demand data read miss (read memory access) addressed to DRAM in nano seconds",
+      "UnitOfMeasure": "ns",
+      "Events": [
+        {
+          "Name": "UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_DDR",
+          "Alias": "a"
+        },
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_DDR",
+          "Alias": "b"
+        },
+        {
+          "Name": "UNC_CHA_CLOCKTICKS",
+          "Alias": "c"
+        }
+      ],
+      "Constants": [
+        {
+          "Name": "SOCKET_COUNT",
+          "Alias": "socket_count"
+        },
+        {
+          "Name": "CHAS_PER_SOCKET",
+          "Alias": "d"
+        }
+      ],
+      "Formula": "( ( 1000000000 * (a / b) / (c / (d * socket_count) ) ) * DURATIONTIMEINSECONDS ) ",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_itlb_2nd_level_mpi",
+      "LegacyName": "metric_ITLB (2nd level) MPI",
+      "Level": 1,
+      "BriefDescription": "Ratio of number of completed page walks (for all page sizes) caused by a code fetch to the total number of completed instructions. This implies it missed in the ITLB (Instruction TLB) and further levels of TLB.",
+      "UnitOfMeasure": "per instruction",
+      "Events": [
+        {
+          "Name": "ITLB_MISSES.WALK_COMPLETED",
+          "Alias": "a"
+        },
+        {
+          "Name": "INST_RETIRED.ANY",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "a / b",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_itlb_2nd_level_large_page_mpi",
+      "LegacyName": "metric_ITLB (2nd level) large page MPI",
+      "Level": 1,
+      "BriefDescription": "Ratio of number of completed page walks (for 2 megabyte and 4 megabyte page sizes) caused by a code fetch to the total number of completed instructions. This implies it missed in the Instruction Translation Lookaside Buffer (ITLB) and further levels of TLB.",
+      "UnitOfMeasure": "per instruction",
+      "Events": [
+        {
+          "Name": "ITLB_MISSES.WALK_COMPLETED_2M_4M",
+          "Alias": "a"
+        },
+        {
+          "Name": "INST_RETIRED.ANY",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "a / b",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_dtlb_2nd_level_load_mpi",
+      "LegacyName": "metric_DTLB (2nd level) load MPI",
+      "Level": 1,
+      "BriefDescription": "Ratio of number of completed page walks (for all page sizes) caused by demand data loads to the total number of completed instructions. This implies it missed in the DTLB and further levels of TLB.",
+      "UnitOfMeasure": "per instruction",
+      "Events": [
+        {
+          "Name": "DTLB_LOAD_MISSES.WALK_COMPLETED",
+          "Alias": "a"
+        },
+        {
+          "Name": "INST_RETIRED.ANY",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "a / b",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_dtlb_2nd_level_2mb_large_page_load_mpi",
+      "LegacyName": "metric_DTLB (2nd level) 2MB large page load MPI",
+      "Level": 1,
+      "BriefDescription": "Ratio of number of completed page walks (for 2 megabyte page sizes) caused by demand data loads to the total number of completed instructions. This implies it missed in the Data Translation Lookaside Buffer (DTLB) and further levels of TLB.",
+      "UnitOfMeasure": "per instruction",
+      "Events": [
+        {
+          "Name": "DTLB_LOAD_MISSES.WALK_COMPLETED_2M_4M",
+          "Alias": "a"
+        },
+        {
+          "Name": "INST_RETIRED.ANY",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "a / b",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_dtlb_2nd_level_store_mpi",
+      "LegacyName": "metric_DTLB (2nd level) store MPI",
+      "Level": 1,
+      "BriefDescription": "Ratio of number of completed page walks (for all page sizes) caused by demand data stores to the total number of completed instructions. This implies it missed in the DTLB and further levels of TLB.",
+      "UnitOfMeasure": "per instruction",
+      "Events": [
+        {
+          "Name": "DTLB_STORE_MISSES.WALK_COMPLETED",
+          "Alias": "a"
+        },
+        {
+          "Name": "INST_RETIRED.ANY",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "a / b",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_numa_percent_reads_addressed_to_local_dram",
+      "LegacyName": "metric_NUMA %_Reads addressed to local DRAM",
+      "Level": 1,
+      "BriefDescription": "Memory read that miss the last level cache (LLC) addressed to local DRAM as a percentage of total memory read accesses, does not include LLC prefetches.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_LOCAL",
+          "Alias": "a"
+        },
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PREF_LOCAL",
+          "Alias": "b"
+        },
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_REMOTE",
+          "Alias": "c"
+        },
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PREF_REMOTE",
+          "Alias": "d"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * (a + b) / (a + b + c + d)",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_numa_percent_reads_addressed_to_remote_dram",
+      "LegacyName": "metric_NUMA %_Reads addressed to remote DRAM",
+      "Level": 1,
+      "BriefDescription": "Memory reads that miss the last level cache (LLC) addressed to remote DRAM as a percentage of total memory read accesses, does not include LLC prefetches.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_LOCAL",
+          "Alias": "a"
+        },
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PREF_LOCAL",
+          "Alias": "b"
+        },
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_REMOTE",
+          "Alias": "c"
+        },
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PREF_REMOTE",
+          "Alias": "d"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * (c + d) / (a + b + c + d)",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_uncore_frequency",
+      "LegacyName": "metric_uncore frequency GHz",
+      "Level": 1,
+      "BriefDescription": "Uncore operating frequency in GHz",
+      "UnitOfMeasure": "GHz",
+      "Events": [
+        {
+          "Name": "UNC_CHA_CLOCKTICKS",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [
+        {
+          "Name": "CHAS_PER_SOCKET",
+          "Alias": "b"
+        },
+        {
+          "Name": "SOCKET_COUNT",
+          "Alias": "socket_count"
+        }
+      ],
+      "Formula": "(a / (b * socket_count) / 1000000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_upi_data_transmit_bw_only_data",
+      "LegacyName": "metric_UPI Data transmit BW (MB/sec) (only data)",
+      "Level": 1,
+      "BriefDescription": "Intel(R) Ultra Path Interconnect (UPI) data transmit bandwidth (MB/sec)",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_UPI_TxL_FLITS.ALL_DATA",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(a * (64 / 9.0) / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "UPI, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_memory_bandwidth_read",
+      "LegacyName": "metric_memory bandwidth read (MB/sec)",
+      "Level": 1,
+      "BriefDescription": "DDR memory read bandwidth (MB/sec)",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_M_CAS_COUNT.RD",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "CHANNEL, IMC, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_memory_bandwidth_write",
+      "LegacyName": "metric_memory bandwidth write (MB/sec)",
+      "Level": 1,
+      "BriefDescription": "DDR memory write bandwidth (MB/sec)",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_M_CAS_COUNT.WR",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "CHANNEL, IMC, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_memory_bandwidth_total",
+      "LegacyName": "metric_memory bandwidth total (MB/sec)",
+      "Level": 1,
+      "BriefDescription": "DDR memory bandwidth (MB/sec)",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_M_CAS_COUNT.RD",
+          "Alias": "a"
+        },
+        {
+          "Name": "UNC_M_CAS_COUNT.WR",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "((a + b) * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "CHANNEL, IMC, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_pmem_memory_bandwidth_read",
+      "LegacyName": "metric_DCPMEM_memory bandwidth read (MB/sec)",
+      "Level": 1,
+      "BriefDescription": "Intel(R) Optane(TM) Persistent Memory(PMEM) memory read bandwidth (MB/sec)",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_M_PMM_RPQ_INSERTS",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "CHANNEL, IMC, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_pmem_memory_bandwidth_write",
+      "LegacyName": "metric_DCPMEM_memory bandwidth write (MB/sec)",
+      "Level": 1,
+      "BriefDescription": "Intel(R) Optane(TM) Persistent Memory(PMEM) memory write bandwidth (MB/sec)",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_M_PMM_WPQ_INSERTS",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "CHANNEL, IMC, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_pmem_memory_bandwidth_total",
+      "LegacyName": "metric_DCPMEM_memory bandwidth total (MB/sec)",
+      "Level": 1,
+      "BriefDescription": "Intel(R) Optane(TM) Persistent Memory(PMEM) memory bandwidth (MB/sec)",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_M_PMM_RPQ_INSERTS",
+          "Alias": "a"
+        },
+        {
+          "Name": "UNC_M_PMM_WPQ_INSERTS",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "((a + b) * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "CHANNEL, IMC, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_io_bandwidth_read",
+      "LegacyName": "metric_IO_bandwidth_disk_or_network_writes (MB/sec)",
+      "Level": 1,
+      "BriefDescription": "Bandwidth of IO reads that are initiated by end device controllers that are requesting memory from the CPU.",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IO_PCIRDCUR",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_io_bandwidth_write",
+      "LegacyName": "metric_IO_bandwidth_disk_or_network_reads (MB/sec)",
+      "Level": 1,
+      "BriefDescription": "Bandwidth of IO writes that are initiated by end device controllers that are writing memory to the CPU.",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IO_ITOM",
+          "Alias": "a"
+        },
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IO_ITOMCACHENEAR",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "((a + b) * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_percent_uops_delivered_from_decoded_icache_dsb",
+      "LegacyName": "metric_% Uops delivered from decoded Icache (DSB)",
+      "Level": 1,
+      "BriefDescription": "Uops delivered from decoded instruction cache (decoded stream buffer or DSB) as a percent of total uops delivered to Instruction Decode Queue",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "IDQ.DSB_UOPS",
+          "Alias": "a"
+        },
+        {
+          "Name": "IDQ.MITE_UOPS",
+          "Alias": "b"
+        },
+        {
+          "Name": "IDQ.MS_UOPS",
+          "Alias": "c"
+        },
+        {
+          "Name": "LSD.UOPS",
+          "Alias": "d"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * (a / (a + b + c + d) )",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_percent_uops_delivered_from_legacy_decode_pipeline_mite",
+      "LegacyName": "metric_% Uops delivered from legacy decode pipeline (MITE)",
+      "Level": 1,
+      "BriefDescription": "Uops delivered from legacy decode pipeline (Micro-instruction Translation Engine or MITE) as a percent of total uops delivered to Instruction Decode Queue",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "IDQ.DSB_UOPS",
+          "Alias": "a"
+        },
+        {
+          "Name": "IDQ.MITE_UOPS",
+          "Alias": "b"
+        },
+        {
+          "Name": "IDQ.MS_UOPS",
+          "Alias": "c"
+        },
+        {
+          "Name": "LSD.UOPS",
+          "Alias": "d"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * (b / (a + b + c + d) )",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_percent_uops_delivered_from_microcode_sequencer_ms",
+      "LegacyName": "metric_% Uops delivered from microcode sequencer (MS)",
+      "Level": 1,
+      "BriefDescription": "Uops delivered from microcode sequencer (MS) as a percent of total uops delivered to Instruction Decode Queue",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "IDQ.DSB_UOPS",
+          "Alias": "a"
+        },
+        {
+          "Name": "IDQ.MITE_UOPS",
+          "Alias": "b"
+        },
+        {
+          "Name": "IDQ.MS_UOPS",
+          "Alias": "c"
+        },
+        {
+          "Name": "LSD.UOPS",
+          "Alias": "d"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * (c / (a + b + c + d) )",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_llc_miss_local_memory_bandwidth_read",
+      "LegacyName": "metric_llc_miss_local_memory_bandwidth_read_MB/s",
+      "Level": 1,
+      "BriefDescription": "Bandwidth (MB/sec) of read requests that miss the last level cache (LLC) and go to local memory.",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_CHA_REQUESTS.READS_LOCAL",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_llc_miss_local_memory_bandwidth_write",
+      "LegacyName": "metric_llc_miss_local_memory_bandwidth_write_MB/s",
+      "Level": 1,
+      "BriefDescription": "Bandwidth (MB/sec) of write requests that miss the last level cache (LLC) and go to local memory.",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_CHA_REQUESTS.WRITES_LOCAL",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_llc_miss_remote_memory_bandwidth_read",
+      "LegacyName": "metric_llc_miss_remote_memory_bandwidth_read_MB/s",
+      "Level": 1,
+      "BriefDescription": "Bandwidth (MB/sec) of read requests that miss the last level cache (LLC) and go to remote memory.",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_CHA_REQUESTS.READS_REMOTE",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_llc_miss_remote_memory_bandwidth_write",
+      "LegacyName": "metric_llc_miss_remote_memory_bandwidth_write_MB/s",
+      "Level": 1,
+      "BriefDescription": "Bandwidth (MB/sec) of write requests that miss the last level cache (LLC) and go to remote memory.",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_CHA_REQUESTS.WRITES_REMOTE",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_tma_frontend_bound_percent",
+      "LegacyName": "metric_TMA_Frontend_Bound(%)",
+      "Level": 1,
+      "BriefDescription": "This category represents fraction of slots where the processor's Frontend undersupplies its Backend. Frontend denotes the first part of the processor core responsible to fetch operations that are executed later on by the Backend part. Within the Frontend; a branch predictor predicts the next address to fetch; cache-lines are fetched from the memory subsystem; parsed into instructions; and lastly decoded into micro-operations (uops). Ideally the Frontend can issue Machine_Width uops every cycle to the Backend. Frontend Bound denotes unutilized issue-slots when there is no Backend stall; i.e. bubbles where Frontend delivered no uops while Backend could have accepted them. For example; stalls due to instruction-cache misses would be categorized under Frontend Bound.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "PERF_METRICS.FRONTEND_BOUND",
+          "Alias": "a"
+        },
+        {
+          "Name": "PERF_METRICS.BAD_SPECULATION",
+          "Alias": "b"
+        },
+        {
+          "Name": "PERF_METRICS.RETIRING",
+          "Alias": "c"
+        },
+        {
+          "Name": "PERF_METRICS.BACKEND_BOUND",
+          "Alias": "d"
+        },
+        {
+          "Name": "INT_MISC.UOP_DROPPING",
+          "Alias": "e"
+        },
+        {
+          "Name": "TOPDOWN.SLOTS:perf_metrics",
+          "Alias": "f"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( a / ( a + b + c + d ) - e / ( f ) )",
+      "Category": "TMA",
+      "Threshold": "> 15",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "TmaL1, PGO"
+    },
+    {
+      "MetricName": "m_tma_fetch_latency_percent",
+      "LegacyName": "metric_TMA_..Fetch_Latency(%)",
+      "ParentCategory": "m_tma_frontend_bound_percent",
+      "Level": 2,
+      "BriefDescription": "This metric represents fraction of slots the CPU was stalled due to Frontend latency issues.  For example; instruction-cache misses; iTLB misses or fetch stalls after a branch misprediction are categorized under Frontend Latency. In such cases; the Frontend eventually delivers no uops for some period.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "PERF_METRICS.FETCH_LATENCY",
+          "Alias": "a"
+        },
+        {
+          "Name": "PERF_METRICS.FRONTEND_BOUND",
+          "Alias": "b"
+        },
+        {
+          "Name": "PERF_METRICS.BAD_SPECULATION",
+          "Alias": "c"
+        },
+        {
+          "Name": "PERF_METRICS.RETIRING",
+          "Alias": "d"
+        },
+        {
+          "Name": "PERF_METRICS.BACKEND_BOUND",
+          "Alias": "e"
+        },
+        {
+          "Name": "INT_MISC.UOP_DROPPING",
+          "Alias": "f"
+        },
+        {
+          "Name": "TOPDOWN.SLOTS:perf_metrics",
+          "Alias": "g"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( ( a / ( b + c + d + e ) - f / ( g ) ) )",
+      "Category": "TMA",
+      "Threshold": "> 10 & P",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Frontend, TmaL2"
+    },
+    {
+      "MetricName": "m_tma_icache_misses_percent",
+      "LegacyName": "metric_TMA_....ICache_Misses(%)",
+      "ParentCategory": "m_tma_fetch_latency_percent",
+      "Level": 3,
+      "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to instruction cache misses.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "ICACHE_DATA.STALLS",
+          "Alias": "a"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( a / ( b ) )",
+      "Category": "TMA",
+      "Threshold": "> 5 & P",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BigFoot, FetchLat, IcMiss"
+    },
+    {
+      "MetricName": "m_tma_itlb_misses_percent",
+      "LegacyName": "metric_TMA_....ITLB_Misses(%)",
+      "ParentCategory": "m_tma_fetch_latency_percent",
+      "Level": 3,
+      "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to Instruction TLB (ITLB) misses.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "ICACHE_TAG.STALLS",
+          "Alias": "a"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( a / ( b ) )",
+      "Category": "TMA",
+      "Threshold": "> 5 & P",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BigFoot, FetchLat, MemoryTLB"
+    },
+    {
+      "MetricName": "m_tma_branch_resteers_percent",
+      "LegacyName": "metric_TMA_....Branch_Resteers(%)",
+      "ParentCategory": "m_tma_fetch_latency_percent",
+      "Level": 3,
+      "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to Branch Resteers. Branch Resteers estimates the Frontend delay in fetching operations from corrected path; following all sorts of miss-predicted branches. For example; branchy code with lots of miss-predictions might get categorized under Branch Resteers. Note the value of this node may overlap with its siblings.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "INT_MISC.CLEAR_RESTEER_CYCLES",
+          "Alias": "a"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Alias": "b"
+        },
+        {
+          "Name": "INT_MISC.UNKNOWN_BRANCH_CYCLES",
+          "Alias": "c"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( a / ( b ) + ( c / ( b ) ) )",
+      "Category": "TMA",
+      "Threshold": "> 5 & P; ~overlap",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "FetchLat"
+    },
+    {
+      "MetricName": "m_tma_dsb_switches_percent",
+      "LegacyName": "metric_TMA_....DSB_Switches(%)",
+      "ParentCategory": "m_tma_fetch_latency_percent",
+      "Level": 3,
+      "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to switches from DSB to MITE pipelines. The DSB (decoded i-cache) is a Uop Cache where the front-end directly delivers Uops (micro operations) avoiding heavy x86 decoding. The DSB pipeline has shorter latency and delivered higher bandwidth than the MITE (legacy instruction decode pipeline). Switching between the two pipelines can cause penalties hence this metric measures the exposed penalty.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "DSB2MITE_SWITCHES.PENALTY_CYCLES",
+          "Alias": "a"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( a / ( b ) )",
+      "Category": "TMA",
+      "Threshold": "> 5 & P; $issueFB",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "DSBmiss, FetchLat"
+    },
+    {
+      "MetricName": "m_tma_lcp_percent",
+      "LegacyName": "metric_TMA_....LCP(%)",
+      "ParentCategory": "m_tma_fetch_latency_percent",
+      "Level": 3,
+      "BriefDescription": "This metric represents fraction of cycles CPU was stalled due to Length Changing Prefixes (LCPs). Using proper compiler flags or Intel Compiler by default will certainly avoid this. #Link: Optimization Guide about LCP BKMs.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "DECODE.LCP",
+          "Alias": "a"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( a / ( b ) )",
+      "Category": "TMA",
+      "Threshold": "> 5 & P; $issueFB",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "FetchLat"
+    },
+    {
+      "MetricName": "m_tma_ms_switches_percent",
+      "LegacyName": "metric_TMA_....MS_Switches(%)",
+      "ParentCategory": "m_tma_fetch_latency_percent",
+      "Level": 3,
+      "BriefDescription": "This metric estimates the fraction of cycles when the CPU was stalled due to switches of uop delivery to the Microcode Sequencer (MS). Commonly used instructions are optimized for delivery by the DSB (decoded i-cache) or MITE (legacy instruction decode) pipelines. Certain operations cannot be handled natively by the execution pipeline; and must be performed by microcode (small programs injected into the execution stream). Switching to the MS too often can negatively impact performance. The MS is designated to deliver long uop flows required by CISC instructions like CPUID; or uncommon conditions like Floating Point Assists when dealing with Denormals.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "IDQ.MS_SWITCHES",
+          "Alias": "a"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( ( 3 ) * a / ( b ) )",
+      "Category": "TMA",
+      "Threshold": "> 5 & P; $issueMS; $issueMV; $issueSO",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "FetchLat, MicroSeq"
+    },
+    {
+      "MetricName": "m_tma_fetch_bandwidth_percent",
+      "LegacyName": "metric_TMA_..Fetch_Bandwidth(%)",
+      "ParentCategory": "m_tma_frontend_bound_percent",
+      "Level": 2,
+      "BriefDescription": "This metric represents fraction of slots the CPU was stalled due to Frontend bandwidth issues.  For example; inefficiencies at the instruction decoders; or restrictions for caching in the DSB (decoded uops cache) are categorized under Fetch Bandwidth. In such cases; the Frontend typically delivers suboptimal amount of uops to the Backend.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "PERF_METRICS.FRONTEND_BOUND",
+          "Alias": "a"
+        },
+        {
+          "Name": "PERF_METRICS.BAD_SPECULATION",
+          "Alias": "b"
+        },
+        {
+          "Name": "PERF_METRICS.RETIRING",
+          "Alias": "c"
+        },
+        {
+          "Name": "PERF_METRICS.BACKEND_BOUND",
+          "Alias": "d"
+        },
+        {
+          "Name": "INT_MISC.UOP_DROPPING",
+          "Alias": "e"
+        },
+        {
+          "Name": "TOPDOWN.SLOTS:perf_metrics",
+          "Alias": "f"
+        },
+        {
+          "Name": "PERF_METRICS.FETCH_LATENCY",
+          "Alias": "g"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( max( 0 , ( a / ( a + b + c + d ) - e / ( f ) ) - ( ( g / ( a + b + c + d ) - e / ( f ) ) ) ) )",
+      "Category": "TMA",
+      "Threshold": "> 10 & P & #HighIPC; $issueFB",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "FetchBW, Frontend, TmaL2"
+    },
+    {
+      "MetricName": "m_tma_mite_percent",
+      "LegacyName": "metric_TMA_....MITE(%)",
+      "ParentCategory": "m_tma_fetch_bandwidth_percent",
+      "Level": 3,
+      "BriefDescription": "This metric represents Core fraction of cycles in which CPU was likely limited due to the MITE pipeline (the legacy decode pipeline). This pipeline is used for code that was not pre-cached in the DSB or LSD. For example; inefficiencies due to asymmetric decoders; use of long immediate or LCP can manifest as MITE fetch bandwidth bottleneck.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "IDQ.MITE_CYCLES_ANY",
+          "Alias": "a"
+        },
+        {
+          "Name": "IDQ.MITE_CYCLES_OK",
+          "Alias": "b"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.DISTRIBUTED",
+          "Alias": "c"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( ( a - b ) / ( c ) / 2 )",
+      "Category": "TMA",
+      "Threshold": "> 10 & P; $issueFB; $issueMI",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "DSBmiss, FetchBW"
+    },
+    {
+      "MetricName": "m_tma_dsb_percent",
+      "LegacyName": "metric_TMA_....DSB(%)",
+      "ParentCategory": "m_tma_fetch_bandwidth_percent",
+      "Level": 3,
+      "BriefDescription": "This metric represents Core fraction of cycles in which CPU was likely limited due to DSB (decoded uop cache) fetch pipeline.  For example; inefficient utilization of the DSB cache structure or bank conflict when reading from it; are categorized here.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "IDQ.DSB_CYCLES_ANY",
+          "Alias": "a"
+        },
+        {
+          "Name": "IDQ.DSB_CYCLES_OK",
+          "Alias": "b"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.DISTRIBUTED",
+          "Alias": "c"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( ( a - b ) / ( c ) / 2 )",
+      "Category": "TMA",
+      "Threshold": "> 15 & P",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "DSB, FetchBW"
+    },
+    {
+      "MetricName": "m_tma_bad_speculation_percent",
+      "LegacyName": "metric_TMA_Bad_Speculation(%)",
+      "Level": 1,
+      "BriefDescription": "This category represents fraction of slots wasted due to incorrect speculations. This include slots used to issue uops that do not eventually get retired and slots for which the issue-pipeline was blocked due to recovery from earlier incorrect speculation. For example; wasted work due to miss-predicted branches are categorized under Bad Speculation category. Incorrect data speculation followed by Memory Ordering Nukes is another example.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "PERF_METRICS.FRONTEND_BOUND",
+          "Alias": "a"
+        },
+        {
+          "Name": "PERF_METRICS.BAD_SPECULATION",
+          "Alias": "b"
+        },
+        {
+          "Name": "PERF_METRICS.RETIRING",
+          "Alias": "c"
+        },
+        {
+          "Name": "PERF_METRICS.BACKEND_BOUND",
+          "Alias": "d"
+        },
+        {
+          "Name": "INT_MISC.UOP_DROPPING",
+          "Alias": "e"
+        },
+        {
+          "Name": "TOPDOWN.SLOTS:perf_metrics",
+          "Alias": "f"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) )",
+      "Category": "TMA",
+      "Threshold": "> 15",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "TmaL1"
+    },
+    {
+      "MetricName": "m_tma_branch_mispredicts_percent",
+      "LegacyName": "metric_TMA_..Branch_Mispredicts(%)",
+      "ParentCategory": "m_tma_bad_speculation_percent",
+      "Level": 2,
+      "BriefDescription": "This metric represents fraction of slots the CPU has wasted due to Branch Misprediction.  These slots are either wasted by uops fetched from an incorrectly speculated program path; or stalls when the out-of-order part of the machine needs to recover its state from a speculative path.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "PERF_METRICS.BRANCH_MISPREDICTS",
+          "Alias": "a"
+        },
+        {
+          "Name": "PERF_METRICS.FRONTEND_BOUND",
+          "Alias": "b"
+        },
+        {
+          "Name": "PERF_METRICS.BAD_SPECULATION",
+          "Alias": "c"
+        },
+        {
+          "Name": "PERF_METRICS.RETIRING",
+          "Alias": "d"
+        },
+        {
+          "Name": "PERF_METRICS.BACKEND_BOUND",
+          "Alias": "e"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( a / ( b + c + d + e ) )",
+      "Category": "TMA",
+      "Threshold": "> 10 & P; $issueBM",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BadSpec, BrMispredicts, TmaL2"
+    },
+    {
+      "MetricName": "m_tma_machine_clears_percent",
+      "LegacyName": "metric_TMA_..Machine_Clears(%)",
+      "ParentCategory": "m_tma_bad_speculation_percent",
+      "Level": 2,
+      "BriefDescription": "This metric represents fraction of slots the CPU has wasted due to Machine Clears.  These slots are either wasted by uops fetched prior to the clear; or stalls the out-of-order portion of the machine needs to recover its state after the clear. For example; this can happen due to memory ordering Nukes (e.g. Memory Disambiguation) or Self-Modifying-Code (SMC) nukes.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "PERF_METRICS.FRONTEND_BOUND",
+          "Alias": "a"
+        },
+        {
+          "Name": "PERF_METRICS.BAD_SPECULATION",
+          "Alias": "b"
+        },
+        {
+          "Name": "PERF_METRICS.RETIRING",
+          "Alias": "c"
+        },
+        {
+          "Name": "PERF_METRICS.BACKEND_BOUND",
+          "Alias": "d"
+        },
+        {
+          "Name": "INT_MISC.UOP_DROPPING",
+          "Alias": "e"
+        },
+        {
+          "Name": "TOPDOWN.SLOTS:perf_metrics",
+          "Alias": "f"
+        },
+        {
+          "Name": "PERF_METRICS.BRANCH_MISPREDICTS",
+          "Alias": "g"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( max( 0 , ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) - ( g / ( a + b + c + d ) ) ) )",
+      "Category": "TMA",
+      "Threshold": "> 10 & P; $issueMC",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BadSpec, MachineClears, TmaL2"
+    },
+    {
+      "MetricName": "m_tma_backend_bound_percent",
+      "LegacyName": "metric_TMA_Backend_Bound(%)",
+      "Level": 1,
+      "BriefDescription": "This category represents fraction of slots where no uops are being delivered due to a lack of required resources for accepting new uops in the Backend. Backend is the portion of the processor core where the out-of-order scheduler dispatches ready uops into their respective execution units; and once completed these uops get retired according to program order. For example; stalls due to data-cache misses or stalls due to the divider unit being overloaded are both categorized under Backend Bound. Backend Bound is further divided into two main categories: Memory Bound and Core Bound.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "PERF_METRICS.BACKEND_BOUND",
+          "Alias": "a"
+        },
+        {
+          "Name": "PERF_METRICS.FRONTEND_BOUND",
+          "Alias": "b"
+        },
+        {
+          "Name": "PERF_METRICS.BAD_SPECULATION",
+          "Alias": "c"
+        },
+        {
+          "Name": "PERF_METRICS.RETIRING",
+          "Alias": "d"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( a / ( b + c + d + a ) )",
+      "Category": "TMA",
+      "Threshold": "> 20",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "TmaL1"
+    },
+    {
+      "MetricName": "m_tma_memory_bound_percent",
+      "LegacyName": "metric_TMA_..Memory_Bound(%)",
+      "ParentCategory": "m_tma_backend_bound_percent",
+      "Level": 2,
+      "BriefDescription": "This metric represents fraction of slots the Memory subsystem within the Backend was a bottleneck.  Memory Bound estimates fraction of slots where pipeline is likely stalled due to demand load or store instructions. This accounts mainly for (1) non-completed in-flight memory demand loads which coincides with execution units starvation; in addition to (2) cases where stores could impose backpressure on the pipeline when many of them get buffered at the same time (less common out of the two).",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "PERF_METRICS.MEMORY_BOUND",
+          "Alias": "a"
+        },
+        {
+          "Name": "PERF_METRICS.FRONTEND_BOUND",
+          "Alias": "b"
+        },
+        {
+          "Name": "PERF_METRICS.BAD_SPECULATION",
+          "Alias": "c"
+        },
+        {
+          "Name": "PERF_METRICS.RETIRING",
+          "Alias": "d"
+        },
+        {
+          "Name": "PERF_METRICS.BACKEND_BOUND",
+          "Alias": "e"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( a / ( b + c + d + e ) )",
+      "Category": "TMA",
+      "Threshold": "> 20 & P",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Backend, TmaL2"
+    },
+    {
+      "MetricName": "m_tma_l1_bound_percent",
+      "LegacyName": "metric_TMA_....L1_Bound(%)",
+      "ParentCategory": "m_tma_memory_bound_percent",
+      "Level": 3,
+      "BriefDescription": "This metric estimates how often the CPU was stalled without loads missing the L1 data cache.  The L1 data cache typically has the shortest latency.  However; in certain cases like loads blocked on older stores; a load might suffer due to high latency even though it is being satisfied by the L1. Another example is loads who miss in the TLB. These cases are characterized by execution unit stalls; while some non-completed demand load lives in the machine without having that demand load missing the L1 cache.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "EXE_ACTIVITY.BOUND_ON_LOADS",
+          "Alias": "a"
+        },
+        {
+          "Name": "MEMORY_ACTIVITY.STALLS_L1D_MISS",
+          "Alias": "b"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Alias": "c"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( max( ( a - b ) / ( c ) , 0 ) )",
+      "Category": "TMA",
+      "Threshold": "> 10 & P; $issueL1; $issueMC",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "CacheMisses, MemoryBound, TmaL3mem"
+    },
+    {
+      "MetricName": "m_tma_l2_bound_percent",
+      "LegacyName": "metric_TMA_....L2_Bound(%)",
+      "ParentCategory": "m_tma_memory_bound_percent",
+      "Level": 3,
+      "BriefDescription": "This metric estimates how often the CPU was stalled due to L2 cache accesses by loads.  Avoiding cache misses (i.e. L1 misses/L2 hits) can improve the latency and increase performance.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "MEMORY_ACTIVITY.STALLS_L1D_MISS",
+          "Alias": "a"
+        },
+        {
+          "Name": "MEMORY_ACTIVITY.STALLS_L2_MISS",
+          "Alias": "b"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Alias": "c"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( ( a - b ) / ( c ) )",
+      "Category": "TMA",
+      "Threshold": "> 5 & P",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "CacheMisses, MemoryBound, TmaL3mem"
+    },
+    {
+      "MetricName": "m_tma_l3_bound_percent",
+      "LegacyName": "metric_TMA_....L3_Bound(%)",
+      "ParentCategory": "m_tma_memory_bound_percent",
+      "Level": 3,
+      "BriefDescription": "This metric estimates how often the CPU was stalled due to loads accesses to L3 cache or contended with a sibling Core.  Avoiding cache misses (i.e. L2 misses/L3 hits) can improve the latency and increase performance.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "MEMORY_ACTIVITY.STALLS_L2_MISS",
+          "Alias": "a"
+        },
+        {
+          "Name": "MEMORY_ACTIVITY.STALLS_L3_MISS",
+          "Alias": "b"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Alias": "c"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( ( a - b ) / ( c ) )",
+      "Category": "TMA",
+      "Threshold": "> 5 & P",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "CacheMisses, MemoryBound, TmaL3mem"
+    },
+    {
+      "MetricName": "m_tma_dram_bound_percent",
+      "LegacyName": "metric_TMA_....DRAM_Bound(%)",
+      "ParentCategory": "m_tma_memory_bound_percent",
+      "Level": 3,
+      "BriefDescription": "This metric estimates how often the CPU was stalled on accesses to external memory (DRAM) by loads. Better caching can improve the latency and increase performance.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "MEMORY_ACTIVITY.STALLS_L3_MISS",
+          "Alias": "a"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Alias": "b"
+        },
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM",
+          "Alias": "c"
+        },
+        {
+          "Name": "MEM_LOAD_RETIRED.FB_HIT",
+          "Alias": "d"
+        },
+        {
+          "Name": "MEM_LOAD_RETIRED.L1_MISS",
+          "Alias": "e"
+        },
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM",
+          "Alias": "f"
+        },
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD",
+          "Alias": "g"
+        },
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM",
+          "Alias": "h"
+        },
+        {
+          "Name": "MEM_LOAD_RETIRED.LOCAL_PMM",
+          "Alias": "i"
+        },
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM",
+          "Alias": "j"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( min( ( ( ( a / ( b ) ) - ( min( ( ( ( ( 1 - ( ( ( 19 * ( c * ( 1 + ( d / ( e ) ) ) ) + 10 * ( ( f * ( 1 + ( d / ( e ) ) ) ) + ( g * ( 1 + ( d / ( e ) ) ) ) + ( h * ( 1 + ( d / ( e ) ) ) ) ) ) / ( ( 19 * ( c * ( 1 + ( d / ( e ) ) ) ) + 10 * ( ( f * ( 1 + ( d / ( e ) ) ) ) + ( g * ( 1 + ( d / ( e ) ) ) ) + ( h * ( 1 + ( d / ( e ) ) ) ) ) ) + ( 25 * ( ( i * ( 1 + ( d / ( e ) ) ) ) ) + 33 * ( ( j * ( 1 + ( d / ( e ) ) ) ) ) ) ) ) ) ) * ( a / ( b ) ) ) if ( ( 1000000 ) * ( j + i ) > e ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) )",
+      "Category": "TMA",
+      "Threshold": "> 10 & P",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "MemoryBound, TmaL3mem"
+    },
+    {
+      "MetricName": "m_tma_pmm_bound_percent",
+      "LegacyName": "metric_TMA_....PMM_Bound(%)",
+      "ParentCategory": "m_tma_memory_bound_percent",
+      "Level": 3,
+      "BriefDescription": "This metric roughly estimates (based on idle latencies) how often the CPU was stalled on accesses to external 3D-Xpoint (Crystal Ridge, a.k.a. IXP) memory by loads, PMM stands for Persistent Memory Module. ",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM",
+          "Alias": "a"
+        },
+        {
+          "Name": "MEM_LOAD_RETIRED.FB_HIT",
+          "Alias": "b"
+        },
+        {
+          "Name": "MEM_LOAD_RETIRED.L1_MISS",
+          "Alias": "c"
+        },
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM",
+          "Alias": "d"
+        },
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD",
+          "Alias": "e"
+        },
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM",
+          "Alias": "f"
+        },
+        {
+          "Name": "MEM_LOAD_RETIRED.LOCAL_PMM",
+          "Alias": "g"
+        },
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM",
+          "Alias": "h"
+        },
+        {
+          "Name": "MEMORY_ACTIVITY.STALLS_L3_MISS",
+          "Alias": "i"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Alias": "j"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( min( ( ( ( ( 1 - ( ( ( 19 * ( a * ( 1 + ( b / ( c ) ) ) ) + 10 * ( ( d * ( 1 + ( b / ( c ) ) ) ) + ( e * ( 1 + ( b / ( c ) ) ) ) + ( f * ( 1 + ( b / ( c ) ) ) ) ) ) / ( ( 19 * ( a * ( 1 + ( b / ( c ) ) ) ) + 10 * ( ( d * ( 1 + ( b / ( c ) ) ) ) + ( e * ( 1 + ( b / ( c ) ) ) ) + ( f * ( 1 + ( b / ( c ) ) ) ) ) ) + ( 25 * ( ( g * ( 1 + ( b / ( c ) ) ) ) ) + 33 * ( ( h * ( 1 + ( b / ( c ) ) ) ) ) ) ) ) ) ) * ( i / ( j ) ) ) if ( ( 1000000 ) * ( h + g ) > c ) else 0 ) ) , ( 1 ) ) )",
+      "Category": "TMA",
+      "Threshold": "> 10 & P",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "MemoryBound, Server, TmaL3mem"
+    },
+    {
+      "MetricName": "m_tma_store_bound_percent",
+      "LegacyName": "metric_TMA_....Store_Bound(%)",
+      "ParentCategory": "m_tma_memory_bound_percent",
+      "Level": 3,
+      "BriefDescription": "This metric estimates how often CPU was stalled  due to RFO store memory accesses; RFO store issue a read-for-ownership request before the write. Even though store accesses do not typically stall out-of-order CPUs; there are few cases where stores can lead to actual stalls. This metric will be flagged should RFO stores be a bottleneck.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "EXE_ACTIVITY.BOUND_ON_STORES",
+          "Alias": "a"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( a / ( b ) )",
+      "Category": "TMA",
+      "Threshold": "> 20 & P",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "MemoryBound, TmaL3mem"
+    },
+    {
+      "MetricName": "m_tma_core_bound_percent",
+      "LegacyName": "metric_TMA_..Core_Bound(%)",
+      "ParentCategory": "m_tma_backend_bound_percent",
+      "Level": 2,
+      "BriefDescription": "This metric represents fraction of slots where Core non-memory issues were of a bottleneck.  Shortage in hardware compute resources; or dependencies in software's instructions are both categorized under Core Bound. Hence it may indicate the machine ran out of an out-of-order resource; certain execution units are overloaded or dependencies in program's data- or instruction-flow are limiting the performance (e.g. FP-chained long-latency arithmetic operations).",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "PERF_METRICS.BACKEND_BOUND",
+          "Alias": "a"
+        },
+        {
+          "Name": "PERF_METRICS.FRONTEND_BOUND",
+          "Alias": "b"
+        },
+        {
+          "Name": "PERF_METRICS.BAD_SPECULATION",
+          "Alias": "c"
+        },
+        {
+          "Name": "PERF_METRICS.RETIRING",
+          "Alias": "d"
+        },
+        {
+          "Name": "PERF_METRICS.MEMORY_BOUND",
+          "Alias": "e"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) )",
+      "Category": "TMA",
+      "Threshold": "> 10 & P",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Backend, TmaL2, Compute"
+    },
+    {
+      "MetricName": "m_tma_divider_percent",
+      "LegacyName": "metric_TMA_....Divider(%)",
+      "ParentCategory": "m_tma_core_bound_percent",
+      "Level": 3,
+      "BriefDescription": "This metric represents fraction of cycles where the Divider unit was active. Divide and square root instructions are performed by the Divider unit and can take considerably longer latency than integer or Floating Point addition; subtraction; or multiplication.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "ARITH.DIVIDER_ACTIVE",
+          "Alias": "a"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( a / ( b ) )",
+      "Category": "TMA",
+      "Threshold": "> 20 & P",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_tma_ports_utilization_percent",
+      "LegacyName": "metric_TMA_....Ports_Utilization(%)",
+      "ParentCategory": "m_tma_core_bound_percent",
+      "Level": 3,
+      "BriefDescription": "This metric estimates fraction of cycles the CPU performance was potentially limited due to Core computation issues (non divider-related).  Two distinct categories can be attributed into this metric: (1) heavy data-dependency among contiguous instructions would manifest in this metric - such cases are often referred to as low Instruction Level Parallelism (ILP). (2) Contention on some hardware execution unit other than Divider. For example; when there are too many multiply operations.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "EXE_ACTIVITY.3_PORTS_UTIL:u0x80",
+          "Alias": "a"
+        },
+        {
+          "Name": "EXE_ACTIVITY.1_PORTS_UTIL",
+          "Alias": "b"
+        },
+        {
+          "Name": "PERF_METRICS.RETIRING",
+          "Alias": "c"
+        },
+        {
+          "Name": "PERF_METRICS.FRONTEND_BOUND",
+          "Alias": "d"
+        },
+        {
+          "Name": "PERF_METRICS.BAD_SPECULATION",
+          "Alias": "e"
+        },
+        {
+          "Name": "PERF_METRICS.BACKEND_BOUND",
+          "Alias": "f"
+        },
+        {
+          "Name": "EXE_ACTIVITY.2_PORTS_UTIL:u0xc",
+          "Alias": "g"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Alias": "h"
+        },
+        {
+          "Name": "ARITH.DIVIDER_ACTIVE",
+          "Alias": "i"
+        },
+        {
+          "Name": "CYCLE_ACTIVITY.STALLS_TOTAL",
+          "Alias": "j"
+        },
+        {
+          "Name": "EXE_ACTIVITY.BOUND_ON_LOADS",
+          "Alias": "k"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( ( a + ( b + ( c / ( d + e + c + f ) ) * g ) ) / ( h ) if ( i < ( j - k ) ) else ( b + ( c / ( d + e + c + f ) ) * g ) / ( h ) )",
+      "Category": "TMA",
+      "Threshold": "> 15 & P",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "PortsUtil"
+    },
+    {
+      "MetricName": "m_tma_retiring_percent",
+      "LegacyName": "metric_TMA_Retiring(%)",
+      "Level": 1,
+      "BriefDescription": "This category represents fraction of slots utilized by useful work i.e. issued uops that eventually get retired. Ideally; all pipeline slots would be attributed to the Retiring category.  Retiring of 100% would indicate the maximum Pipeline_Width throughput was achieved.  Maximizing Retiring typically increases the Instructions-per-cycle (see IPC metric). Note that a high Retiring value does not necessary mean there is no room for more performance.  For example; Heavy-operations or Microcode Assists are categorized under Retiring. They often indicate suboptimal performance and can often be optimized or avoided. ",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "PERF_METRICS.RETIRING",
+          "Alias": "a"
+        },
+        {
+          "Name": "PERF_METRICS.FRONTEND_BOUND",
+          "Alias": "b"
+        },
+        {
+          "Name": "PERF_METRICS.BAD_SPECULATION",
+          "Alias": "c"
+        },
+        {
+          "Name": "PERF_METRICS.BACKEND_BOUND",
+          "Alias": "d"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( a / ( b + c + a + d ) )",
+      "Category": "TMA",
+      "Threshold": "(> 70 | Heavy_Operations)",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "TmaL1"
+    },
+    {
+      "MetricName": "m_tma_light_operations_percent",
+      "LegacyName": "metric_TMA_..Light_Operations(%)",
+      "ParentCategory": "m_tma_retiring_percent",
+      "Level": 2,
+      "BriefDescription": "This metric represents fraction of slots where the CPU was retiring light-weight operations -- instructions that require no more than one uop (micro-operation). This correlates with total number of instructions used by the program. A uops-per-instruction (see UPI metric) ratio of 1 or less should be expected for decently optimized software running on Intel Core/Xeon products. While this often indicates efficient X86 instructions were executed; high value does not necessarily mean better performance cannot be achieved.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "PERF_METRICS.RETIRING",
+          "Alias": "a"
+        },
+        {
+          "Name": "PERF_METRICS.FRONTEND_BOUND",
+          "Alias": "b"
+        },
+        {
+          "Name": "PERF_METRICS.BAD_SPECULATION",
+          "Alias": "c"
+        },
+        {
+          "Name": "PERF_METRICS.BACKEND_BOUND",
+          "Alias": "d"
+        },
+        {
+          "Name": "PERF_METRICS.HEAVY_OPERATIONS",
+          "Alias": "e"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) )",
+      "Category": "TMA",
+      "Threshold": "> 60",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Retire, TmaL2"
+    },
+    {
+      "MetricName": "m_tma_fp_arith_percent",
+      "LegacyName": "metric_TMA_....FP_Arith(%)",
+      "ParentCategory": "m_tma_light_operations_percent",
+      "Level": 3,
+      "BriefDescription": "This metric represents overall arithmetic floating-point (FP) operations fraction the CPU has executed (retired). Note this metric's value may exceed its parent due to use of \"Uops\" CountDomain and FMA double-counting.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "PERF_METRICS.RETIRING",
+          "Alias": "a"
+        },
+        {
+          "Name": "PERF_METRICS.FRONTEND_BOUND",
+          "Alias": "b"
+        },
+        {
+          "Name": "PERF_METRICS.BAD_SPECULATION",
+          "Alias": "c"
+        },
+        {
+          "Name": "PERF_METRICS.BACKEND_BOUND",
+          "Alias": "d"
+        },
+        {
+          "Name": "UOPS_EXECUTED.X87",
+          "Alias": "e"
+        },
+        {
+          "Name": "UOPS_EXECUTED.THREAD",
+          "Alias": "f"
+        },
+        {
+          "Name": "FP_ARITH_INST_RETIRED.SCALAR_SINGLE",
+          "Alias": "g"
+        },
+        {
+          "Name": "FP_ARITH_INST_RETIRED.SCALAR_DOUBLE",
+          "Alias": "h"
+        },
+        {
+          "Name": "FP_ARITH_INST_RETIRED2.SCALAR",
+          "Alias": "i"
+        },
+        {
+          "Name": "TOPDOWN.SLOTS:perf_metrics",
+          "Alias": "j"
+        },
+        {
+          "Name": "FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE",
+          "Alias": "k"
+        },
+        {
+          "Name": "FP_ARITH_INST_RETIRED.128B_PACKED_SINGLE",
+          "Alias": "l"
+        },
+        {
+          "Name": "FP_ARITH_INST_RETIRED.256B_PACKED_DOUBLE",
+          "Alias": "m"
+        },
+        {
+          "Name": "FP_ARITH_INST_RETIRED.256B_PACKED_SINGLE",
+          "Alias": "n"
+        },
+        {
+          "Name": "FP_ARITH_INST_RETIRED.512B_PACKED_DOUBLE",
+          "Alias": "o"
+        },
+        {
+          "Name": "FP_ARITH_INST_RETIRED.512B_PACKED_SINGLE",
+          "Alias": "p"
+        },
+        {
+          "Name": "FP_ARITH_INST_RETIRED2.VECTOR",
+          "Alias": "q"
+        },
+        {
+          "Name": "AMX_OPS_RETIRED.BF16:c1",
+          "Alias": "r"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( ( ( a / ( b + c + a + d ) ) * e / f ) + ( ( g + h + i ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( min( ( ( k + l + m + n + o + p + q ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) , ( 1 ) ) ) + ( r / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) )",
+      "Category": "TMA",
+      "Threshold": "> 20 & P",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "HPC"
+    },
+    {
+      "MetricName": "m_tma_int_operations_percent",
+      "LegacyName": "metric_TMA_....Int_Operations(%)",
+      "ParentCategory": "m_tma_light_operations_percent",
+      "Level": 3,
+      "BriefDescription": "This metric represents overall Integer (Int) select operations fraction the CPU has executed (retired). Vector/Matrix Int operations and shuffles are counted. Note this metric's value may exceed its parent due to use of \"Uops\" CountDomain.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "INT_VEC_RETIRED.ADD_128",
+          "Alias": "a"
+        },
+        {
+          "Name": "INT_VEC_RETIRED.VNNI_128",
+          "Alias": "b"
+        },
+        {
+          "Name": "PERF_METRICS.RETIRING",
+          "Alias": "c"
+        },
+        {
+          "Name": "PERF_METRICS.FRONTEND_BOUND",
+          "Alias": "d"
+        },
+        {
+          "Name": "PERF_METRICS.BAD_SPECULATION",
+          "Alias": "e"
+        },
+        {
+          "Name": "PERF_METRICS.BACKEND_BOUND",
+          "Alias": "f"
+        },
+        {
+          "Name": "TOPDOWN.SLOTS:perf_metrics",
+          "Alias": "g"
+        },
+        {
+          "Name": "INT_VEC_RETIRED.ADD_256",
+          "Alias": "h"
+        },
+        {
+          "Name": "INT_VEC_RETIRED.MUL_256",
+          "Alias": "i"
+        },
+        {
+          "Name": "INT_VEC_RETIRED.VNNI_256",
+          "Alias": "j"
+        },
+        {
+          "Name": "INT_VEC_RETIRED.SHUFFLES",
+          "Alias": "k"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( ( ( a + b ) / ( ( c / ( d + e + c + f ) ) * ( g ) ) ) + ( ( h + i + j ) / ( ( c / ( d + e + c + f ) ) * ( g ) ) ) + ( k / ( ( c / ( d + e + c + f ) ) * ( g ) ) ) )",
+      "Category": "TMA",
+      "Threshold": "> 10 & P",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Pipeline"
+    },
+    {
+      "MetricName": "m_tma_memory_operations_percent",
+      "LegacyName": "metric_TMA_....Memory_Operations(%)",
+      "ParentCategory": "m_tma_light_operations_percent",
+      "Level": 3,
+      "BriefDescription": "This metric represents fraction of slots where the CPU was retiring memory operations -- uops for memory load or store accesses.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "PERF_METRICS.RETIRING",
+          "Alias": "a"
+        },
+        {
+          "Name": "PERF_METRICS.FRONTEND_BOUND",
+          "Alias": "b"
+        },
+        {
+          "Name": "PERF_METRICS.BAD_SPECULATION",
+          "Alias": "c"
+        },
+        {
+          "Name": "PERF_METRICS.BACKEND_BOUND",
+          "Alias": "d"
+        },
+        {
+          "Name": "PERF_METRICS.HEAVY_OPERATIONS",
+          "Alias": "e"
+        },
+        {
+          "Name": "MEM_UOP_RETIRED.ANY",
+          "Alias": "f"
+        },
+        {
+          "Name": "TOPDOWN.SLOTS:perf_metrics",
+          "Alias": "g"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * f / ( ( a / ( b + c + a + d ) ) * ( g ) ) )",
+      "Category": "TMA",
+      "Threshold": "> 10 & P",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Pipeline"
+    },
+    {
+      "MetricName": "m_tma_fused_instructions_percent",
+      "LegacyName": "metric_TMA_....Fused_Instructions(%)",
+      "ParentCategory": "m_tma_light_operations_percent",
+      "Level": 3,
+      "BriefDescription": "This metric represents fraction of slots where the CPU was retiring fused instructions -- where one uop can represent multiple contiguous instructions. The instruction pairs of CMP+JCC or DEC+JCC are commonly used examples.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "PERF_METRICS.RETIRING",
+          "Alias": "a"
+        },
+        {
+          "Name": "PERF_METRICS.FRONTEND_BOUND",
+          "Alias": "b"
+        },
+        {
+          "Name": "PERF_METRICS.BAD_SPECULATION",
+          "Alias": "c"
+        },
+        {
+          "Name": "PERF_METRICS.BACKEND_BOUND",
+          "Alias": "d"
+        },
+        {
+          "Name": "PERF_METRICS.HEAVY_OPERATIONS",
+          "Alias": "e"
+        },
+        {
+          "Name": "INST_RETIRED.MACRO_FUSED",
+          "Alias": "f"
+        },
+        {
+          "Name": "TOPDOWN.SLOTS:perf_metrics",
+          "Alias": "g"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * f / ( ( a / ( b + c + a + d ) ) * ( g ) ) )",
+      "Category": "TMA",
+      "Threshold": "> 10 & P",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Pipeline"
+    },
+    {
+      "MetricName": "m_tma_non_fused_branches_percent",
+      "LegacyName": "metric_TMA_....Non_Fused_Branches(%)",
+      "ParentCategory": "m_tma_light_operations_percent",
+      "Level": 3,
+      "BriefDescription": "This metric represents fraction of slots where the CPU was retiring branch instructions that were not fused. Non-conditional branches like direct JMP or CALL would count here. Can be used to examine fusible conditional jumps that were not fused.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "PERF_METRICS.RETIRING",
+          "Alias": "a"
+        },
+        {
+          "Name": "PERF_METRICS.FRONTEND_BOUND",
+          "Alias": "b"
+        },
+        {
+          "Name": "PERF_METRICS.BAD_SPECULATION",
+          "Alias": "c"
+        },
+        {
+          "Name": "PERF_METRICS.BACKEND_BOUND",
+          "Alias": "d"
+        },
+        {
+          "Name": "PERF_METRICS.HEAVY_OPERATIONS",
+          "Alias": "e"
+        },
+        {
+          "Name": "BR_INST_RETIRED.ALL_BRANCHES",
+          "Alias": "f"
+        },
+        {
+          "Name": "INST_RETIRED.MACRO_FUSED",
+          "Alias": "g"
+        },
+        {
+          "Name": "TOPDOWN.SLOTS:perf_metrics",
+          "Alias": "h"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * ( f - g ) / ( ( a / ( b + c + a + d ) ) * ( h ) ) )",
+      "Category": "TMA",
+      "Threshold": "> 10 & P",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Pipeline"
+    },
+    {
+      "MetricName": "m_tma_nop_instructions_percent",
+      "LegacyName": "metric_TMA_....Nop_Instructions(%)",
+      "ParentCategory": "m_tma_light_operations_percent",
+      "Level": 3,
+      "BriefDescription": "This metric represents fraction of slots where the CPU was retiring NOP (no op) instructions. Compilers often use NOPs for certain address alignments - e.g. start address of a function or loop body.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "PERF_METRICS.RETIRING",
+          "Alias": "a"
+        },
+        {
+          "Name": "PERF_METRICS.FRONTEND_BOUND",
+          "Alias": "b"
+        },
+        {
+          "Name": "PERF_METRICS.BAD_SPECULATION",
+          "Alias": "c"
+        },
+        {
+          "Name": "PERF_METRICS.BACKEND_BOUND",
+          "Alias": "d"
+        },
+        {
+          "Name": "PERF_METRICS.HEAVY_OPERATIONS",
+          "Alias": "e"
+        },
+        {
+          "Name": "INST_RETIRED.NOP",
+          "Alias": "f"
+        },
+        {
+          "Name": "TOPDOWN.SLOTS:perf_metrics",
+          "Alias": "g"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * f / ( ( a / ( b + c + a + d ) ) * ( g ) ) )",
+      "Category": "TMA",
+      "Threshold": "> 10 & P",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Pipeline"
+    },
+    {
+      "MetricName": "m_tma_other_light_ops_percent",
+      "LegacyName": "metric_TMA_....Other_Light_Ops(%)",
+      "ParentCategory": "m_tma_light_operations_percent",
+      "Level": 3,
+      "BriefDescription": "This metric represents the remaining light uops fraction the CPU has executed - remaining means not covered by other sibling nodes. May undercount due to FMA double counting",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "PERF_METRICS.RETIRING",
+          "Alias": "a"
+        },
+        {
+          "Name": "INST_RETIRED.MACRO_FUSED",
+          "Alias": "aa"
+        },
+        {
+          "Name": "BR_INST_RETIRED.ALL_BRANCHES",
+          "Alias": "ab"
+        },
+        {
+          "Name": "INST_RETIRED.NOP",
+          "Alias": "ac"
+        },
+        {
+          "Name": "PERF_METRICS.FRONTEND_BOUND",
+          "Alias": "b"
+        },
+        {
+          "Name": "PERF_METRICS.BAD_SPECULATION",
+          "Alias": "c"
+        },
+        {
+          "Name": "PERF_METRICS.BACKEND_BOUND",
+          "Alias": "d"
+        },
+        {
+          "Name": "PERF_METRICS.HEAVY_OPERATIONS",
+          "Alias": "e"
+        },
+        {
+          "Name": "UOPS_EXECUTED.X87",
+          "Alias": "f"
+        },
+        {
+          "Name": "UOPS_EXECUTED.THREAD",
+          "Alias": "g"
+        },
+        {
+          "Name": "FP_ARITH_INST_RETIRED.SCALAR_SINGLE",
+          "Alias": "h"
+        },
+        {
+          "Name": "FP_ARITH_INST_RETIRED.SCALAR_DOUBLE",
+          "Alias": "i"
+        },
+        {
+          "Name": "FP_ARITH_INST_RETIRED2.SCALAR",
+          "Alias": "j"
+        },
+        {
+          "Name": "TOPDOWN.SLOTS:perf_metrics",
+          "Alias": "k"
+        },
+        {
+          "Name": "FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE",
+          "Alias": "l"
+        },
+        {
+          "Name": "FP_ARITH_INST_RETIRED.128B_PACKED_SINGLE",
+          "Alias": "m"
+        },
+        {
+          "Name": "FP_ARITH_INST_RETIRED.256B_PACKED_DOUBLE",
+          "Alias": "n"
+        },
+        {
+          "Name": "FP_ARITH_INST_RETIRED.256B_PACKED_SINGLE",
+          "Alias": "o"
+        },
+        {
+          "Name": "FP_ARITH_INST_RETIRED.512B_PACKED_DOUBLE",
+          "Alias": "p"
+        },
+        {
+          "Name": "FP_ARITH_INST_RETIRED.512B_PACKED_SINGLE",
+          "Alias": "q"
+        },
+        {
+          "Name": "FP_ARITH_INST_RETIRED2.VECTOR",
+          "Alias": "r"
+        },
+        {
+          "Name": "AMX_OPS_RETIRED.BF16:c1",
+          "Alias": "s"
+        },
+        {
+          "Name": "INT_VEC_RETIRED.ADD_128",
+          "Alias": "t"
+        },
+        {
+          "Name": "INT_VEC_RETIRED.VNNI_128",
+          "Alias": "u"
+        },
+        {
+          "Name": "INT_VEC_RETIRED.ADD_256",
+          "Alias": "v"
+        },
+        {
+          "Name": "INT_VEC_RETIRED.MUL_256",
+          "Alias": "w"
+        },
+        {
+          "Name": "INT_VEC_RETIRED.VNNI_256",
+          "Alias": "x"
+        },
+        {
+          "Name": "INT_VEC_RETIRED.SHUFFLES",
+          "Alias": "y"
+        },
+        {
+          "Name": "MEM_UOP_RETIRED.ANY",
+          "Alias": "z"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( max( 0 , ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) - ( ( ( ( a / ( b + c + a + d ) ) * f / g ) + ( ( h + i + j ) / ( ( a / ( b + c + a + d ) ) * ( k ) ) ) + ( min( ( ( l + m + n + o + p + q + r ) / ( ( a / ( b + c + a + d ) ) * ( k ) ) ) , ( 1 ) ) ) + ( s / ( ( a / ( b + c + a + d ) ) * ( k ) ) ) ) + ( ( ( t + u ) / ( ( a / ( b + c + a + d ) ) * ( k ) ) ) + ( ( v + w + x ) / ( ( a / ( b + c + a + d ) ) * ( k ) ) ) + ( y / ( ( a / ( b + c + a + d ) ) * ( k ) ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * z / ( ( a / ( b + c + a + d ) ) * ( k ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * aa / ( ( a / ( b + c + a + d ) ) * ( k ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * ( ab - aa ) / ( ( a / ( b + c + a + d ) ) * ( k ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * ac / ( ( a / ( b + c + a + d ) ) * ( k ) ) ) ) ) )",
+      "Category": "TMA",
+      "Threshold": "> 30 & P",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Pipeline"
+    },
+    {
+      "MetricName": "m_tma_heavy_operations_percent",
+      "LegacyName": "metric_TMA_..Heavy_Operations(%)",
+      "ParentCategory": "m_tma_retiring_percent",
+      "Level": 2,
+      "BriefDescription": "This metric represents fraction of slots where the CPU was retiring heavy-weight operations -- instructions that require two or more uops or microcoded sequences. This highly-correlates with the uop length of these instructions/sequences.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "PERF_METRICS.HEAVY_OPERATIONS",
+          "Alias": "a"
+        },
+        {
+          "Name": "PERF_METRICS.FRONTEND_BOUND",
+          "Alias": "b"
+        },
+        {
+          "Name": "PERF_METRICS.BAD_SPECULATION",
+          "Alias": "c"
+        },
+        {
+          "Name": "PERF_METRICS.RETIRING",
+          "Alias": "d"
+        },
+        {
+          "Name": "PERF_METRICS.BACKEND_BOUND",
+          "Alias": "e"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( a / ( b + c + d + e ) )",
+      "Category": "TMA",
+      "Threshold": "> 10",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Retire, TmaL2"
+    },
+    {
+      "MetricName": "m_tma_few_uops_instructions_percent",
+      "LegacyName": "metric_TMA_....Few_Uops_Instructions(%)",
+      "ParentCategory": "m_tma_heavy_operations_percent",
+      "Level": 3,
+      "BriefDescription": "This metric represents fraction of slots where the CPU was retiring instructions that that are decoder into two or up to ([SNB+] four; [ADL+] five) uops. This highly-correlates with the number of uops in such instructions.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "PERF_METRICS.HEAVY_OPERATIONS",
+          "Alias": "a"
+        },
+        {
+          "Name": "PERF_METRICS.FRONTEND_BOUND",
+          "Alias": "b"
+        },
+        {
+          "Name": "PERF_METRICS.BAD_SPECULATION",
+          "Alias": "c"
+        },
+        {
+          "Name": "PERF_METRICS.RETIRING",
+          "Alias": "d"
+        },
+        {
+          "Name": "PERF_METRICS.BACKEND_BOUND",
+          "Alias": "e"
+        },
+        {
+          "Name": "UOPS_RETIRED.MS",
+          "Alias": "f"
+        },
+        {
+          "Name": "TOPDOWN.SLOTS:perf_metrics",
+          "Alias": "g"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( ( a / ( b + c + d + e ) ) - ( f / ( g ) ) )",
+      "Category": "TMA",
+      "Threshold": "> 5 & P; $issueMI",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "m_tma_microcode_sequencer_percent",
+      "LegacyName": "metric_TMA_....Microcode_Sequencer(%)",
+      "ParentCategory": "m_tma_heavy_operations_percent",
+      "Level": 3,
+      "BriefDescription": "This metric represents fraction of slots the CPU was retiring uops fetched by the Microcode Sequencer (MS) unit.  The MS is used for CISC instructions not supported by the default decoders (like repeat move strings; or CPUID); or by microcode assists used to address some operation modes (like in Floating Point assists). These cases can often be avoided.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "UOPS_RETIRED.MS",
+          "Alias": "a"
+        },
+        {
+          "Name": "TOPDOWN.SLOTS:perf_metrics",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( a / ( b ) )",
+      "Category": "TMA",
+      "Threshold": "> 5 & P; $issueMS",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "MicroSeq"
+    }
+  ]
+}
