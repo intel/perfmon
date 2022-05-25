@@ -241,14 +241,14 @@
         "BriefDescription": "Bandwidth of IO reads that are initiated by end device controllers that are requesting memory from the CPU.",
         "MetricExpr": "(( UNC_CHA_TOR_INSERTS.IO_HIT_PCIRDCUR + UNC_CHA_TOR_INSERTS.IO_MISS_PCIRDCUR ) * 64 / 1000000) / duration_time",
         "MetricGroup": "",
-        "MetricName": "metric_io_bandwidth_read",
+        "MetricName": "io_bandwidth_read",
         "ScaleUnit": "1MB/s"
     },
     {
         "BriefDescription": "Bandwidth of IO writes that are initiated by end device controllers that are writing memory to the CPU.",
         "MetricExpr": "(( UNC_CHA_TOR_INSERTS.IO_HIT_ITOM + UNC_CHA_TOR_INSERTS.IO_MISS_ITOM + UNC_CHA_TOR_INSERTS.IO_HIT_ITOMCACHENEAR + UNC_CHA_TOR_INSERTS.IO_MISS_ITOMCACHENEAR ) * 64 / 1000000) / duration_time",
         "MetricGroup": "",
-        "MetricName": "metric_io_bandwidth_write",
+        "MetricName": "io_bandwidth_write",
         "ScaleUnit": "1MB/s"
     },
     {
@@ -270,13 +270,6 @@
         "MetricExpr": "100 * ( IDQ.MS_UOPS / ( IDQ.DSB_UOPS + IDQ.MITE_UOPS + IDQ.MS_UOPS + LSD.UOPS ) )",
         "MetricGroup": "",
         "MetricName": "percent_uops_delivered_from_microcode_sequencer_ms",
-        "ScaleUnit": "1%"
-    },
-    {
-        "BriefDescription": "Uops delivered from loop stream detector(LSD) as a percent of total uops delivered to Instruction Decode Queue",
-        "MetricExpr": "100 * ( LSD.UOPS / ( IDQ.DSB_UOPS + IDQ.MITE_UOPS + IDQ.MS_UOPS + LSD.UOPS ) )",
-        "MetricGroup": "",
-        "MetricName": "percent_uops_delivered_from_loop_stream_detector_lsd",
         "ScaleUnit": "1%"
     },
     {
@@ -315,10 +308,73 @@
         "ScaleUnit": "1%"
     },
     {
-        "BriefDescription": "This metric represents fraction of slots the CPU was stalled due to Frontend bandwidth issues.  For example; inefficiencies at the instruction decoders; or code restrictions for caching in the DSB (decoded uops cache) are categorized under Frontend Bandwidth. In such cases; the Frontend typically delivers non-optimal amount of uops to the Backend (less than four).",
+        "BriefDescription": "This metric represents fraction of slots the CPU was stalled due to Frontend latency issues.  For example; instruction-cache misses; iTLB misses or fetch stalls after a branch misprediction are categorized under Frontend Latency. In such cases; the Frontend eventually delivers no uops for some period.",
+        "MetricExpr": "100 * ( ( ( 5 ) * IDQ_UOPS_NOT_DELIVERED.CYCLES_0_UOPS_DELIV.CORE - INT_MISC.UOP_DROPPING ) / ( slots ) )",
+        "MetricGroup": "Frontend;TmaL2;m_tma_frontend_bound_percent",
+        "MetricName": "tma_fetch_latency_percent",
+        "ScaleUnit": "1%"
+    },
+    {
+        "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to instruction cache misses.",
+        "MetricExpr": "100 * ( ICACHE_16B.IFDATA_STALL / ( CPU_CLK_UNHALTED.THREAD ) )",
+        "MetricGroup": "BigFoot;FetchLat;IcMiss;TmaL3;m_tma_fetch_latency_percent",
+        "MetricName": "tma_icache_misses_percent",
+        "ScaleUnit": "1%"
+    },
+    {
+        "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to Instruction TLB (ITLB) misses.",
+        "MetricExpr": "100 * ( ICACHE_64B.IFTAG_STALL / ( CPU_CLK_UNHALTED.THREAD ) )",
+        "MetricGroup": "BigFoot;FetchLat;MemoryTLB;TmaL3;m_tma_fetch_latency_percent",
+        "MetricName": "tma_itlb_misses_percent",
+        "ScaleUnit": "1%"
+    },
+    {
+        "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to Branch Resteers. Branch Resteers estimates the Frontend delay in fetching operations from corrected path; following all sorts of miss-predicted branches. For example; branchy code with lots of miss-predictions might get categorized under Branch Resteers. Note the value of this node may overlap with its siblings.",
+        "MetricExpr": "100 * ( INT_MISC.CLEAR_RESTEER_CYCLES / ( CPU_CLK_UNHALTED.THREAD ) + ( ( 10 ) * BACLEARS.ANY / ( CPU_CLK_UNHALTED.THREAD ) ) )",
+        "MetricGroup": "FetchLat;TmaL3;m_tma_fetch_latency_percent",
+        "MetricName": "tma_branch_resteers_percent",
+        "ScaleUnit": "1%"
+    },
+    {
+        "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to switches from DSB to MITE pipelines. The DSB (decoded i-cache) is a Uop Cache where the front-end directly delivers Uops (micro operations) avoiding heavy x86 decoding. The DSB pipeline has shorter latency and delivered higher bandwidth than the MITE (legacy instruction decode pipeline). Switching between the two pipelines can cause penalties hence this metric measures the exposed penalty.",
+        "MetricExpr": "100 * ( DSB2MITE_SWITCHES.PENALTY_CYCLES / ( CPU_CLK_UNHALTED.THREAD ) )",
+        "MetricGroup": "DSBmiss;FetchLat;TmaL3;m_tma_fetch_latency_percent",
+        "MetricName": "tma_dsb_switches_percent",
+        "ScaleUnit": "1%"
+    },
+    {
+        "BriefDescription": "This metric represents fraction of cycles CPU was stalled due to Length Changing Prefixes (LCPs). Using proper compiler flags or Intel Compiler by default will certainly avoid this. #Link: Optimization Guide about LCP BKMs.",
+        "MetricExpr": "100 * ( ILD_STALL.LCP / ( CPU_CLK_UNHALTED.THREAD ) )",
+        "MetricGroup": "FetchLat;TmaL3;m_tma_fetch_latency_percent",
+        "MetricName": "tma_lcp_percent",
+        "ScaleUnit": "1%"
+    },
+    {
+        "BriefDescription": "This metric estimates the fraction of cycles when the CPU was stalled due to switches of uop delivery to the Microcode Sequencer (MS). Commonly used instructions are optimized for delivery by the DSB (decoded i-cache) or MITE (legacy instruction decode) pipelines. Certain operations cannot be handled natively by the execution pipeline; and must be performed by microcode (small programs injected into the execution stream). Switching to the MS too often can negatively impact performance. The MS is designated to deliver long uop flows required by CISC instructions like CPUID; or uncommon conditions like Floating Point Assists when dealing with Denormals.",
+        "MetricExpr": "100 * ( ( 3 ) * IDQ.MS_SWITCHES / ( CPU_CLK_UNHALTED.THREAD ) )",
+        "MetricGroup": "FetchLat;MicroSeq;TmaL3;m_tma_fetch_latency_percent",
+        "MetricName": "tma_ms_switches_percent",
+        "ScaleUnit": "1%"
+    },
+    {
+        "BriefDescription": "This metric represents fraction of slots the CPU was stalled due to Frontend bandwidth issues.  For example; inefficiencies at the instruction decoders; or restrictions for caching in the DSB (decoded uops cache) are categorized under Fetch Bandwidth. In such cases; the Frontend typically delivers suboptimal amount of uops to the Backend.",
         "MetricExpr": "100 * ( max( 0 , ( topdown\\-fe\\-bound / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) - INT_MISC.UOP_DROPPING / ( slots ) ) - ( ( ( 5 ) * IDQ_UOPS_NOT_DELIVERED.CYCLES_0_UOPS_DELIV.CORE - INT_MISC.UOP_DROPPING ) / ( slots ) ) ) )",
         "MetricGroup": "FetchBW;Frontend;TmaL2;m_tma_frontend_bound_percent",
         "MetricName": "tma_fetch_bandwidth_percent",
+        "ScaleUnit": "1%"
+    },
+    {
+        "BriefDescription": "This metric represents Core fraction of cycles in which CPU was likely limited due to the MITE pipeline (the legacy decode pipeline). This pipeline is used for code that was not pre-cached in the DSB or LSD. For example; inefficiencies due to asymmetric decoders; use of long immediate or LCP can manifest as MITE fetch bandwidth bottleneck.",
+        "MetricExpr": "100 * ( ( IDQ.MITE_CYCLES_ANY - IDQ.MITE_CYCLES_OK ) / ( CPU_CLK_UNHALTED.DISTRIBUTED ) / 2 )",
+        "MetricGroup": "DSBmiss;FetchBW;TmaL3;m_tma_fetch_bandwidth_percent",
+        "MetricName": "tma_mite_percent",
+        "ScaleUnit": "1%"
+    },
+    {
+        "BriefDescription": "This metric represents Core fraction of cycles in which CPU was likely limited due to DSB (decoded uop cache) fetch pipeline.  For example; inefficient utilization of the DSB cache structure or bank conflict when reading from it; are categorized here.",
+        "MetricExpr": "100 * ( ( IDQ.DSB_CYCLES_ANY - IDQ.DSB_CYCLES_OK ) / ( CPU_CLK_UNHALTED.DISTRIBUTED ) / 2 )",
+        "MetricGroup": "DSB;FetchBW;TmaL3;m_tma_fetch_bandwidth_percent",
+        "MetricName": "tma_dsb_percent",
         "ScaleUnit": "1%"
     },
     {
@@ -357,150 +413,6 @@
         "ScaleUnit": "1%"
     },
     {
-        "BriefDescription": "This metric represents fraction of slots where Core non-memory issues were of a bottleneck.  Shortage in hardware compute resources; or dependencies in software's instructions are both categorized under Core Bound. Hence it may indicate the machine ran out of an out-of-order resource; certain execution units are overloaded or dependencies in program's data- or instruction-flow are limiting the performance (e.g. FP-chained long-latency arithmetic operations).",
-        "MetricExpr": "100 * ( max( 0 , ( topdown\\-be\\-bound / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) + ( ( 5 ) * cpu@INT_MISC.RECOVERY_CYCLES\\,cmask=0x1\\,edge\\=0x1@ ) / ( slots ) ) - ( ( ( CYCLE_ACTIVITY.STALLS_MEM_ANY + EXE_ACTIVITY.BOUND_ON_STORES ) / ( CYCLE_ACTIVITY.STALLS_TOTAL + ( EXE_ACTIVITY.1_PORTS_UTIL + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * EXE_ACTIVITY.2_PORTS_UTIL ) + EXE_ACTIVITY.BOUND_ON_STORES ) ) * ( topdown\\-be\\-bound / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) + ( ( 5 ) * cpu@INT_MISC.RECOVERY_CYCLES\\,cmask=0x1\\,edge\\=0x1@ ) / ( slots ) ) ) ) )",
-        "MetricGroup": "Backend;TmaL2;Compute;m_tma_backend_bound_percent",
-        "MetricName": "tma_core_bound_percent",
-        "ScaleUnit": "1%"
-    },
-    {
-        "BriefDescription": "This metric estimates fraction of cycles the CPU performance was potentially limited due to Core computation issues (non divider-related).  Two distinct categories can be attributed into this metric: (1) heavy data-dependency among contiguous instructions would manifest in this metric - such cases are often referred to as low Instruction Level Parallelism (ILP). (2) Contention on some hardware execution unit other than Divider. For example; when there are too many multiply operations.",
-        "MetricExpr": "100 * ( ( CYCLE_ACTIVITY.STALLS_TOTAL - CYCLE_ACTIVITY.STALLS_MEM_ANY + ( EXE_ACTIVITY.1_PORTS_UTIL + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * EXE_ACTIVITY.2_PORTS_UTIL ) ) / ( CPU_CLK_UNHALTED.THREAD ) if ( ARITH.DIVIDER_ACTIVE < ( CYCLE_ACTIVITY.STALLS_TOTAL - CYCLE_ACTIVITY.STALLS_MEM_ANY ) ) else ( EXE_ACTIVITY.1_PORTS_UTIL + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * EXE_ACTIVITY.2_PORTS_UTIL ) / ( CPU_CLK_UNHALTED.THREAD ) )",
-        "MetricGroup": "PortsUtil;TmaL3;m_tma_core_bound_percent",
-        "MetricName": "tma_ports_utilization_percent",
-        "ScaleUnit": "1%"
-    },
-    {
-        "BriefDescription": "This metric represents fraction of slots where the CPU was retiring light-weight operations -- instructions that require no more than one uop (micro-operation). This correlates with total number of instructions used by the program. A uops-per-instruction (see UPI metric) ratio of 1 or less should be expected on modern Intel Core generations. While this often indicates efficient X86 instructions were executed; high values does not necessarily mean further performance cannot be gained.",
-        "MetricExpr": "100 * ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) )",
-        "MetricGroup": "TmaL1",
-        "MetricName": "tma_retiring_percent",
-        "ScaleUnit": "1%"
-    },
-    {
-        "BriefDescription": "%",
-        "MetricExpr": "100 * ( max( 0 , ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) - ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) ) )",
-        "MetricGroup": "Retire;TmaL2;m_tma_retiring_percent",
-        "MetricName": "tma_light_operations_percent",
-        "ScaleUnit": "1%"
-    },
-    {
-        "BriefDescription": "%",
-        "MetricExpr": "100 * ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * UOPS_EXECUTED.X87 / UOPS_EXECUTED.THREAD ) + ( ( FP_ARITH_INST_RETIRED.SCALAR_SINGLE + FP_ARITH_INST_RETIRED.SCALAR_DOUBLE ) / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) + ( ( FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.128B_PACKED_SINGLE + FP_ARITH_INST_RETIRED.256B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.256B_PACKED_SINGLE + FP_ARITH_INST_RETIRED.512B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.512B_PACKED_SINGLE ) / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) )",
-        "MetricGroup": "HPC;TmaL3;m_tma_light_operations_percent",
-        "MetricName": "tma_fp_arith_percent",
-        "ScaleUnit": "1%"
-    },
-    {
-        "MetricExpr": "100 * ( ( max( 0 , ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) - ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) ) ) * MEM_INST_RETIRED.ANY / INST_RETIRED.ANY )",
-        "MetricGroup": "Pipeline;TmaL3;m_tma_light_operations_percent",
-        "MetricName": "tma_memory_operations_percent",
-        "ScaleUnit": "1%"
-    },
-    {
-        "MetricExpr": "100 * ( ( max( 0 , ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) - ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) ) ) * BR_INST_RETIRED.ALL_BRANCHES / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) )",
-        "MetricGroup": "Pipeline;TmaL3;m_tma_light_operations_percent",
-        "MetricName": "tma_branch_instructions_percent",
-        "ScaleUnit": "1%"
-    },
-    {
-        "MetricExpr": "100 * ( ( max( 0 , ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) - ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) ) ) * INST_RETIRED.NOP / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) )",
-        "MetricGroup": "Pipeline;TmaL3;m_tma_light_operations_percent",
-        "MetricName": "tma_nop_instructions_percent",
-        "ScaleUnit": "1%"
-    },
-    {
-        "BriefDescription": "%",
-        "MetricExpr": "100 * ( max( 0 , ( max( 0 , ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) - ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) ) ) - ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * UOPS_EXECUTED.X87 / UOPS_EXECUTED.THREAD ) + ( ( FP_ARITH_INST_RETIRED.SCALAR_SINGLE + FP_ARITH_INST_RETIRED.SCALAR_DOUBLE ) / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) + ( ( FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.128B_PACKED_SINGLE + FP_ARITH_INST_RETIRED.256B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.256B_PACKED_SINGLE + FP_ARITH_INST_RETIRED.512B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.512B_PACKED_SINGLE ) / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) ) + ( ( max( 0 , ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) - ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) ) ) * MEM_INST_RETIRED.ANY / INST_RETIRED.ANY ) + ( ( max( 0 , ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) - ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) ) ) * BR_INST_RETIRED.ALL_BRANCHES / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) + ( ( max( 0 , ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) - ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) ) ) * INST_RETIRED.NOP / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) ) ) )",
-        "MetricGroup": "Pipeline;TmaL3;m_tma_light_operations_percent",
-        "MetricName": "tma_other_light_ops_percent",
-        "ScaleUnit": "1%"
-    },
-    {
-        "BriefDescription": "%",
-        "MetricExpr": "100 * ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS )",
-        "MetricGroup": "Retire;TmaL2;m_tma_retiring_percent",
-        "MetricName": "tma_heavy_operations_percent",
-        "ScaleUnit": "1%"
-    },
-    {
-        "BriefDescription": "This metric represents fraction of slots the CPU was retiring uops fetched by the Microcode Sequencer (MS) unit.  The MS is used for CISC instructions not supported by the default decoders (like repeat move strings; or CPUID); or by microcode assists used to address some operation modes (like in Floating Point assists). These cases can often be avoided.",
-        "MetricExpr": "100 * ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) )",
-        "MetricGroup": "MicroSeq;TmaL3;m_tma_heavy_operations_percent",
-        "MetricName": "tma_microcode_sequencer_percent",
-        "ScaleUnit": "1%"
-    },
-    {
-        "BriefDescription": "This metric represents fraction of slots the CPU was stalled due to Frontend latency issues.  For example; instruction-cache misses; iTLB misses or fetch stalls after a branch misprediction are categorized under Frontend Latency. In such cases; the Frontend eventually delivers no uops for some period.",
-        "MetricExpr": "100 * ( ( ( 5 ) * IDQ_UOPS_NOT_DELIVERED.CYCLES_0_UOPS_DELIV.CORE - INT_MISC.UOP_DROPPING ) / ( slots ) )",
-        "MetricGroup": "Frontend;TmaL2;m_tma_frontend_bound_percent",
-        "MetricName": "tma_fetch_latency_percent",
-        "ScaleUnit": "1%"
-    },
-    {
-        "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to instruction cache misses.",
-        "MetricExpr": "100 * ( ICACHE_16B.IFDATA_STALL / ( CPU_CLK_UNHALTED.THREAD ) )",
-        "MetricGroup": "BigFoot;FetchLat;IcMiss;TmaL3;m_tma_fetch_latency_percent",
-        "MetricName": "tma_icache_misses_percent",
-        "ScaleUnit": "1%"
-    },
-    {
-        "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to Instruction TLB (ITLB) misses.",
-        "MetricExpr": "100 * ( ICACHE_64B.IFTAG_STALL / ( CPU_CLK_UNHALTED.THREAD ) )",
-        "MetricGroup": "BigFoot;FetchLat;MemoryTLB;TmaL3;m_tma_fetch_latency_percent",
-        "MetricName": "tma_itlb_misses_percent",
-        "ScaleUnit": "1%"
-    },
-    {
-        "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to Branch Resteers. Branch Resteers estimates the Frontend delay in fetching operations from corrected path; following all sorts of miss-predicted branches. For example; branchy code with lots of miss-predictions might get categorized under Branch Resteers. Note the value of this node may overlap with its siblings.",
-        "MetricExpr": "100 * ( INT_MISC.CLEAR_RESTEER_CYCLES / ( CPU_CLK_UNHALTED.THREAD ) + ( ( 10 ) * BACLEARS.ANY / ( CPU_CLK_UNHALTED.THREAD ) ) )",
-        "MetricGroup": "FetchLat;TmaL3;m_tma_fetch_latency_percent",
-        "MetricName": "tma_branch_resteers_percent",
-        "ScaleUnit": "1%"
-    },
-    {
-        "BriefDescription": "%",
-        "MetricExpr": "100 * ( DSB2MITE_SWITCHES.PENALTY_CYCLES / ( CPU_CLK_UNHALTED.THREAD ) )",
-        "MetricGroup": "DSBmiss;FetchLat;TmaL3;m_tma_fetch_latency_percent",
-        "MetricName": "tma_dsb_switches_percent",
-        "ScaleUnit": "1%"
-    },
-    {
-        "BriefDescription": "%",
-        "MetricExpr": "100 * ( ILD_STALL.LCP / ( CPU_CLK_UNHALTED.THREAD ) )",
-        "MetricGroup": "FetchLat;TmaL3;m_tma_fetch_latency_percent",
-        "MetricName": "tma_lcp_percent",
-        "ScaleUnit": "1%"
-    },
-    {
-        "BriefDescription": "%",
-        "MetricExpr": "100 * ( ( 3 ) * IDQ.MS_SWITCHES / ( CPU_CLK_UNHALTED.THREAD ) )",
-        "MetricGroup": "FetchLat;MicroSeq;TmaL3;m_tma_fetch_latency_percent",
-        "MetricName": "tma_ms_switches_percent",
-        "ScaleUnit": "1%"
-    },
-    {
-        "BriefDescription": "%",
-        "MetricExpr": "100 * ( ( IDQ.MITE_CYCLES_ANY - IDQ.MITE_CYCLES_OK ) / ( CPU_CLK_UNHALTED.DISTRIBUTED ) / 2 )",
-        "MetricGroup": "DSBmiss;FetchBW;TmaL3;m_tma_fetch_bandwidth_percent",
-        "MetricName": "tma_mite_percent",
-        "ScaleUnit": "1%"
-    },
-    {
-        "BriefDescription": "%",
-        "MetricExpr": "100 * ( ( IDQ.DSB_CYCLES_ANY - IDQ.DSB_CYCLES_OK ) / ( CPU_CLK_UNHALTED.DISTRIBUTED ) / 2 )",
-        "MetricGroup": "DSB;FetchBW;TmaL3;m_tma_fetch_bandwidth_percent",
-        "MetricName": "tma_dsb_percent",
-        "ScaleUnit": "1%"
-    },
-    {
-        "BriefDescription": "%",
-        "MetricExpr": "100 * ( ( LSD.CYCLES_ACTIVE - LSD.CYCLES_OK ) / ( CPU_CLK_UNHALTED.DISTRIBUTED ) / 2 )",
-        "MetricGroup": "FetchBW;LSD;TmaL3;m_tma_fetch_bandwidth_percent",
-        "MetricName": "tma_lsd_percent",
-        "ScaleUnit": "1%"
-    },
-    {
         "BriefDescription": "This metric estimates how often the CPU was stalled without loads missing the L1 data cache.  The L1 data cache typically has the shortest latency.  However; in certain cases like loads blocked on older stores; a load might suffer due to high latency even though it is being satisfied by the L1. Another example is loads who miss in the TLB. These cases are characterized by execution unit stalls; while some non-completed demand load lives in the machine without having that demand load missing the L1 cache.",
         "MetricExpr": "100 * ( max( ( CYCLE_ACTIVITY.STALLS_MEM_ANY - CYCLE_ACTIVITY.STALLS_L1D_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) , 0 ) )",
         "MetricGroup": "CacheMisses;MemoryBound;TmaL3mem;TmaL3;m_tma_memory_bound_percent",
@@ -523,14 +435,14 @@
     },
     {
         "BriefDescription": "This metric estimates how often the CPU was stalled on accesses to external memory (DRAM) by loads. Better caching can improve the latency and increase performance.",
-        "MetricExpr": "100 * ( ( ( CYCLE_ACTIVITY.STALLS_L3_MISS / ( CPU_CLK_UNHALTED.THREAD ) + ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) - ( ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) / ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + L1D_PEND_MISS.FB_FULL_PERIODS ) ) * ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) ) ) - ( ( ( ( 1 - ( ( ( 19 * ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + 10 * ( ( MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) ) / ( ( 19 * ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + 10 * ( ( MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) ) + ( 25 * ( ( MEM_LOAD_RETIRED.LOCAL_PMM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) + 33 * ( ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) ) ) ) ) ) * ( CYCLE_ACTIVITY.STALLS_L3_MISS / ( CPU_CLK_UNHALTED.THREAD ) + ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) - ( ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) / ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + L1D_PEND_MISS.FB_FULL_PERIODS ) ) * ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) ) ) ) if ( ( 1000000 ) * ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM + MEM_LOAD_RETIRED.LOCAL_PMM ) > MEM_LOAD_RETIRED.L1_MISS ) else 0 ) ) ) )",
+        "MetricExpr": "100 * ( min( ( ( ( CYCLE_ACTIVITY.STALLS_L3_MISS / ( CPU_CLK_UNHALTED.THREAD ) + ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) - ( ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) / ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + L1D_PEND_MISS.FB_FULL_PERIODS ) ) * ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) ) ) - ( min( ( ( ( ( 1 - ( ( ( 19 * ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + 10 * ( ( MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) ) / ( ( 19 * ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + 10 * ( ( MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) ) + ( 25 * ( ( MEM_LOAD_RETIRED.LOCAL_PMM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) + 33 * ( ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) ) ) ) ) ) * ( CYCLE_ACTIVITY.STALLS_L3_MISS / ( CPU_CLK_UNHALTED.THREAD ) + ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) - ( ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) / ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + L1D_PEND_MISS.FB_FULL_PERIODS ) ) * ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) ) ) ) if ( ( 1000000 ) * ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM + MEM_LOAD_RETIRED.LOCAL_PMM ) > MEM_LOAD_RETIRED.L1_MISS ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) )",
         "MetricGroup": "MemoryBound;TmaL3mem;TmaL3;m_tma_memory_bound_percent",
         "MetricName": "tma_dram_bound_percent",
         "ScaleUnit": "1%"
     },
     {
-        "BriefDescription": "%",
-        "MetricExpr": "100 * ( ( ( ( 1 - ( ( ( 19 * ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + 10 * ( ( MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) ) / ( ( 19 * ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + 10 * ( ( MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) ) + ( 25 * ( ( MEM_LOAD_RETIRED.LOCAL_PMM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) + 33 * ( ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) ) ) ) ) ) * ( CYCLE_ACTIVITY.STALLS_L3_MISS / ( CPU_CLK_UNHALTED.THREAD ) + ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) - ( ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) / ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + L1D_PEND_MISS.FB_FULL_PERIODS ) ) * ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) ) ) ) if ( ( 1000000 ) * ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM + MEM_LOAD_RETIRED.LOCAL_PMM ) > MEM_LOAD_RETIRED.L1_MISS ) else 0 ) )",
+        "BriefDescription": "This metric roughly estimates (based on idle latencies) how often the CPU was stalled on accesses to external 3D-Xpoint (Crystal Ridge, a.k.a. IXP) memory by loads, PMM stands for Persistent Memory Module. ",
+        "MetricExpr": "100 * ( min( ( ( ( ( 1 - ( ( ( 19 * ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + 10 * ( ( MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) ) / ( ( 19 * ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + 10 * ( ( MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) ) + ( 25 * ( ( MEM_LOAD_RETIRED.LOCAL_PMM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) + 33 * ( ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) ) ) ) ) ) * ( CYCLE_ACTIVITY.STALLS_L3_MISS / ( CPU_CLK_UNHALTED.THREAD ) + ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) - ( ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) / ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + L1D_PEND_MISS.FB_FULL_PERIODS ) ) * ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) ) ) ) if ( ( 1000000 ) * ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM + MEM_LOAD_RETIRED.LOCAL_PMM ) > MEM_LOAD_RETIRED.L1_MISS ) else 0 ) ) , ( 1 ) ) )",
         "MetricGroup": "MemoryBound;Server;TmaL3mem;TmaL3;m_tma_memory_bound_percent",
         "MetricName": "tma_pmm_bound_percent",
         "ScaleUnit": "1%"
@@ -543,10 +455,94 @@
         "ScaleUnit": "1%"
     },
     {
+        "BriefDescription": "This metric represents fraction of slots where Core non-memory issues were of a bottleneck.  Shortage in hardware compute resources; or dependencies in software's instructions are both categorized under Core Bound. Hence it may indicate the machine ran out of an out-of-order resource; certain execution units are overloaded or dependencies in program's data- or instruction-flow are limiting the performance (e.g. FP-chained long-latency arithmetic operations).",
+        "MetricExpr": "100 * ( max( 0 , ( topdown\\-be\\-bound / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) + ( ( 5 ) * cpu@INT_MISC.RECOVERY_CYCLES\\,cmask=0x1\\,edge\\=0x1@ ) / ( slots ) ) - ( ( ( CYCLE_ACTIVITY.STALLS_MEM_ANY + EXE_ACTIVITY.BOUND_ON_STORES ) / ( CYCLE_ACTIVITY.STALLS_TOTAL + ( EXE_ACTIVITY.1_PORTS_UTIL + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * EXE_ACTIVITY.2_PORTS_UTIL ) + EXE_ACTIVITY.BOUND_ON_STORES ) ) * ( topdown\\-be\\-bound / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) + ( ( 5 ) * cpu@INT_MISC.RECOVERY_CYCLES\\,cmask=0x1\\,edge\\=0x1@ ) / ( slots ) ) ) ) )",
+        "MetricGroup": "Backend;TmaL2;Compute;m_tma_backend_bound_percent",
+        "MetricName": "tma_core_bound_percent",
+        "ScaleUnit": "1%"
+    },
+    {
         "BriefDescription": "This metric represents fraction of cycles where the Divider unit was active. Divide and square root instructions are performed by the Divider unit and can take considerably longer latency than integer or Floating Point addition; subtraction; or multiplication.",
         "MetricExpr": "100 * ( ARITH.DIVIDER_ACTIVE / ( CPU_CLK_UNHALTED.THREAD ) )",
         "MetricGroup": "TmaL3;m_tma_core_bound_percent",
         "MetricName": "tma_divider_percent",
+        "ScaleUnit": "1%"
+    },
+    {
+        "BriefDescription": "This metric estimates fraction of cycles the CPU performance was potentially limited due to Core computation issues (non divider-related).  Two distinct categories can be attributed into this metric: (1) heavy data-dependency among contiguous instructions would manifest in this metric - such cases are often referred to as low Instruction Level Parallelism (ILP). (2) Contention on some hardware execution unit other than Divider. For example; when there are too many multiply operations.",
+        "MetricExpr": "( 100 * ( ( EXE_ACTIVITY.3_PORTS_UTIL:u0x80 + ( EXE_ACTIVITY.1_PORTS_UTIL + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * EXE_ACTIVITY.2_PORTS_UTIL ) ) / ( CPU_CLK_UNHALTED.THREAD ) if ( ARITH.DIVIDER_ACTIVE < ( CYCLE_ACTIVITY.STALLS_TOTAL - CYCLE_ACTIVITY.STALLS_MEM_ANY ) ) else ( EXE_ACTIVITY.1_PORTS_UTIL + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * EXE_ACTIVITY.2_PORTS_UTIL ) / ( CPU_CLK_UNHALTED.THREAD ) ) ) + ( 0 * slots )",
+        "MetricGroup": "PortsUtil;TmaL3;m_tma_core_bound_percent",
+        "MetricName": "tma_ports_utilization_percent",
+        "ScaleUnit": "1%"
+    },
+    {
+        "BriefDescription": "This category represents fraction of slots utilized by useful work i.e. issued uops that eventually get retired. Ideally; all pipeline slots would be attributed to the Retiring category.  Retiring of 100% would indicate the maximum Pipeline_Width throughput was achieved.  Maximizing Retiring typically increases the Instructions-per-cycle (see IPC metric). Note that a high Retiring value does not necessary mean there is no room for more performance.  For example; Heavy-operations or Microcode Assists are categorized under Retiring. They often indicate suboptimal performance and can often be optimized or avoided. ",
+        "MetricExpr": "( 100 * ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) ) + ( 0 * slots )",
+        "MetricGroup": "TmaL1",
+        "MetricName": "tma_retiring_percent",
+        "ScaleUnit": "1%"
+    },
+    {
+        "BriefDescription": "This metric represents fraction of slots where the CPU was retiring light-weight operations -- instructions that require no more than one uop (micro-operation). This correlates with total number of instructions used by the program. A uops-per-instruction (see UPI metric) ratio of 1 or less should be expected for decently optimized software running on Intel Core/Xeon products. While this often indicates efficient X86 instructions were executed; high value does not necessarily mean better performance cannot be achieved.",
+        "MetricExpr": "100 * ( max( 0 , ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) - ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) ) )",
+        "MetricGroup": "Retire;TmaL2;m_tma_retiring_percent",
+        "MetricName": "tma_light_operations_percent",
+        "ScaleUnit": "1%"
+    },
+    {
+        "BriefDescription": "This metric represents overall arithmetic floating-point (FP) operations fraction the CPU has executed (retired). Note this metric's value may exceed its parent due to use of \"Uops\" CountDomain and FMA double-counting.",
+        "MetricExpr": "100 * ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * UOPS_EXECUTED.X87 / UOPS_EXECUTED.THREAD ) + ( ( FP_ARITH_INST_RETIRED.SCALAR_SINGLE + FP_ARITH_INST_RETIRED.SCALAR_DOUBLE ) / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) + ( min( ( ( FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.128B_PACKED_SINGLE + FP_ARITH_INST_RETIRED.256B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.256B_PACKED_SINGLE + FP_ARITH_INST_RETIRED.512B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.512B_PACKED_SINGLE ) / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) , ( 1 ) ) ) )",
+        "MetricGroup": "HPC;TmaL3;m_tma_light_operations_percent",
+        "MetricName": "tma_fp_arith_percent",
+        "ScaleUnit": "1%"
+    },
+    {
+        "BriefDescription": "This metric represents fraction of slots where the CPU was retiring memory operations -- uops for memory load or store accesses.",
+        "MetricExpr": "100 * ( ( max( 0 , ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) - ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) ) ) * MEM_INST_RETIRED.ANY / INST_RETIRED.ANY )",
+        "MetricGroup": "Pipeline;TmaL3;m_tma_light_operations_percent",
+        "MetricName": "tma_memory_operations_percent",
+        "ScaleUnit": "1%"
+    },
+    {
+        "BriefDescription": "This metric represents fraction of slots where the CPU was retiring branch instructions.",
+        "MetricExpr": "100 * ( ( max( 0 , ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) - ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) ) ) * BR_INST_RETIRED.ALL_BRANCHES / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) )",
+        "MetricGroup": "Pipeline;TmaL3;m_tma_light_operations_percent",
+        "MetricName": "tma_branch_instructions_percent",
+        "ScaleUnit": "1%"
+    },
+    {
+        "BriefDescription": "This metric represents fraction of slots where the CPU was retiring NOP (no op) instructions. Compilers often use NOPs for certain address alignments - e.g. start address of a function or loop body.",
+        "MetricExpr": "100 * ( ( max( 0 , ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) - ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) ) ) * INST_RETIRED.NOP / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) )",
+        "MetricGroup": "Pipeline;TmaL3;m_tma_light_operations_percent",
+        "MetricName": "tma_nop_instructions_percent",
+        "ScaleUnit": "1%"
+    },
+    {
+        "BriefDescription": "This metric represents the remaining light uops fraction the CPU has executed - remaining means not covered by other sibling nodes. May undercount due to FMA double counting",
+        "MetricExpr": "100 * ( max( 0 , ( max( 0 , ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) - ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) ) ) - ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * UOPS_EXECUTED.X87 / UOPS_EXECUTED.THREAD ) + ( ( FP_ARITH_INST_RETIRED.SCALAR_SINGLE + FP_ARITH_INST_RETIRED.SCALAR_DOUBLE ) / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) + ( min( ( ( FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.128B_PACKED_SINGLE + FP_ARITH_INST_RETIRED.256B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.256B_PACKED_SINGLE + FP_ARITH_INST_RETIRED.512B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.512B_PACKED_SINGLE ) / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) , ( 1 ) ) ) ) + ( ( max( 0 , ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) - ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) ) ) * MEM_INST_RETIRED.ANY / INST_RETIRED.ANY ) + ( ( max( 0 , ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) - ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) ) ) * BR_INST_RETIRED.ALL_BRANCHES / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) + ( ( max( 0 , ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) - ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) ) ) * INST_RETIRED.NOP / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) ) ) )",
+        "MetricGroup": "Pipeline;TmaL3;m_tma_light_operations_percent",
+        "MetricName": "tma_other_light_ops_percent",
+        "ScaleUnit": "1%"
+    },
+    {
+        "BriefDescription": "This metric represents fraction of slots where the CPU was retiring heavy-weight operations -- instructions that require two or more uops or microcoded sequences. This highly-correlates with the uop length of these instructions/sequences.",
+        "MetricExpr": "100 * ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS )",
+        "MetricGroup": "Retire;TmaL2;m_tma_retiring_percent",
+        "MetricName": "tma_heavy_operations_percent",
+        "ScaleUnit": "1%"
+    },
+    {
+        "BriefDescription": "This metric represents fraction of slots where the CPU was retiring instructions that that are decoder into two or up to ([SNB+] four; [ADL+] five) uops. This highly-correlates with the number of uops in such instructions.",
+        "MetricExpr": "100 * ( ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) - ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) )",
+        "MetricGroup": "TmaL3;m_tma_heavy_operations_percent",
+        "MetricName": "tma_few_uops_instructions_percent",
+        "ScaleUnit": "1%"
+    },
+    {
+        "BriefDescription": "This metric represents fraction of slots the CPU was retiring uops fetched by the Microcode Sequencer (MS) unit.  The MS is used for CISC instructions not supported by the default decoders (like repeat move strings; or CPUID); or by microcode assists used to address some operation modes (like in Floating Point assists). These cases can often be avoided.",
+        "MetricExpr": "100 * ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) )",
+        "MetricGroup": "MicroSeq;TmaL3;m_tma_heavy_operations_percent",
+        "MetricName": "tma_microcode_sequencer_percent",
         "ScaleUnit": "1%"
     }
 ]
