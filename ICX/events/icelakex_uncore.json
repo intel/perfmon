@@ -3333,7 +3333,7 @@
     "UMaskExt": "0x00",
     "EventName": "UNC_IIO_CLOCKTICKS_FREERUN",
     "BriefDescription": "Free running counter that increments for IIO clocktick",
-    "PublicDescription": "tbd",
+    "PublicDescription": "Free running counter that increments for integrated IO (IIO) traffic controller clockticks",
     "Counter": "0",
     "MSRValue": "0x00",
     "ELLC": "0",

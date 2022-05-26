@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2007 - 2021 Intel Corporation. All rights reserved.",
+    "Copyright": "Copyright (c) 2007 - 2022 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for 2nd Generation Intel® Xeon® Processor Scalable Family based on Cascade Lake product",
-    "DatePublished": "03/30/2022",
-    "TmaVersion": "4.3",
+    "DatePublished": "05/25/2022",
+    "TmaVersion": "4.4",
     "TmaFlavor": "full"
   },
   "Metrics": [
@@ -773,7 +773,7 @@
       "MetricGroup": ""
     },
     {
-      "MetricName": "metric_io_bandwidth_read",
+      "MetricName": "m_io_bandwidth_read",
       "LegacyName": "metric_IO_bandwidth_disk_or_network_writes (MB/sec)",
       "Level": 1,
       "BriefDescription": "Bandwidth of IO reads that are initiated by end device controllers that are requesting memory from the CPU.",
@@ -804,7 +804,7 @@
       "MetricGroup": ""
     },
     {
-      "MetricName": "metric_io_bandwidth_write",
+      "MetricName": "m_io_bandwidth_write",
       "LegacyName": "metric_IO_bandwidth_disk_or_network_reads (MB/sec)",
       "Level": 1,
       "BriefDescription": "Bandwidth of IO writes that are initiated by end device controllers that are writing memory to the CPU.",
@@ -928,37 +928,6 @@
       "MetricGroup": ""
     },
     {
-      "MetricName": "m_percent_uops_delivered_from_loop_stream_detector_lsd",
-      "LegacyName": "metric_% Uops delivered from loop stream detector (LSD)",
-      "Level": 1,
-      "BriefDescription": "Uops delivered from loop stream detector(LSD) as a percent of total uops delivered to Instruction Decode Queue",
-      "UnitOfMeasure": "percent",
-      "Events": [
-        {
-          "Name": "IDQ.DSB_UOPS",
-          "Alias": "a"
-        },
-        {
-          "Name": "IDQ.MITE_UOPS",
-          "Alias": "b"
-        },
-        {
-          "Name": "IDQ.MS_UOPS",
-          "Alias": "c"
-        },
-        {
-          "Name": "LSD.UOPS",
-          "Alias": "d"
-        }
-      ],
-      "Constants": [],
-      "Formula": "100 * (d / (a + b + c + d) )",
-      "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
-    },
-    {
       "MetricName": "m_llc_miss_local_memory_bandwidth_read",
       "LegacyName": "metric_llc_miss_local_memory_bandwidth_read_MB/s",
       "Level": 1,
@@ -1049,7 +1018,7 @@
       "Category": "TMA",
       "Threshold": "> 15",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "TmaL1;PGO"
+      "MetricGroup": "TmaL1, PGO"
     },
     {
       "MetricName": "m_tma_fetch_latency_percent",
@@ -1086,7 +1055,7 @@
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Frontend;TmaL2"
+      "MetricGroup": "Frontend, TmaL2"
     },
     {
       "MetricName": "m_tma_icache_misses_percent",
@@ -1114,7 +1083,7 @@
       "Category": "TMA",
       "Threshold": "> 5 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BigFoot;FetchLat;IcMiss"
+      "MetricGroup": "BigFoot, FetchLat, IcMiss"
     },
     {
       "MetricName": "m_tma_itlb_misses_percent",
@@ -1138,7 +1107,7 @@
       "Category": "TMA",
       "Threshold": "> 5 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BigFoot;FetchLat;MemoryTLB"
+      "MetricGroup": "BigFoot, FetchLat, MemoryTLB"
     },
     {
       "MetricName": "m_tma_branch_resteers_percent",
@@ -1190,7 +1159,7 @@
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueFB",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "DSBmiss;FetchLat"
+      "MetricGroup": "DSBmiss, FetchLat"
     },
     {
       "MetricName": "m_tma_lcp_percent",
@@ -1236,16 +1205,16 @@
       "Constants": [],
       "Formula": "100 * ( ( 2 ) * a / ( b ) )",
       "Category": "TMA",
-      "Threshold": "> 5 & P; $issueMS; $issueSO",
+      "Threshold": "> 5 & P; $issueMS; $issueMV; $issueSO",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "FetchLat;MicroSeq"
+      "MetricGroup": "FetchLat, MicroSeq"
     },
     {
       "MetricName": "m_tma_fetch_bandwidth_percent",
       "LegacyName": "metric_TMA_..Fetch_Bandwidth(%)",
       "ParentCategory": "m_tma_frontend_bound_percent",
       "Level": 2,
-      "BriefDescription": "This metric represents fraction of slots the CPU was stalled due to Frontend bandwidth issues.  For example; inefficiencies at the instruction decoders; or code restrictions for caching in the DSB (decoded uops cache) are categorized under Frontend Bandwidth. In such cases; the Frontend typically delivers non-optimal amount of uops to the Backend (less than four).",
+      "BriefDescription": "This metric represents fraction of slots the CPU was stalled due to Frontend bandwidth issues.  For example; inefficiencies at the instruction decoders; or restrictions for caching in the DSB (decoded uops cache) are categorized under Fetch Bandwidth. In such cases; the Frontend typically delivers suboptimal amount of uops to the Backend.",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -1279,7 +1248,7 @@
       "Category": "TMA",
       "Threshold": "> 10 & P & #HighIPC; $issueFB",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "FetchBW;Frontend;TmaL2"
+      "MetricGroup": "FetchBW, Frontend, TmaL2"
     },
     {
       "MetricName": "m_tma_mite_percent",
@@ -1320,7 +1289,7 @@
       "Category": "TMA",
       "Threshold": "> 10 & P; $issueFB; $issueMI",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "DSBmiss;FetchBW"
+      "MetricGroup": "DSBmiss, FetchBW"
     },
     {
       "MetricName": "m_tma_dsb_percent",
@@ -1359,50 +1328,9 @@
       ],
       "Formula": "100 * ( ( a - b ) / ( ( c / 2 ) if smt_on else ( d ) ) / 2 )",
       "Category": "TMA",
-      "Threshold": "> 15 &  P",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "DSB;FetchBW"
-    },
-    {
-      "MetricName": "m_tma_lsd_percent",
-      "LegacyName": "metric_TMA_....LSD(%)",
-      "ParentCategory": "m_tma_fetch_bandwidth_percent",
-      "Level": 3,
-      "BriefDescription": "This metric represents Core fraction of cycles in which CPU was likely limited due to LSD (Loop Stream Detector) unit.  LSD typically does well sustaining Uop supply. However; in some rare cases; optimal uop-delivery could not be reached for small loops whose size (in terms of number of uops) does not suit well the LSD structure.",
-      "UnitOfMeasure": "percent",
-      "Events": [
-        {
-          "Name": "LSD.CYCLES_ACTIVE",
-          "Alias": "a"
-        },
-        {
-          "Name": "LSD.CYCLES_4_UOPS",
-          "Alias": "b"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.THREAD_ANY",
-          "Alias": "c"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.THREAD",
-          "Alias": "d"
-        }
-      ],
-      "Constants": [
-        {
-          "Name": "THREADS_PER_CORE",
-          "Alias": "threads"
-        },
-        {
-          "Name": "HYPERTHREADING_ON",
-          "Alias": "smt_on"
-        }
-      ],
-      "Formula": "100 * ( ( a - b ) / ( ( c / 2 ) if smt_on else ( d ) ) / 2 )",
-      "Category": "TMA",
       "Threshold": "> 15 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "FetchBW;LSD"
+      "MetricGroup": "DSB, FetchBW"
     },
     {
       "MetricName": "m_tma_bad_speculation_percent",
@@ -1507,7 +1435,7 @@
       "Category": "TMA",
       "Threshold": "> 10 & P; $issueBM",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BadSpec;BrMispredicts;TmaL2"
+      "MetricGroup": "BadSpec, BrMispredicts, TmaL2"
     },
     {
       "MetricName": "m_tma_machine_clears_percent",
@@ -1564,7 +1492,7 @@
       "Category": "TMA",
       "Threshold": "> 10 & P; $issueMC",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BadSpec;MachineClears;TmaL2"
+      "MetricGroup": "BadSpec, MachineClears, TmaL2"
     },
     {
       "MetricName": "m_tma_backend_bound_percent",
@@ -1685,7 +1613,7 @@
       "Category": "TMA",
       "Threshold": "> 20 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Backend;TmaL2"
+      "MetricGroup": "Backend, TmaL2"
     },
     {
       "MetricName": "m_tma_l1_bound_percent",
@@ -1711,9 +1639,9 @@
       "Constants": [],
       "Formula": "100 * ( max( ( a - b ) / ( c ) , 0 ) )",
       "Category": "TMA",
-      "Threshold": "(> 10 & P); $issueL1; $issueMC",
+      "Threshold": "> 10 & P; $issueL1; $issueMC",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "CacheMisses;MemoryBound;TmaL3mem"
+      "MetricGroup": "CacheMisses, MemoryBound, TmaL3mem"
     },
     {
       "MetricName": "m_tma_l2_bound_percent",
@@ -1757,7 +1685,7 @@
       "Category": "TMA",
       "Threshold": "> 5 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "CacheMisses;MemoryBound;TmaL3mem"
+      "MetricGroup": "CacheMisses, MemoryBound, TmaL3mem"
     },
     {
       "MetricName": "m_tma_l3_bound_percent",
@@ -1785,7 +1713,7 @@
       "Category": "TMA",
       "Threshold": "> 5 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "CacheMisses;MemoryBound;TmaL3mem"
+      "MetricGroup": "CacheMisses, MemoryBound, TmaL3mem"
     },
     {
       "MetricName": "m_tma_dram_bound_percent",
@@ -1853,18 +1781,18 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( ( ( a / ( b ) + ( ( c - d ) / ( b ) ) - ( ( ( e * ( 1 + ( f / ( g ) ) ) ) / ( ( e * ( 1 + ( f / ( g ) ) ) ) + h ) ) * ( ( c - d ) / ( b ) ) ) ) - ( ( ( ( 1 - ( ( ( 19 * ( i * ( 1 + ( f / ( g ) ) ) ) + 10 * ( ( j * ( 1 + ( f / ( g ) ) ) ) + ( k * ( 1 + ( f / ( g ) ) ) ) + ( l * ( 1 + ( f / ( g ) ) ) ) ) ) / ( ( 19 * ( i * ( 1 + ( f / ( g ) ) ) ) + 10 * ( ( j * ( 1 + ( f / ( g ) ) ) ) + ( k * ( 1 + ( f / ( g ) ) ) ) + ( l * ( 1 + ( f / ( g ) ) ) ) ) ) + ( 25 * ( ( m * ( 1 + ( f / ( g ) ) ) ) ) + 33 * ( ( n * ( 1 + ( f / ( g ) ) ) ) ) ) ) ) ) ) * ( a / ( b ) + ( ( c - d ) / ( b ) ) - ( ( ( e * ( 1 + ( f / ( g ) ) ) ) / ( ( e * ( 1 + ( f / ( g ) ) ) ) + h ) ) * ( ( c - d ) / ( b ) ) ) ) ) if ( ( 1000000 ) * ( n + m ) > g ) else 0 ) ) ) )",
+      "Formula": "100 * ( min( ( ( ( a / ( b ) + ( ( c - d ) / ( b ) ) - ( ( ( e * ( 1 + ( f / ( g ) ) ) ) / ( ( e * ( 1 + ( f / ( g ) ) ) ) + h ) ) * ( ( c - d ) / ( b ) ) ) ) - ( min( ( ( ( ( 1 - ( ( ( 19 * ( i * ( 1 + ( f / ( g ) ) ) ) + 10 * ( ( j * ( 1 + ( f / ( g ) ) ) ) + ( k * ( 1 + ( f / ( g ) ) ) ) + ( l * ( 1 + ( f / ( g ) ) ) ) ) ) / ( ( 19 * ( i * ( 1 + ( f / ( g ) ) ) ) + 10 * ( ( j * ( 1 + ( f / ( g ) ) ) ) + ( k * ( 1 + ( f / ( g ) ) ) ) + ( l * ( 1 + ( f / ( g ) ) ) ) ) ) + ( 25 * ( ( m * ( 1 + ( f / ( g ) ) ) ) ) + 33 * ( ( n * ( 1 + ( f / ( g ) ) ) ) ) ) ) ) ) ) * ( a / ( b ) + ( ( c - d ) / ( b ) ) - ( ( ( e * ( 1 + ( f / ( g ) ) ) ) / ( ( e * ( 1 + ( f / ( g ) ) ) ) + h ) ) * ( ( c - d ) / ( b ) ) ) ) ) if ( ( 1000000 ) * ( n + m ) > g ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "MemoryBound;TmaL3mem"
+      "MetricGroup": "MemoryBound, TmaL3mem"
     },
     {
       "MetricName": "m_tma_pmm_bound_percent",
       "LegacyName": "metric_TMA_....PMM_Bound(%)",
       "ParentCategory": "m_tma_memory_bound_percent",
       "Level": 3,
-      "BriefDescription": "This metric roughly estimates (based on idle latencies) how often the CPU was stalled on accesses to external 3D-Xpoint (Crystal Ridge, a.k.a. IXP) memory by loads, PMM stands for Persistent Memory Module.",
+      "BriefDescription": "This metric roughly estimates (based on idle latencies) how often the CPU was stalled on accesses to external 3D-Xpoint (Crystal Ridge, a.k.a. IXP) memory by loads, PMM stands for Persistent Memory Module. ",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -1925,11 +1853,11 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( ( ( ( 1 - ( ( ( 19 * ( a * ( 1 + ( b / ( c ) ) ) ) + 10 * ( ( d * ( 1 + ( b / ( c ) ) ) ) + ( e * ( 1 + ( b / ( c ) ) ) ) + ( f * ( 1 + ( b / ( c ) ) ) ) ) ) / ( ( 19 * ( a * ( 1 + ( b / ( c ) ) ) ) + 10 * ( ( d * ( 1 + ( b / ( c ) ) ) ) + ( e * ( 1 + ( b / ( c ) ) ) ) + ( f * ( 1 + ( b / ( c ) ) ) ) ) ) + ( 25 * ( ( g * ( 1 + ( b / ( c ) ) ) ) ) + 33 * ( ( h * ( 1 + ( b / ( c ) ) ) ) ) ) ) ) ) ) * ( i / ( j ) + ( ( k - l ) / ( j ) ) - ( ( ( m * ( 1 + ( b / ( c ) ) ) ) / ( ( m * ( 1 + ( b / ( c ) ) ) ) + n ) ) * ( ( k - l ) / ( j ) ) ) ) ) if ( ( 1000000 ) * ( h + g ) > c ) else 0 ) )",
+      "Formula": "100 * ( min( ( ( ( ( 1 - ( ( ( 19 * ( a * ( 1 + ( b / ( c ) ) ) ) + 10 * ( ( d * ( 1 + ( b / ( c ) ) ) ) + ( e * ( 1 + ( b / ( c ) ) ) ) + ( f * ( 1 + ( b / ( c ) ) ) ) ) ) / ( ( 19 * ( a * ( 1 + ( b / ( c ) ) ) ) + 10 * ( ( d * ( 1 + ( b / ( c ) ) ) ) + ( e * ( 1 + ( b / ( c ) ) ) ) + ( f * ( 1 + ( b / ( c ) ) ) ) ) ) + ( 25 * ( ( g * ( 1 + ( b / ( c ) ) ) ) ) + 33 * ( ( h * ( 1 + ( b / ( c ) ) ) ) ) ) ) ) ) ) * ( i / ( j ) + ( ( k - l ) / ( j ) ) - ( ( ( m * ( 1 + ( b / ( c ) ) ) ) / ( ( m * ( 1 + ( b / ( c ) ) ) ) + n ) ) * ( ( k - l ) / ( j ) ) ) ) ) if ( ( 1000000 ) * ( h + g ) > c ) else 0 ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "MemoryBound;Server;TmaL3mem"
+      "MetricGroup": "MemoryBound, Server, TmaL3mem"
     },
     {
       "MetricName": "m_tma_store_bound_percent",
@@ -1953,7 +1881,7 @@
       "Category": "TMA",
       "Threshold": "> 20 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "MemoryBound;TmaL3mem"
+      "MetricGroup": "MemoryBound, TmaL3mem"
     },
     {
       "MetricName": "m_tma_core_bound_percent",
@@ -2026,7 +1954,7 @@
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Backend;TmaL2;Compute"
+      "MetricGroup": "Backend, TmaL2, Compute"
     },
     {
       "MetricName": "m_tma_divider_percent",
@@ -2062,35 +1990,39 @@
       "Events": [
         {
           "Name": "CYCLE_ACTIVITY.STALLS_TOTAL",
+          "Alias": "h"
+        },
+        {
+          "Name": "ARITH.DIVIDER_ACTIVE",
+          "Alias": "g"
+        },
+        {
+          "Name": "EXE_ACTIVITY.2_PORTS_UTIL",
+          "Alias": "f"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Alias": "e"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD_ANY",
+          "Alias": "d"
+        },
+        {
+          "Name": "UOPS_RETIRED.RETIRE_SLOTS",
+          "Alias": "c"
+        },
+        {
+          "Name": "EXE_ACTIVITY.1_PORTS_UTIL",
+          "Alias": "b"
+        },
+        {
+          "Name": "EXE_ACTIVITY.EXE_BOUND_0_PORTS",
           "Alias": "a"
         },
         {
           "Name": "CYCLE_ACTIVITY.STALLS_MEM_ANY",
-          "Alias": "b"
-        },
-        {
-          "Name": "EXE_ACTIVITY.1_PORTS_UTIL",
-          "Alias": "c"
-        },
-        {
-          "Name": "UOPS_RETIRED.RETIRE_SLOTS",
-          "Alias": "d"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.THREAD_ANY",
-          "Alias": "e"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.THREAD",
-          "Alias": "f"
-        },
-        {
-          "Name": "EXE_ACTIVITY.2_PORTS_UTIL",
-          "Alias": "g"
-        },
-        {
-          "Name": "ARITH.DIVIDER_ACTIVE",
-          "Alias": "h"
+          "Alias": "i"
         }
       ],
       "Constants": [
@@ -2103,9 +2035,9 @@
           "Alias": "smt_on"
         }
       ],
-      "Formula": "100 * ( ( a - b + ( c + ( ( d ) / ( ( 4 ) * ( ( e / 2 ) if smt_on else ( f ) ) ) ) * g ) ) / ( f ) if ( h < ( a - b ) ) else ( c + ( ( d ) / ( ( 4 ) * ( ( e / 2 ) if smt_on else ( f ) ) ) ) * g ) / ( f ) )",
+      "Formula": "100 * ( ( a + ( b + ( ( c ) / ( ( 4 ) * ( ( d / 2 ) if smt_on else ( e ) ) ) ) * f ) ) / ( e ) if ( g < ( h - i ) ) else ( b + ( ( c ) / ( ( 4 ) * ( ( d / 2 ) if smt_on else ( e ) ) ) ) * f ) / ( e ) )",
       "Category": "TMA",
-      "Threshold": "> 20 & P",
+      "Threshold": "> 15 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "PortsUtil"
     },
@@ -2113,7 +2045,7 @@
       "MetricName": "m_tma_retiring_percent",
       "LegacyName": "metric_TMA_Retiring(%)",
       "Level": 1,
-      "BriefDescription": "This metric represents fraction of slots where the CPU was retiring light-weight operations -- instructions that require no more than one uop (micro-operation). This correlates with total number of instructions used by the program. A uops-per-instruction (see UPI metric) ratio of 1 or less should be expected on modern Intel Core generations. While this often indicates efficient X86 instructions were executed; high values does not necessarily mean further performance cannot be gained.",
+      "BriefDescription": "This category represents fraction of slots utilized by useful work i.e. issued uops that eventually get retired. Ideally; all pipeline slots would be attributed to the Retiring category.  Retiring of 100% would indicate the maximum Pipeline_Width throughput was achieved.  Maximizing Retiring typically increases the Instructions-per-cycle (see IPC metric). Note that a high Retiring value does not necessary mean there is no room for more performance.  For example; Heavy-operations or Microcode Assists are categorized under Retiring. They often indicate suboptimal performance and can often be optimized or avoided. ",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -2188,14 +2120,14 @@
       "Category": "TMA",
       "Threshold": "> 60",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Retire;TmaL2"
+      "MetricGroup": "Retire, TmaL2"
     },
     {
       "MetricName": "m_tma_fp_arith_percent",
       "LegacyName": "metric_TMA_....FP_Arith(%)",
       "ParentCategory": "m_tma_light_operations_percent",
       "Level": 3,
-      "BriefDescription": "This metric represents overall arithmetic floating-point (FP) operations fraction the CPU has executed (retired on AVX stack). Note this metric's value may exceed its parent due to use of \"Uops\" CountDomain and FMA double-counting.",
+      "BriefDescription": "This metric represents overall arithmetic floating-point (FP) operations fraction the CPU has executed (retired). Note this metric's value may exceed its parent due to use of \"Uops\" CountDomain and FMA double-counting.",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -2261,7 +2193,7 @@
           "Alias": "smt_on"
         }
       ],
-      "Formula": "100 * ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) * d / e ) + ( ( f + g ) / ( a ) ) + ( ( h + i + j + k + l + m ) / ( a ) ) )",
+      "Formula": "100 * ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) * d / e ) + ( ( f + g ) / ( a ) ) + ( min( ( ( h + i + j + k + l + m ) / ( a ) ) , ( 1 ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 20 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2550,7 +2482,7 @@
           "Alias": "smt_on"
         }
       ],
-      "Formula": "100 * ( max( 0 , ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) - ( ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) * f / g ) + ( ( h + i ) / ( a ) ) + ( ( j + k + l + m + n + o ) / ( a ) ) ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * p / e ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * d / ( a ) ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * ( q - d ) / ( a ) ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * r / ( a ) ) ) ) )",
+      "Formula": "100 * ( max( 0 , ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) - ( ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) * f / g ) + ( ( h + i ) / ( a ) ) + ( min( ( ( j + k + l + m + n + o ) / ( a ) ) , ( 1 ) ) ) ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * p / e ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * d / ( a ) ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * ( q - d ) / ( a ) ) + ( ( ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) - ( ( ( a ) + d - e ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) ) ) * r / ( a ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 30 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2561,7 +2493,7 @@
       "LegacyName": "metric_TMA_..Heavy_Operations(%)",
       "ParentCategory": "m_tma_retiring_percent",
       "Level": 2,
-      "BriefDescription": "This metric represents fraction of slots where the CPU was retiring heavy-weight operations -- instructions that require two or more uops. This highly-correlates with the uop length of these instructions/flows.",
+      "BriefDescription": "This metric represents fraction of slots where the CPU was retiring heavy-weight operations -- instructions that require two or more uops or microcoded sequences. This highly-correlates with the uop length of these instructions/sequences.",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -2599,7 +2531,60 @@
       "Category": "TMA",
       "Threshold": "> 10",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Retire;TmaL2"
+      "MetricGroup": "Retire, TmaL2"
+    },
+    {
+      "MetricName": "m_tma_few_uops_instructions_percent",
+      "LegacyName": "metric_TMA_....Few_Uops_Instructions(%)",
+      "ParentCategory": "m_tma_heavy_operations_percent",
+      "Level": 3,
+      "BriefDescription": "This metric represents fraction of slots where the CPU was retiring instructions that that are decoder into two or up to ([SNB+] four; [ADL+] five) uops. This highly-correlates with the number of uops in such instructions.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "UOPS_RETIRED.RETIRE_SLOTS",
+          "Alias": "a"
+        },
+        {
+          "Name": "UOPS_RETIRED.MACRO_FUSED",
+          "Alias": "b"
+        },
+        {
+          "Name": "INST_RETIRED.ANY",
+          "Alias": "c"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD_ANY",
+          "Alias": "d"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Alias": "e"
+        },
+        {
+          "Name": "UOPS_ISSUED.ANY",
+          "Alias": "f"
+        },
+        {
+          "Name": "IDQ.MS_UOPS",
+          "Alias": "g"
+        }
+      ],
+      "Constants": [
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        },
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        }
+      ],
+      "Formula": "100 * ( ( ( ( a ) + b - c ) / ( ( 4 ) * ( ( d / 2 ) if smt_on else ( e ) ) ) ) - ( ( ( a ) / f ) * g / ( ( 4 ) * ( ( d / 2 ) if smt_on else ( e ) ) ) ) )",
+      "Category": "TMA",
+      "Threshold": "> 5 & P; $issueMI",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": ""
     },
     {
       "MetricName": "m_tma_microcode_sequencer_percent",
