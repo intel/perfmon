@@ -57,25 +57,6 @@
     "CounterType": "PGMABLE"
   },
   {
-    "Unit": "UBOX",
-    "EventCode": "0x00",
-    "UMask": "0x01",
-    "PortMask": "0x00",
-    "FCMask": "0x00",
-    "UMaskExt": "0x00",
-    "EventName": "UNC_U_CLOCKTICKS",
-    "BriefDescription": "Clockticks in the UBOX using a dedicated 48-bit Fixed Counter",
-    "PublicDescription": "Clockticks in the UBOX using a dedicated 48-bit Fixed Counter when the UBOX is not idle.",
-    "Counter": "FIXED",
-    "MSRValue": "0x00",
-    "ELLC": "0",
-    "Filter": "na",
-    "ExtSel": "0",
-    "Deprecated": "0",
-    "FILTER_VALUE": "0",
-    "CounterType": "FIXED"
-  },
-  {
     "Unit": "IRP",
     "EventCode": "0x01",
     "UMask": "0x00",
