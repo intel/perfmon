@@ -25,10 +25,6 @@
         "UNC_CHA_TOR_INSERTS.IA_MISS:filter1=0x40431":"cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043100000000@",
         "ICACHE_16B.IFDATA_STALL:c1:e1":"cpu@ICACHE_16B.IFDATA_STALL\\,cmask\\=0x1\\,edge\\=0x1@",
         "L1D_PEND_MISS.FB_FULL:c1":"cpu@L1D_PEND_MISS.FB_FULL\\,cmask\\=0x1@",
-<<<<<<< Updated upstream
-        "INT_MISC.RECOVERY_CYCLES:c1:e1":"cpu@INT_MISC.RECOVERY_CYCLES\\,cmask=0x1\\,edge\\=0x1@",
-        "UOPS_DECODED.DEC0:c1":"cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@"
-=======
         "INT_MISC.RECOVERY_CYCLES:c1:e1":"cpu@INT_MISC.RECOVERY_CYCLES\\,cmask\\=0x1\\,edge\\=0x1@",
         "UOPS_DECODED.DEC0:c1":"cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@",
         "UNC_C_TOR_INSERTS.MISS_OPCODE:opc=0x182":"cbox@UNC_C_TOR_INSERTS.MISS_OPCODE\\,filter_opc\\=0x182@",
@@ -49,7 +45,6 @@
         "UOPS_EXECUTED.CORE:c3":"cpu@UOPS_EXECUTED.CORE\\,cmask\\=0x3@",
         "EXE_ACTIVITY.3_PORTS_UTIL:u0x80":"EXE_ACTIVITY.EXE_BOUND_0_PORTS",
         "AMX_OPS_RETIRED.BF16:c1":"cpu@AMX_OPS_RETIRED.BF16\\,cmask\\=0x1@"
->>>>>>> Stashed changes
     },
     "metric_source_events":{
         "CHAS_PER_SOCKET":"UNC_CHA([^\\s]*)"
