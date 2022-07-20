@@ -92,21 +92,21 @@
     },
     {
         "BriefDescription": "Average latency of a last level cache (LLC) demand and prefetch data read miss (read memory access) in nano seconds",
-        "MetricExpr": "( 1000000000 * ( cbox@UNC_C_TOR_OCCUPANCY.MISS_OPCODE\\,filter_opc\\=0x182@ / cbox@UNC_C_TOR_INSERTS.MISS_OPCODE\\,filter_opc\\=0x182@ ) / ( UNC_C_CLOCKTICKS / ( source_count(UNC_C_TOR_OCCUPANCY.MISS_OPCODE) * #num_packages ) ) ) * duration_time",
+        "MetricExpr": "( 1000000000 * ( cbox@UNC_C_TOR_OCCUPANCY.MISS_OPCODE\\,filter_opc\\=0x182@ / cbox@UNC_C_TOR_INSERTS.MISS_OPCODE\\,filter_opc\\=0x182@ ) / ( UNC_C_CLOCKTICKS / ( source_count(UNC_C_CLOCKTICKS) * #num_packages ) ) ) * duration_time",
         "MetricGroup": "",
         "MetricName": "llc_data_read_demand_plus_prefetch_miss_latency",
         "ScaleUnit": "1ns"
     },
     {
         "BriefDescription": "Average latency of a last level cache (LLC) demand and prefetch data read miss (read memory access) addressed to local memory in nano seconds",
-        "MetricExpr": "( 1000000000 * ( cbox@UNC_C_TOR_OCCUPANCY.MISS_LOCAL_OPCODE\\,filter_opc\\=0x182@ / cbox@UNC_C_TOR_INSERTS.MISS_OPCODE\\,filter_opc\\=0x182@ ) / ( UNC_C_CLOCKTICKS / ( source_count(UNC_C_TOR_OCCUPANCY.MISS_LOCAL_OPCODE) * #num_packages ) ) ) * duration_time",
+        "MetricExpr": "( 1000000000 * ( cbox@UNC_C_TOR_OCCUPANCY.MISS_LOCAL_OPCODE\\,filter_opc\\=0x182@ / cbox@UNC_C_TOR_INSERTS.MISS_OPCODE\\,filter_opc\\=0x182@ ) / ( UNC_C_CLOCKTICKS / ( source_count(UNC_C_CLOCKTICKS) * #num_packages ) ) ) * duration_time",
         "MetricGroup": "",
         "MetricName": "llc_data_read_demand_plus_prefetch_miss_latency_for_local_requests",
         "ScaleUnit": "1ns"
     },
     {
         "BriefDescription": "Average latency of a last level cache (LLC) demand and prefetch data read miss (read memory access) addressed to remote memory in nano seconds",
-        "MetricExpr": "( 1000000000 * ( cbox@UNC_C_TOR_OCCUPANCY.MISS_REMOTE_OPCODE\\,filter_opc\\=0x182@ / cbox@UNC_C_TOR_INSERTS.MISS_OPCODE\\,filter_opc\\=0x182@ ) / ( UNC_C_CLOCKTICKS / ( source_count(UNC_C_TOR_OCCUPANCY.MISS_REMOTE_OPCODE) * #num_packages ) ) ) * duration_time",
+        "MetricExpr": "( 1000000000 * ( cbox@UNC_C_TOR_OCCUPANCY.MISS_REMOTE_OPCODE\\,filter_opc\\=0x182@ / cbox@UNC_C_TOR_INSERTS.MISS_OPCODE\\,filter_opc\\=0x182@ ) / ( UNC_C_CLOCKTICKS / ( source_count(UNC_C_CLOCKTICKS) * #num_packages ) ) ) * duration_time",
         "MetricGroup": "",
         "MetricName": "llc_data_read_demand_plus_prefetch_miss_latency_for_remote_requests",
         "ScaleUnit": "1ns"
