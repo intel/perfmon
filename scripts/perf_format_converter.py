@@ -282,7 +282,7 @@ class PerfFormatConverter:
             # source_count() formatting
             if re.match(replacement, constant_name):
                 for event in metric["Events"]:
-                    if re.match(self.metric_source_event_dict[replacement], event["Name"]):
+                    if re.match(self.metric_source_event_dict[replacement], event["Name"]) and ":" not in event["Name"]:
                         return "source_count(" + event["Name"].split(":")[0] + ")"
 
         return "#" + constant_name
