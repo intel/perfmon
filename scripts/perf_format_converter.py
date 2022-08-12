@@ -90,7 +90,7 @@ def convert_file(file_path):
 
         # Get the output file
         output_file_path = get_output_file(input_file.name)
-        with open(output_file_path, "w+") as output_file_fp:
+        with open(output_file_path, "w+", encoding='ascii') as output_file_fp:
             # Serialize metrics to Json file
             format_converter.serialize_output(output_file_fp)
 
@@ -297,6 +297,7 @@ class PerfFormatConverter:
                   # default=lambda obj: obj.__dict__,
                   default=lambda obj: dict((key, value) for key, value in obj.__dict__.items()
                                            if value or key in PERSISTENT_FIELDS),
+                  ensure_ascii=True,
                   indent=4)
 
     def get_scale_unit(self, metric):
