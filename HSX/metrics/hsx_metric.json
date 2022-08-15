@@ -2,9 +2,9 @@
   "Header": {
     "Copyright": "Copyright (c) 2007 - 2022 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for Intel(R) Xeon(R) processor E5 v3 family based on the Haswell-E microarchitecture",
-    "DatePublished": "05/24/2022",
-    "TmaFlavor": "full",
-    "TmaVersion":"4.4"
+    "DatePublished": "08/12/2022",
+    "TmaVersion": "4.4",
+    "TmaFlavor": "Full"
   },
   "Metrics": [
     {
@@ -29,7 +29,7 @@
           "Alias": "c"
         }
       ],
-      "Formula": "(a / b * c) / 1000000000",
+      "Formula": "((a / b * c) / 1000000000) / DURATIONTIMEINSECONDS",
       "Category": "",
       "Threshold": "",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -289,12 +289,16 @@
         {
           "Name": "CORES_PER_SOCKET",
           "Alias": "d"
+        },
+        {
+          "Name": "SOCKET_COUNT",
+          "Alias": "e"
         }
       ],
       "Formula": "( 1000000000 * (a / b) / (c / (d * e) ) ) * DURATIONTIMEINSECONDS",
       "Category": "",
       "Threshold": "",
-      "ResolutionLevels": "SYSTEM",
+      "ResolutionLevels": "C",
       "MetricGroup": ""
     },
     {
@@ -321,12 +325,16 @@
         {
           "Name": "CORES_PER_SOCKET",
           "Alias": "d"
+        },
+        {
+          "Name": "SOCKET_COUNT",
+          "Alias": "e"
         }
       ],
       "Formula": "( 1000000000 * (a / b) / (c / (d * e) ) ) * DURATIONTIMEINSECONDS",
       "Category": "",
       "Threshold": "",
-      "ResolutionLevels": "SYSTEM",
+      "ResolutionLevels": "C",
       "MetricGroup": ""
     },
     {
@@ -353,12 +361,16 @@
         {
           "Name": "CORES_PER_SOCKET",
           "Alias": "d"
+        },
+        {
+          "Name": "SOCKET_COUNT",
+          "Alias": "e"
         }
       ],
       "Formula": "( 1000000000 * (a / b) / (c / (d * e) ) ) * DURATIONTIMEINSECONDS",
       "Category": "",
       "Threshold": "",
-      "ResolutionLevels": "SYSTEM",
+      "ResolutionLevels": "C",
       "MetricGroup": ""
     },
     {
@@ -469,12 +481,16 @@
         {
           "Name": "CORES_PER_SOCKET",
           "Alias": "b"
+        },
+        {
+          "Name": "SOCKET_COUNT",
+          "Alias": "socket_count"
         }
       ],
-      "Formula": "a / (b + c) / 1000000000",
+      "Formula": "(a / (b * socket_count) / 1000000000) / DURATIONTIMEINSECONDS",
       "Category": "",
       "Threshold": "",
-      "ResolutionLevels": "SYSTEM",
+      "ResolutionLevels": "C",
       "MetricGroup": ""
     },
     {
@@ -493,7 +509,7 @@
       "Formula": "(a * 8 / 1000000) / DURATIONTIMEINSECONDS",
       "Category": "",
       "Threshold": "",
-      "ResolutionLevels": "QPI,SOCKET,SYSTEM",
+      "ResolutionLevels": "Q",
       "MetricGroup": ""
     },
     {
@@ -573,7 +589,7 @@
       "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
       "Category": "",
       "Threshold": "",
-      "ResolutionLevels": "CBOX,SOCKET,SYSTEM",
+      "ResolutionLevels": "C",
       "MetricGroup": ""
     },
     {
@@ -592,7 +608,7 @@
       "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
       "Category": "",
       "Threshold": "",
-      "ResolutionLevels": "CBOX,SOCKET,SYSTEM",
+      "ResolutionLevels": "C",
       "MetricGroup": ""
     },
     {
@@ -829,7 +845,7 @@
       "Category": "TMA",
       "Threshold": "> 15",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "TmaL1, PGO"
+      "MetricGroup": "TmaL1;PGO"
     },
     {
       "MetricName": "m_tma_fetch_latency_percent",
@@ -866,7 +882,7 @@
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Frontend, TmaL2"
+      "MetricGroup": "Frontend;TmaL2"
     },
     {
       "MetricName": "m_tma_icache_misses_percent",
@@ -890,7 +906,7 @@
       "Category": "TMA",
       "Threshold": "> 5 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BigFoot, FetchLat, IcMiss"
+      "MetricGroup": "BigFoot;FetchLat;IcMiss"
     },
     {
       "MetricName": "m_tma_itlb_misses_percent",
@@ -918,7 +934,7 @@
       "Category": "TMA",
       "Threshold": "> 5 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BigFoot, FetchLat, MemoryTLB"
+      "MetricGroup": "BigFoot;FetchLat;MemoryTLB"
     },
     {
       "MetricName": "m_tma_branch_resteers_percent",
@@ -974,7 +990,7 @@
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueFB",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "DSBmiss, FetchLat"
+      "MetricGroup": "DSBmiss;FetchLat"
     },
     {
       "MetricName": "m_tma_lcp_percent",
@@ -1022,7 +1038,7 @@
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueMS; $issueMV; $issueSO",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "FetchLat, MicroSeq"
+      "MetricGroup": "FetchLat;MicroSeq"
     },
     {
       "MetricName": "m_tma_fetch_bandwidth_percent",
@@ -1063,7 +1079,7 @@
       "Category": "TMA",
       "Threshold": "> 10 & P & #HighIPC; $issueFB",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "FetchBW, Frontend, TmaL2"
+      "MetricGroup": "FetchBW;Frontend;TmaL2"
     },
     {
       "MetricName": "m_tma_mite_percent",
@@ -1104,7 +1120,7 @@
       "Category": "TMA",
       "Threshold": "> 10 & P; $issueFB; $issueMI",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "DSBmiss, FetchBW"
+      "MetricGroup": "DSBmiss;FetchBW"
     },
     {
       "MetricName": "m_tma_dsb_percent",
@@ -1145,7 +1161,7 @@
       "Category": "TMA",
       "Threshold": "> 15 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "DSB, FetchBW"
+      "MetricGroup": "DSB;FetchBW"
     },
     {
       "MetricName": "m_tma_bad_speculation_percent",
@@ -1250,7 +1266,7 @@
       "Category": "TMA",
       "Threshold": "> 10 & P; $issueBM",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BadSpec, BrMispredicts, TmaL2"
+      "MetricGroup": "BadSpec;BrMispredicts;TmaL2"
     },
     {
       "MetricName": "m_tma_machine_clears_percent",
@@ -1307,7 +1323,7 @@
       "Category": "TMA",
       "Threshold": "> 10 & P; $issueMC",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BadSpec, MachineClears, TmaL2"
+      "MetricGroup": "BadSpec;MachineClears;TmaL2"
     },
     {
       "MetricName": "m_tma_backend_bound_percent",
@@ -1448,7 +1464,7 @@
       "Category": "TMA",
       "Threshold": "> 20 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Backend, TmaL2"
+      "MetricGroup": "Backend;TmaL2"
     },
     {
       "MetricName": "m_tma_l1_bound_percent",
@@ -1476,7 +1492,7 @@
       "Category": "TMA",
       "Threshold": "> 10 & P; $issueL1; $issueMC",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "CacheMisses, MemoryBound, TmaL3mem"
+      "MetricGroup": "CacheMisses;MemoryBound;TmaL3mem"
     },
     {
       "MetricName": "m_tma_l2_bound_percent",
@@ -1504,7 +1520,7 @@
       "Category": "TMA",
       "Threshold": "> 5 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "CacheMisses, MemoryBound, TmaL3mem"
+      "MetricGroup": "CacheMisses;MemoryBound;TmaL3mem"
     },
     {
       "MetricName": "m_tma_l3_bound_percent",
@@ -1536,7 +1552,7 @@
       "Category": "TMA",
       "Threshold": "> 5 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "CacheMisses, MemoryBound, TmaL3mem"
+      "MetricGroup": "CacheMisses;MemoryBound;TmaL3mem"
     },
     {
       "MetricName": "m_tma_dram_bound_percent",
@@ -1568,7 +1584,7 @@
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "MemoryBound, TmaL3mem"
+      "MetricGroup": "MemoryBound;TmaL3mem"
     },
     {
       "MetricName": "m_tma_store_bound_percent",
@@ -1592,7 +1608,7 @@
       "Category": "TMA",
       "Threshold": "> 20 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "MemoryBound, TmaL3mem"
+      "MetricGroup": "MemoryBound;TmaL3mem"
     },
     {
       "MetricName": "m_tma_core_bound_percent",
@@ -1681,7 +1697,7 @@
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Backend, TmaL2, Compute"
+      "MetricGroup": "Backend;TmaL2;Compute"
     },
     {
       "MetricName": "m_tma_divider_percent",
@@ -1868,7 +1884,7 @@
       "Category": "TMA",
       "Threshold": "> 60",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Retire, TmaL2"
+      "MetricGroup": "Retire;TmaL2"
     },
     {
       "MetricName": "m_tma_heavy_operations_percent",
@@ -1913,7 +1929,7 @@
       "Category": "TMA",
       "Threshold": "> 10",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Retire, TmaL2"
+      "MetricGroup": "Retire;TmaL2"
     },
     {
       "MetricName": "m_tma_microcode_sequencer_percent",
