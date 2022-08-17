@@ -331,10 +331,9 @@ class PerfFormatConverter:
         if groups.isspace() or groups == "":
             new_groups = []
         else:
-            if "," in groups:
-                new_groups = [g.strip() for g in groups.split(",") if not g.isspace() and g != ""]
-            elif ";" in groups:
-                new_groups = [g.strip() for g in groups.split(";") if not g.isspace() and g != ""]
+            #new_groups = [g.strip() for g in groups.split(";") if not g.isspace() and g != ""]
+            new_groups = [g.strip() for g in re.split(";|,", groups) if not g.isspace() and g != ""]
+
 
         # Add level and parent groups
         if metric["Level"] != 1:
