@@ -2,7 +2,7 @@
   "Header": {
     "Copyright": "Copyright (c) 2007 - 2022 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for Intel(R) Xeon(R) Processor E5 v4 Family Based on the the Broadwell Microarchitecture",
-    "DatePublished": "08/15/2022",
+    "DatePublished": "08/16/2022",
     "TmaVersion": "4.4",
     "TmaFlavor": "Full"
   },
@@ -29,7 +29,7 @@
           "Alias": "c"
         }
       ],
-      "Formula": "(a / b * c) / 1000000000",
+      "Formula": "( (a / b * c) / 1000000000 ) / DURATIONTIMEINSECONDS",
       "Category": "",
       "Threshold": "",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -587,7 +587,7 @@
           "Alias": "socket_count"
         }
       ],
-      "Formula": "a / (b * socket_count) / 1000000000",
+      "Formula": "( a / (b * socket_count) / 1000000000 ) / DURATIONTIMEINSECONDS",
       "Category": "",
       "Threshold": "",
       "ResolutionLevels": "SYSTEM",

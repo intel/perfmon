@@ -2,7 +2,7 @@
   "Header": {
     "Copyright": "Copyright (c) 2007 - 2022 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for Intel(R) Xeon(R) processor E5 v3 family based on the Haswell-E microarchitecture",
-    "DatePublished": "08/12/2022",
+    "DatePublished": "08/16/2022",
     "TmaVersion": "4.4",
     "TmaFlavor": "Full"
   },
@@ -298,7 +298,7 @@
       "Formula": "( 1000000000 * (a / b) / (c / (d * e) ) ) * DURATIONTIMEINSECONDS",
       "Category": "",
       "Threshold": "",
-      "ResolutionLevels": "C",
+      "ResolutionLevels": "CBOX,SOCKET,SYSTEM",
       "MetricGroup": ""
     },
     {
@@ -334,7 +334,7 @@
       "Formula": "( 1000000000 * (a / b) / (c / (d * e) ) ) * DURATIONTIMEINSECONDS",
       "Category": "",
       "Threshold": "",
-      "ResolutionLevels": "C",
+      "ResolutionLevels": "CBOX,SOCKET,SYSTEM",
       "MetricGroup": ""
     },
     {
@@ -370,7 +370,7 @@
       "Formula": "( 1000000000 * (a / b) / (c / (d * e) ) ) * DURATIONTIMEINSECONDS",
       "Category": "",
       "Threshold": "",
-      "ResolutionLevels": "C",
+      "ResolutionLevels": "CBOX,SOCKET,SYSTEM",
       "MetricGroup": ""
     },
     {
@@ -490,7 +490,7 @@
       "Formula": "(a / (b * socket_count) / 1000000000) / DURATIONTIMEINSECONDS",
       "Category": "",
       "Threshold": "",
-      "ResolutionLevels": "C",
+      "ResolutionLevels": "CBOX,SOCKET,SYSTEM",
       "MetricGroup": ""
     },
     {
@@ -509,7 +509,7 @@
       "Formula": "(a * 8 / 1000000) / DURATIONTIMEINSECONDS",
       "Category": "",
       "Threshold": "",
-      "ResolutionLevels": "Q",
+      "ResolutionLevels": "QPI,SOCKET,SYSTEM",
       "MetricGroup": ""
     },
     {
@@ -589,7 +589,7 @@
       "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
       "Category": "",
       "Threshold": "",
-      "ResolutionLevels": "C",
+      "ResolutionLevels": "CBOX,SOCKET,SYSTEM",
       "MetricGroup": ""
     },
     {
@@ -608,7 +608,7 @@
       "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
       "Category": "",
       "Threshold": "",
-      "ResolutionLevels": "C",
+      "ResolutionLevels": "CBOX,SOCKET,SYSTEM",
       "MetricGroup": ""
     },
     {
