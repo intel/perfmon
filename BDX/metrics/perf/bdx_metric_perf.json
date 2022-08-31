@@ -1,7 +1,7 @@
 [
     {
         "BriefDescription": "CPU operating frequency (in GHz)",
-        "MetricExpr": "( ( CPU_CLK_UNHALTED.THREAD / CPU_CLK_UNHALTED.REF_TSC * #SYSTEM_TSC_FREQ ) / 1000000000 ) / duration_time",
+        "MetricExpr": "(( CPU_CLK_UNHALTED.THREAD / CPU_CLK_UNHALTED.REF_TSC * #SYSTEM_TSC_FREQ ) / 1000000000) / duration_time",
         "MetricGroup": "",
         "MetricName": "cpu_operating_frequency",
         "ScaleUnit": "1GHz"
@@ -155,7 +155,7 @@
     },
     {
         "BriefDescription": "Uncore operating frequency in GHz",
-        "MetricExpr": "( UNC_C_CLOCKTICKS / ( #num_cores / #num_packages * #num_packages ) / 1000000000 ) / duration_time",
+        "MetricExpr": "( UNC_C_CLOCKTICKS / ( #num_cores / #num_packages * #num_packages ) / 1000000000) / duration_time",
         "MetricGroup": "",
         "MetricName": "uncore_frequency",
         "ScaleUnit": "1GHz"

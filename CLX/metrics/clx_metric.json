@@ -2,7 +2,7 @@
   "Header": {
     "Copyright": "Copyright (c) 2007 - 2022 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for 2nd Generation Intel? Xeon? Processor Scalable Family based on Cascade Lake product",
-    "DatePublished": "08/15/2022",
+    "DatePublished": "08/31/2022",
     "TmaVersion": "4.4",
     "TmaFlavor": "Full"
   },
@@ -644,7 +644,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "(a * (64 / 9) / 1000000) / DURATIONTIMEINSECONDS",
+      "Formula": "(a * (64 / 9.0) / 1000000) / DURATIONTIMEINSECONDS",
       "Category": "",
       "Threshold": "",
       "ResolutionLevels": "UPI, SOCKET, SYSTEM",
