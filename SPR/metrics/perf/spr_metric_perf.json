@@ -92,7 +92,7 @@
     },
     {
         "BriefDescription": "Ratio of number of code read requests missing last level core cache (includes demand w/ prefetches) to the total number of completed instructions",
-        "MetricExpr": "( UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFCODE + UNC_CHA_TOR_INSERTS.IA_MISS_CRD + UNC_CHA_TOR_INSERTS.IA_MISS_CRD_PREF ) / INST_RETIRED.ANY",
+        "MetricExpr": "UNC_CHA_TOR_INSERTS.IA_MISS_CRD / INST_RETIRED.ANY",
         "MetricGroup": "",
         "MetricName": "llc_code_read_mpi_demand_plus_prefetch",
         "ScaleUnit": "1per_instr"

@@ -176,7 +176,7 @@
     },
     {
         "BriefDescription": "Intel(R) Ultra Path Interconnect (UPI) data transmit bandwidth (MB/sec)",
-        "MetricExpr": "( UNC_UPI_TxL_FLITS.ALL_DATA * (64 / 9) / 1000000) / duration_time",
+        "MetricExpr": "( UNC_UPI_TxL_FLITS.ALL_DATA * (64 / 9.0) / 1000000) / duration_time",
         "MetricGroup": "",
         "MetricName": "upi_data_transmit_bw_only_data",
         "ScaleUnit": "1MB/s"

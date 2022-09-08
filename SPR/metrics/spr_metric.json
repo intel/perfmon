@@ -2,7 +2,7 @@
   "Header": {
     "Copyright": "Copyright (c) 2007 - 2022 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for 4th Generation Intel? Xeon? Processor Scalable Family based on Sapphire Rapids microarchitecture",
-    "DatePublished": "08/15/2022",
+    "DatePublished": "08/31/2022",
     "TmaVersion": "4.4",
     "TmaFlavor": "Full"
   },
@@ -327,16 +327,8 @@
       "UnitOfMeasure": "per instruction",
       "Events": [
         {
-          "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFCODE",
-          "Alias": "a"
-        },
-        {
           "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_CRD",
           "Alias": "b"
-        },
-        {
-          "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_CRD_PREF",
-          "Alias": "c"
         },
         {
           "Name": "INST_RETIRED.ANY",
@@ -344,7 +336,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "(a + b + c) / d",
+      "Formula": "b / d",
       "Category": "",
       "Threshold": "",
       "ResolutionLevels": "SOCKET, SYSTEM",
