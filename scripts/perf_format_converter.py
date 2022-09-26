@@ -190,7 +190,7 @@ class PerfFormatConverter:
                     brief_description=metric["BriefDescription"],
                     metric_expr=self.get_expression(metric),
                     metric_group=self.fix_groups(metric),
-                    metric_name=self.translate_metric_name(re.sub(r"(^m_)", "", metric["MetricName"])),
+                    metric_name=self.translate_metric_name(metric),
                     scale_unit=self.get_scale_unit(metric))
                 metrics.append(new_metric)
         except KeyError as error:
@@ -236,16 +236,18 @@ class PerfFormatConverter:
         # Remove any extra spaces in expression
         return re.sub(r"[\s]{2,}", " ", expression.strip())
 
-    def translate_metric_name(self, metric_name):
+    def translate_metric_name(self, metric):
         """
         Replaces the metric name with a replacement found in the metric 
         name replacements json file
         """
         # Check if name has replacement
-        if metric_name in self.metric_name_replacement_dict:
-            return self.metric_name_replacement_dict[metric_name]
+        if metric["MetricName"] in self.metric_name_replacement_dict:
+            return self.metric_name_replacement_dict[metric["MetricName"]]
         else:
-            return metric_name
+            if metric["Category"] == "TMA":
+                return "tma_" + metric["MetricName"].replace(" ", "_").lower()
+            return metric["MetricName"]
 
     def translate_metric_event(self, event_name):
         """
@@ -336,12 +338,11 @@ class PerfFormatConverter:
 
 
         # Add level and parent groups
-        if metric["Level"] != 1:
-            level_group = "TmaL" + str(metric["Level"])
-            level_mem_group = "TmaL" + str(metric["Level"]) + "mem"
-            if level_group not in new_groups:# and level_mem_group not in new_groups:
-                new_groups.append("TmaL" + str(metric["Level"]))
-            new_groups.append(metric["ParentCategory"])
+        if metric["Category"] == "TMA":
+            new_groups.append("TopdownL" + str(metric["Level"]))
+            new_groups.append("tma_L" + str(metric["Level"]) + "_group")
+            if "ParentCategory" in metric:
+                new_groups.append(metric["ParentCategory"] + "_group")
 
         return ";".join(new_groups) if new_groups.count != 0 else ""
 
