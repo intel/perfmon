@@ -58,8 +58,15 @@
         "DTLB_LOAD_MISSES.STLB_HIT:c1":"cpu@DTLB_LOAD_MISSES.STLB_HIT\\,cmask\\=0x1@",
         "DTLB_STORE_MISSES.STLB_HIT:c1":"cpu@DTLB_STORE_MISSES.STLB_HIT\\,cmask\\=0x1@",
         "OFFCORE_REQUESTS_OUTSTANDING.ALL_DATA_RD:c4":"cpu@OFFCORE_REQUESTS_OUTSTANDING.ALL_DATA_RD\\,cmask\\=0x4@",
-        "IDQ.MITE_UOPS:c4":"cpu@IDQ.MITE_UOPS\\,cmask\\=0x4",
-        "IDQ.MITE_UOPS:c5":"cpu@IDQ.MITE_UOPS\\,cmask\\=0x5"
+        "IDQ.MITE_UOPS:c4":"cpu@IDQ.MITE_UOPS\\,cmask\\=0x4@",
+        "IDQ.MITE_UOPS:c5":"cpu@IDQ.MITE_UOPS\\,cmask\\=0x5@",
+        "L1D_PEND_MISS.REQUEST_FB_FULL:c1":"cpu@L1D_PEND_MISS.REQUEST_FB_FULL\\,cmask\\=0x1@",
+        "UOPS_EXECUTED.CORE:i1:c1":"cpu@UOPS_EXECUTED.CORE\\,inv\\=0x1\\,cmask\\=0x1@",
+        "OFFCORE_REQUESTS_OUTSTANDING.ALL_DATA_RD:c6":"cpu@OFFCORE_REQUESTS_OUTSTANDING.ALL_DATA_RD\\,cmask\\=0x6@",
+        "DTLB_LOAD_MISSES.WALK_DURATION:c1":"cpu@DTLB_LOAD_MISSES.WALK_DURATION\\,cmask\\=0x1@",
+        "DTLB_STORE_MISSES.WALK_DURATION:c1":"cpu@DTLB_STORE_MISSES.WALK_DURATION\\,cmask\\=0x1@",
+        "AMX_OPS_RETIRED.INT8:c1":"cpu@AMX_OPS_RETIRED.INT8\\,cmask\\=0x1@",
+        "ASSISTS.ANY:u0x1B":"cpu@ASSISTS.ANY\\,umask\\=0x1B@"
     },
     "metric_source_events":{
         "CHAS_PER_SOCKET":"UNC_CHA([^\\s]*)",
