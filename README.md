@@ -105,7 +105,7 @@ The perf script in /scripts will take the metrics.json file and convert that gen
 
 #### Known Issues
 
-1. There are four metrics (tma_fp_arith_percent, tma_other_light_ops_percent, tma_ports_utilization_percent, tma_retiring_percent) that are currently not working with perf.
+1. Metrics: Memory Bound, Ports Utilization, Core Bound and Fetch Bandwidth may produce incorrect results on HSX and BDX under multi-threaded conditions.
 
 #### How to contribute
 
