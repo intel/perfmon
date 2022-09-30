@@ -869,7 +869,7 @@
     },
     {
         "BriefDescription": "This metric approximates arithmetic Integer (Int) matrix uops fraction the CPU has retired (aggregated across all supported Int datatypes in AMX engine). Refer to AMX_Busy and TIOPs metrics for actual AMX utilization and Int performance, resp.",
-        "MetricExpr": "100 * ( AMX_OPS_RETIRED.INT8:c1 / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) )",
+        "MetricExpr": "100 * ( cpu@AMX_OPS_RETIRED.INT8\\,cmask\\=0x1@ / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) )",
         "MetricGroup": "Compute;HPC;IntVector;Pipeline;Server;TopdownL4;tma_L4_group;tma_int_operations_group",
         "MetricName": "tma_int_amx",
         "ScaleUnit": "1%"
@@ -939,7 +939,7 @@
     },
     {
         "BriefDescription": "This metric estimates fraction of slots the CPU retired uops delivered by the Microcode_Sequencer as a result of Assists. Assists are long sequences of uops that are required in certain corner-cases for operations that cannot be handled natively by the execution pipeline. For example; when working with very small floating point values (so-called Denormals); the FP units are not set up to perform these operations natively. Instead; a sequence of instructions to perform the computation on the Denormals is injected into the pipeline. Since these microcode sequences might be dozens of uops long; Assists can be extremely deleterious to performance and they can be avoided in many cases.",
-        "MetricExpr": "100 * ( min( ( ( 100 ) * ASSISTS.ANY:u0x1B / ( slots ) ) , ( 1 ) ) )",
+        "MetricExpr": "100 * ( min( ( ( 100 ) * cpu@ASSISTS.ANY\\,umask\\=0x1B@ / ( slots ) ) , ( 1 ) ) )",
         "MetricGroup": "TopdownL4;tma_L4_group;tma_microcode_sequencer_group",
         "MetricName": "tma_assists",
         "ScaleUnit": "1%"
@@ -967,7 +967,7 @@
     },
     {
         "BriefDescription": "This metric estimates fraction of cycles the CPU retired uops originated from CISC (complex instruction set computer) instruction. A CISC instruction has multiple uops that are required to perform the instruction's functionality as in the case of read-modify-write as an example. Since these instructions require multiple uops they may or may not imply sub-optimal use of machine resources.",
-        "MetricExpr": "100 * ( max( 0 , ( UOPS_RETIRED.MS / ( slots ) ) - ( min( ( ( 100 ) * ASSISTS.ANY:u0x1B / ( slots ) ) , ( 1 ) ) ) ) )",
+        "MetricExpr": "100 * ( max( 0 , ( UOPS_RETIRED.MS / ( slots ) ) - ( min( ( ( 100 ) * cpu@ASSISTS.ANY\\,umask\\=0x1B@ / ( slots ) ) , ( 1 ) ) ) ) )",
         "MetricGroup": "TopdownL4;tma_L4_group;tma_microcode_sequencer_group",
         "MetricName": "tma_cisc",
         "ScaleUnit": "1%"

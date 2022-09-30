@@ -407,7 +407,7 @@
     },
     {
         "BriefDescription": "This metric represents fraction of cycles where (only) 4 uops were delivered by the MITE pipeline",
-        "MetricExpr": "100 * ( ( cpu@IDQ.MITE_UOPS\\,cmask\\=0x4 - cpu@IDQ.MITE_UOPS\\,cmask\\=0x5 ) / ( CPU_CLK_UNHALTED.THREAD ) )",
+        "MetricExpr": "100 * ( ( cpu@IDQ.MITE_UOPS\\,cmask\\=0x4@ - cpu@IDQ.MITE_UOPS\\,cmask\\=0x5@ ) / ( CPU_CLK_UNHALTED.THREAD ) )",
         "MetricGroup": "DSBmiss;FetchBW;TopdownL4;tma_L4_group;tma_mite_group",
         "MetricName": "tma_mite_4wide",
         "ScaleUnit": "1%"

@@ -372,7 +372,7 @@
     },
     {
         "BriefDescription": "This metric roughly estimates the fraction of cycles where the Data TLB (DTLB) was missed by load accesses. TLBs (Translation Look-aside Buffers) are processor caches for recently used entries out of the Page Tables that are used to map virtual- to physical-addresses by the operating system. This metric approximates the potential delay of demand loads missing the first-level data TLB (assuming worst case scenario with back to back misses to different pages). This includes hitting in the second-level TLB (STLB) as well as performing a hardware page walk on an STLB miss.",
-        "MetricExpr": "100 * ( ( ( 8 ) * DTLB_LOAD_MISSES.STLB_HIT + DTLB_LOAD_MISSES.WALK_DURATION:c1 + 7 * DTLB_LOAD_MISSES.WALK_COMPLETED ) / ( CPU_CLK_UNHALTED.THREAD ) )",
+        "MetricExpr": "100 * ( ( ( 8 ) * DTLB_LOAD_MISSES.STLB_HIT + cpu@DTLB_LOAD_MISSES.WALK_DURATION\\,cmask\\=0x1@ + 7 * DTLB_LOAD_MISSES.WALK_COMPLETED ) / ( CPU_CLK_UNHALTED.THREAD ) )",
         "MetricGroup": "MemoryTLB;TopdownL4;tma_L4_group;tma_l1_bound_group",
         "MetricName": "tma_dtlb_load",
         "ScaleUnit": "1%"
@@ -526,7 +526,7 @@
     },
     {
         "BriefDescription": "This metric roughly estimates the fraction of cycles spent handling first-level data TLB store misses.  As with ordinary data caching; focus on improving data locality and reducing working-set size to reduce DTLB overhead.  Additionally; consider using profile-guided optimization (PGO) to collocate frequently-used data on the same page.  Try using larger page sizes for large amounts of frequently-used data.",
-        "MetricExpr": "100 * ( min( ( ( ( 8 ) * DTLB_STORE_MISSES.STLB_HIT + DTLB_STORE_MISSES.WALK_DURATION:c1 + 7 * DTLB_STORE_MISSES.WALK_COMPLETED ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
+        "MetricExpr": "100 * ( min( ( ( ( 8 ) * DTLB_STORE_MISSES.STLB_HIT + cpu@DTLB_STORE_MISSES.WALK_DURATION\\,cmask\\=0x1@ + 7 * DTLB_STORE_MISSES.WALK_COMPLETED ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
         "MetricGroup": "MemoryTLB;TopdownL4;tma_L4_group;tma_store_bound_group",
         "MetricName": "tma_dtlb_store",
         "ScaleUnit": "1%"
@@ -554,7 +554,7 @@
     },
     {
         "BriefDescription": "This metric represents fraction of cycles CPU executed no uops on any execution port (Logical Processor cycles since ICL, Physical Core cycles otherwise). Long-latency instructions like divides may contribute to this metric.",
-        "MetricExpr": "100 * ( ( ( UOPS_EXECUTED.CORE:i1:c1 ) / 2 if #SMT_on else ( CYCLE_ACTIVITY.STALLS_TOTAL - ( RS_EVENTS.EMPTY_CYCLES if ( ( ( 4 ) * IDQ_UOPS_NOT_DELIVERED.CYCLES_0_UOPS_DELIV.CORE / ( ( 4 ) * ( ( CPU_CLK_UNHALTED.THREAD_ANY / 2 ) if #SMT_on else ( CPU_CLK_UNHALTED.THREAD ) ) ) ) > 0.1 ) else 0 ) ) ) / ( ( CPU_CLK_UNHALTED.THREAD_ANY / 2 ) if #SMT_on else ( CPU_CLK_UNHALTED.THREAD ) ) )",
+        "MetricExpr": "100 * ( ( ( cpu@UOPS_EXECUTED.CORE\\,inv\\=0x1\\,cmask\\=0x1@ ) / 2 if #SMT_on else ( CYCLE_ACTIVITY.STALLS_TOTAL - ( RS_EVENTS.EMPTY_CYCLES if ( ( ( 4 ) * IDQ_UOPS_NOT_DELIVERED.CYCLES_0_UOPS_DELIV.CORE / ( ( 4 ) * ( ( CPU_CLK_UNHALTED.THREAD_ANY / 2 ) if #SMT_on else ( CPU_CLK_UNHALTED.THREAD ) ) ) ) > 0.1 ) else 0 ) ) ) / ( ( CPU_CLK_UNHALTED.THREAD_ANY / 2 ) if #SMT_on else ( CPU_CLK_UNHALTED.THREAD ) ) )",
         "MetricGroup": "PortsUtil;TopdownL4;tma_L4_group;tma_ports_utilization_group",
         "MetricName": "tma_ports_utilized_0",
         "ScaleUnit": "1%"
