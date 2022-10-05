@@ -1462,47 +1462,6 @@
       "MetricGroup": "DSB;FetchBW"
     },
     {
-      "MetricName": "LSD",
-      "LegacyName": "metric_TMA_....LSD(%)",
-      "ParentCategory": "Fetch Bandwidth",
-      "Level": 3,
-      "BriefDescription": "This metric represents Core fraction of cycles in which CPU was likely limited due to LSD (Loop Stream Detector) unit.  LSD typically does well sustaining Uop supply. However; in some rare cases; optimal uop-delivery could not be reached for small loops whose size (in terms of number of uops) does not suit well the LSD structure.",
-      "UnitOfMeasure": "percent",
-      "Events": [
-        {
-          "Name": "LSD.CYCLES_ACTIVE",
-          "Alias": "a"
-        },
-        {
-          "Name": "LSD.CYCLES_4_UOPS",
-          "Alias": "b"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.THREAD_ANY",
-          "Alias": "c"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.THREAD",
-          "Alias": "d"
-        }
-      ],
-      "Constants": [
-        {
-          "Name": "THREADS_PER_CORE",
-          "Alias": "threads"
-        },
-        {
-          "Name": "HYPERTHREADING_ON",
-          "Alias": "smt_on"
-        }
-      ],
-      "Formula": "100 * ( ( a - b ) / ( ( c / 2 ) if smt_on else ( d ) ) / 2 )",
-      "Category": "TMA",
-      "Threshold": ">15 & P",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "FetchBW;LSD"
-    },
-    {
       "MetricName": "Bad Speculation",
       "LegacyName": "metric_TMA_Bad_Speculation(%)",
       "Level": 1,
