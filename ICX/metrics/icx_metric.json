@@ -1499,34 +1499,6 @@
       "MetricGroup": "DSBmiss;FetchBW"
     },
     {
-      "MetricName": "LSD",
-      "LegacyName": "metric_TMA_....LSD(%)",
-      "ParentCategory": "Fetch Bandwidth",
-      "Level": 3,
-      "BriefDescription": "%",
-      "UnitOfMeasure": "percent",
-      "Events": [
-        {
-          "Name": "LSD.CYCLES_ACTIVE",
-          "Alias": "a"
-        },
-        {
-          "Name": "LSD.CYCLES_OK",
-          "Alias": "b"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.DISTRIBUTED",
-          "Alias": "c"
-        }
-      ],
-      "Constants": [],
-      "Formula": "100 * ( ( a - b ) / ( c ) / 2 )",
-      "Category": "TMA",
-      "Threshold": "> 0.15 & P",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "FetchBW, LSD"
-    },
-    {
       "MetricName": "MITE 4wide",
       "LegacyName": "metric_TMA_......MITE_4wide(%)",
       "ParentCategory": "MITE",

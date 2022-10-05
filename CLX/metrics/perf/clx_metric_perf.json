@@ -1,4 +1,5 @@
 [
+[
     {
         "BriefDescription": "Percentage of time spent in the active CPU power state C0",
         "MetricExpr": "100 * CPU_CLK_UNHALTED.REF_TSC / TSC",
@@ -382,13 +383,6 @@
         "MetricExpr": "100 * ( ( IDQ.ALL_DSB_CYCLES_ANY_UOPS - IDQ.ALL_DSB_CYCLES_4_UOPS ) / ( ( CPU_CLK_UNHALTED.THREAD_ANY / 2 ) if #SMT_on else ( CPU_CLK_UNHALTED.THREAD ) ) / 2 )",
         "MetricGroup": "DSB;FetchBW;TopdownL3;tma_L3_group;tma_fetch_bandwidth_group",
         "MetricName": "tma_dsb",
-        "ScaleUnit": "1%"
-    },
-    {
-        "BriefDescription": "This metric represents Core fraction of cycles in which CPU was likely limited due to LSD (Loop Stream Detector) unit.  LSD typically does well sustaining Uop supply. However; in some rare cases; optimal uop-delivery could not be reached for small loops whose size (in terms of number of uops) does not suit well the LSD structure.",
-        "MetricExpr": "100 * ( ( LSD.CYCLES_ACTIVE - LSD.CYCLES_4_UOPS ) / ( ( CPU_CLK_UNHALTED.THREAD_ANY / 2 ) if #SMT_on else ( CPU_CLK_UNHALTED.THREAD ) ) / 2 )",
-        "MetricGroup": "FetchBW;LSD;TopdownL3;tma_L3_group;tma_fetch_bandwidth_group",
-        "MetricName": "tma_lsd",
         "ScaleUnit": "1%"
     },
     {
