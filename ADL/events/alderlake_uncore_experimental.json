@@ -1,0 +1,67 @@
+[
+  {
+    "Unit": "ARB",
+    "EventCode": "0x81",
+    "UMask": "0x02",
+    "EventName": "UNC_ARB_REQ_TRK_REQUEST.DRD",
+    "BriefDescription": "This event is deprecated. Refer to new event UNC_ARB_DAT_REQUESTS.RD",
+    "PublicDescription": "This event is deprecated. Refer to new event UNC_ARB_DAT_REQUESTS.RD",
+    "Counter": "0,1",
+    "CounterMask": "0",
+    "Invert": "0",
+    "EdgeDetect": "0",
+    "CounterType": "PGMABLE"
+  },
+  {
+    "Unit": "ARB",
+    "EventCode": "0x85",
+    "UMask": "0x01",
+    "EventName": "UNC_ARB_IFA_OCCUPANCY.ALL",
+    "BriefDescription": "This event is deprecated. Refer to new event UNC_ARB_DAT_OCCUPANCY.ALL",
+    "PublicDescription": "This event is deprecated. Refer to new event UNC_ARB_DAT_OCCUPANCY.ALL",
+    "Counter": "0",
+    "CounterMask": "0",
+    "Invert": "0",
+    "EdgeDetect": "0",
+    "CounterType": "PGMABLE"
+  },
+  {
+    "Unit": "ARB",
+    "EventCode": "0x85",
+    "UMask": "0x01",
+    "EventName": "UNC_ARB_DAT_OCCUPANCY.ALL",
+    "BriefDescription": "Each cycle counts number of any coherent request at memory controller that were issued by any core.",
+    "PublicDescription": "Each cycle counts number of any coherent request at memory controller that were issued by any core.",
+    "Counter": "0",
+    "CounterMask": "0",
+    "Invert": "0",
+    "EdgeDetect": "0",
+    "CounterType": "PGMABLE"
+  },
+  {
+    "Unit": "ARB",
+    "EventCode": "0x81",
+    "UMask": "0x02",
+    "EventName": "UNC_ARB_DAT_REQUESTS.RD",
+    "BriefDescription": "Number of coherent read requests sent to memory controller that were issued by any core.",
+    "PublicDescription": "Number of coherent read requests sent to memory controller that were issued by any core.",
+    "Counter": "0,1",
+    "CounterMask": "0",
+    "Invert": "0",
+    "EdgeDetect": "0",
+    "CounterType": "PGMABLE"
+  },
+  {
+    "Unit": "ARB",
+    "EventCode": "0x85",
+    "UMask": "0x02",
+    "EventName": "UNC_ARB_DAT_OCCUPANCY.RD",
+    "BriefDescription": "Each cycle counts number of coherent reads pending on data return from memory controller that were issued by any core.",
+    "PublicDescription": "Each cycle counts number of coherent reads pending on data return from memory controller that were issued by any core.",
+    "Counter": "0",
+    "CounterMask": "0",
+    "Invert": "0",
+    "EdgeDetect": "0",
+    "CounterType": "PGMABLE"
+  }
+]
