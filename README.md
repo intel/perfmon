@@ -267,6 +267,14 @@ This field lists the known bugs that apply to the events. For the latest, up to 
 This field is specific to the json format. There is only 1 file for core and offcore events in this format. This field is set to 1 for offcore events
 and 0 for core events.
 
+## Platform Specific Details
+
+### Tremont based platforms Snow Ridge, Elkhart Lake, and Jasper Lake
+Please use SNR core event files. The EHL events folder is populated with a copy of SNR `core.json` for convenience.
+
+### Knights Mill (KNM)
+Please use KNL perfmon event files for KNM. The KNM events folder is populated with copies of KNL for convenience.
+
 ## For additional information:
 * Intel Platform Monitoring Homepage http://software.intel.com/en-us/platform-monitoring/
 * http://software.intel.com/en-us/articles/performance-monitoring-on-intel-xeon-processor-e5-family
