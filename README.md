@@ -140,7 +140,7 @@ The event list filename indicates which type of list it contains, and follows th
 
 `<microarchitecture-codename>_<core/offcore>_<version>`
 
-New version releases will be announced in the mail list perfmon-announce@lists.01.org
+New version releases will be announced via [GitHub](https://github.com/intel/perfmon). Please subscribe to release notifications.
 
 Different microarchitectures provide different performance monitoring capabilities, so field names and categories
 of events may vary.
@@ -282,7 +282,7 @@ Please use KNL perfmon event files for KNM. The KNM events folder is populated w
 * http://www.intel.com/content/dam/www/public/us/en/documents/specification-updates/4th-gen-core-family-desktop-specification-update.pdf
 
 ## For questions:
-email perfmon-discuss@lists.01.org
+Email perfmon-support@intel.com, or open a [GitHub Issue](https://github.com/intel/perfmon/issues).
 
 ## Notices
 INFORMATION IN THIS DOCUMENT IS PROVIDED IN CONNECTION WITH INTEL PRODUCTS. NO LICENSE, EXPRESS OR IMPLIED, BY ESTOPPEL OR OTHERWISE,
