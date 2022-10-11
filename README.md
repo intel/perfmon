@@ -134,11 +134,13 @@ name as well as the header for each file. For some microarchitectures, up to thr
 be available. These event lists correspond to the types of events that can be collected:
 
 * core - Contains events counted from within a logical processor core.
-* offcore - Contains matrix events counted from the core, but measuring responses that come from offcore.
+  * Core event list files also include offcore events (starting with CLX).
+* uncore - Contains events related to logic outside of the CPU core. Refer to the [Uncore Performance Monitoring Reference Manuals](https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html#uncore) for additional information.
+* matrix - Contains matrix events counted from the core, but measuring responses that come from offcore.
 
 The event list filename indicates which type of list it contains, and follows this format:
 
-`<microarchitecture-codename>_<core/offcore>_<version>`
+`<microarchitecture-codename>_<core/uncore/matrix>`
 
 New version releases will be announced via [GitHub](https://github.com/intel/perfmon). Please subscribe to release notifications.
 
