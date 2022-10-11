@@ -209,6 +209,8 @@ class PerfFormatConverter:
         try:
             # Get formula and events for conversion
             base_formula = metric["Formula"].replace("DURATIONTIMEINSECONDS", "duration_time")
+            if base_formula.startswith("100 *"):
+                base_formula = base_formula.replace("100 *", "");
             events = metric["Events"]
             constants = metric["Constants"]
 
@@ -313,8 +315,11 @@ class PerfFormatConverter:
 
         # Get the unit of measure of the metric
         unit = metric["UnitOfMeasure"]
+        metric_type = metric["Category"]
 
-        if unit in self.scale_unit_replacement_dict:
+        if metric_type == "TMA" and unit == "percent":
+            return "100%"
+        elif unit in self.scale_unit_replacement_dict:
             return "1" + self.scale_unit_replacement_dict[unit]
         else:
             return None
