@@ -156,7 +156,7 @@ The following files are distributed under the terms of the [3-clause BSD license
 
 Other files in this package are ALL RIGHTS RESERVED.
 
-## Event List Field Defitions:
+## Event List Field Defitions
 Below is a list of the fields/headers in the event files and a description of how SW tools should
 interpret these values. A particular event list from this package may not contain all the fields described
 below. For more detailed information of the Performance monitoring unit please refer to chapters 18 and 19
@@ -277,13 +277,13 @@ Please use SNR core event files. The EHL events folder is populated with a copy 
 ### Knights Mill (KNM)
 Please use KNL perfmon event files for KNM. The KNM events folder is populated with copies of KNL for convenience.
 
-## For additional information:
+## For additional information
 * Intel Platform Monitoring Homepage http://software.intel.com/en-us/platform-monitoring/
 * http://software.intel.com/en-us/articles/performance-monitoring-on-intel-xeon-processor-e5-family
 * http://software.intel.com/en-us/articles/monitoring-integrated-memory-controller-requests-in-the-2nd-3rd-and-4th-generation-intel
 * http://www.intel.com/content/dam/www/public/us/en/documents/specification-updates/4th-gen-core-family-desktop-specification-update.pdf
 
-## For questions:
+## For questions
 Email perfmon-support@intel.com, or open a [GitHub Issue](https://github.com/intel/perfmon/issues).
 
 ## Notices
