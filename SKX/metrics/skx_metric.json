@@ -2,7 +2,7 @@
   "Header": {
     "Copyright": "Copyright (c) 2007 - 2022 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for Intel? Xeon? Processor Scalable Family based on Skylake microarchitecture",
-    "DatePublished": "09/30/2022",
+    "DatePublished": "10/13/2022",
     "TmaVersion": "4.4",
     "TmaFlavor": "Full"
   },
@@ -900,7 +900,10 @@
       "MetricGroup": ""
     },
     {
-      "MetricName": "Frontend Bound",
+      "Level": 0
+    },
+    {
+      "MetricName": "Frontend_Bound",
       "LegacyName": "metric_TMA_Frontend_Bound(%)",
       "Level": 1,
       "BriefDescription": "This category represents fraction of slots where the processor's Frontend undersupplies its Backend. Frontend denotes the first part of the processor core responsible to fetch operations that are executed later on by the Backend part. Within the Frontend; a branch predictor predicts the next address to fetch; cache-lines are fetched from the memory subsystem; parsed into instructions; and lastly decoded into micro-operations (uops). Ideally the Frontend can issue Machine_Width uops every cycle to the Backend. Frontend Bound denotes unutilized issue-slots when there is no Backend stall; i.e. bubbles where Frontend delivered no uops while Backend could have accepted them. For example; stalls due to instruction-cache misses would be categorized under Frontend Bound.",
@@ -936,9 +939,9 @@
       "MetricGroup": "TmaL1;PGO"
     },
     {
-      "MetricName": "Fetch Latency",
+      "MetricName": "Fetch_Latency",
       "LegacyName": "metric_TMA_..Fetch_Latency(%)",
-      "ParentCategory": "Frontend Bound",
+      "ParentCategory": "Frontend_Bound",
       "Level": 2,
       "BriefDescription": "This metric represents fraction of slots the CPU was stalled due to Frontend latency issues.  For example; instruction-cache misses; iTLB misses or fetch stalls after a branch misprediction are categorized under Frontend Latency. In such cases; the Frontend eventually delivers no uops for some period.",
       "UnitOfMeasure": "percent",
@@ -973,9 +976,9 @@
       "MetricGroup": "Frontend;TmaL2"
     },
     {
-      "MetricName": "ICache Misses",
+      "MetricName": "ICache_Misses",
       "LegacyName": "metric_TMA_....ICache_Misses(%)",
-      "ParentCategory": "Fetch Latency",
+      "ParentCategory": "Fetch_Latency",
       "Level": 3,
       "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to instruction cache misses.",
       "UnitOfMeasure": "percent",
@@ -1001,9 +1004,9 @@
       "MetricGroup": "BigFoot;FetchLat;IcMiss"
     },
     {
-      "MetricName": "ITLB Misses",
+      "MetricName": "ITLB_Misses",
       "LegacyName": "metric_TMA_....ITLB_Misses(%)",
-      "ParentCategory": "Fetch Latency",
+      "ParentCategory": "Fetch_Latency",
       "Level": 3,
       "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to Instruction TLB (ITLB) misses.",
       "UnitOfMeasure": "percent",
@@ -1025,9 +1028,9 @@
       "MetricGroup": "BigFoot;FetchLat;MemoryTLB"
     },
     {
-      "MetricName": "Branch Resteers",
+      "MetricName": "Branch_Resteers",
       "LegacyName": "metric_TMA_....Branch_Resteers(%)",
-      "ParentCategory": "Fetch Latency",
+      "ParentCategory": "Fetch_Latency",
       "Level": 3,
       "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to Branch Resteers. Branch Resteers estimates the Frontend delay in fetching operations from corrected path; following all sorts of miss-predicted branches. For example; branchy code with lots of miss-predictions might get categorized under Branch Resteers. Note the value of this node may overlap with its siblings.",
       "UnitOfMeasure": "percent",
@@ -1053,9 +1056,9 @@
       "MetricGroup": "FetchLat"
     },
     {
-      "MetricName": "Mispredicts Resteers",
+      "MetricName": "Mispredicts_Resteers",
       "LegacyName": "metric_TMA_......Mispredicts_Resteers(%)",
-      "ParentCategory": "Branch Resteers",
+      "ParentCategory": "Branch_Resteers",
       "Level": 4,
       "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to Branch Resteers as a result of Branch Misprediction at execution stage. ",
       "UnitOfMeasure": "percent",
@@ -1085,9 +1088,9 @@
       "MetricGroup": "BadSpec;BrMispredicts"
     },
     {
-      "MetricName": "Clears Resteers",
+      "MetricName": "Clears_Resteers",
       "LegacyName": "metric_TMA_......Clears_Resteers(%)",
-      "ParentCategory": "Branch Resteers",
+      "ParentCategory": "Branch_Resteers",
       "Level": 4,
       "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to Branch Resteers as a result of Machine Clears. ",
       "UnitOfMeasure": "percent",
@@ -1117,9 +1120,9 @@
       "MetricGroup": "BadSpec;MachineClears"
     },
     {
-      "MetricName": "Unknown Branches",
+      "MetricName": "Unknown_Branches",
       "LegacyName": "metric_TMA_......Unknown_Branches(%)",
-      "ParentCategory": "Branch Resteers",
+      "ParentCategory": "Branch_Resteers",
       "Level": 4,
       "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to new branch address clears. These are fetched branches the Branch Prediction Unit was unable to recognize (First fetch or hitting BPU capacity limit).",
       "UnitOfMeasure": "percent",
@@ -1141,9 +1144,9 @@
       "MetricGroup": "BigFoot;FetchLat"
     },
     {
-      "MetricName": "DSB Switches",
+      "MetricName": "DSB_Switches",
       "LegacyName": "metric_TMA_....DSB_Switches(%)",
-      "ParentCategory": "Fetch Latency",
+      "ParentCategory": "Fetch_Latency",
       "Level": 3,
       "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to switches from DSB to MITE pipelines. The DSB (decoded i-cache) is a Uop Cache where the front-end directly delivers Uops (micro operations) avoiding heavy x86 decoding. The DSB pipeline has shorter latency and delivered higher bandwidth than the MITE (legacy instruction decode pipeline). Switching between the two pipelines can cause penalties hence this metric measures the exposed penalty.",
       "UnitOfMeasure": "percent",
@@ -1167,7 +1170,7 @@
     {
       "MetricName": "LCP",
       "LegacyName": "metric_TMA_....LCP(%)",
-      "ParentCategory": "Fetch Latency",
+      "ParentCategory": "Fetch_Latency",
       "Level": 3,
       "BriefDescription": "This metric represents fraction of cycles CPU was stalled due to Length Changing Prefixes (LCPs). Using proper compiler flags or Intel Compiler by default will certainly avoid this. #Link: Optimization Guide about LCP BKMs.",
       "UnitOfMeasure": "percent",
@@ -1189,9 +1192,9 @@
       "MetricGroup": "FetchLat"
     },
     {
-      "MetricName": "MS Switches",
+      "MetricName": "MS_Switches",
       "LegacyName": "metric_TMA_....MS_Switches(%)",
-      "ParentCategory": "Fetch Latency",
+      "ParentCategory": "Fetch_Latency",
       "Level": 3,
       "BriefDescription": "This metric estimates the fraction of cycles when the CPU was stalled due to switches of uop delivery to the Microcode Sequencer (MS). Commonly used instructions are optimized for delivery by the DSB (decoded i-cache) or MITE (legacy instruction decode) pipelines. Certain operations cannot be handled natively by the execution pipeline; and must be performed by microcode (small programs injected into the execution stream). Switching to the MS too often can negatively impact performance. The MS is designated to deliver long uop flows required by CISC instructions like CPUID; or uncommon conditions like Floating Point Assists when dealing with Denormals.",
       "UnitOfMeasure": "percent",
@@ -1213,9 +1216,9 @@
       "MetricGroup": "FetchLat;MicroSeq"
     },
     {
-      "MetricName": "Fetch Bandwidth",
+      "MetricName": "Fetch_Bandwidth",
       "LegacyName": "metric_TMA_..Fetch_Bandwidth(%)",
-      "ParentCategory": "Frontend Bound",
+      "ParentCategory": "Frontend_Bound",
       "Level": 2,
       "BriefDescription": "This metric represents fraction of slots the CPU was stalled due to Frontend bandwidth issues.  For example; inefficiencies at the instruction decoders; or restrictions for caching in the DSB (decoded uops cache) are categorized under Fetch Bandwidth. In such cases; the Frontend typically delivers suboptimal amount of uops to the Backend.",
       "UnitOfMeasure": "percent",
@@ -1256,7 +1259,7 @@
     {
       "MetricName": "MITE",
       "LegacyName": "metric_TMA_....MITE(%)",
-      "ParentCategory": "Fetch Bandwidth",
+      "ParentCategory": "Fetch_Bandwidth",
       "Level": 3,
       "BriefDescription": "This metric represents Core fraction of cycles in which CPU was likely limited due to the MITE pipeline (the legacy decode pipeline). This pipeline is used for code that was not pre-cached in the DSB or LSD. For example; inefficiencies due to asymmetric decoders; use of long immediate or LCP can manifest as MITE fetch bandwidth bottleneck.",
       "UnitOfMeasure": "percent",
@@ -1295,7 +1298,7 @@
       "MetricGroup": "DSBmiss;FetchBW"
     },
     {
-      "MetricName": "Decoder0 Alone",
+      "MetricName": "Decoder0_Alone",
       "LegacyName": "metric_TMA_......Decoder0_Alone(%)",
       "ParentCategory": "MITE",
       "Level": 4,
@@ -1338,7 +1341,7 @@
     {
       "MetricName": "DSB",
       "LegacyName": "metric_TMA_....DSB(%)",
-      "ParentCategory": "Fetch Bandwidth",
+      "ParentCategory": "Fetch_Bandwidth",
       "Level": 3,
       "BriefDescription": "This metric represents Core fraction of cycles in which CPU was likely limited due to DSB (decoded uop cache) fetch pipeline.  For example; inefficient utilization of the DSB cache structure or bank conflict when reading from it; are categorized here.",
       "UnitOfMeasure": "percent",
@@ -1377,7 +1380,7 @@
       "MetricGroup": "DSB;FetchBW"
     },
     {
-      "MetricName": "Bad Speculation",
+      "MetricName": "Bad_Speculation",
       "LegacyName": "metric_TMA_Bad_Speculation(%)",
       "Level": 1,
       "BriefDescription": "This category represents fraction of slots wasted due to incorrect speculations. This include slots used to issue uops that do not eventually get retired and slots for which the issue-pipeline was blocked due to recovery from earlier incorrect speculation. For example; wasted work due to miss-predicted branches are categorized under Bad Speculation category. Incorrect data speculation followed by Memory Ordering Nukes is another example.",
@@ -1425,9 +1428,9 @@
       "MetricGroup": "TmaL1"
     },
     {
-      "MetricName": "Branch Mispredicts",
+      "MetricName": "Branch_Mispredicts",
       "LegacyName": "metric_TMA_..Branch_Mispredicts(%)",
-      "ParentCategory": "Bad Speculation",
+      "ParentCategory": "Bad_Speculation",
       "Level": 2,
       "BriefDescription": "This metric represents fraction of slots the CPU has wasted due to Branch Misprediction.  These slots are either wasted by uops fetched from an incorrectly speculated program path; or stalls when the out-of-order part of the machine needs to recover its state from a speculative path.",
       "UnitOfMeasure": "percent",
@@ -1482,9 +1485,9 @@
       "MetricGroup": "BadSpec;BrMispredicts;TmaL2"
     },
     {
-      "MetricName": "Machine Clears",
+      "MetricName": "Machine_Clears",
       "LegacyName": "metric_TMA_..Machine_Clears(%)",
-      "ParentCategory": "Bad Speculation",
+      "ParentCategory": "Bad_Speculation",
       "Level": 2,
       "BriefDescription": "This metric represents fraction of slots the CPU has wasted due to Machine Clears.  These slots are either wasted by uops fetched prior to the clear; or stalls the out-of-order portion of the machine needs to recover its state after the clear. For example; this can happen due to memory ordering Nukes (e.g. Memory Disambiguation) or Self-Modifying-Code (SMC) nukes.",
       "UnitOfMeasure": "percent",
@@ -1539,7 +1542,7 @@
       "MetricGroup": "BadSpec;MachineClears;TmaL2"
     },
     {
-      "MetricName": "Backend Bound",
+      "MetricName": "Backend_Bound",
       "LegacyName": "metric_TMA_Backend_Bound(%)",
       "Level": 1,
       "BriefDescription": "This category represents fraction of slots where no uops are being delivered due to a lack of required resources for accepting new uops in the Backend. Backend is the portion of the processor core where the out-of-order scheduler dispatches ready uops into their respective execution units; and once completed these uops get retired according to program order. For example; stalls due to data-cache misses or stalls due to the divider unit being overloaded are both categorized under Backend Bound. Backend Bound is further divided into two main categories: Memory Bound and Core Bound.",
@@ -1587,9 +1590,9 @@
       "MetricGroup": "TmaL1"
     },
     {
-      "MetricName": "Memory Bound",
+      "MetricName": "Memory_Bound",
       "LegacyName": "metric_TMA_..Memory_Bound(%)",
-      "ParentCategory": "Backend Bound",
+      "ParentCategory": "Backend_Bound",
       "Level": 2,
       "BriefDescription": "This metric represents fraction of slots the Memory subsystem within the Backend was a bottleneck.  Memory Bound estimates fraction of slots where pipeline is likely stalled due to demand load or store instructions. This accounts mainly for (1) non-completed in-flight memory demand loads which coincides with execution units starvation; in addition to (2) cases where stores could impose backpressure on the pipeline when many of them get buffered at the same time (less common out of the two).",
       "UnitOfMeasure": "percent",
@@ -1660,9 +1663,9 @@
       "MetricGroup": "Backend;TmaL2"
     },
     {
-      "MetricName": "L1 Bound",
+      "MetricName": "L1_Bound",
       "LegacyName": "metric_TMA_....L1_Bound(%)",
-      "ParentCategory": "Memory Bound",
+      "ParentCategory": "Memory_Bound",
       "Level": 3,
       "BriefDescription": "This metric estimates how often the CPU was stalled without loads missing the L1 data cache.  The L1 data cache typically has the shortest latency.  However; in certain cases like loads blocked on older stores; a load might suffer due to high latency even though it is being satisfied by the L1. Another example is loads who miss in the TLB. These cases are characterized by execution unit stalls; while some non-completed demand load lives in the machine without having that demand load missing the L1 cache.",
       "UnitOfMeasure": "percent",
@@ -1688,9 +1691,9 @@
       "MetricGroup": "CacheMisses;MemoryBound;TmaL3mem"
     },
     {
-      "MetricName": "DTLB Load",
+      "MetricName": "DTLB_Load",
       "LegacyName": "metric_TMA_......DTLB_Load(%)",
-      "ParentCategory": "L1 Bound",
+      "ParentCategory": "L1_Bound",
       "Level": 4,
       "BriefDescription": "This metric roughly estimates the fraction of cycles where the Data TLB (DTLB) was missed by load accesses. TLBs (Translation Look-aside Buffers) are processor caches for recently used entries out of the Page Tables that are used to map virtual- to physical-addresses by the operating system. This metric approximates the potential delay of demand loads missing the first-level data TLB (assuming worst case scenario with back to back misses to different pages). This includes hitting in the second-level TLB (STLB) as well as performing a hardware page walk on an STLB miss.",
       "UnitOfMeasure": "percent",
@@ -1724,9 +1727,9 @@
       "MetricGroup": "MemoryTLB"
     },
     {
-      "MetricName": "Load STLB Hit",
+      "MetricName": "Load_STLB_Hit",
       "LegacyName": "metric_TMA_........Load_STLB_Hit(%)",
-      "ParentCategory": "DTLB Load",
+      "ParentCategory": "DTLB_Load",
       "Level": 5,
       "BriefDescription": "This metric roughly estimates the fraction of cycles where the (first level) DTLB was missed by load accesses, that later on hit in second-level TLB (STLB)",
       "UnitOfMeasure": "percent",
@@ -1760,9 +1763,9 @@
       "MetricGroup": "MemoryTLB"
     },
     {
-      "MetricName": "Load STLB Miss",
+      "MetricName": "Load_STLB_Miss",
       "LegacyName": "metric_TMA_........Load_STLB_Miss(%)",
-      "ParentCategory": "DTLB Load",
+      "ParentCategory": "DTLB_Load",
       "Level": 5,
       "BriefDescription": "This metric estimates the fraction of cycles where the Second-level TLB (STLB) was missed by load accesses, performing a hardware page walk",
       "UnitOfMeasure": "percent",
@@ -1784,9 +1787,9 @@
       "MetricGroup": "MemoryTLB"
     },
     {
-      "MetricName": "Store Fwd Blk",
+      "MetricName": "Store_Fwd_Blk",
       "LegacyName": "metric_TMA_......Store_Fwd_Blk(%)",
-      "ParentCategory": "L1 Bound",
+      "ParentCategory": "L1_Bound",
       "Level": 4,
       "BriefDescription": "This metric roughly estimates fraction of cycles when the memory subsystem had loads blocked since they could not forward data from earlier (in program order) overlapping stores. To streamline memory operations in the pipeline; a load can avoid waiting for memory if a prior in-flight store is writing the data that the load wants to read (store forwarding process). However; in some cases the load may be blocked for a significant time pending the store forward. For example; when the prior store is writing a smaller region than the load is reading.",
       "UnitOfMeasure": "percent",
@@ -1808,9 +1811,9 @@
       "MetricGroup": ""
     },
     {
-      "MetricName": "Lock Latency",
+      "MetricName": "Lock_Latency",
       "LegacyName": "metric_TMA_......Lock_Latency(%)",
-      "ParentCategory": "L1 Bound",
+      "ParentCategory": "L1_Bound",
       "Level": 4,
       "BriefDescription": "This metric represents fraction of cycles the CPU spent handling cache misses due to lock operations. Due to the microarchitecture handling of locks; they are classified as L1_Bound regardless of what memory source satisfied them.",
       "UnitOfMeasure": "percent",
@@ -1848,9 +1851,9 @@
       "MetricGroup": "Offcore"
     },
     {
-      "MetricName": "Split Loads",
+      "MetricName": "Split_Loads",
       "LegacyName": "metric_TMA_......Split_Loads(%)",
-      "ParentCategory": "L1 Bound",
+      "ParentCategory": "L1_Bound",
       "Level": 4,
       "BriefDescription": "This metric estimates fraction of cycles handling memory load split accesses - load that cross 64-byte cache line boundary. ",
       "UnitOfMeasure": "percent",
@@ -1884,9 +1887,9 @@
       "MetricGroup": ""
     },
     {
-      "MetricName": "4K Aliasing",
+      "MetricName": "4K_Aliasing",
       "LegacyName": "metric_TMA_......4K_Aliasing(%)",
-      "ParentCategory": "L1 Bound",
+      "ParentCategory": "L1_Bound",
       "Level": 4,
       "BriefDescription": "This metric estimates how often memory load accesses were aliased by preceding stores (in program order) with a 4K address offset. False match is possible; which incur a few cycles load re-issue. However; the short re-issue duration is often hidden by the out-of-order core and HW optimizations; hence a user may safely ignore a high value of this metric unless it manages to propagate up into parent nodes of the hierarchy (e.g. to L1_Bound).",
       "UnitOfMeasure": "percent",
@@ -1908,9 +1911,9 @@
       "MetricGroup": ""
     },
     {
-      "MetricName": "FB Full",
+      "MetricName": "FB_Full",
       "LegacyName": "metric_TMA_......FB_Full(%)",
-      "ParentCategory": "L1 Bound",
+      "ParentCategory": "L1_Bound",
       "Level": 4,
       "BriefDescription": "This metric does a *rough estimation* of how often L1D Fill Buffer unavailability limited additional L1D miss memory access requests to proceed. The higher the metric value; the deeper the memory hierarchy level the misses are satisfied from (metric values >1 are valid). Often it hints on approaching bandwidth limits (to L2 cache; L3 cache or external memory).",
       "UnitOfMeasure": "percent",
@@ -1944,9 +1947,9 @@
       "MetricGroup": "MemoryBW"
     },
     {
-      "MetricName": "L2 Bound",
+      "MetricName": "L2_Bound",
       "LegacyName": "metric_TMA_....L2_Bound(%)",
-      "ParentCategory": "Memory Bound",
+      "ParentCategory": "Memory_Bound",
       "Level": 3,
       "BriefDescription": "This metric estimates how often the CPU was stalled due to L2 cache accesses by loads.  Avoiding cache misses (i.e. L1 misses/L2 hits) can improve the latency and increase performance.",
       "UnitOfMeasure": "percent",
@@ -1988,9 +1991,9 @@
       "MetricGroup": "CacheMisses;MemoryBound;TmaL3mem"
     },
     {
-      "MetricName": "L3 Bound",
+      "MetricName": "L3_Bound",
       "LegacyName": "metric_TMA_....L3_Bound(%)",
-      "ParentCategory": "Memory Bound",
+      "ParentCategory": "Memory_Bound",
       "Level": 3,
       "BriefDescription": "This metric estimates how often the CPU was stalled due to loads accesses to L3 cache or contended with a sibling Core.  Avoiding cache misses (i.e. L2 misses/L3 hits) can improve the latency and increase performance.",
       "UnitOfMeasure": "percent",
@@ -2016,9 +2019,9 @@
       "MetricGroup": "CacheMisses;MemoryBound;TmaL3mem"
     },
     {
-      "MetricName": "Contested Accesses",
+      "MetricName": "Contested_Accesses",
       "LegacyName": "metric_TMA_......Contested_Accesses(%)",
-      "ParentCategory": "L3 Bound",
+      "ParentCategory": "L3_Bound",
       "Level": 4,
       "BriefDescription": "This metric estimates fraction of cycles while the memory subsystem was handling synchronizations due to contested accesses. Contested accesses occur when data written by one Logical Processor are read by another Logical Processor on a different Physical Core. Examples of contested accesses include synchronizations such as locks; true data sharing such as modified locked variables; and false sharing.",
       "UnitOfMeasure": "percent",
@@ -2073,9 +2076,9 @@
       "MetricGroup": "DataSharing;Offcore;Snoop"
     },
     {
-      "MetricName": "Data Sharing",
+      "MetricName": "Data_Sharing",
       "LegacyName": "metric_TMA_......Data_Sharing(%)",
-      "ParentCategory": "L3 Bound",
+      "ParentCategory": "L3_Bound",
       "Level": 4,
       "BriefDescription": "This metric estimates fraction of cycles while the memory subsystem was handling synchronizations due to data-sharing accesses. Data shared by multiple Logical Processors (even just read shared) may cause increased access latency due to cache coherency. Excessive data sharing can drastically harm multithreaded performance.",
       "UnitOfMeasure": "percent",
@@ -2130,9 +2133,9 @@
       "MetricGroup": "Offcore;Snoop"
     },
     {
-      "MetricName": "L3 Hit Latency",
+      "MetricName": "L3_Hit_Latency",
       "LegacyName": "metric_TMA_......L3_Hit_Latency(%)",
-      "ParentCategory": "L3 Bound",
+      "ParentCategory": "L3_Bound",
       "Level": 4,
       "BriefDescription": "This metric represents fraction of cycles with demand load accesses that hit the L3 cache under unloaded scenarios (possibly L3 latency limited).  Avoiding private cache misses (i.e. L2 misses/L3 hits) will improve the latency; reduce contention with sibling physical cores and increase performance.  Note the value of this node may overlap with its siblings.",
       "UnitOfMeasure": "percent",
@@ -2175,9 +2178,9 @@
       "MetricGroup": "MemoryLat"
     },
     {
-      "MetricName": "SQ Full",
+      "MetricName": "SQ_Full",
       "LegacyName": "metric_TMA_......SQ_Full(%)",
-      "ParentCategory": "L3 Bound",
+      "ParentCategory": "L3_Bound",
       "Level": 4,
       "BriefDescription": "This metric measures fraction of cycles where the Super Queue (SQ) was full taking into account all request-types and both hardware SMT threads (Logical Processors). The Super Queue is used for requests to access the L2 cache or to go out to the Uncore.",
       "UnitOfMeasure": "percent",
@@ -2212,9 +2215,9 @@
       "MetricGroup": "MemoryBW;Offcore"
     },
     {
-      "MetricName": "DRAM Bound",
+      "MetricName": "DRAM_Bound",
       "LegacyName": "metric_TMA_....DRAM_Bound(%)",
-      "ParentCategory": "Memory Bound",
+      "ParentCategory": "Memory_Bound",
       "Level": 3,
       "BriefDescription": "This metric estimates how often the CPU was stalled on accesses to external memory (DRAM) by loads. Better caching can improve the latency and increase performance.",
       "UnitOfMeasure": "percent",
@@ -2260,9 +2263,9 @@
       "MetricGroup": "MemoryBound;TmaL3mem"
     },
     {
-      "MetricName": "MEM Bandwidth",
+      "MetricName": "MEM_Bandwidth",
       "LegacyName": "metric_TMA_......MEM_Bandwidth(%)",
-      "ParentCategory": "DRAM Bound",
+      "ParentCategory": "DRAM_Bound",
       "Level": 4,
       "BriefDescription": "This metric estimates fraction of cycles where the core's performance was likely hurt due to approaching bandwidth limits of external memory (DRAM).  The underlying heuristic assumes that a similar off-core traffic is generated by all IA cores. This metric does not aggregate non-data-read requests by this logical processor; requests from other IA Logical Processors/Physical Cores/sockets; or other non-IA devices like GPU; hence the maximum external memory bandwidth limits may or may not be approached when this metric is flagged (see Uncore counters for that).",
       "UnitOfMeasure": "percent",
@@ -2284,9 +2287,9 @@
       "MetricGroup": "MemoryBW;Offcore"
     },
     {
-      "MetricName": "MEM Latency",
+      "MetricName": "MEM_Latency",
       "LegacyName": "metric_TMA_......MEM_Latency(%)",
-      "ParentCategory": "DRAM Bound",
+      "ParentCategory": "DRAM_Bound",
       "Level": 4,
       "BriefDescription": "This metric estimates fraction of cycles where the performance was likely hurt due to latency from external memory (DRAM).  This metric does not aggregate requests from other Logical Processors/Physical Cores/sockets (see Uncore counters for that).",
       "UnitOfMeasure": "percent",
@@ -2312,9 +2315,9 @@
       "MetricGroup": "MemoryLat;Offcore"
     },
     {
-      "MetricName": "Local DRAM",
+      "MetricName": "Local_DRAM",
       "LegacyName": "metric_TMA_........Local_DRAM(%)",
-      "ParentCategory": "MEM Latency",
+      "ParentCategory": "MEM_Latency",
       "Level": 5,
       "BriefDescription": "This metric estimates fraction of cycles while the memory subsystem was handling loads from local memory. Caching will improve the latency and increase performance.",
       "UnitOfMeasure": "percent",
@@ -2357,9 +2360,9 @@
       "MetricGroup": "Server"
     },
     {
-      "MetricName": "Remote DRAM",
+      "MetricName": "Remote_DRAM",
       "LegacyName": "metric_TMA_........Remote_DRAM(%)",
-      "ParentCategory": "MEM Latency",
+      "ParentCategory": "MEM_Latency",
       "Level": 5,
       "BriefDescription": "This metric estimates fraction of cycles while the memory subsystem was handling loads from remote memory. This is caused often due to non-optimal NUMA allocations. #link to NUMA article",
       "UnitOfMeasure": "percent",
@@ -2402,9 +2405,9 @@
       "MetricGroup": "Server;Snoop"
     },
     {
-      "MetricName": "Remote Cache",
+      "MetricName": "Remote_Cache",
       "LegacyName": "metric_TMA_........Remote_Cache(%)",
-      "ParentCategory": "MEM Latency",
+      "ParentCategory": "MEM_Latency",
       "Level": 5,
       "BriefDescription": "This metric estimates fraction of cycles while the memory subsystem was handling loads from remote cache in other sockets including synchronizations issues. This is caused often due to non-optimal NUMA allocations. #link to NUMA article",
       "UnitOfMeasure": "percent",
@@ -2451,9 +2454,9 @@
       "MetricGroup": "Offcore;Server;Snoop"
     },
     {
-      "MetricName": "Store Bound",
+      "MetricName": "Store_Bound",
       "LegacyName": "metric_TMA_....Store_Bound(%)",
-      "ParentCategory": "Memory Bound",
+      "ParentCategory": "Memory_Bound",
       "Level": 3,
       "BriefDescription": "This metric estimates how often CPU was stalled  due to RFO store memory accesses; RFO store issue a read-for-ownership request before the write. Even though store accesses do not typically stall out-of-order CPUs; there are few cases where stores can lead to actual stalls. This metric will be flagged should RFO stores be a bottleneck.",
       "UnitOfMeasure": "percent",
@@ -2475,9 +2478,9 @@
       "MetricGroup": "MemoryBound;TmaL3mem"
     },
     {
-      "MetricName": "Store Latency",
+      "MetricName": "Store_Latency",
       "LegacyName": "metric_TMA_......Store_Latency(%)",
-      "ParentCategory": "Store Bound",
+      "ParentCategory": "Store_Bound",
       "Level": 4,
       "BriefDescription": "This metric estimates fraction of cycles the CPU spent handling L1D store misses. Store accesses usually less impact out-of-order core performance; however; holding resources for longer time can lead into undesired implications (e.g. contention on L1D fill-buffer entries - see FB_Full)",
       "UnitOfMeasure": "percent",
@@ -2511,9 +2514,9 @@
       "MetricGroup": "MemoryLat;Offcore"
     },
     {
-      "MetricName": "False Sharing",
+      "MetricName": "False_Sharing",
       "LegacyName": "metric_TMA_......False_Sharing(%)",
-      "ParentCategory": "Store Bound",
+      "ParentCategory": "Store_Bound",
       "Level": 4,
       "BriefDescription": "This metric roughly estimates how often CPU was handling synchronizations due to False Sharing. False Sharing is a multithreading hiccup; where multiple Logical Processors contend on different data-elements mapped into the same cache line. ",
       "UnitOfMeasure": "percent",
@@ -2560,9 +2563,9 @@
       "MetricGroup": "DataSharing;Offcore;Snoop"
     },
     {
-      "MetricName": "Split Stores",
+      "MetricName": "Split_Stores",
       "LegacyName": "metric_TMA_......Split_Stores(%)",
-      "ParentCategory": "Store Bound",
+      "ParentCategory": "Store_Bound",
       "Level": 4,
       "BriefDescription": "This metric represents rate of split store accesses.  Consider aligning your data to the 64-byte cache line granularity.",
       "UnitOfMeasure": "percent",
@@ -2597,9 +2600,9 @@
       "MetricGroup": ""
     },
     {
-      "MetricName": "DTLB Store",
+      "MetricName": "DTLB_Store",
       "LegacyName": "metric_TMA_......DTLB_Store(%)",
-      "ParentCategory": "Store Bound",
+      "ParentCategory": "Store_Bound",
       "Level": 4,
       "BriefDescription": "This metric roughly estimates the fraction of cycles spent handling first-level data TLB store misses.  As with ordinary data caching; focus on improving data locality and reducing working-set size to reduce DTLB overhead.  Additionally; consider using profile-guided optimization (PGO) to collocate frequently-used data on the same page.  Try using larger page sizes for large amounts of frequently-used data.",
       "UnitOfMeasure": "percent",
@@ -2638,9 +2641,9 @@
       "MetricGroup": "MemoryTLB"
     },
     {
-      "MetricName": "Store STLB Hit",
+      "MetricName": "Store_STLB_Hit",
       "LegacyName": "metric_TMA_........Store_STLB_Hit(%)",
-      "ParentCategory": "DTLB Store",
+      "ParentCategory": "DTLB_Store",
       "Level": 5,
       "BriefDescription": "This metric roughly estimates the fraction of cycles where the TLB was missed by store accesses, hitting in the second-level TLB (STLB)",
       "UnitOfMeasure": "percent",
@@ -2679,9 +2682,9 @@
       "MetricGroup": "MemoryTLB"
     },
     {
-      "MetricName": "Store STLB Miss",
+      "MetricName": "Store_STLB_Miss",
       "LegacyName": "metric_TMA_........Store_STLB_Miss(%)",
-      "ParentCategory": "DTLB Store",
+      "ParentCategory": "DTLB_Store",
       "Level": 5,
       "BriefDescription": "This metric estimates the fraction of cycles where the STLB was missed by store accesses, performing a hardware page walk",
       "UnitOfMeasure": "percent",
@@ -2716,9 +2719,9 @@
       "MetricGroup": "MemoryTLB"
     },
     {
-      "MetricName": "Core Bound",
+      "MetricName": "Core_Bound",
       "LegacyName": "metric_TMA_..Core_Bound(%)",
-      "ParentCategory": "Backend Bound",
+      "ParentCategory": "Backend_Bound",
       "Level": 2,
       "BriefDescription": "This metric represents fraction of slots where Core non-memory issues were of a bottleneck.  Shortage in hardware compute resources; or dependencies in software's instructions are both categorized under Core Bound. Hence it may indicate the machine ran out of an out-of-order resource; certain execution units are overloaded or dependencies in program's data- or instruction-flow are limiting the performance (e.g. FP-chained long-latency arithmetic operations).",
       "UnitOfMeasure": "percent",
@@ -2791,7 +2794,7 @@
     {
       "MetricName": "Divider",
       "LegacyName": "metric_TMA_....Divider(%)",
-      "ParentCategory": "Core Bound",
+      "ParentCategory": "Core_Bound",
       "Level": 3,
       "BriefDescription": "This metric represents fraction of cycles where the Divider unit was active. Divide and square root instructions are performed by the Divider unit and can take considerably longer latency than integer or Floating Point addition; subtraction; or multiplication.",
       "UnitOfMeasure": "percent",
@@ -2813,9 +2816,9 @@
       "MetricGroup": ""
     },
     {
-      "MetricName": "Ports Utilization",
+      "MetricName": "Ports_Utilization",
       "LegacyName": "metric_TMA_....Ports_Utilization(%)",
-      "ParentCategory": "Core Bound",
+      "ParentCategory": "Core_Bound",
       "Level": 3,
       "BriefDescription": "This metric estimates fraction of cycles the CPU performance was potentially limited due to Core computation issues (non divider-related).  Two distinct categories can be attributed into this metric: (1) heavy data-dependency among contiguous instructions would manifest in this metric - such cases are often referred to as low Instruction Level Parallelism (ILP). (2) Contention on some hardware execution unit other than Divider. For example; when there are too many multiply operations.",
       "UnitOfMeasure": "percent",
@@ -2874,9 +2877,9 @@
       "MetricGroup": "PortsUtil"
     },
     {
-      "MetricName": "Ports Utilized 0",
+      "MetricName": "Ports_Utilized_0",
       "LegacyName": "metric_TMA_......Ports_Utilized_0(%)",
-      "ParentCategory": "Ports Utilization",
+      "ParentCategory": "Ports_Utilization",
       "Level": 4,
       "BriefDescription": "This metric represents fraction of cycles CPU executed no uops on any execution port (Logical Processor cycles since ICL, Physical Core cycles otherwise). Long-latency instructions like divides may contribute to this metric.",
       "UnitOfMeasure": "percent",
@@ -2919,9 +2922,9 @@
       "MetricGroup": "PortsUtil"
     },
     {
-      "MetricName": "Serializing Operation",
+      "MetricName": "Serializing_Operation",
       "LegacyName": "metric_TMA_........Serializing_Operation(%)",
-      "ParentCategory": "Ports Utilized 0",
+      "ParentCategory": "Ports_Utilized_0",
       "Level": 5,
       "BriefDescription": "This metric represents fraction of cycles the CPU issue-pipeline was stalled due to serializing operations. Instructions like CPUID; WRMSR or LFENCE serialize the out-of-order execution which may limit performance.",
       "UnitOfMeasure": "percent",
@@ -2943,9 +2946,9 @@
       "MetricGroup": ""
     },
     {
-      "MetricName": "Mixing Vectors",
+      "MetricName": "Mixing_Vectors",
       "LegacyName": "metric_TMA_........Mixing_Vectors(%)",
-      "ParentCategory": "Ports Utilized 0",
+      "ParentCategory": "Ports_Utilized_0",
       "Level": 5,
       "BriefDescription": "The Mixing_Vectors metric gives the percentage of injected blend uops out of all uops issued. Usually a Mixing_Vectors over 5% is worth investigating. Read more in Appendix B1 of the Optimizations Guide for this topic.",
       "UnitOfMeasure": "percent",
@@ -2971,9 +2974,9 @@
       "MetricGroup": ""
     },
     {
-      "MetricName": "Ports Utilized 1",
+      "MetricName": "Ports_Utilized_1",
       "LegacyName": "metric_TMA_......Ports_Utilized_1(%)",
-      "ParentCategory": "Ports Utilization",
+      "ParentCategory": "Ports_Utilization",
       "Level": 4,
       "BriefDescription": "This metric represents fraction of cycles where the CPU executed total of 1 uop per cycle on all execution ports (Logical Processor cycles since ICL, Physical Core cycles otherwise). This can be due to heavy data-dependency among software instructions; or over oversubscribing a particular hardware resource. In some other cases with high 1_Port_Utilized and L1_Bound; this metric can point to L1 data-cache latency bottleneck that may not necessarily manifest with complete execution starvation (due to the short L1 latency e.g. walking a linked list) - looking at the assembly can be helpful.",
       "UnitOfMeasure": "percent",
@@ -3016,9 +3019,9 @@
       "MetricGroup": "PortsUtil"
     },
     {
-      "MetricName": "Ports Utilized 2",
+      "MetricName": "Ports_Utilized_2",
       "LegacyName": "metric_TMA_......Ports_Utilized_2(%)",
-      "ParentCategory": "Ports Utilization",
+      "ParentCategory": "Ports_Utilization",
       "Level": 4,
       "BriefDescription": "This metric represents fraction of cycles CPU executed total of 2 uops per cycle on all execution ports (Logical Processor cycles since ICL, Physical Core cycles otherwise).  Loop Vectorization -most compilers feature auto-Vectorization options today- reduces pressure on the execution ports as multiple elements are calculated with same uop.",
       "UnitOfMeasure": "percent",
@@ -3061,9 +3064,9 @@
       "MetricGroup": "PortsUtil"
     },
     {
-      "MetricName": "Ports Utilized 3m",
+      "MetricName": "Ports_Utilized_3m",
       "LegacyName": "metric_TMA_......Ports_Utilized_3m(%)",
-      "ParentCategory": "Ports Utilization",
+      "ParentCategory": "Ports_Utilization",
       "Level": 4,
       "BriefDescription": "This metric represents fraction of cycles CPU executed total of 3 or more uops per cycle on all execution ports (Logical Processor cycles since ICL, Physical Core cycles otherwise).",
       "UnitOfMeasure": "percent",
@@ -3098,9 +3101,9 @@
       "MetricGroup": "PortsUtil"
     },
     {
-      "MetricName": "ALU Op Utilization",
+      "MetricName": "ALU_Op_Utilization",
       "LegacyName": "metric_TMA_........ALU_Op_Utilization(%)",
-      "ParentCategory": "Ports Utilized 3m",
+      "ParentCategory": "Ports_Utilized_3m",
       "Level": 5,
       "BriefDescription": "This metric represents Core fraction of cycles CPU dispatched uops on execution ports for ALU operations.",
       "UnitOfMeasure": "percent",
@@ -3147,9 +3150,9 @@
       "MetricGroup": ""
     },
     {
-      "MetricName": "Port 0",
+      "MetricName": "Port_0",
       "LegacyName": "metric_TMA_..........Port_0(%)",
-      "ParentCategory": "ALU Op Utilization",
+      "ParentCategory": "ALU_Op_Utilization",
       "Level": 6,
       "BriefDescription": "This metric represents Core fraction of cycles CPU dispatched uops on execution port 0 ([SNB+] ALU; [HSW+] ALU and 2nd branch)",
       "UnitOfMeasure": "percent",
@@ -3184,9 +3187,9 @@
       "MetricGroup": "Compute"
     },
     {
-      "MetricName": "Port 1",
+      "MetricName": "Port_1",
       "LegacyName": "metric_TMA_..........Port_1(%)",
-      "ParentCategory": "ALU Op Utilization",
+      "ParentCategory": "ALU_Op_Utilization",
       "Level": 6,
       "BriefDescription": "This metric represents Core fraction of cycles CPU dispatched uops on execution port 1 (ALU)",
       "UnitOfMeasure": "percent",
@@ -3221,9 +3224,9 @@
       "MetricGroup": ""
     },
     {
-      "MetricName": "Port 5",
+      "MetricName": "Port_5",
       "LegacyName": "metric_TMA_..........Port_5(%)",
-      "ParentCategory": "ALU Op Utilization",
+      "ParentCategory": "ALU_Op_Utilization",
       "Level": 6,
       "BriefDescription": "This metric represents Core fraction of cycles CPU dispatched uops on execution port 5 ([SNB+] Branches and ALU; [HSW+] ALU)",
       "UnitOfMeasure": "percent",
@@ -3258,9 +3261,9 @@
       "MetricGroup": ""
     },
     {
-      "MetricName": "Port 6",
+      "MetricName": "Port_6",
       "LegacyName": "metric_TMA_..........Port_6(%)",
-      "ParentCategory": "ALU Op Utilization",
+      "ParentCategory": "ALU_Op_Utilization",
       "Level": 6,
       "BriefDescription": "This metric represents Core fraction of cycles CPU dispatched uops on execution port 6 ([HSW+]Primary Branch and simple ALU)",
       "UnitOfMeasure": "percent",
@@ -3295,9 +3298,9 @@
       "MetricGroup": ""
     },
     {
-      "MetricName": "Load Op Utilization",
+      "MetricName": "Load_Op_Utilization",
       "LegacyName": "metric_TMA_........Load_Op_Utilization(%)",
-      "ParentCategory": "Ports Utilized 3m",
+      "ParentCategory": "Ports_Utilized_3m",
       "Level": 5,
       "BriefDescription": "This metric represents Core fraction of cycles CPU dispatched uops on execution port for Load operations",
       "UnitOfMeasure": "percent",
@@ -3344,9 +3347,9 @@
       "MetricGroup": ""
     },
     {
-      "MetricName": "Port 2",
+      "MetricName": "Port_2",
       "LegacyName": "metric_TMA_..........Port_2(%)",
-      "ParentCategory": "Load Op Utilization",
+      "ParentCategory": "Load_Op_Utilization",
       "Level": 6,
       "BriefDescription": "This metric represents Core fraction of cycles CPU dispatched uops on execution port 2 ([SNB+]Loads and Store-address; [ICL+] Loads)",
       "UnitOfMeasure": "percent",
@@ -3381,9 +3384,9 @@
       "MetricGroup": ""
     },
     {
-      "MetricName": "Port 3",
+      "MetricName": "Port_3",
       "LegacyName": "metric_TMA_..........Port_3(%)",
-      "ParentCategory": "Load Op Utilization",
+      "ParentCategory": "Load_Op_Utilization",
       "Level": 6,
       "BriefDescription": "This metric represents Core fraction of cycles CPU dispatched uops on execution port 3 ([SNB+]Loads and Store-address; [ICL+] Loads)",
       "UnitOfMeasure": "percent",
@@ -3418,9 +3421,9 @@
       "MetricGroup": ""
     },
     {
-      "MetricName": "Store Op Utilization",
+      "MetricName": "Store_Op_Utilization",
       "LegacyName": "metric_TMA_........Store_Op_Utilization(%)",
-      "ParentCategory": "Ports Utilized 3m",
+      "ParentCategory": "Ports_Utilized_3m",
       "Level": 5,
       "BriefDescription": "This metric represents Core fraction of cycles CPU dispatched uops on execution port for Store operations",
       "UnitOfMeasure": "percent",
@@ -3455,9 +3458,9 @@
       "MetricGroup": ""
     },
     {
-      "MetricName": "Port 4",
+      "MetricName": "Port_4",
       "LegacyName": "metric_TMA_..........Port_4(%)",
-      "ParentCategory": "Store Op Utilization",
+      "ParentCategory": "Store_Op_Utilization",
       "Level": 6,
       "BriefDescription": "This metric represents Core fraction of cycles CPU dispatched uops on execution port 4 (Store-data)",
       "UnitOfMeasure": "percent",
@@ -3492,9 +3495,9 @@
       "MetricGroup": ""
     },
     {
-      "MetricName": "Port 7",
+      "MetricName": "Port_7",
       "LegacyName": "metric_TMA_..........Port_7(%)",
-      "ParentCategory": "Store Op Utilization",
+      "ParentCategory": "Store_Op_Utilization",
       "Level": 6,
       "BriefDescription": "This metric represents Core fraction of cycles CPU dispatched uops on execution port 7 ([HSW+]simple Store-address)",
       "UnitOfMeasure": "percent",
@@ -3565,7 +3568,7 @@
       "MetricGroup": "TmaL1"
     },
     {
-      "MetricName": "Light Operations",
+      "MetricName": "Light_Operations",
       "LegacyName": "metric_TMA_..Light_Operations(%)",
       "ParentCategory": "Retiring",
       "Level": 2,
@@ -3610,9 +3613,9 @@
       "MetricGroup": "Retire;TmaL2"
     },
     {
-      "MetricName": "FP Arith",
+      "MetricName": "FP_Arith",
       "LegacyName": "metric_TMA_....FP_Arith(%)",
-      "ParentCategory": "Light Operations",
+      "ParentCategory": "Light_Operations",
       "Level": 3,
       "BriefDescription": "This metric represents overall arithmetic floating-point (FP) operations fraction the CPU has executed (retired). Note this metric's value may exceed its parent due to use of \"Uops\" CountDomain and FMA double-counting.",
       "UnitOfMeasure": "percent",
@@ -3687,9 +3690,9 @@
       "MetricGroup": "HPC"
     },
     {
-      "MetricName": "X87 Use",
+      "MetricName": "X87_Use",
       "LegacyName": "metric_TMA_......X87_Use(%)",
-      "ParentCategory": "FP Arith",
+      "ParentCategory": "FP_Arith",
       "Level": 4,
       "BriefDescription": "This metric serves as an approximation of legacy x87 usage. It accounts for instructions beyond X87 FP arithmetic operations; hence may be used as a thermometer to avoid X87 high usage and preferably upgrade to modern ISA. See Tip under Tuning Hint.",
       "UnitOfMeasure": "percent",
@@ -3732,9 +3735,9 @@
       "MetricGroup": "Compute"
     },
     {
-      "MetricName": "FP Scalar",
+      "MetricName": "FP_Scalar",
       "LegacyName": "metric_TMA_......FP_Scalar(%)",
-      "ParentCategory": "FP Arith",
+      "ParentCategory": "FP_Arith",
       "Level": 4,
       "BriefDescription": "This metric approximates arithmetic floating-point (FP) scalar uops fraction the CPU has retired. May overcount due to FMA double counting.",
       "UnitOfMeasure": "percent",
@@ -3760,9 +3763,9 @@
       "MetricGroup": "Compute;Flops"
     },
     {
-      "MetricName": "FP Vector",
+      "MetricName": "FP_Vector",
       "LegacyName": "metric_TMA_......FP_Vector(%)",
-      "ParentCategory": "FP Arith",
+      "ParentCategory": "FP_Arith",
       "Level": 4,
       "BriefDescription": "This metric approximates arithmetic floating-point (FP) vector uops fraction the CPU has retired aggregated across all vector widths. May overcount due to FMA double counting.",
       "UnitOfMeasure": "percent",
@@ -3804,9 +3807,9 @@
       "MetricGroup": "Compute;Flops"
     },
     {
-      "MetricName": "FP Vector 128b",
+      "MetricName": "FP_Vector_128b",
       "LegacyName": "metric_TMA_........FP_Vector_128b(%)",
-      "ParentCategory": "FP Vector",
+      "ParentCategory": "FP_Vector",
       "Level": 5,
       "BriefDescription": "This metric approximates arithmetic FP vector uops fraction the CPU has retired for 128-bit wide vectors. May overcount due to FMA double counting.",
       "UnitOfMeasure": "percent",
@@ -3832,9 +3835,9 @@
       "MetricGroup": "Compute;Flops"
     },
     {
-      "MetricName": "FP Vector 256b",
+      "MetricName": "FP_Vector_256b",
       "LegacyName": "metric_TMA_........FP_Vector_256b(%)",
-      "ParentCategory": "FP Vector",
+      "ParentCategory": "FP_Vector",
       "Level": 5,
       "BriefDescription": "This metric approximates arithmetic FP vector uops fraction the CPU has retired for 256-bit wide vectors. May overcount due to FMA double counting.",
       "UnitOfMeasure": "percent",
@@ -3860,9 +3863,9 @@
       "MetricGroup": "Compute;Flops"
     },
     {
-      "MetricName": "FP Vector 512b",
+      "MetricName": "FP_Vector_512b",
       "LegacyName": "metric_TMA_........FP_Vector_512b(%)",
-      "ParentCategory": "FP Vector",
+      "ParentCategory": "FP_Vector",
       "Level": 5,
       "BriefDescription": "This metric approximates arithmetic FP vector uops fraction the CPU has retired for 512-bit wide vectors. May overcount due to FMA double counting.",
       "UnitOfMeasure": "percent",
@@ -3888,9 +3891,9 @@
       "MetricGroup": "Compute;Flops"
     },
     {
-      "MetricName": "Memory Operations",
+      "MetricName": "Memory_Operations",
       "LegacyName": "metric_TMA_....Memory_Operations(%)",
-      "ParentCategory": "Light Operations",
+      "ParentCategory": "Light_Operations",
       "Level": 3,
       "BriefDescription": "This metric represents fraction of slots where the CPU was retiring memory operations -- uops for memory load or store accesses.",
       "UnitOfMeasure": "percent",
@@ -3937,9 +3940,9 @@
       "MetricGroup": "Pipeline"
     },
     {
-      "MetricName": "Fused Instructions",
+      "MetricName": "Fused_Instructions",
       "LegacyName": "metric_TMA_....Fused_Instructions(%)",
-      "ParentCategory": "Light Operations",
+      "ParentCategory": "Light_Operations",
       "Level": 3,
       "BriefDescription": "This metric represents fraction of slots where the CPU was retiring fused instructions -- where one uop can represent multiple contiguous instructions. The instruction pairs of CMP+JCC or DEC+JCC are commonly used examples.",
       "UnitOfMeasure": "percent",
@@ -3982,9 +3985,9 @@
       "MetricGroup": "Pipeline"
     },
     {
-      "MetricName": "Non Fused Branches",
+      "MetricName": "Non_Fused_Branches",
       "LegacyName": "metric_TMA_....Non_Fused_Branches(%)",
-      "ParentCategory": "Light Operations",
+      "ParentCategory": "Light_Operations",
       "Level": 3,
       "BriefDescription": "This metric represents fraction of slots where the CPU was retiring branch instructions that were not fused. Non-conditional branches like direct JMP or CALL would count here. Can be used to examine fusible conditional jumps that were not fused.",
       "UnitOfMeasure": "percent",
@@ -4031,9 +4034,9 @@
       "MetricGroup": "Pipeline"
     },
     {
-      "MetricName": "Nop Instructions",
+      "MetricName": "Nop_Instructions",
       "LegacyName": "metric_TMA_....Nop_Instructions(%)",
-      "ParentCategory": "Light Operations",
+      "ParentCategory": "Light_Operations",
       "Level": 3,
       "BriefDescription": "This metric represents fraction of slots where the CPU was retiring NOP (no op) instructions. Compilers often use NOPs for certain address alignments - e.g. start address of a function or loop body.",
       "UnitOfMeasure": "percent",
@@ -4080,9 +4083,9 @@
       "MetricGroup": "Pipeline"
     },
     {
-      "MetricName": "Other Light Ops",
+      "MetricName": "Other_Light_Ops",
       "LegacyName": "metric_TMA_....Other_Light_Ops(%)",
-      "ParentCategory": "Light Operations",
+      "ParentCategory": "Light_Operations",
       "Level": 3,
       "BriefDescription": "This metric represents the remaining light uops fraction the CPU has executed - remaining means not covered by other sibling nodes. May undercount due to FMA double counting",
       "UnitOfMeasure": "percent",
@@ -4177,7 +4180,7 @@
       "MetricGroup": "Pipeline"
     },
     {
-      "MetricName": "Heavy Operations",
+      "MetricName": "Heavy_Operations",
       "LegacyName": "metric_TMA_..Heavy_Operations(%)",
       "ParentCategory": "Retiring",
       "Level": 2,
@@ -4222,9 +4225,9 @@
       "MetricGroup": "Retire;TmaL2"
     },
     {
-      "MetricName": "Few Uops Instructions",
+      "MetricName": "Few_Uops_Instructions",
       "LegacyName": "metric_TMA_....Few_Uops_Instructions(%)",
-      "ParentCategory": "Heavy Operations",
+      "ParentCategory": "Heavy_Operations",
       "Level": 3,
       "BriefDescription": "This metric represents fraction of slots where the CPU was retiring instructions that that are decoder into two or up to ([SNB+] four; [ADL+] five) uops. This highly-correlates with the number of uops in such instructions.",
       "UnitOfMeasure": "percent",
@@ -4275,9 +4278,9 @@
       "MetricGroup": ""
     },
     {
-      "MetricName": "Microcode Sequencer",
+      "MetricName": "Microcode_Sequencer",
       "LegacyName": "metric_TMA_....Microcode_Sequencer(%)",
-      "ParentCategory": "Heavy Operations",
+      "ParentCategory": "Heavy_Operations",
       "Level": 3,
       "BriefDescription": "This metric represents fraction of slots the CPU was retiring uops fetched by the Microcode Sequencer (MS) unit.  The MS is used for CISC instructions not supported by the default decoders (like repeat move strings; or CPUID); or by microcode assists used to address some operation modes (like in Floating Point assists). These cases can often be avoided.",
       "UnitOfMeasure": "percent",
@@ -4322,7 +4325,7 @@
     {
       "MetricName": "Assists",
       "LegacyName": "metric_TMA_......Assists(%)",
-      "ParentCategory": "Microcode Sequencer",
+      "ParentCategory": "Microcode_Sequencer",
       "Level": 4,
       "BriefDescription": "This metric estimates fraction of slots the CPU retired uops delivered by the Microcode_Sequencer as a result of Assists. Assists are long sequences of uops that are required in certain corner-cases for operations that cannot be handled natively by the execution pipeline. For example; when working with very small floating point values (so-called Denormals); the FP units are not set up to perform these operations natively. Instead; a sequence of instructions to perform the computation on the Denormals is injected into the pipeline. Since these microcode sequences might be dozens of uops long; Assists can be extremely deleterious to performance and they can be avoided in many cases.",
       "UnitOfMeasure": "percent",
@@ -4363,7 +4366,7 @@
     {
       "MetricName": "CISC",
       "LegacyName": "metric_TMA_......CISC(%)",
-      "ParentCategory": "Microcode Sequencer",
+      "ParentCategory": "Microcode_Sequencer",
       "Level": 4,
       "BriefDescription": "This metric estimates fraction of cycles the CPU retired uops originated from CISC (complex instruction set computer) instruction. A CISC instruction has multiple uops that are required to perform the instruction's functionality as in the case of read-modify-write as an example. Since these instructions require multiple uops they may or may not imply sub-optimal use of machine resources.",
       "UnitOfMeasure": "percent",
