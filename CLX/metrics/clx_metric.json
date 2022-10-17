@@ -985,9 +985,6 @@
       "MetricGroup": ""
     },
     {
-      "Level": 0
-    },
-    {
       "MetricName": "Frontend_Bound",
       "LegacyName": "metric_TMA_Frontend_Bound(%)",
       "Level": 1,

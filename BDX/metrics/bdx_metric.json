@@ -8,9 +8,6 @@
   },
   "Metrics": [
     {
-      "Level": 0
-    },
-    {
       "MetricName": "cpu_operating_frequency",
       "LegacyName": "metric_CPU operating frequency (in GHz)",
       "Level": 1,
