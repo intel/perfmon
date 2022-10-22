@@ -159,8 +159,24 @@ for topic in _topics.keys():
     _topics[topic] = sorted(_topics[topic],
                             key=lambda match: (-match[1], match[0]))
 
-def topic(event_name: str) -> str:
-    """Map an event name to its associated topic."""
+def topic(event_name: str, unit: str) -> str:
+    """
+    Map an event name to its associated topic.
+
+    @param event_name: Name of event like UNC_M2M_BYPASS_M2M_Egress.NOT_TAKEN.
+    @param unit: The PMU responsible for the event or None for CPU events.
+    """
+    if unit and 'cpu' not in unit:
+        unit_to_topic = {
+            'iMC': 'Uncore-Memory',
+            'CBO': 'Uncore-Cache',
+            'HA': 'Uncore-Cache',
+            'PCU': 'Uncore-Power',
+        }
+        if unit in unit_to_topic:
+            return unit_to_topic[unit]
+        return 'Uncore-Interconnect' if unit.startswith("QPI") else 'Uncore-Other'
+
     result = None
     result_priority = -1
     for topic in sorted(_topics.keys()):
@@ -189,10 +205,9 @@ class PerfmonJsonEvent:
     def __init__(self, jd: Dict[str, str]):
         """Constructor passed the dictionary of parsed json values."""
         def get(key: str) -> str:
+            drop_keys = {'0', '0x0', '0x00', 'na', 'null', 'tbd'}
             result = jd.get(key)
-            if not result:
-                return None
-            if result in ['0', 'null', 'tbd', '0x00']:
+            if not result or result in drop_keys:
                 return None
             result = re.sub('\xae', '(R)', result.strip())
             result = re.sub('\u2122', '(TM)', result)
@@ -208,6 +223,7 @@ class PerfmonJsonEvent:
         self.edge_detect = get('EdgeDetect')
         self.errata = get('Errata')
         self.event_code = get('EventCode')
+        self.ext_sel = get('ExtSel')
         self.fc_mask = get('FCMask')
         self.filter = get('Filter')
         self.invert = get('Invert')
@@ -217,19 +233,52 @@ class PerfmonJsonEvent:
         self.port_mask = get('PortMask')
         self.sample_after_value = get('SampleAfterValue')
         self.umask = get('UMask')
-        if self.umask:
-            self.umask = f'0x{int(self.umask.split(",")[0], 16):x}'
+        self.unit = get('Unit')
 
         # Sanity check certain old perfmon keys or values that could
         # be used in perf json don't exist.
         assert 'Internal' not in jd
-        assert 'ExtSel' not in jd
         assert 'ConfigCode' not in jd
         assert 'Compat' not in jd
         assert 'ArchStdEvent' not in jd
         assert 'AggregationMode' not in jd
         assert 'PerPkg' not in jd
         assert 'ScaleUnit' not in jd
+
+        # Fix ups.
+        if self.umask:
+            self.umask = self.umask.split(",")[0]
+            umask_ext = get('UMaskExt')
+            if umask_ext:
+                self.umask = umask_ext + self.umask[2:]
+            self.umask = f'0x{int(self.umask, 16):x}'
+
+        if self.unit:
+            if self.unit == "NCU" and self.event_name == "UNC_CLOCK.SOCKET":
+                self.unit = "CLOCK"
+            elif self.unit == "PCU" and self.umask:
+                # TODO: convert to right filter for occupancy
+                self.umask = None
+
+        if "Counter" in jd and jd["Counter"].lower() == "fixed":
+            self.event_code = "0xff"
+            self.umask = None
+
+        if self.filter:
+            remove_filter_start = [
+                "cbofilter",
+                "chafilter",
+                "pcufilter",
+                "qpimask",
+                "uboxfilter",
+                "fc, chnl",
+                "chnl",
+            ]
+            low_filter = self.filter.lower()
+            if any(x for x in remove_filter_start if low_filter.startswith(x)):
+                self.filter = None
+            elif self.filter == 'Filter1':
+                self.filter = f'config1={jd["FILTER_VALUE"]}'
 
         # Set up brief and longer public descriptions.
         self.brief_description = get('BriefDescription')
@@ -245,10 +294,17 @@ class PerfmonJsonEvent:
         if not self.public_description:
             self.public_description = get('Description')
 
-        if self.brief_description == self.public_description:
+        # The public description is the longer, if it is already
+        # contained within or equals the brief description then it is
+        # redundant.
+        if self.public_description and self.brief_description and\
+           self.public_description in self.brief_description:
             self.public_description = None
 
-        self.topic = topic(self.event_name)
+        self.topic = topic(self.event_name, self.unit)
+
+        if not self.brief_description and not self.public_description:
+            _verboseprint(f'Warning: Event {self.event_name} in {self.topic} lacks any description')
 
         _verboseprint3(f'Read perfmon event:\n{str(self)}')
 
@@ -256,6 +312,17 @@ class PerfmonJsonEvent:
         return ', '.join(f'{item[0]}: {item[1]}' for item in vars(self).items())
 
     def to_perf_json(self) -> Dict[str, str]:
+        if self.filter:
+            # Drop events that contain unsupported filter kinds.
+            drop_event_filter_start = [
+                "ha_addrmatch",
+                "ha_opcodematch",
+                "irpfilter",
+            ]
+            low_filter = self.filter.lower()
+            if any(x for x in drop_event_filter_start if low_filter.startswith(x)):
+                return None
+
         result = {
             'EventName': self.event_name,
         }
@@ -282,6 +349,7 @@ class PerfmonJsonEvent:
         add_to_result('PublicDescription', self.public_description)
         add_to_result('SampleAfterValue', self.sample_after_value)
         add_to_result('UMask', self.umask)
+        add_to_result('Unit', self.unit)
         return result
 
 class Model:
@@ -344,23 +412,30 @@ class Model:
         return ret
 
     def to_perf_json(self, outdir: str):
-        # Core/atom event files.
         # Map from a topic to its list of events as dictionaries.
         pmon_topic_events: Dict[str, list[Dict[str, str]]] = \
             collections.defaultdict(list)
-        for event_type in ['atom', 'core']:
+        for event_type in ['atom', 'core', 'uncore', 'uncore experimental']:
             if event_type not in self.files:
                 continue
             _verboseprint2(f'Generating {event_type} events from {self.files[event_type]}')
             with urllib.request.urlopen(self.files[event_type]) as event_json:
                 pmon_events: list[PerfmonJsonEvent] = \
                     json.load(event_json, object_hook=PerfmonJsonEvent)
-                unit= f'cpu_{event_type}' if 'atom' in self.files and \
-                    'core' in self.files else None
+                unit = None
+                if event_type in ['atom', 'core'] and 'atom' in self.files and 'core' in self.files:
+                    unit = f'cpu_{event_type}'
+                per_pkg = '1' if event_type in ['uncore', 'uncore experimental'] else None
                 for event in pmon_events:
                     dict_event = event.to_perf_json()
-                    if unit:
+                    if not dict_event:
+                        # Event should be dropped.
+                        continue
+
+                    if unit and 'Unit' not in dict_event:
                         dict_event['Unit'] = unit
+                    if per_pkg:
+                        dict_event['PerPkg'] = per_pkg
                     pmon_topic_events[event.topic].append(dict_event)
 
         for topic, events in pmon_topic_events.items():
