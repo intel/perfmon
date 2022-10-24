@@ -19,7 +19,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x00",
@@ -41,7 +42,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x00",
@@ -63,7 +65,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x00",
@@ -85,7 +88,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x00",
@@ -107,7 +111,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x03",
@@ -129,7 +134,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x03",
@@ -151,7 +157,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x07",
@@ -173,7 +180,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x08",
@@ -195,7 +203,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x08",
@@ -217,7 +226,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x08",
@@ -239,7 +249,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x08",
@@ -261,7 +272,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x08",
@@ -283,7 +295,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x08",
@@ -305,7 +318,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x0d",
@@ -327,7 +341,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x0d",
@@ -349,7 +364,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x0d",
@@ -371,7 +387,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x0d",
@@ -393,7 +410,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x0e",
@@ -415,7 +433,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x0e",
@@ -437,7 +456,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x0e",
@@ -459,7 +479,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x14",
@@ -481,7 +502,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x24",
@@ -503,7 +525,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x24",
@@ -525,7 +548,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x24",
@@ -547,7 +571,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x24",
@@ -569,7 +594,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x24",
@@ -591,7 +617,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x24",
@@ -613,7 +640,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x24",
@@ -635,7 +663,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x24",
@@ -657,7 +686,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x24",
@@ -679,7 +709,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x24",
@@ -701,7 +732,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x24",
@@ -723,7 +755,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x24",
@@ -745,7 +778,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x24",
@@ -767,7 +801,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x28",
@@ -789,7 +824,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x28",
@@ -811,7 +847,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x28",
@@ -833,7 +870,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x2e",
@@ -855,7 +893,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x32",
@@ -877,7 +916,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x32",
@@ -899,7 +939,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x32",
@@ -921,7 +962,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x32",
@@ -943,7 +985,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x3c",
@@ -965,7 +1008,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x3c",
@@ -987,7 +1031,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x3c",
@@ -1009,7 +1054,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x3c",
@@ -1031,7 +1077,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x48",
@@ -1053,7 +1100,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x48",
@@ -1075,14 +1123,15 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x48",
     "UMask": "0x02",
     "EventName": "L1D_PEND_MISS.FB_FULL",
     "BriefDescription": "Number of cycles a demand request has waited due to L1D Fill Buffer (FB) unavailability.",
-    "PublicDescription": "Counts number of cycles a demand request has waited due to L1D Fill Buffer (FB) unavailablability. Demand requests include cacheable/uncacheable demand load, store, lock or SW prefetch accesses.",
+    "PublicDescription": "Counts number of cycles a demand request has waited due to L1D Fill Buffer (FB) unavailability. Demand requests include cacheable/uncacheable demand load, store, lock or SW prefetch accesses.",
     "Counter": "0,1,2,3",
     "PEBScounters": "0,1,2,3",
     "SampleAfterValue": "1000003",
@@ -1097,14 +1146,15 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x48",
     "UMask": "0x02",
     "EventName": "L1D_PEND_MISS.FB_FULL_PERIODS",
-    "BriefDescription": "Number of phases a demand request has waited due to L1D Fill Buffer (FB) unavailablability.",
-    "PublicDescription": "Counts number of phases a demand request has waited due to L1D Fill Buffer (FB) unavailablability. Demand requests include cacheable/uncacheable demand load, store, lock or SW prefetch accesses.",
+    "BriefDescription": "Number of phases a demand request has waited due to L1D Fill Buffer (FB) unavailability.",
+    "PublicDescription": "Counts number of phases a demand request has waited due to L1D Fill Buffer (FB) unavailability. Demand requests include cacheable/uncacheable demand load, store, lock or SW prefetch accesses.",
     "Counter": "0,1,2,3",
     "PEBScounters": "0,1,2,3",
     "SampleAfterValue": "1000003",
@@ -1119,7 +1169,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x48",
@@ -1141,7 +1192,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x49",
@@ -1163,7 +1215,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x49",
@@ -1185,7 +1238,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x49",
@@ -1207,7 +1261,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x49",
@@ -1229,7 +1284,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x49",
@@ -1251,7 +1307,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x49",
@@ -1273,7 +1330,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x4c",
@@ -1295,7 +1353,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x51",
@@ -1317,7 +1376,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x54",
@@ -1339,7 +1399,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x54",
@@ -1361,7 +1422,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x54",
@@ -1383,7 +1445,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x55",
@@ -1405,7 +1468,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x56",
@@ -1427,7 +1491,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x5d",
@@ -1449,7 +1514,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x5d",
@@ -1471,7 +1537,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x5e",
@@ -1493,7 +1560,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x5e",
@@ -1515,7 +1583,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x60",
@@ -1537,7 +1606,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x60",
@@ -1559,7 +1629,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x60",
@@ -1581,7 +1652,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x60",
@@ -1603,7 +1675,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x60",
@@ -1625,7 +1698,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x60",
@@ -1647,7 +1721,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x60",
@@ -1669,7 +1744,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x63",
@@ -1691,7 +1767,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x79",
@@ -1713,7 +1790,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x79",
@@ -1735,7 +1813,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x79",
@@ -1757,7 +1836,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x79",
@@ -1779,7 +1859,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x79",
@@ -1801,7 +1882,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x79",
@@ -1823,7 +1905,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x79",
@@ -1845,7 +1928,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x79",
@@ -1867,7 +1951,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x79",
@@ -1889,7 +1974,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x80",
@@ -1911,7 +1997,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x83",
@@ -1933,7 +2020,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x83",
@@ -1955,7 +2043,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x83",
@@ -1977,7 +2066,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x85",
@@ -1999,7 +2089,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x85",
@@ -2021,7 +2112,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x85",
@@ -2043,7 +2135,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x85",
@@ -2065,7 +2158,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x85",
@@ -2087,7 +2181,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x85",
@@ -2109,7 +2204,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x87",
@@ -2131,7 +2227,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x9c",
@@ -2153,7 +2250,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x9c",
@@ -2175,7 +2273,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0x9c",
@@ -2197,7 +2296,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa1",
@@ -2219,7 +2319,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa1",
@@ -2241,7 +2342,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa1",
@@ -2263,7 +2365,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa1",
@@ -2285,7 +2388,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa1",
@@ -2307,7 +2411,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa1",
@@ -2329,7 +2434,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa1",
@@ -2351,7 +2457,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa2",
@@ -2373,7 +2480,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa2",
@@ -2395,7 +2503,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa3",
@@ -2417,7 +2526,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa3",
@@ -2439,7 +2549,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa3",
@@ -2461,7 +2572,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa3",
@@ -2483,7 +2595,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa3",
@@ -2505,7 +2618,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa3",
@@ -2527,7 +2641,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa3",
@@ -2549,7 +2664,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa3",
@@ -2571,7 +2687,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa4",
@@ -2593,7 +2710,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa4",
@@ -2615,7 +2733,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa4",
@@ -2637,7 +2756,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa6",
@@ -2659,7 +2779,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa6",
@@ -2681,7 +2802,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa6",
@@ -2703,7 +2825,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa6",
@@ -2725,7 +2848,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa6",
@@ -2747,7 +2871,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa6",
@@ -2769,7 +2894,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa6",
@@ -2791,7 +2917,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa8",
@@ -2813,7 +2940,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa8",
@@ -2835,7 +2963,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xa8",
@@ -2857,7 +2986,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xab",
@@ -2879,7 +3009,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xab",
@@ -2901,7 +3032,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xb0",
@@ -2923,7 +3055,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xb0",
@@ -2945,7 +3078,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xb0",
@@ -2967,7 +3101,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xb0",
@@ -2989,7 +3124,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xb0",
@@ -3011,7 +3147,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xb1",
@@ -3033,7 +3170,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xb1",
@@ -3055,7 +3193,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xb1",
@@ -3077,7 +3216,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xb1",
@@ -3099,7 +3239,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xb1",
@@ -3121,7 +3262,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xb1",
@@ -3143,7 +3285,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xb1",
@@ -3165,7 +3308,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xb1",
@@ -3187,7 +3331,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xb1",
@@ -3209,7 +3354,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xb1",
@@ -3231,7 +3377,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xb1",
@@ -3253,7 +3400,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xb1",
@@ -3275,7 +3423,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xbd",
@@ -3297,7 +3446,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xbd",
@@ -3319,7 +3469,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc0",
@@ -3341,14 +3492,15 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc0",
     "UMask": "0x02",
     "EventName": "INST_RETIRED.NOP",
-    "BriefDescription": "Number of all retired NOP instructions.",
-    "PublicDescription": "Number of all retired NOP instructions.",
+    "BriefDescription": "Retired NOP instructions.",
+    "PublicDescription": "Counts all retired NOP or ENDBR32/64 instructions",
     "Counter": "0,1,2,3,4,5,6,7",
     "PEBScounters": "0,1,2,3,4,5,6,7",
     "SampleAfterValue": "2000003",
@@ -3363,7 +3515,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc1",
@@ -3385,7 +3538,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc1",
@@ -3407,7 +3561,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc2",
@@ -3429,14 +3584,15 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc2",
     "UMask": "0x02",
     "EventName": "UOPS_RETIRED.TOTAL_CYCLES",
     "BriefDescription": "Cycles with less than 10 actually retired uops.",
-    "PublicDescription": "Counts the number of cycles using always true condition (uops_ret &amp;lt; 16) applied to non PEBS uops retired event.",
+    "PublicDescription": "Counts the number of cycles using always true condition (uops_ret < 16) applied to non PEBS uops retired event.",
     "Counter": "0,1,2,3,4,5,6,7",
     "PEBScounters": "0,1,2,3,4,5,6,7",
     "SampleAfterValue": "1000003",
@@ -3451,7 +3607,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc2",
@@ -3473,7 +3630,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc3",
@@ -3495,7 +3653,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc3",
@@ -3517,7 +3676,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc3",
@@ -3539,7 +3699,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc4",
@@ -3561,7 +3722,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc4",
@@ -3583,7 +3745,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc4",
@@ -3605,7 +3768,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc4",
@@ -3627,7 +3791,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc4",
@@ -3649,7 +3814,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc4",
@@ -3671,7 +3837,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc4",
@@ -3693,7 +3860,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc4",
@@ -3715,7 +3883,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc4",
@@ -3737,7 +3906,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc5",
@@ -3759,13 +3929,14 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc5",
     "UMask": "0x01",
     "EventName": "BR_MISP_RETIRED.COND_TAKEN",
-    "BriefDescription": "number of branch instructions retired that were mispredicted and taken. Non PEBS",
+    "BriefDescription": "number of branch instructions retired that were mispredicted and taken.",
     "PublicDescription": "Counts taken conditional mispredicted branch instructions retired.",
     "Counter": "0,1,2,3,4,5,6,7",
     "PEBScounters": "0,1,2,3,4,5,6,7",
@@ -3781,7 +3952,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc5",
@@ -3803,7 +3975,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc5",
@@ -3825,7 +3998,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc5",
@@ -3847,7 +4021,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc5",
@@ -3869,7 +4044,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc5",
@@ -3891,7 +4067,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc6",
@@ -3913,7 +4090,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc6",
@@ -3935,7 +4113,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc6",
@@ -3957,7 +4136,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc6",
@@ -3979,7 +4159,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc6",
@@ -4001,7 +4182,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc6",
@@ -4023,7 +4205,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc6",
@@ -4045,7 +4228,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc6",
@@ -4067,7 +4251,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc6",
@@ -4089,7 +4274,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc6",
@@ -4111,7 +4297,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc6",
@@ -4133,7 +4320,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc6",
@@ -4155,7 +4343,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc6",
@@ -4177,7 +4366,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc6",
@@ -4199,7 +4389,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc6",
@@ -4221,7 +4412,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc6",
@@ -4243,7 +4435,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc6",
@@ -4265,7 +4458,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc7",
@@ -4287,7 +4481,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc7",
@@ -4309,7 +4504,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc7",
@@ -4331,7 +4527,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc7",
@@ -4353,7 +4550,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc7",
@@ -4375,7 +4573,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc7",
@@ -4397,7 +4596,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc7",
@@ -4419,7 +4619,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc7",
@@ -4441,7 +4642,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc9",
@@ -4463,7 +4665,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc9",
@@ -4485,7 +4688,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc9",
@@ -4507,7 +4711,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc9",
@@ -4529,7 +4734,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc9",
@@ -4551,7 +4757,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc9",
@@ -4573,7 +4780,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xc9",
@@ -4595,7 +4803,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xcc",
@@ -4617,7 +4826,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xcc",
@@ -4639,7 +4849,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xcd",
@@ -4661,7 +4872,8 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xcd",
@@ -4683,7 +4895,8 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xcd",
@@ -4705,7 +4918,8 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xcd",
@@ -4727,7 +4941,8 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xcd",
@@ -4749,7 +4964,8 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xcd",
@@ -4771,7 +4987,8 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xcd",
@@ -4793,7 +5010,8 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xcd",
@@ -4815,7 +5033,8 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xd0",
@@ -4837,7 +5056,8 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xd0",
@@ -4859,7 +5079,8 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "1",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xd0",
@@ -4881,7 +5102,8 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xd0",
@@ -4903,7 +5125,8 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xd0",
@@ -4925,14 +5148,15 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "1",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xd0",
     "UMask": "0x81",
     "EventName": "MEM_INST_RETIRED.ALL_LOADS",
-    "BriefDescription": "All retired load instructions.",
-    "PublicDescription": "Counts all retired load instructions. This event accounts for SW prefetch instructions for loads.",
+    "BriefDescription": "Retired load instructions.",
+    "PublicDescription": "Counts all retired load instructions. This event accounts for SW prefetch instructions of PREFETCHNTA or PREFETCHT0/1/2 or PREFETCHW.",
     "Counter": "0,1,2,3",
     "PEBScounters": "0,1,2,3",
     "SampleAfterValue": "1000003",
@@ -4947,14 +5171,15 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xd0",
     "UMask": "0x82",
     "EventName": "MEM_INST_RETIRED.ALL_STORES",
-    "BriefDescription": "All retired store instructions.",
-    "PublicDescription": "Counts all retired store instructions. This event account for SW prefetch instructions and PREFETCHW instruction for stores.",
+    "BriefDescription": "Retired store instructions.",
+    "PublicDescription": "Counts all retired store instructions.",
     "Counter": "0,1,2,3",
     "PEBScounters": "0,1,2,3",
     "SampleAfterValue": "1000003",
@@ -4969,7 +5194,8 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "1",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xd0",
@@ -4991,7 +5217,8 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "1",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xd1",
@@ -5013,7 +5240,8 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xd1",
@@ -5035,7 +5263,8 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xd1",
@@ -5057,7 +5286,8 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xd1",
@@ -5079,7 +5309,8 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xd1",
@@ -5101,7 +5332,8 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xd1",
@@ -5123,7 +5355,8 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xd1",
@@ -5145,7 +5378,8 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xd2",
@@ -5167,7 +5401,8 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xd2",
@@ -5189,7 +5424,8 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xd2",
@@ -5211,7 +5447,8 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xd2",
@@ -5233,7 +5470,8 @@
     "Data_LA": "1",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xe6",
@@ -5255,7 +5493,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xec",
@@ -5277,7 +5516,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xf0",
@@ -5299,7 +5539,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xf1",
@@ -5321,7 +5562,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xf2",
@@ -5343,7 +5585,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xf2",
@@ -5365,7 +5608,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xf4",
@@ -5387,7 +5631,8 @@
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
     "Errata": "null",
-    "Offcore": "0"
+    "Offcore": "0",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xB7, 0xBB",
@@ -5408,8 +5653,9 @@
     "PEBS": "0",
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
-    "Errata": "0",
-    "Offcore": "1"
+    "Errata": "null",
+    "Offcore": "1",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xB7, 0xBB",
@@ -5430,8 +5676,9 @@
     "PEBS": "0",
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
-    "Errata": "0",
-    "Offcore": "1"
+    "Errata": "null",
+    "Offcore": "1",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xB7, 0xBB",
@@ -5452,8 +5699,9 @@
     "PEBS": "0",
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
-    "Errata": "0",
-    "Offcore": "1"
+    "Errata": "null",
+    "Offcore": "1",
+    "Deprecated": "0"
   },
   {
     "EventCode": "0xB7, 0xBB",
@@ -5474,7 +5722,8 @@
     "PEBS": "0",
     "Data_LA": "0",
     "L1_Hit_Indication": "0",
-    "Errata": "0",
-    "Offcore": "1"
+    "Errata": "null",
+    "Offcore": "1",
+    "Deprecated": "0"
   }
 ]
