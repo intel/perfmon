@@ -149,6 +149,7 @@ class PerfFormatConverter:
         self.metric_assoc_replacement_dict = None
         self.metric_source_event_dict = None
         self.scale_unit_replacement_dict = None
+        self.association_option_replacement_dict = None
         self.perf_metrics = None
         self.init_dictionaries()
 
@@ -167,6 +168,7 @@ class PerfFormatConverter:
             self.metric_assoc_replacement_dict = config_dict["metric_association_replacements"]
             self.metric_source_event_dict = config_dict["metric_source_events"]
             self.scale_unit_replacement_dict = config_dict["scale_unit_replacements"]
+            self.association_option_replacement_dict = config_dict["association_option_replacements"]
         except KeyError as error:
             sys.exit("Error in config JSON format " + str(error) + ". Exiting")
 
@@ -264,7 +266,46 @@ class PerfFormatConverter:
         for replacement in self.metric_assoc_replacement_dict:
             if re.match(replacement, event_name):
                 return self.metric_assoc_replacement_dict[replacement]
+
+        if ":" in event_name and "TOPDOWN" not in event_name:
+            for row in self.association_option_replacement_dict:
+                for event in row["events"]:
+                    if event in event_name:
+                        split = event_name.split(":")
+                        return self.translate_event_options(split, row)
+            print("Event with no option translations: " + event_name)
         return event_name
+
+
+    def translate_event_options(self, split, event_info):
+        """
+        Takes info about an event with options and translates the options
+        into a perf compatible format
+
+        @param split: list of options as strings
+        @param event_info: info on how to translate options
+        @returns: string containing translated event
+        """
+        translation = event_info["unit"] + "@" + split[0]
+        for option in split[1:]:
+            if "=" in option:
+                split = option.split("=")
+                if split[0] in event_info["translations"]:
+                    if "x" in split[1]:
+                        translation += "\\\\," + event_info["translations"][split[0]] + "\\\\=" + split[1]
+                    else:
+                        translation += "\\\\," + event_info["translations"][split[0]] + "\\\\=" + (int(split[1]) * event_info["scale"])
+            elif "0x" in option:
+                split = option.split("0x")
+                if split[0] in event_info["translations"]:
+                    translation += "\\\\," + event_info["translations"][split[0]] + "\\\\=" + "0x" + split[1]
+            else:
+                match = re.match(r"([a-zA-z]+)([\d]+)", option)
+                if match[1] in event_info["translations"]:
+                    translation += "\\\\,"+ event_info["translations"][match[1]] + "\\\\=" + "0x" + match[2]
+
+        return translation + "@"
+
 
     def translate_metric_constant(self, constant_name, metric):
         """
