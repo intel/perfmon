@@ -152,4 +152,6 @@ GenuineIntel-6-BF,v1.16,/ADL/events/alderlake_uncore_experimental.json,uncore ex
 GenuineIntel-6-BE,v1.16,/ADL/events/alderlake_gracemont_core.json,core,,,
 GenuineIntel-6-BE,v1.16,/ADL/events/alderlake_uncore.json,uncore,,,
 GenuineIntel-6-AA,v1.00,/MTL/events/meteorlake_crestmont_core.json,hybridcore,0x20,0x000002,Atom
-GenuineIntel-6-AA,v1.00,/MTL/events/meteorlake_redwoodcove_core.json,hybridcore,0x40,0x000001,Core
+GenuineIntel-6-AA,v1.00,/MTL/events/meteorlake_redwoodcove_core.json,hybridcore,0x40,0x000002,Core
+GenuineIntel-6-AC,v1.00,/MTL/events/meteorlake_crestmont_core.json,hybridcore,0x20,0x000002,Atom
+GenuineIntel-6-AC,v1.00,/MTL/events/meteorlake_redwoodcove_core.json,hybridcore,0x40,0x000002,Core
