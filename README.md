@@ -63,7 +63,7 @@ Example: “> 0.2 & P” means the current node’s values is above 20% and the 
 
 1. Python3+
 
-2. perf v5.11
+2. perf v6.0 (recommend the newest version of perf available)
 
 3. linux kernel version v5.11
 
