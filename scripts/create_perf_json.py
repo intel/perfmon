@@ -17,7 +17,7 @@ from itertools import takewhile
 import json
 import os
 import re
-from typing import DefaultDict, Dict, Set
+from typing import DefaultDict, Dict, Optional, Set, TextIO
 import urllib.request
 
 _verbose = 0
@@ -424,6 +424,569 @@ class Model:
         ret += f',{self.version.lower()},{self.longname},core'
         return ret
 
+    def cstate_json(self):
+        cstates = [
+            (['NHM', 'WSM'], [3, 6], [3, 6, 7]),
+            ([  'SNB', 'IVB', 'HSW', 'BDW', 'BDW-DE', 'BDX', 'SKL', 'SKX',
+                'CLX', 'CPX', 'HSX', 'IVT', 'JKT'
+              ], [3, 6, 7], [2, 3, 6, 7]),
+            (['KBL'], [3, 6, 7], [2, 3, 6, 7]),
+            (['CNL'], [1, 3, 6, 7], [2, 3, 6, 7, 8, 9, 10]),
+            (['ICL', 'TGL', 'RKL'], [6, 7], [2, 3, 6, 7, 8, 9, 10]),
+            (['ICX', 'SPR'], [1, 6], [2, 6]),
+            (['ADL', 'GRT'], [1, 6, 7], [2, 3, 6, 7, 8, 9, 10]),
+            (['SLM'], [1, 6], [6]),
+            (['KNL', 'KNM'], [6], [2, 3, 6]),
+            (['GLM', 'SNR'], [1, 3, 6], [2, 3, 6, 10]),
+        ]
+        result = []
+        for (cpu_matches, core_cstates, pkg_cstates) in cstates:
+            if self.shortname in cpu_matches:
+                for x in core_cstates:
+                    result.append({
+                        'MetricExpr': f'cstate_core@c{x}\\-residency@ / TSC',
+                        'MetricGroup': 'Power',
+                        'BriefDescription': f'C{x} residency percent per core',
+                        'MetricName': f'C{x}_Core_Residency',
+                        'ScaleUnit': '100%'
+                    })
+                for x in pkg_cstates:
+                    result.append({
+                        'MetricExpr': f'cstate_pkg@c{x}\\-residency@ / TSC',
+                        'MetricGroup': 'Power',
+                        'BriefDescription': f'C{x} residency percent per package',
+                        'MetricName': f'C{x}_Pkg_Residency',
+                        'ScaleUnit': '100%'
+                    })
+                break
+        assert len(result) > 0, f'Missing cstate data for {self.shortname}'
+        return result
+
+
+    def extract_tma_metrics(self, csvfile: TextIO, pmu_prefix: str,
+                            events: Dict[str, PerfmonJsonEvent]):
+        """Process a TMA metrics spreadsheet generating perf metrics."""
+
+        # metrics redundant with perf or unusable
+        ignore = set(['MUX', 'Power', 'Time'])
+
+        ratio_column = {
+            "IVT": ("IVT", "IVB", "JKT/SNB-EP", "SNB"),
+            "IVB": ("IVB", "SNB", ),
+            "HSW": ("HSW", "IVB", "SNB", ),
+            "HSX": ("HSX", "HSW", "IVT", "IVB", "JKT/SNB-EP", "SNB"),
+            "BDW": ("BDW", "HSW", "IVB", "SNB", ),
+            "BDX": ("BDX", "BDW", "HSX", "HSW", "IVT", "IVB", "JKT/SNB-EP", "SNB"),
+            "SNB": ("SNB", ),
+            "JKT/SNB-EP": ("JKT/SNB-EP", "SNB"),
+            "SKL/KBL": ("SKL/KBL", "BDW", "HSW", "IVB", "SNB"),
+            'SKX': ('SKX', 'SKL/KBL', 'BDX', 'BDW', 'HSX', 'HSW', 'IVT', 'IVB',
+                    'JKT/SNB-EP', 'SNB'),
+            "KBLR/CFL": ("KBLR/CFL", "SKL/KBL", "BDW", "HSW", "IVB", "SNB"),
+            'CLX': ('CLX', 'KBLR/CFL/CML', 'SKX', 'SKL/KBL', 'BDX', 'BDW', 'HSX', 'HSW',
+                    'IVT', 'IVB', 'JKT/SNB-EP', 'SNB'),
+            "ICL": ("ICL", "CNL", "KBLR/CFL/CML", "SKL/KBL", "BDW", "HSW", "IVB", "SNB"),
+            'ICX': ('ICX', 'ICL', 'CNL', 'CPX', 'CLX', 'KBLR/CFL/CML', 'SKX', 'SKL/KBL',
+                    'BDX', 'BDW', 'HSX', 'HSW', 'IVT', 'IVB', 'JKT/SNB-EP', 'SNB'),
+            'RKL': ('RKL', 'ICL', 'CNL', 'KBLR/CFL/CML', 'SKL/KBL', 'BDW', 'HSW',
+                    'IVB', 'SNB'),
+            'TGL': ('TGL', 'RKL', 'ICL', 'CNL', 'KBLR/CFL/CML', 'SKL/KBL', 'BDW',
+                    'HSW', 'IVB', 'SNB'),
+            'ADL/RPL': ('ADL/RPL', 'TGL', 'RKL', 'ICL', 'CNL', 'KBLR/CFL/CML',
+                        'SKL/KBL', 'BDW', 'HSW', 'IVB', 'SNB'),
+            'SPR': ('SPR', 'ADL/RPL', 'TGL', 'RKL', 'ICX', 'ICL', 'CNL', 'CPX', 'CLX',
+                    'KBLR/CFL/CML', 'SKX', 'SKL/KBL', 'BDX', 'BDW', 'HSX', 'HSW', 'IVT',
+                    'IVB', 'JKT/SNB-EP', 'SNB'),
+            "GRT": ("GRT"),
+        }
+        tma_cpu = None
+        if self.shortname == 'BDW-DE':
+            tma_cpu = 'BDW'
+        else:
+            for key in ratio_column.keys():
+                if self.shortname in key:
+                    tma_cpu = key
+                    break
+        if not tma_cpu:
+            _verboseprint(f'Missing TMA CPU for {self.shortname}')
+            return []
+
+        class PerfMetric:
+           def  __init__(self, name: str, form: Optional[str], desc: str, groups: str,
+                         locate: str, scale_unit: Optional[str] = None):
+               self.name = name
+               self.form = form
+               self.desc = desc
+               self.groups = groups
+               self.locate = locate
+               self.scale_unit = scale_unit
+
+        # All the metrics read from the CSV file.
+        info : list[PerfMetric] = []
+        # Mapping from an auxiliary name like #Pipeline_Width to the CPU
+        # specific formula used to compute it.
+        aux : Dict[str, str] = {}
+        # Mapping from a metric name to its CPU specific formula for
+        # Info.* and topdown metrics.
+        infoname : Dict[str, str] = {}
+        # Mapping from a topdown metric name to its CPU specific formula.
+        nodes : Dict[str, str] = {}
+        # Mapping from the TMA CSV metric name to the name used in the perf json.
+        tma_metric_names : Dict[str, str] = {}
+        # Map from the column heading to the list index of that column.
+        col_heading : Dict[str, int] = {}
+        # A list of topdown levels such as 'Level1'.
+        levels : list[str] = []
+        # A list of parents of the current topdown level.
+        parents : list[str] = []
+        # Map from a parent topdown metric name to its children's names.
+        children: Dict[str, Set[str]] = collections.defaultdict(set)
+        found_key = False
+        csvf = csv.reader([l.decode('utf-8') for l in csvfile.readlines()])
+        for l in csvf:
+            if l[0] == 'Key':
+                found_key = True
+                for ind, name in enumerate(l):
+                    col_heading[name] = ind
+                    if name.startswith('Level'):
+                        levels.append(name)
+                if tma_cpu not in col_heading:
+                    if tma_cpu == 'ADL/RPL' and 'GRT' in col_heading:
+                        tma_cpu = 'GRT'
+                _verboseprint3(f'Columns: {col_heading}. Levels: {levels}')
+            elif not found_key:
+                continue
+
+            def field(x: str) -> str:
+                """Given the name of a column, return the value in the current line of it."""
+                return l[col_heading[x]]
+
+            def find_form() -> Optional[str]:
+                """Find the formula for CPU in the current CSV line."""
+                cell = field(tma_cpu)
+                if not cell:
+                    for j in ratio_column[tma_cpu]:
+                        cell = field(j)
+                        if cell:
+                            break
+                if 'UNC_CLOCK.SOCKET' in cell and self.shortname in ['BDW-DE', 'TGL']:
+                    cell = None
+                return cell
+
+            def locate_with() -> Optional[str]:
+                lw = field('Locate-with')
+                if not lw:
+                    return None
+                m = re.fullmatch(r'(.+) ? (.+) : (.+)', lw)
+                if m:
+                    if self.shortname in m.group(1):
+                        lw = m.group(2)
+                    else:
+                        lw = m.group(3)
+                return None if lw == '#NA' else lw
+
+            def metric_group(metric_name: str) -> Optional[str]:
+                groups : Dict[str, str] = {
+                    'IFetch_Line_Utilization': 'Frontend',
+                    'Kernel_Utilization': 'Summary',
+                    'Turbo_Utilization': 'Power',
+                }
+                group = field('Metric Group')
+                return group if group else groups.get(metric_name)
+
+            def is_topdown_row(key: str) -> bool:
+                topdown_keys = ['BE', 'BAD', 'RET', 'FE']
+                return any(key.startswith(td_key) for td_key in topdown_keys)
+
+            if is_topdown_row(l[0]):
+                for j in levels:
+                    metric_name = field(j)
+                    if metric_name:
+                        break
+                assert metric_name, f'Missing metric in: {l}'
+                level = int(j[-1])
+                if level > len(parents):
+                    parents.append(metric_name)
+                else:
+                    while level != len(parents):
+                        parents.pop()
+                    parents[-1] = field(j)
+                _verboseprint3(f'{field(j)} => {str(parents)}')
+                form = find_form()
+                if not form:
+                    _verboseprint2(f'Missing formula for {metric_name} on CPU {self.shortname}')
+                    continue
+                nodes[metric_name] = form
+                mgroups = f'TopdownL{level}'
+                csv_groups = metric_group(metric_name)
+                if csv_groups:
+                    mgroups += f';{csv_groups}'
+                if level > 1:
+                    mgroups += f';tma_{parents[-2].lower()}_group'
+                    children[parents[-2]].add(parents[-1])
+                tma_metric_name = f'tma_{metric_name.lower()}'
+                info.append(PerfMetric(
+                    tma_metric_name, form,
+                    field('Metric Description'), mgroups, locate_with(),
+                    '100%'
+                ))
+                infoname[metric_name] = form
+                tma_metric_names[metric_name] = tma_metric_name
+            elif l[0].startswith('Info'):
+                metric_name = field('Level1')
+                form = find_form()
+                if form:
+                    info.append(PerfMetric(
+                        metric_name,
+                        form,
+                        field('Metric Description'),
+                        metric_group(metric_name),
+                        locate_with()
+                    ))
+                    infoname[field('Level1')] = form
+            elif l[0].startswith('Aux'):
+                form = find_form()
+                if form and form != '#NA':
+                    aux[field('Level1')] = form
+                    _verboseprint3(f'Adding aux {field("Level1")}: {form}')
+
+        jo = []
+        for i in info:
+            if i.name in ignore:
+                _verboseprint2(f'Skipping {i.name}')
+                continue
+
+            form = i.form
+            if form is None or form == '#NA' or form == 'N/A':
+                _verboseprint2(f'No formula for {i.name} on {tma_cpu}')
+                continue
+            _verboseprint3(f'{i.name} original formula {form}')
+
+            def resolve_all(form: str, expand_metrics: bool) -> str:
+
+                def fixup(form: str) -> str:
+                    td_event_fixups = [
+                        ('PERF_METRICS.BACKEND_BOUND', 'topdown\-be\-bound'),
+                        ('PERF_METRICS.BAD_SPECULATION', 'topdown\-bad\-spec'),
+                        ('PERF_METRICS.BRANCH_MISPREDICTS', 'topdown\-br\-mispredict'),
+                        ('PERF_METRICS.FETCH_LATENCY', 'topdown\-fetch\-lat'),
+                        ('PERF_METRICS.FRONTEND_BOUND', 'topdown\-fe\-bound'),
+                        ('PERF_METRICS.HEAVY_OPERATIONS', 'topdown\-heavy\-ops'),
+                        ('PERF_METRICS.MEMORY_BOUND', 'topdown\-mem\-bound'),
+                        ('PERF_METRICS.RETIRING', 'topdown\-retiring'),
+                        ('TOPDOWN.SLOTS:perf_metrics', 'TOPDOWN.SLOTS'),
+                        ('TOPDOWN.SLOTS:percore', 'TOPDOWN.SLOTS'),
+                    ]
+                    arch_fixups = {
+                        'ADL': td_event_fixups,
+                        'BDX': [
+                            ('UNC_C_TOR_OCCUPANCY.MISS_OPCODE:opc=0x182:c1',
+                             'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182\,thresh\=1@'),
+                            ('UNC_C_TOR_OCCUPANCY.MISS_OPCODE:opc=0x182',
+                             'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182@'),
+                            ('UNC_C_TOR_INSERTS.MISS_OPCODE:opc=0x182',
+                             'UNC_C_TOR_INSERTS.MISS_OPCODE@filter_opc\=0x182@'),
+                            ('UNC_C_CLOCKTICKS:one_unit', 'cbox_0@event\=0x0@'),
+                        ],
+                        'BDW-DE': [
+                            ('UNC_ARB_COH_TRK_REQUESTS.ALL', 'arb@event\=0x84\,umask\=0x1@'),
+                            ('UNC_ARB_TRK_REQUESTS.ALL', 'arb@event\=0x81\,umask\=0x1@'),
+                        ],
+                        'CLX': [
+                            ('UNC_M_CLOCKTICKS:one_unit', 'imc_0@event\=0x0@'),
+                            ('UNC_CHA_CLOCKTICKS:one_unit', 'cha_0@event\=0x0@'),
+                            ('UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD:c1',
+                             'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
+                        ],
+                        'HSX': [
+                            ('UNC_C_TOR_OCCUPANCY.MISS_OPCODE:opc=0x182:c1',
+                             'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182\,thresh\=1@'),
+                            ('UNC_C_TOR_OCCUPANCY.MISS_OPCODE:opc=0x182',
+                             'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182@'),
+                            ('UNC_C_TOR_INSERTS.MISS_OPCODE:opc=0x182',
+                             'UNC_C_TOR_INSERTS.MISS_OPCODE@filter_opc\=0x182@'),
+                            ('UNC_C_CLOCKTICKS:one_unit', 'cbox_0@event\=0x0@'),
+                        ],
+                        'ICL': td_event_fixups,
+                        'ICX': [
+                            ('UNC_CHA_CLOCKTICKS:one_unit', 'cha_0@event\=0x0@'),
+                            ('UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD:c1',
+                             'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
+                        ] + td_event_fixups,
+                        'IVT': [
+                            ('"UNC_C_TOR_OCCUPANCY.MISS_OPCODE/Match=0x182"',
+                             'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182@'),
+                            ('"UNC_C_TOR_OCCUPANCY.MISS_OPCODE/Match=0x182:c1"',
+                             'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182\,thresh\=1@'),
+                            ('"UNC_C_TOR_INSERTS.MISS_OPCODE/Match=0x182"',
+                             'UNC_C_TOR_INSERTS.MISS_OPCODE@filter_opc\=0x182@'),
+                            ('UNC_C_CLOCKTICKS:one_unit', 'cbox_0@event\=0x0@'),
+                        ],
+                        'JKT': [
+                            ('"UNC_C_TOR_OCCUPANCY.MISS_OPCODE/Match=0x182"',
+                             'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182@'),
+                            ('"UNC_C_TOR_INSERTS.MISS_OPCODE/Match=0x182"',
+                             'UNC_C_TOR_INSERTS.MISS_OPCODE@filter_opc\=0x182@'),
+                            ('"UNC_C_TOR_OCCUPANCY.MISS_OPCODE/Match=0x182:c1"',
+                             'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182\,thresh\=1@'),
+                            ('UNC_C_CLOCKTICKS:one_unit', 'cbox_0@event\=0x0@'),
+                        ],
+                        'SKL': [
+                            ('UNC_ARB_TRK_OCCUPANCY.DATA_READ:c1',
+                             'UNC_ARB_TRK_OCCUPANCY.DATA_READ@thresh\=1@'),
+                        ],
+                        'SKX': [
+                            ('UNC_M_CLOCKTICKS:one_unit', 'imc_0@event\=0x0@'),
+                            ('UNC_CHA_CLOCKTICKS:one_unit', 'cha_0@event\=0x0@'),
+                            ('UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD:c1',
+                             'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
+                        ],
+                        'SPR': [
+                            ('UNC_CHA_CLOCKTICKS:one_unit', 'uncore_cha_0@event\=0x1@'),
+                            ('UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD:c1',
+                             'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
+                        ] + td_event_fixups,
+                        'TGL': [
+                            ('UNC_ARB_COH_TRK_REQUESTS.ALL', 'arb@event\=0x84\,umask\=0x1@'),
+                            ('UNC_ARB_TRK_REQUESTS.ALL', 'arb@event\=0x81\,umask\=0x1@'),
+                        ] + td_event_fixups,
+                    }
+
+                    if self.shortname in arch_fixups:
+                        for j, r in arch_fixups[self.shortname]:
+                            for i in range(0, len(r)):
+                                if r[i] in ['-', '=', ',']:
+                                    assert i == 0 or r[i - 1] == '\\', r
+                            form = form.replace(j, r)
+
+                    form = form.replace('_PS', '')
+                    form = form.replace('#Memory == 1', '1')
+                    form = form.replace('#PMM_App_Direct', '1')
+                    form = re.sub(r':USER', ':u', form, re.IGNORECASE)
+                    form = re.sub(r':SUP', ':k', form, re.IGNORECASE)
+                    form = form.replace('(0 + ', '(')
+                    form = form.replace(' + 0)', ')')
+                    form = form.replace('+ 0 +', '+')
+                    form = form.replace(', 0 +', ',')
+                    form = form.replace('else 0 +', 'else')
+                    form = form.replace('( ', '(')
+                    form = form.replace(' )', ')')
+                    form = form.replace(' , ', ', ')
+                    form = form.replace('  ', ' ')
+
+                    changed = True
+                    event_pattern = r'[A-Z0-9_.]+'
+                    term_pattern = r'[a-z0-9\\=,]+'
+                    while changed:
+                        changed = False
+                        for match, replacement in [
+                            (rf'{pmu_prefix}@(' + event_pattern + term_pattern +
+                             r')@:sup', rf'{pmu_prefix}@\1@k'),
+                            (rf'{pmu_prefix}@(' + event_pattern + term_pattern +
+                             r')@:user', rf'{pmu_prefix}@\1@u'),
+                            (rf'{pmu_prefix}@(' + event_pattern + term_pattern +
+                             r')@:c(\d+)', rf'{pmu_prefix}@\1\\,cmask\\=\2@'),
+                            (rf'{pmu_prefix}@(' + event_pattern + term_pattern +
+                             r')@:u0x([A-Fa-f0-9]+)',
+                             rf'{pmu_prefix}@\1\\,umask\\=0x\2@'),
+                            (rf'{pmu_prefix}@(' + event_pattern + term_pattern +
+                             r')@:i1', rf'{pmu_prefix}@\1\\,inv@'),
+                            (rf'{pmu_prefix}@(' + event_pattern + term_pattern +
+                             r')@:e1', rf'{pmu_prefix}@\1\\,edge@'),
+                            ('(' + event_pattern + rf'):sup',
+                             rf'{pmu_prefix}@\1@k'),
+                            ('(' + event_pattern + rf'):user',
+                             rf'{pmu_prefix}@\1@u'),
+                            ('(' + event_pattern + rf'):i1',
+                             rf'{pmu_prefix}@\1\\,inv@'),
+                            ('(' + event_pattern + rf'):c(\d+)',
+                             rf'{pmu_prefix}@\1\\,cmask\\=\2@'),
+                            ('(' + event_pattern + rf'):u0x([a-fA-F0-9]+)',
+                             rf'{pmu_prefix}@\1\\,umask\\=0x\2@'),
+                            ('(' + event_pattern + rf'):e1',
+                             rf'{pmu_prefix}@\1\\,edge@'),
+                        ]:
+                            new_form = re.sub(match, replacement, form,
+                                              re.IGNORECASE)
+                            changed = changed or new_form != form
+                            form = new_form
+
+                    changed = True
+                    while changed:
+                        changed = False
+                        m = re.fullmatch(r'(.*) if ([01]) else (.*)', form)
+                        if m:
+                            changed = True
+                            form = m.group(1) if m.group(2) == '1' else m.group(3)
+                        m = re.search(r'\(([0-9.]+) \* ([A-Za-z_]+)\) - \(([0-9.]+) \* ([A-Za-z_]+)\)', form)
+                        if m and m.group(2) == m.group(4):
+                            changed = True
+                            form = form.replace(m.group(0), f'{(float(m.group(1)) - float(m.group(3))):g} * {m.group(2)}')
+
+                    return form
+
+
+                def bracket(expr):
+                    if '/' in expr or '*' in expr or '+' in expr or '-' in expr:
+                        if expr.startswith('(') and expr.endswith(')'):
+                            return expr
+                        else:
+                            return '(' + expr + ')'
+                    return expr
+
+                def resolve_aux(v: str) -> str:
+                    if any(v == i for i in ['#core_wide', '#Model', '#SMT_on', '#num_dies']):
+                        return v
+                    if v == '#DurationTimeInSeconds':
+                        return 'duration_time'
+                    if v == '#EBS_Mode':
+                        return '#core_wide < 1'
+                    if v == '#Memory':
+                        return '1' if memory else '0'
+                    if v == '#NA':
+                        return '0'
+                    if v[1:] in nodes:
+                        child = nodes[v[1:]]
+                    else:
+                        child = aux[v]
+                    child = fixup(child)
+                    return bracket(child)
+
+                def resolve_info(v: str) -> str:
+                    if v in ignore or (expand_metrics and v in infoname):
+                        # If metric will be ignored in the output it must
+                        # be expanded.
+                        return bracket(fixup(infoname[v]))
+                    if v in infoname:
+                        form = infoname[v]
+                        if form == '#NA':
+                            # Don't refer to empty metrics.
+                            return '0'
+                        # Check the expanded formula for bad events, which
+                        # would mean we want to drop this metric too.
+                        form = fixup(form)
+                        if v in tma_metric_names:
+                            return tma_metric_names[v]
+                    return v
+
+                def expand_hhq(parent: str) -> str:
+                    return f'max({parent}, {" + ".join(sorted(children[parent]))})'
+
+                def expand_hh(parent: str) -> str:
+                    return f'({" + ".join(sorted(children[parent]))})'
+
+                def resolve(v: str) -> str:
+                    if v.startswith('##?'):
+                        return expand_hhq(v[3:])
+                    if v.startswith('##'):
+                        return expand_hh(v[2:])
+                    if v.startswith('#'):
+                        return resolve_aux(v)
+                    return resolve_info(v)
+
+                # Iterate until form stabilizes to handle deeper nesting.
+                changed = True
+                while changed:
+                    orig_form = form
+                    form = re.sub(r'#?#?\??([A-Z_a-z0-9.]|\\-)+',
+                                  lambda m: resolve(m.group(0)), form)
+                    changed = orig_form != form
+
+                form = fixup(form)
+                return form
+
+            def save_form(name, group, form, desc, locate, scale_unit):
+                if self.shortname == 'BDW-DE':
+                    if name == 'Page_Walks_Utilization':
+                        # Force in the BDX versions.
+                        form = ('(ITLB_MISSES.WALK_DURATION + '
+                                'DTLB_LOAD_MISSES.WALK_DURATION + '
+                                'DTLB_STORE_MISSES.WALK_DURATION + 7 * '
+                                '(DTLB_STORE_MISSES.WALK_COMPLETED + '
+                                'DTLB_LOAD_MISSES.WALK_COMPLETED + '
+                                'ITLB_MISSES.WALK_COMPLETED)) / (2 * CORE_CLKS)')
+                    elif name in ['tma_false_sharing', 'MEM_Parallel_Requests', 'MEM_Request_Latency']:
+                        # Uncore events missing for BDW-DE, so drop.
+                        _verboseprint3(f'Dropping metric {name}')
+                        return
+
+                # Make 'TmaL1' group names more consistent with the 'tma_'
+                # prefix and '_group' suffix.
+                if group:
+                    group = re.sub(r'Tma(L[12])', r'tma_\1_group', group)
+                    group = ';'.join([x.strip() for x in sorted(group.split(';'))])
+                _verboseprint3(f'Checking metric {name}: {form}')
+                for v, _ in re.findall(r'(([A-Z_a-z0-9.]|\\-)+)', form):
+                    if v.isdigit() or re.match('\d+\.\d+', v) is not None or \
+                       re.match('0x[a-fA-F0-9]+', v) is not None or \
+                       re.match('\d+e\d+', v) is not None:
+                        continue
+                    if v in ['if', 'then', 'else', 'min', 'max', 'core_wide',
+                             'SMT_on', 'duration_time', 'cmask', 'umask',
+                             'u', 'k', 'cpu', 'cpu_atom', 'cpu_core', 'edge',
+                             'inv', 'TSC', 'filter_opc', 'cha_0', 'event',
+                             'imc_0', 'uncore_cha_0', 'cbox_0', 'arb', 'thresh']:
+                        continue
+                    if v.startswith('tma_') or v.startswith('topdown\\-'):
+                        continue
+                    assert v in events or v in infoname or v in aux, \
+                        f'Expected {v} to be an event in "{name}": "{form}" on {self.shortname}'
+
+                if locate:
+                    desc = desc + ' Sample with: ' + locate
+
+                j = {
+                    'MetricName': name,
+                    'MetricExpr': form,
+                }
+
+                if group and len(group) > 0:
+                    j['MetricGroup'] = group
+                if desc.count('.') > 1:
+                    sdesc = re.sub(r'(?<!i\.e)\. .*', '', desc)
+                    j['BriefDescription'] = sdesc
+                    if desc != sdesc:
+                        j['PublicDescription'] = desc
+                else:
+                    j['BriefDescription'] = desc
+
+                if j['MetricName'] == 'Page_Walks_Utilization' or j[
+                        'MetricName'] == 'Backend_Bound':
+                    j['MetricConstraint'] = 'NO_NMI_WATCHDOG'
+
+                if pmu_prefix != 'cpu':
+                    j['Unit'] = pmu_prefix
+
+                if scale_unit:
+                    j['ScaleUnit'] = scale_unit
+
+                jo.append(j)
+
+            form = resolve_all(form, expand_metrics=False)
+            needs_slots = 'topdown\-' in form and 'SLOTS' not in form
+            if needs_slots:
+                # topdown events must always be grouped with a
+                # TOPDOWN.SLOTS event. Detect when this is missing in a
+                # metric and insert a dummy value. Metrics using other
+                # metrics with topdown events will get a TOPDOWN.SLOTS
+                # event from them.
+                form = f'{form} + 0*SLOTS'
+            save_form(i.name, i.groups, form, i.desc, i.locate, i.scale_unit)
+
+        if 'Socket_CLKS' in infoname:
+            form = 'Socket_CLKS / #num_dies / duration_time / 1000000000'
+            form = resolve_all(form, expand_metrics=False)
+            if form:
+                jo.append({
+                    'MetricName': 'UNCORE_FREQ',
+                    'MetricExpr': form,
+                    'BriefDescription': 'Uncore frequency per die [GHZ]',
+                    'MetricGroup': 'SoC'
+                })
+
+        return jo
+
+
     def to_perf_json(self, outdir: str):
         # Map from a topic to its list of events as dictionaries.
         pmon_topic_events: Dict[str, list[Dict[str, str]]] = \
@@ -560,13 +1123,30 @@ class Model:
                         dict_events[name]["MetricName"] = metric_name
                         dict_events[name]['MetricExpr'] = formula
 
-        for topic, events in pmon_topic_events.items():
-            events = sorted(events, key=lambda event: event['EventName'])
+        for topic, events_ in pmon_topic_events.items():
+            events_ = sorted(events_, key=lambda event: event['EventName'])
             filename = f'{topic.lower().replace(" ", "-")}.json'
             with open(f'{outdir}/{filename}', 'w', encoding='ascii') as perf_json:
-                json.dump(events, perf_json, sort_keys=True, indent=4,
+                json.dump(events_, perf_json, sort_keys=True, indent=4,
                           separators=(',', ': '))
                 perf_json.write('\n')
+
+        metrics = []
+        for metric_csv_key, unit in [('tma metrics', 'cpu_core'),
+                                     ('e-core tma metrics', 'cpu_atom')]:
+            if metric_csv_key not in self.files:
+                continue
+            pmu_prefix = unit if 'atom' in self.files else 'cpu'
+            with urllib.request.urlopen(self.files[metric_csv_key]) as metric_csv:
+                metrics.extend(self.extract_tma_metrics(metric_csv, pmu_prefix, events))
+
+        if len(metrics) > 0:
+            metrics.extend(self.cstate_json())
+            with open(f'{outdir}/{self.shortname.lower().replace("-","")}-metrics.json',
+                      'w', encoding='ascii') as perf_metric_json:
+                json.dump(metrics, perf_metric_json, sort_keys=True, indent=4,
+                          separators=(',', ': '))
+                perf_metric_json.write('\n')
 
 
 class Mapfile:
