@@ -925,12 +925,26 @@ class Model:
                              'SMT_on', 'duration_time', 'cmask', 'umask',
                              'u', 'k', 'cpu', 'cpu_atom', 'cpu_core', 'edge',
                              'inv', 'TSC', 'filter_opc', 'cha_0', 'event',
-                             'imc_0', 'uncore_cha_0', 'cbox_0', 'arb', 'thresh']:
+                             'imc_0', 'uncore_cha_0', 'cbox_0', 'arb', 'cbox',
+                             'num_packages', 'num_cores', 'SYSTEM_TSC_FREQ',
+                             'filter_tid', 'TSC', 'cha', 'config1',
+                             'source_count', 'slots', 'thresh']:
                         continue
                     if v.startswith('tma_') or v.startswith('topdown\\-'):
                         continue
-                    assert v in events or v in infoname or v in aux, \
+                    assert v in events or v.upper() in events or v in infoname or v in aux, \
                         f'Expected {v} to be an event in "{name}": "{form}" on {self.shortname}'
+
+                for m in jo:
+                    # Check for duplicate metrics. Note, done after
+                    # verifying the events.
+                    if m['MetricName'] == name:
+                        _verboseprint(f'Dropping duplicate metric {name}')
+                        if form != m['MetricExpr']:
+                            _verboseprint2(f'duplicate metric {name} forms differ'
+                                           f'\n\tnew: {form}'
+                                           f'\n\texisting: {m["MetricExpr"]}')
+                        return
 
                 if locate:
                     desc = desc + ' Sample with: ' + locate
@@ -983,6 +997,12 @@ class Model:
                     'BriefDescription': 'Uncore frequency per die [GHZ]',
                     'MetricGroup': 'SoC'
                 })
+
+        if 'extra metrics' in self.files:
+            with urllib.request.urlopen(self.files['extra metrics']) as extra_json:
+                for em in json.load(extra_json):
+                    save_form(em['MetricName'], em['MetricGroup'], em['MetricExpr'],
+                              em['BriefDescription'], None, em['ScaleUnit'])
 
         return jo
 
