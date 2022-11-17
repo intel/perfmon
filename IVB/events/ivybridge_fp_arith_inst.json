@@ -1,1 +1,11 @@
-[]
+{
+  "Header": {
+    "Copyright": "Copyright (c) 2001 - 2022 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for 3rd Generation Intel(R) Core(TM) Processor - V23",
+    "DatePublished": "10/03/2018",
+    "Version": "23",
+    "Legend": ""
+  },
+  "Events": [
+  ]
+}
