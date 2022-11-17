@@ -79,7 +79,7 @@ The perf script in /scripts will take the metrics.json file and convert that gen
     
 	1.2 Clone the metric repository into the working directory
     
-    `git clone https://github.com/intel/perfmon-metrics.git`
+    `git clone https://github.com/intel/perfmon.git`
     
     1.3 Clone a copy of linux source code
     
