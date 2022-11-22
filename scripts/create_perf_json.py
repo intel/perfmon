@@ -1026,8 +1026,8 @@ class Model:
                 continue
             _verboseprint2(f'Generating {event_type} events from {self.files[event_type]}')
             with urllib.request.urlopen(self.files[event_type]) as event_json:
-                pmon_events: list[PerfmonJsonEvent] = \
-                    json.load(event_json, object_hook=PerfmonJsonEvent)
+                json_data = json.load(event_json)
+                pmon_events = [PerfmonJsonEvent(x) for x in json_data['Events']]
                 unit = None
                 if event_type in ['atom', 'core'] and 'atom' in self.files and 'core' in self.files:
                     unit = f'cpu_{event_type}'
