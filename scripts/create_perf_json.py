@@ -434,7 +434,7 @@ class Model:
             (['CNL'], [1, 3, 6, 7], [2, 3, 6, 7, 8, 9, 10]),
             (['ICL', 'TGL', 'RKL'], [6, 7], [2, 3, 6, 7, 8, 9, 10]),
             (['ICX', 'SPR'], [1, 6], [2, 6]),
-            (['ADL', 'GRT'], [1, 6, 7], [2, 3, 6, 7, 8, 9, 10]),
+            (['ADL', 'GRT', 'ADLN'], [1, 6, 7], [2, 3, 6, 7, 8, 9, 10]),
             (['SLM'], [1, 6], [6]),
             (['KNL', 'KNM'], [6], [2, 3, 6]),
             (['GLM', 'SNR'], [1, 3, 6], [2, 3, 6, 10]),
@@ -502,6 +502,8 @@ class Model:
         tma_cpu = None
         if self.shortname == 'BDW-DE':
             tma_cpu = 'BDW'
+        if self.shortname == 'ADLN':
+            tma_cpu = 'GRT'
         else:
             for key in ratio_column.keys():
                 if self.shortname in key:
@@ -1024,8 +1026,8 @@ class Model:
                 continue
             _verboseprint2(f'Generating {event_type} events from {self.files[event_type]}')
             with urllib.request.urlopen(self.files[event_type]) as event_json:
-                pmon_events: list[PerfmonJsonEvent] = \
-                    json.load(event_json, object_hook=PerfmonJsonEvent)
+                json_data = json.load(event_json)
+                pmon_events = [PerfmonJsonEvent(x) for x in json_data['Events']]
                 unit = None
                 if event_type in ['atom', 'core'] and 'atom' in self.files and 'core' in self.files:
                     unit = f'cpu_{event_type}'
@@ -1219,16 +1221,14 @@ class Mapfile:
                 url = base_path + path
 
                 # Workarounds:
-                if shortname == 'ADL' and event_type == 'core':
-                    # ADL GenuineIntel-6-BE only has atom cores and so
-                    # they don't set event_type to 'hybridcore' but
-                    # 'core' leading to ADL having multiple core
-                    # paths. Avoid this by setting the type back to
-                    # atom. This is a bug as the kernel will set the
-                    # PMU name to 'cpu' for this architecture.
-                    assert 'gracemont' in path
-                    event_type = 'atom'
-                    core_role_name = 'Atom'
+                if family_model == 'GenuineIntel-6-BE':
+                    # ADL-N GenuineIntel-6-BE only has E-core, it has
+                    # been moved to non-hybrid code path on the kernel
+                    # side, so here add Alderlake-N separately, the
+                    # shortname change to 'ADLN', longname change to
+                    # 'alderlaken'
+                    shortname = 'ADLN'
+                    longname = longname + "n"
 
                 if event_type == 'hybridcore':
                     # We want a core and an atom file, so change
@@ -1270,6 +1270,8 @@ class Mapfile:
 
             # Add metric files that will be used for each model.
             files[shortname]['tma metrics'] = base_path + '/TMA_Metrics-full.csv'
+            if shortname == 'ADLN':
+                files[shortname]['tma metrics'] = base_path + '/E-core_TMA_Metrics.csv'
             if 'atom' in files[shortname]:
                 files[shortname][
                     'e-core tma metrics'] = base_path + '/E-core_TMA_Metrics.csv'
