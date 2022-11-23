@@ -1,12 +1,50 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2022 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 3rd Generation Intel(R) Xeon(R) Processor Scalable Family based on Ice Lake microarchitecture - V1.16",
-    "DatePublished": "08/05/2022",
-    "Version": "1.16",
+    "Info": "Performance Monitoring Events for 3rd Generation Intel(R) Xeon(R) Processor Scalable Family based on Ice Lake microarchitecture - V1.17",
+    "DatePublished": "11/21/2022",
+    "Version": "1.17",
     "Legend": ""
   },
   "Events": [
+    {
+      "Unit": "CHA",
+      "EventCode": "0x54",
+      "UMask": "0x01",
+      "PortMask": "0x00",
+      "FCMask": "0x00",
+      "UMaskExt": "0x00",
+      "EventName": "UNC_CHA_DIR_UPDATE.HA",
+      "BriefDescription": "Multi-socket cacheline directory state updates; memory write due to directory update from the home agent (HA) pipe",
+      "PublicDescription": "Counts only multi-socket cacheline directory state updates memory writes issued from the home agent (HA) pipe. This does not include memory write requests which are for I (Invalid) or E (Exclusive) cachelines.",
+      "Counter": "0,1,2,3",
+      "MSRValue": "0x00",
+      "ELLC": "0",
+      "Filter": "na",
+      "ExtSel": "0",
+      "Deprecated": "0",
+      "FILTER_VALUE": "0",
+      "CounterType": "PGMABLE"
+    },
+    {
+      "Unit": "CHA",
+      "EventCode": "0x54",
+      "UMask": "0x02",
+      "PortMask": "0x00",
+      "FCMask": "0x00",
+      "UMaskExt": "0x00",
+      "EventName": "UNC_CHA_DIR_UPDATE.TOR",
+      "BriefDescription": "Multi-socket cacheline directory state updates; memory write due to directory update from (table of requests) TOR pipe",
+      "PublicDescription": "Counts only multi-socket cacheline directory state updates due to memory writes issued from the table of requests (TOR) pipe which are the result of remote transaction hitting the SF/LLC and returning data Core2Core. This does not include memory write requests which are for I (Invalid) or E (Exclusive) cachelines.",
+      "Counter": "0,1,2,3",
+      "MSRValue": "0x00",
+      "ELLC": "0",
+      "Filter": "na",
+      "ExtSel": "0",
+      "Deprecated": "0",
+      "FILTER_VALUE": "0",
+      "CounterType": "PGMABLE"
+    },
     {
       "Unit": "CHA",
       "EventCode": "0x50",
