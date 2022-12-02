@@ -90,7 +90,7 @@ def convert_file(file_path):
 
         # Get the output file
         output_file_path = get_output_file(input_file.name)
-        with open(output_file_path, "w+") as output_file_fp:
+        with open(output_file_path, "w+", encoding='ascii') as output_file_fp:
             # Serialize metrics to Json file
             format_converter.serialize_output(output_file_fp)
 
@@ -149,6 +149,7 @@ class PerfFormatConverter:
         self.metric_assoc_replacement_dict = None
         self.metric_source_event_dict = None
         self.scale_unit_replacement_dict = None
+        self.association_option_replacement_dict = None
         self.perf_metrics = None
         self.init_dictionaries()
 
@@ -167,6 +168,7 @@ class PerfFormatConverter:
             self.metric_assoc_replacement_dict = config_dict["metric_association_replacements"]
             self.metric_source_event_dict = config_dict["metric_source_events"]
             self.scale_unit_replacement_dict = config_dict["scale_unit_replacements"]
+            self.association_option_replacement_dict = config_dict["association_option_replacements"]
         except KeyError as error:
             sys.exit("Error in config JSON format " + str(error) + ". Exiting")
 
@@ -189,8 +191,8 @@ class PerfFormatConverter:
                 new_metric = Metric(
                     brief_description=metric["BriefDescription"],
                     metric_expr=self.get_expression(metric),
-                    metric_group=metric["MetricGroup"],
-                    metric_name=self.translate_metric_name(metric["MetricName"]).replace("m_", ""),
+                    metric_group=self.fix_groups(metric),
+                    metric_name=self.translate_metric_name(metric),
                     scale_unit=self.get_scale_unit(metric))
                 metrics.append(new_metric)
         except KeyError as error:
@@ -209,37 +211,47 @@ class PerfFormatConverter:
         try:
             # Get formula and events for conversion
             base_formula = metric["Formula"].replace("DURATIONTIMEINSECONDS", "duration_time")
+            if base_formula.startswith("100 *") and metric["UnitOfMeasure"] == "percent":
+                base_formula = base_formula.replace("100 *", "");
             events = metric["Events"]
             constants = metric["Constants"]
 
             # Replace event/const aliases with names
             expression = base_formula.lower()
             for event in events:
-                reg = r"((?<=[^A-Za-z])|(?<=^))({})((?=[^A-Za-z])|(?=$))".format(event["Alias"].lower())
+                reg = r"((?<=[\s+\-*\/\(\)])|(?<=^))({})((?=[\s+\-*\/\(\)])|(?=$))".format(event["Alias"].lower())
                 expression = re.sub(reg,
                                     pad(self.translate_metric_event(event["Name"])),
                                     expression)
             for const in constants:
-                reg = r"((?<=[^A-Za-z])|(?<=^))({})((?=[^A-Za-z])|(?=$))".format(const["Alias"].lower())
+                reg = r"((?<=[\s+\-*\/\(\)])|(?<=^))({})((?=[\s+\-*\/\(\)])|(?=$))".format(const["Alias"].lower())
                 expression = re.sub(reg,
                                     pad(self.translate_metric_constant(const["Name"], metric)),
                                     expression)
 
+            # Add slots to metrics that have topdown events but not slots
+            if any(event["Name"] for event in events if "PERF_METRICS" in event["Name"]):
+                if not any(event["Name"] for event in events if "SLOTS" in event["Name"]):
+                    expression = "( " + expression + " ) + ( 0 * slots )"
+
         except KeyError as error:
             sys.exit("Error in input JSON format during get_expressions(): " + str(error) + ". Exiting")
 
-        return expression
+        # Remove any extra spaces in expression
+        return re.sub(r"[\s]{2,}", " ", expression.strip())
 
-    def translate_metric_name(self, metric_name):
+    def translate_metric_name(self, metric):
         """
         Replaces the metric name with a replacement found in the metric 
         name replacements json file
         """
         # Check if name has replacement
-        if metric_name in self.metric_name_replacement_dict:
-            return self.metric_name_replacement_dict[metric_name]
+        if metric["MetricName"] in self.metric_name_replacement_dict:
+            return self.metric_name_replacement_dict[metric["MetricName"]]
         else:
-            return metric_name
+            if metric["Category"] == "TMA":
+                return "tma_" + metric["MetricName"].replace(" ", "_").lower()
+            return metric["MetricName"]
 
     def translate_metric_event(self, event_name):
         """
@@ -251,10 +263,49 @@ class PerfFormatConverter:
         @returns: string containing un-aliased expression
         """
         # Check if association has replacement
-        if event_name in self.metric_assoc_replacement_dict:
-            return self.metric_assoc_replacement_dict[event_name]
-        else:
-            return event_name
+        for replacement in self.metric_assoc_replacement_dict:
+            if re.match(replacement, event_name):
+                return self.metric_assoc_replacement_dict[replacement]
+
+        if ":" in event_name and "TOPDOWN" not in event_name:
+            for row in self.association_option_replacement_dict:
+                for event in row["events"]:
+                    if event in event_name:
+                        split = event_name.split(":")
+                        return self.translate_event_options(split, row)
+            print("Event with no option translations: " + event_name)
+        return event_name
+
+
+    def translate_event_options(self, split, event_info):
+        """
+        Takes info about an event with options and translates the options
+        into a perf compatible format
+
+        @param split: list of options as strings
+        @param event_info: info on how to translate options
+        @returns: string containing translated event
+        """
+        translation = event_info["unit"] + "@" + split[0]
+        for option in split[1:]:
+            if "=" in option:
+                split = option.split("=")
+                if split[0] in event_info["translations"]:
+                    if "x" in split[1]:
+                        translation += "\\\\," + event_info["translations"][split[0]] + "\\\\=" + split[1]
+                    else:
+                        translation += "\\\\," + event_info["translations"][split[0]] + "\\\\=" + (int(split[1]) * event_info["scale"])
+            elif "0x" in option:
+                split = option.split("0x")
+                if split[0] in event_info["translations"]:
+                    translation += "\\\\," + event_info["translations"][split[0]] + "\\\\=" + "0x" + split[1]
+            else:
+                match = re.match(r"([a-zA-z]+)([\d]+)", option)
+                if match[1] in event_info["translations"]:
+                    translation += "\\\\,"+ event_info["translations"][match[1]] + "\\\\=" + "0x" + match[2]
+
+        return translation + "@"
+
 
     def translate_metric_constant(self, constant_name, metric):
         """
@@ -267,15 +318,18 @@ class PerfFormatConverter:
         @returns: string containing un-aliased expression
         """
         # Check if association has replacement
-        if constant_name in self.metric_assoc_replacement_dict:
-            # 1:1 constant replacement
-            return "#" + self.metric_assoc_replacement_dict[constant_name]
-        elif constant_name in self.metric_source_event_dict:
+
+        for replacement in self.metric_assoc_replacement_dict:
+            if re.match(replacement, constant_name):
+                return "#" + self.metric_assoc_replacement_dict[replacement]
+
+        for replacement in self.metric_source_event_dict:
             # source_count() formatting
-            source_event = self.metric_source_event_dict[constant_name]
-            for event in metric["Events"]:
-                if source_event in event["Name"]:
-                    return "source_count(" + event["Name"] + ")"
+            if re.match(replacement, constant_name):
+                for event in metric["Events"]:
+                    if re.match(self.metric_source_event_dict[replacement], event["Name"]) and ":" not in event["Name"]:
+                        return "source_count(" + event["Name"].split(":")[0] + ")"
+
         return "#" + constant_name
 
     def serialize_output(self, output_fp):
@@ -288,6 +342,7 @@ class PerfFormatConverter:
                   # default=lambda obj: obj.__dict__,
                   default=lambda obj: dict((key, value) for key, value in obj.__dict__.items()
                                            if value or key in PERSISTENT_FIELDS),
+                  ensure_ascii=True,
                   indent=4)
 
     def get_scale_unit(self, metric):
@@ -301,11 +356,41 @@ class PerfFormatConverter:
 
         # Get the unit of measure of the metric
         unit = metric["UnitOfMeasure"]
+        metric_type = metric["Category"]
 
-        if unit in self.scale_unit_replacement_dict:
+        if metric["Formula"].startswith("100 *") and unit == "percent":
+            return "100%"
+        elif unit in self.scale_unit_replacement_dict:
             return "1" + self.scale_unit_replacement_dict[unit]
         else:
             return None
+
+    def fix_groups(self, metric):
+        """
+        Converts a metrics group field delimited by commas to a new list
+        delimited by semi-colons
+
+        @param metric: metric json object
+        @returns: new string list of groups delimited by semi-colons
+        """
+
+        # Get current groups
+        groups = metric["MetricGroup"]
+        if groups.isspace() or groups == "":
+            new_groups = []
+        else:
+            #new_groups = [g.strip() for g in groups.split(";") if not g.isspace() and g != ""]
+            new_groups = [g.strip() for g in re.split(";|,", groups) if not g.isspace() and g != ""]
+
+
+        # Add level and parent groups
+        if metric["Category"] == "TMA":
+            new_groups.append("TopdownL" + str(metric["Level"]))
+            new_groups.append("tma_L" + str(metric["Level"]) + "_group")
+            if "ParentCategory" in metric:
+                new_groups.append("tma_" + metric["ParentCategory"].lower().replace(" ", "_") + "_group")
+
+        return ";".join(new_groups) if new_groups.count != 0 else ""
 
 
 class Metric:
