@@ -42,7 +42,7 @@ Perfmon Metrics is a set of metric files and scripts used to perform performance
 "Category": Useful tagging for the metric. Intended to be used for parsing when creating a subset of metrics list. Some categories will be general, IO, TMA, microservices
 
 "Threshold": When the threshold evaluates as true then it indicates that this metric is meaningful for the current analysis. '<sign> X' requires that the value of the node should hold true the relationship with X. 'P' requires that the nodes parent needs to pass the threshold for this to be true. ';' separator, '&' and, '|' or '$issueXX' is a unique tag that associates together multiple nodes from different categories of the tree. For example, Bad_Speculation is tightly coupled with Branch_Resteers (from the Frontend_Bound Category). '~overlap' indicates a weight of a specific node overlaps with its siblings. I.e. their costs are not mutually exclusive. For example, value of Branch_Resteers may overlap with ICache_Misses.
-Example: "> 0.2 & P" means the current node’s values is above 20% and the Parent node is highlighted.
+Example: "> 0.2 & P" means the current node's values is above 20% and the Parent node is highlighted.
 
 "ResolutionLevels": List of resolution levels that tools can choose to compute for the given metric. For example, if the list contains "THREAD", then the metric can be computed at a per thread level. The metric is not valid when data is aggregated at a level not present in the resolution level list. If the list contains "THREAD, CORE, SOCKET, SYSTEM" then this indicates that a tool can choose to compute this metric at the thread level, or aggregate counts across core or socket or system level to report a broader metric resolution.
 
