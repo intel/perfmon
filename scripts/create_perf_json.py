@@ -15,6 +15,7 @@ import collections
 import csv
 from itertools import takewhile
 import json
+import metric
 import os
 import re
 from typing import DefaultDict, Dict, Optional, Set, TextIO
@@ -443,16 +444,18 @@ class Model:
         for (cpu_matches, core_cstates, pkg_cstates) in cstates:
             if self.shortname in cpu_matches:
                 for x in core_cstates:
+                    formula = metric.ParsePerfJson(f'cstate_core@c{x}\\-residency@ / TSC')
                     result.append({
-                        'MetricExpr': f'cstate_core@c{x}\\-residency@ / TSC',
+                        'MetricExpr': formula.ToPerfJson(),
                         'MetricGroup': 'Power',
                         'BriefDescription': f'C{x} residency percent per core',
                         'MetricName': f'C{x}_Core_Residency',
                         'ScaleUnit': '100%'
                     })
                 for x in pkg_cstates:
+                    formula = metric.ParsePerfJson(f'cstate_pkg@c{x}\\-residency@ / TSC')
                     result.append({
-                        'MetricExpr': f'cstate_pkg@c{x}\\-residency@ / TSC',
+                        'MetricExpr': formula.ToPerfJson(),
                         'MetricGroup': 'Power',
                         'BriefDescription': f'C{x} residency percent per package',
                         'MetricName': f'C{x}_Pkg_Residency',
@@ -953,7 +956,7 @@ class Model:
 
                 j = {
                     'MetricName': name,
-                    'MetricExpr': form,
+                    'MetricExpr': metric.ParsePerfJson(form).Simplify().ToPerfJson(),
                 }
 
                 if group and len(group) > 0:
@@ -993,9 +996,10 @@ class Model:
             form = 'Socket_CLKS / #num_dies / duration_time / 1000000000'
             form = resolve_all(form, expand_metrics=False)
             if form:
+                formula = metric.ParsePerfJson(form)
                 jo.append({
                     'MetricName': 'UNCORE_FREQ',
-                    'MetricExpr': form,
+                    'MetricExpr': formula.ToPerfJson(),
                     'BriefDescription': 'Uncore frequency per die [GHZ]',
                     'MetricGroup': 'SoC'
                 })
