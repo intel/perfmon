@@ -18,7 +18,7 @@ import json
 import metric
 import os
 import re
-from typing import DefaultDict, Dict, Optional, Set, TextIO
+from typing import DefaultDict, Dict, Optional, Set, TextIO, Tuple
 import urllib.request
 
 _verbose = 0
@@ -365,6 +365,27 @@ class PerfmonJsonEvent:
         add_to_result('UMask', self.umask)
         add_to_result('Unit', self.unit)
         return result
+
+def rewrite_metrics_in_terms_of_others(metrics: list[Dict[str,str]]) -> list[Dict[str,str]]:
+    parsed: list[Tuple[str, metric.Expression]] = []
+    for m in metrics:
+        name = m['MetricName']
+        form = m['MetricExpr']
+        parsed.append((name, metric.ParsePerfJson(form)))
+        if name == 'CORE_CLKS' and '#SMT_on' in form:
+            # Add non-EBS form of CORE_CLKS to enable better
+            # simplification of Valkyrie metrics.
+            form = 'CPU_CLK_UNHALTED.THREAD_ANY / 2 if #SMT_on else CPU_CLK_UNHALTED.THREAD'
+            parsed.append((name, metric.ParsePerfJson(form)))
+
+    updates = metric.RewriteMetricsInTermsOfOthers(parsed)
+    if updates:
+        for m in metrics:
+            name = m['MetricName']
+            if name in updates:
+                _verboseprint2(f'Updated {name} from\n"{m["MetricExpr"]}"\nto\n"{updates[name]}"')
+                m['MetricExpr'] = updates[name].ToPerfJson()
+    return metrics
 
 class Model:
     """
@@ -940,16 +961,17 @@ class Model:
                     assert v in events or v.upper() in events or v in infoname or v in aux, \
                         f'Expected {v} to be an event in "{name}": "{form}" on {self.shortname}'
 
-                for m in jo:
-                    # Check for duplicate metrics. Note, done after
-                    # verifying the events.
-                    if m['MetricName'] == name:
-                        _verboseprint(f'Dropping duplicate metric {name}')
-                        if form != m['MetricExpr']:
-                            _verboseprint2(f'duplicate metric {name} forms differ'
-                                           f'\n\tnew: {form}'
-                                           f'\n\texisting: {m["MetricExpr"]}')
-                        return
+                # Check for duplicate metrics. Note, done after
+                # verifying the events.
+                dups = [m for m in jo if m['MetricName'] == name]
+                if len(dups) > 0:
+                    assert len(dups) == 1
+                    m = dups[0]
+                    if form != m['MetricExpr']:
+                        _verboseprint2(f'duplicate metric {name} forms differ'
+                                       f'\n\tnew: {form}'
+                                       f'\n\texisting: {m["MetricExpr"]}')
+                    jo.remove(m)
 
                 if locate:
                     desc = desc + ' Sample with: ' + locate
@@ -1168,6 +1190,7 @@ class Model:
 
         if len(metrics) > 0:
             metrics.extend(self.cstate_json())
+            metrics = rewrite_metrics_in_terms_of_others(metrics)
             with open(f'{outdir}/{self.shortname.lower().replace("-","")}-metrics.json',
                       'w', encoding='ascii') as perf_metric_json:
                 json.dump(metrics, perf_metric_json, sort_keys=True, indent=4,
