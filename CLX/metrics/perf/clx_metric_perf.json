@@ -85,35 +85,35 @@
     },
     {
         "BriefDescription": "Ratio of number of data read requests missing last level core cache (includes demand w/ prefetches) to the total number of completed instructions",
-        "MetricExpr": "cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x12D4043300000000@ / INST_RETIRED.ANY",
+        "MetricExpr": "cha@UNC_CHA_TOR_INSERTS.IA_MISS\\,config1\\=0x12D40433@ / INST_RETIRED.ANY",
         "MetricGroup": "",
         "MetricName": "llc_data_read_mpi_demand_plus_prefetch",
         "ScaleUnit": "1per_instr"
     },
     {
         "BriefDescription": "Ratio of number of code read requests missing last level core cache (includes demand w/ prefetches) to the total number of completed instructions",
-        "MetricExpr": "cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x12CC023300000000@ / INST_RETIRED.ANY",
+        "MetricExpr": "cha@UNC_CHA_TOR_INSERTS.IA_MISS\\,config1\\=0x12CC0233@ / INST_RETIRED.ANY",
         "MetricGroup": "",
         "MetricName": "llc_code_read_mpi_demand_plus_prefetch",
         "ScaleUnit": "1per_instr"
     },
     {
         "BriefDescription": "Average latency of a last level cache (LLC) demand and prefetch data read miss (read memory access) in nano seconds",
-        "MetricExpr": "( 1000000000 * ( cha@unc_cha_tor_occupancy.ia_miss\\,config1\\=0x4043300000000@ / cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043300000000@ ) / ( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_CLOCKTICKS) * #num_packages ) ) ) * duration_time",
+        "MetricExpr": "( 1000000000 * ( cha@UNC_CHA_TOR_OCCUPANCY.IA_MISS\\,config1\\=0x40433@ / cha@UNC_CHA_TOR_INSERTS.IA_MISS\\,config1\\=0x40433@ ) / ( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_CLOCKTICKS) * #num_packages ) ) ) * duration_time",
         "MetricGroup": "",
         "MetricName": "llc_data_read_demand_plus_prefetch_miss_latency",
         "ScaleUnit": "1ns"
     },
     {
         "BriefDescription": "Average latency of a last level cache (LLC) demand and prefetch data read miss (read memory access) addressed to local memory in nano seconds",
-        "MetricExpr": "( 1000000000 * ( cha@unc_cha_tor_occupancy.ia_miss\\,config1\\=0x4043200000000@ / cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043200000000@ ) / ( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_CLOCKTICKS) * #num_packages ) ) ) * duration_time",
+        "MetricExpr": "( 1000000000 * ( cha@UNC_CHA_TOR_OCCUPANCY.IA_MISS\\,config1\\=0x40432@ / cha@UNC_CHA_TOR_INSERTS.IA_MISS\\,config1\\=0x40432@ ) / ( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_CLOCKTICKS) * #num_packages ) ) ) * duration_time",
         "MetricGroup": "",
         "MetricName": "llc_data_read_demand_plus_prefetch_miss_latency_for_local_requests",
         "ScaleUnit": "1ns"
     },
     {
         "BriefDescription": "Average latency of a last level cache (LLC) demand and prefetch data read miss (read memory access) addressed to remote memory in nano seconds",
-        "MetricExpr": "( 1000000000 * ( cha@unc_cha_tor_occupancy.ia_miss\\,config1\\=0x4043100000000@ / cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043100000000@ ) / ( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_CLOCKTICKS) * #num_packages ) ) ) * duration_time",
+        "MetricExpr": "( 1000000000 * ( cha@UNC_CHA_TOR_OCCUPANCY.IA_MISS\\,config1\\=0x40431@ / cha@UNC_CHA_TOR_INSERTS.IA_MISS\\,config1\\=0x40431@ ) / ( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_CLOCKTICKS) * #num_packages ) ) ) * duration_time",
         "MetricGroup": "",
         "MetricName": "llc_data_read_demand_plus_prefetch_miss_latency_for_remote_requests",
         "ScaleUnit": "1ns"
@@ -155,14 +155,14 @@
     },
     {
         "BriefDescription": "Memory read that miss the last level cache (LLC) addressed to local DRAM as a percentage of total memory read accesses, does not include LLC prefetches.",
-        "MetricExpr": "cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043200000000@ / ( cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043200000000@ + cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043100000000@ )",
+        "MetricExpr": "cha@UNC_CHA_TOR_INSERTS.IA_MISS\\,config1\\=0x40432@ / ( cha@UNC_CHA_TOR_INSERTS.IA_MISS\\,config1\\=0x40432@ + cha@UNC_CHA_TOR_INSERTS.IA_MISS\\,config1\\=0x40431@ )",
         "MetricGroup": "",
         "MetricName": "numa_reads_addressed_to_local_dram",
         "ScaleUnit": "100%"
     },
     {
         "BriefDescription": "Memory reads that miss the last level cache (LLC) addressed to remote DRAM as a percentage of total memory read accesses, does not include LLC prefetches.",
-        "MetricExpr": "cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043100000000@ / ( cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043200000000@ + cha@unc_cha_tor_inserts.ia_miss\\,config1\\=0x4043100000000@ )",
+        "MetricExpr": "cha@UNC_CHA_TOR_INSERTS.IA_MISS\\,config1\\=0x40431@ / ( cha@UNC_CHA_TOR_INSERTS.IA_MISS\\,config1\\=0x40432@ + cha@UNC_CHA_TOR_INSERTS.IA_MISS\\,config1\\=0x40431@ )",
         "MetricGroup": "",
         "MetricName": "numa_reads_addressed_to_remote_dram",
         "ScaleUnit": "100%"
@@ -498,21 +498,21 @@
     },
     {
         "BriefDescription": "This metric estimates fraction of cycles while the memory subsystem was handling synchronizations due to contested accesses. Contested accesses occur when data written by one Logical Processor are read by another Logical Processor on a different Physical Core. Examples of contested accesses include synchronizations such as locks; true data sharing such as modified locked variables; and false sharing.",
-        "MetricExpr": "( min( ( ( ( ( 47.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( #( duration_time * 1000 ) / 1000 ) ) ) - ( 3.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( #( duration_time * 1000 ) / 1000 ) ) ) ) * ( MEM_LOAD_L3_HIT_RETIRED.XSNP_HITM * ( OCR.DEMAND_DATA_RD.L3_HIT.HITM_OTHER_CORE / ( OCR.DEMAND_DATA_RD.L3_HIT.HITM_OTHER_CORE + OCR.DEMAND_DATA_RD.L3_HIT.HIT_OTHER_CORE_FWD ) ) ) + ( ( 47.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( #( duration_time * 1000 ) / 1000 ) ) ) - ( 3.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( #( duration_time * 1000 ) / 1000 ) ) ) ) * ( MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS ) ) * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) / 2 ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
+        "MetricExpr": "( min( ( ( ( ( 47.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) - ( 3.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) ) * ( MEM_LOAD_L3_HIT_RETIRED.XSNP_HITM * ( OCR.DEMAND_DATA_RD.L3_HIT.HITM_OTHER_CORE / ( OCR.DEMAND_DATA_RD.L3_HIT.HITM_OTHER_CORE + OCR.DEMAND_DATA_RD.L3_HIT.HIT_OTHER_CORE_FWD ) ) ) + ( ( 47.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) - ( 3.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) ) * ( MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS ) ) * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) / 2 ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
         "MetricGroup": "DataSharing;Offcore;Snoop;TopdownL4;tma_L4_group;tma_l3_bound_group",
         "MetricName": "tma_contested_accesses",
         "ScaleUnit": "100%"
     },
     {
         "BriefDescription": "This metric estimates fraction of cycles while the memory subsystem was handling synchronizations due to data-sharing accesses. Data shared by multiple Logical Processors (even just read shared) may cause increased access latency due to cache coherency. Excessive data sharing can drastically harm multithreaded performance.",
-        "MetricExpr": "( min( ( ( ( 47.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( #( duration_time * 1000 ) / 1000 ) ) ) - ( 3.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( #( duration_time * 1000 ) / 1000 ) ) ) ) * ( MEM_LOAD_L3_HIT_RETIRED.XSNP_HIT + MEM_LOAD_L3_HIT_RETIRED.XSNP_HITM * ( 1 - ( OCR.DEMAND_DATA_RD.L3_HIT.HITM_OTHER_CORE / ( OCR.DEMAND_DATA_RD.L3_HIT.HITM_OTHER_CORE + OCR.DEMAND_DATA_RD.L3_HIT.HIT_OTHER_CORE_FWD ) ) ) ) * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) / 2 ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
+        "MetricExpr": "( min( ( ( ( 47.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) - ( 3.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) ) * ( MEM_LOAD_L3_HIT_RETIRED.XSNP_HIT + MEM_LOAD_L3_HIT_RETIRED.XSNP_HITM * ( 1 - ( OCR.DEMAND_DATA_RD.L3_HIT.HITM_OTHER_CORE / ( OCR.DEMAND_DATA_RD.L3_HIT.HITM_OTHER_CORE + OCR.DEMAND_DATA_RD.L3_HIT.HIT_OTHER_CORE_FWD ) ) ) ) * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) / 2 ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
         "MetricGroup": "Offcore;Snoop;TopdownL4;tma_L4_group;tma_l3_bound_group",
         "MetricName": "tma_data_sharing",
         "ScaleUnit": "100%"
     },
     {
         "BriefDescription": "This metric represents fraction of cycles with demand load accesses that hit the L3 cache under unloaded scenarios (possibly L3 latency limited).  Avoiding private cache misses (i.e. L2 misses/L3 hits) will improve the latency; reduce contention with sibling physical cores and increase performance.  Note the value of this node may overlap with its siblings.",
-        "MetricExpr": "( min( ( ( ( 20.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( #( duration_time * 1000 ) / 1000 ) ) ) - ( 3.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( #( duration_time * 1000 ) / 1000 ) ) ) ) * ( MEM_LOAD_RETIRED.L3_HIT ) * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) / 2 ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
+        "MetricExpr": "( min( ( ( ( 20.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) - ( 3.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) ) * ( MEM_LOAD_RETIRED.L3_HIT ) * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) / 2 ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
         "MetricGroup": "MemoryLat;TopdownL4;tma_L4_group;tma_l3_bound_group",
         "MetricName": "tma_l3_hit_latency",
         "ScaleUnit": "100%"
@@ -547,21 +547,21 @@
     },
     {
         "BriefDescription": "This metric estimates fraction of cycles while the memory subsystem was handling loads from local memory. Caching will improve the latency and increase performance.",
-        "MetricExpr": "( min( ( ( ( 80 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( #( duration_time * 1000 ) / 1000 ) ) ) - ( 20.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( #( duration_time * 1000 ) / 1000 ) ) ) ) * MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) / 2 ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
+        "MetricExpr": "( min( ( ( ( 80 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) - ( 20.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) ) * MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) / 2 ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
         "MetricGroup": "Server;TopdownL5;tma_L5_group;tma_mem_latency_group",
         "MetricName": "tma_local_dram",
         "ScaleUnit": "100%"
     },
     {
         "BriefDescription": "This metric estimates fraction of cycles while the memory subsystem was handling loads from remote memory. This is caused often due to non-optimal NUMA allocations. #link to NUMA article",
-        "MetricExpr": "( min( ( ( ( 147.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( #( duration_time * 1000 ) / 1000 ) ) ) - ( 20.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( #( duration_time * 1000 ) / 1000 ) ) ) ) * MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) / 2 ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
+        "MetricExpr": "( min( ( ( ( 147.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) - ( 20.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) ) * MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) / 2 ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
         "MetricGroup": "Server;Snoop;TopdownL5;tma_L5_group;tma_mem_latency_group",
         "MetricName": "tma_remote_dram",
         "ScaleUnit": "100%"
     },
     {
         "BriefDescription": "This metric estimates fraction of cycles while the memory subsystem was handling loads from remote cache in other sockets including synchronizations issues. This is caused often due to non-optimal NUMA allocations. #link to NUMA article",
-        "MetricExpr": "( min( ( ( ( ( 110 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( #( duration_time * 1000 ) / 1000 ) ) ) - ( 20.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( #( duration_time * 1000 ) / 1000 ) ) ) ) * MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM + ( ( 110 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( #( duration_time * 1000 ) / 1000 ) ) ) - ( 20.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( #( duration_time * 1000 ) / 1000 ) ) ) ) * MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD ) * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) / 2 ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
+        "MetricExpr": "( min( ( ( ( ( 110 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) - ( 20.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) ) * MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM + ( ( 110 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) - ( 20.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) ) * MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD ) * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) / 2 ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
         "MetricGroup": "Offcore;Server;Snoop;TopdownL5;tma_L5_group;tma_mem_latency_group",
         "MetricName": "tma_remote_cache",
         "ScaleUnit": "100%"
@@ -589,7 +589,7 @@
     },
     {
         "BriefDescription": "This metric roughly estimates how often CPU was handling synchronizations due to False Sharing. False Sharing is a multithreading hiccup; where multiple Logical Processors contend on different data-elements mapped into the same cache line. ",
-        "MetricExpr": "( min( ( ( ( 110 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( #( duration_time * 1000 ) / 1000 ) ) ) * ( OCR.DEMAND_RFO.L3_MISS.REMOTE_HITM + OCR.PF_L2_RFO.L3_MISS.REMOTE_HITM ) + ( 47.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( #( duration_time * 1000 ) / 1000 ) ) ) * ( OCR.DEMAND_RFO.L3_HIT.HITM_OTHER_CORE + OCR.PF_L2_RFO.L3_HIT.HITM_OTHER_CORE ) ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
+        "MetricExpr": "( min( ( ( ( 110 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) * ( OCR.DEMAND_RFO.L3_MISS.REMOTE_HITM + OCR.PF_L2_RFO.L3_MISS.REMOTE_HITM ) + ( 47.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) * ( OCR.DEMAND_RFO.L3_HIT.HITM_OTHER_CORE + OCR.PF_L2_RFO.L3_HIT.HITM_OTHER_CORE ) ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
         "MetricGroup": "DataSharing;Offcore;Snoop;TopdownL4;tma_L4_group;tma_store_bound_group",
         "MetricName": "tma_false_sharing",
         "ScaleUnit": "100%"

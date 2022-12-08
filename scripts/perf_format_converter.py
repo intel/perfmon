@@ -321,7 +321,10 @@ class PerfFormatConverter:
 
         for replacement in self.metric_assoc_replacement_dict:
             if re.match(replacement, constant_name):
-                return "#" + self.metric_assoc_replacement_dict[replacement]
+                if "(" in self.metric_assoc_replacement_dict[replacement]:
+                    return self.metric_assoc_replacement_dict[replacement]
+                else:
+                    return "#" + self.metric_assoc_replacement_dict[replacement]
 
         for replacement in self.metric_source_event_dict:
             # source_count() formatting
