@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2022 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 4th Generation Intel(R) Xeon(R) Processor Scalable Family based on Sapphire Rapids microarchitecture - V1.09",
-    "DatePublished": "11/18/2022",
-    "Version": "1.09",
+    "Info": "Performance Monitoring Events for 4th Generation Intel(R) Xeon(R) Processor Scalable Family based on Sapphire Rapids microarchitecture - V1.10",
+    "DatePublished": "12/09/2022",
+    "Version": "1.10",
     "Legend": ""
   },
   "Events": [
@@ -682,6 +682,25 @@
       "EventName": "UNC_M2M_CLOCKTICKS",
       "BriefDescription": "M2M Clockticks",
       "PublicDescription": "Clockticks of the mesh to memory (M2M)",
+      "Counter": "0,1,2,3",
+      "MSRValue": "0x00",
+      "ELLC": "0",
+      "Filter": "na",
+      "ExtSel": "0",
+      "Deprecated": "0",
+      "FILTER_VALUE": "0",
+      "CounterType": "PGMABLE"
+    },
+    {
+      "Unit": "M2M",
+      "EventCode": "0x21",
+      "UMask": "0x01",
+      "PortMask": "0x00",
+      "FCMask": "0x00",
+      "UMaskExt": "0x03",
+      "EventName": "UNC_M2M_DIRECTORY_UPDATE.ANY",
+      "BriefDescription": "Multi-socket cacheline Directory update from/to Any state",
+      "PublicDescription": "Multi-socket cacheline Directory update from/to Any state",
       "Counter": "0,1,2,3",
       "MSRValue": "0x00",
       "ELLC": "0",
