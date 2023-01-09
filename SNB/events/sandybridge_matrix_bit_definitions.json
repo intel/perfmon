@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2022 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 2nd Generation Intel(R) Core(TM) Processor - V17",
-    "DatePublished": "08/07/2018",
-    "Version": "17",
+    "Info": "Performance Monitoring Events for 2nd Generation Intel(R) Core(TM) Processor - V18",
+    "DatePublished": "12/07/2022",
+    "Version": "18",
     "Legend": ""
   },
   "Events": [
