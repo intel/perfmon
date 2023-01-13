@@ -840,10 +840,6 @@ class Model:
                     changed = True
                     while changed:
                         changed = False
-                        m = re.fullmatch(r'(.*) if ([01]) else (.*)', form)
-                        if m:
-                            changed = True
-                            form = m.group(1) if m.group(2) == '1' else m.group(3)
                         m = re.search(r'\(([0-9.]+) \* ([A-Za-z_]+)\) - \(([0-9.]+) \* ([A-Za-z_]+)\)', form)
                         if m and m.group(2) == m.group(4):
                             changed = True
