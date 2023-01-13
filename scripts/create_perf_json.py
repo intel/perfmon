@@ -972,10 +972,13 @@ class Model:
                 if locate:
                     desc = desc + ' Sample with: ' + locate
 
-                j = {
-                    'MetricName': name,
-                    'MetricExpr': metric.ParsePerfJson(form).Simplify().ToPerfJson(),
-                }
+                try:
+                    j = {
+                        'MetricName': name,
+                        'MetricExpr': metric.ParsePerfJson(form).Simplify().ToPerfJson(),
+                    }
+                except SyntaxError as e:
+                    raise SyntaxError(f'Parsing metric {name} for {self.longname}') from e
 
                 if group and len(group) > 0:
                     j['MetricGroup'] = group
