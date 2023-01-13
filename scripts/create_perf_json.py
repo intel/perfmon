@@ -853,7 +853,7 @@ class Model:
 
 
                 def bracket(expr):
-                    if '/' in expr or '*' in expr or '+' in expr or '-' in expr:
+                    if any([x in expr for x in ['/', '*', '+', '-', 'if']]):
                         if expr.startswith('(') and expr.endswith(')'):
                             return expr
                         else:
