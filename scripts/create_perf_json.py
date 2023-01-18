@@ -840,10 +840,6 @@ class Model:
                     changed = True
                     while changed:
                         changed = False
-                        m = re.fullmatch(r'(.*) if ([01]) else (.*)', form)
-                        if m:
-                            changed = True
-                            form = m.group(1) if m.group(2) == '1' else m.group(3)
                         m = re.search(r'\(([0-9.]+) \* ([A-Za-z_]+)\) - \(([0-9.]+) \* ([A-Za-z_]+)\)', form)
                         if m and m.group(2) == m.group(4):
                             changed = True
@@ -853,7 +849,7 @@ class Model:
 
 
                 def bracket(expr):
-                    if '/' in expr or '*' in expr or '+' in expr or '-' in expr:
+                    if any([x in expr for x in ['/', '*', '+', '-', 'if']]):
                         if expr.startswith('(') and expr.endswith(')'):
                             return expr
                         else:
@@ -976,10 +972,13 @@ class Model:
                 if locate:
                     desc = desc + ' Sample with: ' + locate
 
-                j = {
-                    'MetricName': name,
-                    'MetricExpr': metric.ParsePerfJson(form).Simplify().ToPerfJson(),
-                }
+                try:
+                    j = {
+                        'MetricName': name,
+                        'MetricExpr': metric.ParsePerfJson(form).Simplify().ToPerfJson(),
+                    }
+                except SyntaxError as e:
+                    raise SyntaxError(f'Parsing metric {name} for {self.longname}') from e
 
                 if group and len(group) > 0:
                     j['MetricGroup'] = group

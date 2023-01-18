@@ -562,7 +562,7 @@ def RewriteMetricsInTermsOfOthers(metrics: list[Tuple[str, Expression]]
     updated = outer_expression
     while True:
       for inner_name, inner_expression in metrics:
-        if inner_name == outer_name:
+        if inner_name.lower() == outer_name.lower():
           continue
         if inner_name in updates:
           inner_expression = updates[inner_name]
