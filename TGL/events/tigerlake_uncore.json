@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2022 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 11th Generation Intel(R) Core(TM) Processor - V1.08",
-    "DatePublished": "10/13/2022",
-    "Version": "1.08",
+    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for 11th Generation Intel(R) Core(TM) Processor - V1.09",
+    "DatePublished": "01/17/2023",
+    "Version": "1.09",
     "Legend": ""
   },
   "Events": [
@@ -113,84 +113,6 @@
     },
     {
       "Unit": "imc",
-      "EventCode": "0x00",
-      "UMask": "0x00",
-      "EventName": "UNC_MC1_WRCAS_COUNT_FREERUN",
-      "BriefDescription": "Counts every write (WrCAS) issued by the Memory Controller to DRAM (sum of all channels). All requests result in 64 byte data transfers from DRAM.",
-      "PublicDescription": "Counts every write (WrCAS) issued by the Memory Controller to DRAM (sum of all channels). All requests result in 64 byte data transfers from DRAM.",
-      "Counter": "5",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
-      "CounterType": "FREERUN"
-    },
-    {
-      "Unit": "h_imc",
-      "EventCode": "0x00",
-      "UMask": "0x00",
-      "EventName": "UNC_MC0_TOTAL_REQCOUNT_FREERUN",
-      "BriefDescription": "Counts every 64B read and write request entering the Memory Controller to DRAM (sum of all channels). Each write request counts as a new request incrementing this counter. However, same cache line write requests (both full and partial) are combined to a single 64 byte data transfer to DRAM.",
-      "PublicDescription": "Counts every 64B read and write request entering the Memory Controller to DRAM (sum of all channels). Each write request counts as a new request incrementing this counter. However, same cache line write requests (both full and partial) are combined to a single 64 byte data transfer to DRAM.",
-      "Counter": "0",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
-      "CounterType": "FREERUN"
-    },
-    {
-      "Unit": "h_imc",
-      "EventCode": "0x00",
-      "UMask": "0x00",
-      "EventName": "UNC_MC0_RDCAS_COUNT_FREERUN",
-      "BriefDescription": "Counts every read (RdCAS) issued by the Memory Controller to DRAM (sum of all channels). All requests result in 64 byte data transfers from DRAM.",
-      "PublicDescription": "Counts every read (RdCAS) issued by the Memory Controller to DRAM (sum of all channels). All requests result in 64 byte data transfers from DRAM.",
-      "Counter": "1",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
-      "CounterType": "FREERUN"
-    },
-    {
-      "Unit": "h_imc",
-      "EventCode": "0x00",
-      "UMask": "0x00",
-      "EventName": "UNC_MC0_WRCAS_COUNT_FREERUN",
-      "BriefDescription": "Counts every write (WrCAS) issued by the Memory Controller to DRAM (sum of all channels). All requests result in 64 byte data transfers from DRAM.",
-      "PublicDescription": "Counts every write (WrCAS) issued by the Memory Controller to DRAM (sum of all channels). All requests result in 64 byte data transfers from DRAM.",
-      "Counter": "2",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
-      "CounterType": "FREERUN"
-    },
-    {
-      "Unit": "h_imc",
-      "EventCode": "0x00",
-      "UMask": "0x00",
-      "EventName": "UNC_MC1_TOTAL_REQCOUNT_FREERUN",
-      "BriefDescription": "Counts every 64B read and write request entering the Memory Controller to DRAM (sum of all channels). Each write request counts as a new request incrementing this counter. However, same cache line write requests (both full and partial) are combined to a single 64 byte data transfer to DRAM.",
-      "PublicDescription": "Counts every 64B read and write request entering the Memory Controller to DRAM (sum of all channels). Each write request counts as a new request incrementing this counter. However, same cache line write requests (both full and partial) are combined to a single 64 byte data transfer to DRAM.",
-      "Counter": "3",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
-      "CounterType": "FREERUN"
-    },
-    {
-      "Unit": "h_imc",
-      "EventCode": "0x00",
-      "UMask": "0x00",
-      "EventName": "UNC_MC1_RDCAS_COUNT_FREERUN",
-      "BriefDescription": "Counts every read (RdCAS) issued by the Memory Controller to DRAM (sum of all channels). All requests result in 64 byte data transfers from DRAM.",
-      "PublicDescription": "Counts every read (RdCAS) issued by the Memory Controller to DRAM (sum of all channels). All requests result in 64 byte data transfers from DRAM.",
-      "Counter": "4",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
-      "CounterType": "FREERUN"
-    },
-    {
-      "Unit": "h_imc",
       "EventCode": "0x00",
       "UMask": "0x00",
       "EventName": "UNC_MC1_WRCAS_COUNT_FREERUN",
