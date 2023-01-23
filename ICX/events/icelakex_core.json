@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2022 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 3rd Generation Intel(R) Xeon(R) Processor Scalable Family based on Ice Lake microarchitecture - V1.17",
-    "DatePublished": "11/21/2022",
-    "Version": "1.17",
+    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for 3rd Generation Intel(R) Xeon(R) Processor Scalable Family based on Ice Lake microarchitecture - V1.18",
+    "DatePublished": "01/20/2023",
+    "Version": "1.18",
     "Legend": ""
   },
   "Events": [
@@ -1859,8 +1859,8 @@
       "EventCode": "0x60",
       "UMask": "0x10",
       "EventName": "OFFCORE_REQUESTS_OUTSTANDING.L3_MISS_DEMAND_DATA_RD",
-      "BriefDescription": "This event is deprecated. ",
-      "PublicDescription": "This event is deprecated. ",
+      "BriefDescription": "This event is deprecated.",
+      "PublicDescription": "This event is deprecated.",
       "Counter": "0,1,2,3",
       "PEBScounters": "0,1,2,3",
       "SampleAfterValue": "2000003",
