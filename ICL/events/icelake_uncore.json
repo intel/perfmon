@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2022 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 10th Generation Intel(R) Core(TM) Processor - V1.15",
-    "DatePublished": "08/05/2022",
-    "Version": "1.15",
+    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for 10th Generation Intel(R) Core(TM) Processor - V1.16",
+    "DatePublished": "01/17/2023",
+    "Version": "1.16",
     "Legend": ""
   },
   "Events": [
