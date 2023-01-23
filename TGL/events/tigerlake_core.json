@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2022 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 11th Generation Intel(R) Core(TM) Processor - V1.08",
-    "DatePublished": "10/13/2022",
-    "Version": "1.08",
+    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for 11th Generation Intel(R) Core(TM) Processor - V1.09",
+    "DatePublished": "01/17/2023",
+    "Version": "1.09",
     "Legend": ""
   },
   "Events": [
@@ -3969,6 +3969,29 @@
       "EventName": "BR_MISP_RETIRED.INDIRECT_CALL",
       "BriefDescription": "Mispredicted indirect CALL instructions retired.",
       "PublicDescription": "Counts retired mispredicted indirect (near taken) CALL instructions, including both register and memory indirect.",
+      "Counter": "0,1,2,3,4,5,6,7",
+      "PEBScounters": "0,1,2,3,4,5,6,7",
+      "SampleAfterValue": "50021",
+      "MSRIndex": "0x00",
+      "MSRValue": "0x00",
+      "CollectPEBSRecord": "2",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "1",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0"
+    },
+    {
+      "EventCode": "0xc5",
+      "UMask": "0x08",
+      "EventName": "BR_MISP_RETIRED.RET",
+      "BriefDescription": "This event counts the number of mispredicted ret instructions retired. Non PEBS",
+      "PublicDescription": "This is a non-precise version (that is, does not use PEBS) of the event that counts mispredicted return instructions retired.",
       "Counter": "0,1,2,3,4,5,6,7",
       "PEBScounters": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "50021",

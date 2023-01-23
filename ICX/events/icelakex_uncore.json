@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2022 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 3rd Generation Intel(R) Xeon(R) Processor Scalable Family based on Ice Lake microarchitecture - V1.17",
-    "DatePublished": "11/21/2022",
-    "Version": "1.17",
+    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for 3rd Generation Intel(R) Xeon(R) Processor Scalable Family based on Ice Lake microarchitecture - V1.18",
+    "DatePublished": "01/20/2023",
+    "Version": "1.18",
     "Legend": ""
   },
   "Events": [
@@ -111,7 +111,7 @@
       "UMaskExt": "0x00",
       "EventName": "UNC_CHA_REQUESTS.READS_REMOTE",
       "BriefDescription": "Remote read requests sent to the CHA's home agent",
-      "PublicDescription": "Counts read requests coming from a remote socket made into the CHA. Reads include all read opcodes (including RFO: the Read for Ownership issued before a  write). ",
+      "PublicDescription": "Counts read requests coming from a remote socket made into the CHA. Reads include all read opcodes (including RFO: the Read for Ownership issued before a  write).",
       "Counter": "0,1,2,3",
       "MSRValue": "0x00",
       "ELLC": "0",
@@ -3018,7 +3018,7 @@
       "UMaskExt": "0x00",
       "EventName": "UNC_M_PRE_COUNT.PGT",
       "BriefDescription": "DRAM Precharge commands. : Precharge due to page table",
-      "PublicDescription": "DRAM Precharge commands. : Precharge due to page table : Counts the number of DRAM Precharge commands sent on this channel. : Prechages from Page Table",
+      "PublicDescription": "DRAM Precharge commands. : Precharge due to page table : Counts the number of DRAM Precharge commands sent on this channel. : Precharges from Page Table",
       "Counter": "0,1,2,3",
       "MSRValue": "0x00",
       "ELLC": "0",
