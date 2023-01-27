@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2022 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Core(TM) i7 and i5 Processors Based on the Intel(R) Xeon(R) Processor 3600 Client Microarchitecture - V3",
-    "DatePublished": "05/03/2018",
-    "Version": "3",
+    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for Intel(R) Core(TM) i7 and i5 Processors Based on the Intel(R) Xeon(R) Processor 3600 Client Microarchitecture - V4",
+    "DatePublished": "01/26/2023",
+    "Version": "4",
     "Legend": ""
   },
   "Events": [
@@ -2034,8 +2034,8 @@
       "EventCode": "0xF1",
       "UMask": "0x7",
       "EventName": "L2_LINES_IN.ANY",
-      "BriefDescription": "L2 lines alloacated",
-      "PublicDescription": "L2 lines alloacated",
+      "BriefDescription": "L2 lines allocated",
+      "PublicDescription": "L2 lines allocated",
       "Counter": "0,1,2,3",
       "SampleAfterValue": "100000",
       "MSRIndex": "0",
