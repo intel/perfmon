@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2022 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Xeon Phi Coprocessor based on the Intel(R) Many Integrated Core Architecture - V9",
-    "DatePublished": "10/04/2016",
-    "Version": "9",
+    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for Intel(R) Xeon Phi Coprocessor based on the Intel(R) Many Integrated Core Architecture - V10",
+    "DatePublished": "01/26/2023",
+    "Version": "10",
     "Legend": ""
   },
   "Events": [

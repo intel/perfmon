@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2022 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) processor E5 family Based on the Sandy Bridge-EP Microarchitecture - V21",
-    "DatePublished": "05/03/2022",
-    "Version": "21",
+    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) processor E5 family Based on the Sandy Bridge-EP Microarchitecture - V22",
+    "DatePublished": "01/26/2023",
+    "Version": "22",
     "Legend": ""
   },
   "Events": [
