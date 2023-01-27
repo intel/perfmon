@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2022 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Xeon Phi Coprocessor based on the Intel(R) Many Integrated Core Architecture - V9",
-    "DatePublished": "10/04/2016",
-    "Version": "9",
+    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for Intel(R) Xeon Phi Coprocessor based on the Intel(R) Many Integrated Core Architecture - V10",
+    "DatePublished": "01/26/2023",
+    "Version": "10",
     "Legend": ""
   },
   "Events": [
@@ -1233,7 +1233,7 @@
       "EventCode": "0x34",
       "UMask": "0x05",
       "EventName": "UNC_H_SF_LOOKUP.WRITE",
-      "BriefDescription": "Cache Lookups. Counts the number of times the LLC was accessed. Writeback transactions from L2 to the LLC  This includes all write transactions -- both Cachable and UC.",
+      "BriefDescription": "Cache Lookups. Counts the number of times the LLC was accessed. Writeback transactions from L2 to the LLC  This includes all write transactions -- both Cacheable and UC.",
       "PublicDescription": "tbd",
       "Counter": "0,1,2,3",
       "Filter": "null",
@@ -1277,7 +1277,7 @@
       "EventCode": "0x37",
       "UMask": "0x02",
       "EventName": "UNC_H_CACHE_LINES_VICTIMIZED.E_STATE",
-      "BriefDescription": "Cache Lookups. Counts the number of times the LLC was accessed. Writeback transactions from L2 to the LLC  This includes all write transactions -- both Cachable and UC.",
+      "BriefDescription": "Cache Lookups. Counts the number of times the LLC was accessed. Writeback transactions from L2 to the LLC  This includes all write transactions -- both Cacheable and UC.",
       "PublicDescription": "tbd",
       "Counter": "0,1,2,3",
       "Filter": "null",
