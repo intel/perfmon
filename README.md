@@ -134,22 +134,22 @@ In this repository there are three, related, metrics file types.
 This package contains performance monitoring event lists for Intel processors, as well as a mapping file
 to help match event lists to processor Family/Model/Stepping codes.
 
-The event lists are available in 2 formats:
-* Tab delimited (.tsv)
-* Json (.json)
+Event lists are available in JSON (.json) format.
 
 Event lists are created per microarchitecture, and each has a version. Versions are listed in the event list
-name as well as the header for each file. For some microarchitectures, up to three different event lists will
+header for each file and [mapfile.csv](mapfile.csv). For some microarchitectures, up to three different event lists will
 be available. These event lists correspond to the types of events that can be collected:
 
-* core - Contains events counted from within a logical processor core.
-  * Core event list files also include offcore events (starting with CLX).
-* uncore - Contains events related to logic outside of the CPU core. Refer to the [Uncore Performance Monitoring Reference Manuals](https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html#uncore) for additional information.
-* matrix - Contains matrix events counted from the core, but measuring responses that come from offcore.
+| Event Type | Description |
+| --- | --- |
+| core | Contains events counted from within a logical processor core. Core event list files also include offcore events (starting with CLX). |
+| uncore | Contains events related to logic outside of the CPU core. Refer to the [Uncore Performance Monitoring Reference Manuals](https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html#uncore) for additional information. |
+| uncore_experimental | Contains events related to logic outside of the CPU core. For additional information refer to the Uncore Performance Monitoring Reference Manuals above. Uncore experimental files contain events that PMU architects publish, but their behavior is currently unverified. |
+| matrix | Contains matrix events counted from the core, but measuring responses that come from offcore. |
 
 The event list filename indicates which type of list it contains, and follows this format:
 
-`<microarchitecture-codename>_<core/uncore/matrix>`
+`<microarchitecture-codename>_<core/uncore/uncore_experimental/matrix>`
 
 New version releases will be announced via [GitHub](https://github.com/intel/perfmon). Please subscribe to release notifications.
 
@@ -160,12 +160,11 @@ of events may vary.
 The following files are distributed under the terms of the [3-clause BSD license](./LICENSE):
 
 * Mapfile.csv
-* All .tsv files
 * All .json files
 
 Other files in this package are ALL RIGHTS RESERVED.
 
-## Event List Field Defitions
+## Event List Field Definitions
 Below is a list of the fields/headers in the event files and a description of how SW tools should
 interpret these values. A particular event list from this package may not contain all the fields described
 below. For more detailed information of the Performance monitoring unit please refer to chapters 18 and 19
