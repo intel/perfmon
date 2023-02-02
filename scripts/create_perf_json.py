@@ -372,7 +372,7 @@ def rewrite_metrics_in_terms_of_others(metrics: list[Dict[str,str]]) -> list[Dic
         name = m['MetricName']
         form = m['MetricExpr']
         parsed.append((name, metric.ParsePerfJson(form)))
-        if name == 'CORE_CLKS' and '#SMT_on' in form:
+        if name == 'tma_info_core_clks' and '#SMT_on' in form:
             # Add non-EBS form of CORE_CLKS to enable better
             # simplification of Valkyrie metrics.
             form = 'CPU_CLK_UNHALTED.THREAD_ANY / 2 if #SMT_on else CPU_CLK_UNHALTED.THREAD'
@@ -492,7 +492,11 @@ class Model:
         """Process a TMA metrics spreadsheet generating perf metrics."""
 
         # metrics redundant with perf or unusable
-        ignore = set(['MUX', 'Power', 'Time'])
+        ignore = {
+            'tma_info_mux': 'MUX',
+            'tma_info_power': 'Power',
+            'tma_info_time': 'Time',
+        }
 
         ratio_column = {
             "IVT": ("IVT", "IVB", "JKT/SNB-EP", "SNB"),
@@ -662,14 +666,16 @@ class Model:
                 metric_name = field('Level1')
                 form = find_form()
                 if form:
+                    tma_metric_name = f'tma_info_{metric_name.lower()}'
                     info.append(PerfMetric(
-                        metric_name,
+                        tma_metric_name,
                         form,
                         field('Metric Description'),
                         metric_group(metric_name),
                         locate_with()
                     ))
-                    infoname[field('Level1')] = form
+                    infoname[metric_name] = form
+                    tma_metric_names[metric_name] = tma_metric_name
             elif l[0].startswith('Aux'):
                 form = find_form()
                 if form and form != '#NA':
@@ -875,10 +881,12 @@ class Model:
                     return bracket(child)
 
                 def resolve_info(v: str) -> str:
-                    if v in ignore or (expand_metrics and v in infoname):
+                    if expand_metrics and v in infoname:
+                        return bracket(fixup(infoname[v]))
+                    if v in ignore:
                         # If metric will be ignored in the output it must
                         # be expanded.
-                        return bracket(fixup(infoname[v]))
+                        return bracket(fixup(infoname[ignore[v]]))
                     if v in infoname:
                         form = infoname[v]
                         if form == '#NA':
@@ -927,7 +935,9 @@ class Model:
                                 '(DTLB_STORE_MISSES.WALK_COMPLETED + '
                                 'DTLB_LOAD_MISSES.WALK_COMPLETED + '
                                 'ITLB_MISSES.WALK_COMPLETED)) / (2 * CORE_CLKS)')
-                    elif name in ['tma_false_sharing', 'MEM_Parallel_Requests', 'MEM_Request_Latency']:
+                    elif name in ['tma_false_sharing',
+                                  'tma_info_mem_parallel_requests',
+                                  'tma_info_mem_request_latency']:
                         # Uncore events missing for BDW-DE, so drop.
                         _verboseprint3(f'Dropping metric {name}')
                         return
@@ -990,8 +1000,8 @@ class Model:
                 else:
                     j['BriefDescription'] = desc
 
-                if j['MetricName'] == 'Page_Walks_Utilization' or j[
-                        'MetricName'] == 'Backend_Bound':
+                if j['MetricName'] == 'tma_info_page_walks_utilization' or j[
+                        'MetricName'] == 'tma_backend_bound':
                     j['MetricConstraint'] = 'NO_NMI_WATCHDOG'
 
                 if pmu_prefix != 'cpu':
@@ -1003,14 +1013,14 @@ class Model:
                 jo.append(j)
 
             form = resolve_all(form, expand_metrics=False)
-            needs_slots = 'topdown\-' in form and 'SLOTS' not in form
+            needs_slots = 'topdown\-' in form and 'tma_info_slots' not in form
             if needs_slots:
                 # topdown events must always be grouped with a
                 # TOPDOWN.SLOTS event. Detect when this is missing in a
                 # metric and insert a dummy value. Metrics using other
                 # metrics with topdown events will get a TOPDOWN.SLOTS
                 # event from them.
-                form = f'{form} + 0*SLOTS'
+                form = f'{form} + 0*tma_info_slots'
             save_form(i.name, i.groups, form, i.desc, i.locate, i.scale_unit)
 
         if 'Socket_CLKS' in infoname:
