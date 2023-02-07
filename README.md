@@ -3,6 +3,12 @@
 
 [![License](https://img.shields.io/badge/License-BSD--3-blue)](https://github.com/intel/perfmon/blob/master/LICENSE)
 
+# Outline
+* [Perfmon Metrics](#perfmon-metrics)
+* [Top-down Microarchitecture Analysis (TMA)](#top-down-microarchitecture-analysis-tma)
+* [Perfmon Events](#performance-monitoring-events)
+* [How to Contribute](#how-to-contribute)
+* [Support](#support)
 
 # perfmon-metrics
 
@@ -107,14 +113,6 @@ The perf script in /scripts will take the metrics.json file and convert that gen
 #### Known Issues
 
 1. Metrics: Memory Bound, Ports Utilization, Core Bound and Fetch Bandwidth may produce incorrect results on HSX and BDX under multi-threaded conditions.
-
-#### How to contribute
-
-1. Report issues with metrics through bug reports
-
-2. Contribute new metrics along with a metrics test through merge request. Moderators will test and validate the new metric on specified platforms before merging
-
-3. Add new scripts for conversions to other performance collection tools
 
 #### Good Reads
 
@@ -291,10 +289,26 @@ Please use KNL perfmon event files for KNM. The KNM events folder is populated w
 * http://software.intel.com/en-us/articles/monitoring-integrated-memory-controller-requests-in-the-2nd-3rd-and-4th-generation-intel
 * http://www.intel.com/content/dam/www/public/us/en/documents/specification-updates/4th-gen-core-family-desktop-specification-update.pdf
 
-## For questions
-Email perfmon-support@intel.com, or open a [GitHub Issue](https://github.com/intel/perfmon/issues).
+# How to Contribute
+## Metrics
+1. Report issues with metrics by opening a [GitHub Issue](https://github.com/intel/perfmon/issues).
+2. Contribute new metrics along with a metrics test through pull requests. Moderators will test and validate the new metric on specified platforms before merging.
+3. Add new scripts for conversions to other performance collection tools.
 
-## Notices
+## Events
+Open a [GitHub Issue](https://github.com/intel/perfmon/issues) and describe any requested changes
+and their associated platforms. Event lists are generated from a database and not directly edited.
+Pull requests editing event files will be closed and recreated as a GitHub Issue.
+
+# Support
+1. Please open a [GitHub Issue](https://github.com/intel/perfmon/issues). Additional performance
+   monitoring users likely have the same question. This option is the **recommended** support
+   method.
+2. If opening a GitHub Issue is not a viable option, please email perfmon-support@intel.com.
+   Include platform configuration, event details, and relevant workload information if
+   possible.
+
+# Notices
 INFORMATION IN THIS DOCUMENT IS PROVIDED IN CONNECTION WITH INTEL PRODUCTS. NO LICENSE, EXPRESS OR IMPLIED, BY ESTOPPEL OR OTHERWISE,
 TO ANY INTELLECTUAL PROPERTY RIGHTS IS GRANTED BY THIS DOCUMENT. EXCEPT AS PROVIDED IN INTEL'S TERMS AND CONDITIONS OF SALE FOR SUCH
 PRODUCTS, INTEL ASSUMES NO LIABILITY WHATSOEVER AND INTEL DISCLAIMS ANY EXPRESS OR IMPLIED WARRANTY, RELATING TO SALE AND/OR USE OF
