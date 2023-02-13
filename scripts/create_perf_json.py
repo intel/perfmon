@@ -977,6 +977,13 @@ class Model:
                         _verboseprint2(f'duplicate metric {name} forms differ'
                                        f'\n\tnew: {form}'
                                        f'\n\texisting: {m["MetricExpr"]}')
+                    if not locate and ' Sample with: ' not in desc:
+                        if 'PublicDescription' in m:
+                            d = m['PublicDescription']
+                        else:
+                            d = m['BriefDescription']
+                        if ' Sample with: ' in d:
+                            locate = re.sub(r'.* Sample with: (.*)', r'\1', d)
                     jo.remove(m)
 
                 if locate:
