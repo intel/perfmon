@@ -543,13 +543,16 @@ class Model:
 
         class PerfMetric:
            def  __init__(self, name: str, form: Optional[str], desc: str, groups: str,
-                         locate: str, scale_unit: Optional[str] = None):
+                         locate: str, scale_unit: Optional[str],
+                         parent_metric: Optional[str], threshold: Optional[str]):
                self.name = name
                self.form = form
                self.desc = desc
                self.groups = groups
                self.locate = locate
                self.scale_unit = scale_unit
+               self.parent_metric = parent_metric
+               self.threshold = threshold
 
         # All the metrics read from the CSV file.
         info : list[PerfMetric] = []
@@ -571,6 +574,8 @@ class Model:
         parents : list[str] = []
         # Map from a parent topdown metric name to its children's names.
         children: Dict[str, Set[str]] = collections.defaultdict(set)
+        # Map from a metric name to the metric threshold expression.
+        thresholds: Dict[str, str] = {}
         found_key = False
         csvf = csv.reader([l.decode('utf-8') for l in csvfile.readlines()])
         for l in csvf:
@@ -615,6 +620,16 @@ class Model:
                         lw = m.group(3)
                 return None if lw == '#NA' else lw
 
+            def threshold() -> Optional[str]:
+                th = field('Threshold')
+                if not th:
+                    return None
+                if ';' in th:
+                    th = th[:th.index(';')]
+                if th == '(> 0.7 | Heavy_Operations)':
+                    th = '> 0.7 | Heavy_Operations > 0.1'
+                return th
+
             def metric_group(metric_name: str) -> Optional[str]:
                 groups : Dict[str, str] = {
                     'IFetch_Line_Utilization': 'Frontend',
@@ -651,14 +666,16 @@ class Model:
                 csv_groups = metric_group(metric_name)
                 if csv_groups:
                     mgroups += f';{csv_groups}'
+                parent_metric = None
                 if level > 1:
                     mgroups += f';tma_{parents[-2].lower()}_group'
                     children[parents[-2]].add(parents[-1])
+                    parent_metric = f'tma_{parents[-2].lower()}'
                 tma_metric_name = f'tma_{metric_name.lower()}'
                 info.append(PerfMetric(
                     tma_metric_name, form,
                     field('Metric Description'), mgroups, locate_with(),
-                    '100%'
+                    '100%', parent_metric, threshold()
                 ))
                 infoname[metric_name] = form
                 tma_metric_names[metric_name] = tma_metric_name
@@ -672,7 +689,10 @@ class Model:
                         form,
                         field('Metric Description'),
                         metric_group(metric_name),
-                        locate_with()
+                        locate_with(),
+                        scale_unit = None,
+                        parent_metric = None,
+                        threshold = threshold()
                     ))
                     infoname[metric_name] = form
                     tma_metric_names[metric_name] = tma_metric_name
@@ -925,7 +945,7 @@ class Model:
                 form = fixup(form)
                 return form
 
-            def save_form(name, group, form, desc, locate, scale_unit):
+            def save_form(name, group, form, desc, locate, scale_unit, threshold):
                 if self.shortname == 'BDW-DE':
                     if name == 'Page_Walks_Utilization':
                         # Force in the BDX versions.
@@ -969,6 +989,7 @@ class Model:
 
                 # Check for duplicate metrics. Note, done after
                 # verifying the events.
+                parsed_threshold = None
                 dups = [m for m in jo if m['MetricName'] == name]
                 if len(dups) > 0:
                     assert len(dups) == 1
@@ -984,6 +1005,8 @@ class Model:
                             d = m['BriefDescription']
                         if ' Sample with: ' in d:
                             locate = re.sub(r'.* Sample with: (.*)', r'\1', d)
+                    if not threshold:
+                        parsed_threshold = m['MetricThreshold']
                     jo.remove(m)
 
                 if locate:
@@ -1145,6 +1168,11 @@ class Model:
                 if scale_unit:
                     j['ScaleUnit'] = scale_unit
 
+                if parsed_threshold:
+                    j['MetricThreshold'] = parsed_threshold
+                elif threshold:
+                    j['MetricThreshold'] = metric.ParsePerfJson(threshold).Simplify().ToPerfJson()
+
                 jo.append(j)
 
             form = resolve_all(form, expand_metrics=False)
@@ -1156,7 +1184,32 @@ class Model:
                 # metrics with topdown events will get a TOPDOWN.SLOTS
                 # event from them.
                 form = f'{form} + 0*tma_info_slots'
-            save_form(i.name, i.groups, form, i.desc, i.locate, i.scale_unit)
+
+            threshold = None
+            if i.threshold:
+                threshold = f'{i.name} {i.threshold}'
+                _verboseprint2(f'{i.name}/{i.form} -> {threshold}')
+                t = []
+                if '|' in threshold:
+                    threshold = '|'.join(f'({x})' for x in threshold.split('|'))
+                for tkn in threshold.split('&'):
+                    tkn = tkn.strip()
+                    if tkn == 'P':
+                        # The parent metric is missing in cases like X87_use on HSW.
+                        if i.parent_metric in thresholds:
+                            t.append(f'({thresholds[i.parent_metric]})')
+                        else:
+                            t.append('1')
+                    elif tkn  == '#HighIPC':
+                        t.append('(#HighIPC > 0.35)')
+                    else:
+                        t.append(f'({tkn})')
+                threshold = resolve_all(' & '.join(t), expand_metrics=False)
+                threshold = threshold.replace('& 1', '')
+                thresholds[i.name] = threshold
+                _verboseprint2(f'{i.name} -> {threshold}')
+            save_form(i.name, i.groups, form, i.desc, i.locate, i.scale_unit,
+                      threshold)
 
         if 'Socket_CLKS' in infoname:
             form = 'Socket_CLKS / #num_dies / duration_time / 1000000000'
@@ -1174,7 +1227,8 @@ class Model:
             with urllib.request.urlopen(self.files['extra metrics']) as extra_json:
                 for em in json.load(extra_json):
                     save_form(em['MetricName'], em['MetricGroup'], em['MetricExpr'],
-                              em['BriefDescription'], None, em['ScaleUnit'])
+                              em['BriefDescription'], None, em['ScaleUnit'],
+                              em.get('MetricThreshold'))
 
         return jo
 
