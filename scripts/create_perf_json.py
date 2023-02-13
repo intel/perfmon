@@ -1000,9 +1000,137 @@ class Model:
                 else:
                     j['BriefDescription'] = desc
 
-                if j['MetricName'] == 'tma_info_page_walks_utilization' or j[
-                        'MetricName'] == 'tma_backend_bound':
-                    j['MetricConstraint'] = 'NO_NMI_WATCHDOG'
+                # Don't group events as there can never be sufficient counters.
+                no_group = 'NO_GROUP_EVENTS'
+                # Inform perf not to group metrics if the NMI watchdog
+                # is enabled.
+                nmi = 'NO_GROUP_EVENTS_NMI'
+                # Inform perf not to group events if SMT is enabled. This is for
+                # the erratas SNB: BJ122, IVB: BV98, HSW: HSD29, as well as when
+                # EBS_Mode causes additional events to be required.
+                smt = 'NO_GROUP_EVENTS_SMT'
+
+                sandybridge_constraints = {
+                    # Metrics with more events than counters.
+                    'tma_branch_mispredicts': no_group,
+                    'tma_contested_accesses': no_group,
+                    'tma_core_bound': no_group,
+                    'tma_data_sharing': no_group,
+                    'tma_fb_full': no_group,
+                    'tma_l3_hit_latency': no_group,
+                    'tma_local_dram': no_group,
+                    'tma_lock_latency': no_group,
+                    'tma_machine_clears': no_group,
+                    'tma_memory_bound': no_group,
+                    'tma_ports_utilization': no_group,
+                    'tma_remote_cache': no_group,
+                    'tma_remote_dram': no_group,
+                    'tma_split_loads': no_group,
+                    'tma_store_latency': no_group,
+                    'tma_info_load_miss_real_latency': no_group,
+                    'tma_info_mlp': no_group,
+                    # Metrics that would fit were the NMI watchdog disabled.
+                    'tma_alu_op_utilization': nmi,
+                    'tma_backend_bound': nmi,
+                    'tma_cisc': nmi,
+                    'tma_load_op_utilization': nmi,
+                    # SMT errata workarounds.
+                    'tma_dram_bound': smt,
+                    'tma_l3_bound': smt,
+                }
+                skylake_constraints = {
+                    # Metrics with more events than counters.
+                    'tma_branch_mispredicts': no_group,
+                    'tma_contested_accesses': no_group,
+                    'tma_core_bound': no_group,
+                    'tma_dram_bound': no_group,
+                    'tma_data_sharing': no_group,
+                    'tma_false_sharing': no_group,
+                    'tma_fp_arith': no_group,
+                    'tma_info_fp_arith_utilization': no_group,
+                    'tma_fp_vector': no_group,
+                    'tma_l2_bound': no_group,
+                    'tma_machine_clears': no_group,
+                    'tma_memory_bound': no_group,
+                    'tma_pmm_bound': no_group,
+                    'tma_info_big_code': no_group,
+                    'tma_info_core_bound_likely': no_group,
+                    'tma_info_dsb_misses': no_group,
+                    'tma_info_flopc': no_group,
+                    'tma_info_gflops': no_group,
+                    'tma_info_instruction_fetch_bw': no_group,
+                    'tma_info_iparith': no_group,
+                    'tma_info_ipflop': no_group,
+                    'tma_info_memory_bandwidth': no_group,
+                    'tma_info_memory_data_tlbs': no_group,
+                    'tma_info_memory_latency': no_group,
+                    'tma_info_mispredictions': no_group,
+                    'tma_info_jump': no_group,
+                    # Metrics that would fit were the NMI watchdog disabled.
+                    'tma_dtlb_load': nmi,
+                    'tma_load_stlb_hit': nmi,
+                    'tma_fb_full': nmi,
+                    'tma_remote_cache': nmi,
+                    'tma_split_loads': nmi,
+                    'tma_store_latency': nmi,
+                    'tma_info_page_walks_utilization': nmi,
+                }
+                icelake_constraints = {
+                    'tma_contested_accesses': no_group,
+                    'tma_data_sharing': no_group,
+                    'tma_dram_bound': no_group,
+                    'tma_l2_bound': no_group,
+                    'tma_lock_latency': no_group,
+                    'tma_info_big_code': no_group,
+                    'tma_info_flopc': no_group,
+                    'tma_info_fp_arith_utilization': no_group,
+                    # TODO: Don't not group as weak groups will
+                    # preserve top-down event groups.
+                    #'tma_info_dsb_misses': no_group,
+                    #'tma_fp_arith': no_group,
+                    #'tma_memory_operations': no_group,
+                    #'tma_other_light_ops': no_group,
+                    #'tma_info_branch_misprediction_cost': no_group,
+                    #'tma_info_core_bound_likely': no_group,
+                    #'tma_info_instruction_fetch_bw': no_group,
+                    #'tma_info_memory_data_tlbs': no_group,
+                    #'tma_info_memory_latency': no_group,
+                    #'tma_info_mispredictions': no_group,
+                    #'tma_info_retire': no_group,
+                }
+                errata_constraints = {
+                    # 4 programmable, 3 fixed counters per HT
+                    'JKT': sandybridge_constraints,
+                    'SNB': sandybridge_constraints,
+                    'IVB': sandybridge_constraints,
+                    'IVT': sandybridge_constraints,
+                    'HSW': sandybridge_constraints,
+                    'HSX': sandybridge_constraints,
+                    'BDW': sandybridge_constraints,
+                    'BDX': sandybridge_constraints,
+                    'BDW-DE': sandybridge_constraints,
+                    # 4 programmable, 3 fixed counters per HT
+                    'SKL': skylake_constraints,
+                    'KBL': skylake_constraints,
+                    'SKX': skylake_constraints,
+                    'KBLR': skylake_constraints,
+                    'CFL': skylake_constraints,
+                    'CML': skylake_constraints,
+                    'CLX': skylake_constraints,
+                    'CPX': skylake_constraints,
+                    'CNL': skylake_constraints,
+                    # 8 programmable, 5 fixed counters per HT
+                    'ICL': icelake_constraints,
+                    'ICX': icelake_constraints,
+                    'RKL': icelake_constraints,
+                    'TGL': icelake_constraints,
+                    'ADL': icelake_constraints,
+                    'ADLN': icelake_constraints,
+                    'RPL': icelake_constraints,
+                    'SPR': icelake_constraints,
+                }
+                if name in errata_constraints[self.shortname]:
+                    j['MetricConstraint'] = errata_constraints[self.shortname][name]
 
                 if pmu_prefix != 'cpu':
                     j['Unit'] = pmu_prefix
