@@ -552,6 +552,7 @@ class Model:
            scale_unit: Optional[str]
            parent_metric: Optional[str]
            threshold: Optional[str]
+           issues: list[str]
 
         # All the metrics read from the CSV file.
         info : list[PerfMetric] = []
@@ -575,6 +576,7 @@ class Model:
         children: Dict[str, Set[str]] = collections.defaultdict(set)
         # Map from a metric name to the metric threshold expression.
         thresholds: Dict[str, str] = {}
+        issue_to_metrics: Dict[str, Set[str]] = collections.defaultdict(set)
         found_key = False
         csvf = csv.reader([l.decode('utf-8') for l in csvfile.readlines()])
         for l in csvf:
@@ -629,6 +631,17 @@ class Model:
                     th = '> 0.7 | Heavy_Operations > 0.1'
                 return th
 
+            def issues() -> list[str]:
+                th = field('Threshold')
+                if not th or ';' not in th:
+                    return []
+                result = []
+                for issue in th.split(';'):
+                    issue = issue.strip()
+                    if issue.startswith('$issue'):
+                        result.append(issue)
+                return result
+
             def metric_group(metric_name: str) -> Optional[str]:
                 groups : Dict[str, str] = {
                     'IFetch_Line_Utilization': 'Frontend',
@@ -661,7 +674,7 @@ class Model:
                     _verboseprint2(f'Missing formula for {metric_name} on CPU {self.shortname}')
                     continue
                 nodes[metric_name] = form
-                mgroups = f'TopdownL{level}'
+                mgroups = f'TopdownL{level};tma_L{level}_group'
                 csv_groups = metric_group(metric_name)
                 if csv_groups:
                     mgroups += f';{csv_groups}'
@@ -671,10 +684,14 @@ class Model:
                     children[parents[-2]].add(parents[-1])
                     parent_metric = f'tma_{parents[-2].lower()}'
                 tma_metric_name = f'tma_{metric_name.lower()}'
+                issues = issues()
+                for issue in issues:
+                    issue_to_metrics[issue].add(tma_metric_name)
+                    mgroups += f';tma_{issue[1:]}'
                 info.append(PerfMetric(
                     tma_metric_name, form,
                     field('Metric Description'), mgroups, locate_with(),
-                    '100%', parent_metric, threshold()
+                    '100%', parent_metric, threshold(), issues
                 ))
                 infoname[metric_name] = form
                 tma_metric_names[metric_name] = tma_metric_name
@@ -683,15 +700,21 @@ class Model:
                 form = find_form()
                 if form:
                     tma_metric_name = f'tma_info_{metric_name.lower()}'
+                    mgroups = metric_group(metric_name)
+                    issues = issues()
+                    for issue in issues:
+                        issue_to_metrics[issue].add(tma_metric_name)
+                        mgroups += f';tma_{issue[1:]}'
                     info.append(PerfMetric(
                         tma_metric_name,
                         form,
                         field('Metric Description'),
-                        metric_group(metric_name),
+                        mgroups,
                         locate_with(),
                         scale_unit = None,
                         parent_metric = None,
-                        threshold = threshold()
+                        threshold = threshold(),
+                        issues = issues
                     ))
                     infoname[metric_name] = form
                     tma_metric_names[metric_name] = tma_metric_name
@@ -945,7 +968,8 @@ class Model:
                 form = fixup(form)
                 return form
 
-            def save_form(name, group, form, desc, locate, scale_unit, threshold):
+            def save_form(name, group, form, desc, locate, scale_unit, threshold,
+                          issues):
                 if self.shortname == 'BDW-DE':
                     if name == 'Page_Walks_Utilization':
                         # Force in the BDX versions.
@@ -965,8 +989,10 @@ class Model:
                 # Make 'TmaL1' group names more consistent with the 'tma_'
                 # prefix and '_group' suffix.
                 if group:
-                    group = re.sub(r'Tma(L[12])', r'tma_\1_group', group)
-                    group = ';'.join([x.strip() for x in sorted(group.split(';'))])
+                    if 'TmaL1' in group and 'tma_L1_group' not in group:
+                        group += ';tma_L1_group'
+                    if 'TmaL2' in group and 'tma_L2_group' not in group:
+                        group += ';tma_L2_group'
                 _verboseprint3(f'Checking metric {name}: {form}')
                 for v, _ in re.findall(r'(([A-Z_a-z0-9.]|\\-)+)', form):
                     if v.isdigit() or re.match('\d+\.\d+', v) is not None or \
@@ -987,6 +1013,8 @@ class Model:
                     assert v in events or v.upper() in events or v in infoname or v in aux, \
                         f'Expected {v} to be an event in "{name}": "{form}" on {self.shortname}'
 
+                if group:
+                    group = ';'.join(sorted(set(group.split(';'))))
                 # Check for duplicate metrics. Note, done after
                 # verifying the events.
                 parsed_threshold = None
@@ -1007,10 +1035,25 @@ class Model:
                             locate = re.sub(r'.* Sample with: (.*)', r'\1', d)
                     if not threshold:
                         parsed_threshold = m['MetricThreshold']
+                    group = m['MetricGroup']
                     jo.remove(m)
 
+                desc = desc.strip()
+                def append_to_desc(s: str):
+                    nonlocal desc
+                    if desc[-1] != '.':
+                        desc += '.'
+                    desc = f'{desc} {s}'
+
                 if locate:
-                    desc = desc + ' Sample with: ' + locate
+                    append_to_desc(f'Sample with: {locate}')
+
+                if issues:
+                    related = set()
+                    for issue in issues:
+                        related.update(issue_to_metrics[issue])
+                    related.remove(name)
+                    append_to_desc(f'Related metrics: {", ".join(sorted(related))}')
 
                 try:
                     j = {
@@ -1022,7 +1065,7 @@ class Model:
 
                 if group and len(group) > 0:
                     j['MetricGroup'] = group
-                if desc.count('.') > 1:
+                if '.' in desc:
                     sdesc = re.sub(r'(?<!i\.e)\. .*', '', desc)
                     j['BriefDescription'] = sdesc
                     if desc != sdesc:
@@ -1209,7 +1252,7 @@ class Model:
                 thresholds[i.name] = threshold
                 _verboseprint2(f'{i.name} -> {threshold}')
             save_form(i.name, i.groups, form, i.desc, i.locate, i.scale_unit,
-                      threshold)
+                      threshold, i.issues)
 
         if 'Socket_CLKS' in infoname:
             form = 'Socket_CLKS / #num_dies / duration_time / 1000000000'
@@ -1228,7 +1271,7 @@ class Model:
                 for em in json.load(extra_json):
                     save_form(em['MetricName'], em['MetricGroup'], em['MetricExpr'],
                               em['BriefDescription'], None, em['ScaleUnit'],
-                              em.get('MetricThreshold'))
+                              em.get('MetricThreshold'), [])
 
         return jo
 
