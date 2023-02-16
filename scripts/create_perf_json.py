@@ -1431,6 +1431,10 @@ class Model:
 
         if len(metrics) > 0:
             metrics.extend(self.cstate_json())
+            metrics = sorted(metrics,
+                             key=lambda m: (m['Unit'] if 'Unit' in m else 'cpu',
+                                            m['MetricName'])
+                             )
             metrics = rewrite_metrics_in_terms_of_others(metrics)
             with open(f'{outdir}/{self.shortname.lower().replace("-","")}-metrics.json',
                       'w', encoding='ascii') as perf_metric_json:
