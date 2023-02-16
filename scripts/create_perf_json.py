@@ -12,6 +12,7 @@
 # EXAMPLE: python create_perf_json.py
 import argparse
 import collections
+from dataclasses import dataclass
 import csv
 from itertools import takewhile
 import json
@@ -541,18 +542,16 @@ class Model:
             _verboseprint(f'Missing TMA CPU for {self.shortname}')
             return []
 
+        @dataclass
         class PerfMetric:
-           def  __init__(self, name: str, form: Optional[str], desc: str, groups: str,
-                         locate: str, scale_unit: Optional[str],
-                         parent_metric: Optional[str], threshold: Optional[str]):
-               self.name = name
-               self.form = form
-               self.desc = desc
-               self.groups = groups
-               self.locate = locate
-               self.scale_unit = scale_unit
-               self.parent_metric = parent_metric
-               self.threshold = threshold
+           name: str
+           form: Optional[str]
+           desc: str
+           groups: str
+           locate: str
+           scale_unit: Optional[str]
+           parent_metric: Optional[str]
+           threshold: Optional[str]
 
         # All the metrics read from the CSV file.
         info : list[PerfMetric] = []
