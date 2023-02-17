@@ -488,6 +488,32 @@ class Model:
         return result
 
 
+    def tsx_json(self) -> Optional[metric.MetricGroup]:
+        if self.shortname not in ['SKL','SKX','KBL','CLX','CPX','CNL','ICL','ICX',
+                                  'RKL','TGL','ADL','SPR']:
+            return None
+
+        cycles = metric.Event('cycles')
+        cycles_in_tx = metric.Event('cpu/cycles\-t/')
+        transaction_start = metric.Event('cpu/tx\-start/')
+        elision_start = metric.Event('cpu/el\-start/')
+        cycles_in_tx_cp = metric.Event('cpu/cycles\-ct/')
+        return metric.MetricGroup('transaction', [
+            metric.Metric('tsx_transactional_cycles',
+                   'Percentage of cycles within a transaction region.',
+                   cycles_in_tx / cycles, '100%'),
+            metric.Metric('tsx_aborted_cycles', 'Percentage of cycles in aborted transactions.',
+                   metric.max(cycles_in_tx - cycles_in_tx_cp, 0) / cycles,
+                   '100%'),
+            metric.Metric('tsx_cycles_per_transaction',
+                   'Number of cycles within a transaction divided by the number of transactions.',
+                   cycles_in_tx / transaction_start, "cycles / transaction"),
+            metric.Metric('tsx_cycles_per_elision',
+                   'Number of cycles within a transaction divided by the number of elisions.',
+                   cycles_in_tx / elision_start, "cycles / elision"),
+        ])
+
+
     def extract_tma_metrics(self, csvfile: TextIO, pmu_prefix: str,
                             events: Dict[str, PerfmonJsonEvent]):
         """Process a TMA metrics spreadsheet generating perf metrics."""
@@ -1431,6 +1457,9 @@ class Model:
 
         if len(metrics) > 0:
             metrics.extend(self.cstate_json())
+            mg = self.tsx_json()
+            if mg:
+                metrics.extend(json.loads(mg.ToPerfJson()))
             metrics = sorted(metrics,
                              key=lambda m: (m['Unit'] if 'Unit' in m else 'cpu',
                                             m['MetricName'])
