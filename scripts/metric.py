@@ -420,7 +420,8 @@ class Metric:
                description: str,
                expr: Expression,
                scale_unit: str,
-               constraint: bool = False):
+               constraint: bool = False,
+               threshold: Optional[Expression] = None):
     self.name = name
     self.description = description
     self.expr = expr.Simplify()
@@ -431,6 +432,7 @@ class Metric:
     else:
       self.scale_unit = f'1{scale_unit}'
     self.constraint = constraint
+    self.threshold = threshold
     self.groups = set()
 
   def __lt__(self, other):
@@ -456,6 +458,8 @@ class Metric:
     }
     if self.constraint:
       result['MetricConstraint'] = 'NO_NMI_WATCHDOG'
+    if self.threshold:
+      result['MetricThreshold'] = self.threshold.ToPerfJson()
 
     return result
 
