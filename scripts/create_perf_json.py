@@ -514,6 +514,21 @@ class Model:
         ])
 
 
+    def smi_json(self) -> metric.MetricGroup:
+        aperf = metric.Event('msr/aperf/')
+        cycles = metric.Event('cycles')
+        smi_num = metric.Event('msr/smi/')
+        return metric.MetricGroup('smi', [
+            metric.Metric('smi_num', 'Number of SMI interrupts.',
+                          smi_num, 'SMI#'),
+            metric.Metric('smi_cycles',
+                          'Percentage of cycles spent in System Management Interrupts.',
+                          metric.Select((aperf - cycles) / aperf, smi_num > 0, 0),
+                          '100%', constraint=False,
+                          threshold=(metric.Event('smi_cycles') > 0.10))
+        ])
+
+
     def extract_tma_metrics(self, csvfile: TextIO, pmu_prefix: str,
                             events: Dict[str, PerfmonJsonEvent]):
         """Process a TMA metrics spreadsheet generating perf metrics."""
@@ -1460,6 +1475,7 @@ class Model:
             mg = self.tsx_json()
             if mg:
                 metrics.extend(json.loads(mg.ToPerfJson()))
+            metrics.extend(json.loads(self.smi_json().ToPerfJson()))
             metrics = sorted(metrics,
                              key=lambda m: (m['Unit'] if 'Unit' in m else 'cpu',
                                             m['MetricName'])
