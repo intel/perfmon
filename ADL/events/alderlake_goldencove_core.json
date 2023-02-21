@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 12th and 13th Generation Intel(R) Core(TM) Processor - V1.18",
-    "DatePublished": "02/07/2023",
-    "Version": "1.18",
+    "Info": "Performance Monitoring Events for 12th and 13th Generation Intel(R) Core(TM) Processor - V1.19",
+    "DatePublished": "02/16/2023",
+    "Version": "1.19",
     "Legend": ""
   },
   "Events": [
@@ -5104,6 +5104,30 @@
       "Counter": "0,1,2,3,4,5,6,7",
       "PEBScounters": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "400009",
+      "MSRIndex": "0x00",
+      "MSRValue": "0x00",
+      "CollectPEBSRecord": "2",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "1",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "Speculative": "0"
+    },
+    {
+      "EventCode": "0xc5",
+      "UMask": "0x80",
+      "EventName": "BR_MISP_RETIRED.INDIRECT",
+      "BriefDescription": "Miss-predicted near indirect branch instructions retired (excluding returns)",
+      "PublicDescription": "Counts miss-predicted near indirect branch instructions retired excluding returns. TSX abort is an indirect branch.",
+      "Counter": "0,1,2,3,4,5,6,7",
+      "PEBScounters": "0,1,2,3,4,5,6,7",
+      "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
       "CollectPEBSRecord": "2",

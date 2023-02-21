@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 12th and 13th Generation Intel(R) Core(TM) Processor - V1.18",
-    "DatePublished": "02/07/2023",
-    "Version": "1.18",
+    "Info": "Performance Monitoring Events for 12th and 13th Generation Intel(R) Core(TM) Processor - V1.19",
+    "DatePublished": "02/16/2023",
+    "Version": "1.19",
     "Legend": ""
   },
   "Events": [
@@ -256,6 +256,30 @@
       "Counter": "0,1,2,3,4,5",
       "PEBScounters": "0,1,2,3,4,5",
       "SampleAfterValue": "20003",
+      "MSRIndex": "0x00",
+      "MSRValue": "0x00",
+      "CollectPEBSRecord": "2",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "Speculative": "1"
+    },
+    {
+      "EventCode": "0x05",
+      "UMask": "0x81",
+      "EventName": "LD_HEAD.L1_MISS_AT_RET",
+      "BriefDescription": "Counts the number of cycles that the head (oldest load) of the load buffer and retirement are both stalled due to a DL1 miss.",
+      "PublicDescription": "Counts the number of cycles that the head (oldest load) of the load buffer and retirement are both stalled due to a DL1 miss.",
+      "Counter": "0,1,2,3,4,5",
+      "PEBScounters": "0,1,2,3,4,5",
+      "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
       "CollectPEBSRecord": "2",
