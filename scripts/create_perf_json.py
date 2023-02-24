@@ -876,8 +876,6 @@ class Model:
                             form = form.replace(j, r)
 
                     form = form.replace('_PS', '')
-                    form = form.replace('#Memory == 1', '1')
-                    form = form.replace('#PMM_App_Direct', '1')
                     form = re.sub(r':USER', ':u', form, re.IGNORECASE)
                     form = re.sub(r':SUP', ':k', form, re.IGNORECASE)
                     form = form.replace('(0 + ', '(')
@@ -953,8 +951,6 @@ class Model:
                         return 'duration_time'
                     if v == '#EBS_Mode':
                         return '#core_wide < 1'
-                    if v == '#Memory':
-                        return '1' if memory else '0'
                     if v == '#NA':
                         return '0'
                     if v[1:] in nodes:
