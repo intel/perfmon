@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2022 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Atom(TM) Processors Based on the Silvermont Microarchitecture - V14",
-    "DatePublished": "03/14/2017",
-    "Version": "14",
+    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for Intel(R) Atom(TM) Processors Based on the Silvermont Microarchitecture - V15",
+    "DatePublished": "01/26/2023",
+    "Version": "15",
     "Legend": ""
   },
   "Events": [

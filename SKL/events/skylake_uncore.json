@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2022 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 6th Generation Intel(R) Core(TM) Processor - V53",
-    "DatePublished": "04/12/2022",
-    "Version": "53",
+    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for 6th Generation Intel(R) Core(TM) Processor - V55",
+    "DatePublished": "02/22/2023",
+    "Version": "55",
     "Legend": ""
   },
   "Events": [
@@ -176,18 +176,6 @@
       "EdgeDetect": "0"
     },
     {
-      "Unit": "NCU",
-      "EventCode": "0x0",
-      "UMask": "0x01",
-      "EventName": "UNC_CLOCK.SOCKET",
-      "BriefDescription": "This 48-bit fixed counter counts the UCLK cycles",
-      "PublicDescription": "This 48-bit fixed counter counts the UCLK cycles.",
-      "Counter": "FIXED",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0"
-    },
-    {
       "Unit": "ARB",
       "EventCode": "0x80",
       "UMask": "0x01",
@@ -204,8 +192,8 @@
       "EventCode": "0x81",
       "UMask": "0x01",
       "EventName": "UNC_ARB_TRK_REQUESTS.ALL",
-      "BriefDescription": "tbd",
-      "PublicDescription": "tbd",
+      "BriefDescription": "UNC_ARB_TRK_REQUESTS.ALL",
+      "PublicDescription": "UNC_ARB_TRK_REQUESTS.ALL",
       "Counter": "0,1",
       "CounterMask": "0",
       "Invert": "0",
@@ -256,6 +244,18 @@
       "PublicDescription": "Cycles with at least one request outstanding is waiting for data return from memory controller. Account for coherent and non-coherent requests initiated by IA Cores, Processor Graphics Unit, or LLC.",
       "Counter": "0",
       "CounterMask": "1",
+      "Invert": "0",
+      "EdgeDetect": "0"
+    },
+    {
+      "Unit": "NCU",
+      "EventCode": "0x0",
+      "UMask": "0x01",
+      "EventName": "UNC_CLOCK.SOCKET",
+      "BriefDescription": "This 48-bit fixed counter counts the UCLK cycles",
+      "PublicDescription": "This 48-bit fixed counter counts the UCLK cycles.",
+      "Counter": "FIXED",
+      "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0"
     },

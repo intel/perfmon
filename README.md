@@ -3,6 +3,12 @@
 
 [![License](https://img.shields.io/badge/License-BSD--3-blue)](https://github.com/intel/perfmon/blob/master/LICENSE)
 
+# Outline
+* [Perfmon Metrics](#perfmon-metrics)
+* [Top-down Microarchitecture Analysis (TMA)](#top-down-microarchitecture-analysis-tma)
+* [Perfmon Events](#performance-monitoring-events)
+* [How to Contribute](#how-to-contribute)
+* [Support](#support)
 
 # perfmon-metrics
 
@@ -108,14 +114,6 @@ The perf script in /scripts will take the metrics.json file and convert that gen
 
 1. Metrics: Memory Bound, Ports Utilization, Core Bound and Fetch Bandwidth may produce incorrect results on HSX and BDX under multi-threaded conditions.
 
-#### How to contribute
-
-1. Report issues with metrics through bug reports
-
-2. Contribute new metrics along with a metrics test through merge request. Moderators will test and validate the new metric on specified platforms before merging
-
-3. Add new scripts for conversions to other performance collection tools
-
 #### Good Reads
 
 1. A Top-Down Method for Performance Analysis and Counters Architecture. Ahmad Yasin. In IEEE International Symposium on Performance Analysis of Systems and Software, ISPASS 2014.
@@ -134,22 +132,22 @@ In this repository there are three, related, metrics file types.
 This package contains performance monitoring event lists for Intel processors, as well as a mapping file
 to help match event lists to processor Family/Model/Stepping codes.
 
-The event lists are available in 2 formats:
-* Tab delimited (.tsv)
-* Json (.json)
+Event lists are available in JSON (.json) format.
 
 Event lists are created per microarchitecture, and each has a version. Versions are listed in the event list
-name as well as the header for each file. For some microarchitectures, up to three different event lists will
+header for each file and [mapfile.csv](mapfile.csv). For some microarchitectures, up to three different event lists will
 be available. These event lists correspond to the types of events that can be collected:
 
-* core - Contains events counted from within a logical processor core.
-  * Core event list files also include offcore events (starting with CLX).
-* uncore - Contains events related to logic outside of the CPU core. Refer to the [Uncore Performance Monitoring Reference Manuals](https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html#uncore) for additional information.
-* matrix - Contains matrix events counted from the core, but measuring responses that come from offcore.
+| Event Type | Description |
+| --- | --- |
+| core | Contains events counted from within a logical processor core. Core event list files also include offcore events (starting with CLX). |
+| uncore | Contains events related to logic outside of the CPU core. Refer to the [Uncore Performance Monitoring Reference Manuals](https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html#uncore) for additional information. |
+| uncore_experimental | Contains events related to logic outside of the CPU core. For additional information refer to the Uncore Performance Monitoring Reference Manuals above. Uncore experimental files contain events that PMU architects publish, but their behavior is currently unverified. |
+| matrix | Contains matrix events counted from the core, but measuring responses that come from offcore. |
 
 The event list filename indicates which type of list it contains, and follows this format:
 
-`<microarchitecture-codename>_<core/uncore/matrix>`
+`<microarchitecture-codename>_<core/uncore/uncore_experimental/matrix>`
 
 New version releases will be announced via [GitHub](https://github.com/intel/perfmon). Please subscribe to release notifications.
 
@@ -160,12 +158,11 @@ of events may vary.
 The following files are distributed under the terms of the [3-clause BSD license](./LICENSE):
 
 * Mapfile.csv
-* All .tsv files
 * All .json files
 
 Other files in this package are ALL RIGHTS RESERVED.
 
-## Event List Field Defitions
+## Event List Field Definitions
 Below is a list of the fields/headers in the event files and a description of how SW tools should
 interpret these values. A particular event list from this package may not contain all the fields described
 below. For more detailed information of the Performance monitoring unit please refer to chapters 18 and 19
@@ -292,10 +289,26 @@ Please use KNL perfmon event files for KNM. The KNM events folder is populated w
 * http://software.intel.com/en-us/articles/monitoring-integrated-memory-controller-requests-in-the-2nd-3rd-and-4th-generation-intel
 * http://www.intel.com/content/dam/www/public/us/en/documents/specification-updates/4th-gen-core-family-desktop-specification-update.pdf
 
-## For questions
-Email perfmon-support@intel.com, or open a [GitHub Issue](https://github.com/intel/perfmon/issues).
+# How to Contribute
+## Metrics
+1. Report issues with metrics by opening a [GitHub Issue](https://github.com/intel/perfmon/issues).
+2. Contribute new metrics along with a metrics test through pull requests. Moderators will test and validate the new metric on specified platforms before merging.
+3. Add new scripts for conversions to other performance collection tools.
 
-## Notices
+## Events
+Open a [GitHub Issue](https://github.com/intel/perfmon/issues) and describe any requested changes
+and their associated platforms. Event lists are generated from a database and not directly edited.
+Pull requests editing event files will be closed and recreated as a GitHub Issue.
+
+# Support
+1. Please open a [GitHub Issue](https://github.com/intel/perfmon/issues). Additional performance
+   monitoring users likely have the same question. This option is the **recommended** support
+   method.
+2. If opening a GitHub Issue is not a viable option, please email perfmon-support@intel.com.
+   Include platform configuration, event details, and relevant workload information if
+   possible.
+
+# Notices
 INFORMATION IN THIS DOCUMENT IS PROVIDED IN CONNECTION WITH INTEL PRODUCTS. NO LICENSE, EXPRESS OR IMPLIED, BY ESTOPPEL OR OTHERWISE,
 TO ANY INTELLECTUAL PROPERTY RIGHTS IS GRANTED BY THIS DOCUMENT. EXCEPT AS PROVIDED IN INTEL'S TERMS AND CONDITIONS OF SALE FOR SUCH
 PRODUCTS, INTEL ASSUMES NO LIABILITY WHATSOEVER AND INTEL DISCLAIMS ANY EXPRESS OR IMPLIED WARRANTY, RELATING TO SALE AND/OR USE OF

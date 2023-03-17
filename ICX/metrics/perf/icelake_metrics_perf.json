@@ -1,17 +1,17 @@
 [
     {
+        "BriefDescription": "CPU operating frequency (in GHz)",
+        "MetricExpr": "(( CPU_CLK_UNHALTED.THREAD / CPU_CLK_UNHALTED.REF_TSC * #SYSTEM_TSC_FREQ ) / 1000000000)",
+        "MetricGroup": "",
+        "MetricName": "cpu_operating_frequency",
+        "ScaleUnit": "1GHz"
+    },
+    {
         "BriefDescription": "Percentage of time spent in the active CPU power state C0",
         "MetricExpr": "CPU_CLK_UNHALTED.REF_TSC / TSC",
         "MetricGroup": "",
         "MetricName": "cpu_utilization",
         "ScaleUnit": "100%"
-    },
-    {
-        "BriefDescription": "CPU operating frequency (in GHz)",
-        "MetricExpr": "(( CPU_CLK_UNHALTED.THREAD / CPU_CLK_UNHALTED.REF_TSC * #SYSTEM_TSC_FREQ ) / 1000000000) / duration_time",
-        "MetricGroup": "",
-        "MetricName": "cpu_operating_frequency",
-        "ScaleUnit": "1GHz"
     },
     {
         "BriefDescription": "Cycles per instruction retired; indicating how much time each executed instruction took; in units of cycles.",
@@ -85,7 +85,7 @@
     },
     {
         "BriefDescription": "Ratio of number of data read requests missing last level core cache (includes demand w/ prefetches) to the total number of completed instructions",
-        "MetricExpr": "( UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFDATA + UNC_CHA_TOR_INSERTS.IA_MISS_DRD + UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PREF ) / INST_RETIRED.ANY",
+        "MetricExpr": "( UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFDRD + UNC_CHA_TOR_INSERTS.IA_MISS_DRD + UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PREF ) / INST_RETIRED.ANY",
         "MetricGroup": "",
         "MetricName": "llc_data_read_mpi_demand_plus_prefetch",
         "ScaleUnit": "1per_instr"
@@ -127,7 +127,7 @@
     },
     {
         "BriefDescription": "Average latency of a last level cache (LLC) demand data read miss (read memory access) addressed to DRAM in nano seconds",
-        "MetricExpr": "( 1000000000 * ( UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_DDR / UNC_CHA_TOR_INSERTS.IA_MISS_DRD_DDR ) / ( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_DDR) * #num_packages ) ) ) * duration_time",
+        "MetricExpr": "( 1000000000 * ( UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_DRAM / UNC_CHA_TOR_INSERTS.IA_MISS_DRD_DRAM ) / ( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_DRAM) * #num_packages ) ) ) * duration_time",
         "MetricGroup": "",
         "MetricName": "llc_demand_data_read_miss_to_dram_latency",
         "ScaleUnit": "1ns"
@@ -217,6 +217,13 @@
         "ScaleUnit": "1MB/s"
     },
     {
+        "BriefDescription": "Memory write bandwidth (MB/sec) caused by directory updates; includes DDR and Intel(R) Optane(TM) Persistent Memory(PMEM).",
+        "MetricExpr": "(( UNC_CHA_DIR_UPDATE.HA + UNC_CHA_DIR_UPDATE.TOR + UNC_M2M_DIRECTORY_UPDATE.ANY ) * 64 / 1000000) / duration_time",
+        "MetricGroup": "",
+        "MetricName": "memory_extra_write_bw_due_to_directory_updates",
+        "ScaleUnit": "1MB/s"
+    },
+    {
         "BriefDescription": "Intel(R) Optane(TM) Persistent Memory(PMEM) memory read bandwidth (MB/sec)",
         "MetricExpr": "( UNC_M_PMM_RPQ_INSERTS * 64 / 1000000) / duration_time",
         "MetricGroup": "",
@@ -239,16 +246,16 @@
     },
     {
         "BriefDescription": "Bandwidth of IO reads that are initiated by end device controllers that are requesting memory from the CPU.",
-        "MetricExpr": "(( UNC_CHA_TOR_INSERTS.IO_HIT_PCIRDCUR + UNC_CHA_TOR_INSERTS.IO_MISS_PCIRDCUR ) * 64 / 1000000) / duration_time",
+        "MetricExpr": "(( UNC_CHA_TOR_INSERTS.IO_HIT_RDCUR + UNC_CHA_TOR_INSERTS.IO_MISS_RDCUR ) * 64 / 1000000) / duration_time",
         "MetricGroup": "",
-        "MetricName": "io_bandwidth_disk_or_network_writes",
+        "MetricName": "io_bandwidth_read",
         "ScaleUnit": "1MB/s"
     },
     {
         "BriefDescription": "Bandwidth of IO writes that are initiated by end device controllers that are writing memory to the CPU.",
         "MetricExpr": "(( UNC_CHA_TOR_INSERTS.IO_HIT_ITOM + UNC_CHA_TOR_INSERTS.IO_MISS_ITOM + UNC_CHA_TOR_INSERTS.IO_HIT_ITOMCACHENEAR + UNC_CHA_TOR_INSERTS.IO_MISS_ITOMCACHENEAR ) * 64 / 1000000) / duration_time",
         "MetricGroup": "",
-        "MetricName": "io_bandwidth_disk_or_network_reads",
+        "MetricName": "io_bandwidth_write",
         "ScaleUnit": "1MB/s"
     },
     {
@@ -301,7 +308,7 @@
         "ScaleUnit": "1MB/s"
     },
     {
-        "BriefDescription": "This category represents fraction of slots where the processor's Frontend undersupplies its Backend. Frontend denotes the first part of the processor core responsible to fetch operations that are executed later on by the Backend part. Within the Frontend; a branch predictor predicts the next address to fetch; cache-lines are fetched from the memory subsystem; parsed into instructions; and lastly decoded into micro-operations (uops). Ideally the Frontend can issue Machine_Width uops every cycle to the Backend. Frontend Bound denotes unutilized issue-slots when there is no Backend stall; i.e. bubbles where Frontend delivered no uops while Backend could have accepted them. For example; stalls due to instruction-cache misses would be categorized under Frontend Bound.",
+        "BriefDescription": "This category represents fraction of slots where the processor's Frontend undersupplies its Backend. Frontend denotes the first part of the processor core responsible to fetch operations that are executed later on by the Backend part. Within the Frontend; a branch predictor predicts the next address to fetch; cache-lines are fetched from the memory subsystem; parsed into instructions; and lastly decoded into micro-operations (uops). Ideally the Frontend can issue Pipeline_Width uops every cycle to the Backend. Frontend Bound denotes unutilized issue-slots when there is no Backend stall; i.e. bubbles where Frontend delivered no uops while Backend could have accepted them. For example; stalls due to instruction-cache misses would be categorized under Frontend Bound.",
         "MetricExpr": "( topdown\\-fe\\-bound / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) - INT_MISC.UOP_DROPPING / ( slots ) )",
         "MetricGroup": "TmaL1;PGO;TopdownL1;tma_L1_group",
         "MetricName": "tma_frontend_bound",
@@ -350,7 +357,7 @@
         "ScaleUnit": "100%"
     },
     {
-        "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to new branch address clears. These are fetched branches the Branch Prediction Unit was unable to recognize (First fetch or hitting BPU capacity limit).",
+        "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to new branch address clears. These are fetched branches the Branch Prediction Unit was unable to recognize (e.g. first time the branch is fetched or hitting BTB capacity limit).",
         "MetricExpr": "( ( 10 ) * BACLEARS.ANY / ( CPU_CLK_UNHALTED.THREAD ) )",
         "MetricGroup": "BigFoot;FetchLat;TopdownL4;tma_L4_group;tma_branch_resteers_group",
         "MetricName": "tma_unknown_branches",
@@ -372,7 +379,7 @@
     },
     {
         "BriefDescription": "This metric estimates the fraction of cycles when the CPU was stalled due to switches of uop delivery to the Microcode Sequencer (MS). Commonly used instructions are optimized for delivery by the DSB (decoded i-cache) or MITE (legacy instruction decode) pipelines. Certain operations cannot be handled natively by the execution pipeline; and must be performed by microcode (small programs injected into the execution stream). Switching to the MS too often can negatively impact performance. The MS is designated to deliver long uop flows required by CISC instructions like CPUID; or uncommon conditions like Floating Point Assists when dealing with Denormals.",
-        "MetricExpr": "( ( 3 ) * IDQ.MS_SWITCHES / ( CPU_CLK_UNHALTED.THREAD ) )",
+        "MetricExpr": "( min( ( ( 3 ) * IDQ.MS_SWITCHES / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
         "MetricGroup": "FetchLat;MicroSeq;TopdownL3;tma_L3_group;tma_fetch_latency_group",
         "MetricName": "tma_ms_switches",
         "ScaleUnit": "100%"
@@ -393,7 +400,7 @@
     },
     {
         "BriefDescription": "This metric represents fraction of cycles where decoder-0 was the only active decoder",
-        "MetricExpr": "( ( cpu@INST_DECODED.DECODERS\\,cmask\\=0x1@ - cpu@INST_DECODED.DECODERS\\,cmask\\=0x2@ ) / ( CPU_CLK_UNHALTED.DISTRIBUTED ) )",
+        "MetricExpr": "( ( cpu@INST_DECODED.DECODERS\\,cmask\\=0x1@ - cpu@INST_DECODED.DECODERS\\,cmask\\=0x2@ ) / ( CPU_CLK_UNHALTED.DISTRIBUTED ) / 2 )",
         "MetricGroup": "DSBmiss;FetchBW;TopdownL4;tma_L4_group;tma_mite_group",
         "MetricName": "tma_decoder0_alone",
         "ScaleUnit": "100%"
@@ -512,7 +519,7 @@
     },
     {
         "BriefDescription": "This metric estimates how often the CPU was stalled due to L2 cache accesses by loads.  Avoiding cache misses (i.e. L1 misses/L2 hits) can improve the latency and increase performance.",
-        "MetricExpr": "( ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) / ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + L1D_PEND_MISS.FB_FULL_PERIODS ) ) * ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) )",
+        "MetricExpr": "( ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) / ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) + L1D_PEND_MISS.FB_FULL_PERIODS ) ) * ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) )",
         "MetricGroup": "CacheMisses;MemoryBound;TmaL3mem;TopdownL3;tma_L3_group;tma_memory_bound_group",
         "MetricName": "tma_l2_bound",
         "ScaleUnit": "100%"
@@ -526,27 +533,27 @@
     },
     {
         "BriefDescription": "This metric estimates fraction of cycles while the memory subsystem was handling synchronizations due to contested accesses. Contested accesses occur when data written by one Logical Processor are read by another Logical Processor on a different Physical Core. Examples of contested accesses include synchronizations such as locks; true data sharing such as modified locked variables; and false sharing.",
-        "MetricExpr": "( min( ( ( ( ( 48 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) - ( 4 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) ) * ( MEM_LOAD_L3_HIT_RETIRED.XSNP_HITM * ( OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HITM / ( OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HITM + OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HIT_WITH_FWD ) ) ) + ( ( 47.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) - ( 4 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) ) * ( MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS ) ) * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) / 2 ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
+        "MetricExpr": "( min( ( ( ( ( 48 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) - ( 4 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) ) * ( MEM_LOAD_L3_HIT_RETIRED.XSNP_HITM * ( OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HITM / ( OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HITM + OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HIT_WITH_FWD ) ) ) + ( ( 47.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) - ( 4 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) ) * ( MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS ) ) * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) / 2 ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
         "MetricGroup": "DataSharing;Offcore;Snoop;TopdownL4;tma_L4_group;tma_l3_bound_group",
         "MetricName": "tma_contested_accesses",
         "ScaleUnit": "100%"
     },
     {
         "BriefDescription": "This metric estimates fraction of cycles while the memory subsystem was handling synchronizations due to data-sharing accesses. Data shared by multiple Logical Processors (even just read shared) may cause increased access latency due to cache coherency. Excessive data sharing can drastically harm multithreaded performance.",
-        "MetricExpr": "( min( ( ( ( 47.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) - ( 4 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) ) * ( MEM_LOAD_L3_HIT_RETIRED.XSNP_HIT + MEM_LOAD_L3_HIT_RETIRED.XSNP_HITM * ( 1 - ( OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HITM / ( OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HITM + OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HIT_WITH_FWD ) ) ) ) * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) / 2 ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
+        "MetricExpr": "( min( ( ( ( 47.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) - ( 4 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) ) * ( MEM_LOAD_L3_HIT_RETIRED.XSNP_HIT + MEM_LOAD_L3_HIT_RETIRED.XSNP_HITM * ( 1 - ( OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HITM / ( OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HITM + OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HIT_WITH_FWD ) ) ) ) * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) / 2 ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
         "MetricGroup": "Offcore;Snoop;TopdownL4;tma_L4_group;tma_l3_bound_group",
         "MetricName": "tma_data_sharing",
         "ScaleUnit": "100%"
     },
     {
         "BriefDescription": "This metric represents fraction of cycles with demand load accesses that hit the L3 cache under unloaded scenarios (possibly L3 latency limited).  Avoiding private cache misses (i.e. L2 misses/L3 hits) will improve the latency; reduce contention with sibling physical cores and increase performance.  Note the value of this node may overlap with its siblings.",
-        "MetricExpr": "( min( ( ( ( 23 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) - ( 4 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) ) * ( MEM_LOAD_RETIRED.L3_HIT ) * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) / 2 ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
+        "MetricExpr": "( min( ( ( ( 23 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) - ( 4 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) ) * ( MEM_LOAD_RETIRED.L3_HIT ) * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) / 2 ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
         "MetricGroup": "MemoryLat;TopdownL4;tma_L4_group;tma_l3_bound_group",
         "MetricName": "tma_l3_hit_latency",
         "ScaleUnit": "100%"
     },
     {
-        "BriefDescription": "This metric measures fraction of cycles where the Super Queue (SQ) was full taking into account all request-types and both hardware SMT threads (Logical Processors). The Super Queue is used for requests to access the L2 cache or to go out to the Uncore.",
+        "BriefDescription": "This metric measures fraction of cycles where the Super Queue (SQ) was full taking into account all request-types and both hardware SMT threads (Logical Processors).",
         "MetricExpr": "( L1D_PEND_MISS.L2_STALL / ( CPU_CLK_UNHALTED.THREAD ) )",
         "MetricGroup": "MemoryBW;Offcore;TopdownL4;tma_L4_group;tma_l3_bound_group",
         "MetricName": "tma_sq_full",
@@ -554,7 +561,7 @@
     },
     {
         "BriefDescription": "This metric estimates how often the CPU was stalled on accesses to external memory (DRAM) by loads. Better caching can improve the latency and increase performance.",
-        "MetricExpr": "( min( ( ( ( CYCLE_ACTIVITY.STALLS_L3_MISS / ( CPU_CLK_UNHALTED.THREAD ) + ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) - ( ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) / ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + L1D_PEND_MISS.FB_FULL_PERIODS ) ) * ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) ) ) - ( min( ( ( ( ( 1 - ( ( ( 19 * ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + 10 * ( ( MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) ) / ( ( 19 * ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + 10 * ( ( MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) ) + ( 25 * ( ( MEM_LOAD_RETIRED.LOCAL_PMM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) + 33 * ( ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) ) ) ) ) ) * ( CYCLE_ACTIVITY.STALLS_L3_MISS / ( CPU_CLK_UNHALTED.THREAD ) + ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) - ( ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) / ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + L1D_PEND_MISS.FB_FULL_PERIODS ) ) * ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) ) ) ) if ( ( 1000000 ) * ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM + MEM_LOAD_RETIRED.LOCAL_PMM ) > MEM_LOAD_RETIRED.L1_MISS ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) )",
+        "MetricExpr": "( min( ( ( ( CYCLE_ACTIVITY.STALLS_L3_MISS / ( CPU_CLK_UNHALTED.THREAD ) + ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) - ( ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) / ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) + L1D_PEND_MISS.FB_FULL_PERIODS ) ) * ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) ) ) - ( min( ( ( ( ( 1 - ( ( ( 19 * ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) + 10 * ( ( MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) / ( ( 19 * ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) + 10 * ( ( MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) + ( 25 * ( ( MEM_LOAD_RETIRED.LOCAL_PMM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + 33 * ( ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) ) ) ) ) * ( CYCLE_ACTIVITY.STALLS_L3_MISS / ( CPU_CLK_UNHALTED.THREAD ) + ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) - ( ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) / ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) + L1D_PEND_MISS.FB_FULL_PERIODS ) ) * ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) ) ) ) if ( ( 1000000 ) * ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM + MEM_LOAD_RETIRED.LOCAL_PMM ) > MEM_LOAD_RETIRED.L1_MISS ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) )",
         "MetricGroup": "MemoryBound;TmaL3mem;TopdownL3;tma_L3_group;tma_memory_bound_group",
         "MetricName": "tma_dram_bound",
         "ScaleUnit": "100%"
@@ -575,28 +582,28 @@
     },
     {
         "BriefDescription": "This metric estimates fraction of cycles while the memory subsystem was handling loads from local memory. Caching will improve the latency and increase performance.",
-        "MetricExpr": "( min( ( ( ( 66.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) - ( 23 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) ) * MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) / 2 ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
+        "MetricExpr": "( min( ( ( ( 66.5 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) - ( 23 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) ) * MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) / 2 ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
         "MetricGroup": "Server;TopdownL5;tma_L5_group;tma_mem_latency_group",
         "MetricName": "tma_local_dram",
         "ScaleUnit": "100%"
     },
     {
         "BriefDescription": "This metric estimates fraction of cycles while the memory subsystem was handling loads from remote memory. This is caused often due to non-optimal NUMA allocations. #link to NUMA article",
-        "MetricExpr": "( min( ( ( ( 131 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) - ( 23 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) ) * MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) / 2 ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
+        "MetricExpr": "( min( ( ( ( 131 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) - ( 23 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) ) * MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) / 2 ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
         "MetricGroup": "Server;Snoop;TopdownL5;tma_L5_group;tma_mem_latency_group",
         "MetricName": "tma_remote_dram",
         "ScaleUnit": "100%"
     },
     {
         "BriefDescription": "This metric estimates fraction of cycles while the memory subsystem was handling loads from remote cache in other sockets including synchronizations issues. This is caused often due to non-optimal NUMA allocations. #link to NUMA article",
-        "MetricExpr": "( min( ( ( ( ( 120 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) - ( 23 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) ) * MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM + ( ( 120 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) - ( 23 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) ) * MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD ) * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) / 2 ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
+        "MetricExpr": "( min( ( ( ( ( 120 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) - ( 23 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) ) * MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM + ( ( 120 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) - ( 23 * ( ( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( duration_time * 1000 ) / 1000 ) ) ) ) * MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD ) * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) / 2 ) / ( CPU_CLK_UNHALTED.THREAD ) ) , ( 1 ) ) )",
         "MetricGroup": "Offcore;Server;Snoop;TopdownL5;tma_L5_group;tma_mem_latency_group",
         "MetricName": "tma_remote_cache",
         "ScaleUnit": "100%"
     },
     {
         "BriefDescription": "This metric roughly estimates (based on idle latencies) how often the CPU was stalled on accesses to external 3D-Xpoint (Crystal Ridge, a.k.a. IXP) memory by loads, PMM stands for Persistent Memory Module. ",
-        "MetricExpr": "( min( ( ( ( ( 1 - ( ( ( 19 * ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + 10 * ( ( MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) ) / ( ( 19 * ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + 10 * ( ( MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) ) + ( 25 * ( ( MEM_LOAD_RETIRED.LOCAL_PMM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) + 33 * ( ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) ) ) ) ) ) * ( CYCLE_ACTIVITY.STALLS_L3_MISS / ( CPU_CLK_UNHALTED.THREAD ) + ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) - ( ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) / ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / ( MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + L1D_PEND_MISS.FB_FULL_PERIODS ) ) * ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) ) ) ) if ( ( 1000000 ) * ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM + MEM_LOAD_RETIRED.LOCAL_PMM ) > MEM_LOAD_RETIRED.L1_MISS ) else 0 ) ) , ( 1 ) ) )",
+        "MetricExpr": "( min( ( ( ( ( 1 - ( ( ( 19 * ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) + 10 * ( ( MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) / ( ( 19 * ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) + 10 * ( ( MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) + ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) + ( 25 * ( ( MEM_LOAD_RETIRED.LOCAL_PMM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) ) + 33 * ( ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) ) ) ) ) ) ) * ( CYCLE_ACTIVITY.STALLS_L3_MISS / ( CPU_CLK_UNHALTED.THREAD ) + ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) - ( ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) / ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) + L1D_PEND_MISS.FB_FULL_PERIODS ) ) * ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / ( CPU_CLK_UNHALTED.THREAD ) ) ) ) ) if ( ( 1000000 ) * ( MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM + MEM_LOAD_RETIRED.LOCAL_PMM ) > MEM_LOAD_RETIRED.L1_MISS ) else 0 ) ) , ( 1 ) ) )",
         "MetricGroup": "MemoryBound;Server;TmaL3mem;TopdownL3;tma_L3_group;tma_memory_bound_group",
         "MetricName": "tma_pmm_bound",
         "ScaleUnit": "100%"
@@ -673,7 +680,7 @@
     },
     {
         "BriefDescription": "This metric estimates fraction of cycles the CPU performance was potentially limited due to Core computation issues (non divider-related).  Two distinct categories can be attributed into this metric: (1) heavy data-dependency among contiguous instructions would manifest in this metric - such cases are often referred to as low Instruction Level Parallelism (ILP). (2) Contention on some hardware execution unit other than Divider. For example; when there are too many multiply operations.",
-        "MetricExpr": "( ( ( cpu@EXE_ACTIVITY.3_PORTS_UTIL\\,umask\\=0x80@ + ( EXE_ACTIVITY.1_PORTS_UTIL + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * EXE_ACTIVITY.2_PORTS_UTIL ) ) / ( CPU_CLK_UNHALTED.THREAD ) if ( ARITH.DIVIDER_ACTIVE < ( CYCLE_ACTIVITY.STALLS_TOTAL - CYCLE_ACTIVITY.STALLS_MEM_ANY ) ) else ( EXE_ACTIVITY.1_PORTS_UTIL + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * EXE_ACTIVITY.2_PORTS_UTIL ) / ( CPU_CLK_UNHALTED.THREAD ) ) ) + ( 0 * slots )",
+        "MetricExpr": "( ( ( cpu@EXE_ACTIVITY.3_PORTS_UTIL\\,umask\\=0x80@ + ( RESOURCE_STALLS.SCOREBOARD / ( CPU_CLK_UNHALTED.THREAD ) ) * ( CYCLE_ACTIVITY.STALLS_TOTAL - CYCLE_ACTIVITY.STALLS_MEM_ANY ) + ( EXE_ACTIVITY.1_PORTS_UTIL + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * EXE_ACTIVITY.2_PORTS_UTIL ) ) / ( CPU_CLK_UNHALTED.THREAD ) if ( ARITH.DIVIDER_ACTIVE < ( CYCLE_ACTIVITY.STALLS_TOTAL - CYCLE_ACTIVITY.STALLS_MEM_ANY ) ) else ( EXE_ACTIVITY.1_PORTS_UTIL + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * EXE_ACTIVITY.2_PORTS_UTIL ) / ( CPU_CLK_UNHALTED.THREAD ) ) ) + ( 0 * slots )",
         "MetricGroup": "PortsUtil;TopdownL3;tma_L3_group;tma_core_bound_group",
         "MetricName": "tma_ports_utilization",
         "ScaleUnit": "100%"
@@ -688,7 +695,7 @@
     {
         "BriefDescription": "This metric represents fraction of cycles the CPU issue-pipeline was stalled due to serializing operations. Instructions like CPUID; WRMSR or LFENCE serialize the out-of-order execution which may limit performance.",
         "MetricExpr": "( RESOURCE_STALLS.SCOREBOARD / ( CPU_CLK_UNHALTED.THREAD ) )",
-        "MetricGroup": "TopdownL5;tma_L5_group;tma_ports_utilized_0_group",
+        "MetricGroup": "PortsUtil;TopdownL5;tma_L5_group;tma_ports_utilized_0_group",
         "MetricName": "tma_serializing_operation",
         "ScaleUnit": "100%"
     },
@@ -784,7 +791,7 @@
         "ScaleUnit": "100%"
     },
     {
-        "BriefDescription": "This metric represents fraction of slots where the CPU was retiring light-weight operations -- instructions that require no more than one uop (micro-operation). This correlates with total number of instructions used by the program. A uops-per-instruction (see UPI metric) ratio of 1 or less should be expected for decently optimized software running on Intel Core/Xeon products. While this often indicates efficient X86 instructions were executed; high value does not necessarily mean better performance cannot be achieved.",
+        "BriefDescription": "This metric represents fraction of slots where the CPU was retiring light-weight operations -- instructions that require no more than one uop (micro-operation). This correlates with total number of instructions used by the program. A uops-per-instruction (see UopPI metric) ratio of 1 or less should be expected for decently optimized software running on Intel Core/Xeon products. While this often indicates efficient X86 instructions were executed; high value does not necessarily mean better performance cannot be achieved.",
         "MetricExpr": "( max( 0 , ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) - ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) ) )",
         "MetricGroup": "Retire;TmaL2;TopdownL2;tma_L2_group;tma_retiring_group",
         "MetricName": "tma_light_operations",
@@ -792,7 +799,7 @@
     },
     {
         "BriefDescription": "This metric represents overall arithmetic floating-point (FP) operations fraction the CPU has executed (retired). Note this metric's value may exceed its parent due to use of \"Uops\" CountDomain and FMA double-counting.",
-        "MetricExpr": "( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * UOPS_EXECUTED.X87 / UOPS_EXECUTED.THREAD ) + ( ( FP_ARITH_INST_RETIRED.SCALAR_SINGLE + FP_ARITH_INST_RETIRED.SCALAR_DOUBLE ) / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) + ( min( ( ( FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.128B_PACKED_SINGLE + FP_ARITH_INST_RETIRED.256B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.256B_PACKED_SINGLE + FP_ARITH_INST_RETIRED.512B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.512B_PACKED_SINGLE ) / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) , ( 1 ) ) ) )",
+        "MetricExpr": "( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * UOPS_EXECUTED.X87 / UOPS_EXECUTED.THREAD ) + ( ( cpu@FP_ARITH_INST_RETIRED.SCALAR_SINGLE\\,umask\\=0x03@ ) / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) + ( min( ( ( cpu@FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE\\,umask\\=0xfc@ ) / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) , ( 1 ) ) ) )",
         "MetricGroup": "HPC;TopdownL3;tma_L3_group;tma_light_operations_group",
         "MetricName": "tma_fp_arith",
         "ScaleUnit": "100%"
@@ -806,14 +813,14 @@
     },
     {
         "BriefDescription": "This metric approximates arithmetic floating-point (FP) scalar uops fraction the CPU has retired. May overcount due to FMA double counting.",
-        "MetricExpr": "( ( FP_ARITH_INST_RETIRED.SCALAR_SINGLE + FP_ARITH_INST_RETIRED.SCALAR_DOUBLE ) / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) )",
+        "MetricExpr": "( ( cpu@FP_ARITH_INST_RETIRED.SCALAR_SINGLE\\,umask\\=0x03@ ) / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) )",
         "MetricGroup": "Compute;Flops;TopdownL4;tma_L4_group;tma_fp_arith_group",
         "MetricName": "tma_fp_scalar",
         "ScaleUnit": "100%"
     },
     {
         "BriefDescription": "This metric approximates arithmetic floating-point (FP) vector uops fraction the CPU has retired aggregated across all vector widths. May overcount due to FMA double counting.",
-        "MetricExpr": "( min( ( ( FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.128B_PACKED_SINGLE + FP_ARITH_INST_RETIRED.256B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.256B_PACKED_SINGLE + FP_ARITH_INST_RETIRED.512B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.512B_PACKED_SINGLE ) / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) , ( 1 ) ) )",
+        "MetricExpr": "( min( ( ( cpu@FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE\\,umask\\=0xfc@ ) / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) , ( 1 ) ) )",
         "MetricGroup": "Compute;Flops;TopdownL4;tma_L4_group;tma_fp_arith_group",
         "MetricName": "tma_fp_vector",
         "ScaleUnit": "100%"
@@ -862,13 +869,13 @@
     },
     {
         "BriefDescription": "This metric represents the remaining light uops fraction the CPU has executed - remaining means not covered by other sibling nodes. May undercount due to FMA double counting",
-        "MetricExpr": "( max( 0 , ( max( 0 , ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) - ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) ) ) - ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * UOPS_EXECUTED.X87 / UOPS_EXECUTED.THREAD ) + ( ( FP_ARITH_INST_RETIRED.SCALAR_SINGLE + FP_ARITH_INST_RETIRED.SCALAR_DOUBLE ) / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) + ( min( ( ( FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.128B_PACKED_SINGLE + FP_ARITH_INST_RETIRED.256B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.256B_PACKED_SINGLE + FP_ARITH_INST_RETIRED.512B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.512B_PACKED_SINGLE ) / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) , ( 1 ) ) ) ) + ( ( max( 0 , ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) - ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) ) ) * MEM_INST_RETIRED.ANY / INST_RETIRED.ANY ) + ( ( max( 0 , ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) - ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) ) ) * BR_INST_RETIRED.ALL_BRANCHES / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) + ( ( max( 0 , ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) - ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) ) ) * INST_RETIRED.NOP / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) ) ) )",
+        "MetricExpr": "( max( 0 , ( max( 0 , ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) - ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) ) ) - ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * UOPS_EXECUTED.X87 / UOPS_EXECUTED.THREAD ) + ( ( cpu@FP_ARITH_INST_RETIRED.SCALAR_SINGLE\\,umask\\=0x03@ ) / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) + ( min( ( ( cpu@FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE\\,umask\\=0xfc@ ) / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) , ( 1 ) ) ) ) + ( ( max( 0 , ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) - ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) ) ) * MEM_INST_RETIRED.ANY / INST_RETIRED.ANY ) + ( ( max( 0 , ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) - ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) ) ) * BR_INST_RETIRED.ALL_BRANCHES / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) + ( ( max( 0 , ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) - ( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS ) ) ) * INST_RETIRED.NOP / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) ) ) )",
         "MetricGroup": "Pipeline;TopdownL3;tma_L3_group;tma_light_operations_group",
         "MetricName": "tma_other_light_ops",
         "ScaleUnit": "100%"
     },
     {
-        "BriefDescription": "This metric represents fraction of slots where the CPU was retiring heavy-weight operations -- instructions that require two or more uops or microcoded sequences. This highly-correlates with the uop length of these instructions/sequences.",
+        "BriefDescription": "This metric represents fraction of slots where the CPU was retiring heavy-weight operations -- instructions that require two or more uops or micro-coded sequences. This highly-correlates with the uop length of these instructions/sequences.",
         "MetricExpr": "( ( ( ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) / UOPS_ISSUED.ANY ) * IDQ.MS_UOPS / ( slots ) ) + ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( UOPS_DECODED.DEC0 - cpu@UOPS_DECODED.DEC0\\,cmask\\=0x1@ ) / IDQ.MITE_UOPS )",
         "MetricGroup": "Retire;TmaL2;TopdownL2;tma_L2_group;tma_retiring_group",
         "MetricName": "tma_heavy_operations",
@@ -901,5 +908,29 @@
         "MetricGroup": "TopdownL4;tma_L4_group;tma_microcode_sequencer_group",
         "MetricName": "tma_cisc",
         "ScaleUnit": "100%"
+    },
+    {
+        "BriefDescription": "Instructions Per Cycle across hyper-threads (per physical core)",
+        "MetricExpr": "INST_RETIRED.ANY / ( CPU_CLK_UNHALTED.DISTRIBUTED )",
+        "MetricGroup": "Ret;SMT;TmaL1;TopdownL1;tma_L1_group",
+        "MetricName": "tma_info_core_coreipc"
+    },
+    {
+        "BriefDescription": "Number of Instructions per non-speculative Branch Misprediction (JEClear)",
+        "MetricExpr": "INST_RETIRED.ANY / BR_MISP_RETIRED.ALL_BRANCHES",
+        "MetricGroup": "Bad;BadSpec;BrMispredicts;TopdownL1;tma_L1_group",
+        "MetricName": "tma_info_core_ipmispredict"
+    },
+    {
+        "BriefDescription": "Instruction per taken branch",
+        "MetricExpr": "INST_RETIRED.ANY / BR_INST_RETIRED.NEAR_TAKEN",
+        "MetricGroup": "Branches;Fed;FetchBW;Frontend;PGO;TopdownL1;tma_L1_group",
+        "MetricName": "tma_info_inst_mix_iptb"
+    },
+    {
+        "BriefDescription": "L2 cache true misses per kilo instruction for retired demand loads",
+        "MetricExpr": "1000 * MEM_LOAD_RETIRED.L2_MISS / INST_RETIRED.ANY",
+        "MetricGroup": "Mem;Backend;CacheMisses;TopdownL1;tma_L1_group",
+        "MetricName": "tma_info_memory_l2mpki"
     }
 ]

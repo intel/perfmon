@@ -1,35 +1,14 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2007 - 2022 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Metrics for 4th Generation Intel? Xeon? Processor Scalable Family based on Sapphire Rapids microarchitecture",
-    "DatePublished": "10/13/2022",
-    "TmaVersion": "4.4",
+    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Metrics for 4th Generation Intel(R) Xeon(R) Processor Scalable Family based on Sapphire Rapids microarchitecture - V",
+    "DatePublished": "02/10/2023",
+    "Version": "",
+    "Legend": "",
+    "TmaVersion": "4.5",
     "TmaFlavor": "Full"
   },
   "Metrics": [
-    {
-      "MetricName": "cpu_utilization",
-      "LegacyName": "metric_CPU utilization %",
-      "Level": 1,
-      "BriefDescription": "Percentage of time spent in the active CPU power state C0",
-      "UnitOfMeasure": "percent",
-      "Events": [
-        {
-          "Name": "TSC",
-          "Alias": "b"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.REF_TSC",
-          "Alias": "a"
-        }
-      ],
-      "Constants": [],
-      "Formula": "100 * a / b",
-      "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
-    },
     {
       "MetricName": "cpu_operating_frequency",
       "LegacyName": "metric_CPU operating frequency (in GHz)",
@@ -52,7 +31,30 @@
           "Alias": "c"
         }
       ],
-      "Formula": "((a / b * c) / 1000000000) / DURATIONTIMEINSECONDS",
+      "Formula": "((a / b * c) / 1000000000)",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "cpu_utilization",
+      "LegacyName": "metric_CPU utilization %",
+      "Level": 1,
+      "BriefDescription": "Percentage of time spent in the active CPU power state C0",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "CPU_CLK_UNHALTED.REF_TSC",
+          "Alias": "a"
+        },
+        {
+          "Name": "TSC",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * a / b",
       "Category": "",
       "Threshold": "",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -364,12 +366,12 @@
       ],
       "Constants": [
         {
-          "Name": "SOCKET_COUNT",
-          "Alias": "socket_count"
-        },
-        {
           "Name": "CHAS_PER_SOCKET",
           "Alias": "d"
+        },
+        {
+          "Name": "SOCKET_COUNT",
+          "Alias": "socket_count"
         }
       ],
       "Formula": "( 1000000000 * (a / b) / (c / (d * socket_count) ) ) * DURATIONTIMEINSECONDS",
@@ -400,12 +402,12 @@
       ],
       "Constants": [
         {
-          "Name": "SOCKET_COUNT",
-          "Alias": "socket_count"
-        },
-        {
           "Name": "CHAS_PER_SOCKET",
           "Alias": "d"
+        },
+        {
+          "Name": "SOCKET_COUNT",
+          "Alias": "socket_count"
         }
       ],
       "Formula": "( 1000000000 * (a / b) / (c / (d * socket_count) ) ) * DURATIONTIMEINSECONDS",
@@ -436,12 +438,12 @@
       ],
       "Constants": [
         {
-          "Name": "SOCKET_COUNT",
-          "Alias": "socket_count"
-        },
-        {
           "Name": "CHAS_PER_SOCKET",
           "Alias": "d"
+        },
+        {
+          "Name": "SOCKET_COUNT",
+          "Alias": "socket_count"
         }
       ],
       "Formula": "( 1000000000 * (a / b) / (c / (d * socket_count) ) ) * DURATIONTIMEINSECONDS",
@@ -472,12 +474,12 @@
       ],
       "Constants": [
         {
-          "Name": "SOCKET_COUNT",
-          "Alias": "socket_count"
-        },
-        {
           "Name": "CHAS_PER_SOCKET",
           "Alias": "d"
+        },
+        {
+          "Name": "SOCKET_COUNT",
+          "Alias": "socket_count"
         }
       ],
       "Formula": "( 1000000000 * (a / b) / (c / (d * socket_count) ) ) * DURATIONTIMEINSECONDS",
@@ -508,12 +510,12 @@
       ],
       "Constants": [
         {
-          "Name": "SOCKET_COUNT",
-          "Alias": "socket_count"
-        },
-        {
           "Name": "CHAS_PER_SOCKET",
           "Alias": "d"
+        },
+        {
+          "Name": "SOCKET_COUNT",
+          "Alias": "socket_count"
         }
       ],
       "Formula": "( 1000000000 * (a / b) / (c / (d * socket_count) ) ) * DURATIONTIMEINSECONDS",
@@ -808,6 +810,33 @@
       "MetricGroup": ""
     },
     {
+      "MetricName": "memory_extra_write_bw_due_to_directory_updates",
+      "LegacyName": "metric_memory extra write b/w due to directory updates (MB/sec)",
+      "Level": 1,
+      "BriefDescription": "Memory write bandwidth (MB/sec) caused by directory updates; includes DDR and Intel(R) Optane(TM) Persistent Memory(PMEM).",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_CHA_DIR_UPDATE.HA",
+          "Alias": "a"
+        },
+        {
+          "Name": "UNC_CHA_DIR_UPDATE.TOR",
+          "Alias": "b"
+        },
+        {
+          "Name": "UNC_M2M_DIRECTORY_UPDATE.ANY",
+          "Alias": "c"
+        }
+      ],
+      "Constants": [],
+      "Formula": "((a + b + c) * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
       "MetricName": "pmem_memory_bandwidth_read",
       "LegacyName": "metric_DCPMEM_memory bandwidth read (MB/sec)",
       "Level": 1,
@@ -869,7 +898,7 @@
       "MetricGroup": ""
     },
     {
-      "MetricName": "io_bandwidth_disk_or_network_writes",
+      "MetricName": "io_bandwidth_read",
       "LegacyName": "metric_IO_bandwidth_disk_or_network_writes (MB/sec)",
       "Level": 1,
       "BriefDescription": "Bandwidth of IO reads that are initiated by end device controllers that are requesting memory from the CPU.",
@@ -888,7 +917,7 @@
       "MetricGroup": ""
     },
     {
-      "MetricName": "io_bandwidth_disk_or_network_reads",
+      "MetricName": "io_bandwidth_write",
       "LegacyName": "metric_IO_bandwidth_disk_or_network_reads (MB/sec)",
       "Level": 1,
       "BriefDescription": "Bandwidth of IO writes that are initiated by end device controllers that are writing memory to the CPU.",
@@ -1423,18 +1452,42 @@
       "UnitOfMeasure": "percent",
       "Events": [
         {
-          "Name": "IDQ.MS_SWITCHES",
+          "Name": "UOPS_RETIRED.MS:c1:e1",
           "Alias": "a"
         },
         {
-          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Name": "PERF_METRICS.RETIRING",
           "Alias": "b"
+        },
+        {
+          "Name": "PERF_METRICS.FRONTEND_BOUND",
+          "Alias": "c"
+        },
+        {
+          "Name": "PERF_METRICS.BAD_SPECULATION",
+          "Alias": "d"
+        },
+        {
+          "Name": "PERF_METRICS.BACKEND_BOUND",
+          "Alias": "e"
+        },
+        {
+          "Name": "TOPDOWN.SLOTS:perf_metrics",
+          "Alias": "f"
+        },
+        {
+          "Name": "UOPS_ISSUED.ANY",
+          "Alias": "g"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Alias": "h"
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( ( 3 ) * a / ( b ) )",
+      "Formula": "100 * ( min( ( ( 3 ) * a / ( ( ( b / ( c + d + b + e ) ) * ( f ) ) / g ) / ( h ) ) , ( 1 ) ) )",
       "Category": "TMA",
-      "Threshold": "> 5 & P; $issueMS; $issueMV; $issueSO",
+      "Threshold": "> 5 & P; $issueMS; $issueSO",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "FetchLat;MicroSeq"
     },
@@ -1532,7 +1585,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( ( a - b ) / ( c ) )",
+      "Formula": "100 * ( ( a - b ) / ( c ) / 2 )",
       "Category": "TMA",
       "Threshold": "> 10 & P; $issueFB; $issueMI",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -1776,7 +1829,7 @@
       "Constants": [],
       "Formula": "100 * ( max( ( a - b ) / ( c ) , 0 ) )",
       "Category": "TMA",
-      "Threshold": "> 10 & P; $issueL1; $issueMC",
+      "Threshold": "(> 10 & P); $issueL1; $issueMC",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "CacheMisses;MemoryBound;TmaL3mem"
     },
@@ -2103,11 +2156,11 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( ( ( 28 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) - ( 3 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) ) * ( e * ( f / ( f + g ) ) ) + ( ( 27 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) - ( 3 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) ) * ( h ) ) * ( 1 + ( i / ( j ) ) / 2 ) / ( a ) ) , ( 1 ) ) )",
+      "Formula": "100 * ( min( ( ( ( ( 80 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) ) * ( e * ( f / ( f + g ) ) ) + ( ( 79.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) ) * ( h ) ) * ( 1 + ( i / j ) / 2 ) / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueSyncxn",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "DataSharing;Offcore;Snoop"
+      "MetricGroup": "DataSharing;Offcore"
     },
     {
       "MetricName": "Data_Sharing",
@@ -2160,11 +2213,11 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( ( 27 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) - ( 3 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) ) * ( e + f * ( 1 - ( g / ( g + h ) ) ) ) * ( 1 + ( i / ( j ) ) / 2 ) / ( a ) ) , ( 1 ) ) )",
+      "Formula": "100 * ( min( ( ( ( 79.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) ) * ( e + f * ( 1 - ( g / ( g + h ) ) ) ) * ( 1 + ( i / j ) / 2 ) / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueSyncxn",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Offcore;Snoop"
+      "MetricGroup": "Offcore"
     },
     {
       "MetricName": "L3_Hit_Latency",
@@ -2205,7 +2258,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( ( 12 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) - ( 3 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) ) * ( e ) * ( 1 + ( f / ( g ) ) / 2 ) / ( a ) ) , ( 1 ) ) )",
+      "Formula": "100 * ( min( ( ( ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) ) * ( e ) * ( 1 + ( f / g ) / 2 ) / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P; $issueLat; ~overlap",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2289,7 +2342,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( ( a / ( b ) ) - ( min( ( ( ( ( 1 - ( ( ( 19 * ( c * ( 1 + ( d / ( e ) ) ) ) + 10 * ( ( f * ( 1 + ( d / ( e ) ) ) ) + ( g * ( 1 + ( d / ( e ) ) ) ) + ( h * ( 1 + ( d / ( e ) ) ) ) ) ) / ( ( 19 * ( c * ( 1 + ( d / ( e ) ) ) ) + 10 * ( ( f * ( 1 + ( d / ( e ) ) ) ) + ( g * ( 1 + ( d / ( e ) ) ) ) + ( h * ( 1 + ( d / ( e ) ) ) ) ) ) + ( 25 * ( ( i * ( 1 + ( d / ( e ) ) ) ) ) + 33 * ( ( j * ( 1 + ( d / ( e ) ) ) ) ) ) ) ) ) ) * ( a / ( b ) ) ) if ( ( 1000000 ) * ( j + i ) > e ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) )",
+      "Formula": "100 * ( min( ( ( ( a / ( b ) ) - ( min( ( ( ( ( 1 - ( ( ( 19 * ( c * ( 1 + ( d / e ) ) ) + 10 * ( ( f * ( 1 + ( d / e ) ) ) + ( g * ( 1 + ( d / e ) ) ) + ( h * ( 1 + ( d / e ) ) ) ) ) / ( ( 19 * ( c * ( 1 + ( d / e ) ) ) + 10 * ( ( f * ( 1 + ( d / e ) ) ) + ( g * ( 1 + ( d / e ) ) ) + ( h * ( 1 + ( d / e ) ) ) ) ) + ( 25 * ( ( i * ( 1 + ( d / e ) ) ) ) + 33 * ( ( j * ( 1 + ( d / e ) ) ) ) ) ) ) ) ) * ( a / ( b ) ) ) if ( ( 1000000 ) * ( j + i ) > e ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2410,7 +2463,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( ( 66.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) - ( 12 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) ) * e * ( 1 + ( f / ( g ) ) / 2 ) / ( a ) ) , ( 1 ) ) )",
+      "Formula": "100 * ( min( ( ( ( 108 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) ) * e * ( 1 + ( f / g ) / 2 ) / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2455,11 +2508,11 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( ( 131 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) - ( 12 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) ) * e * ( 1 + ( f / ( g ) ) / 2 ) / ( a ) ) , ( 1 ) ) )",
+      "Formula": "100 * ( min( ( ( ( 186 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) ) * e * ( 1 + ( f / g ) / 2 ) / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Server;Snoop"
+      "MetricGroup": "Server"
     },
     {
       "MetricName": "Remote_Cache",
@@ -2504,11 +2557,11 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( ( ( 120 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) - ( 12 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) ) * e + ( ( 120 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) - ( 12 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) ) * f ) * ( 1 + ( g / ( h ) ) / 2 ) / ( a ) ) , ( 1 ) ) )",
+      "Formula": "100 * ( min( ( ( ( ( 172.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) ) * e + ( ( 172.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) ) * f ) * ( 1 + ( g / h ) / 2 ) / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueSyncxn",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Offcore;Server;Snoop"
+      "MetricGroup": "Offcore;Server"
     },
     {
       "MetricName": "PMM_Bound",
@@ -2560,7 +2613,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( ( ( 1 - ( ( ( 19 * ( a * ( 1 + ( b / ( c ) ) ) ) + 10 * ( ( d * ( 1 + ( b / ( c ) ) ) ) + ( e * ( 1 + ( b / ( c ) ) ) ) + ( f * ( 1 + ( b / ( c ) ) ) ) ) ) / ( ( 19 * ( a * ( 1 + ( b / ( c ) ) ) ) + 10 * ( ( d * ( 1 + ( b / ( c ) ) ) ) + ( e * ( 1 + ( b / ( c ) ) ) ) + ( f * ( 1 + ( b / ( c ) ) ) ) ) ) + ( 25 * ( ( g * ( 1 + ( b / ( c ) ) ) ) ) + 33 * ( ( h * ( 1 + ( b / ( c ) ) ) ) ) ) ) ) ) ) * ( i / ( j ) ) ) if ( ( 1000000 ) * ( h + g ) > c ) else 0 ) ) , ( 1 ) ) )",
+      "Formula": "100 * ( min( ( ( ( ( 1 - ( ( ( 19 * ( a * ( 1 + ( b / c ) ) ) + 10 * ( ( d * ( 1 + ( b / c ) ) ) + ( e * ( 1 + ( b / c ) ) ) + ( f * ( 1 + ( b / c ) ) ) ) ) / ( ( 19 * ( a * ( 1 + ( b / c ) ) ) + 10 * ( ( d * ( 1 + ( b / c ) ) ) + ( e * ( 1 + ( b / c ) ) ) + ( f * ( 1 + ( b / c ) ) ) ) ) + ( 25 * ( ( g * ( 1 + ( b / c ) ) ) ) + 33 * ( ( h * ( 1 + ( b / c ) ) ) ) ) ) ) ) ) * ( i / ( j ) ) ) if ( ( 1000000 ) * ( h + g ) > c ) else 0 ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2657,11 +2710,11 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( 28 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) * e / ( a ) ) , ( 1 ) ) )",
+      "Formula": "100 * ( min( ( ( 80 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) * e / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueSyncxn",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "DataSharing;Offcore;Snoop"
+      "MetricGroup": "DataSharing;Offcore"
     },
     {
       "MetricName": "Split_Stores",
@@ -2836,7 +2889,7 @@
       "UnitOfMeasure": "percent",
       "Events": [
         {
-          "Name": "ARITH.DIVIDER_ACTIVE",
+          "Name": "ARITH.DIV_ACTIVE",
           "Alias": "a"
         },
         {
@@ -2864,50 +2917,54 @@
           "Alias": "a"
         },
         {
-          "Name": "EXE_ACTIVITY.1_PORTS_UTIL",
+          "Name": "RESOURCE_STALLS.SCOREBOARD",
           "Alias": "b"
         },
         {
-          "Name": "PERF_METRICS.RETIRING",
+          "Name": "CPU_CLK_UNHALTED.THREAD",
           "Alias": "c"
         },
         {
-          "Name": "PERF_METRICS.FRONTEND_BOUND",
+          "Name": "CYCLE_ACTIVITY.STALLS_TOTAL",
           "Alias": "d"
         },
         {
-          "Name": "PERF_METRICS.BAD_SPECULATION",
+          "Name": "EXE_ACTIVITY.BOUND_ON_LOADS",
           "Alias": "e"
         },
         {
-          "Name": "PERF_METRICS.BACKEND_BOUND",
+          "Name": "EXE_ACTIVITY.1_PORTS_UTIL",
           "Alias": "f"
         },
         {
-          "Name": "EXE_ACTIVITY.2_PORTS_UTIL:u0xc",
+          "Name": "PERF_METRICS.RETIRING",
           "Alias": "g"
         },
         {
-          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Name": "PERF_METRICS.FRONTEND_BOUND",
           "Alias": "h"
         },
         {
-          "Name": "ARITH.DIVIDER_ACTIVE",
+          "Name": "PERF_METRICS.BAD_SPECULATION",
           "Alias": "i"
         },
         {
-          "Name": "CYCLE_ACTIVITY.STALLS_TOTAL",
+          "Name": "PERF_METRICS.BACKEND_BOUND",
           "Alias": "j"
         },
         {
-          "Name": "EXE_ACTIVITY.BOUND_ON_LOADS",
+          "Name": "EXE_ACTIVITY.2_PORTS_UTIL:u0xc",
           "Alias": "k"
+        },
+        {
+          "Name": "ARITH.DIV_ACTIVE",
+          "Alias": "l"
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( ( a + ( b + ( c / ( d + e + c + f ) ) * g ) ) / ( h ) if ( i < ( j - k ) ) else ( b + ( c / ( d + e + c + f ) ) * g ) / ( h ) )",
+      "Formula": "100 * ( ( a + ( b / ( c ) ) * ( d - e ) + ( f + ( g / ( h + i + g + j ) ) * k ) ) / ( c ) if ( l < ( d - e ) ) else ( f + ( g / ( h + i + g + j ) ) * k ) / ( c ) )",
       "Category": "TMA",
-      "Threshold": "> 15 & P",
+      "Threshold": "> 20 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "PortsUtil"
     },
@@ -3039,7 +3096,7 @@
       "Constants": [],
       "Formula": "100 * ( min( ( 160 * a / ( b ) ) , ( 1 ) ) )",
       "Category": "TMA",
-      "Threshold": "> 5; $issueMV",
+      "Threshold": "> 5",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": ""
     },
@@ -3048,7 +3105,7 @@
       "LegacyName": "metric_TMA_........AMX_Busy(%)",
       "ParentCategory": "Ports_Utilized_0",
       "Level": 5,
-      "BriefDescription": "This metric estimates fraction of cycles where the Advanced Matrix Extensions (AMX) execution engine was busy with tile (arithmetic) operations",
+      "BriefDescription": "This metric estimates fraction of cycles where the Advanced Matrix Extensions (AMX) exeuction engine was busy with tile (arithmetic) operations",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -3111,7 +3168,7 @@
       "Constants": [],
       "Formula": "100 * ( a / ( b ) )",
       "Category": "TMA",
-      "Threshold": "> 15 & P; $issue2P",
+      "Threshold": "> 20 & P; $issue2P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "PortsUtil"
     },
@@ -3371,7 +3428,7 @@
       "LegacyName": "metric_TMA_....FP_Arith(%)",
       "ParentCategory": "Light_Operations",
       "Level": 3,
-      "BriefDescription": "This metric represents overall arithmetic floating-point (FP) operations fraction the CPU has executed (retired). Note this metric's value may exceed its parent due to use of \"Uops\" CountDomain and FMA double-counting.",
+      "BriefDescription": "This metric represents overall arithmetic floating-point (FP) operations fraction the CPU has executed (retired on AVX stack). Note this metric's value may exceed its parent due to use of \"Uops\" CountDomain and FMA double-counting.",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -3399,56 +3456,32 @@
           "Alias": "f"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.SCALAR_SINGLE",
+          "Name": "FP_ARITH_INST_RETIRED.SCALAR_SINGLE:u0x03",
           "Alias": "g"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.SCALAR_DOUBLE",
+          "Name": "FP_ARITH_INST_RETIRED2.SCALAR",
           "Alias": "h"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED2.SCALAR",
+          "Name": "TOPDOWN.SLOTS:perf_metrics",
           "Alias": "i"
         },
         {
-          "Name": "TOPDOWN.SLOTS:perf_metrics",
+          "Name": "FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE:u0x3c",
           "Alias": "j"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE",
+          "Name": "FP_ARITH_INST_RETIRED2.VECTOR",
           "Alias": "k"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.128B_PACKED_SINGLE",
-          "Alias": "l"
-        },
-        {
-          "Name": "FP_ARITH_INST_RETIRED.256B_PACKED_DOUBLE",
-          "Alias": "m"
-        },
-        {
-          "Name": "FP_ARITH_INST_RETIRED.256B_PACKED_SINGLE",
-          "Alias": "n"
-        },
-        {
-          "Name": "FP_ARITH_INST_RETIRED.512B_PACKED_DOUBLE",
-          "Alias": "o"
-        },
-        {
-          "Name": "FP_ARITH_INST_RETIRED.512B_PACKED_SINGLE",
-          "Alias": "p"
-        },
-        {
-          "Name": "FP_ARITH_INST_RETIRED2.VECTOR",
-          "Alias": "q"
-        },
-        {
           "Name": "AMX_OPS_RETIRED.BF16:c1",
-          "Alias": "r"
+          "Alias": "l"
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( ( ( a / ( b + c + a + d ) ) * e / f ) + ( ( g + h + i ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( min( ( ( k + l + m + n + o + p + q ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) , ( 1 ) ) ) + ( r / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) )",
+      "Formula": "100 * ( ( ( a / ( b + c + a + d ) ) * e / f ) + ( ( g + h ) / ( ( a / ( b + c + a + d ) ) * ( i ) ) ) + ( min( ( ( j + k ) / ( ( a / ( b + c + a + d ) ) * ( i ) ) ) , ( 1 ) ) ) + ( l / ( ( a / ( b + c + a + d ) ) * ( i ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 20 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3459,7 +3492,7 @@
       "LegacyName": "metric_TMA_......X87_Use(%)",
       "ParentCategory": "FP_Arith",
       "Level": 4,
-      "BriefDescription": "This metric serves as an approximation of legacy x87 usage. It accounts for instructions beyond X87 FP arithmetic operations; hence may be used as a thermometer to avoid X87 high usage and preferably upgrade to modern ISA. See Tip under Tuning Hint.",
+      "BriefDescription": "This metric serves as an approximation of legacy x87 usage. It accounts for instructions beyond X87 FP arithmetic operations; hence may be used as a thermometer to avoid X87 high usage and preferably upgrade to modern ISA. Tip: consider compiler flags to generate newer AVX (or SSE) instruction sets; which typically perform better and feature vectors.",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -3499,46 +3532,42 @@
       "LegacyName": "metric_TMA_......FP_Scalar(%)",
       "ParentCategory": "FP_Arith",
       "Level": 4,
-      "BriefDescription": "This metric approximates arithmetic floating-point (FP) scalar uops fraction the CPU has retired. May overcount due to FMA double counting.",
+      "BriefDescription": "This metric approximates arithmetic floating-point (FP) scalar uops fraction the CPU has executed (retired). May overcount due to FMA double counting.",
       "UnitOfMeasure": "percent",
       "Events": [
         {
-          "Name": "FP_ARITH_INST_RETIRED.SCALAR_SINGLE",
+          "Name": "FP_ARITH_INST_RETIRED.SCALAR_SINGLE:u0x03",
           "Alias": "a"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.SCALAR_DOUBLE",
+          "Name": "FP_ARITH_INST_RETIRED2.SCALAR",
           "Alias": "b"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED2.SCALAR",
+          "Name": "PERF_METRICS.RETIRING",
           "Alias": "c"
         },
         {
-          "Name": "PERF_METRICS.RETIRING",
+          "Name": "PERF_METRICS.FRONTEND_BOUND",
           "Alias": "d"
         },
         {
-          "Name": "PERF_METRICS.FRONTEND_BOUND",
+          "Name": "PERF_METRICS.BAD_SPECULATION",
           "Alias": "e"
         },
         {
-          "Name": "PERF_METRICS.BAD_SPECULATION",
+          "Name": "PERF_METRICS.BACKEND_BOUND",
           "Alias": "f"
         },
         {
-          "Name": "PERF_METRICS.BACKEND_BOUND",
-          "Alias": "g"
-        },
-        {
           "Name": "TOPDOWN.SLOTS:perf_metrics",
-          "Alias": "h"
+          "Alias": "g"
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( ( a + b + c ) / ( ( d / ( e + f + d + g ) ) * ( h ) ) )",
+      "Formula": "100 * ( ( a + b ) / ( ( c / ( d + e + c + f ) ) * ( g ) ) )",
       "Category": "TMA",
-      "Threshold": "> 10 & P; $issue2P",
+      "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "Compute;Flops"
     },
@@ -3547,62 +3576,42 @@
       "LegacyName": "metric_TMA_......FP_Vector(%)",
       "ParentCategory": "FP_Arith",
       "Level": 4,
-      "BriefDescription": "This metric approximates arithmetic floating-point (FP) vector uops fraction the CPU has retired aggregated across all vector widths. May overcount due to FMA double counting.",
+      "BriefDescription": "This metric approximates arithmetic floating-point (FP) vector uops fraction the CPU has executed (retired) aggregated across all vector widths. May overcount due to FMA double counting.",
       "UnitOfMeasure": "percent",
       "Events": [
         {
-          "Name": "FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE",
+          "Name": "FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE:u0x3c",
           "Alias": "a"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.128B_PACKED_SINGLE",
+          "Name": "FP_ARITH_INST_RETIRED2.VECTOR",
           "Alias": "b"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.256B_PACKED_DOUBLE",
+          "Name": "PERF_METRICS.RETIRING",
           "Alias": "c"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.256B_PACKED_SINGLE",
+          "Name": "PERF_METRICS.FRONTEND_BOUND",
           "Alias": "d"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.512B_PACKED_DOUBLE",
+          "Name": "PERF_METRICS.BAD_SPECULATION",
           "Alias": "e"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.512B_PACKED_SINGLE",
+          "Name": "PERF_METRICS.BACKEND_BOUND",
           "Alias": "f"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED2.VECTOR",
-          "Alias": "g"
-        },
-        {
-          "Name": "PERF_METRICS.RETIRING",
-          "Alias": "h"
-        },
-        {
-          "Name": "PERF_METRICS.FRONTEND_BOUND",
-          "Alias": "i"
-        },
-        {
-          "Name": "PERF_METRICS.BAD_SPECULATION",
-          "Alias": "j"
-        },
-        {
-          "Name": "PERF_METRICS.BACKEND_BOUND",
-          "Alias": "k"
-        },
-        {
           "Name": "TOPDOWN.SLOTS:perf_metrics",
-          "Alias": "l"
+          "Alias": "g"
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( a + b + c + d + e + f + g ) / ( ( h / ( i + j + h + k ) ) * ( l ) ) ) , ( 1 ) ) )",
+      "Formula": "100 * ( min( ( ( a + b ) / ( ( c / ( d + e + c + f ) ) * ( g ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
-      "Threshold": "> 10 & P; $issue2P",
+      "Threshold": "> 20 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "Compute;Flops"
     },
@@ -3841,10 +3850,14 @@
         {
           "Name": "INT_VEC_RETIRED.SHUFFLES",
           "Alias": "k"
+        },
+        {
+          "Name": "AMX_OPS_RETIRED.INT8:c1",
+          "Alias": "l"
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( ( ( a + b ) / ( ( c / ( d + e + c + f ) ) * ( g ) ) ) + ( ( h + i + j ) / ( ( c / ( d + e + c + f ) ) * ( g ) ) ) + ( k / ( ( c / ( d + e + c + f ) ) * ( g ) ) ) )",
+      "Formula": "100 * ( ( ( a + b ) / ( ( c / ( d + e + c + f ) ) * ( g ) ) ) + ( ( h + i + j ) / ( ( c / ( d + e + c + f ) ) * ( g ) ) ) + ( k / ( ( c / ( d + e + c + f ) ) * ( g ) ) ) + ( l / ( ( c / ( d + e + c + f ) ) * ( g ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4020,7 +4033,7 @@
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "HPC;Pipeline"
+      "MetricGroup": "Pipeline"
     },
     {
       "MetricName": "Memory_Operations",
@@ -4215,18 +4228,6 @@
           "Alias": "a"
         },
         {
-          "Name": "INST_RETIRED.MACRO_FUSED",
-          "Alias": "aa"
-        },
-        {
-          "Name": "BR_INST_RETIRED.ALL_BRANCHES",
-          "Alias": "ab"
-        },
-        {
-          "Name": "INST_RETIRED.NOP",
-          "Alias": "ac"
-        },
-        {
           "Name": "PERF_METRICS.FRONTEND_BOUND",
           "Alias": "b"
         },
@@ -4251,84 +4252,76 @@
           "Alias": "g"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.SCALAR_SINGLE",
+          "Name": "FP_ARITH_INST_RETIRED.SCALAR_SINGLE:u0x03",
           "Alias": "h"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.SCALAR_DOUBLE",
+          "Name": "FP_ARITH_INST_RETIRED2.SCALAR",
           "Alias": "i"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED2.SCALAR",
+          "Name": "TOPDOWN.SLOTS:perf_metrics",
           "Alias": "j"
         },
         {
-          "Name": "TOPDOWN.SLOTS:perf_metrics",
+          "Name": "FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE:u0x3c",
           "Alias": "k"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE",
+          "Name": "FP_ARITH_INST_RETIRED2.VECTOR",
           "Alias": "l"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.128B_PACKED_SINGLE",
+          "Name": "AMX_OPS_RETIRED.BF16:c1",
           "Alias": "m"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.256B_PACKED_DOUBLE",
+          "Name": "INT_VEC_RETIRED.ADD_128",
           "Alias": "n"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.256B_PACKED_SINGLE",
+          "Name": "INT_VEC_RETIRED.VNNI_128",
           "Alias": "o"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.512B_PACKED_DOUBLE",
+          "Name": "INT_VEC_RETIRED.ADD_256",
           "Alias": "p"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.512B_PACKED_SINGLE",
+          "Name": "INT_VEC_RETIRED.MUL_256",
           "Alias": "q"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED2.VECTOR",
+          "Name": "INT_VEC_RETIRED.VNNI_256",
           "Alias": "r"
         },
         {
-          "Name": "AMX_OPS_RETIRED.BF16:c1",
+          "Name": "INT_VEC_RETIRED.SHUFFLES",
           "Alias": "s"
         },
         {
-          "Name": "INT_VEC_RETIRED.ADD_128",
+          "Name": "AMX_OPS_RETIRED.INT8:c1",
           "Alias": "t"
         },
         {
-          "Name": "INT_VEC_RETIRED.VNNI_128",
+          "Name": "MEM_UOP_RETIRED.ANY",
           "Alias": "u"
         },
         {
-          "Name": "INT_VEC_RETIRED.ADD_256",
+          "Name": "INST_RETIRED.MACRO_FUSED",
           "Alias": "v"
         },
         {
-          "Name": "INT_VEC_RETIRED.MUL_256",
+          "Name": "BR_INST_RETIRED.ALL_BRANCHES",
           "Alias": "w"
         },
         {
-          "Name": "INT_VEC_RETIRED.VNNI_256",
+          "Name": "INST_RETIRED.NOP",
           "Alias": "x"
-        },
-        {
-          "Name": "INT_VEC_RETIRED.SHUFFLES",
-          "Alias": "y"
-        },
-        {
-          "Name": "MEM_UOP_RETIRED.ANY",
-          "Alias": "z"
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( max( 0 , ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) - ( ( ( ( a / ( b + c + a + d ) ) * f / g ) + ( ( h + i + j ) / ( ( a / ( b + c + a + d ) ) * ( k ) ) ) + ( min( ( ( l + m + n + o + p + q + r ) / ( ( a / ( b + c + a + d ) ) * ( k ) ) ) , ( 1 ) ) ) + ( s / ( ( a / ( b + c + a + d ) ) * ( k ) ) ) ) + ( ( ( t + u ) / ( ( a / ( b + c + a + d ) ) * ( k ) ) ) + ( ( v + w + x ) / ( ( a / ( b + c + a + d ) ) * ( k ) ) ) + ( y / ( ( a / ( b + c + a + d ) ) * ( k ) ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * z / ( ( a / ( b + c + a + d ) ) * ( k ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * aa / ( ( a / ( b + c + a + d ) ) * ( k ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * ( ab - aa ) / ( ( a / ( b + c + a + d ) ) * ( k ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * ac / ( ( a / ( b + c + a + d ) ) * ( k ) ) ) ) ) )",
+      "Formula": "100 * ( max( 0 , ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) - ( ( ( ( a / ( b + c + a + d ) ) * f / g ) + ( ( h + i ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( min( ( ( k + l ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) , ( 1 ) ) ) + ( m / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) ) + ( ( ( n + o ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( ( p + q + r ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( s / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( t / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * u / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * v / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * ( w - v ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * x / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 30 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4339,7 +4332,7 @@
       "LegacyName": "metric_TMA_..Heavy_Operations(%)",
       "ParentCategory": "Retiring",
       "Level": 2,
-      "BriefDescription": "This metric represents fraction of slots where the CPU was retiring heavy-weight operations -- instructions that require two or more uops or microcoded sequences. This highly-correlates with the uop length of these instructions/sequences.",
+      "BriefDescription": "This metric represents fraction of slots where the CPU was retiring heavy-weight operations -- instructions that require two or more uops. This highly-correlates with the uop length of these instructions/flows.",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -4408,7 +4401,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( ( a / ( b + c + d + e ) ) - ( f / ( g ) ) )",
+      "Formula": "100 * ( max( 0 , ( a / ( b + c + d + e ) ) - ( f / ( g ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueMI",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4443,7 +4436,7 @@
       "LegacyName": "metric_TMA_......Assists(%)",
       "ParentCategory": "Microcode_Sequencer",
       "Level": 4,
-      "BriefDescription": "This metric estimates fraction of slots the CPU retired uops delivered by the Microcode_Sequencer as a result of Assists. Assists are long sequences of uops that are required in certain corner-cases for operations that cannot be handled natively by the execution pipeline. For example; when working with very small floating point values (so-called Denormals); the FP units are not set up to perform these operations natively. Instead; a sequence of instructions to perform the computation on the Denormals is injected into the pipeline. Since these microcode sequences might be dozens of uops long; Assists can be extremely deleterious to performance and they can be avoided in many cases.",
+      "BriefDescription": "This metric estimates fraction of cycles the CPU retired uops delivered by the Microcode_Sequencer as a result of Assists. Assists are long sequences of uops that are required in certain corner-cases for operations that cannot be handled natively by the execution pipeline. For example; when working with very small floating point values (so-called Denormals); the FP units are not set up to perform these operations natively. Instead; a sequence of instructions to perform the computation on the Denormals is injected into the pipeline. Since these microcode sequences might be hundreds of uops long; Assists can be extremely deleterious to performance and they can be avoided in many cases. #Link: article for compiler flags of DAZ and FTZ",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -4482,7 +4475,7 @@
       "Constants": [],
       "Formula": "100 * ( 99 * a / ( b ) )",
       "Category": "TMA",
-      "Threshold": "> 5",
+      "Threshold": "> 10",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": ""
     },
@@ -4491,7 +4484,7 @@
       "LegacyName": "metric_TMA_........FP_Assists(%)",
       "ParentCategory": "Assists",
       "Level": 5,
-      "BriefDescription": "This metric roughly estimates fraction of slots the CPU retired uops as a result of handing Floating Point (FP) Assists. FP Assist may apply when working with very small floating point values (so-called denormals).",
+      "BriefDescription": "This metric roughly estimates fraction of slots the CPU retired uops as a result of handing Floating Point (FP) Assists. FP Assist may apply when working with very small floating point values (so-called Denormals).",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -4515,7 +4508,7 @@
       "LegacyName": "metric_TMA_........AVX_Assists(%)",
       "ParentCategory": "Assists",
       "Level": 5,
-      "BriefDescription": "This metric estimates fraction of slots the CPU retired uops as a result of handing SSE to AVX* or AVX* to SSE transition Assists. ",
+      "BriefDescription": "This metric estimates fraction of slots the CPU retired uops as a result of handing SSE to AVX* or AVX* to SSE transition Assists.",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -4561,6 +4554,98 @@
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": ""
+    },
+    {
+      "MetricName": "Info_Core_CoreIPC",
+      "LegacyName": "metric_TMA_Info_Core_CoreIPC",
+      "Level": 1,
+      "BriefDescription": "Instructions Per Cycle across hyper-threads (per physical core)",
+      "UnitOfMeasure": "",
+      "Events": [
+        {
+          "Name": "INST_RETIRED.ANY",
+          "Alias": "a"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.DISTRIBUTED",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "a / ( b )",
+      "Category": "TMA",
+      "Threshold": "",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Ret;SMT;TmaL1"
+    },
+    {
+      "MetricName": "Info_Inst_Mix_IpTB",
+      "LegacyName": "metric_TMA_Info_Inst_Mix_IpTB",
+      "Level": 1,
+      "BriefDescription": "Instruction per taken branch",
+      "UnitOfMeasure": "",
+      "Events": [
+        {
+          "Name": "INST_RETIRED.ANY",
+          "Alias": "a"
+        },
+        {
+          "Name": "BR_INST_RETIRED.NEAR_TAKEN",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "a / b",
+      "Category": "TMA",
+      "Threshold": "< #Pipeline_Width * 2; $issueFB",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Branches;Fed;FetchBW;Frontend;PGO"
+    },
+    {
+      "MetricName": "Info_Bad_Spec_IpMispredict",
+      "LegacyName": "metric_TMA_Info_Bad_Spec_IpMispredict",
+      "Level": 1,
+      "BriefDescription": "Number of Instructions per non-speculative Branch Misprediction (JEClear) (lower number means higher occurrence rate)",
+      "UnitOfMeasure": "",
+      "Events": [
+        {
+          "Name": "INST_RETIRED.ANY",
+          "Alias": "a"
+        },
+        {
+          "Name": "BR_MISP_RETIRED.ALL_BRANCHES",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "a / b",
+      "Category": "TMA",
+      "Threshold": "< 200",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Bad;BadSpec;BrMispredicts"
+    },
+    {
+      "MetricName": "Info_Memory_L2MPKI",
+      "LegacyName": "metric_TMA_Info_Memory_L2MPKI",
+      "Level": 1,
+      "BriefDescription": "L2 cache true misses per kilo instruction for retired demand loads",
+      "UnitOfMeasure": "",
+      "Events": [
+        {
+          "Name": "MEM_LOAD_RETIRED.L2_MISS",
+          "Alias": "a"
+        },
+        {
+          "Name": "INST_RETIRED.ANY",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "1000 * a / b",
+      "Category": "TMA",
+      "Threshold": "",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Mem;Backend;CacheMisses"
     }
   ]
 }

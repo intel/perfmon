@@ -44,6 +44,9 @@ class Expression:
   def __and__(self, other: Union[int, float, 'Expression']) -> 'Operator':
     return Operator('&', self, other)
 
+  def __rand__(self, other: Union[int, float, 'Expression']) -> 'Operator':
+    return Operator('&', other, self)
+
   def __lt__(self, other: Union[int, float, 'Expression']) -> 'Operator':
     return Operator('<', self, other)
 
@@ -88,7 +91,10 @@ def _Constify(val: Union[bool, int, float, Expression]) -> Expression:
 
 
 # Simple lookup for operator precedence, used to avoid unnecessary
-# brackets. Precedence matches that of python and the simple expression parser.
+# brackets. Precedence matches that of the simple expression parser
+# but differs from python where comparisons are lower precedence than
+# the bitwise &, ^, | but not the logical versions that the expression
+# parser doesn't have.
 _PRECEDENCE = {
     '|': 0,
     '^': 1,
@@ -414,7 +420,8 @@ class Metric:
                description: str,
                expr: Expression,
                scale_unit: str,
-               constraint: bool = False):
+               constraint: bool = False,
+               threshold: Optional[Expression] = None):
     self.name = name
     self.description = description
     self.expr = expr.Simplify()
@@ -425,6 +432,7 @@ class Metric:
     else:
       self.scale_unit = f'1{scale_unit}'
     self.constraint = constraint
+    self.threshold = threshold
     self.groups = set()
 
   def __lt__(self, other):
@@ -450,6 +458,8 @@ class Metric:
     }
     if self.constraint:
       result['MetricConstraint'] = 'NO_NMI_WATCHDOG'
+    if self.threshold:
+      result['MetricThreshold'] = self.threshold.ToPerfJson()
 
     return result
 
@@ -562,7 +572,7 @@ def RewriteMetricsInTermsOfOthers(metrics: list[Tuple[str, Expression]]
     updated = outer_expression
     while True:
       for inner_name, inner_expression in metrics:
-        if inner_name == outer_name:
+        if inner_name.lower() == outer_name.lower():
           continue
         if inner_name in updates:
           inner_expression = updates[inner_name]
