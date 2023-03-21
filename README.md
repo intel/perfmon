@@ -267,9 +267,9 @@ when the store hits in the L1 cache and 0 when it misses.
 ### Errata
 This field lists the known bugs that apply to the events. For the latest, up to date errata refer to
 
-* Haswell http://www.intel.com/content/dam/www/public/us/en/documents/specification-updates/4th-gen-core-family-mobile-specification-update.pdf
-* IvyBridge https://www-ssl.intel.com/content/dam/www/public/us/en/documents/specification-updates/3rd-gen-core-desktop-specification-update.pdf
-* SandyBridge https://www-ssl.intel.com/content/dam/www/public/us/en/documents/specification-updates/2nd-gen-core-family-mobile-specification-update.pdf
+* Jaketown https://www.intel.com/content/dam/www/public/us/en/documents/specification-updates/xeon-e5-family-spec-update.pdf
+* Haswell http://www.intel.com/content/dam/www/public/us/en/documents/specification-updates/4th-gen-core-family-desktop-specification-update.pdf
+* Ivy Bridge https://www-ssl.intel.com/content/dam/www/public/us/en/documents/specification-updates/3rd-gen-core-desktop-specification-update.pdf
 
 ### Offcore
 This field is specific to the json format. There is only 1 file for core and offcore events in this format. This field is set to 1 for offcore events
@@ -286,9 +286,7 @@ Please use KNL perfmon event files for KNM. The KNM events folder is populated w
 ## For additional information
 * Event documention https://perfmon-events.intel.com/
 * Intel&copy; Platform Analysis Technology https://www.intel.com/content/www/us/en/developer/topic-technology/platform-analysis-technology/overview.html
-* https://www.intel.com/content/dam/www/public/us/en/documents/specification-updates/xeon-e5-family-spec-update.pdf
 * Monitoring Integrated Memory Controller Requests in the 2nd, 3rd, 4th, 5th, 6th generation Intel&copy; Core&trade; processors https://www.intel.com/content/www/us/en/developer/articles/technical/monitoring-integrated-memory-controller-requests-in-the-2nd-3rd-and-4th-generation-intel.html
-* http://www.intel.com/content/dam/www/public/us/en/documents/specification-updates/4th-gen-core-family-desktop-specification-update.pdf
 
 # How to Contribute
 ## Metrics
