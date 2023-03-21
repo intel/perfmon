@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2022 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 4th Generation Intel(R) Core(TM) Processor - V32",
-    "DatePublished": "08/05/2022",
-    "Version": "32",
+    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for 4th Generation Intel(R) Core(TM) Processor - V33",
+    "DatePublished": "03/06/2023",
+    "Version": "33",
     "Legend": ""
   },
   "Events": [
@@ -373,7 +373,7 @@
       "UMask": "0x01",
       "EventName": "UNC_ARB_TRK_OCCUPANCY.CYCLES_WITH_ANY_REQUEST",
       "BriefDescription": "Cycles with at least one request outstanding is waiting for data return from memory controller. Account for coherent and non-coherent requests initiated by IA Cores, Processor Graphics Unit, or LLC.",
-      "PublicDescription": "Cycles with at least one request outstanding is waiting for data return from memory controller. Account for coherent and non-coherent requests initiated by IA Cores, Processor Graphics Unit, or LLC.\n",
+      "PublicDescription": "Cycles with at least one request outstanding is waiting for data return from memory controller. Account for coherent and non-coherent requests initiated by IA Cores, Processor Graphics Unit, or LLC.",
       "Counter": "0,",
       "CounterMask": "1",
       "Invert": "0",
