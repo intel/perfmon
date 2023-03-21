@@ -284,9 +284,10 @@ Please use SNR core event files. The EHL events folder is populated with a copy 
 Please use KNL perfmon event files for KNM. The KNM events folder is populated with copies of KNL for convenience.
 
 ## For additional information
-* Intel Platform Monitoring Homepage http://software.intel.com/en-us/platform-monitoring/
-* http://software.intel.com/en-us/articles/performance-monitoring-on-intel-xeon-processor-e5-family
-* http://software.intel.com/en-us/articles/monitoring-integrated-memory-controller-requests-in-the-2nd-3rd-and-4th-generation-intel
+* Event documention https://perfmon-events.intel.com/
+* Intel&copy; Platform Analysis Technology https://www.intel.com/content/www/us/en/developer/topic-technology/platform-analysis-technology/overview.html
+* https://www.intel.com/content/dam/www/public/us/en/documents/specification-updates/xeon-e5-family-spec-update.pdf
+* Monitoring Integrated Memory Controller Requests in the 2nd, 3rd, 4th, 5th, 6th generation Intel&copy; Core&trade; processors https://www.intel.com/content/www/us/en/developer/articles/technical/monitoring-integrated-memory-controller-requests-in-the-2nd-3rd-and-4th-generation-intel.html
 * http://www.intel.com/content/dam/www/public/us/en/documents/specification-updates/4th-gen-core-family-desktop-specification-update.pdf
 
 # How to Contribute
