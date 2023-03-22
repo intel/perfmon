@@ -2,7 +2,7 @@
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Events for Intel(R) Xeon(R) Processor Scalable Family based on Skylake microarchitecture - V1.29",
-    "DatePublished": "01/19/2023",
+    "DatePublished": "01/30/2023",
     "Version": "1.29",
     "Legend": ""
   },
@@ -92,7 +92,7 @@
       "BitName": "ALL_PF_DATA_RD",
       "BitIndex": "4,7,10",
       "Type": "1",
-      "Description": "TBD",
+      "Description": "ALL_PF_DATA_RD",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -101,7 +101,7 @@
       "BitName": "ALL_PF_RFO",
       "BitIndex": "5,8",
       "Type": "1",
-      "Description": "TBD",
+      "Description": "ALL_PF_RFO",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -110,7 +110,7 @@
       "BitName": "ALL_DATA_RD",
       "BitIndex": "0,4,7,10",
       "Type": "1",
-      "Description": "TBD",
+      "Description": "ALL_DATA_RD",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -119,7 +119,7 @@
       "BitName": "ALL_RFO",
       "BitIndex": "1,5,8",
       "Type": "1",
-      "Description": "TBD",
+      "Description": "ALL_RFO",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -128,7 +128,7 @@
       "BitName": "ALL_READS",
       "BitIndex": "0,1,2,4,5,6,7,8,9,10",
       "Type": "1",
-      "Description": "TBD",
+      "Description": "ALL_READS",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -146,7 +146,7 @@
       "BitName": "SUPPLIER_NONE",
       "BitIndex": "17",
       "Type": "3",
-      "Description": null,
+      "Description": "SUPPLIER_NONE",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -155,7 +155,7 @@
       "BitName": "L3_HIT_M",
       "BitIndex": "18",
       "Type": "3",
-      "Description": null,
+      "Description": "L3_HIT_M",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -164,7 +164,7 @@
       "BitName": "L3_HIT_E",
       "BitIndex": "19",
       "Type": "3",
-      "Description": null,
+      "Description": "L3_HIT_E",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -173,7 +173,7 @@
       "BitName": "L3_HIT_S",
       "BitIndex": "20",
       "Type": "3",
-      "Description": null,
+      "Description": "L3_HIT_S",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -182,7 +182,7 @@
       "BitName": "L3_HIT_F",
       "BitIndex": "21",
       "Type": "3",
-      "Description": null,
+      "Description": "L3_HIT_F",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -191,7 +191,7 @@
       "BitName": "L3_HIT",
       "BitIndex": "18,19,20,21",
       "Type": "3",
-      "Description": "TBD",
+      "Description": "L3_HIT",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -200,7 +200,7 @@
       "BitName": "L3_MISS_LOCAL_DRAM",
       "BitIndex": "26",
       "Type": "3",
-      "Description": null,
+      "Description": "L3_MISS_LOCAL_DRAM",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -209,7 +209,7 @@
       "BitName": "L3_MISS_REMOTE_HOP1_DRAM",
       "BitIndex": "28",
       "Type": "3",
-      "Description": null,
+      "Description": "L3_MISS_REMOTE_HOP1_DRAM",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -218,7 +218,7 @@
       "BitName": "L3_MISS",
       "BitIndex": "26,27,28,29",
       "Type": "3",
-      "Description": "TBD",
+      "Description": "L3_MISS",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -227,7 +227,7 @@
       "BitName": "SNOOP_NONE",
       "BitIndex": "31",
       "Type": "4",
-      "Description": null,
+      "Description": "SNOOP_NONE",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -236,7 +236,7 @@
       "BitName": "NO_SNOOP_NEEDED",
       "BitIndex": "32",
       "Type": "4",
-      "Description": "TBD",
+      "Description": "NO_SNOOP_NEEDED",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -245,7 +245,7 @@
       "BitName": "SNOOP_MISS",
       "BitIndex": "33",
       "Type": "4",
-      "Description": null,
+      "Description": "SNOOP_MISS",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -254,7 +254,7 @@
       "BitName": "HIT_OTHER_CORE_NO_FWD",
       "BitIndex": "34",
       "Type": "4",
-      "Description": "TBD",
+      "Description": "HIT_OTHER_CORE_NO_FWD",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -263,7 +263,7 @@
       "BitName": "HIT_OTHER_CORE_FWD",
       "BitIndex": "35",
       "Type": "4",
-      "Description": "TBD",
+      "Description": "HIT_OTHER_CORE_FWD",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "18,19,20,21",
       "Errata": "na"
@@ -272,7 +272,7 @@
       "BitName": "HITM_OTHER_CORE",
       "BitIndex": "36",
       "Type": "4",
-      "Description": "TBD",
+      "Description": "HITM_OTHER_CORE",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -281,7 +281,7 @@
       "BitName": "ANY_SNOOP",
       "BitIndex": "31,32,33,34,35,36,37",
       "Type": "4",
-      "Description": "TBD",
+      "Description": "ANY_SNOOP",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -290,7 +290,7 @@
       "BitName": "L3_MISS_REMOTE_DRAM.SNOOP_MISS_OR_NO_FWD",
       "BitIndex": "23,24,25,27,28,29,33,34",
       "Type": "2",
-      "Description": "TBD",
+      "Description": "L3_MISS_REMOTE_DRAM.SNOOP_MISS_OR_NO_FWD",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -299,7 +299,7 @@
       "BitName": "L3_MISS_LOCAL_DRAM.SNOOP_MISS_OR_NO_FWD",
       "BitIndex": "26,33,34",
       "Type": "2",
-      "Description": "TBD",
+      "Description": "L3_MISS_LOCAL_DRAM.SNOOP_MISS_OR_NO_FWD",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "na",
       "Errata": "na"

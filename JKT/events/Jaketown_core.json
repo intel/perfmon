@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) processor E5 family Based on the Sandy Bridge-EP Microarchitecture - V22",
-    "DatePublished": "01/26/2023",
-    "Version": "22",
+    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) processor E5 family Based on the Sandy Bridge-EP Microarchitecture - V23",
+    "DatePublished": "02/27/2023",
+    "Version": "23",
     "Legend": ""
   },
   "Events": [
@@ -496,6 +496,27 @@
       "EventName": "BR_MISP_EXEC.ALL_DIRECT_NEAR_CALL",
       "BriefDescription": "Speculative and retired mispredicted direct near calls.",
       "PublicDescription": "Speculative and retired mispredicted direct near calls.",
+      "Counter": "0,1,2,3",
+      "CounterHTOff": "0,1,2,3,4,5,6,7",
+      "SampleAfterValue": "200003",
+      "MSRIndex": "0",
+      "MSRValue": "0",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "AnyThread": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "PRECISE_STORE": "0",
+      "Errata": "null",
+      "Offcore": "0"
+    },
+    {
+      "EventCode": "0x89",
+      "UMask": "0xe4",
+      "EventName": "BR_MISP_EXEC.INDIRECT",
+      "BriefDescription": "Speculative mispredicted indirect branches",
+      "PublicDescription": "Counts speculatively miss-predicted indirect branches at execution time. Counts for indirect near CALL or JMP instructions (RET excluded).",
       "Counter": "0,1,2,3",
       "CounterHTOff": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "200003",
