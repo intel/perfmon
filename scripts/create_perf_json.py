@@ -876,8 +876,6 @@ class Model:
                             form = form.replace(j, r)
 
                     form = form.replace('_PS', '')
-                    form = form.replace('#Memory == 1', '1')
-                    form = form.replace('#PMM_App_Direct', '1')
                     form = re.sub(r':USER', ':u', form, re.IGNORECASE)
                     form = re.sub(r':SUP', ':k', form, re.IGNORECASE)
                     form = form.replace('(0 + ', '(')
@@ -947,14 +945,14 @@ class Model:
                     return expr
 
                 def resolve_aux(v: str) -> str:
-                    if any(v == i for i in ['#core_wide', '#Model', '#SMT_on', '#num_dies']):
+                    if any(v == i for i in ['#core_wide', '#Model', '#SMT_on', '#num_dies','#has_pmem']):
                         return v
+                    if v == '#PMM_App_Direct':
+                        return '#has_pmem > 0'
                     if v == '#DurationTimeInSeconds':
                         return 'duration_time'
                     if v == '#EBS_Mode':
                         return '#core_wide < 1'
-                    if v == '#Memory':
-                        return '1' if memory else '0'
                     if v == '#NA':
                         return '0'
                     if v[1:] in nodes:
@@ -1047,7 +1045,7 @@ class Model:
                              'imc_0', 'uncore_cha_0', 'cbox_0', 'arb', 'cbox',
                              'num_packages', 'num_cores', 'SYSTEM_TSC_FREQ',
                              'filter_tid', 'TSC', 'cha', 'config1',
-                             'source_count', 'slots', 'thresh']:
+                             'source_count', 'slots', 'thresh', 'has_pmem']:
                         continue
                     if v.startswith('tma_') or v.startswith('topdown\\-'):
                         continue
