@@ -200,7 +200,7 @@ def freerunning_counter_type_and_index(shortname: str,
     type = None
     index = None
     if shortname == 'ADL' or shortname == 'ADLN' or shortname == 'TGL':
-        if pmu == 'imc_free_running':
+        if pmu.startswith('imc_free_running'):
             index = 0
             if 'TOTAL' in event_name:
                 type = 1
@@ -219,7 +219,7 @@ def freerunning_counter_type_and_index(shortname: str,
             elif 'BANDWIDTH_OUT' in event_name:
                 type = 3
                 index = int(re.search(r'PART(\d+)', event_name).group(1))
-        elif pmu == 'imc_free_running':
+        elif pmu.startswith('imc_free_running'):
             if 'CLOCKTICKS' in event_name:
                 type = 1
                 index = 0
@@ -299,6 +299,9 @@ class PerfmonJsonEvent:
                 self.umask = None
         if jd.get('CounterType') == "FREERUN":
             self.unit = f"{self.unit.lower()}_free_running"
+            m = re.search(r'_MC(\d+)_', self.event_name)
+            if m:
+                self.unit += f"_{m.group(1)}"
             self.event_code = "0xff"
             (type, index) = freerunning_counter_type_and_index(shortname,
                                                                self.unit,
