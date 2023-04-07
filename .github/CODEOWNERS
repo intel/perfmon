@@ -1,0 +1,18 @@
+# Default owner. Later matches take precedence. Refer to the below link for additional details.
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+* @edwarddavidbaker
+
+# TMA and Atom TMA.
+TMA_Metrics* @ayasini
+Atom_TMA* @claudiaromo @rpmclaug
+E-core_TMA* @claudiaromo @rpmclaug
+
+# Platform metrics.
+**/metrics @1perrytaylor @calebbiggers @kshiprab
+
+# Platform events.
+**/events @edwarddavidbaker @kshiprab
+
+# Perf JSON scripting. Notify reviewers at the directory level for now.
+# When additional scripting is added we can be more specific.
+scripts/ @captain5050 @1perrytaylor @calebbiggers
