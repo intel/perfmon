@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 12th and 13th Generation Intel(R) Core(TM) Processor - V1.19",
-    "DatePublished": "02/16/2023",
-    "Version": "1.19",
+    "Info": "Performance Monitoring Events for 12th and 13th Generation Intel(R) Core(TM) Processor - V1.20",
+    "DatePublished": "03/31/2023",
+    "Version": "1.20",
     "Legend": ""
   },
   "Events": [
@@ -1715,8 +1715,8 @@
       "EventCode": "0x2d",
       "UMask": "0x01",
       "EventName": "XQ.FULL_CYCLES",
-      "BriefDescription": "XQ.FULL_CYCLES",
-      "PublicDescription": "XQ.FULL_CYCLES",
+      "BriefDescription": "Cycles the uncore cannot take further requests",
+      "PublicDescription": "number of cycles when the thread is active and the uncore cannot take any further requests (for example prefetches, loads or stores initiated by the Core that miss the L2 cache).",
       "Counter": "0,1,2,3",
       "PEBScounters": "0,1,2,3",
       "SampleAfterValue": "1000003",
@@ -3692,7 +3692,7 @@
       "MSRValue": "0x00",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
-      "CounterMask": "0",
+      "CounterMask": "1",
       "Invert": "0",
       "EdgeDetect": "0",
       "PEBS": "0",
@@ -6611,8 +6611,8 @@
       "EventCode": "0xe0",
       "UMask": "0x20",
       "EventName": "MISC2_RETIRED.LFENCE",
-      "BriefDescription": "MISC2_RETIRED.LFENCE",
-      "PublicDescription": "MISC2_RETIRED.LFENCE",
+      "BriefDescription": "LFENCE instructions retired",
+      "PublicDescription": "number of LFENCE retired instructions",
       "Counter": "0,1,2,3,4,5,6,7",
       "PEBScounters": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "400009",
