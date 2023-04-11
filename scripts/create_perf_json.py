@@ -169,15 +169,17 @@ def topic(event_name: str, unit: str) -> str:
     @param unit: The PMU responsible for the event or None for CPU events.
     """
     if unit and 'cpu' not in unit:
-        unit_to_topic = {
-            'iMC': 'Uncore-Memory',
-            'CBO': 'Uncore-Cache',
-            'HA': 'Uncore-Cache',
-            'PCU': 'Uncore-Power',
-        }
-        if unit in unit_to_topic:
-            return unit_to_topic[unit]
-        return 'Uncore-Interconnect' if unit.startswith("QPI") else 'Uncore-Other'
+        unit_to_topic = [
+            ('imc', 'Uncore-Memory'),
+            ('cbo', 'Uncore-Cache'),
+            ('ha', 'Uncore-Cache'),
+            ('pcu', 'Uncore-Power'),
+            ('qpi', 'Uncore-Interconnect'),
+        ]
+        for match_unit, topic in unit_to_topic:
+            if unit.lower().startswith(match_unit):
+                return topic
+        return 'Uncore-Other'
 
     result = None
     result_priority = -1
@@ -190,6 +192,39 @@ def topic(event_name: str, unit: str) -> str:
                 break
 
     return result if result else 'Other'
+
+def freerunning_counter_type_and_index(shortname: str,
+                                       pmu: str,
+                                       event_name: str,
+                                       counter: str):
+    type = None
+    index = None
+    if shortname == 'ADL' or shortname == 'ADLN' or shortname == 'TGL':
+        if pmu.startswith('imc_free_running'):
+            index = 0
+            if 'TOTAL' in event_name:
+                type = 1
+            elif 'RDCAS' in event_name:
+                type = 2
+            elif 'WRCAS' in event_name:
+                type = 3
+    elif shortname == 'ICX' or shortname == 'SNR' or shortname == 'SPR':
+        if pmu.startswith('iio_free_running'):
+            if 'CLOCKTICKS' in event_name:
+                type = 1
+                index = 0
+            elif 'BANDWIDTH_IN' in event_name:
+                type = 2
+                index = int(re.search(r'PART(\d+)', event_name).group(1))
+            elif 'BANDWIDTH_OUT' in event_name:
+                type = 3
+                index = int(re.search(r'PART(\d+)', event_name).group(1))
+        elif pmu.startswith('imc_free_running'):
+            if 'CLOCKTICKS' in event_name:
+                type = 1
+                index = 0
+    assert type is not None and index is not None, f'{shortname}: {pmu} {event_name} {counter}'
+    return (type, index)
 
 
 class PerfmonJsonEvent:
@@ -204,7 +239,7 @@ class PerfmonJsonEvent:
             return f'OFFCORE_RESPONSE.{m.group(1)}.{m.group(2)}'
         return name
 
-    def __init__(self, jd: Dict[str, str]):
+    def __init__(self, shortname: str, jd: Dict[str, str]):
         """Constructor passed the dictionary of parsed json values."""
         def get(key: str) -> str:
             drop_keys = {'0', '0x0', '0x00', 'na', 'null', 'tbd'}
@@ -262,6 +297,19 @@ class PerfmonJsonEvent:
             elif self.unit == "PCU" and self.umask:
                 # TODO: convert to right filter for occupancy
                 self.umask = None
+        if jd.get('CounterType') == "FREERUN":
+            self.unit = f"{self.unit.lower()}_free_running"
+            m = re.search(r'_MC(\d+)_', self.event_name)
+            if m:
+                self.unit += f"_{m.group(1)}"
+            self.event_code = "0xff"
+            (type, index) = freerunning_counter_type_and_index(shortname,
+                                                               self.unit,
+                                                               self.event_name,
+                                                               jd['Counter'])
+            self.umask = f"0x{(type << 4) | index:x}"
+
+        assert 'FREERUN' not in self.event_name or '_free_running' in self.unit
 
         if "Counter" in jd and jd["Counter"].lower() == "fixed":
             self.event_code = "0xff"
@@ -1333,7 +1381,9 @@ class Model:
             _verboseprint2(f'Generating {event_type} events from {self.files[event_type]}')
             with urllib.request.urlopen(self.files[event_type]) as event_json:
                 json_data = json.load(event_json)
-                pmon_events = [PerfmonJsonEvent(x) for x in json_data['Events']]
+                # UNC_IIO_BANDWIDTH_OUT events are broken on Linux pre-SPR so skip if they exist.
+                pmon_events = [PerfmonJsonEvent(self.shortname, x) for x in json_data['Events']
+                               if self.shortname == 'SPR' or not x["EventName"].startswith("UNC_IIO_BANDWIDTH_OUT.")]
                 unit = None
                 if event_type in ['atom', 'core'] and 'atom' in self.files and 'core' in self.files:
                     unit = f'cpu_{event_type}'
