@@ -154,3 +154,4 @@ GenuineIntel-6-AC,V1.01,/MTL/events/meteorlake_crestmont_core.json,hybridcore,0x
 GenuineIntel-6-AC,V1.01,/MTL/events/meteorlake_redwoodcove_core.json,hybridcore,0x40,0x000002,Core
 GenuineIntel-6-AD,V1.01,/GNR/events/graniterapids_core.json,core,,,
 GenuineIntel-6-AE,V1.01,/GNR/events/graniterapids_core.json,core,,,
+GenuineIntel-6-B6,V1.00,/GRR/events/grandridge_core.json,core,,,
