@@ -249,6 +249,7 @@ class PerfmonJsonEvent:
             result = re.sub('\xae', '(R)', result.strip())
             result = re.sub('\u2122', '(TM)', result)
             result = re.sub('\uFEFF', '', result)
+            result = re.sub('\?\?\?', '?', result)
             return result
 
         # Copy values we expect.
@@ -392,6 +393,7 @@ class PerfmonJsonEvent:
         def add_to_result(key: str, value: str):
             """Add value to the result if not None"""
             if value:
+                assert '??' not in value, f'Trigraphs aren\'t allowed {value}'
                 result[key] = value
 
         add_to_result('AnyThread', self.any_thread)
