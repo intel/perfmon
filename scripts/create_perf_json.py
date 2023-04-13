@@ -168,18 +168,43 @@ def topic(event_name: str, unit: str) -> str:
     @param event_name: Name of event like UNC_M2M_BYPASS_M2M_Egress.NOT_TAKEN.
     @param unit: The PMU responsible for the event or None for CPU events.
     """
-    if unit and 'cpu' not in unit:
-        unit_to_topic = [
-            ('imc', 'Uncore-Memory'),
-            ('cbo', 'Uncore-Cache'),
-            ('ha', 'Uncore-Cache'),
-            ('pcu', 'Uncore-Power'),
-            ('qpi', 'Uncore-Interconnect'),
-        ]
-        for match_unit, topic in unit_to_topic:
-            if unit.lower().startswith(match_unit):
-                return topic
-        return 'Uncore-Other'
+    if unit and unit not in ['cpu', 'cpu_atom', 'cpu_core']:
+        unit_to_topic = {
+            'cha': 'Uncore-Cache',
+            'cbox': 'Uncore-Cache',
+            'ha': 'Uncore-Cache',
+            'cxlcm': 'Uncore-CXL',
+            'cxldp': 'Uncore-CXL',
+            'arb': 'Uncore-Interconnect',
+            'irp': 'Uncore-Interconnect',
+            'm2m': 'Uncore-Interconnect',
+            'mdf': 'Uncore-Interconnect',
+            'r3qpi': 'Uncore-Interconnect',
+            'qpi': 'Uncore-Interconnect',
+            'sbox': 'Uncore-Interconnect',
+            'ubox': 'Uncore-Interconnect',
+            'upi': 'Uncore-Interconnect',
+            'm3upi': 'Uncore-Interconnect',
+            'iio': 'Uncore-IO',
+            'iio_free_running': 'Uncore-IO',
+            'm2pcie': 'Uncore-IO',
+            'r2pcie': 'Uncore-IO',
+            'edc_eclk': 'Uncore-Memory',
+            'edc_uclk': 'Uncore-Memory',
+            'imc': 'Uncore-Memory',
+            'imc_free_running': 'Uncore-Memory',
+            'imc_free_running_0': 'Uncore-Memory',
+            'imc_free_running_1': 'Uncore-Memory',
+            'imc_dclk': 'Uncore-Memory',
+            'imc_uclk': 'Uncore-Memory',
+            'm2hbm': 'Uncore-Memory',
+            'mchbm': 'Uncore-Memory',
+            'clock': 'Uncore-Other',
+            'pcu': 'Uncore-Power',
+        }
+        if unit.lower() not in  unit_to_topic:
+            raise ValueError(f'Unexpected PMU (aka Unit): {unit}')
+        return unit_to_topic[unit.lower()]
 
     result = None
     result_priority = -1
@@ -293,7 +318,15 @@ class PerfmonJsonEvent:
             self.umask = f'0x{int(self.umask, 16):x}'
 
         if self.unit:
-            if self.unit == "NCU" and self.event_name == "UNC_CLOCK.SOCKET":
+            unit_fixups = {
+                'CBO': 'CBOX',
+                'SBO': 'SBOX',
+                'QPI LL': 'QPI',
+                'UPI LL': 'UPI',
+            }
+            if self.unit in unit_fixups:
+                self.unit = unit_fixups[self.unit]
+            elif self.unit == "NCU" and self.event_name == "UNC_CLOCK.SOCKET":
                 self.unit = "CLOCK"
             elif self.unit == "PCU" and self.umask:
                 # TODO: convert to right filter for occupancy
