@@ -1279,19 +1279,17 @@ class Model:
                     'tma_info_big_code': no_group,
                     'tma_info_flopc': no_group,
                     'tma_info_fp_arith_utilization': no_group,
-                    # TODO: Don't not group as weak groups will
-                    # preserve top-down event groups.
-                    #'tma_info_dsb_misses': no_group,
-                    #'tma_fp_arith': no_group,
-                    #'tma_memory_operations': no_group,
-                    #'tma_other_light_ops': no_group,
-                    #'tma_info_branch_misprediction_cost': no_group,
-                    #'tma_info_core_bound_likely': no_group,
-                    #'tma_info_instruction_fetch_bw': no_group,
-                    #'tma_info_memory_data_tlbs': no_group,
-                    #'tma_info_memory_latency': no_group,
-                    #'tma_info_mispredictions': no_group,
-                    #'tma_info_retire': no_group,
+                    'tma_info_dsb_misses': no_group,
+                    'tma_fp_arith': no_group,
+                    'tma_memory_operations': no_group,
+                    'tma_other_light_ops': no_group,
+                    'tma_info_branch_misprediction_cost': no_group,
+                    'tma_info_core_bound_likely': no_group,
+                    'tma_info_instruction_fetch_bw': no_group,
+                    'tma_info_memory_data_tlbs': no_group,
+                    'tma_info_memory_latency': no_group,
+                    'tma_info_mispredictions': no_group,
+                    'tma_info_retire': no_group,
                 }
                 errata_constraints = {
                     # 4 programmable, 3 fixed counters per HT
