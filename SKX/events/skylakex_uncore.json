@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) Processor Scalable Family based on Skylake microarchitecture - V1.29",
-    "DatePublished": "01/30/2023",
-    "Version": "1.29",
+    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) Processor Scalable Family based on Skylake microarchitecture - V1.30",
+    "DatePublished": "04/14/2023",
+    "Version": "1.30",
     "Legend": ""
   },
   "Events": [
