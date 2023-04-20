@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 5th Generation Intel(R) Core(TM) Processor Based on the Broadwell-DE Microarchitecture - V9",
-    "DatePublished": "02/28/2023",
-    "Version": "9",
+    "Info": "Performance Monitoring Events for 5th Generation Intel(R) Core(TM) Processor Based on the Broadwell-DE Microarchitecture - V10",
+    "DatePublished": "04/14/2023",
+    "Version": "10",
     "Legend": ""
   },
   "Events": [
