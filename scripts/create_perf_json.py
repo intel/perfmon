@@ -1549,7 +1549,13 @@ class Model:
                 continue
             pmu_prefix = unit if 'atom' in self.files else 'cpu'
             with urllib.request.urlopen(self.files[metric_csv_key]) as metric_csv:
-                metrics.extend(self.extract_tma_metrics(metric_csv, pmu_prefix, events))
+                csv_metrics = self.extract_tma_metrics(metric_csv, pmu_prefix, events)
+                csv_metrics = sorted(csv_metrics,
+                                     key=lambda m: (m['Unit'] if 'Unit' in m else 'cpu',
+                                                    m['MetricName'])
+                                     )
+                csv_metrics = rewrite_metrics_in_terms_of_others(csv_metrics)
+                metrics.extend(csv_metrics)
 
         if len(metrics) > 0:
             metrics.extend(self.cstate_json())
@@ -1561,7 +1567,6 @@ class Model:
                              key=lambda m: (m['Unit'] if 'Unit' in m else 'cpu',
                                             m['MetricName'])
                              )
-            metrics = rewrite_metrics_in_terms_of_others(metrics)
             with open(f'{outdir}/{self.shortname.lower().replace("-","")}-metrics.json',
                       'w', encoding='ascii') as perf_metric_json:
                 json.dump(metrics, perf_metric_json, sort_keys=True, indent=4,
