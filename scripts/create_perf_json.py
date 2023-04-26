@@ -845,8 +845,10 @@ class Model:
             elif l[0].startswith('Aux'):
                 form = find_form()
                 if form and form != '#NA':
-                    aux[field('Level1')] = form
-                    _verboseprint3(f'Adding aux {field("Level1")}: {form}')
+                    aux_name = field('Level1')
+                    assert aux_name.startswith('#')
+                    aux[aux_name] = form
+                    _verboseprint3(f'Adding aux {aux_name}: {form}')
 
         jo = []
         for i in info:
