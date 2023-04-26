@@ -1327,6 +1327,12 @@ class Model:
                 if name in errata_constraints[self.shortname]:
                     j['MetricConstraint'] = errata_constraints[self.shortname][name]
 
+                if group:
+                    if 'TopdownL1' in group:
+                        j['MetricgroupNoGroup'] = 'TopdownL1'
+                    elif 'TopdownL2' in group:
+                        j['MetricgroupNoGroup'] = 'TopdownL2'
+
                 if pmu_prefix != 'cpu':
                     j['Unit'] = pmu_prefix
 
