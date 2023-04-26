@@ -264,7 +264,7 @@ class PerfmonJsonEvent:
             return f'OFFCORE_RESPONSE.{m.group(1)}.{m.group(2)}'
         return name
 
-    def __init__(self, shortname: str, jd: Dict[str, str]):
+    def __init__(self, shortname: str, unit: str, jd: Dict[str, str]):
         """Constructor passed the dictionary of parsed json values."""
         def get(key: str) -> str:
             drop_keys = {'0', '0x0', '0x00', 'na', 'null', 'tbd'}
@@ -298,7 +298,6 @@ class PerfmonJsonEvent:
         self.sample_after_value = get('SampleAfterValue')
         self.umask = get('UMask')
         self.unit = get('Unit')
-
         # Sanity check certain old perfmon keys or values that could
         # be used in perf json don't exist.
         assert 'Internal' not in jd
@@ -317,7 +316,10 @@ class PerfmonJsonEvent:
                 self.umask = umask_ext + self.umask[2:]
             self.umask = f'0x{int(self.umask, 16):x}'
 
-        if self.unit:
+        if self.unit is None:
+            if unit != 'cpu':
+                self.unit = unit
+        else:
             unit_fixups = {
                 'CBO': 'CBOX',
                 'SBO': 'SBOX',
@@ -958,6 +960,9 @@ class Model:
                             for i in range(0, len(r)):
                                 if r[i] in ['-', '=', ',']:
                                     assert i == 0 or r[i - 1] == '\\', r
+                            if pmu_prefix != 'cpu' and r.startswith('topdown\-'):
+                                r = rf'{pmu_prefix}@{r}@'
+
                             form = form.replace(j, r)
 
                     form = form.replace('_PS', '')
@@ -1009,6 +1014,19 @@ class Model:
                                               re.IGNORECASE)
                             changed = changed or new_form != form
                             form = new_form
+
+                    if pmu_prefix != 'cpu':
+                        for name in events:
+                            if events[name].unit.startswith('cpu') and name in form:
+                                if form == name:
+                                    form = f'{pmu_prefix}@{name}@'
+                                else:
+                                    form = re.sub(rf'([^@]){name}:([a-zA-Z])',
+                                                  rf'\1{pmu_prefix}@{name}@\2',
+                                                  form, re.IGNORECASE)
+                                    form = re.sub(rf'([^@]){name}([^a-zA-Z0-9_])',
+                                                  rf'\1{pmu_prefix}@{name}@\2',
+                                                  form, re.IGNORECASE)
 
                     changed = True
                     while changed:
@@ -1420,11 +1438,16 @@ class Model:
             if event_type not in self.files:
                 continue
             _verboseprint2(f'Generating {event_type} events from {self.files[event_type]}')
+            pmu_prefix = None
+            if event_type in ['atom', 'core']:
+                pmu_prefix = f'cpu_{event_type}' if 'atom' in self.files else 'cpu'
             with urllib.request.urlopen(self.files[event_type]) as event_json:
                 json_data = json.load(event_json)
                 # UNC_IIO_BANDWIDTH_OUT events are broken on Linux pre-SPR so skip if they exist.
-                pmon_events = [PerfmonJsonEvent(self.shortname, x) for x in json_data['Events']
-                               if self.shortname == 'SPR' or not x["EventName"].startswith("UNC_IIO_BANDWIDTH_OUT.")]
+                pmon_events = [PerfmonJsonEvent(self.shortname, pmu_prefix, x)
+                               for x in json_data['Events']
+                               if self.shortname == 'SPR' or
+                               not x["EventName"].startswith("UNC_IIO_BANDWIDTH_OUT.")]
                 unit = None
                 if event_type in ['atom', 'core'] and 'atom' in self.files and 'core' in self.files:
                     unit = f'cpu_{event_type}'
