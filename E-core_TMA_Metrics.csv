@@ -1,4 +1,4 @@
-TMA,Version,2.3,,,,,,,,
+TMA,Version,2.4,,,,,,,,
 .,,,,,,,,,,
 Key,Level1,Level2,Level3,Level4,GRT,Locate-with,Count Domain,Metric Description,Metric Group,Threshold
 FE,Frontend_Bound,,,,TOPDOWN_FE_BOUND.ALL / SLOTS,,Slots,Counts the number of issue slots  that were not consumed by the backend due to frontend stalls.,,>0.20
@@ -31,9 +31,9 @@ BE,,,,Store_Fwd_Blk,LD_HEAD.ST_ADDR_AT_RET / CLKS,,Cycles,Counts the number of c
 BE,,,,STLB_Hit,LD_HEAD.DTLB_MISS_AT_RET / CLKS,,Cycles,Counts the number of cycles that the oldest load of the load buffer is stalled at retirement due to a first level TLB miss.,,>0.05
 BE,,,,STLB_Miss,LD_HEAD.PGWALK_AT_RET / CLKS,,Cycles,Counts the number of cycles that the oldest load of the load buffer is stalled at retirement due to a second level TLB miss requiring a page walk.,,>0.05
 BE,,,,Other_L1,LD_HEAD.OTHER_AT_RET / CLKS,,Cycles,Counts the number of cycles that the oldest load of the load buffer is stalled at retirement due to a number of other load blocks.,,>0.05
-BE,,,L2_Bound,,(MEM_BOUND_STALLS.LOAD_L2_HIT / CLKS) - (MEM_BOUND_STALLS_AT_RET_CORRECTION * MEM_BOUND_STALLS.LOAD_L2_HIT / MEM_BOUND_STALLS.LOAD),,Cycles,Counts the number of cycles a core is stalled due to a demand load which hit in the L2 Cache.,,>0.10
-BE,,,L3_Bound,,(MEM_BOUND_STALLS.LOAD_LLC_HIT / CLKS) - (MEM_BOUND_STALLS_AT_RET_CORRECTION * MEM_BOUND_STALLS.LOAD_LLC_HIT / MEM_BOUND_STALLS.LOAD),,Cycles,Counts the number of cycles a core is stalled due to a demand load which hit in the Last Level Cache (LLC) or other core with HITE/F/M.,,>0.10
-BE,,,DRAM_Bound,,(MEM_BOUND_STALLS.LOAD_DRAM_HIT / CLKS) - (MEM_BOUND_STALLS_AT_RET_CORRECTION * MEM_BOUND_STALLS.LOAD_DRAM_HIT / MEM_BOUND_STALLS.LOAD),,Cycles,Counts the number of cycles the core is stalled due to a demand load miss which hit in DRAM or MMIO (Non-DRAM).,,>0.10
+BE,,,L2_Bound,,(MEM_BOUND_STALLS.LOAD_L2_HIT / CLKS) - (#MEM_BOUND_STALLS_AT_RET_CORRECTION * MEM_BOUND_STALLS.LOAD_L2_HIT / MEM_BOUND_STALLS.LOAD),,Cycles,Counts the number of cycles a core is stalled due to a demand load which hit in the L2 Cache.,,>0.10
+BE,,,L3_Bound,,(MEM_BOUND_STALLS.LOAD_LLC_HIT / CLKS) - (#MEM_BOUND_STALLS_AT_RET_CORRECTION * MEM_BOUND_STALLS.LOAD_LLC_HIT / MEM_BOUND_STALLS.LOAD),,Cycles,Counts the number of cycles a core is stalled due to a demand load which hit in the Last Level Cache (LLC) or other core with HITE/F/M.,,>0.10
+BE,,,DRAM_Bound,,(MEM_BOUND_STALLS.LOAD_DRAM_HIT / CLKS) - (#MEM_BOUND_STALLS_AT_RET_CORRECTION * MEM_BOUND_STALLS.LOAD_DRAM_HIT / MEM_BOUND_STALLS.LOAD),,Cycles,Counts the number of cycles the core is stalled due to a demand load miss which hit in DRAM or MMIO (Non-DRAM).,,>0.10
 BE,,,Other_Load_Store,,"max( 0, Memory_Bound - ( Store_Bound + L1_Bound  + L2_Bound + L3_Bound + DRAM_Bound ) )",,Cycles,"Counts the number of cycles the core is stalled due to a demand load miss which hits in the L2, LLC, DRAM or MMIO (Non-DRAM) but could not be correctly attributed or cycles in which the load miss is waiting on a request buffer.",,>0.10
 BE_aux,Backend_Bound_Aux,,,,Backend_Bound,,Slots,"Counts the total number of issue slots  that were not consumed by the backend due to backend stalls.  Note that UOPS must be available for consumption in order for this event to count.  If a uop is not available (IQ is empty), this event will not count.  All of these subevents count backend stalls, in slots, due to a resource limitation.   These are not cycle based events and therefore can not be precisely added or subtracted from the Backend_Bound subevents which are cycle based.  These subevents are supplementary to Backend_Bound and can be used to analyze results from a resource perspective at allocation.  ",,>0.20
 BE_aux,,Resource_Bound,,,Backend_Bound,,Slots,"Counts the total number of issue slots  that were not consumed by the backend due to backend stalls.  Note that uops must be available for consumption in order for this event to count.  If a uop is not available (IQ is empty), this event will not count. ",,>0.20
@@ -90,5 +90,5 @@ Info.Memory,MemLoadPKI,,,,1000 * MEM_UOPS_RETIRED.ALL_LOADS / INST_RETIRED.ANY,,
 Info.System,MUX,,,,CLKS_P / CLKS,,,PerfMon Event Multiplexing accuracy indicator, ,( > 1.1 | < 0.9 )
 .,,,,,,,,, ,
 Aux,#Pipeline_Width,,,,5,,,pipeline allocation width, ,
-Aux,MEM_BOUND_STALLS_AT_RET_CORRECTION,,,,"max( (MEM_BOUND_STALLS.LOAD - LD_HEAD.L1_MISS_AT_RET) / CLKS , 0 )",,,,,
+Aux,#MEM_BOUND_STALLS_AT_RET_CORRECTION,,,,"max( (MEM_BOUND_STALLS.LOAD - LD_HEAD.L1_MISS_AT_RET) / CLKS , 0 )",,,,,
 ,,,,,,,,,,
