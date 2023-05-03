@@ -1,6 +1,9 @@
 name: Check Markdown links
 
 on:
+  pull_request:
+    branches:
+      - main
   push:
     branches:
       - main

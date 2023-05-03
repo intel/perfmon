@@ -265,11 +265,21 @@ A '1' in this field means that when the event is configured as a PEBS event, the
 when the store hits in the L1 cache and 0 when it misses.
 
 ### Errata
-This field lists the known bugs that apply to the events. For the latest, up to date errata refer to
+This field lists the known bugs that apply to the events. For the latest errata information refer to the following specification updates.
 
-* Jaketown https://www.intel.com/content/dam/www/public/us/en/documents/specification-updates/xeon-e5-family-spec-update.pdf
-* Haswell http://www.intel.com/content/dam/www/public/us/en/documents/specification-updates/4th-gen-core-family-desktop-specification-update.pdf
-* Ivy Bridge https://www-ssl.intel.com/content/dam/www/public/us/en/documents/specification-updates/3rd-gen-core-desktop-specification-update.pdf
+| Platform | Specification Updates / Errata Documentation |
+| --- | --- |
+| ADL | [12th Generation Intel&reg; Core&trade; Processor Specification Update (Doc. #682436)](https://cdrdv2.intel.com/v1/dl/getContent/682436?explicitVersion=true) |
+| CLX | [2nd Gen Intel&reg; Xeon&reg; Scalable Processors Specification Update (Doc. #338848)](https://cdrdv2.intel.com/v1/dl/getContent/338848?explicitVersion=true) |
+| HSW | [Desktop 4th Generation Intel&reg; Core&trade; Processor Family Specification Update (Doc. #328899)](http://www.intel.com/content/dam/www/public/us/en/documents/specification-updates/4th-gen-core-family-desktop-specification-update.pdf) |
+| HSX | [Intel&reg; Xeon&reg; Processor E5 v3 Product Family Specification Update (Doc. #330785)](https://cdrdv2.intel.com/v1/dl/getContent/330785?explicitVersion=true)
+| ICL | [10th Generation Intel&reg; Core&trade; Processor Specification Update (Doc. #341079)](https://cdrdv2.intel.com/v1/dl/getContent/341079?explicitVersion=true) |
+| ICX | [3rd Gen Intel&reg; Xeon&reg; Scalable Processors, Codename Ice Lake Specification Update (Doc. #637780)](https://cdrdv2.intel.com/v1/dl/getContent/637780?explicitVersion=true) |
+| IVB | [Desktop 3rd Generation Intel&reg; Core&trade; Processor Family Specification Update (Doc. #326766)](https://www-ssl.intel.com/content/dam/www/public/us/en/documents/specification-updates/3rd-gen-core-desktop-specification-update.pdf) |
+| JKT | [Intel&reg; Xeon&reg; Processor E5 Product Family Specification Update (Doc. #326510)](https://www.intel.com/content/dam/www/public/us/en/documents/specification-updates/xeon-e5-family-spec-update.pdf) |
+| SPR | [4th Gen Intel&reg; Xeon&reg; Scalable Processors Codename Sapphire Rapids Specification Update (Doc. #772415)](https://cdrdv2.intel.com/v1/dl/getContent/772415?explicitVersion=true) |
+| SKX | [Intel&reg; Xeon&reg; Processor Scalable Family Specification Update (Doc. #336065)](https://cdrdv2.intel.com/v1/dl/getContent/336065?explicitVersion=true) |
+| TGL | [11th Generation Intel&reg; Core&trade; Processor Specification Update (Doc. #631123)](https://cdrdv2.intel.com/v1/dl/getContent/631123?explicitVersion=true) |
 
 ### Offcore
 This field is specific to the json format. There is only 1 file for core and offcore events in this format. This field is set to 1 for offcore events
@@ -284,7 +294,7 @@ Please use SNR core event files. The EHL events folder is populated with a copy 
 Please use KNL perfmon event files for KNM. The KNM events folder is populated with copies of KNL for convenience.
 
 ## For additional information
-* Event documention https://perfmon-events.intel.com/
+* Event documentation https://perfmon-events.intel.com/
 * Intel&copy; Platform Analysis Technology https://www.intel.com/content/www/us/en/developer/topic-technology/platform-analysis-technology/overview.html
 * Monitoring Integrated Memory Controller Requests in the 2nd, 3rd, 4th, 5th, 6th generation Intel&copy; Core&trade; processors https://www.intel.com/content/www/us/en/developer/articles/technical/monitoring-integrated-memory-controller-requests-in-the-2nd-3rd-and-4th-generation-intel.html
 
