@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 4th Generation Intel(R) Xeon(R) Processor Scalable Family based on Sapphire Rapids microarchitecture - V1.12",
-    "DatePublished": "04/03/2023",
-    "Version": "1.12",
+    "Info": "Performance Monitoring Events for 4th Generation Intel(R) Xeon(R) Processor Scalable Family based on Sapphire Rapids microarchitecture - V1.13",
+    "DatePublished": "04/25/2023",
+    "Version": "1.13",
     "Legend": ""
   },
   "Events": [
@@ -1883,8 +1883,8 @@
       "EventCode": "0x47",
       "UMask": "0x05",
       "EventName": "MEMORY_ACTIVITY.STALLS_L2_MISS",
-      "BriefDescription": "MEMORY_ACTIVITY.STALLS_L2_MISS",
-      "PublicDescription": "MEMORY_ACTIVITY.STALLS_L2_MISS",
+      "BriefDescription": "Execution stalls while L2 cache miss demand cacheable load request is outstanding.",
+      "PublicDescription": "Execution stalls while L2 cache miss demand cacheable load request is outstanding (will not count for uncacheable demand requests e.g. bus lock).",
       "Counter": "0,1,2,3",
       "PEBScounters": "0,1,2,3",
       "SampleAfterValue": "1000003",
@@ -1907,8 +1907,8 @@
       "EventCode": "0x47",
       "UMask": "0x09",
       "EventName": "MEMORY_ACTIVITY.STALLS_L3_MISS",
-      "BriefDescription": "MEMORY_ACTIVITY.STALLS_L3_MISS",
-      "PublicDescription": "MEMORY_ACTIVITY.STALLS_L3_MISS",
+      "BriefDescription": "Execution stalls while L3 cache miss demand cacheable load request is outstanding.",
+      "PublicDescription": "Execution stalls while L3 cache miss demand cacheable load request is outstanding (will not count for uncacheable demand requests e.g. bus lock).",
       "Counter": "0,1,2,3",
       "PEBScounters": "0,1,2,3",
       "SampleAfterValue": "1000003",
