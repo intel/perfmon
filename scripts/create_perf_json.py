@@ -458,7 +458,7 @@ def rewrite_metrics_in_terms_of_others(metrics: list[Dict[str,str]]) -> list[Dic
         name = m['MetricName']
         form = m['MetricExpr']
         parsed.append((name, metric.ParsePerfJson(form)))
-        if name == 'tma_info_core_clks' and '#SMT_on' in form:
+        if name == 'tma_info_core_core_clks' and '#SMT_on' in form:
             # Add non-EBS form of CORE_CLKS to enable better
             # simplification of Valkyrie metrics.
             form = 'CPU_CLK_UNHALTED.THREAD_ANY / 2 if #SMT_on else CPU_CLK_UNHALTED.THREAD'
@@ -620,9 +620,9 @@ class Model:
 
         # metrics redundant with perf or unusable
         ignore = {
-            'tma_info_mux': 'MUX',
-            'tma_info_power': 'Power',
-            'tma_info_time': 'Time',
+            'tma_info_system_mux': 'MUX',
+            'tma_info_system_power': 'Power',
+            'tma_info_system_time': 'Time',
         }
 
         ratio_column = {
@@ -825,7 +825,7 @@ class Model:
                 metric_name = field('Level1')
                 form = find_form()
                 if form:
-                    tma_metric_name = f'tma_info_{metric_name.lower()}'
+                    tma_metric_name = f'tma_{l[0].lower().replace(".","_")}_{metric_name.lower()}'
                     mgroups = metric_group(metric_name)
                     issues = issues()
                     for issue in issues:
@@ -1122,8 +1122,8 @@ class Model:
                                 'DTLB_LOAD_MISSES.WALK_COMPLETED + '
                                 'ITLB_MISSES.WALK_COMPLETED)) / (2 * CORE_CLKS)')
                     elif name in ['tma_false_sharing',
-                                  'tma_info_mem_parallel_requests',
-                                  'tma_info_mem_request_latency']:
+                                  'tma_info_system_mem_parallel_requests',
+                                  'tma_info_system_mem_request_latency']:
                         # Uncore events missing for BDW-DE, so drop.
                         _verboseprint3(f'Dropping metric {name}')
                         return
@@ -1242,8 +1242,8 @@ class Model:
                     'tma_remote_dram': no_group,
                     'tma_split_loads': no_group,
                     'tma_store_latency': no_group,
-                    'tma_info_load_miss_real_latency': no_group,
-                    'tma_info_mlp': no_group,
+                    'tma_info_memory_load_miss_real_latency': no_group,
+                    'tma_info_memory_mlp': no_group,
                     # Metrics that would fit were the NMI watchdog disabled.
                     'tma_alu_op_utilization': nmi,
                     'tma_backend_bound': nmi,
@@ -1258,58 +1258,58 @@ class Model:
                     'tma_branch_mispredicts': no_group,
                     'tma_contested_accesses': no_group,
                     'tma_core_bound': no_group,
-                    'tma_dram_bound': no_group,
                     'tma_data_sharing': no_group,
+                    'tma_dram_bound': no_group,
                     'tma_false_sharing': no_group,
                     'tma_fp_arith': no_group,
-                    'tma_info_fp_arith_utilization': no_group,
                     'tma_fp_vector': no_group,
                     'tma_l2_bound': no_group,
                     'tma_machine_clears': no_group,
                     'tma_memory_bound': no_group,
                     'tma_pmm_bound': no_group,
-                    'tma_info_big_code': no_group,
-                    'tma_info_core_bound_likely': no_group,
-                    'tma_info_dsb_misses': no_group,
-                    'tma_info_flopc': no_group,
-                    'tma_info_gflops': no_group,
-                    'tma_info_instruction_fetch_bw': no_group,
-                    'tma_info_iparith': no_group,
-                    'tma_info_ipflop': no_group,
-                    'tma_info_memory_bandwidth': no_group,
-                    'tma_info_memory_data_tlbs': no_group,
-                    'tma_info_memory_latency': no_group,
-                    'tma_info_mispredictions': no_group,
-                    'tma_info_jump': no_group,
+                    'tma_info_botlnk_l0_core_bound_likely': no_group,
+                    'tma_info_botlnk_l2_dsb_misses': no_group,
+                    'tma_info_bottleneck_big_code': no_group,
+                    'tma_info_bottleneck_instruction_fetch_bw': no_group,
+                    'tma_info_bottleneck_memory_bandwidth': no_group,
+                    'tma_info_bottleneck_memory_data_tlbs': no_group,
+                    'tma_info_bottleneck_memory_latency': no_group,
+                    'tma_info_bottleneck_mispredictions': no_group,
+                    'tma_info_branches_jump': no_group,
+                    'tma_info_core_flopc': no_group,
+                    'tma_info_fp_arith_utilization': no_group,
+                    'tma_info_inst_mix_iparith': no_group,
+                    'tma_info_inst_mix_ipflop': no_group,
+                    'tma_info_system_gflops': no_group,
                     # Metrics that would fit were the NMI watchdog disabled.
                     'tma_dtlb_load': nmi,
-                    'tma_load_stlb_hit': nmi,
                     'tma_fb_full': nmi,
+                    'tma_load_stlb_hit': nmi,
                     'tma_remote_cache': nmi,
                     'tma_split_loads': nmi,
                     'tma_store_latency': nmi,
-                    'tma_info_page_walks_utilization': nmi,
+                    'tma_info_memory_tlb_page_walks_utilization': nmi,
                 }
                 icelake_constraints = {
                     'tma_contested_accesses': no_group,
                     'tma_data_sharing': no_group,
                     'tma_dram_bound': no_group,
+                    'tma_fp_arith': no_group,
                     'tma_l2_bound': no_group,
                     'tma_lock_latency': no_group,
-                    'tma_info_big_code': no_group,
-                    'tma_info_flopc': no_group,
-                    'tma_info_fp_arith_utilization': no_group,
-                    'tma_info_dsb_misses': no_group,
-                    'tma_fp_arith': no_group,
                     'tma_memory_operations': no_group,
                     'tma_other_light_ops': no_group,
-                    'tma_info_branch_misprediction_cost': no_group,
-                    'tma_info_core_bound_likely': no_group,
-                    'tma_info_instruction_fetch_bw': no_group,
-                    'tma_info_memory_data_tlbs': no_group,
-                    'tma_info_memory_latency': no_group,
-                    'tma_info_mispredictions': no_group,
-                    'tma_info_retire': no_group,
+                    'tma_info_bad_spec_branch_misprediction_cost': no_group,
+                    'tma_info_botlnk_l0_core_bound_likely': no_group,
+                    'tma_info_botlnk_l2_dsb_misses': no_group,
+                    'tma_info_bottleneck_big_code': no_group,
+                    'tma_info_bottleneck_instruction_fetch_bw': no_group,
+                    'tma_info_bottleneck_memory_data_tlbs': no_group,
+                    'tma_info_bottleneck_memory_latency': no_group,
+                    'tma_info_bottleneck_mispredictions': no_group,
+                    'tma_info_core_flopc': no_group,
+                    'tma_info_core_fp_arith_utilization': no_group,
+                    'tma_info_pipeline_retire': no_group,
                 }
                 errata_constraints = {
                     # 4 programmable, 3 fixed counters per HT
@@ -1365,14 +1365,14 @@ class Model:
                 jo.append(j)
 
             form = resolve_all(form, expand_metrics=False)
-            needs_slots = 'topdown\-' in form and 'tma_info_slots' not in form
+            needs_slots = 'topdown\-' in form and 'tma_info_thread_slots' not in form
             if needs_slots:
                 # topdown events must always be grouped with a
                 # TOPDOWN.SLOTS event. Detect when this is missing in a
                 # metric and insert a dummy value. Metrics using other
                 # metrics with topdown events will get a TOPDOWN.SLOTS
                 # event from them.
-                form = f'{form} + 0*tma_info_slots'
+                form = f'{form} + 0*tma_info_thread_slots'
 
             threshold = None
             if i.threshold:
