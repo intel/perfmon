@@ -1176,7 +1176,7 @@ class Model:
                         if ' Sample with: ' in d:
                             locate = re.sub(r'.* Sample with: (.*)', r'\1', d)
                     if not threshold:
-                        parsed_threshold = m['MetricThreshold']
+                        parsed_threshold = m.get('MetricThreshold')
                     group = m['MetricGroup']
                     jo.remove(m)
 
@@ -1414,9 +1414,32 @@ class Model:
 
         if 'extra metrics' in self.files:
             with urllib.request.urlopen(self.files['extra metrics']) as extra_json:
+                broken_metrics = {
+                    'ICX': {
+                        # Missing event: UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFDRD
+                        'llc_data_read_mpi_demand_plus_prefetch',
+                        # Missing event: UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_DRAM
+                        'llc_demand_data_read_miss_to_dram_latency',
+                        # Missing event: UNC_CHA_TOR_INSERTS.IO_HIT_RDCUR
+                        'io_bandwidth_read',
+                    },
+                    'SPR': {
+                        # Missing ')'
+                        'tma_int_operations'
+                    }
+                }
+                skip = broken_metrics.get(self.shortname)
+                if not skip:
+                    skip = {}
                 for em in json.load(extra_json):
+                    if em['MetricName'] in skip:
+                        continue
+                    dups = [m for m in jo if m['MetricName'] == em['MetricName']]
+                    if dups:
+                        _verboseprint3(f'Not replacing:\n\t{dups[0]["MetricExpr"]}\nwith:\n\t{em["MetricExpr"]}')
+                        continue
                     save_form(em['MetricName'], em['MetricGroup'], em['MetricExpr'],
-                              em['BriefDescription'], None, em['ScaleUnit'],
+                              em['BriefDescription'], None, em.get('ScaleUnit'),
                               em.get('MetricThreshold'), [])
 
         return jo
@@ -1709,11 +1732,17 @@ class Mapfile:
             if 'atom' in files[shortname]:
                 files[shortname][
                     'e-core tma metrics'] = base_path + '/E-core_TMA_Metrics.csv'
-            cpu_metrics_url = f'{base_path}/{shortname}/metrics/perf/{shortname.lower()}_metric_perf.json'
+            cpu_metrics_url = f'{base_path}/{shortname}/metrics/perf/'
+            if longname[-1] == 'x':
+                cpu_metrics_url += f'{longname.lower()[:-1]}_metrics_perf.json'
+            else:
+                cpu_metrics_url += f'{longname.lower()}_metrics_perf.json'
             try:
                 urllib.request.urlopen(cpu_metrics_url)
+                _verboseprint2(f'Found {cpu_metrics_url}')
                 files[shortname]['extra metrics'] = cpu_metrics_url
             except:
+                _verboseprint2(f'Didn\'t find {cpu_metrics_url}')
                 pass
 
             self.archs += [
