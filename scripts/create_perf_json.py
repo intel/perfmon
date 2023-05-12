@@ -493,6 +493,7 @@ class Model:
         self.version = version
         self.models = sorted(models)
         self.files = files
+        self.metricgroups = {}
 
     def __lt__(self, other: 'Model') -> bool:
         """ Sort by models gloally by name."""
@@ -800,23 +801,36 @@ class Model:
                     _verboseprint2(f'Missing formula for {metric_name} on CPU {self.shortname}')
                     continue
                 nodes[metric_name] = form
-                mgroups = f'TopdownL{level};tma_L{level}_group'
+                mgroups = []
+                for group in [f'TopdownL{level}', f'tma_L{level}_group']:
+                    mgroups.append(group)
+                    if group not in self.metricgroups:
+                        self.metricgroups[group] = f'Metrics for top-down breakdown at level {level}'
                 csv_groups = metric_group(metric_name)
                 if csv_groups:
-                    mgroups += f';{csv_groups}'
+                    for group in csv_groups.split(';'):
+                        mgroups.append(group)
+                        if group not in self.metricgroups:
+                            self.metricgroups[group] = 'Grouping from metrics spreadsheet'
                 parent_metric = None
                 if level > 1:
-                    mgroups += f';tma_{parents[-2].lower()}_group'
-                    children[parents[-2]].add(parents[-1])
                     parent_metric = f'tma_{parents[-2].lower()}'
+                    group = f'{parent_metric}_group'
+                    mgroups.append(group)
+                    if group not in self.metricgroups:
+                        self.metricgroups[group] = f'Metrics contributing to {parent_metric} category'
+                    children[parents[-2]].add(parents[-1])
                 tma_metric_name = f'tma_{metric_name.lower()}'
                 issues = issues()
                 for issue in issues:
                     issue_to_metrics[issue].add(tma_metric_name)
-                    mgroups += f';tma_{issue[1:]}'
+                    group = f'tma_{issue[1:]}'
+                    mgroups.append(group)
+                    if group not in self.metricgroups:
+                        self.metricgroups[group] = f'Metrics related by the issue {issue}'
                 info.append(PerfMetric(
                     tma_metric_name, form,
-                    field('Metric Description'), mgroups, locate_with(),
+                    field('Metric Description'), ';'.join(mgroups), locate_with(),
                     '100%', parent_metric, threshold(), issues
                 ))
                 infoname[metric_name] = form
@@ -826,16 +840,25 @@ class Model:
                 form = find_form()
                 if form:
                     tma_metric_name = f'tma_{l[0].lower().replace(".","_")}_{metric_name.lower()}'
-                    mgroups = metric_group(metric_name)
+                    mgroups = []
+                    csv_groups = metric_group(metric_name)
+                    if csv_groups:
+                        for group in csv_groups.split(';'):
+                            mgroups.append(group)
+                            if group not in self.metricgroups:
+                                self.metricgroups[group] = 'Grouping from metrics spreadsheet'
                     issues = issues()
                     for issue in issues:
                         issue_to_metrics[issue].add(tma_metric_name)
-                        mgroups += f';tma_{issue[1:]}'
+                        group = f'tma_{issue[1:]}'
+                        mgroups.append(group)
+                        if group not in self.metricgroups:
+                            self.metricgroups[group] = f'Metrics related by the issue {issue}'
                     info.append(PerfMetric(
                         tma_metric_name,
                         form,
                         field('Metric Description'),
-                        mgroups,
+                        ';'.join(mgroups),
                         locate_with(),
                         scale_unit = None,
                         parent_metric = None,
@@ -1626,6 +1649,12 @@ class Model:
                 json.dump(metrics, perf_metric_json, sort_keys=True, indent=4,
                           separators=(',', ': '))
                 perf_metric_json.write('\n')
+
+        if self.metricgroups:
+            with open(f'{outdir}/metricgroups.json', 'w', encoding='ascii') as metricgroups_json:
+                json.dump(self.metricgroups, metricgroups_json, sort_keys=True, indent=4,
+                          separators=(',', ': '))
+                metricgroups_json.write('\n')
 
 
 class Mapfile:
