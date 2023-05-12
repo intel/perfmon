@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2022 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) Processor E5 v4 Family Based on the Broadwell Microarchitecture - V19",
-    "DatePublished": "06/08/2022",
-    "Version": "19",
+    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) Processor E5 v4 Family Based on the Broadwell Microarchitecture - V21",
+    "DatePublished": "04/14/2023",
+    "Version": "21",
     "Legend": ""
   },
   "Events": [
@@ -28,7 +28,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x00",
@@ -51,7 +52,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x00",
@@ -74,7 +76,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x00",
@@ -97,7 +100,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x03",
@@ -120,7 +124,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x03",
@@ -143,7 +148,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x05",
@@ -166,7 +172,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x05",
@@ -189,7 +196,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x07",
@@ -212,7 +220,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x08",
@@ -235,7 +244,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM69",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x08",
@@ -258,7 +268,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM69",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x08",
@@ -281,7 +292,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM69",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x08",
@@ -304,7 +316,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM69",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x08",
@@ -327,7 +340,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM69",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x08",
@@ -350,7 +364,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM69",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x08",
@@ -373,7 +388,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x08",
@@ -396,7 +412,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x08",
@@ -419,7 +436,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x0D",
@@ -442,7 +460,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x0D",
@@ -465,7 +484,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x0D",
@@ -488,7 +508,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x0E",
@@ -511,7 +532,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x0E",
@@ -534,7 +556,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x0E",
@@ -557,7 +580,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x0E",
@@ -580,7 +604,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x0E",
@@ -603,7 +628,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x14",
@@ -626,7 +652,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x24",
@@ -649,7 +676,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x24",
@@ -672,7 +700,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x24",
@@ -695,7 +724,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x24",
@@ -718,7 +748,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x24",
@@ -741,7 +772,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x24",
@@ -764,7 +796,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x24",
@@ -787,7 +820,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x24",
@@ -810,7 +844,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x24",
@@ -833,7 +868,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x24",
@@ -856,7 +892,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x24",
@@ -879,7 +916,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x24",
@@ -902,7 +940,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x24",
@@ -925,7 +964,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x24",
@@ -948,7 +988,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x24",
@@ -971,7 +1012,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x24",
@@ -994,7 +1036,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x27",
@@ -1017,7 +1060,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x2E",
@@ -1040,7 +1084,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x2E",
@@ -1063,7 +1108,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x3C",
@@ -1086,7 +1132,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x3C",
@@ -1109,7 +1156,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x3C",
@@ -1132,7 +1180,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x3C",
@@ -1155,7 +1204,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x3C",
@@ -1178,7 +1228,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x3C",
@@ -1201,7 +1252,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x3c",
@@ -1224,7 +1276,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x3C",
@@ -1247,13 +1300,14 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x48",
       "UMask": "0x01",
       "EventName": "L1D_PEND_MISS.PENDING",
-      "BriefDescription": "L1D miss oustandings duration in cycles",
+      "BriefDescription": "L1D miss outstandings duration in cycles",
       "PublicDescription": "This event counts duration of L1D miss outstanding, that is each cycle number of Fill Buffers (FB) outstanding required by Demand Reads. FB either is held by demand loads, or it is held by non-demand loads and gets hit at least once by demand. The valid outstanding interval is defined until the FB deallocation by one of the following ways: from FB allocation, if FB is allocated by demand; from the demand Hit FB, if it is allocated by hardware or software prefetch.\nNote: In the L1D, a Demand Read contains cacheable or noncacheable demand loads, including ones causing cache-line splits and reads due to page walks resulted from any request type.",
       "Counter": "2",
       "CounterHTOff": "2",
@@ -1270,7 +1324,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x48",
@@ -1293,7 +1348,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x48",
@@ -1316,14 +1372,15 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x48",
       "UMask": "0x02",
       "EventName": "L1D_PEND_MISS.FB_FULL",
-      "BriefDescription": "Cycles a demand request was blocked due to Fill Buffers inavailability.",
-      "PublicDescription": "Cycles a demand request was blocked due to Fill Buffers inavailability.",
+      "BriefDescription": "Cycles a demand request was blocked due to Fill Buffers unavailability.",
+      "PublicDescription": "Cycles a demand request was blocked due to Fill Buffers unavailability.",
       "Counter": "0,1,2,3",
       "CounterHTOff": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "2000003",
@@ -1339,7 +1396,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x49",
@@ -1362,7 +1420,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM69",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x49",
@@ -1385,7 +1444,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM69",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x49",
@@ -1408,7 +1468,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM69",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x49",
@@ -1431,7 +1492,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM69",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x49",
@@ -1454,7 +1516,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM69",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x49",
@@ -1477,7 +1540,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM69",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x49",
@@ -1500,7 +1564,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x49",
@@ -1523,7 +1588,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x49",
@@ -1546,7 +1612,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x4c",
@@ -1569,7 +1636,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x4C",
@@ -1592,7 +1660,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x4F",
@@ -1615,7 +1684,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x51",
@@ -1638,7 +1708,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x54",
@@ -1661,7 +1732,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x54",
@@ -1684,7 +1756,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x54",
@@ -1707,7 +1780,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x54",
@@ -1730,7 +1804,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x54",
@@ -1753,7 +1828,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x54",
@@ -1776,7 +1852,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x54",
@@ -1799,7 +1876,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x58",
@@ -1822,7 +1900,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x58",
@@ -1845,7 +1924,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x58",
@@ -1868,7 +1948,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x58",
@@ -1891,7 +1972,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x5C",
@@ -1914,7 +1996,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x5C",
@@ -1937,7 +2020,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x5C",
@@ -1960,7 +2044,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x5d",
@@ -1983,7 +2068,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x5d",
@@ -2006,7 +2092,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x5d",
@@ -2029,7 +2116,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x5d",
@@ -2052,7 +2140,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x5d",
@@ -2075,7 +2164,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x5E",
@@ -2098,7 +2188,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x5E",
@@ -2121,7 +2212,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x60",
@@ -2144,7 +2236,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM76",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x60",
@@ -2167,7 +2260,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM76",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x60",
@@ -2190,7 +2284,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM76",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x60",
@@ -2213,7 +2308,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM76",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x60",
@@ -2236,7 +2332,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM76",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x60",
@@ -2259,7 +2356,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM76",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x60",
@@ -2282,7 +2380,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM76",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x60",
@@ -2305,7 +2404,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM76",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x63",
@@ -2328,7 +2428,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x63",
@@ -2351,7 +2452,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x79",
@@ -2374,7 +2476,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x79",
@@ -2397,7 +2500,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x79",
@@ -2420,7 +2524,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x79",
@@ -2443,7 +2548,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x79",
@@ -2466,13 +2572,14 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x79",
       "UMask": "0x10",
       "EventName": "IDQ.MS_DSB_UOPS",
-      "BriefDescription": "Uops initiated by Decode Stream Buffer (DSB) that are being delivered to Instruction Decode Queue (IDQ) while Microcode Sequenser (MS) is busy",
+      "BriefDescription": "Uops initiated by Decode Stream Buffer (DSB) that are being delivered to Instruction Decode Queue (IDQ) while Microcode Sequencer (MS) is busy",
       "PublicDescription": "This event counts the number of uops initiated by Decode Stream Buffer (DSB) that are being delivered to Instruction Decode Queue (IDQ) while the Microcode Sequencer (MS) is busy. Counting includes uops that may bypass the IDQ.",
       "Counter": "0,1,2,3",
       "CounterHTOff": "0,1,2,3,4,5,6,7",
@@ -2489,13 +2596,14 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x79",
       "UMask": "0x10",
       "EventName": "IDQ.MS_DSB_CYCLES",
-      "BriefDescription": "Cycles when uops initiated by Decode Stream Buffer (DSB) are being delivered to Instruction Decode Queue (IDQ) while Microcode Sequenser (MS) is busy",
+      "BriefDescription": "Cycles when uops initiated by Decode Stream Buffer (DSB) are being delivered to Instruction Decode Queue (IDQ) while Microcode Sequencer (MS) is busy",
       "PublicDescription": "This event counts cycles during which uops initiated by Decode Stream Buffer (DSB) are being delivered to Instruction Decode Queue (IDQ) while the Microcode Sequencer (MS) is busy. Counting includes uops that may bypass the IDQ.",
       "Counter": "0,1,2,3",
       "CounterHTOff": "0,1,2,3,4,5,6,7",
@@ -2512,13 +2620,14 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x79",
       "UMask": "0x10",
       "EventName": "IDQ.MS_DSB_OCCUR",
-      "BriefDescription": "Deliveries to Instruction Decode Queue (IDQ) initiated by Decode Stream Buffer (DSB) while Microcode Sequenser (MS) is busy",
+      "BriefDescription": "Deliveries to Instruction Decode Queue (IDQ) initiated by Decode Stream Buffer (DSB) while Microcode Sequencer (MS) is busy",
       "PublicDescription": "This event counts the number of deliveries to Instruction Decode Queue (IDQ) initiated by Decode Stream Buffer (DSB) while the Microcode Sequencer (MS) is busy. Counting includes uops that may bypass the IDQ.",
       "Counter": "0,1,2,3",
       "CounterHTOff": "0,1,2,3,4,5,6,7",
@@ -2535,7 +2644,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x79",
@@ -2558,7 +2668,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x79",
@@ -2581,14 +2692,15 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x79",
       "UMask": "0x20",
       "EventName": "IDQ.MS_MITE_UOPS",
-      "BriefDescription": "Uops initiated by MITE and delivered to Instruction Decode Queue (IDQ) while Microcode Sequenser (MS) is busy",
-      "PublicDescription": "This event counts the number of uops initiated by MITE and delivered to Instruction Decode Queue (IDQ) while the Microcode Sequenser (MS) is busy. Counting includes uops that may bypass the IDQ.",
+      "BriefDescription": "Uops initiated by MITE and delivered to Instruction Decode Queue (IDQ) while Microcode Sequencer (MS) is busy",
+      "PublicDescription": "This event counts the number of uops initiated by MITE and delivered to Instruction Decode Queue (IDQ) while the Microcode Sequencer (MS) is busy. Counting includes uops that may bypass the IDQ.",
       "Counter": "0,1,2,3",
       "CounterHTOff": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "2000003",
@@ -2604,7 +2716,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x79",
@@ -2627,7 +2740,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x79",
@@ -2650,14 +2764,15 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x79",
       "UMask": "0x30",
       "EventName": "IDQ.MS_UOPS",
-      "BriefDescription": "Uops delivered to Instruction Decode Queue (IDQ) while Microcode Sequenser (MS) is busy",
-      "PublicDescription": "This event counts the total number of uops delivered to Instruction Decode Queue (IDQ) while the Microcode Sequenser (MS) is busy. Counting includes uops that may bypass the IDQ. Uops maybe initiated by Decode Stream Buffer (DSB) or MITE.",
+      "BriefDescription": "Uops delivered to Instruction Decode Queue (IDQ) while Microcode Sequencer (MS) is busy",
+      "PublicDescription": "This event counts the total number of uops delivered to Instruction Decode Queue (IDQ) while the Microcode Sequencer (MS) is busy. Counting includes uops that may bypass the IDQ. Uops maybe initiated by Decode Stream Buffer (DSB) or MITE.",
       "Counter": "0,1,2,3",
       "CounterHTOff": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "2000003",
@@ -2673,14 +2788,15 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x79",
       "UMask": "0x30",
       "EventName": "IDQ.MS_CYCLES",
-      "BriefDescription": "Cycles when uops are being delivered to Instruction Decode Queue (IDQ) while Microcode Sequenser (MS) is busy",
-      "PublicDescription": "This event counts cycles during which uops are being delivered to Instruction Decode Queue (IDQ) while the Microcode Sequenser (MS) is busy. Counting includes uops that may bypass the IDQ. Uops maybe initiated by Decode Stream Buffer (DSB) or MITE.",
+      "BriefDescription": "Cycles when uops are being delivered to Instruction Decode Queue (IDQ) while Microcode Sequencer (MS) is busy",
+      "PublicDescription": "This event counts cycles during which uops are being delivered to Instruction Decode Queue (IDQ) while the Microcode Sequencer (MS) is busy. Counting includes uops that may bypass the IDQ. Uops maybe initiated by Decode Stream Buffer (DSB) or MITE.",
       "Counter": "0,1,2,3",
       "CounterHTOff": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "2000003",
@@ -2696,7 +2812,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x79",
@@ -2719,7 +2836,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x79",
@@ -2742,7 +2860,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x80",
@@ -2765,7 +2884,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x80",
@@ -2788,7 +2908,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x80",
@@ -2811,7 +2932,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x85",
@@ -2834,7 +2956,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM69",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x85",
@@ -2857,7 +2980,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM69",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x85",
@@ -2880,7 +3004,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM69",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x85",
@@ -2903,7 +3028,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM69",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x85",
@@ -2926,7 +3052,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM69",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x85",
@@ -2949,7 +3076,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM69",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x85",
@@ -2972,7 +3100,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x85",
@@ -2995,7 +3124,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x85",
@@ -3018,14 +3148,15 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x87",
       "UMask": "0x01",
       "EventName": "ILD_STALL.LCP",
       "BriefDescription": "Stalls caused by changing prefix length of the instruction.",
-      "PublicDescription": "This event counts stalls occured due to changing prefix length (66, 67 or REX.W when they change the length of the decoded instruction). Occurrences counting is proportional to the number of prefixes in a 16B-line. This may result in the following penalties: three-cycle penalty for each LCP in a 16-byte chunk.",
+      "PublicDescription": "This event counts stalls occurred due to changing prefix length (66, 67 or REX.W when they change the length of the decoded instruction). Occurrences counting is proportional to the number of prefixes in a 16B-line. This may result in the following penalties: three-cycle penalty for each LCP in a 16-byte chunk.",
       "Counter": "0,1,2,3",
       "CounterHTOff": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "2000003",
@@ -3041,7 +3172,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x88",
@@ -3064,7 +3196,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x88",
@@ -3087,7 +3220,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x88",
@@ -3110,7 +3244,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x88",
@@ -3133,7 +3268,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x88",
@@ -3156,7 +3292,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x88",
@@ -3179,7 +3316,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x88",
@@ -3202,7 +3340,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x88",
@@ -3225,7 +3364,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x88",
@@ -3248,7 +3388,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x88",
@@ -3271,7 +3412,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x88",
@@ -3294,7 +3436,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x88",
@@ -3317,7 +3460,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x88",
@@ -3340,7 +3484,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x89",
@@ -3363,7 +3508,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x89",
@@ -3386,7 +3532,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x89",
@@ -3409,7 +3556,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x89",
@@ -3432,7 +3580,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x89",
@@ -3455,7 +3604,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x89",
@@ -3478,7 +3628,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x89",
@@ -3501,7 +3652,32 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
+    },
+    {
+      "EventCode": "0x89",
+      "UMask": "0xe4",
+      "EventName": "BR_MISP_EXEC.INDIRECT",
+      "BriefDescription": "Speculative mispredicted indirect branches",
+      "PublicDescription": "Counts speculatively miss-predicted indirect branches at execution time. Counts for indirect near CALL or JMP instructions (RET excluded).",
+      "Counter": "0,1,2,3",
+      "CounterHTOff": "0,1,2,3,4,5,6,7",
+      "SampleAfterValue": "200003",
+      "MSRIndex": "0",
+      "MSRValue": "0",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "AnyThread": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "ELLC": "0",
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x89",
@@ -3524,7 +3700,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x9C",
@@ -3547,7 +3724,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x9C",
@@ -3570,7 +3748,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x9C",
@@ -3593,7 +3772,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x9C",
@@ -3616,7 +3796,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x9C",
@@ -3639,7 +3820,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0x9C",
@@ -3662,7 +3844,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA0",
@@ -3685,7 +3868,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA1",
@@ -3708,14 +3892,15 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA1",
       "UMask": "0x01",
       "EventName": "UOPS_EXECUTED_PORT.PORT_0_CORE",
-      "BriefDescription": "Cycles per core when uops are exectuted in port 0.",
-      "PublicDescription": "Cycles per core when uops are exectuted in port 0.",
+      "BriefDescription": "Cycles per core when uops are executed in port 0.",
+      "PublicDescription": "Cycles per core when uops are executed in port 0.",
       "Counter": "0,1,2,3",
       "CounterHTOff": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "2000003",
@@ -3731,7 +3916,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA1",
@@ -3754,7 +3940,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA1",
@@ -3777,14 +3964,15 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA1",
       "UMask": "0x02",
       "EventName": "UOPS_EXECUTED_PORT.PORT_1_CORE",
-      "BriefDescription": "Cycles per core when uops are exectuted in port 1.",
-      "PublicDescription": "Cycles per core when uops are exectuted in port 1.",
+      "BriefDescription": "Cycles per core when uops are executed in port 1.",
+      "PublicDescription": "Cycles per core when uops are executed in port 1.",
       "Counter": "0,1,2,3",
       "CounterHTOff": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "2000003",
@@ -3800,7 +3988,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA1",
@@ -3823,7 +4012,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA1",
@@ -3846,7 +4036,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA1",
@@ -3869,7 +4060,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA1",
@@ -3892,7 +4084,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA1",
@@ -3915,7 +4108,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA1",
@@ -3938,7 +4132,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA1",
@@ -3961,7 +4156,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA1",
@@ -3984,14 +4180,15 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA1",
       "UMask": "0x10",
       "EventName": "UOPS_EXECUTED_PORT.PORT_4_CORE",
-      "BriefDescription": "Cycles per core when uops are exectuted in port 4.",
-      "PublicDescription": "Cycles per core when uops are exectuted in port 4.",
+      "BriefDescription": "Cycles per core when uops are executed in port 4.",
+      "PublicDescription": "Cycles per core when uops are executed in port 4.",
       "Counter": "0,1,2,3",
       "CounterHTOff": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "2000003",
@@ -4007,7 +4204,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA1",
@@ -4030,7 +4228,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA1",
@@ -4053,14 +4252,15 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA1",
       "UMask": "0x20",
       "EventName": "UOPS_EXECUTED_PORT.PORT_5_CORE",
-      "BriefDescription": "Cycles per core when uops are exectuted in port 5.",
-      "PublicDescription": "Cycles per core when uops are exectuted in port 5.",
+      "BriefDescription": "Cycles per core when uops are executed in port 5.",
+      "PublicDescription": "Cycles per core when uops are executed in port 5.",
       "Counter": "0,1,2,3",
       "CounterHTOff": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "2000003",
@@ -4076,7 +4276,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA1",
@@ -4099,7 +4300,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA1",
@@ -4122,14 +4324,15 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA1",
       "UMask": "0x40",
       "EventName": "UOPS_EXECUTED_PORT.PORT_6_CORE",
-      "BriefDescription": "Cycles per core when uops are exectuted in port 6.",
-      "PublicDescription": "Cycles per core when uops are exectuted in port 6.",
+      "BriefDescription": "Cycles per core when uops are executed in port 6.",
+      "PublicDescription": "Cycles per core when uops are executed in port 6.",
       "Counter": "0,1,2,3",
       "CounterHTOff": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "2000003",
@@ -4145,7 +4348,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA1",
@@ -4168,7 +4372,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA1",
@@ -4191,7 +4396,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA1",
@@ -4214,7 +4420,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA1",
@@ -4237,7 +4444,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xa2",
@@ -4260,7 +4468,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA2",
@@ -4283,7 +4492,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA2",
@@ -4306,7 +4516,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA2",
@@ -4329,7 +4540,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA3",
@@ -4352,7 +4564,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA3",
@@ -4375,7 +4588,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA3",
@@ -4398,7 +4612,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA3",
@@ -4421,7 +4636,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA3",
@@ -4444,7 +4660,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA3",
@@ -4467,7 +4684,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA3",
@@ -4490,7 +4708,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA3",
@@ -4513,7 +4732,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA3",
@@ -4536,7 +4756,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA3",
@@ -4559,7 +4780,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA3",
@@ -4582,7 +4804,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA3",
@@ -4605,7 +4828,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA3",
@@ -4628,7 +4852,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA3",
@@ -4651,7 +4876,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA8",
@@ -4674,7 +4900,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA8",
@@ -4697,7 +4924,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xA8",
@@ -4720,7 +4948,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xAB",
@@ -4743,7 +4972,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xAE",
@@ -4766,7 +4996,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB0",
@@ -4789,14 +5020,15 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB0",
       "UMask": "0x02",
       "EventName": "OFFCORE_REQUESTS.DEMAND_CODE_RD",
-      "BriefDescription": "Cacheable and noncachaeble code read requests",
-      "PublicDescription": "This event counts both cacheable and noncachaeble code read requests.",
+      "BriefDescription": "Cacheable and non-cacheable code read requests",
+      "PublicDescription": "This event counts both cacheable and non-cacheable code read requests.",
       "Counter": "0,1,2,3",
       "CounterHTOff": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "100003",
@@ -4812,7 +5044,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB0",
@@ -4835,7 +5068,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB0",
@@ -4858,7 +5092,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xb0",
@@ -4881,7 +5116,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB1",
@@ -4904,7 +5140,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB1",
@@ -4927,7 +5164,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB1",
@@ -4950,7 +5188,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB1",
@@ -4973,7 +5212,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB1",
@@ -4996,7 +5236,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB1",
@@ -5019,7 +5260,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB1",
@@ -5042,7 +5284,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xb1",
@@ -5065,7 +5308,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xb1",
@@ -5088,7 +5332,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xb1",
@@ -5111,7 +5356,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xb1",
@@ -5134,7 +5380,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xb1",
@@ -5157,7 +5404,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xb2",
@@ -5180,7 +5428,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -5203,7 +5452,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xBC",
@@ -5226,7 +5476,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM69, BDM98",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xBC",
@@ -5249,7 +5500,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM69, BDM98",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xBC",
@@ -5272,7 +5524,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM69, BDM98",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xBC",
@@ -5295,7 +5548,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM69, BDM98",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xBC",
@@ -5318,7 +5572,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM69, BDM98",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xBC",
@@ -5341,7 +5596,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM69, BDM98",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xBC",
@@ -5364,7 +5620,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM69, BDM98",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xBD",
@@ -5387,7 +5644,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xBD",
@@ -5410,7 +5668,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC0",
@@ -5433,7 +5692,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM61",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC0",
@@ -5456,7 +5716,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM11, BDM55",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC0",
@@ -5479,7 +5740,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC1",
@@ -5502,7 +5764,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM30",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC1",
@@ -5525,7 +5788,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM30",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC1",
@@ -5548,7 +5812,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC2",
@@ -5571,7 +5836,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC2",
@@ -5594,7 +5860,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC2",
@@ -5617,7 +5884,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC2",
@@ -5640,7 +5908,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC3",
@@ -5663,7 +5932,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC3",
@@ -5686,7 +5956,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC3",
@@ -5709,7 +5980,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC3",
@@ -5732,7 +6004,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC3",
@@ -5755,7 +6028,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC4",
@@ -5778,7 +6052,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC4",
@@ -5801,7 +6076,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC4",
@@ -5824,7 +6100,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC4",
@@ -5847,7 +6124,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC4",
@@ -5870,7 +6148,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDW98",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC4",
@@ -5893,7 +6172,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC4",
@@ -5916,7 +6196,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC4",
@@ -5939,7 +6220,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC4",
@@ -5962,7 +6244,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDW98",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC5",
@@ -5985,7 +6268,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC5",
@@ -6008,7 +6292,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC5",
@@ -6031,7 +6316,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC5",
@@ -6054,7 +6340,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xC5",
@@ -6077,7 +6364,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc7",
@@ -6100,7 +6388,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc7",
@@ -6123,7 +6412,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc7",
@@ -6146,7 +6436,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc7",
@@ -6169,7 +6460,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc7",
@@ -6192,7 +6484,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc7",
@@ -6215,7 +6508,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc7",
@@ -6238,7 +6532,32 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
+    },
+    {
+      "EventCode": "0xc7",
+      "UMask": "0x18",
+      "EventName": "FP_ARITH_INST_RETIRED.4_FLOPS",
+      "BriefDescription": "Number of SSE/AVX computational 128-bit packed single and 256-bit packed double precision FP instructions retired; some instructions will count twice as noted below.  Each count represents 2 or/and 4 computation operations, 1 for each element.  Applies to SSE* and AVX* packed single precision and packed double precision FP instructions: ADD SUB HADD HSUB SUBADD MUL DIV MIN MAX RCP14 RSQRT14 SQRT DPP FM(N)ADD/SUB.  DPP and FM(N)ADD/SUB count twice as they perform 2 calculations per element.",
+      "PublicDescription": "Number of SSE/AVX computational 128-bit packed single precision and 256-bit packed double precision  floating-point instructions retired; some instructions will count twice as noted below.  Each count represents 2 or/and 4 computation operations, one for each element.  Applies to SSE* and AVX* packed single precision floating-point and packed double precision floating-point instructions: ADD SUB HADD HSUB SUBADD MUL DIV MIN MAX RCP14 RSQRT14 SQRT DPP FM(N)ADD/SUB.  DPP and FM(N)ADD/SUB instructions count twice as they perform 2 calculations per element. The DAZ and FTZ flags in the MXCSR register need to be set when using these events.",
+      "Counter": "0,1,2,3",
+      "CounterHTOff": "0,1,2,3",
+      "SampleAfterValue": "2000003",
+      "MSRIndex": "0",
+      "MSRValue": "0",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "AnyThread": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "ELLC": "0",
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc7",
@@ -6261,7 +6580,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc7",
@@ -6284,7 +6604,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc7",
@@ -6307,7 +6628,32 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
+    },
+    {
+      "EventCode": "0xc7",
+      "UMask": "0xfc",
+      "EventName": "FP_ARITH_INST_RETIRED.VECTOR",
+      "BriefDescription": "Number of any Vector retired FP arithmetic instructions",
+      "PublicDescription": "Number of any Vector retired FP arithmetic instructions",
+      "Counter": "0,1,2,3",
+      "CounterHTOff": "0,1,2,3",
+      "SampleAfterValue": "2000003",
+      "MSRIndex": "0x00",
+      "MSRValue": "0x00",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "AnyThread": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "ELLC": "0",
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc8",
@@ -6330,7 +6676,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc8",
@@ -6353,7 +6700,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc8",
@@ -6376,7 +6724,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc8",
@@ -6399,7 +6748,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc8",
@@ -6422,7 +6772,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc8",
@@ -6445,7 +6796,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc8",
@@ -6468,7 +6820,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc8",
@@ -6491,7 +6844,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc9",
@@ -6514,7 +6868,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc9",
@@ -6537,7 +6892,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc9",
@@ -6560,7 +6916,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc9",
@@ -6583,7 +6940,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc9",
@@ -6606,7 +6964,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc9",
@@ -6629,7 +6988,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc9",
@@ -6652,7 +7012,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xc9",
@@ -6675,7 +7036,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xCA",
@@ -6698,7 +7060,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xCA",
@@ -6721,7 +7084,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xCA",
@@ -6744,7 +7108,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xCA",
@@ -6767,7 +7132,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xCA",
@@ -6790,7 +7156,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xCC",
@@ -6813,7 +7180,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xcd",
@@ -6836,7 +7204,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM100, BDM35",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xcd",
@@ -6859,7 +7228,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM100, BDM35",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xcd",
@@ -6882,7 +7252,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM100, BDM35",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xcd",
@@ -6905,7 +7276,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM100, BDM35",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xcd",
@@ -6928,7 +7300,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM100, BDM35",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xcd",
@@ -6951,7 +7324,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM100, BDM35",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xcd",
@@ -6974,7 +7348,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM100, BDM35",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xcd",
@@ -6997,7 +7372,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM100, BDM35",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xD0",
@@ -7020,7 +7396,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xD0",
@@ -7043,7 +7420,8 @@
       "L1_Hit_Indication": "1",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xD0",
@@ -7066,7 +7444,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM35",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xD0",
@@ -7089,7 +7468,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xD0",
@@ -7112,14 +7492,15 @@
       "L1_Hit_Indication": "1",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xD0",
       "UMask": "0x81",
       "EventName": "MEM_UOPS_RETIRED.ALL_LOADS",
-      "BriefDescription": "All retired load uops.",
-      "PublicDescription": "This event counts load uops retired to the architected path with a filter on bits 0 and 1 applied.\nNote: This event counts AVX-256bit load/store double-pump memory uops as a single uop at retirement. This event also counts SW prefetches.",
+      "BriefDescription": "Retired load uops.",
+      "PublicDescription": "Counts all retired load uops. This event accounts for SW prefetch uops of PREFETCHNTA or PREFETCHT0/1/2 or PREFETCHW.",
       "Counter": "0,1,2,3",
       "CounterHTOff": "0,1,2,3",
       "SampleAfterValue": "2000003",
@@ -7135,14 +7516,15 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xD0",
       "UMask": "0x82",
       "EventName": "MEM_UOPS_RETIRED.ALL_STORES",
-      "BriefDescription": "All retired store uops.",
-      "PublicDescription": "This event counts store uops retired to the architected path with a filter on bits 0 and 1 applied.\nNote: This event counts AVX-256bit load/store double-pump memory uops as a single uop at retirement.",
+      "BriefDescription": "Retired store uops.",
+      "PublicDescription": "Counts all retired store uops.",
       "Counter": "0,1,2,3",
       "CounterHTOff": "0,1,2,3",
       "SampleAfterValue": "2000003",
@@ -7158,7 +7540,8 @@
       "L1_Hit_Indication": "1",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xD1",
@@ -7181,7 +7564,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xD1",
@@ -7204,7 +7588,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM35",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xD1",
@@ -7227,7 +7612,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM100",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xD1",
@@ -7250,7 +7636,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xD1",
@@ -7273,7 +7660,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xD1",
@@ -7296,7 +7684,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM100, BDE70",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xD1",
@@ -7319,7 +7708,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xD2",
@@ -7342,7 +7732,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM100",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xD2",
@@ -7365,7 +7756,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM100",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xD2",
@@ -7388,7 +7780,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM100",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xD2",
@@ -7411,7 +7804,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDM100",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xD3",
@@ -7434,7 +7828,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDE70, BDM100",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xD3",
@@ -7457,7 +7852,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDE70",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xD3",
@@ -7480,7 +7876,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDE70",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xD3",
@@ -7503,7 +7900,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "BDE70",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xe6",
@@ -7526,7 +7924,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xF0",
@@ -7549,7 +7948,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xF0",
@@ -7572,7 +7972,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xF0",
@@ -7595,7 +7996,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xF0",
@@ -7618,7 +8020,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xF0",
@@ -7641,7 +8044,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xF0",
@@ -7664,7 +8068,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xF0",
@@ -7687,7 +8092,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xF0",
@@ -7710,7 +8116,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xF1",
@@ -7733,7 +8140,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xF1",
@@ -7756,7 +8164,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xF1",
@@ -7779,7 +8188,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xF1",
@@ -7802,7 +8212,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xF2",
@@ -7825,7 +8236,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xf4",
@@ -7848,7 +8260,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "0"
+      "Offcore": "0",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -7871,7 +8284,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -7894,7 +8308,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -7917,7 +8332,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -7940,7 +8356,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -7963,7 +8380,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -7986,7 +8404,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -8009,7 +8428,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -8032,7 +8452,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -8055,7 +8476,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -8078,7 +8500,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -8101,7 +8524,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -8124,7 +8548,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -8147,7 +8572,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -8170,7 +8596,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -8193,7 +8620,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -8216,7 +8644,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -8239,7 +8668,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -8262,7 +8692,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -8285,7 +8716,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -8308,7 +8740,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -8331,7 +8764,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -8354,7 +8788,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -8377,7 +8812,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -8400,7 +8836,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -8423,7 +8860,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -8446,7 +8884,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -8469,7 +8908,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -8492,7 +8932,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -8515,7 +8956,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -8538,7 +8980,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     },
     {
       "EventCode": "0xB7, 0xBB",
@@ -8561,7 +9004,8 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "ELLC": "0",
-      "Offcore": "1"
+      "Offcore": "1",
+      "Deprecated": "0"
     }
   ]
 }

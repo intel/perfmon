@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2022 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 3rd Generation Intel(R) Core(TM) Processor - V23",
-    "DatePublished": "10/03/2018",
-    "Version": "23",
+    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for 3rd Generation Intel(R) Core(TM) Processor - V24",
+    "DatePublished": "03/21/2023",
+    "Version": "24",
     "Legend": ""
   },
   "Events": [
@@ -191,7 +191,7 @@
       "BitName": "SUPPLIER_NONE",
       "BitIndex": "17",
       "Type": "3",
-      "Description": null,
+      "Description": "SUPPLIER_NONE",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -200,7 +200,7 @@
       "BitName": "LLC_HIT_M",
       "BitIndex": "18",
       "Type": "3",
-      "Description": null,
+      "Description": "LLC_HIT_M",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -209,7 +209,7 @@
       "BitName": "LLC_HIT_E",
       "BitIndex": "19",
       "Type": "3",
-      "Description": null,
+      "Description": "LLC_HIT_E",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -218,7 +218,7 @@
       "BitName": "LLC_HIT_S",
       "BitIndex": "20",
       "Type": "3",
-      "Description": null,
+      "Description": "LLC_HIT_S",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -227,7 +227,7 @@
       "BitName": "LLC_HIT_F",
       "BitIndex": "21",
       "Type": "3",
-      "Description": null,
+      "Description": "LLC_HIT_F",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -236,7 +236,7 @@
       "BitName": "LLC_HIT",
       "BitIndex": "18,19,20,21",
       "Type": "3",
-      "Description": null,
+      "Description": "LLC_HIT",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -245,7 +245,7 @@
       "BitName": "L3_MISS_LOCAL_DRAM",
       "BitIndex": "22",
       "Type": "3",
-      "Description": null,
+      "Description": "L3_MISS_LOCAL_DRAM",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -254,7 +254,7 @@
       "BitName": "L3_MISS_REMOTE_DRAM",
       "BitIndex": "22,23,24,25,26,27,28,29,30",
       "Type": "3",
-      "Description": null,
+      "Description": "L3_MISS_REMOTE_DRAM",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -263,7 +263,7 @@
       "BitName": "SNOOP_NONE",
       "BitIndex": "31",
       "Type": "4",
-      "Description": null,
+      "Description": "SNOOP_NONE",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -272,7 +272,7 @@
       "BitName": "SNOOP_NOT_NEEDED",
       "BitIndex": "32",
       "Type": "4",
-      "Description": null,
+      "Description": "SNOOP_NOT_NEEDED",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -281,7 +281,7 @@
       "BitName": "SNOOP_MISS",
       "BitIndex": "33",
       "Type": "4",
-      "Description": null,
+      "Description": "SNOOP_MISS",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -290,7 +290,7 @@
       "BitName": "SNOOP_HIT_NO_FWD",
       "BitIndex": "34",
       "Type": "4",
-      "Description": null,
+      "Description": "SNOOP_HIT_NO_FWD",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -299,7 +299,7 @@
       "BitName": "SNOOP_HIT_WITH_FWD",
       "BitIndex": "35",
       "Type": "4",
-      "Description": null,
+      "Description": "SNOOP_HIT_WITH_FWD",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "18,19,20,21",
       "Errata": "na"
@@ -308,7 +308,7 @@
       "BitName": "SNOOP_HITM",
       "BitIndex": "36",
       "Type": "4",
-      "Description": null,
+      "Description": "SNOOP_HITM",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -317,7 +317,7 @@
       "BitName": "SNOOP_NON_DRAM",
       "BitIndex": "37",
       "Type": "4",
-      "Description": null,
+      "Description": "SNOOP_NON_DRAM",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -326,7 +326,7 @@
       "BitName": "ANY_SNOOP",
       "BitIndex": "31,32,33,34,35,36,37",
       "Type": "4",
-      "Description": null,
+      "Description": "ANY_SNOOP",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"

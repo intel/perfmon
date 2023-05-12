@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2022 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 2nd Generation Intel(R) Core(TM) Processor - V18",
-    "DatePublished": "12/07/2022",
-    "Version": "18",
+    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for 2nd Generation Intel(R) Core(TM) Processor - V19",
+    "DatePublished": "03/02/2023",
+    "Version": "19",
     "Legend": ""
   },
   "Events": [
@@ -3113,6 +3113,27 @@
       "PEBS": "0",
       "PRECISE_STORE": "0",
       "Errata": "0",
+      "Offcore": "0"
+    },
+    {
+      "EventCode": "0x89",
+      "UMask": "0xe4",
+      "EventName": "BR_MISP_EXEC.INDIRECT",
+      "BriefDescription": "Speculative mispredicted indirect branches",
+      "PublicDescription": "Counts speculatively miss-predicted indirect branches at execution time. Counts for indirect near CALL or JMP instructions (RET excluded).",
+      "Counter": "0,1,2,3",
+      "CounterHTOff": "0,1,2,3,4,5,6,7",
+      "SampleAfterValue": "200003",
+      "MSRIndex": "0",
+      "MSRValue": "0",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "AnyThread": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "PRECISE_STORE": "0",
+      "Errata": "null",
       "Offcore": "0"
     },
     {

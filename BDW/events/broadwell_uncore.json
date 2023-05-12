@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2022 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 5th Generation Intel(R) Core(TM) Processor - V26",
-    "DatePublished": "11/16/2020",
-    "Version": "26",
+    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for 5th Generation Intel(R) Core(TM) Processor - V28",
+    "DatePublished": "04/14/2023",
+    "Version": "28",
     "Legend": ""
   },
   "Events": [
@@ -188,24 +188,12 @@
       "EdgeDetect": "0"
     },
     {
-      "Unit": "NCU",
-      "EventCode": "0x0",
-      "UMask": "0x01",
-      "EventName": "UNC_CLOCK.SOCKET",
-      "BriefDescription": "This 48-bit fixed counter counts the UCLK cycles",
-      "PublicDescription": "This 48-bit fixed counter counts the UCLK cycles.",
-      "Counter": "FIXED",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0"
-    },
-    {
       "Unit": "ARB",
       "EventCode": "0x80",
       "UMask": "0x01",
       "EventName": "UNC_ARB_TRK_OCCUPANCY.ALL",
-      "BriefDescription": "Each cycle count number of all Core outgoing valid entries. Such entry is defined as valid from it's allocation till first of IDI0 or DRS0 messages is sent out. Accounts for Coherent and non-coherent traffic.",
-      "PublicDescription": "Each cycle count number of all Core outgoing valid entries. Such entry is defined as valid from it's allocation till first of IDI0 or DRS0 messages is sent out. Accounts for Coherent and non-coherent traffic.",
+      "BriefDescription": "Each cycle counts number of all Core outgoing valid entries. Such entry is defined as valid from its allocation till first of IDI0 or DRS0 messages is sent out. Accounts for Coherent and non-coherent traffic.",
+      "PublicDescription": "Each cycle counts number of all Core outgoing valid entries. Such entry is defined as valid from its allocation till first of IDI0 or DRS0 messages is sent out. Accounts for Coherent and non-coherent traffic.",
       "Counter": "0,",
       "CounterMask": "0",
       "Invert": "0",
@@ -280,6 +268,18 @@
       "PublicDescription": "Cycles with at least one request outstanding is waiting for data return from memory controller. Account for coherent and non-coherent requests initiated by IA Cores, Processor Graphics Unit, or LLC.",
       "Counter": "0,",
       "CounterMask": "1",
+      "Invert": "0",
+      "EdgeDetect": "0"
+    },
+    {
+      "Unit": "NCU",
+      "EventCode": "0x0",
+      "UMask": "0x01",
+      "EventName": "UNC_CLOCK.SOCKET",
+      "BriefDescription": "This 48-bit fixed counter counts the UCLK cycles",
+      "PublicDescription": "This 48-bit fixed counter counts the UCLK cycles.",
+      "Counter": "FIXED",
+      "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0"
     }

@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 11th Generation Intel(R) Core(TM) Processor - V1.10",
-    "DatePublished": "02/07/2023",
-    "Version": "1.10",
+    "Info": "Performance Monitoring Events for 11th Generation Intel(R) Core(TM) Processor - V1.12",
+    "DatePublished": "04/25/2023",
+    "Version": "1.12",
     "Legend": ""
   },
   "Events": [

@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 6th Generation Intel(R) Core(TM) Processor - V55",
-    "DatePublished": "02/22/2023",
-    "Version": "55",
+    "Info": "Performance Monitoring Events for 6th Generation Intel(R) Core(TM) Processor - V56",
+    "DatePublished": "04/14/2023",
+    "Version": "56",
     "Legend": ""
   },
   "Events": [
@@ -56,7 +56,7 @@
       "BitName": "SUPPLIER_NONE",
       "BitIndex": "17",
       "Type": "3",
-      "Description": null,
+      "Description": "SUPPLIER_NONE",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -65,7 +65,7 @@
       "BitName": "L3_HIT_M",
       "BitIndex": "18",
       "Type": "3",
-      "Description": null,
+      "Description": "L3_HIT_M",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -74,7 +74,7 @@
       "BitName": "L3_HIT_E",
       "BitIndex": "19",
       "Type": "3",
-      "Description": null,
+      "Description": "L3_HIT_E",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -83,7 +83,7 @@
       "BitName": "L3_HIT_S",
       "BitIndex": "20",
       "Type": "3",
-      "Description": null,
+      "Description": "L3_HIT_S",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -92,7 +92,7 @@
       "BitName": "L3_HIT",
       "BitIndex": "18,19,20",
       "Type": "3",
-      "Description": null,
+      "Description": "L3_HIT",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -101,7 +101,7 @@
       "BitName": "L4_HIT_LOCAL_L4",
       "BitIndex": "22",
       "Type": "3",
-      "Description": null,
+      "Description": "L4_HIT_LOCAL_L4",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -110,7 +110,7 @@
       "BitName": "L3_MISS_LOCAL_DRAM",
       "BitIndex": "26",
       "Type": "3",
-      "Description": null,
+      "Description": "L3_MISS_LOCAL_DRAM",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -119,7 +119,7 @@
       "BitName": "L3_MISS",
       "BitIndex": "26,27,28,29,22",
       "Type": "3",
-      "Description": null,
+      "Description": "L3_MISS",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -128,7 +128,7 @@
       "BitName": "SPL_HIT",
       "BitIndex": "30",
       "Type": "4",
-      "Description": null,
+      "Description": "SPL_HIT",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -137,7 +137,7 @@
       "BitName": "SNOOP_NONE",
       "BitIndex": "31",
       "Type": "4",
-      "Description": null,
+      "Description": "SNOOP_NONE",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -146,7 +146,7 @@
       "BitName": "SNOOP_NOT_NEEDED",
       "BitIndex": "32",
       "Type": "4",
-      "Description": null,
+      "Description": "SNOOP_NOT_NEEDED",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -155,7 +155,7 @@
       "BitName": "SNOOP_MISS",
       "BitIndex": "33",
       "Type": "4",
-      "Description": null,
+      "Description": "SNOOP_MISS",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -164,7 +164,7 @@
       "BitName": "SNOOP_HIT_NO_FWD",
       "BitIndex": "34",
       "Type": "4",
-      "Description": null,
+      "Description": "SNOOP_HIT_NO_FWD",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -173,7 +173,7 @@
       "BitName": "SNOOP_HIT_WITH_FWD",
       "BitIndex": "35",
       "Type": "4",
-      "Description": null,
+      "Description": "SNOOP_HIT_WITH_FWD",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "18,19,20,21",
       "Errata": "na"
@@ -182,7 +182,7 @@
       "BitName": "SNOOP_HITM",
       "BitIndex": "36",
       "Type": "4",
-      "Description": null,
+      "Description": "SNOOP_HITM",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -191,7 +191,7 @@
       "BitName": "SNOOP_NON_DRAM",
       "BitIndex": "37",
       "Type": "4",
-      "Description": null,
+      "Description": "SNOOP_NON_DRAM",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -200,7 +200,7 @@
       "BitName": "ANY_SNOOP",
       "BitIndex": "30,31,32,33,34,35,36,37",
       "Type": "4",
-      "Description": null,
+      "Description": "ANY_SNOOP",
       "MATRIX_REG": "0,1",
       "BitsNotCombinedWith": "",
       "Errata": "na"
@@ -209,7 +209,7 @@
       "BitName": "SUPPLIER_NONE.SPL_HIT",
       "BitIndex": "17,30",
       "Type": "2",
-      "Description": "",
+      "Description": "SUPPLIER_NONE.SPL_HIT",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -218,7 +218,7 @@
       "BitName": "SUPPLIER_NONE.SNOOP_NONE",
       "BitIndex": "17,31",
       "Type": "2",
-      "Description": "",
+      "Description": "SUPPLIER_NONE.SNOOP_NONE",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -227,7 +227,7 @@
       "BitName": "SUPPLIER_NONE.SNOOP_NOT_NEEDED",
       "BitIndex": "17,32",
       "Type": "2",
-      "Description": "",
+      "Description": "SUPPLIER_NONE.SNOOP_NOT_NEEDED",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -236,7 +236,7 @@
       "BitName": "SUPPLIER_NONE.SNOOP_MISS",
       "BitIndex": "17,33",
       "Type": "2",
-      "Description": "",
+      "Description": "SUPPLIER_NONE.SNOOP_MISS",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -245,7 +245,7 @@
       "BitName": "SUPPLIER_NONE.SNOOP_HIT_NO_FWD",
       "BitIndex": "17,34",
       "Type": "2",
-      "Description": "",
+      "Description": "SUPPLIER_NONE.SNOOP_HIT_NO_FWD",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -254,7 +254,7 @@
       "BitName": "SUPPLIER_NONE.SNOOP_HITM",
       "BitIndex": "17,36",
       "Type": "2",
-      "Description": "",
+      "Description": "SUPPLIER_NONE.SNOOP_HITM",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -263,7 +263,7 @@
       "BitName": "SUPPLIER_NONE.SNOOP_NON_DRAM",
       "BitIndex": "17,37",
       "Type": "2",
-      "Description": "",
+      "Description": "SUPPLIER_NONE.SNOOP_NON_DRAM",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -272,7 +272,7 @@
       "BitName": "SUPPLIER_NONE.ANY_SNOOP",
       "BitIndex": "17,30,31,32,33,34,35,36,37",
       "Type": "2",
-      "Description": "",
+      "Description": "SUPPLIER_NONE.ANY_SNOOP",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -281,7 +281,7 @@
       "BitName": "L3_HIT_M.SPL_HIT",
       "BitIndex": "18,30",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT_M.SPL_HIT",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -290,7 +290,7 @@
       "BitName": "L3_HIT_M.SNOOP_NONE",
       "BitIndex": "18,31",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT_M.SNOOP_NONE",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -299,7 +299,7 @@
       "BitName": "L3_HIT_M.SNOOP_NOT_NEEDED",
       "BitIndex": "18,32",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT_M.SNOOP_NOT_NEEDED",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -308,7 +308,7 @@
       "BitName": "L3_HIT_M.SNOOP_MISS",
       "BitIndex": "18,33",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT_M.SNOOP_MISS",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -317,7 +317,7 @@
       "BitName": "L3_HIT_M.SNOOP_HIT_NO_FWD",
       "BitIndex": "18,34",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT_M.SNOOP_HIT_NO_FWD",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -326,7 +326,7 @@
       "BitName": "L3_HIT_M.SNOOP_HITM",
       "BitIndex": "18,36",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT_M.SNOOP_HITM",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -335,7 +335,7 @@
       "BitName": "L3_HIT_M.SNOOP_NON_DRAM",
       "BitIndex": "18,37",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT_M.SNOOP_NON_DRAM",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -344,7 +344,7 @@
       "BitName": "L3_HIT_M.ANY_SNOOP",
       "BitIndex": "18,30,31,32,33,34,35,36,37",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT_M.ANY_SNOOP",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -353,7 +353,7 @@
       "BitName": "L3_HIT_E.SPL_HIT",
       "BitIndex": "19,30",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT_E.SPL_HIT",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -362,7 +362,7 @@
       "BitName": "L3_HIT_E.SNOOP_NONE",
       "BitIndex": "19,31",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT_E.SNOOP_NONE",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -371,7 +371,7 @@
       "BitName": "L3_HIT_E.SNOOP_NOT_NEEDED",
       "BitIndex": "19,32",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT_E.SNOOP_NOT_NEEDED",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -380,7 +380,7 @@
       "BitName": "L3_HIT_E.SNOOP_MISS",
       "BitIndex": "19,33",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT_E.SNOOP_MISS",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -389,7 +389,7 @@
       "BitName": "L3_HIT_E.SNOOP_HIT_NO_FWD",
       "BitIndex": "19,34",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT_E.SNOOP_HIT_NO_FWD",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -398,7 +398,7 @@
       "BitName": "L3_HIT_E.SNOOP_HITM",
       "BitIndex": "19,36",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT_E.SNOOP_HITM",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -407,7 +407,7 @@
       "BitName": "L3_HIT_E.SNOOP_NON_DRAM",
       "BitIndex": "19,37",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT_E.SNOOP_NON_DRAM",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -416,7 +416,7 @@
       "BitName": "L3_HIT_E.ANY_SNOOP",
       "BitIndex": "19,30,31,32,33,34,35,36,37",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT_E.ANY_SNOOP",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -425,7 +425,7 @@
       "BitName": "L3_HIT_S.SPL_HIT",
       "BitIndex": "20,30",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT_S.SPL_HIT",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -434,7 +434,7 @@
       "BitName": "L3_HIT_S.SNOOP_NONE",
       "BitIndex": "20,31",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT_S.SNOOP_NONE",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -443,7 +443,7 @@
       "BitName": "L3_HIT_S.SNOOP_NOT_NEEDED",
       "BitIndex": "20,32",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT_S.SNOOP_NOT_NEEDED",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -452,7 +452,7 @@
       "BitName": "L3_HIT_S.SNOOP_MISS",
       "BitIndex": "20,33",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT_S.SNOOP_MISS",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -461,7 +461,7 @@
       "BitName": "L3_HIT_S.SNOOP_HIT_NO_FWD",
       "BitIndex": "20,34",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT_S.SNOOP_HIT_NO_FWD",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -470,7 +470,7 @@
       "BitName": "L3_HIT_S.SNOOP_HITM",
       "BitIndex": "20,36",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT_S.SNOOP_HITM",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -479,7 +479,7 @@
       "BitName": "L3_HIT_S.SNOOP_NON_DRAM",
       "BitIndex": "20,37",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT_S.SNOOP_NON_DRAM",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -488,7 +488,7 @@
       "BitName": "L3_HIT_S.ANY_SNOOP",
       "BitIndex": "20,30,31,32,33,34,35,36,37",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT_S.ANY_SNOOP",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -497,7 +497,7 @@
       "BitName": "L3_HIT.SPL_HIT",
       "BitIndex": "18,19,20,30",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT.SPL_HIT",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -506,7 +506,7 @@
       "BitName": "L3_HIT.SNOOP_NONE",
       "BitIndex": "18,19,20,31",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT.SNOOP_NONE",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -542,7 +542,7 @@
       "BitName": "L3_HIT.SNOOP_HITM",
       "BitIndex": "18,19,20,36",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT.SNOOP_HITM",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -551,7 +551,7 @@
       "BitName": "L3_HIT.SNOOP_NON_DRAM",
       "BitIndex": "18,19,20,37",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT.SNOOP_NON_DRAM",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -560,7 +560,7 @@
       "BitName": "L3_HIT.ANY_SNOOP",
       "BitIndex": "18,19,20,30,31,32,33,34,35,36,37",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_HIT.ANY_SNOOP",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -569,7 +569,7 @@
       "BitName": "L4_HIT_LOCAL_L4.SPL_HIT",
       "BitIndex": "22,30",
       "Type": "2",
-      "Description": "",
+      "Description": "L4_HIT_LOCAL_L4.SPL_HIT",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -578,7 +578,7 @@
       "BitName": "L4_HIT_LOCAL_L4.SNOOP_NONE",
       "BitIndex": "22,31",
       "Type": "2",
-      "Description": "",
+      "Description": "L4_HIT_LOCAL_L4.SNOOP_NONE",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -587,7 +587,7 @@
       "BitName": "L4_HIT_LOCAL_L4.SNOOP_NOT_NEEDED",
       "BitIndex": "22,32",
       "Type": "2",
-      "Description": "",
+      "Description": "L4_HIT_LOCAL_L4.SNOOP_NOT_NEEDED",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -596,7 +596,7 @@
       "BitName": "L4_HIT_LOCAL_L4.SNOOP_MISS",
       "BitIndex": "22,33",
       "Type": "2",
-      "Description": "",
+      "Description": "L4_HIT_LOCAL_L4.SNOOP_MISS",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -605,7 +605,7 @@
       "BitName": "L4_HIT_LOCAL_L4.SNOOP_HIT_NO_FWD",
       "BitIndex": "22,34",
       "Type": "2",
-      "Description": "",
+      "Description": "L4_HIT_LOCAL_L4.SNOOP_HIT_NO_FWD",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -614,7 +614,7 @@
       "BitName": "L4_HIT_LOCAL_L4.SNOOP_HIT_WITH_FWD",
       "BitIndex": "22,35",
       "Type": "2",
-      "Description": "",
+      "Description": "L4_HIT_LOCAL_L4.SNOOP_HIT_WITH_FWD",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -623,7 +623,7 @@
       "BitName": "L4_HIT_LOCAL_L4.SNOOP_HITM",
       "BitIndex": "22,36",
       "Type": "2",
-      "Description": "",
+      "Description": "L4_HIT_LOCAL_L4.SNOOP_HITM",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -632,7 +632,7 @@
       "BitName": "L4_HIT_LOCAL_L4.SNOOP_NON_DRAM",
       "BitIndex": "22,37",
       "Type": "2",
-      "Description": "",
+      "Description": "L4_HIT_LOCAL_L4.SNOOP_NON_DRAM",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -641,7 +641,7 @@
       "BitName": "L4_HIT_LOCAL_L4.ANY_SNOOP",
       "BitIndex": "22,30,31,32,33,34,35,36,37",
       "Type": "2",
-      "Description": "",
+      "Description": "L4_HIT_LOCAL_L4.ANY_SNOOP",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -650,7 +650,7 @@
       "BitName": "L3_MISS_LOCAL_DRAM.SPL_HIT",
       "BitIndex": "26,30",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_MISS_LOCAL_DRAM.SPL_HIT",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -659,7 +659,7 @@
       "BitName": "L3_MISS_LOCAL_DRAM.SNOOP_NONE",
       "BitIndex": "26,31",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_MISS_LOCAL_DRAM.SNOOP_NONE",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -668,7 +668,7 @@
       "BitName": "L3_MISS_LOCAL_DRAM.SNOOP_NOT_NEEDED",
       "BitIndex": "26,32",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_MISS_LOCAL_DRAM.SNOOP_NOT_NEEDED",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -677,7 +677,7 @@
       "BitName": "L3_MISS_LOCAL_DRAM.SNOOP_MISS",
       "BitIndex": "26,33",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_MISS_LOCAL_DRAM.SNOOP_MISS",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -686,7 +686,7 @@
       "BitName": "L3_MISS_LOCAL_DRAM.SNOOP_HIT_NO_FWD",
       "BitIndex": "26,34",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_MISS_LOCAL_DRAM.SNOOP_HIT_NO_FWD",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -695,7 +695,7 @@
       "BitName": "L3_MISS_LOCAL_DRAM.SNOOP_HITM",
       "BitIndex": "26,36",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_MISS_LOCAL_DRAM.SNOOP_HITM",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -704,7 +704,7 @@
       "BitName": "L3_MISS_LOCAL_DRAM.SNOOP_NON_DRAM",
       "BitIndex": "26,37",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_MISS_LOCAL_DRAM.SNOOP_NON_DRAM",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -713,7 +713,7 @@
       "BitName": "L3_MISS_LOCAL_DRAM.ANY_SNOOP",
       "BitIndex": "26,30,31,32,33,34,35,36,37",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_MISS_LOCAL_DRAM.ANY_SNOOP",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -722,7 +722,7 @@
       "BitName": "L3_MISS.SPL_HIT",
       "BitIndex": "22,26,27,28,29,30",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_MISS.SPL_HIT",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -731,7 +731,7 @@
       "BitName": "L3_MISS.SNOOP_NONE",
       "BitIndex": "22,26,27,28,29,31",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_MISS.SNOOP_NONE",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -740,7 +740,7 @@
       "BitName": "L3_MISS.SNOOP_NOT_NEEDED",
       "BitIndex": "22,26,27,28,29,32",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_MISS.SNOOP_NOT_NEEDED",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -749,7 +749,7 @@
       "BitName": "L3_MISS.SNOOP_MISS",
       "BitIndex": "22,26,27,28,29,33",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_MISS.SNOOP_MISS",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -758,7 +758,7 @@
       "BitName": "L3_MISS.SNOOP_HIT_NO_FWD",
       "BitIndex": "22,26,27,28,29,34",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_MISS.SNOOP_HIT_NO_FWD",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -767,7 +767,7 @@
       "BitName": "L3_MISS.SNOOP_HITM",
       "BitIndex": "22,26,27,28,29,36",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_MISS.SNOOP_HITM",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -776,7 +776,7 @@
       "BitName": "L3_MISS.SNOOP_NON_DRAM",
       "BitIndex": "22,26,27,28,29,37",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_MISS.SNOOP_NON_DRAM",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"
@@ -785,7 +785,7 @@
       "BitName": "L3_MISS.ANY_SNOOP",
       "BitIndex": "22,26,27,28,29,30,31,32,33,34,35,36,37",
       "Type": "2",
-      "Description": "",
+      "Description": "L3_MISS.ANY_SNOOP",
       "MATRIX_REG": "tbd",
       "BitsNotCombinedWith": "na",
       "Errata": "na"

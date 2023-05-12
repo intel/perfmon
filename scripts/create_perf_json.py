@@ -168,16 +168,43 @@ def topic(event_name: str, unit: str) -> str:
     @param event_name: Name of event like UNC_M2M_BYPASS_M2M_Egress.NOT_TAKEN.
     @param unit: The PMU responsible for the event or None for CPU events.
     """
-    if unit and 'cpu' not in unit:
+    if unit and unit not in ['cpu', 'cpu_atom', 'cpu_core']:
         unit_to_topic = {
-            'iMC': 'Uncore-Memory',
-            'CBO': 'Uncore-Cache',
-            'HA': 'Uncore-Cache',
-            'PCU': 'Uncore-Power',
+            'cha': 'Uncore-Cache',
+            'cbox': 'Uncore-Cache',
+            'ha': 'Uncore-Cache',
+            'cxlcm': 'Uncore-CXL',
+            'cxldp': 'Uncore-CXL',
+            'arb': 'Uncore-Interconnect',
+            'irp': 'Uncore-Interconnect',
+            'm2m': 'Uncore-Interconnect',
+            'mdf': 'Uncore-Interconnect',
+            'r3qpi': 'Uncore-Interconnect',
+            'qpi': 'Uncore-Interconnect',
+            'sbox': 'Uncore-Interconnect',
+            'ubox': 'Uncore-Interconnect',
+            'upi': 'Uncore-Interconnect',
+            'm3upi': 'Uncore-Interconnect',
+            'iio': 'Uncore-IO',
+            'iio_free_running': 'Uncore-IO',
+            'm2pcie': 'Uncore-IO',
+            'r2pcie': 'Uncore-IO',
+            'edc_eclk': 'Uncore-Memory',
+            'edc_uclk': 'Uncore-Memory',
+            'imc': 'Uncore-Memory',
+            'imc_free_running': 'Uncore-Memory',
+            'imc_free_running_0': 'Uncore-Memory',
+            'imc_free_running_1': 'Uncore-Memory',
+            'imc_dclk': 'Uncore-Memory',
+            'imc_uclk': 'Uncore-Memory',
+            'm2hbm': 'Uncore-Memory',
+            'mchbm': 'Uncore-Memory',
+            'clock': 'Uncore-Other',
+            'pcu': 'Uncore-Power',
         }
-        if unit in unit_to_topic:
-            return unit_to_topic[unit]
-        return 'Uncore-Interconnect' if unit.startswith("QPI") else 'Uncore-Other'
+        if unit.lower() not in  unit_to_topic:
+            raise ValueError(f'Unexpected PMU (aka Unit): {unit}')
+        return unit_to_topic[unit.lower()]
 
     result = None
     result_priority = -1
@@ -190,6 +217,39 @@ def topic(event_name: str, unit: str) -> str:
                 break
 
     return result if result else 'Other'
+
+def freerunning_counter_type_and_index(shortname: str,
+                                       pmu: str,
+                                       event_name: str,
+                                       counter: str):
+    type = None
+    index = None
+    if shortname == 'ADL' or shortname == 'ADLN' or shortname == 'TGL':
+        if pmu.startswith('imc_free_running'):
+            index = 0
+            if 'TOTAL' in event_name:
+                type = 1
+            elif 'RDCAS' in event_name:
+                type = 2
+            elif 'WRCAS' in event_name:
+                type = 3
+    elif shortname == 'ICX' or shortname == 'SNR' or shortname == 'SPR':
+        if pmu.startswith('iio_free_running'):
+            if 'CLOCKTICKS' in event_name:
+                type = 1
+                index = 0
+            elif 'BANDWIDTH_IN' in event_name:
+                type = 2
+                index = int(re.search(r'PART(\d+)', event_name).group(1))
+            elif 'BANDWIDTH_OUT' in event_name:
+                type = 3
+                index = int(re.search(r'PART(\d+)', event_name).group(1))
+        elif pmu.startswith('imc_free_running'):
+            if 'CLOCKTICKS' in event_name:
+                type = 1
+                index = 0
+    assert type is not None and index is not None, f'{shortname}: {pmu} {event_name} {counter}'
+    return (type, index)
 
 
 class PerfmonJsonEvent:
@@ -204,7 +264,7 @@ class PerfmonJsonEvent:
             return f'OFFCORE_RESPONSE.{m.group(1)}.{m.group(2)}'
         return name
 
-    def __init__(self, jd: Dict[str, str]):
+    def __init__(self, shortname: str, jd: Dict[str, str]):
         """Constructor passed the dictionary of parsed json values."""
         def get(key: str) -> str:
             drop_keys = {'0', '0x0', '0x00', 'na', 'null', 'tbd'}
@@ -214,6 +274,7 @@ class PerfmonJsonEvent:
             result = re.sub('\xae', '(R)', result.strip())
             result = re.sub('\u2122', '(TM)', result)
             result = re.sub('\uFEFF', '', result)
+            result = re.sub('\?\?\?', '?', result)
             return result
 
         # Copy values we expect.
@@ -257,11 +318,32 @@ class PerfmonJsonEvent:
             self.umask = f'0x{int(self.umask, 16):x}'
 
         if self.unit:
-            if self.unit == "NCU" and self.event_name == "UNC_CLOCK.SOCKET":
+            unit_fixups = {
+                'CBO': 'CBOX',
+                'SBO': 'SBOX',
+                'QPI LL': 'QPI',
+                'UPI LL': 'UPI',
+            }
+            if self.unit in unit_fixups:
+                self.unit = unit_fixups[self.unit]
+            elif self.unit == "NCU" and self.event_name == "UNC_CLOCK.SOCKET":
                 self.unit = "CLOCK"
             elif self.unit == "PCU" and self.umask:
                 # TODO: convert to right filter for occupancy
                 self.umask = None
+        if jd.get('CounterType') == "FREERUN":
+            self.unit = f"{self.unit.lower()}_free_running"
+            m = re.search(r'_MC(\d+)_', self.event_name)
+            if m:
+                self.unit += f"_{m.group(1)}"
+            self.event_code = "0xff"
+            (type, index) = freerunning_counter_type_and_index(shortname,
+                                                               self.unit,
+                                                               self.event_name,
+                                                               jd['Counter'])
+            self.umask = f"0x{(type << 4) | index:x}"
+
+        assert 'FREERUN' not in self.event_name or '_free_running' in self.unit
 
         if "Counter" in jd and jd["Counter"].lower() == "fixed":
             self.event_code = "0xff"
@@ -344,6 +426,7 @@ class PerfmonJsonEvent:
         def add_to_result(key: str, value: str):
             """Add value to the result if not None"""
             if value:
+                assert '??' not in value, f'Trigraphs aren\'t allowed {value}'
                 result[key] = value
 
         add_to_result('AnyThread', self.any_thread)
@@ -876,8 +959,6 @@ class Model:
                             form = form.replace(j, r)
 
                     form = form.replace('_PS', '')
-                    form = form.replace('#Memory == 1', '1')
-                    form = form.replace('#PMM_App_Direct', '1')
                     form = re.sub(r':USER', ':u', form, re.IGNORECASE)
                     form = re.sub(r':SUP', ':k', form, re.IGNORECASE)
                     form = form.replace('(0 + ', '(')
@@ -947,14 +1028,14 @@ class Model:
                     return expr
 
                 def resolve_aux(v: str) -> str:
-                    if any(v == i for i in ['#core_wide', '#Model', '#SMT_on', '#num_dies']):
+                    if any(v == i for i in ['#core_wide', '#Model', '#SMT_on', '#num_dies','#has_pmem']):
                         return v
+                    if v == '#PMM_App_Direct':
+                        return '#has_pmem > 0'
                     if v == '#DurationTimeInSeconds':
                         return 'duration_time'
                     if v == '#EBS_Mode':
                         return '#core_wide < 1'
-                    if v == '#Memory':
-                        return '1' if memory else '0'
                     if v == '#NA':
                         return '0'
                     if v[1:] in nodes:
@@ -1047,7 +1128,7 @@ class Model:
                              'imc_0', 'uncore_cha_0', 'cbox_0', 'arb', 'cbox',
                              'num_packages', 'num_cores', 'SYSTEM_TSC_FREQ',
                              'filter_tid', 'TSC', 'cha', 'config1',
-                             'source_count', 'slots', 'thresh']:
+                             'source_count', 'slots', 'thresh', 'has_pmem']:
                         continue
                     if v.startswith('tma_') or v.startswith('topdown\\-'):
                         continue
@@ -1198,19 +1279,17 @@ class Model:
                     'tma_info_big_code': no_group,
                     'tma_info_flopc': no_group,
                     'tma_info_fp_arith_utilization': no_group,
-                    # TODO: Don't not group as weak groups will
-                    # preserve top-down event groups.
-                    #'tma_info_dsb_misses': no_group,
-                    #'tma_fp_arith': no_group,
-                    #'tma_memory_operations': no_group,
-                    #'tma_other_light_ops': no_group,
-                    #'tma_info_branch_misprediction_cost': no_group,
-                    #'tma_info_core_bound_likely': no_group,
-                    #'tma_info_instruction_fetch_bw': no_group,
-                    #'tma_info_memory_data_tlbs': no_group,
-                    #'tma_info_memory_latency': no_group,
-                    #'tma_info_mispredictions': no_group,
-                    #'tma_info_retire': no_group,
+                    'tma_info_dsb_misses': no_group,
+                    'tma_fp_arith': no_group,
+                    'tma_memory_operations': no_group,
+                    'tma_other_light_ops': no_group,
+                    'tma_info_branch_misprediction_cost': no_group,
+                    'tma_info_core_bound_likely': no_group,
+                    'tma_info_instruction_fetch_bw': no_group,
+                    'tma_info_memory_data_tlbs': no_group,
+                    'tma_info_memory_latency': no_group,
+                    'tma_info_mispredictions': no_group,
+                    'tma_info_retire': no_group,
                 }
                 errata_constraints = {
                     # 4 programmable, 3 fixed counters per HT
@@ -1335,7 +1414,9 @@ class Model:
             _verboseprint2(f'Generating {event_type} events from {self.files[event_type]}')
             with urllib.request.urlopen(self.files[event_type]) as event_json:
                 json_data = json.load(event_json)
-                pmon_events = [PerfmonJsonEvent(x) for x in json_data['Events']]
+                # UNC_IIO_BANDWIDTH_OUT events are broken on Linux pre-SPR so skip if they exist.
+                pmon_events = [PerfmonJsonEvent(self.shortname, x) for x in json_data['Events']
+                               if self.shortname == 'SPR' or not x["EventName"].startswith("UNC_IIO_BANDWIDTH_OUT.")]
                 unit = None
                 if event_type in ['atom', 'core'] and 'atom' in self.files and 'core' in self.files:
                     unit = f'cpu_{event_type}'

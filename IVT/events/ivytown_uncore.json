@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2022 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) processor E5 family and Intel(R) Xeon(R) processor E7 family Based on the Ivy Bridge-EP Microarchitecture - V22",
-    "DatePublished": "08/16/2022",
-    "Version": "22",
+    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) processor E5 family and Intel(R) Xeon(R) processor E7 family Based on the Ivy Bridge-EP Microarchitecture - V23",
+    "DatePublished": "03/21/2023",
+    "Version": "23",
     "Legend": ""
   },
   "Events": [

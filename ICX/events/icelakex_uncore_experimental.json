@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 3rd Generation Intel(R) Xeon(R) Processor Scalable Family based on Ice Lake microarchitecture - V1.19",
-    "DatePublished": "02/16/2023",
-    "Version": "1.19",
+    "Info": "Performance Monitoring Events for 3rd Generation Intel(R) Xeon(R) Processor Scalable Family based on Ice Lake microarchitecture - V1.20",
+    "DatePublished": "04/05/2023",
+    "Version": "1.20",
     "Legend": ""
   },
   "Events": [
@@ -1625,7 +1625,7 @@
     {
       "Unit": "CHA",
       "EventCode": "0x33",
-      "UMask": "0x22",
+      "UMask": "0x12",
       "PortMask": "0x00",
       "FCMask": "0x00",
       "UMaskExt": "0x00",
