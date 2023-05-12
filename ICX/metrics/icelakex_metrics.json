@@ -1,12 +1,10 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Metrics for 3rd Generation Intel(R) Xeon(R) Processor Scalable Family based on Ice Lake microarchitecture - V",
-    "DatePublished": "02/10/2023",
+    "Info": "Performance Monitoring Events for 3rd Generation Intel(R) Xeon(R) Processor Scalable Family based on Ice Lake microarchitecture - V",
+    "DatePublished": "05/12/2023",
     "Version": "",
-    "Legend": "",
-    "TmaVersion": "4.5",
-    "TmaFlavor": "Full"
+    "Legend": ""
   },
   "Metrics": [
     {
@@ -31,7 +29,7 @@
           "Alias": "c"
         }
       ],
-      "Formula": "((a / b * c) / 1000000000)",
+      "Formula": "(a / b * c) / 1000000000",
       "Category": "",
       "Threshold": "",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -298,7 +296,7 @@
       "UnitOfMeasure": "per instruction",
       "Events": [
         {
-          "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFDRD",
+          "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFDATA",
           "Alias": "a"
         },
         {
@@ -500,11 +498,11 @@
       "UnitOfMeasure": "ns",
       "Events": [
         {
-          "Name": "UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_DRAM",
+          "Name": "UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_DDR",
           "Alias": "a"
         },
         {
-          "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_DRAM",
+          "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_DDR",
           "Alias": "b"
         },
         {
@@ -909,11 +907,11 @@
       "UnitOfMeasure": "MB/sec",
       "Events": [
         {
-          "Name": "UNC_CHA_TOR_INSERTS.IO_HIT_RDCUR",
+          "Name": "UNC_CHA_TOR_INSERTS.IO_HIT_PCIRDCUR",
           "Alias": "a"
         },
         {
-          "Name": "UNC_CHA_TOR_INSERTS.IO_MISS_RDCUR",
+          "Name": "UNC_CHA_TOR_INSERTS.IO_MISS_PCIRDCUR",
           "Alias": "b"
         }
       ],

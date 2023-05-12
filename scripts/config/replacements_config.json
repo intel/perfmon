@@ -13,16 +13,16 @@
         "PERF_METRICS.FETCH_LATENCY":"topdown\\-fetch\\-lat",
         "PERF_METRICS.MEMORY_BOUND":"topdown\\-mem\\-bound",
         "TOPDOWN.SLOTS:perf_metrics":"slots",
-        "SOCKET_COUNT":"num_packages",
-        "HYPERTHREADING_ON":"SMT_on",
-        "CORES_PER_SOCKET":"num_cores / #num_packages",
+        "SOCKET_COUNT":"#num_packages",
+        "HYPERTHREADING_ON":"#SMT_on",
+        "CORES_PER_SOCKET":"#num_cores / #num_packages",
         "DURATIONTIMEINMILLISECONDS":"( duration_time * 1000 )",
         "UNC_IIO_PAYLOAD_BYTES_IN.MEM_READ.PART0":"UNC_IIO_DATA_REQ_OF_CPU.MEM_READ.PART0",
         "UNC_IIO_PAYLOAD_BYTES_IN.MEM_READ.PART1":"UNC_IIO_DATA_REQ_OF_CPU.MEM_READ.PART1",
         "UNC_IIO_PAYLOAD_BYTES_IN.MEM_READ.PART2":"UNC_IIO_DATA_REQ_OF_CPU.MEM_READ.PART2",
         "UNC_IIO_PAYLOAD_BYTES_IN.MEM_READ.PART3":"UNC_IIO_DATA_REQ_OF_CPU.MEM_READ.PART3",
         "UNC_IIO_PAYLOAD_BYTES_IN.MEM_READ.PART4":"UNC_IIO_DATA_REQ_OF_CPU.MEM_READ.PART4",
-        "MSR_EVENT:msr=0x611:type=FREERUN:scope=PACKAGE":"power@energy-pkg@"
+        "MSR_EVENT:msr=0x611:type=FREERUN:scope=PACKAGE":"power@energy\\-pkg@"
     },
     "metric_source_events":{
         "CHAS_PER_SOCKET":"UNC_CHA([^\\s]*)",
@@ -48,15 +48,6 @@
                 "filter1":"config1"
             },
             "scale":100000000
-        },
-        {
-            "events":["UNC_C_"],
-            "unit":"cbox",
-            "translations":{
-                "opc":"filter_opc",
-                "tid":"filter_tid"
-            },
-            "scale":1
         },
         {
             "events":["UNC_C_"],

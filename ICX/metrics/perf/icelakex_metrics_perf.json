@@ -1,7 +1,7 @@
 [
     {
         "BriefDescription": "CPU operating frequency (in GHz)",
-        "MetricExpr": "(( CPU_CLK_UNHALTED.THREAD / CPU_CLK_UNHALTED.REF_TSC * #SYSTEM_TSC_FREQ ) / 1000000000)",
+        "MetricExpr": "( CPU_CLK_UNHALTED.THREAD / CPU_CLK_UNHALTED.REF_TSC * #SYSTEM_TSC_FREQ ) / 1000000000",
         "MetricGroup": "",
         "MetricName": "cpu_operating_frequency",
         "ScaleUnit": "1GHz"
@@ -85,7 +85,7 @@
     },
     {
         "BriefDescription": "Ratio of number of data read requests missing last level core cache (includes demand w/ prefetches) to the total number of completed instructions",
-        "MetricExpr": "( UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFDRD + UNC_CHA_TOR_INSERTS.IA_MISS_DRD + UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PREF ) / INST_RETIRED.ANY",
+        "MetricExpr": "( UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFDATA + UNC_CHA_TOR_INSERTS.IA_MISS_DRD + UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PREF ) / INST_RETIRED.ANY",
         "MetricGroup": "",
         "MetricName": "llc_data_read_mpi_demand_plus_prefetch",
         "ScaleUnit": "1per_instr"
@@ -127,7 +127,7 @@
     },
     {
         "BriefDescription": "Average latency of a last level cache (LLC) demand data read miss (read memory access) addressed to DRAM in nano seconds",
-        "MetricExpr": "( 1000000000 * ( UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_DRAM / UNC_CHA_TOR_INSERTS.IA_MISS_DRD_DRAM ) / ( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_DRAM) * #num_packages ) ) ) * duration_time",
+        "MetricExpr": "( 1000000000 * ( UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_DDR / UNC_CHA_TOR_INSERTS.IA_MISS_DRD_DDR ) / ( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_DDR) * #num_packages ) ) ) * duration_time",
         "MetricGroup": "",
         "MetricName": "llc_demand_data_read_miss_to_dram_latency",
         "ScaleUnit": "1ns"
@@ -246,7 +246,7 @@
     },
     {
         "BriefDescription": "Bandwidth of IO reads that are initiated by end device controllers that are requesting memory from the CPU.",
-        "MetricExpr": "(( UNC_CHA_TOR_INSERTS.IO_HIT_RDCUR + UNC_CHA_TOR_INSERTS.IO_MISS_RDCUR ) * 64 / 1000000) / duration_time",
+        "MetricExpr": "(( UNC_CHA_TOR_INSERTS.IO_HIT_PCIRDCUR + UNC_CHA_TOR_INSERTS.IO_MISS_PCIRDCUR ) * 64 / 1000000) / duration_time",
         "MetricGroup": "",
         "MetricName": "io_bandwidth_read",
         "ScaleUnit": "1MB/s"

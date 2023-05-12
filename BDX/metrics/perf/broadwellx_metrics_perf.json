@@ -7,6 +7,13 @@
         "ScaleUnit": "1GHz"
     },
     {
+        "BriefDescription": "Percentage of time spent in the active CPU power state C0",
+        "MetricExpr": "CPU_CLK_UNHALTED.REF_TSC / TSC",
+        "MetricGroup": "",
+        "MetricName": "cpu_utilization",
+        "ScaleUnit": "100%"
+    },
+    {
         "BriefDescription": "Cycles per instruction retired; indicating how much time each executed instruction took; in units of cycles.",
         "MetricExpr": "CPU_CLK_UNHALTED.THREAD / INST_RETIRED.ANY",
         "MetricGroup": "",
