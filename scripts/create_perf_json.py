@@ -722,7 +722,7 @@ class Model:
 
             def field(x: str) -> str:
                 """Given the name of a column, return the value in the current line of it."""
-                return l[col_heading[x]]
+                return l[col_heading[x]].strip()
 
             def find_form() -> Optional[str]:
                 """Find the formula for CPU in the current CSV line."""
