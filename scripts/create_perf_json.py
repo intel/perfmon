@@ -1768,7 +1768,10 @@ class Mapfile:
                 files[shortname]['extra metrics'] = cpu_metrics_url
             except:
                 _verboseprint2(f'Didn\'t find {cpu_metrics_url}')
-                pass
+                if shortname in ['BDX','CLX','HSX','ICX','SKX','SPR']:
+                    raise
+                else:
+                    pass
 
             self.archs += [
                 Model(shortname, longname, versions[shortname],
