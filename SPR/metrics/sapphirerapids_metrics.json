@@ -2,11 +2,9 @@
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for 4th Generation Intel(R) Xeon(R) Processor Scalable Family based on Sapphire Rapids microarchitecture - V",
-    "DatePublished": "02/10/2023",
+    "DatePublished": "05/12/2023",
     "Version": "",
-    "Legend": "",
-    "TmaVersion": "4.5",
-    "TmaFlavor": "Full"
+    "Legend": ""
   },
   "Metrics": [
     {
@@ -31,7 +29,7 @@
           "Alias": "c"
         }
       ],
-      "Formula": "((a / b * c) / 1000000000)",
+      "Formula": "(a / b * c) / 1000000000",
       "Category": "",
       "Threshold": "",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3105,7 +3103,7 @@
       "LegacyName": "metric_TMA_........AMX_Busy(%)",
       "ParentCategory": "Ports_Utilized_0",
       "Level": 5,
-      "BriefDescription": "This metric estimates fraction of cycles where the Advanced Matrix Extensions (AMX) exeuction engine was busy with tile (arithmetic) operations",
+      "BriefDescription": "This metric estimates fraction of cycles where the Advanced Matrix Extensions (AMX) execution engine was busy with tile (arithmetic) operations",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -3857,7 +3855,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( ( ( a + b ) / ( ( c / ( d + e + c + f ) ) * ( g ) ) ) + ( ( h + i + j ) / ( ( c / ( d + e + c + f ) ) * ( g ) ) ) + ( k / ( ( c / ( d + e + c + f ) ) * ( g ) ) ) + ( l / ( ( c / ( d + e + c + f ) ) * ( g ) ) )",
+      "Formula": "100 * ( ( ( a + b ) / ( ( c / ( d + e + c + f ) ) * ( g ) ) ) + ( ( h + i + j ) / ( ( c / ( d + e + c + f ) ) * ( g ) ) ) + ( k / ( ( c / ( d + e + c + f ) ) * ( g ) ) ) + ( l / ( ( c / ( d + e + c + f ) ) * ( g ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",

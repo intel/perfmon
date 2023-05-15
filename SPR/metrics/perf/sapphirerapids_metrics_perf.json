@@ -1,7 +1,7 @@
 [
     {
         "BriefDescription": "CPU operating frequency (in GHz)",
-        "MetricExpr": "(( CPU_CLK_UNHALTED.THREAD / CPU_CLK_UNHALTED.REF_TSC * #SYSTEM_TSC_FREQ ) / 1000000000)",
+        "MetricExpr": "( CPU_CLK_UNHALTED.THREAD / CPU_CLK_UNHALTED.REF_TSC * #SYSTEM_TSC_FREQ ) / 1000000000",
         "MetricGroup": "",
         "MetricName": "cpu_operating_frequency",
         "ScaleUnit": "1GHz"
@@ -855,7 +855,7 @@
     },
     {
         "BriefDescription": "This metric represents overall Integer (Int) select operations fraction the CPU has executed (retired). Vector/Matrix Int operations and shuffles are counted. Note this metric's value may exceed its parent due to use of \"Uops\" CountDomain.",
-        "MetricExpr": "( ( ( INT_VEC_RETIRED.ADD_128 + INT_VEC_RETIRED.VNNI_128 ) / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) + ( ( INT_VEC_RETIRED.ADD_256 + INT_VEC_RETIRED.MUL_256 + INT_VEC_RETIRED.VNNI_256 ) / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) + ( INT_VEC_RETIRED.SHUFFLES / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) + ( cpu@AMX_OPS_RETIRED.INT8\\,cmask\\=0x1@ / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) )",
+        "MetricExpr": "( ( ( INT_VEC_RETIRED.ADD_128 + INT_VEC_RETIRED.VNNI_128 ) / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) + ( ( INT_VEC_RETIRED.ADD_256 + INT_VEC_RETIRED.MUL_256 + INT_VEC_RETIRED.VNNI_256 ) / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) + ( INT_VEC_RETIRED.SHUFFLES / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) + ( cpu@AMX_OPS_RETIRED.INT8\\,cmask\\=0x1@ / ( ( topdown\\-retiring / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) * ( slots ) ) ) )",
         "MetricGroup": "Pipeline;TopdownL3;tma_L3_group;tma_light_operations_group",
         "MetricName": "tma_int_operations",
         "ScaleUnit": "100%"

@@ -301,8 +301,9 @@ class PerfFormatConverter:
                     translation += "\\\\," + event_info["translations"][split[0]] + "\\\\=" + "0x" + split[1]
             else:
                 match = re.match(r"([a-zA-z]+)([\d]+)", option)
-                if match[1] in event_info["translations"]:
-                    translation += "\\\\,"+ event_info["translations"][match[1]] + "\\\\=" + "0x" + match[2]
+                if match:
+                    if match[1] in event_info["translations"]:
+                        translation += "\\\\,"+ event_info["translations"][match[1]] + "\\\\=" + "0x" + match[2]
 
         return translation + "@"
 
@@ -321,7 +322,7 @@ class PerfFormatConverter:
 
         for replacement in self.metric_assoc_replacement_dict:
             if re.match(replacement, constant_name):
-                return "#" + self.metric_assoc_replacement_dict[replacement]
+                return self.metric_assoc_replacement_dict[replacement]
 
         for replacement in self.metric_source_event_dict:
             # source_count() formatting
