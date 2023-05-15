@@ -1761,11 +1761,7 @@ class Mapfile:
             if 'atom' in files[shortname]:
                 files[shortname][
                     'e-core tma metrics'] = base_path + '/E-core_TMA_Metrics.csv'
-            cpu_metrics_url = f'{base_path}/{shortname}/metrics/perf/'
-            if longname[-1] == 'x':
-                cpu_metrics_url += f'{longname.lower()[:-1]}_metrics_perf.json'
-            else:
-                cpu_metrics_url += f'{longname.lower()}_metrics_perf.json'
+            cpu_metrics_url = f'{base_path}/{shortname}/metrics/perf/{longname.lower()}_metrics_perf.json'
             try:
                 urllib.request.urlopen(cpu_metrics_url)
                 _verboseprint2(f'Found {cpu_metrics_url}')
