@@ -1761,18 +1761,17 @@ class Mapfile:
             if 'atom' in files[shortname]:
                 files[shortname][
                     'e-core tma metrics'] = base_path + '/E-core_TMA_Metrics.csv'
-            cpu_metrics_url = f'{base_path}/{shortname}/metrics/perf/'
-            if longname[-1] == 'x':
-                cpu_metrics_url += f'{longname.lower()[:-1]}_metrics_perf.json'
-            else:
-                cpu_metrics_url += f'{longname.lower()}_metrics_perf.json'
+            cpu_metrics_url = f'{base_path}/{shortname}/metrics/perf/{longname.lower()}_metrics_perf.json'
             try:
                 urllib.request.urlopen(cpu_metrics_url)
                 _verboseprint2(f'Found {cpu_metrics_url}')
                 files[shortname]['extra metrics'] = cpu_metrics_url
             except:
                 _verboseprint2(f'Didn\'t find {cpu_metrics_url}')
-                pass
+                if shortname in ['BDX','CLX','HSX','ICX','SKX','SPR']:
+                    raise
+                else:
+                    pass
 
             self.archs += [
                 Model(shortname, longname, versions[shortname],
