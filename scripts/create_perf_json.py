@@ -264,7 +264,7 @@ class PerfmonJsonEvent:
             return f'OFFCORE_RESPONSE.{m.group(1)}.{m.group(2)}'
         return name
 
-    def __init__(self, shortname: str, jd: Dict[str, str]):
+    def __init__(self, shortname: str, unit: str, jd: Dict[str, str]):
         """Constructor passed the dictionary of parsed json values."""
         def get(key: str) -> str:
             drop_keys = {'0', '0x0', '0x00', 'na', 'null', 'tbd'}
@@ -298,7 +298,6 @@ class PerfmonJsonEvent:
         self.sample_after_value = get('SampleAfterValue')
         self.umask = get('UMask')
         self.unit = get('Unit')
-
         # Sanity check certain old perfmon keys or values that could
         # be used in perf json don't exist.
         assert 'Internal' not in jd
@@ -317,7 +316,10 @@ class PerfmonJsonEvent:
                 self.umask = umask_ext + self.umask[2:]
             self.umask = f'0x{int(self.umask, 16):x}'
 
-        if self.unit:
+        if self.unit is None:
+            if unit != 'cpu':
+                self.unit = unit
+        else:
             unit_fixups = {
                 'CBO': 'CBOX',
                 'SBO': 'SBOX',
@@ -456,7 +458,7 @@ def rewrite_metrics_in_terms_of_others(metrics: list[Dict[str,str]]) -> list[Dic
         name = m['MetricName']
         form = m['MetricExpr']
         parsed.append((name, metric.ParsePerfJson(form)))
-        if name == 'tma_info_core_clks' and '#SMT_on' in form:
+        if name == 'tma_info_core_core_clks' and '#SMT_on' in form:
             # Add non-EBS form of CORE_CLKS to enable better
             # simplification of Valkyrie metrics.
             form = 'CPU_CLK_UNHALTED.THREAD_ANY / 2 if #SMT_on else CPU_CLK_UNHALTED.THREAD'
@@ -491,6 +493,7 @@ class Model:
         self.version = version
         self.models = sorted(models)
         self.files = files
+        self.metricgroups = {}
 
     def __lt__(self, other: 'Model') -> bool:
         """ Sort by models gloally by name."""
@@ -618,9 +621,9 @@ class Model:
 
         # metrics redundant with perf or unusable
         ignore = {
-            'tma_info_mux': 'MUX',
-            'tma_info_power': 'Power',
-            'tma_info_time': 'Time',
+            'tma_info_system_mux': 'MUX',
+            'tma_info_system_power': 'Power',
+            'tma_info_system_time': 'Time',
         }
 
         ratio_column = {
@@ -719,7 +722,7 @@ class Model:
 
             def field(x: str) -> str:
                 """Given the name of a column, return the value in the current line of it."""
-                return l[col_heading[x]]
+                return l[col_heading[x]].strip()
 
             def find_form() -> Optional[str]:
                 """Find the formula for CPU in the current CSV line."""
@@ -798,23 +801,36 @@ class Model:
                     _verboseprint2(f'Missing formula for {metric_name} on CPU {self.shortname}')
                     continue
                 nodes[metric_name] = form
-                mgroups = f'TopdownL{level};tma_L{level}_group'
+                mgroups = []
+                for group in [f'TopdownL{level}', f'tma_L{level}_group']:
+                    mgroups.append(group)
+                    if group not in self.metricgroups:
+                        self.metricgroups[group] = f'Metrics for top-down breakdown at level {level}'
                 csv_groups = metric_group(metric_name)
                 if csv_groups:
-                    mgroups += f';{csv_groups}'
+                    for group in csv_groups.split(';'):
+                        mgroups.append(group)
+                        if group not in self.metricgroups:
+                            self.metricgroups[group] = 'Grouping from metrics spreadsheet'
                 parent_metric = None
                 if level > 1:
-                    mgroups += f';tma_{parents[-2].lower()}_group'
-                    children[parents[-2]].add(parents[-1])
                     parent_metric = f'tma_{parents[-2].lower()}'
+                    group = f'{parent_metric}_group'
+                    mgroups.append(group)
+                    if group not in self.metricgroups:
+                        self.metricgroups[group] = f'Metrics contributing to {parent_metric} category'
+                    children[parents[-2]].add(parents[-1])
                 tma_metric_name = f'tma_{metric_name.lower()}'
                 issues = issues()
                 for issue in issues:
                     issue_to_metrics[issue].add(tma_metric_name)
-                    mgroups += f';tma_{issue[1:]}'
+                    group = f'tma_{issue[1:]}'
+                    mgroups.append(group)
+                    if group not in self.metricgroups:
+                        self.metricgroups[group] = f'Metrics related by the issue {issue}'
                 info.append(PerfMetric(
                     tma_metric_name, form,
-                    field('Metric Description'), mgroups, locate_with(),
+                    field('Metric Description'), ';'.join(mgroups), locate_with(),
                     '100%', parent_metric, threshold(), issues
                 ))
                 infoname[metric_name] = form
@@ -823,17 +839,26 @@ class Model:
                 metric_name = field('Level1')
                 form = find_form()
                 if form:
-                    tma_metric_name = f'tma_info_{metric_name.lower()}'
-                    mgroups = metric_group(metric_name)
+                    tma_metric_name = f'tma_{l[0].lower().replace(".","_")}_{metric_name.lower()}'
+                    mgroups = []
+                    csv_groups = metric_group(metric_name)
+                    if csv_groups:
+                        for group in csv_groups.split(';'):
+                            mgroups.append(group)
+                            if group not in self.metricgroups:
+                                self.metricgroups[group] = 'Grouping from metrics spreadsheet'
                     issues = issues()
                     for issue in issues:
                         issue_to_metrics[issue].add(tma_metric_name)
-                        mgroups += f';tma_{issue[1:]}'
+                        group = f'tma_{issue[1:]}'
+                        mgroups.append(group)
+                        if group not in self.metricgroups:
+                            self.metricgroups[group] = f'Metrics related by the issue {issue}'
                     info.append(PerfMetric(
                         tma_metric_name,
                         form,
                         field('Metric Description'),
-                        mgroups,
+                        ';'.join(mgroups),
                         locate_with(),
                         scale_unit = None,
                         parent_metric = None,
@@ -845,8 +870,10 @@ class Model:
             elif l[0].startswith('Aux'):
                 form = find_form()
                 if form and form != '#NA':
-                    aux[field('Level1')] = form
-                    _verboseprint3(f'Adding aux {field("Level1")}: {form}')
+                    aux_name = field('Level1')
+                    assert aux_name.startswith('#')
+                    aux[aux_name] = form
+                    _verboseprint3(f'Adding aux {aux_name}: {form}')
 
         jo = []
         for i in info:
@@ -956,6 +983,9 @@ class Model:
                             for i in range(0, len(r)):
                                 if r[i] in ['-', '=', ',']:
                                     assert i == 0 or r[i - 1] == '\\', r
+                            if pmu_prefix != 'cpu' and r.startswith('topdown\-'):
+                                r = rf'{pmu_prefix}@{r}@'
+
                             form = form.replace(j, r)
 
                     form = form.replace('_PS', '')
@@ -1007,6 +1037,19 @@ class Model:
                                               re.IGNORECASE)
                             changed = changed or new_form != form
                             form = new_form
+
+                    if pmu_prefix != 'cpu':
+                        for name in events:
+                            if events[name].unit.startswith('cpu') and name in form:
+                                if form == name:
+                                    form = f'{pmu_prefix}@{name}@'
+                                else:
+                                    form = re.sub(rf'([^@]){name}:([a-zA-Z])',
+                                                  rf'\1{pmu_prefix}@{name}@\2',
+                                                  form, re.IGNORECASE)
+                                    form = re.sub(rf'([^@]){name}([^a-zA-Z0-9_])',
+                                                  rf'\1{pmu_prefix}@{name}@\2',
+                                                  form, re.IGNORECASE)
 
                     changed = True
                     while changed:
@@ -1102,8 +1145,8 @@ class Model:
                                 'DTLB_LOAD_MISSES.WALK_COMPLETED + '
                                 'ITLB_MISSES.WALK_COMPLETED)) / (2 * CORE_CLKS)')
                     elif name in ['tma_false_sharing',
-                                  'tma_info_mem_parallel_requests',
-                                  'tma_info_mem_request_latency']:
+                                  'tma_info_system_mem_parallel_requests',
+                                  'tma_info_system_mem_request_latency']:
                         # Uncore events missing for BDW-DE, so drop.
                         _verboseprint3(f'Dropping metric {name}')
                         return
@@ -1156,7 +1199,7 @@ class Model:
                         if ' Sample with: ' in d:
                             locate = re.sub(r'.* Sample with: (.*)', r'\1', d)
                     if not threshold:
-                        parsed_threshold = m['MetricThreshold']
+                        parsed_threshold = m.get('MetricThreshold')
                     group = m['MetricGroup']
                     jo.remove(m)
 
@@ -1222,8 +1265,8 @@ class Model:
                     'tma_remote_dram': no_group,
                     'tma_split_loads': no_group,
                     'tma_store_latency': no_group,
-                    'tma_info_load_miss_real_latency': no_group,
-                    'tma_info_mlp': no_group,
+                    'tma_info_memory_load_miss_real_latency': no_group,
+                    'tma_info_memory_mlp': no_group,
                     # Metrics that would fit were the NMI watchdog disabled.
                     'tma_alu_op_utilization': nmi,
                     'tma_backend_bound': nmi,
@@ -1238,58 +1281,58 @@ class Model:
                     'tma_branch_mispredicts': no_group,
                     'tma_contested_accesses': no_group,
                     'tma_core_bound': no_group,
-                    'tma_dram_bound': no_group,
                     'tma_data_sharing': no_group,
+                    'tma_dram_bound': no_group,
                     'tma_false_sharing': no_group,
                     'tma_fp_arith': no_group,
-                    'tma_info_fp_arith_utilization': no_group,
                     'tma_fp_vector': no_group,
                     'tma_l2_bound': no_group,
                     'tma_machine_clears': no_group,
                     'tma_memory_bound': no_group,
                     'tma_pmm_bound': no_group,
-                    'tma_info_big_code': no_group,
-                    'tma_info_core_bound_likely': no_group,
-                    'tma_info_dsb_misses': no_group,
-                    'tma_info_flopc': no_group,
-                    'tma_info_gflops': no_group,
-                    'tma_info_instruction_fetch_bw': no_group,
-                    'tma_info_iparith': no_group,
-                    'tma_info_ipflop': no_group,
-                    'tma_info_memory_bandwidth': no_group,
-                    'tma_info_memory_data_tlbs': no_group,
-                    'tma_info_memory_latency': no_group,
-                    'tma_info_mispredictions': no_group,
-                    'tma_info_jump': no_group,
+                    'tma_info_botlnk_l0_core_bound_likely': no_group,
+                    'tma_info_botlnk_l2_dsb_misses': no_group,
+                    'tma_info_bottleneck_big_code': no_group,
+                    'tma_info_bottleneck_instruction_fetch_bw': no_group,
+                    'tma_info_bottleneck_memory_bandwidth': no_group,
+                    'tma_info_bottleneck_memory_data_tlbs': no_group,
+                    'tma_info_bottleneck_memory_latency': no_group,
+                    'tma_info_bottleneck_mispredictions': no_group,
+                    'tma_info_branches_jump': no_group,
+                    'tma_info_core_flopc': no_group,
+                    'tma_info_fp_arith_utilization': no_group,
+                    'tma_info_inst_mix_iparith': no_group,
+                    'tma_info_inst_mix_ipflop': no_group,
+                    'tma_info_system_gflops': no_group,
                     # Metrics that would fit were the NMI watchdog disabled.
                     'tma_dtlb_load': nmi,
-                    'tma_load_stlb_hit': nmi,
                     'tma_fb_full': nmi,
+                    'tma_load_stlb_hit': nmi,
                     'tma_remote_cache': nmi,
                     'tma_split_loads': nmi,
                     'tma_store_latency': nmi,
-                    'tma_info_page_walks_utilization': nmi,
+                    'tma_info_memory_tlb_page_walks_utilization': nmi,
                 }
                 icelake_constraints = {
                     'tma_contested_accesses': no_group,
                     'tma_data_sharing': no_group,
                     'tma_dram_bound': no_group,
+                    'tma_fp_arith': no_group,
                     'tma_l2_bound': no_group,
                     'tma_lock_latency': no_group,
-                    'tma_info_big_code': no_group,
-                    'tma_info_flopc': no_group,
-                    'tma_info_fp_arith_utilization': no_group,
-                    'tma_info_dsb_misses': no_group,
-                    'tma_fp_arith': no_group,
                     'tma_memory_operations': no_group,
                     'tma_other_light_ops': no_group,
-                    'tma_info_branch_misprediction_cost': no_group,
-                    'tma_info_core_bound_likely': no_group,
-                    'tma_info_instruction_fetch_bw': no_group,
-                    'tma_info_memory_data_tlbs': no_group,
-                    'tma_info_memory_latency': no_group,
-                    'tma_info_mispredictions': no_group,
-                    'tma_info_retire': no_group,
+                    'tma_info_bad_spec_branch_misprediction_cost': no_group,
+                    'tma_info_botlnk_l0_core_bound_likely': no_group,
+                    'tma_info_botlnk_l2_dsb_misses': no_group,
+                    'tma_info_bottleneck_big_code': no_group,
+                    'tma_info_bottleneck_instruction_fetch_bw': no_group,
+                    'tma_info_bottleneck_memory_data_tlbs': no_group,
+                    'tma_info_bottleneck_memory_latency': no_group,
+                    'tma_info_bottleneck_mispredictions': no_group,
+                    'tma_info_core_flopc': no_group,
+                    'tma_info_core_fp_arith_utilization': no_group,
+                    'tma_info_pipeline_retire': no_group,
                 }
                 errata_constraints = {
                     # 4 programmable, 3 fixed counters per HT
@@ -1325,6 +1368,12 @@ class Model:
                 if name in errata_constraints[self.shortname]:
                     j['MetricConstraint'] = errata_constraints[self.shortname][name]
 
+                if group:
+                    if 'TopdownL1' in group:
+                        j['MetricgroupNoGroup'] = 'TopdownL1'
+                    elif 'TopdownL2' in group:
+                        j['MetricgroupNoGroup'] = 'TopdownL2'
+
                 if pmu_prefix != 'cpu':
                     j['Unit'] = pmu_prefix
 
@@ -1339,14 +1388,14 @@ class Model:
                 jo.append(j)
 
             form = resolve_all(form, expand_metrics=False)
-            needs_slots = 'topdown\-' in form and 'tma_info_slots' not in form
+            needs_slots = 'topdown\-' in form and 'tma_info_thread_slots' not in form
             if needs_slots:
                 # topdown events must always be grouped with a
                 # TOPDOWN.SLOTS event. Detect when this is missing in a
                 # metric and insert a dummy value. Metrics using other
                 # metrics with topdown events will get a TOPDOWN.SLOTS
                 # event from them.
-                form = f'{form} + 0*tma_info_slots'
+                form = f'{form} + 0*tma_info_thread_slots'
 
             threshold = None
             if i.threshold:
@@ -1388,9 +1437,32 @@ class Model:
 
         if 'extra metrics' in self.files:
             with urllib.request.urlopen(self.files['extra metrics']) as extra_json:
+                broken_metrics = {
+                    'ICX': {
+                        # Missing event: UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFDRD
+                        'llc_data_read_mpi_demand_plus_prefetch',
+                        # Missing event: UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_DRAM
+                        'llc_demand_data_read_miss_to_dram_latency',
+                        # Missing event: UNC_CHA_TOR_INSERTS.IO_HIT_RDCUR
+                        'io_bandwidth_read',
+                    },
+                    'SPR': {
+                        # Missing ')'
+                        'tma_int_operations'
+                    }
+                }
+                skip = broken_metrics.get(self.shortname)
+                if not skip:
+                    skip = {}
                 for em in json.load(extra_json):
+                    if em['MetricName'] in skip:
+                        continue
+                    dups = [m for m in jo if m['MetricName'] == em['MetricName']]
+                    if dups:
+                        _verboseprint3(f'Not replacing:\n\t{dups[0]["MetricExpr"]}\nwith:\n\t{em["MetricExpr"]}')
+                        continue
                     save_form(em['MetricName'], em['MetricGroup'], em['MetricExpr'],
-                              em['BriefDescription'], None, em['ScaleUnit'],
+                              em['BriefDescription'], None, em.get('ScaleUnit'),
                               em.get('MetricThreshold'), [])
 
         return jo
@@ -1412,11 +1484,16 @@ class Model:
             if event_type not in self.files:
                 continue
             _verboseprint2(f'Generating {event_type} events from {self.files[event_type]}')
+            pmu_prefix = None
+            if event_type in ['atom', 'core']:
+                pmu_prefix = f'cpu_{event_type}' if 'atom' in self.files else 'cpu'
             with urllib.request.urlopen(self.files[event_type]) as event_json:
                 json_data = json.load(event_json)
                 # UNC_IIO_BANDWIDTH_OUT events are broken on Linux pre-SPR so skip if they exist.
-                pmon_events = [PerfmonJsonEvent(self.shortname, x) for x in json_data['Events']
-                               if self.shortname == 'SPR' or not x["EventName"].startswith("UNC_IIO_BANDWIDTH_OUT.")]
+                pmon_events = [PerfmonJsonEvent(self.shortname, pmu_prefix, x)
+                               for x in json_data['Events']
+                               if self.shortname == 'SPR' or
+                               not x["EventName"].startswith("UNC_IIO_BANDWIDTH_OUT.")]
                 unit = None
                 if event_type in ['atom', 'core'] and 'atom' in self.files and 'core' in self.files:
                     unit = f'cpu_{event_type}'
@@ -1549,7 +1626,13 @@ class Model:
                 continue
             pmu_prefix = unit if 'atom' in self.files else 'cpu'
             with urllib.request.urlopen(self.files[metric_csv_key]) as metric_csv:
-                metrics.extend(self.extract_tma_metrics(metric_csv, pmu_prefix, events))
+                csv_metrics = self.extract_tma_metrics(metric_csv, pmu_prefix, events)
+                csv_metrics = sorted(csv_metrics,
+                                     key=lambda m: (m['Unit'] if 'Unit' in m else 'cpu',
+                                                    m['MetricName'])
+                                     )
+                csv_metrics = rewrite_metrics_in_terms_of_others(csv_metrics)
+                metrics.extend(csv_metrics)
 
         if len(metrics) > 0:
             metrics.extend(self.cstate_json())
@@ -1561,12 +1644,17 @@ class Model:
                              key=lambda m: (m['Unit'] if 'Unit' in m else 'cpu',
                                             m['MetricName'])
                              )
-            metrics = rewrite_metrics_in_terms_of_others(metrics)
             with open(f'{outdir}/{self.shortname.lower().replace("-","")}-metrics.json',
                       'w', encoding='ascii') as perf_metric_json:
                 json.dump(metrics, perf_metric_json, sort_keys=True, indent=4,
                           separators=(',', ': '))
                 perf_metric_json.write('\n')
+
+        if self.metricgroups:
+            with open(f'{outdir}/metricgroups.json', 'w', encoding='ascii') as metricgroups_json:
+                json.dump(self.metricgroups, metricgroups_json, sort_keys=True, indent=4,
+                          separators=(',', ': '))
+                metricgroups_json.write('\n')
 
 
 class Mapfile:
@@ -1673,11 +1761,17 @@ class Mapfile:
             if 'atom' in files[shortname]:
                 files[shortname][
                     'e-core tma metrics'] = base_path + '/E-core_TMA_Metrics.csv'
-            cpu_metrics_url = f'{base_path}/{shortname}/metrics/perf/{shortname.lower()}_metric_perf.json'
+            cpu_metrics_url = f'{base_path}/{shortname}/metrics/perf/'
+            if longname[-1] == 'x':
+                cpu_metrics_url += f'{longname.lower()[:-1]}_metrics_perf.json'
+            else:
+                cpu_metrics_url += f'{longname.lower()}_metrics_perf.json'
             try:
                 urllib.request.urlopen(cpu_metrics_url)
+                _verboseprint2(f'Found {cpu_metrics_url}')
                 files[shortname]['extra metrics'] = cpu_metrics_url
             except:
+                _verboseprint2(f'Didn\'t find {cpu_metrics_url}')
                 pass
 
             self.archs += [
