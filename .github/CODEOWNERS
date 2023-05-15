@@ -3,7 +3,7 @@
 * @edwarddavidbaker
 
 # TMA and Atom TMA.
-TMA_Metrics* @ayasini
+TMA_Metrics* @ayasini @vdaneti
 Atom_TMA* @claudiaromo @rpmclaug
 E-core_TMA* @claudiaromo @rpmclaug
 
@@ -13,6 +13,13 @@ E-core_TMA* @claudiaromo @rpmclaug
 # Platform events.
 **/events @edwarddavidbaker @kshiprab
 
-# Perf JSON scripting. Notify reviewers at the directory level for now.
-# When additional scripting is added we can be more specific.
-scripts/ @captain5050 @1perrytaylor @calebbiggers
+# Create Perf JSON scripting. 
+scripts/create_perf_json.py @captain5050 @kliang2
+scripts/metric.py @captain5050 @kliang2
+scripts/config/perf*.csv @captain5050 @kliang2
+scripts/unittesting/metric_test.py @captain5050 @kliang2
+
+# Perf converter scripting.
+scripts/perf_format_converter.py @1perrytaylor @calebbiggers
+scripts/config/replacements_config.json @1perrytaylor @calebbiggers
+scripts/unittesting/test_perf_format_converter.py @1perrytaylor @calebbiggers
