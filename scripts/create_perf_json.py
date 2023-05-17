@@ -846,7 +846,7 @@ class Model:
                         for group in csv_groups.split(';'):
                             mgroups.append(group)
                             if group not in self.metricgroups:
-                                self.metricgroups[group] = 'Grouping from metrics spreadsheet'
+                                self.metricgroups[group] = 'Grouping from Top-down Microarchitecture Analysis Metrics spreadsheet'
                     issues = issues()
                     for issue in issues:
                         issue_to_metrics[issue].add(tma_metric_name)
