@@ -811,7 +811,7 @@ class Model:
                     for group in csv_groups.split(';'):
                         mgroups.append(group)
                         if group not in self.metricgroups:
-                            self.metricgroups[group] = 'Grouping from metrics spreadsheet'
+                            self.metricgroups[group] = 'Grouping from Top-down Microarchitecture Analysis Metrics spreadsheet'
                 parent_metric = None
                 if level > 1:
                     parent_metric = f'tma_{parents[-2].lower()}'
