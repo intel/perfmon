@@ -806,6 +806,12 @@ class Model:
                     mgroups.append(group)
                     if group not in self.metricgroups:
                         self.metricgroups[group] = f'Metrics for top-down breakdown at level {level}'
+                tma_perf_metric_l1_performance_cores = ['ICL', 'ICX', 'RKL', 'TGL', 'ADL/RPL', 'SPR']
+                if level == 1 and tma_cpu in tma_perf_metric_l1_performance_cores:
+                    mgroups.append('Default')
+                tma_perf_metric_l2_performance_cores = ['SPR']
+                if level == 2 and tma_cpu in tma_perf_metric_l2_performance_cores:
+                    mgroups.append('Default')
                 csv_groups = metric_group(metric_name)
                 if csv_groups:
                     for group in csv_groups.split(';'):
@@ -1370,9 +1376,17 @@ class Model:
 
                 if group:
                     if 'TopdownL1' in group:
-                        j['MetricgroupNoGroup'] = 'TopdownL1'
+                        if 'Default' in group:
+                            j['MetricgroupNoGroup'] = 'TopdownL1;Default'
+                            j['DefaultMetricgroupName'] = 'TopdownL1'
+                        else:
+                            j['MetricgroupNoGroup'] = 'TopdownL1'
                     elif 'TopdownL2' in group:
-                        j['MetricgroupNoGroup'] = 'TopdownL2'
+                        if 'Default' in group:
+                            j['MetricgroupNoGroup'] = 'TopdownL2;Default'
+                            j['DefaultMetricgroupName'] = 'TopdownL2'
+                        else:
+                            j['MetricgroupNoGroup'] = 'TopdownL2'
 
                 if pmu_prefix != 'cpu':
                     j['Unit'] = pmu_prefix
