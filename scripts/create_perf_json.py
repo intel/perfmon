@@ -173,9 +173,11 @@ def topic(event_name: str, unit: str) -> str:
             'cha': 'Uncore-Cache',
             'cbox': 'Uncore-Cache',
             'ha': 'Uncore-Cache',
+            'hac_cbo': 'Uncore-Cache',
             'cxlcm': 'Uncore-CXL',
             'cxldp': 'Uncore-CXL',
             'arb': 'Uncore-Interconnect',
+            'hac_arb': 'Uncore-Interconnect',
             'irp': 'Uncore-Interconnect',
             'm2m': 'Uncore-Interconnect',
             'mdf': 'Uncore-Interconnect',
@@ -224,7 +226,7 @@ def freerunning_counter_type_and_index(shortname: str,
                                        counter: str):
     type = None
     index = None
-    if shortname == 'ADL' or shortname == 'ADLN' or shortname == 'TGL':
+    if shortname in ['ADL', 'ADLN', 'TGL', 'MTL']:
         if pmu.startswith('imc_free_running'):
             index = 0
             if 'TOTAL' in event_name:
@@ -233,7 +235,7 @@ def freerunning_counter_type_and_index(shortname: str,
                 type = 2
             elif 'WRCAS' in event_name:
                 type = 3
-    elif shortname == 'ICX' or shortname == 'SNR' or shortname == 'SPR':
+    elif shortname in ['ICX', 'SNR', 'SPR']:
         if pmu.startswith('iio_free_running'):
             if 'CLOCKTICKS' in event_name:
                 type = 1
