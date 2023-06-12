@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) Processor Scalable Family based on Skylake microarchitecture - V1.30",
-    "DatePublished": "04/14/2023",
-    "Version": "1.30",
+    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) Processor Scalable Family based on Skylake microarchitecture - V1.31",
+    "DatePublished": "06/07/2023",
+    "Version": "1.31",
     "Legend": ""
   },
   "Events": [
@@ -48112,7 +48112,7 @@
       "UMaskExt": "0x00",
       "EventName": "UNC_M3UPI_RxC_HELD.PARALLEL_SUCCESS",
       "BriefDescription": "Message Held; Parallel Success",
-      "PublicDescription": "ad and bl messages were actually slotted into the same flit in paralle",
+      "PublicDescription": "ad and bl messages were actually slotted into the same flit in parallel",
       "Counter": "0,1,2",
       "MSRValue": "0x00",
       "ELLC": "0",
