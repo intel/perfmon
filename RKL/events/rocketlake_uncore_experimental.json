@@ -1,0 +1,95 @@
+{
+  "Header": {
+    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for 11th Generation Intel(R) Core(TM) Processor - V1.01",
+    "DatePublished": "06/09/2023",
+    "Version": "1.01",
+    "Legend": ""
+  },
+  "Events": [
+    {
+      "Unit": "ARB",
+      "EventCode": "0x80",
+      "UMask": "0x02",
+      "EventName": "UNC_ARB_REQ_TRK_OCCUPANCY.DRD",
+      "BriefDescription": "Each cycle count number of 'valid' coherent Data Read entries . Such entry is defined as valid when it is allocated till deallocation. Doesn't include prefetches. This event is not supported on ICL products but is supported on RKL products.",
+      "PublicDescription": "Each cycle count number of 'valid' coherent Data Read entries . Such entry is defined as valid when it is allocated till deallocation. Doesn't include prefetches. This event is not supported on ICL products but is supported on RKL products.",
+      "Counter": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0"
+    },
+    {
+      "Unit": "ARB",
+      "EventCode": "0x81",
+      "UMask": "0x02",
+      "EventName": "UNC_ARB_REQ_TRK_REQUEST.DRD",
+      "BriefDescription": "Number of all coherent Data Read entries. Doesn't include prefetches",
+      "PublicDescription": "Number of all coherent Data Read entries. Doesn't include prefetches",
+      "Counter": "1",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0"
+    },
+    {
+      "Unit": "ARB",
+      "EventCode": "0x85",
+      "UMask": "0x01",
+      "EventName": "UNC_ARB_DAT_OCCUPANCY.ALL",
+      "BriefDescription": "Each cycle counts number of any coherent request at memory controller that were issued by any core. This event is not supported on ICL products but is supported on RKL products.",
+      "PublicDescription": "Each cycle counts number of any coherent request at memory controller that were issued by any core. This event is not supported on ICL products but is supported on RKL products.",
+      "Counter": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0"
+    },
+    {
+      "Unit": "ARB",
+      "EventCode": "0x85",
+      "UMask": "0x02",
+      "EventName": "UNC_ARB_DAT_OCCUPANCY.RD",
+      "BriefDescription": "Each cycle counts number of coherent reads pending on data return from memory controller that were issued by any core. This event is not supported on ICL products but is supported on RKL products.",
+      "PublicDescription": "Each cycle counts number of coherent reads pending on data return from memory controller that were issued by any core. This event is not supported on ICL products but is supported on RKL products.",
+      "Counter": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0"
+    },
+    {
+      "Unit": "ARB",
+      "EventCode": "0x81",
+      "UMask": "0x02",
+      "EventName": "UNC_ARB_TRK_REQUESTS.RD",
+      "BriefDescription": "Number of all coherent Data Read entries. Doesn't include prefetches. This event is not supported on ICL products but is supported on RKL products.",
+      "PublicDescription": "Number of all coherent Data Read entries. Doesn't include prefetches. This event is not supported on ICL products but is supported on RKL products.",
+      "Counter": "0,1",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0"
+    },
+    {
+      "Unit": "ARB",
+      "EventCode": "0x80",
+      "UMask": "0x02",
+      "EventName": "UNC_ARB_TRK_OCCUPANCY.RD",
+      "BriefDescription": "Each cycle count number of 'valid' coherent Data Read entries . Such entry is defined as valid when it is allocated till deallocation. Doesn't include prefetches. This event is not supported on ICL products but is supported on RKL products.",
+      "PublicDescription": "Each cycle count number of 'valid' coherent Data Read entries . Such entry is defined as valid when it is allocated till deallocation. Doesn't include prefetches. This event is not supported on ICL products but is supported on RKL products.",
+      "Counter": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0"
+    },
+    {
+      "Unit": "ARB",
+      "EventCode": "0x80",
+      "UMask": "0x01",
+      "EventName": "UNC_ARB_TRK_OCCUPANCY.ALL",
+      "BriefDescription": "Each cycle counts number of all outgoing valid entries in ReqTrk. Such entry is defined as valid from its allocation in ReqTrk till deallocation. Accounts for Coherent and non-coherent traffic. This event is not supported on ICL products but is supported on RKL products.",
+      "PublicDescription": "Each cycle counts number of all outgoing valid entries in ReqTrk. Such entry is defined as valid from its allocation in ReqTrk till deallocation. Accounts for Coherent and non-coherent traffic. This event is not supported on ICL products but is supported on RKL products.",
+      "Counter": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0"
+    }
+  ]
+}
