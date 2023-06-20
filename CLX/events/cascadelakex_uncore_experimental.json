@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 2nd Generation Intel(R) Xeon(R) Processor Scalable Family based on Cascade Lake product - V1.18",
-    "DatePublished": "04/17/2023",
-    "Version": "1.18",
+    "Info": "Performance Monitoring Events for 2nd Generation Intel(R) Xeon(R) Processor Scalable Family based on Cascade Lake product - V1.19",
+    "DatePublished": "06/07/2023",
+    "Version": "1.19",
     "Legend": ""
   },
   "Events": [
@@ -48958,7 +48958,7 @@
       "UMaskExt": "0x00",
       "EventName": "UNC_M3UPI_RxC_HELD.PARALLEL_SUCCESS",
       "BriefDescription": "Message Held; Parallel Success",
-      "PublicDescription": "ad and bl messages were actually slotted into the same flit in paralle",
+      "PublicDescription": "ad and bl messages were actually slotted into the same flit in parallel",
       "Counter": "0,1,2",
       "MSRValue": "0x00",
       "ELLC": "0",

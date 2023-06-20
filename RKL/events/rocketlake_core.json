@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 10th Generation Intel(R) Core(TM) Processor - V1.19",
-    "DatePublished": "06/06/2023",
-    "Version": "1.19",
+    "Info": "Performance Monitoring Events for 11th Generation Intel(R) Core(TM) Processor - V1.01",
+    "DatePublished": "06/09/2023",
+    "Version": "1.01",
     "Legend": ""
   },
   "Events": [
@@ -683,8 +683,8 @@
       "EventCode": "0x24",
       "UMask": "0x3f",
       "EventName": "L2_RQSTS.MISS",
-      "BriefDescription": "This event is deprecated.",
-      "PublicDescription": "This event is deprecated.",
+      "BriefDescription": "All requests that miss L2 cache.",
+      "PublicDescription": "Counts all requests that miss L2 cache.",
       "Counter": "0,1,2,3",
       "PEBScounters": "0,1,2,3",
       "SampleAfterValue": "200003",
@@ -700,7 +700,7 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "Offcore": "0",
-      "Deprecated": "1",
+      "Deprecated": "0",
       "Speculative": "1"
     },
     {
@@ -899,8 +899,8 @@
       "EventCode": "0x24",
       "UMask": "0xff",
       "EventName": "L2_RQSTS.REFERENCES",
-      "BriefDescription": "This event is deprecated.",
-      "PublicDescription": "This event is deprecated.",
+      "BriefDescription": "All L2 requests.",
+      "PublicDescription": "Counts all L2 requests.",
       "Counter": "0,1,2,3",
       "PEBScounters": "0,1,2,3",
       "SampleAfterValue": "200003",
@@ -916,7 +916,7 @@
       "L1_Hit_Indication": "0",
       "Errata": "null",
       "Offcore": "0",
-      "Deprecated": "1",
+      "Deprecated": "0",
       "Speculative": "1"
     },
     {

@@ -964,6 +964,7 @@ class Model:
                              'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182\,thresh\=1@'),
                             ('UNC_C_CLOCKTICKS:one_unit', 'cbox_0@event\=0x0@'),
                         ],
+                        'RKL': td_event_fixups,
                         'SKL': [
                             ('UNC_ARB_TRK_OCCUPANCY.DATA_READ:c1',
                              'UNC_ARB_TRK_OCCUPANCY.DATA_READ@thresh\=1@'),

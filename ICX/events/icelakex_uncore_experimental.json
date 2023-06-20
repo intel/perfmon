@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 3rd Generation Intel(R) Xeon(R) Processor Scalable Family based on Ice Lake microarchitecture - V1.20",
-    "DatePublished": "04/05/2023",
-    "Version": "1.20",
+    "Info": "Performance Monitoring Events for 3rd Generation Intel(R) Xeon(R) Processor Scalable Family based on Ice Lake microarchitecture - V1.21",
+    "DatePublished": "06/06/2023",
+    "Version": "1.21",
     "Legend": ""
   },
   "Events": [
@@ -17553,7 +17553,7 @@
       "UMaskExt": "0x00",
       "EventName": "UNC_M3UPI_RxC_HELD.PARALLEL_SUCCESS",
       "BriefDescription": "Message Held : Parallel Success",
-      "PublicDescription": "Message Held : Parallel Success : ad and bl messages were actually slotted into the same flit in paralle",
+      "PublicDescription": "Message Held : Parallel Success : ad and bl messages were actually slotted into the same flit in parallel",
       "Counter": "0,1,2",
       "MSRValue": "0x00",
       "ELLC": "0",
