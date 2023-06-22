@@ -582,23 +582,32 @@ class Model:
             return None
 
         cycles = metric.Event('cycles')
-        cycles_in_tx = metric.Event('cpu/cycles\-t/')
-        transaction_start = metric.Event('cpu/tx\-start/')
-        elision_start = metric.Event('cpu/el\-start/')
-        cycles_in_tx_cp = metric.Event('cpu/cycles\-ct/')
+        cycles_in_tx = metric.Event('cycles\-t')
+        transaction_start = metric.Event('tx\-start')
+        elision_start = metric.Event('el\-start')
+        cycles_in_tx_cp = metric.Event('cycles\-ct')
         return metric.MetricGroup('transaction', [
             metric.Metric('tsx_transactional_cycles',
                    'Percentage of cycles within a transaction region.',
-                   cycles_in_tx / cycles, '100%'),
+                    metric.Select(cycles_in_tx / cycles, metric.has_event(cycles_in_tx), 0),
+                   '100%'),
             metric.Metric('tsx_aborted_cycles', 'Percentage of cycles in aborted transactions.',
-                   metric.max(cycles_in_tx - cycles_in_tx_cp, 0) / cycles,
+                   metric.Select(metric.max(cycles_in_tx - cycles_in_tx_cp, 0) / cycles,
+                                 metric.has_event(cycles_in_tx),
+                                 0),
                    '100%'),
             metric.Metric('tsx_cycles_per_transaction',
                    'Number of cycles within a transaction divided by the number of transactions.',
-                   cycles_in_tx / transaction_start, "cycles / transaction"),
+                   metric.Select(cycles_in_tx / transaction_start,
+                                 metric.has_event(cycles_in_tx),
+                                 0),
+                   "cycles / transaction"),
             metric.Metric('tsx_cycles_per_elision',
                    'Number of cycles within a transaction divided by the number of elisions.',
-                   cycles_in_tx / elision_start, "cycles / elision"),
+                   metric.Select(cycles_in_tx / elision_start,
+                                 metric.has_event(cycles_in_tx),
+                                 0),
+                   "cycles / elision"),
         ])
 
 
