@@ -408,6 +408,12 @@ def source_count(event: Event) -> Function:
   return Function('source_count', event)
 
 
+def has_event(event: Event) -> Function:
+  # pylint: disable=redefined-builtin
+  # pylint: disable=invalid-name
+  return Function('has_event', event)
+
+
 class Metric:
   """An individual metric that will specifiable on the perf command line."""
   groups: Set[str]
@@ -545,7 +551,7 @@ def ParsePerfJson(orig: str) -> Expression:
   py = re.sub(r'([0-9]+)Event\(r"(e[0-9]+)"\)', r'\1\2', py)
   # Workaround Valkyrie perf json metric bug.
   py = py.replace('#( ', '(')
-  keywords = ['if', 'else', 'min', 'max', 'd_ratio', 'source_count']
+  keywords = ['if', 'else', 'min', 'max', 'd_ratio', 'source_count', 'has_event']
   for kw in keywords:
     py = re.sub(rf'Event\(r"{kw}"\)', kw, py)
 
