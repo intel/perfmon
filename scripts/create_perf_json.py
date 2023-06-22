@@ -808,7 +808,7 @@ class Model:
                     mgroups.append(group)
                     if group not in self.metricgroups:
                         self.metricgroups[group] = f'Metrics for top-down breakdown at level {level}'
-                tma_perf_metric_l1_performance_cores = ['ICL', 'ICX', 'RKL', 'TGL', 'ADL/RPL', 'SPR']
+                tma_perf_metric_l1_performance_cores = ['ICL', 'ICX', 'RKL', 'TGL', 'ADL/RPL', 'GRT', 'SPR']
                 if level == 1 and tma_cpu in tma_perf_metric_l1_performance_cores:
                     mgroups.append('Default')
                 tma_perf_metric_l2_performance_cores = ['SPR']
