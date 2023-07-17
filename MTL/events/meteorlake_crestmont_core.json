@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Core(TM) Processor - V1.03",
-    "DatePublished": "05/30/2023",
-    "Version": "1.03",
+    "Info": "Performance Monitoring Events for Intel(R) Core(TM) Processor - V1.04",
+    "DatePublished": "06/29/2023",
+    "Version": "1.04",
     "Legend": ""
   },
   "Events": [
