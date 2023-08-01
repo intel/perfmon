@@ -1332,10 +1332,10 @@ class Model:
                     'tma_info_memory_tlb_page_walks_utilization': nmi,
                 }
                 icelake_constraints = {
+                    # Metrics with more events than counters.
                     'tma_contested_accesses': no_group,
                     'tma_data_sharing': no_group,
                     'tma_dram_bound': no_group,
-                    'tma_fp_arith': no_group,
                     'tma_l2_bound': no_group,
                     'tma_lock_latency': no_group,
                     'tma_memory_operations': no_group,
@@ -1343,14 +1343,19 @@ class Model:
                     'tma_info_bad_spec_branch_misprediction_cost': no_group,
                     'tma_info_botlnk_l0_core_bound_likely': no_group,
                     'tma_info_botlnk_l2_dsb_misses': no_group,
+                    'tma_info_botlnk_l2_dsb_misses': no_group,
+                    'tma_info_botlnk_l2_ic_misses': no_group,
                     'tma_info_bottleneck_big_code': no_group,
                     'tma_info_bottleneck_instruction_fetch_bw': no_group,
+                    'tma_info_bottleneck_memory_bandwidth': no_group,
                     'tma_info_bottleneck_memory_data_tlbs': no_group,
                     'tma_info_bottleneck_memory_latency': no_group,
                     'tma_info_bottleneck_mispredictions': no_group,
-                    'tma_info_core_flopc': no_group,
-                    'tma_info_core_fp_arith_utilization': no_group,
-                    'tma_info_pipeline_retire': no_group,
+                    # Metrics that would fit were the NMI watchdog disabled.
+                    'tma_l3_bound': nmi,
+                    'tma_4k_aliasing': nmi,
+                    'tma_split_stores': nmi,
+                    'tma_store_fwd_blk': nmi,
                 }
                 errata_constraints = {
                     # 4 programmable, 3 fixed counters per HT
