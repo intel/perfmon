@@ -46,7 +46,7 @@ BE_aux,,,Register,,TOPDOWN_BE_BOUND.REGISTER / SLOTS,,Slots,Counts the number of
 BE_aux,,,Reorder_Buffer,,TOPDOWN_BE_BOUND.REORDER_BUFFER / SLOTS,,Slots,Counts the number of issue slots  that were not consumed by the backend due to the reorder buffer being full (ROB stalls).,,>0.10
 BE_aux,,,Alloc_Restriction,,TOPDOWN_BE_BOUND.ALLOC_RESTRICTIONS / SLOTS,,Slots,Counts the number of issue slots  that were not consumed by the backend due to certain allocation restrictions.,,>0.10
 BE_aux,,,Serialization,,TOPDOWN_BE_BOUND.SERIALIZATION / SLOTS,,Slots,"Counts the number of issue slots  that were not consumed by the backend due to scoreboards from the instruction queue (IQ), jump execution unit (JEU), or microcode sequencer (MS).",,>0.10
-RET,Retiring,,,,TOPDOWN_RETIRING.ALL / SLOTS,,Slots,Counts the numer of issue slots  that result in retirement slots. ,,>0.75
+RET,Retiring,,,,TOPDOWN_RETIRING.ALL / SLOTS,,Slots,Counts the number of issue slots  that result in retirement slots. ,,>0.75
 RET,,Base,,,( TOPDOWN_RETIRING.ALL - UOPS_RETIRED.MS ) / SLOTS,,Slots,Counts the number of uops that are not from the microsequencer. ,,>0.60
 RET,,,FPDIV_uops,,UOPS_RETIRED.FPDIV / SLOTS,,Slots,Counts the number of floating point divide operations per uop.,,>0.20
 RET,,,Other_Ret,,( TOPDOWN_RETIRING.ALL - UOPS_RETIRED.MS - UOPS_RETIRED.FPDIV ) / SLOTS,,Slots,Counts the number of uops retired excluding ms and fp div uops.,,>0.30
@@ -61,8 +61,8 @@ Info.Core,UPI,,,,UOPS_RETIRED.ALL / INST_RETIRED.ANY,,,Uops Per Instruction, ,
 Info.L1_Bound,Store_Fwd_Blocks,,,,100 * LD_BLOCKS.DATA_UNKNOWN / MEM_UOPS_RETIRED.ALL_LOADS,,,Percentage of total non-speculative loads with a store forward or unknown store address block,,
 Info.L1_Bound,Address_Alias_Blocks,,,,100 * LD_BLOCKS.4K_ALIAS / MEM_UOPS_RETIRED.ALL_LOADS,,,Percentage of total non-speculative loads with a address aliasing block,,
 Info.L1_Bound,Load_Splits,,,,100 * MEM_UOPS_RETIRED.SPLIT_LOADS / MEM_UOPS_RETIRED.ALL_LOADS,,,Percentage of total non-speculative loads that are splits,,
-Info.Inst_Mix,IpBranch,,,,INST_RETIRED.ANY / BR_INST_RETIRED.ALL_BRANCHES,,,Instructions per Branch (lower number means higher occurance rate), ,
-Info.Inst_Mix,IpCall,,,,INST_RETIRED.ANY / BR_INST_RETIRED.CALL,,,Instruction per (near) call (lower number means higher occurance rate), ,
+Info.Inst_Mix,IpBranch,,,,INST_RETIRED.ANY / BR_INST_RETIRED.ALL_BRANCHES,,,Instructions per Branch (lower number means higher occurrence rate), ,
+Info.Inst_Mix,IpCall,,,,INST_RETIRED.ANY / BR_INST_RETIRED.CALL,,,Instruction per (near) call (lower number means higher occurrence rate), ,
 Info.Inst_Mix,IpLoad,,,,INST_RETIRED.ANY / MEM_UOPS_RETIRED.ALL_LOADS,,,Instructions per Load, ,
 Info.Inst_Mix,IpStore,,,,INST_RETIRED.ANY / MEM_UOPS_RETIRED.ALL_STORES,,,Instructions per Store, ,
 Info.Inst_Mix,IpMispredict,,,,INST_RETIRED.ANY / BR_MISP_RETIRED.ALL_BRANCHES,,,Instructions per retired Branch Misprediction, ,

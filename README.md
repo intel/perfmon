@@ -211,7 +211,7 @@ workload or tool preference.
 ### MSRIndex
 Additional MSRs may be required for programming certain events. This field gives the address of such MSRS.
 Potential values are:
-* 0x3F6: MSR_PEBS_LD_LAT - used to configure the Load Latency Perforamnce Monitoring Facility
+* 0x3F6: MSR_PEBS_LD_LAT - used to configure the Load Latency Performance Monitoring Facility
 * 0x1A6/0x1A7: MSR_OFFCORE_RSP_X - used to configure the offcore response events
 
 ### MSRValue

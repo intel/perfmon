@@ -5831,7 +5831,7 @@
       "UMask": "0x02",
       "EventName": "MACHINE_CLEARS.MEMORY_ORDERING",
       "BriefDescription": "Counts the number of machine clears due to memory order conflicts.",
-      "PublicDescription": "This event counts the number of memory ordering machine clears detected. Memory ordering machine clears can result from memory address aliasing or snoops from another hardware thread or core to data inflight in the pipeline.  Machine clears can have a significant performance impact if they are happening frequently.",
+      "PublicDescription": "This event counts the number of memory ordering machine clears detected. Memory ordering machine clears can result from memory address aliasing or snoops from another hardware thread or core to data in-flight in the pipeline.  Machine clears can have a significant performance impact if they are happening frequently.",
       "Counter": "0,1,2,3",
       "CounterHTOff": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "100003",
