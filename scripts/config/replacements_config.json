@@ -12,7 +12,7 @@
         "PERF_METRICS.BRANCH_MISPREDICTS":"topdown\\-br\\-mispredict",
         "PERF_METRICS.FETCH_LATENCY":"topdown\\-fetch\\-lat",
         "PERF_METRICS.MEMORY_BOUND":"topdown\\-mem\\-bound",
-        "TOPDOWN.SLOTS:perf_metrics":"slots",
+        "TOPDOWN.SLOTS:perf_metrics":"SLOTS",
         "SOCKET_COUNT":"#num_packages",
         "HYPERTHREADING_ON":"#SMT_on",
         "CORES_PER_SOCKET":"#num_cores / #num_packages",
@@ -22,7 +22,9 @@
         "UNC_IIO_PAYLOAD_BYTES_IN.MEM_READ.PART2":"UNC_IIO_DATA_REQ_OF_CPU.MEM_READ.PART2",
         "UNC_IIO_PAYLOAD_BYTES_IN.MEM_READ.PART3":"UNC_IIO_DATA_REQ_OF_CPU.MEM_READ.PART3",
         "UNC_IIO_PAYLOAD_BYTES_IN.MEM_READ.PART4":"UNC_IIO_DATA_REQ_OF_CPU.MEM_READ.PART4",
-        "MSR_EVENT:msr=0x611:type=FREERUN:scope=PACKAGE":"power@energy\\-pkg@"
+        "MSR_EVENT:msr=0x611:type=FREERUN:scope=PACKAGE":"power@energy\\-pkg@",
+        "FREERUN_PKG_ENERGY_STATUS":"power@energy\\-pkg@",
+        "CPU_CLK_UNHALTED.THREAD_P:SUP":"CPU_CLK_UNHALTED.THREAD_P:k"
     },
     "metric_source_events":{
         "CHAS_PER_SOCKET":"UNC_CHA([^\\s]*)",
@@ -31,7 +33,8 @@
     "association_option_replacements": [
         {
             "events": ["ICACHE_", "INT_MISC", "UOPS_", "IDQ", "OFFCORE_", 
-                "L1D_", "DTLB_", "AMX_", "ITLB_", "EXE_", "INST_", "ASSISTS"],
+                "L1D_", "DTLB_", "AMX_", "ITLB_", "EXE_", "INST_", "ASSISTS",
+                "DSB2MITE_", "SW_PREFETCH_"],
             "unit":"cpu",
             "translations":{
                 "c":"cmask",
