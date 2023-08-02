@@ -952,12 +952,6 @@
         "MetricName": "tma_info_system_mem_parallel_reads"
     },
     {
-        "BriefDescription": "Total package Power in Watts",
-        "MetricExpr": "( power@energy\\-pkg@ * ( 61 ) + 15.6 * FREERUN_DRAM_ENERGY_STATUS ) / ( ( ( duration_time * 1000 ) / 1000 ) * ( 1000000 ) )",
-        "MetricGroup": "Power;SoC;TopdownL1;tma_L1_group",
-        "MetricName": "tma_info_system_power"
-    },
-    {
         "BriefDescription": "PerfMon Event Multiplexing accuracy indicator",
         "MetricExpr": "CPU_CLK_UNHALTED.THREAD_P / CPU_CLK_UNHALTED.THREAD",
         "MetricGroup": "Summary;TopdownL1;tma_L1_group",

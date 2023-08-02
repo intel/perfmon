@@ -8929,34 +8929,6 @@
       "MetricGroup": "IoBW;MemOffcore;SoC;Server"
     },
     {
-      "MetricName": "Info_System_Power",
-      "LegacyName": "metric_TMA_Info_System_Power",
-      "Level": 1,
-      "BriefDescription": "Total package Power in Watts",
-      "UnitOfMeasure": "",
-      "Events": [
-        {
-          "Name": "FREERUN_PKG_ENERGY_STATUS",
-          "Alias": "a"
-        },
-        {
-          "Name": "FREERUN_DRAM_ENERGY_STATUS",
-          "Alias": "b"
-        }
-      ],
-      "Constants": [
-        {
-          "Name": "DURATIONTIMEINMILLISECONDS",
-          "Alias": "durationtimeinmilliseconds"
-        }
-      ],
-      "Formula": "( a * ( 61 ) + 15.6 * b ) / ( ( durationtimeinmilliseconds / 1000 ) * ( 1000000 ) )",
-      "Category": "TMA",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Power;SoC"
-    },
-    {
       "MetricName": "Info_System_MUX",
       "LegacyName": "metric_TMA_Info_System_MUX",
       "Level": 1,
