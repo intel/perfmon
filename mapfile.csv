@@ -1,5 +1,5 @@
 Family-model,Version,Filename,EventType,Core Type,Native Model ID,Core Role Name
-GenuineIntel-6-2E,V3,/NHM-EX/events/NehalemEX_core.json,core,,,
+GenuineIntel-6-2E,V4,/NHM-EX/events/NehalemEX_core.json,core,,,
 GenuineIntel-6-1E,V4,/NHM-EP/events/NehalemEP_core.json,core,,,
 GenuineIntel-6-1F,V4,/NHM-EP/events/NehalemEP_core.json,core,,,
 GenuineIntel-6-1A,V4,/NHM-EP/events/NehalemEP_core.json,core,,,
