@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) Processor E5 v4 Family Based on the Broadwell Microarchitecture - V21",
-    "DatePublished": "04/14/2023",
-    "Version": "21",
+    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) Processor E5 v4 Family Based on the Broadwell Microarchitecture - V22",
+    "DatePublished": "08/24/2023",
+    "Version": "22",
     "Legend": ""
   },
   "Events": [
