@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) Processor Scalable Family based on Skylake microarchitecture - V1.31",
-    "DatePublished": "06/07/2023",
-    "Version": "1.31",
+    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) Processor Scalable Family based on Skylake microarchitecture - V1.32",
+    "DatePublished": "08/02/2023",
+    "Version": "1.32",
     "Legend": ""
   },
   "Events": [
@@ -2591,6 +2591,24 @@
       "EventName": "UNC_CHA_REQUESTS.WRITES_LOCAL",
       "BriefDescription": "Write Requests from a unit on this socket",
       "PublicDescription": "Counts  write requests coming from a unit on this socket made into this CHA, including streaming, evictions, HitM (Reads from another core to a Modified cacheline), etc.",
+      "Counter": "0,1,2,3",
+      "MSRValue": "0x00",
+      "ELLC": "0",
+      "Filter": "na",
+      "ExtSel": "0",
+      "Deprecated": "0",
+      "FILTER_VALUE": "0"
+    },
+    {
+      "Unit": "CHA",
+      "EventCode": "0x50",
+      "UMask": "0x08",
+      "PortMask": "0x00",
+      "FCMask": "0x00",
+      "UMaskExt": "0x00",
+      "EventName": "UNC_CHA_REQUESTS.WRITES_REMOTE",
+      "BriefDescription": "Read and Write Requests; Writes Remote",
+      "PublicDescription": "Counts the total number of read requests made into the Home Agent. Reads include all read opcodes (including RFO).  Writes include all writes (streaming, evictions, HitM, etc).",
       "Counter": "0,1,2,3",
       "MSRValue": "0x00",
       "ELLC": "0",
