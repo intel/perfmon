@@ -1,8 +1,8 @@
 Family-model,Version,Filename,EventType,Core Type,Native Model ID,Core Role Name
 GenuineIntel-6-2E,V3,/NHM-EX/events/NehalemEX_core.json,core,,,
-GenuineIntel-6-1E,V3,/NHM-EP/events/NehalemEP_core.json,core,,,
-GenuineIntel-6-1F,V3,/NHM-EP/events/NehalemEP_core.json,core,,,
-GenuineIntel-6-1A,V3,/NHM-EP/events/NehalemEP_core.json,core,,,
+GenuineIntel-6-1E,V4,/NHM-EP/events/NehalemEP_core.json,core,,,
+GenuineIntel-6-1F,V4,/NHM-EP/events/NehalemEP_core.json,core,,,
+GenuineIntel-6-1A,V4,/NHM-EP/events/NehalemEP_core.json,core,,,
 GenuineIntel-6-2F,V3,/WSM-EX/events/WestmereEX_core.json,core,,,
 GenuineIntel-6-25,V3,/WSM-EP-SP/events/WestmereEP-SP_core.json,core,,,
 GenuineIntel-6-2C,V4,/WSM-EP-DP/events/WestmereEP-DP_core.json,core,,,
