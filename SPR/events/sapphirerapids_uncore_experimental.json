@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 4th Generation Intel(R) Xeon(R) Processor Scalable Family based on Sapphire Rapids microarchitecture - V1.15",
-    "DatePublished": "06/28/2023",
-    "Version": "1.15",
+    "Info": "Performance Monitoring Events for 4th Generation Intel(R) Xeon(R) Processor Scalable Family based on Sapphire Rapids microarchitecture - V1.16",
+    "DatePublished": "08/16/2023",
+    "Version": "1.16",
     "Legend": ""
   },
   "Events": [
@@ -38047,7 +38047,7 @@
     },
     {
       "Unit": "CHA",
-      "EventCode": "0x35",
+      "EventCode": "0x36",
       "UMask": "0x01",
       "PortMask": "0x000",
       "FCMask": "0x00",
@@ -38066,7 +38066,7 @@
     },
     {
       "Unit": "CHA",
-      "EventCode": "0x35",
+      "EventCode": "0x36",
       "UMask": "0x01",
       "PortMask": "0x000",
       "FCMask": "0x00",
@@ -38085,7 +38085,7 @@
     },
     {
       "Unit": "CHA",
-      "EventCode": "0x35",
+      "EventCode": "0x36",
       "UMask": "0x01",
       "PortMask": "0x000",
       "FCMask": "0x00",
@@ -38104,7 +38104,7 @@
     },
     {
       "Unit": "CHA",
-      "EventCode": "0x35",
+      "EventCode": "0x36",
       "UMask": "0x01",
       "PortMask": "0x000",
       "FCMask": "0x00",
@@ -38123,7 +38123,7 @@
     },
     {
       "Unit": "CHA",
-      "EventCode": "0x35",
+      "EventCode": "0x36",
       "UMask": "0x01",
       "PortMask": "0x000",
       "FCMask": "0x00",
@@ -38142,7 +38142,7 @@
     },
     {
       "Unit": "CHA",
-      "EventCode": "0x35",
+      "EventCode": "0x36",
       "UMask": "0x01",
       "PortMask": "0x000",
       "FCMask": "0x00",
@@ -38161,7 +38161,7 @@
     },
     {
       "Unit": "CHA",
-      "EventCode": "0x35",
+      "EventCode": "0x36",
       "UMask": "0x01",
       "PortMask": "0x000",
       "FCMask": "0x00",
@@ -38180,7 +38180,7 @@
     },
     {
       "Unit": "CHA",
-      "EventCode": "0x35",
+      "EventCode": "0x36",
       "UMask": "0x01",
       "PortMask": "0x000",
       "FCMask": "0x00",
@@ -38199,7 +38199,7 @@
     },
     {
       "Unit": "CHA",
-      "EventCode": "0x35",
+      "EventCode": "0x36",
       "UMask": "0x01",
       "PortMask": "0x000",
       "FCMask": "0x00",
@@ -38218,7 +38218,7 @@
     },
     {
       "Unit": "CHA",
-      "EventCode": "0x35",
+      "EventCode": "0x36",
       "UMask": "0x01",
       "PortMask": "0x000",
       "FCMask": "0x00",
