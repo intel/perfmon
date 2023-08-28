@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2022 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Xeon(TM) Processor Processors Based on the Nehalem-EX Microarchitecture - V3",
-    "DatePublished": "05/03/2018",
-    "Version": "3",
+    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for Intel(R) Xeon(TM) Processor Processors Based on the Nehalem-EX Microarchitecture - V4",
+    "DatePublished": "08/21/2023",
+    "Version": "4",
     "Legend": ""
   },
   "Events": [
@@ -861,8 +861,8 @@
       "EventCode": "0xF7",
       "UMask": "0x4",
       "EventName": "FP_ASSIST.INPUT",
-      "BriefDescription": "X87 Floating poiint assists for invalid input value (Precise Event)",
-      "PublicDescription": "X87 Floating poiint assists for invalid input value (Precise Event)",
+      "BriefDescription": "X87 Floating point assists for invalid input value (Precise Event)",
+      "PublicDescription": "X87 Floating point assists for invalid input value (Precise Event)",
       "Counter": "0,1,2,3",
       "SampleAfterValue": "20000",
       "MSRIndex": "0",
@@ -2119,8 +2119,8 @@
       "EventCode": "0xF1",
       "UMask": "0x7",
       "EventName": "L2_LINES_IN.ANY",
-      "BriefDescription": "L2 lines alloacated",
-      "PublicDescription": "L2 lines alloacated",
+      "BriefDescription": "L2 lines allocated",
+      "PublicDescription": "L2 lines allocated",
       "Counter": "0,1,2,3",
       "SampleAfterValue": "100000",
       "MSRIndex": "0",

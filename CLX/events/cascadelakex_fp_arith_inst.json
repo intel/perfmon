@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 2nd Generation Intel(R) Xeon(R) Processor Scalable Family based on Cascade Lake product - V1.19",
-    "DatePublished": "06/07/2023",
-    "Version": "1.19",
+    "Info": "Performance Monitoring Events for 2nd Generation Intel(R) Xeon(R) Processor Scalable Family based on Cascade Lake product - V1.20",
+    "DatePublished": "08/01/2023",
+    "Version": "1.20",
     "Legend": ""
   },
   "Events": [

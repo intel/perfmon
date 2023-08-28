@@ -235,7 +235,7 @@ def freerunning_counter_type_and_index(shortname: str,
                 type = 2
             elif 'WRCAS' in event_name:
                 type = 3
-    elif shortname in ['ICX', 'SNR', 'SPR']:
+    elif shortname in ['EMR', 'ICX', 'SNR', 'SPR']:
         if pmu.startswith('iio_free_running'):
             if 'CLOCKTICKS' in event_name:
                 type = 1

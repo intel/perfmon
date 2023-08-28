@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) processor E5 family and Intel(R) Xeon(R) processor E7 family Based on the Ivy Bridge-EP Microarchitecture - V23",
-    "DatePublished": "03/21/2023",
-    "Version": "23",
+    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) processor E5 family and Intel(R) Xeon(R) processor E7 family Based on the Ivy Bridge-EP Microarchitecture - V24",
+    "DatePublished": "08/21/2023",
+    "Version": "24",
     "Legend": ""
   },
   "Events": [
@@ -1355,8 +1355,8 @@
       "EventCode": "0x48",
       "UMask": "0x02",
       "EventName": "L1D_PEND_MISS.FB_FULL",
-      "BriefDescription": "Cycles a demand request was blocked due to Fill Buffers inavailability",
-      "PublicDescription": "Cycles a demand request was blocked due to Fill Buffers inavailability.",
+      "BriefDescription": "Cycles a demand request was blocked due to Fill Buffers unavailability",
+      "PublicDescription": "Cycles a demand request was blocked due to Fill Buffers unavailability.",
       "Counter": "0,1,2,3",
       "CounterHTOff": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "2000003",

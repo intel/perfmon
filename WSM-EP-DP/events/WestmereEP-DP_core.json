@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Core(TM) i7 and i5 Processors Based on the Intel(R) Xeon(R) Processor 3600 Client Microarchitecture - V4",
-    "DatePublished": "01/26/2023",
-    "Version": "4",
+    "Info": "Performance Monitoring Events for Intel(R) Core(TM) i7 and i5 Processors Based on the Intel(R) Xeon(R) Processor 3600 Client Microarchitecture - V5",
+    "DatePublished": "08/17/2023",
+    "Version": "5",
     "Legend": ""
   },
   "Events": [
@@ -997,8 +997,8 @@
       "EventCode": "0xF7",
       "UMask": "0x4",
       "EventName": "FP_ASSIST.INPUT",
-      "BriefDescription": "X87 Floating poiint assists for invalid input value (Precise Event)",
-      "PublicDescription": "X87 Floating poiint assists for invalid input value (Precise Event)",
+      "BriefDescription": "X87 Floating point assists for invalid input value (Precise Event)",
+      "PublicDescription": "X87 Floating point assists for invalid input value (Precise Event)",
       "Counter": "0,1,2,3",
       "SampleAfterValue": "20000",
       "MSRIndex": "0",
