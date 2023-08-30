@@ -976,7 +976,7 @@ class Model:
                         'RKL': td_event_fixups,
                         'SKL': [
                             ('UNC_ARB_TRK_OCCUPANCY.DATA_READ:c1',
-                             'UNC_ARB_TRK_OCCUPANCY.DATA_READ@thresh\=1@'),
+                             'UNC_ARB_TRK_OCCUPANCY.DATA_READ@cmask\=1@'),
                         ],
                         'SKX': [
                             ('UNC_M_CLOCKTICKS:one_unit', 'imc_0@event\=0x0@'),
