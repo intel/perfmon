@@ -908,7 +908,7 @@ class Model:
                 form = find_form()
                 if form and form != '#NA':
                     aux_name = field('Level1')
-                    assert aux_name.startswith('#')
+                    assert aux_name.startswith('#') or aux_name == 'Num_CPUs'
                     aux[aux_name] = form
                     _verboseprint3(f'Adding aux {aux_name}: {form}')
 
@@ -1103,8 +1103,11 @@ class Model:
                     return expr
 
                 def resolve_aux(v: str) -> str:
-                    if any(v == i for i in ['#core_wide', '#Model', '#SMT_on', '#num_dies','#has_pmem']):
+                    if any(v == i for i in ['#core_wide', '#Model', '#SMT_on', '#num_dies',
+                                            '#has_pmem', '#num_cpus_online']):
                         return v
+                    if v == 'Num_CPUs':
+                        return '#num_cpus_online'
                     if v == '#PMM_App_Direct':
                         return '#has_pmem > 0'
                     if v == '#DurationTimeInSeconds':
@@ -1150,7 +1153,7 @@ class Model:
                         return expand_hhq(v[3:])
                     if v.startswith('##'):
                         return expand_hh(v[2:])
-                    if v.startswith('#'):
+                    if v.startswith('#') or v == 'Num_CPUs':
                         return resolve_aux(v)
                     return resolve_info(v)
 
@@ -1194,7 +1197,7 @@ class Model:
                              'num_packages', 'num_cores', 'SYSTEM_TSC_FREQ',
                              'filter_tid', 'TSC', 'cha', 'config1',
                              'source_count', 'slots', 'thresh', 'has_pmem',
-                             'num_dies']:
+                             'num_dies', 'num_cpus_online']:
                         continue
                     if v.startswith('tma_') or v.startswith('topdown\\-'):
                         continue
