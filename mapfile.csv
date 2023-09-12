@@ -3,7 +3,7 @@ GenuineIntel-6-2E,V4,/NHM-EX/events/NehalemEX_core.json,core,,,
 GenuineIntel-6-1E,V4,/NHM-EP/events/NehalemEP_core.json,core,,,
 GenuineIntel-6-1F,V4,/NHM-EP/events/NehalemEP_core.json,core,,,
 GenuineIntel-6-1A,V4,/NHM-EP/events/NehalemEP_core.json,core,,,
-GenuineIntel-6-2F,V3,/WSM-EX/events/WestmereEX_core.json,core,,,
+GenuineIntel-6-2F,V4,/WSM-EX/events/WestmereEX_core.json,core,,,
 GenuineIntel-6-25,V4,/WSM-EP-SP/events/WestmereEP-SP_core.json,core,,,
 GenuineIntel-6-2C,V5,/WSM-EP-DP/events/WestmereEP-DP_core.json,core,,,
 GenuineIntel-6-37,V15,/SLM/events/Silvermont_core.json,core,,,
@@ -20,11 +20,11 @@ GenuineIntel-6-5C,V13,/GLM/events/goldmont_core.json,core,,,
 GenuineIntel-6-5C,V13,/GLM/events/goldmont_matrix.json,offcore,,,
 GenuineIntel-6-5F,V13,/GLM/events/goldmont_core.json,core,,,
 GenuineIntel-6-5F,V13,/GLM/events/goldmont_matrix.json,offcore,,,
-GenuineIntel-6-1C,V4,/BNL/events/Bonnell_core.json,core,,,
-GenuineIntel-6-26,V4,/BNL/events/Bonnell_core.json,core,,,
-GenuineIntel-6-27,V4,/BNL/events/Bonnell_core.json,core,,,
-GenuineIntel-6-36,V4,/BNL/events/Bonnell_core.json,core,,,
-GenuineIntel-6-35,V4,/BNL/events/Bonnell_core.json,core,,,
+GenuineIntel-6-1C,V5,/BNL/events/bonnell_core.json,core,,,
+GenuineIntel-6-26,V5,/BNL/events/bonnell_core.json,core,,,
+GenuineIntel-6-27,V5,/BNL/events/bonnell_core.json,core,,,
+GenuineIntel-6-36,V5,/BNL/events/bonnell_core.json,core,,,
+GenuineIntel-6-35,V5,/BNL/events/bonnell_core.json,core,,,
 GenuineIntel-6-2A,V19,/SNB/events/sandybridge_core.json,core,,,
 GenuineIntel-6-2A,V19,/SNB/events/sandybridge_matrix.json,offcore,,,
 GenuineIntel-6-2A,V19,/SNB/events/sandybridge_uncore.json,uncore,,,
@@ -128,34 +128,35 @@ GenuineIntel-6-6C,V1.21,/ICX/events/icelakex_core.json,core,,,
 GenuineIntel-6-6C,V1.21,/ICX/events/icelakex_uncore.json,uncore,,,
 GenuineIntel-6-96,V1.04,/EHL/events/elkhartlake_core.json,core,,,
 GenuineIntel-6-9C,V1.04,/EHL/events/elkhartlake_core.json,core,,,
-GenuineIntel-6-97,V1.21,/ADL/events/alderlake_gracemont_core.json,hybridcore,0x20,0x000001,Atom
-GenuineIntel-6-97,V1.21,/ADL/events/alderlake_goldencove_core.json,hybridcore,0x40,0x000001,Core
-GenuineIntel-6-97,V1.21,/ADL/events/alderlake_uncore.json,uncore,,,
-GenuineIntel-6-97,V1.21,/ADL/events/alderlake_uncore_experimental.json,uncore experimental,,,
-GenuineIntel-6-9A,V1.21,/ADL/events/alderlake_gracemont_core.json,hybridcore,0x20,0x000001,Atom
-GenuineIntel-6-9A,V1.21,/ADL/events/alderlake_goldencove_core.json,hybridcore,0x40,0x000001,Core
-GenuineIntel-6-9A,V1.21,/ADL/events/alderlake_uncore.json,uncore,,,
-GenuineIntel-6-9A,V1.21,/ADL/events/alderlake_uncore_experimental.json,uncore experimental,,,
-GenuineIntel-6-B7,V1.21,/ADL/events/alderlake_gracemont_core.json,hybridcore,0x20,0x000001,Atom
-GenuineIntel-6-B7,V1.21,/ADL/events/alderlake_goldencove_core.json,hybridcore,0x40,0x000001,Core
-GenuineIntel-6-B7,V1.21,/ADL/events/alderlake_uncore.json,uncore,,,
-GenuineIntel-6-B7,V1.21,/ADL/events/alderlake_uncore_experimental.json,uncore experimental,,,
-GenuineIntel-6-BA,V1.21,/ADL/events/alderlake_gracemont_core.json,hybridcore,0x20,0x000001,Atom
-GenuineIntel-6-BA,V1.21,/ADL/events/alderlake_goldencove_core.json,hybridcore,0x40,0x000001,Core
-GenuineIntel-6-BA,V1.21,/ADL/events/alderlake_uncore.json,uncore,,,
-GenuineIntel-6-BA,V1.21,/ADL/events/alderlake_uncore_experimental.json,uncore experimental,,,
-GenuineIntel-6-BF,V1.21,/ADL/events/alderlake_gracemont_core.json,hybridcore,0x20,0x000001,Atom
-GenuineIntel-6-BF,V1.21,/ADL/events/alderlake_goldencove_core.json,hybridcore,0x40,0x000001,Core
-GenuineIntel-6-BF,V1.21,/ADL/events/alderlake_uncore.json,uncore,,,
-GenuineIntel-6-BF,V1.21,/ADL/events/alderlake_uncore_experimental.json,uncore experimental,,,
-GenuineIntel-6-BE,V1.21,/ADL/events/alderlake_gracemont_core.json,core,,,
-GenuineIntel-6-BE,V1.21,/ADL/events/alderlake_uncore.json,uncore,,,
-GenuineIntel-6-AA,V1.04,/MTL/events/meteorlake_crestmont_core.json,hybridcore,0x20,0x000002,Atom
-GenuineIntel-6-AA,V1.04,/MTL/events/meteorlake_redwoodcove_core.json,hybridcore,0x40,0x000002,Core
-GenuineIntel-6-AA,V1.04,/MTL/events/meteorlake_uncore.json,uncore,,,
-GenuineIntel-6-AC,V1.04,/MTL/events/meteorlake_crestmont_core.json,hybridcore,0x20,0x000002,Atom
-GenuineIntel-6-AC,V1.04,/MTL/events/meteorlake_redwoodcove_core.json,hybridcore,0x40,0x000002,Core
-GenuineIntel-6-AC,V1.04,/MTL/events/meteorlake_uncore.json,uncore,,,
+GenuineIntel-6-97,V1.22,/ADL/events/alderlake_gracemont_core.json,hybridcore,0x20,0x000001,Atom
+GenuineIntel-6-97,V1.22,/ADL/events/alderlake_goldencove_core.json,hybridcore,0x40,0x000001,Core
+GenuineIntel-6-97,V1.22,/ADL/events/alderlake_uncore.json,uncore,,,
+GenuineIntel-6-97,V1.22,/ADL/events/alderlake_uncore_experimental.json,uncore experimental,,,
+GenuineIntel-6-9A,V1.22,/ADL/events/alderlake_gracemont_core.json,hybridcore,0x20,0x000001,Atom
+GenuineIntel-6-9A,V1.22,/ADL/events/alderlake_goldencove_core.json,hybridcore,0x40,0x000001,Core
+GenuineIntel-6-9A,V1.22,/ADL/events/alderlake_uncore.json,uncore,,,
+GenuineIntel-6-9A,V1.22,/ADL/events/alderlake_uncore_experimental.json,uncore experimental,,,
+GenuineIntel-6-B7,V1.22,/ADL/events/alderlake_gracemont_core.json,hybridcore,0x20,0x000001,Atom
+GenuineIntel-6-B7,V1.22,/ADL/events/alderlake_goldencove_core.json,hybridcore,0x40,0x000001,Core
+GenuineIntel-6-B7,V1.22,/ADL/events/alderlake_uncore.json,uncore,,,
+GenuineIntel-6-B7,V1.22,/ADL/events/alderlake_uncore_experimental.json,uncore experimental,,,
+GenuineIntel-6-BA,V1.22,/ADL/events/alderlake_gracemont_core.json,hybridcore,0x20,0x000001,Atom
+GenuineIntel-6-BA,V1.22,/ADL/events/alderlake_goldencove_core.json,hybridcore,0x40,0x000001,Core
+GenuineIntel-6-BA,V1.22,/ADL/events/alderlake_uncore.json,uncore,,,
+GenuineIntel-6-BA,V1.22,/ADL/events/alderlake_uncore_experimental.json,uncore experimental,,,
+GenuineIntel-6-BF,V1.22,/ADL/events/alderlake_gracemont_core.json,hybridcore,0x20,0x000001,Atom
+GenuineIntel-6-BF,V1.22,/ADL/events/alderlake_goldencove_core.json,hybridcore,0x40,0x000001,Core
+GenuineIntel-6-BF,V1.22,/ADL/events/alderlake_uncore.json,uncore,,,
+GenuineIntel-6-BF,V1.22,/ADL/events/alderlake_uncore_experimental.json,uncore experimental,,,
+GenuineIntel-6-BE,V1.22,/ADL/events/alderlake_gracemont_core.json,core,,,
+GenuineIntel-6-BE,V1.22,/ADL/events/alderlake_uncore.json,uncore,,,
+GenuineIntel-6-BE,V1.22,/ADL/events/alderlake_uncore_experimental.json,uncore experimental,,,
+GenuineIntel-6-AA,V1.05,/MTL/events/meteorlake_crestmont_core.json,hybridcore,0x20,0x000002,Atom
+GenuineIntel-6-AA,V1.05,/MTL/events/meteorlake_redwoodcove_core.json,hybridcore,0x40,0x000002,Core
+GenuineIntel-6-AA,V1.05,/MTL/events/meteorlake_uncore.json,uncore,,,
+GenuineIntel-6-AC,V1.05,/MTL/events/meteorlake_crestmont_core.json,hybridcore,0x20,0x000002,Atom
+GenuineIntel-6-AC,V1.05,/MTL/events/meteorlake_redwoodcove_core.json,hybridcore,0x40,0x000002,Core
+GenuineIntel-6-AC,V1.05,/MTL/events/meteorlake_uncore.json,uncore,,,
 GenuineIntel-6-AD,V1.01,/GNR/events/graniterapids_core.json,core,,,
 GenuineIntel-6-AE,V1.01,/GNR/events/graniterapids_core.json,core,,,
 GenuineIntel-6-AF,V1.00,/SRF/events/sierraforest_core.json,core,,,

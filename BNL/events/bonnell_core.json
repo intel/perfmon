@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2022 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Atom(TM) Processors Based on the Bonnell Microarchitecture - V4",
-    "DatePublished": "08/16/2016",
-    "Version": "4",
+    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for Intel(R) Atom(TM) Processors Based on the Bonnell Microarchitecture - V5",
+    "DatePublished": "09/07/2023",
+    "Version": "5",
     "Legend": ""
   },
   "Events": [
@@ -3863,8 +3863,8 @@
       "EventCode": "0xAA",
       "UMask": "0x1",
       "EventName": "MACRO_INSTS.NON_CISC_DECODED",
-      "BriefDescription": "Non-CISC nacro instructions decoded",
-      "PublicDescription": "Non-CISC nacro instructions decoded",
+      "BriefDescription": "Non-CISC macro instructions decoded",
+      "PublicDescription": "Non-CISC macro instructions decoded",
       "Counter": "0,1",
       "SampleAfterValue": "2000000",
       "MSRIndex": "0",

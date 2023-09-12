@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 12th and 13th Generation Intel(R) Core(TM) Processor - V1.21",
-    "DatePublished": "04/25/2023",
-    "Version": "1.21",
+    "Info": "Performance Monitoring Events for 12th and 13th Generation Intel(R) Core(TM) Processor - V1.22",
+    "DatePublished": "09/07/2023",
+    "Version": "1.22",
     "Legend": ""
   },
   "Events": [
@@ -18,6 +18,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
     {
@@ -31,6 +32,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
     {
@@ -40,10 +42,11 @@
       "EventName": "UNC_CLOCK.SOCKET",
       "BriefDescription": "This 48-bit fixed counter counts the UCLK cycles.",
       "PublicDescription": "This 48-bit fixed counter counts the UCLK cycles.",
-      "Counter": "Fixed",
+      "Counter": "FIXED",
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "FIXED"
     },
     {
@@ -57,6 +60,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
     {
@@ -70,6 +74,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
     {
@@ -83,6 +88,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
     {
@@ -96,6 +102,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
     {
@@ -109,6 +116,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
     {
@@ -122,6 +130,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
     {
@@ -135,6 +144,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
     {
@@ -148,6 +158,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
     {
@@ -161,6 +172,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
     {
@@ -174,6 +186,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
     {
@@ -187,6 +200,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
     {
@@ -200,6 +214,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
     {
@@ -213,6 +228,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
     {
@@ -226,6 +242,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
     {
@@ -239,6 +256,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
     {
@@ -252,6 +270,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
     {
@@ -265,6 +284,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
     {
@@ -278,6 +298,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
     {
@@ -291,6 +312,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
     {
@@ -304,6 +326,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
     {
@@ -317,6 +340,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
     {
@@ -330,6 +354,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "FREERUN"
     },
     {
@@ -343,6 +368,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "FREERUN"
     },
     {
@@ -356,6 +382,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "FREERUN"
     },
     {
@@ -369,6 +396,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "FREERUN"
     },
     {
@@ -382,6 +410,7 @@
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
+      "Deprecated": "0",
       "CounterType": "PGMABLE"
     }
   ]
