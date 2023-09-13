@@ -487,7 +487,7 @@ class Model:
         @param shortname: typically 3 letter name like SKL.
         @param longname: the model name like Skylake.
         @param version: the version number associated with the event json.
-        @param models: a set of model indentifier strings like "GenuineIntel-6-2E".
+        @param models: a set of model identifier strings like "GenuineIntel-6-2E".
         @param files: a mapping from a type of file to the file's path.
         """
         self.shortname = shortname
@@ -519,16 +519,16 @@ class Model:
             if len(min(self.models)) - len(prefix) > 1:
                 start_bracket = '('
                 end_bracket = ')'
-                seperator = '|'
+                separator = '|'
             else:
                 start_bracket = '['
                 end_bracket = ']'
-                seperator = ''
+                separator = ''
             ret = prefix + start_bracket
             first = True
             for x in self.models:
                 if not first:
-                    ret += seperator
+                    ret += separator
                 ret += x[len(prefix):]
                 first = False
             ret += end_bracket
