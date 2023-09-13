@@ -1,0 +1,488 @@
+{
+  "Header": {
+    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for Intel(R) Xeon Phi Coprocessor based on the Intel(R) Many Integrated Core Architecture - V16",
+    "DatePublished": "09/01/2023",
+    "Version": "16",
+    "Legend": ""
+  },
+  "Events": [
+    {
+      "BitName": "DEMAND_DATA_RD",
+      "BitIndex": "0",
+      "Type": "1",
+      "Description": "Counts demand cacheable data and L1 prefetch data reads",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "DEMAND_RFO",
+      "BitIndex": "1",
+      "Type": "1",
+      "Description": "Counts Demand cacheable data writes",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "DEMAND_CODE_RD",
+      "BitIndex": "2",
+      "Type": "1",
+      "Description": "Counts demand code reads and prefetch code reads",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "PF_L2_RFO",
+      "BitIndex": "5",
+      "Type": "1",
+      "Description": "Counts L2 data RFO prefetches (includes PREFETCHW instruction)",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "PF_L2_CODE_RD",
+      "BitIndex": "6",
+      "Type": "1",
+      "Description": "Counts L2 code HW prefetches",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "PARTIAL_READS",
+      "BitIndex": "7",
+      "Type": "1",
+      "Description": "Counts Partial reads (UC or WC and is valid only for Outstanding response type).",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "PARTIAL_WRITES",
+      "BitIndex": "8",
+      "Type": "1",
+      "Description": "Counts Partial writes (UC or WT or WP and should be programmed on PMC1)",
+      "MATRIX_REG": "1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "UC_CODE_READS",
+      "BitIndex": "9",
+      "Type": "1",
+      "Description": "Counts UC code reads (valid only for Outstanding response type)",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "BUS_LOCKS",
+      "BitIndex": "10",
+      "Type": "1",
+      "Description": "Counts Bus locks and split lock requests",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "FULL_STREAMING_STORES",
+      "BitIndex": "11",
+      "Type": "1",
+      "Description": "Counts Full streaming stores (WC and should be programmed on PMC1)",
+      "MATRIX_REG": "1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "PF_SOFTWARE",
+      "BitIndex": "12",
+      "Type": "1",
+      "Description": "Counts Software Prefetches",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "PF_L1_DATA_RD",
+      "BitIndex": "13",
+      "Type": "1",
+      "Description": "Counts L1 data HW prefetches",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "PARTIAL_STREAMING_STORES",
+      "BitIndex": "14",
+      "Type": "1",
+      "Description": "Counts Partial streaming stores (WC and should be programmed on PMC1)",
+      "MATRIX_REG": "1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "STREAMING_STORES",
+      "BitIndex": "11,14",
+      "Type": "1",
+      "Description": "Counts all streaming stores (WC and should be programmed on PMC1)",
+      "MATRIX_REG": "1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "ANY_REQUEST",
+      "BitIndex": "15",
+      "Type": "1",
+      "Description": "Counts any request",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "ANY_DATA_RD",
+      "BitIndex": "0,7,12,13",
+      "Type": "1",
+      "Description": "Counts Demand cacheable data and L1 prefetch data read requests",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "ANY_RFO",
+      "BitIndex": "1,5",
+      "Type": "1",
+      "Description": "Counts Demand cacheable data write requests",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "ANY_CODE_RD",
+      "BitIndex": "2,6",
+      "Type": "1",
+      "Description": "Counts Demand code reads and prefetch code read requests",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "ANY_READ",
+      "BitIndex": "0,1,2,5,6,7,9,12,13",
+      "Type": "1",
+      "Description": "Counts any Read request",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "ANY_PF_L2",
+      "BitIndex": "5,6",
+      "Type": "1",
+      "Description": "Counts any Prefetch requests",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "ANY_RESPONSE",
+      "BitIndex": "16",
+      "Type": "2",
+      "Description": "have any response type.",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "L2_HIT_OTHER_TILE_NEAR_E_F",
+      "BitIndex": "19",
+      "Type": "3",
+      "Description": "L2_HIT_OTHER_TILE_NEAR_E_F",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "L2_HIT_OTHER_TILE_MCDRAM_LOCAL",
+      "BitIndex": "21",
+      "Type": "3",
+      "Description": "L2_HIT_OTHER_TILE_MCDRAM_LOCAL",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "L2_HIT_OTHER_TILE_MCDRAM_FAR",
+      "BitIndex": "22",
+      "Type": "3",
+      "Description": "L2_HIT_OTHER_TILE_MCDRAM_FAR",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "DDR4_LOCAL_CLUSTER",
+      "BitIndex": "23",
+      "Type": "3",
+      "Description": "DDR4_LOCAL_CLUSTER",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "DDR4_FAR_CLUSTER",
+      "BitIndex": "24",
+      "Type": "3",
+      "Description": "DDR4_FAR_CLUSTER",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "L2_HIT_THIS_TILE_M",
+      "BitIndex": "25",
+      "Type": "2",
+      "Description": "L2_HIT_THIS_TILE_M",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "L2_HIT_THIS_TILE_E",
+      "BitIndex": "26",
+      "Type": "2",
+      "Description": "L2_HIT_THIS_TILE_E",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "L2_HIT_THIS_TILE_S",
+      "BitIndex": "27",
+      "Type": "2",
+      "Description": "L2_HIT_THIS_TILE_S",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "L2_HIT_THIS_TILE_F",
+      "BitIndex": "28",
+      "Type": "2",
+      "Description": "L2_HIT_THIS_TILE_F",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "L2_MISS_SNOOP_NONE",
+      "BitIndex": "31",
+      "Type": "4",
+      "Description": "L2_MISS_SNOOP_NONE",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "L2_MISS_SNOOP_NOT_NEEDED",
+      "BitIndex": "32",
+      "Type": "4",
+      "Description": "L2_MISS_SNOOP_NOT_NEEDED",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "L2_MISS_SNOOP_HIT_WITH_FWD",
+      "BitIndex": "35",
+      "Type": "4",
+      "Description": "L2_MISS_SNOOP_HIT_WITH_FWD",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "L2_MISS_SNOOP_HITM",
+      "BitIndex": "36",
+      "Type": "4",
+      "Description": "L2_MISS_SNOOP_HITM",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "L2_MISS_SNOOP_NON_DRAM",
+      "BitIndex": "37",
+      "Type": "4",
+      "Description": "L2_MISS_SNOOP_NON_DRAM",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "DDR_NEAR",
+      "BitIndex": "23,31",
+      "Type": "2",
+      "Description": "DDR_NEAR",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "DDR_FAR",
+      "BitIndex": "24,32",
+      "Type": "2",
+      "Description": "DDR_FAR",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "MCDRAM_NEAR",
+      "BitIndex": "21,31",
+      "Type": "2",
+      "Description": "MCDRAM_NEAR",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "MCDRAM_FAR",
+      "BitIndex": "22,32",
+      "Type": "2",
+      "Description": "MCDRAM_FAR",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "L2_HIT_NEAR_TILE_E",
+      "BitIndex": "19,35",
+      "Type": "2",
+      "Description": "L2_HIT_NEAR_TILE_E",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "L2_HIT_NEAR_TILE_F",
+      "BitIndex": "20,35",
+      "Type": "2",
+      "Description": "L2_HIT_NEAR_TILE_F",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "L2_HIT_NEAR_TILE_M",
+      "BitIndex": "19,36",
+      "Type": "2",
+      "Description": "L2_HIT_NEAR_TILE_M",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "L2_HIT_FAR_TILE_E_F",
+      "BitIndex": "22,35",
+      "Type": "2",
+      "Description": "L2_HIT_FAR_TILE_E_F",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "L2_HIT_FAR_TILE_M",
+      "BitIndex": "22,36",
+      "Type": "2",
+      "Description": "L2_HIT_FAR_TILE_M",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "NON_DRAM",
+      "BitIndex": "17,37",
+      "Type": "2",
+      "Description": "NON_DRAM",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "NON_CACHEABLE_TO_LOCAL",
+      "BitIndex": "21,37",
+      "Type": "2",
+      "Description": "NON_CACHEABLE_TO_LOCAL",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "OUTSTANDING",
+      "BitIndex": "38",
+      "Type": "2",
+      "Description": "OUTSTANDING",
+      "MATRIX_REG": "0",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "L2_HIT_NEAR_TILE",
+      "BitIndex": "19,20,35,36",
+      "Type": "2",
+      "Description": "L2_HIT_NEAR_TILE",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "L2_HIT_FAR_TILE",
+      "BitIndex": "22,35,36",
+      "Type": "2",
+      "Description": "L2_HIT_FAR_TILE",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "L2_HIT_NEAR_TILE_E_F",
+      "BitIndex": "19,35",
+      "Type": "2",
+      "Description": "accounts for responses from a snoop request hit with data forwarded from its Near-other tile's L2 in E/F state. ",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "MCDRAM",
+      "BitIndex": "21,22,31,32",
+      "Type": "2",
+      "Description": "accounts for responses from MCDRAM (local and far)",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "DDR",
+      "BitIndex": "23,24,31,32",
+      "Type": "2",
+      "Description": "accounts for responses from DDR (local and far)",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    },
+    {
+      "BitName": "L2_MISS",
+      "BitIndex": "19,20, 21, 22, 23,24,28,29,32,33",
+      "Type": "2",
+      "Description": "Accounts for responses which miss its own tile's L2.",
+      "MATRIX_REG": "0,1",
+      "BitsNotCombinedWith": "null",
+      "Errata": "null"
+    }
+  ]
+}

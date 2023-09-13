@@ -290,9 +290,6 @@ and 0 for core events.
 ### Tremont based platforms Snow Ridge, Elkhart Lake, and Jasper Lake
 Please use SNR core event files. The EHL events folder is populated with a copy of SNR `core.json` for convenience.
 
-### Knights Mill (KNM)
-Please use KNL perfmon event files for KNM. The KNM events folder is populated with copies of KNL for convenience.
-
 ## For additional information
 * Event documentation https://perfmon-events.intel.com/
 * Intel&copy; Platform Analysis Technology https://www.intel.com/content/www/us/en/developer/topic-technology/platform-analysis-technology/overview.html
