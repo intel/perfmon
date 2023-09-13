@@ -13,7 +13,7 @@
       "UMask": "0x00",
       "EventName": "UNC_H_U_CLOCKTICKS",
       "BriefDescription": "Uncore Clocks",
-      "PublicDescription": "0",
+      "PublicDescription": "Uncore Clocks",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -24,7 +24,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_INGRESS_OCCUPANCY.IRQ",
       "BriefDescription": "Ingress Occupancy. Counts number of entries in the specified Ingress queue in each cycle. - IRQ",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Occupancy. Counts number of entries in the specified Ingress queue in each cycle. - IRQ",
       "Counter": "0",
       "Filter": "null",
       "ExtSel": "0"
@@ -35,7 +35,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_INGRESS_OCCUPANCY.IRQ_REJ",
       "BriefDescription": "Ingress Occupancy. Counts number of entries in the specified Ingress queue in each cycle. - IRQ Rejected",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Occupancy. Counts number of entries in the specified Ingress queue in each cycle. - IRQ Rejected",
       "Counter": "0",
       "Filter": "null",
       "ExtSel": "0"
@@ -46,7 +46,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_INGRESS_OCCUPANCY.IPQ",
       "BriefDescription": "Ingress Occupancy. Counts number of entries in the specified Ingress queue in each cycle. - IPQ",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Occupancy. Counts number of entries in the specified Ingress queue in each cycle. - IPQ",
       "Counter": "0",
       "Filter": "null",
       "ExtSel": "0"
@@ -57,7 +57,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_INGRESS_OCCUPANCY.PRQ",
       "BriefDescription": "Ingress Occupancy. Counts number of entries in the specified Ingress queue in each cycle. - PRQ",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Occupancy. Counts number of entries in the specified Ingress queue in each cycle. - PRQ",
       "Counter": "0",
       "Filter": "null",
       "ExtSel": "0"
@@ -68,7 +68,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_INGRESS_OCCUPANCY.PRQ_REJ",
       "BriefDescription": "Ingress Occupancy. Counts number of entries in the specified Ingress queue in each cycle. - PRQ Rejected",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Occupancy. Counts number of entries in the specified Ingress queue in each cycle. - PRQ Rejected",
       "Counter": "0",
       "Filter": "null",
       "ExtSel": "0"
@@ -79,7 +79,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_INGRESS_INSERTS.IRQ",
       "BriefDescription": "Ingress Allocations. Counts number of allocations per cycle into the specified Ingress queue. - IRQ",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Allocations. Counts number of allocations per cycle into the specified Ingress queue. - IRQ",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -90,7 +90,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_INGRESS_INSERTS.IRQ_REJ",
       "BriefDescription": "Ingress Allocations. Counts number of allocations per cycle into the specified Ingress queue. - IRQ Rejected",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Allocations. Counts number of allocations per cycle into the specified Ingress queue. - IRQ Rejected",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -101,7 +101,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_INGRESS_INSERTS.IPQ",
       "BriefDescription": "Ingress Allocations. Counts number of allocations per cycle into the specified Ingress queue. - IPQ",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Allocations. Counts number of allocations per cycle into the specified Ingress queue. - IPQ",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -112,7 +112,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_INGRESS_INSERTS.PRQ",
       "BriefDescription": "Ingress Allocations. Counts number of allocations per cycle into the specified Ingress queue. - PRQ",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Allocations. Counts number of allocations per cycle into the specified Ingress queue. - PRQ",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -123,7 +123,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_INGRESS_INSERTS.PRQ_REJ",
       "BriefDescription": "Ingress Allocations. Counts number of allocations per cycle into the specified Ingress queue. - PRQ Rejected",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Allocations. Counts number of allocations per cycle into the specified Ingress queue. - PRQ Rejected",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -134,7 +134,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_INGRESS_INT_STARVED.IRQ",
       "BriefDescription": "Cycles with the IRQ in Internal Starvation.",
-      "PublicDescription": "0",
+      "PublicDescription": "Cycles with the IRQ in Internal Starvation.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -145,7 +145,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_INGRESS_INT_STARVED.IPQ",
       "BriefDescription": "Cycles with the IPQ in Internal Starvation.",
-      "PublicDescription": "0",
+      "PublicDescription": "Cycles with the IPQ in Internal Starvation.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -156,7 +156,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_INGRESS_INT_STARVED.ISMQ",
       "BriefDescription": "Cycles with the ISMQ in Internal Starvation.",
-      "PublicDescription": "0",
+      "PublicDescription": "Cycles with the ISMQ in Internal Starvation.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -167,7 +167,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_INGRESS_INT_STARVED.PRQ",
       "BriefDescription": "Ingress internal starvation cycles. Counts cycles in internal starvation. This occurs when one or more of the entries in the ingress queue are being starved out by other entries in the queue.",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress internal starvation cycles. Counts cycles in internal starvation. This occurs when one or more of the entries in the ingress queue are being starved out by other entries in the queue.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -178,7 +178,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_INGRESS_RETRY_IRQ0_REJECT.AD_REQ_VN0",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -189,7 +189,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_INGRESS_RETRY_IRQ0_REJECT.AD_RSP_VN0",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -200,7 +200,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_INGRESS_RETRY_IRQ0_REJECT.BL_RSP_VN0",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -211,7 +211,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_INGRESS_RETRY_IRQ0_REJECT.BL_WB_VN0",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -222,7 +222,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_INGRESS_RETRY_IRQ0_REJECT.BL_NCB_VN0",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -233,7 +233,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_INGRESS_RETRY_IRQ0_REJECT.BL_NCS_VN0",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -244,7 +244,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_INGRESS_RETRY_IRQ0_REJECT.AK_NON_UPI",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -255,7 +255,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_INGRESS_RETRY_IRQ0_REJECT.IV_NON_UPI",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -266,7 +266,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_INGRESS_RETRY_IRQ1_REJECT.ANY_REJECT_IRQ0",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -277,7 +277,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_INGRESS_RETRY_IRQ1_REJECT.SF_VICTIM",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -288,7 +288,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_INGRESS_RETRY_IRQ1_REJECT.SF_WAY",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -299,7 +299,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_INGRESS_RETRY_IRQ1_REJECT.ALLOW_SNP",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -310,7 +310,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_INGRESS_RETRY_IRQ1_REJECT.PA_MATCH",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -321,7 +321,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_INGRESS_RETRY_PRQ0_REJECT.AD_REQ_VN0",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -332,7 +332,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_INGRESS_RETRY_PRQ0_REJECT.AD_RSP_VN0",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -343,7 +343,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_INGRESS_RETRY_PRQ0_REJECT.BL_RSP_VN0",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -354,7 +354,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_INGRESS_RETRY_PRQ0_REJECT.BL_WB_VN0",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -365,7 +365,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_INGRESS_RETRY_PRQ0_REJECT.BL_NCB_VN0",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -376,7 +376,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_INGRESS_RETRY_PRQ0_REJECT.BL_NCS_VN0",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -387,7 +387,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_INGRESS_RETRY_PRQ0_REJECT.AK_NON_UPI",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -398,7 +398,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_INGRESS_RETRY_PRQ0_REJECT.IV_NON_UPI",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -409,7 +409,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_INGRESS_RETRY_PRQ1_REJECT.ANY_REJECT_IRQ0",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -420,7 +420,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_INGRESS_RETRY_PRQ1_REJECT.SF_VICTIM",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -431,7 +431,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_INGRESS_RETRY_PRQ1_REJECT.SF_WAY",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -442,7 +442,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_INGRESS_RETRY_PRQ1_REJECT.ALLOW_SNP",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -453,7 +453,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_INGRESS_RETRY_PRQ1_REJECT.PA_MATCH",
       "BriefDescription": "Ingress Request Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Request Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -464,7 +464,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_INGRESS_RETRY_IPQ0_REJECT.AD_REQ_VN0",
       "BriefDescription": "Ingress Probe Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Probe Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -475,7 +475,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_INGRESS_RETRY_IPQ0_REJECT.AD_RSP_VN0",
       "BriefDescription": "Ingress Probe Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Probe Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -486,7 +486,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_INGRESS_RETRY_IPQ0_REJECT.BL_RSP_VN0",
       "BriefDescription": "Ingress Probe Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Probe Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -497,7 +497,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_INGRESS_RETRY_IPQ0_REJECT.BL_WB_VN0",
       "BriefDescription": "Ingress Probe Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Probe Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -508,7 +508,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_INGRESS_RETRY_IPQ0_REJECT.BL_NCB_VN0",
       "BriefDescription": "Ingress Probe Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Probe Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -519,7 +519,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_INGRESS_RETRY_IPQ0_REJECT.BL_NCS_VN0",
       "BriefDescription": "Ingress Probe Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Probe Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -530,7 +530,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_INGRESS_RETRY_IPQ0_REJECT.AK_NON_UPI",
       "BriefDescription": "Ingress Probe Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Probe Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -541,7 +541,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_INGRESS_RETRY_IPQ0_REJECT.IV_NON_UPI",
       "BriefDescription": "Ingress Probe Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Probe Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -552,7 +552,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_INGRESS_RETRY_IPQ1_REJECT.ANY_REJECT_IPQ0",
       "BriefDescription": "Ingress Probe Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Probe Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -563,7 +563,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_INGRESS_RETRY_IPQ1_REJECT.SF_VICTIM",
       "BriefDescription": "Ingress Probe Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Probe Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -574,7 +574,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_INGRESS_RETRY_IPQ1_REJECT.SF_WAY",
       "BriefDescription": "Ingress Probe Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Probe Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -585,7 +585,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_INGRESS_RETRY_IPQ1_REJECT.ALLOW_SNP",
       "BriefDescription": "Ingress Probe Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Probe Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -596,7 +596,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_INGRESS_RETRY_IPQ1_REJECT.PA_MATCH",
       "BriefDescription": "Ingress Probe Queue Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Probe Queue Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -607,7 +607,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_INGRESS_RETRY_ISMQ0_REJECT.AD_REQ_VN0",
       "BriefDescription": "ISMQ Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "ISMQ Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -618,7 +618,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_INGRESS_RETRY_ISMQ0_REJECT.AD_RSP_VN0",
       "BriefDescription": "ISMQ Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "ISMQ Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -629,7 +629,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_INGRESS_RETRY_ISMQ0_REJECT.BL_RSP_VN0",
       "BriefDescription": "ISMQ Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "ISMQ Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -640,7 +640,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_INGRESS_RETRY_ISMQ0_REJECT.BL_WB_VN0",
       "BriefDescription": "ISMQ Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "ISMQ Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -651,7 +651,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_INGRESS_RETRY_ISMQ0_REJECT.BL_NCB_VN0",
       "BriefDescription": "ISMQ Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "ISMQ Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -662,7 +662,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_INGRESS_RETRY_ISMQ0_REJECT.BL_NCS_VN0",
       "BriefDescription": "ISMQ Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "ISMQ Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -673,7 +673,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_INGRESS_RETRY_ISMQ0_REJECT.AK_NON_UPI",
       "BriefDescription": "ISMQ Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "ISMQ Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -684,7 +684,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_INGRESS_RETRY_ISMQ0_REJECT.IV_NON_UPI",
       "BriefDescription": "ISMQ Rejects",
-      "PublicDescription": "0",
+      "PublicDescription": "ISMQ Rejects",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -695,7 +695,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_INGRESS_RETRY_REQ_Q0_RETRY.AD_REQ_VN0",
       "BriefDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
-      "PublicDescription": "0",
+      "PublicDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -706,7 +706,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_INGRESS_RETRY_REQ_Q0_RETRY.AD_RSP_VN0",
       "BriefDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
-      "PublicDescription": "0",
+      "PublicDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -717,7 +717,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_INGRESS_RETRY_REQ_Q0_RETRY.BL_RSP_VN0",
       "BriefDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
-      "PublicDescription": "0",
+      "PublicDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -728,7 +728,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_INGRESS_RETRY_REQ_Q0_RETRY.BL_WB_VN0",
       "BriefDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
-      "PublicDescription": "0",
+      "PublicDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -739,7 +739,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_INGRESS_RETRY_REQ_Q0_RETRY.BL_NCB_VN0",
       "BriefDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
-      "PublicDescription": "0",
+      "PublicDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -750,7 +750,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_INGRESS_RETRY_REQ_Q0_RETRY.BL_NCS_VN0",
       "BriefDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
-      "PublicDescription": "0",
+      "PublicDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -761,7 +761,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_INGRESS_RETRY_REQ_Q0_RETRY.AK_NON_UPI",
       "BriefDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
-      "PublicDescription": "0",
+      "PublicDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -772,7 +772,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_INGRESS_RETRY_REQ_Q0_RETRY.IV_NON_UPI",
       "BriefDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
-      "PublicDescription": "0",
+      "PublicDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -783,7 +783,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_INGRESS_RETRY_REQ_Q1_RETRY.ANY_REJECT_IRQ0",
       "BriefDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
-      "PublicDescription": "0",
+      "PublicDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -794,7 +794,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_INGRESS_RETRY_REQ_Q1_RETRY.SF_VICTIM",
       "BriefDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
-      "PublicDescription": "0",
+      "PublicDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -805,7 +805,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_INGRESS_RETRY_REQ_Q1_RETRY.SF_WAY",
       "BriefDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
-      "PublicDescription": "0",
+      "PublicDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -816,7 +816,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_INGRESS_RETRY_REQ_Q1_RETRY.ALLOW_SNP",
       "BriefDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
-      "PublicDescription": "0",
+      "PublicDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -827,7 +827,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_INGRESS_RETRY_REQ_Q1_RETRY.PA_MATCH",
       "BriefDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
-      "PublicDescription": "0",
+      "PublicDescription": "REQUESTQ includes:  IRQ, PRQ, IPQ, RRQ, WBQ (everything except for ISMQ)",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -838,7 +838,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_INGRESS_RETRY_ISMQ0_RETRY.AD_REQ_VN0",
       "BriefDescription": "ISMQ Retries",
-      "PublicDescription": "0",
+      "PublicDescription": "ISMQ Retries",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -849,7 +849,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_INGRESS_RETRY_ISMQ0_RETRY.AD_RSP_VN0",
       "BriefDescription": "ISMQ Retries",
-      "PublicDescription": "0",
+      "PublicDescription": "ISMQ Retries",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -860,7 +860,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_INGRESS_RETRY_ISMQ0_RETRY.BL_RSP_VN0",
       "BriefDescription": "ISMQ Retries",
-      "PublicDescription": "0",
+      "PublicDescription": "ISMQ Retries",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -871,7 +871,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_INGRESS_RETRY_ISMQ0_RETRY.BL_WB_VN0",
       "BriefDescription": "ISMQ Retries",
-      "PublicDescription": "0",
+      "PublicDescription": "ISMQ Retries",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -882,7 +882,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_INGRESS_RETRY_ISMQ0_RETRY.BL_NCB_VN0",
       "BriefDescription": "ISMQ Retries",
-      "PublicDescription": "0",
+      "PublicDescription": "ISMQ Retries",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -893,7 +893,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_INGRESS_RETRY_ISMQ0_RETRY.BL_NCS_VN0",
       "BriefDescription": "ISMQ Retries",
-      "PublicDescription": "0",
+      "PublicDescription": "ISMQ Retries",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -904,7 +904,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_INGRESS_RETRY_ISMQ0_RETRY.AK_NON_UPI",
       "BriefDescription": "ISMQ Retries",
-      "PublicDescription": "0",
+      "PublicDescription": "ISMQ Retries",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -915,7 +915,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_INGRESS_RETRY_ISMQ0_RETRY.IV_NON_UPI",
       "BriefDescription": "ISMQ Retries",
-      "PublicDescription": "0",
+      "PublicDescription": "ISMQ Retries",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -926,7 +926,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_INGRESS_RETRY_OTHER0_RETRY.AD_REQ_VN0",
       "BriefDescription": "Other Queue Retries",
-      "PublicDescription": "0",
+      "PublicDescription": "Other Queue Retries",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -937,7 +937,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_INGRESS_RETRY_OTHER0_RETRY.AD_RSP_VN0",
       "BriefDescription": "Other Queue Retries",
-      "PublicDescription": "0",
+      "PublicDescription": "Other Queue Retries",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -948,7 +948,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_INGRESS_RETRY_OTHER0_RETRY.BL_RSP_VN0",
       "BriefDescription": "Other Queue Retries",
-      "PublicDescription": "0",
+      "PublicDescription": "Other Queue Retries",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -959,7 +959,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_INGRESS_RETRY_OTHER0_RETRY.BL_WB_VN0",
       "BriefDescription": "Other Queue Retries",
-      "PublicDescription": "0",
+      "PublicDescription": "Other Queue Retries",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -970,7 +970,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_INGRESS_RETRY_OTHER0_RETRY.BL_NCB_VN0",
       "BriefDescription": "Other Queue Retries",
-      "PublicDescription": "0",
+      "PublicDescription": "Other Queue Retries",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -981,7 +981,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_INGRESS_RETRY_OTHER0_RETRY.BL_NCS_VN0",
       "BriefDescription": "Other Queue Retries",
-      "PublicDescription": "0",
+      "PublicDescription": "Other Queue Retries",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -992,7 +992,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_INGRESS_RETRY_OTHER0_RETRY.AK_NON_UPI",
       "BriefDescription": "Other Queue Retries",
-      "PublicDescription": "0",
+      "PublicDescription": "Other Queue Retries",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1003,7 +1003,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_INGRESS_RETRY_OTHER0_RETRY.IV_NON_UPI",
       "BriefDescription": "Other Queue Retries",
-      "PublicDescription": "0",
+      "PublicDescription": "Other Queue Retries",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1014,7 +1014,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_INGRESS_RETRY_OTHER1_RETRY.ANY_REJECT_IRQ0",
       "BriefDescription": "Other Queue Retries",
-      "PublicDescription": "0",
+      "PublicDescription": "Other Queue Retries",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1025,7 +1025,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_INGRESS_RETRY_OTHER1_RETRY.SF_VICTIM",
       "BriefDescription": "Other Queue Retries",
-      "PublicDescription": "0",
+      "PublicDescription": "Other Queue Retries",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1036,7 +1036,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_INGRESS_RETRY_OTHER1_RETRY.SF_WAY",
       "BriefDescription": "Other Queue Retries",
-      "PublicDescription": "0",
+      "PublicDescription": "Other Queue Retries",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1047,7 +1047,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_INGRESS_RETRY_OTHER1_RETRY.ALLOW_SNP",
       "BriefDescription": "Other Queue Retries",
-      "PublicDescription": "0",
+      "PublicDescription": "Other Queue Retries",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1058,7 +1058,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_INGRESS_RETRY_OTHER1_RETRY.PA_MATCH",
       "BriefDescription": "Other Queue Retries",
-      "PublicDescription": "0",
+      "PublicDescription": "Other Queue Retries",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1069,7 +1069,7 @@
       "UMask": "0x03",
       "EventName": "UNC_H_SF_LOOKUP.DATA_READ",
       "BriefDescription": "Cache Lookups. Counts the number of times the LLC was accessed. Read transactions",
-      "PublicDescription": "0",
+      "PublicDescription": "Cache Lookups. Counts the number of times the LLC was accessed. Read transactions",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1080,7 +1080,7 @@
       "UMask": "0x05",
       "EventName": "UNC_H_SF_LOOKUP.WRITE",
       "BriefDescription": "Cache Lookups. Counts the number of times the LLC was accessed. Writeback transactions from L2 to the LLC  This includes all write transactions -- both Cacheable and UC.",
-      "PublicDescription": "0",
+      "PublicDescription": "Cache Lookups. Counts the number of times the LLC was accessed. Writeback transactions from L2 to the LLC  This includes all write transactions -- both Cacheable and UC.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1091,7 +1091,7 @@
       "UMask": "0x09",
       "EventName": "UNC_H_SF_LOOKUP.REMOTE_SNOOP",
       "BriefDescription": "Cache Lookups. Counts the number of times the LLC was accessed. Filters for only snoop requests coming from the remote socket(s) through the IPQ.",
-      "PublicDescription": "0",
+      "PublicDescription": "Cache Lookups. Counts the number of times the LLC was accessed. Filters for only snoop requests coming from the remote socket(s) through the IPQ.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1102,7 +1102,7 @@
       "UMask": "0x11",
       "EventName": "UNC_H_SF_LOOKUP.ANY",
       "BriefDescription": "Cache Lookups. Counts the number of times the LLC was accessed. Filters for any transaction originating from the IPQ or IRQ.  This does not include lookups originating from the ISMQ.",
-      "PublicDescription": "0",
+      "PublicDescription": "Cache Lookups. Counts the number of times the LLC was accessed. Filters for any transaction originating from the IPQ or IRQ.  This does not include lookups originating from the ISMQ.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1113,7 +1113,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_CACHE_LINES_VICTIMIZED.M_STATE",
       "BriefDescription": "Cache Lookups. Counts the number of times the LLC was accessed. Read transactions",
-      "PublicDescription": "0",
+      "PublicDescription": "Cache Lookups. Counts the number of times the LLC was accessed. Read transactions",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1124,7 +1124,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_CACHE_LINES_VICTIMIZED.E_STATE",
       "BriefDescription": "Cache Lookups. Counts the number of times the LLC was accessed. Writeback transactions from L2 to the LLC  This includes all write transactions -- both Cacheable and UC.",
-      "PublicDescription": "0",
+      "PublicDescription": "Cache Lookups. Counts the number of times the LLC was accessed. Writeback transactions from L2 to the LLC  This includes all write transactions -- both Cacheable and UC.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1135,7 +1135,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_CACHE_LINES_VICTIMIZED.S_STATE",
       "BriefDescription": "Cache Lookups. Counts the number of times the LLC was accessed. Filters for only snoop requests coming from the remote socket(s) through the IPQ.",
-      "PublicDescription": "0",
+      "PublicDescription": "Cache Lookups. Counts the number of times the LLC was accessed. Filters for only snoop requests coming from the remote socket(s) through the IPQ.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1146,7 +1146,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_CACHE_LINES_VICTIMIZED.F_STATE",
       "BriefDescription": "Cache Lookups. Counts the number of times the LLC was accessed. Filters for any transaction originating from the IPQ or IRQ.  This does not include lookups originating from the ISMQ.",
-      "PublicDescription": "0",
+      "PublicDescription": "Cache Lookups. Counts the number of times the LLC was accessed. Filters for any transaction originating from the IPQ or IRQ.  This does not include lookups originating from the ISMQ.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1157,7 +1157,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_CACHE_LINES_VICTIMIZED.LOCAL",
       "BriefDescription": "Lines Victimized that Match NID",
-      "PublicDescription": "0",
+      "PublicDescription": "Lines Victimized that Match NID",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1168,7 +1168,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_CACHE_LINES_VICTIMIZED.REMOTE",
       "BriefDescription": "Lines Victimized that Does Not Match NID",
-      "PublicDescription": "0",
+      "PublicDescription": "Lines Victimized that Does Not Match NID",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1179,7 +1179,7 @@
       "UMask": "0x31",
       "EventName": "UNC_H_TOR_INSERTS.IRQ",
       "BriefDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -IRQ",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -IRQ",
       "Counter": "0,1,2,3",
       "Filter": "CHAFilter1",
       "ExtSel": "0"
@@ -1190,7 +1190,7 @@
       "UMask": "0x32",
       "EventName": "UNC_H_TOR_INSERTS.EVICT",
       "BriefDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -SF/LLC Evictions",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -SF/LLC Evictions",
       "Counter": "0,1,2,3",
       "Filter": "CHAFilter1",
       "ExtSel": "0"
@@ -1201,7 +1201,7 @@
       "UMask": "0x34",
       "EventName": "UNC_H_TOR_INSERTS.PRQ",
       "BriefDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -PRQ",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -PRQ",
       "Counter": "0,1,2,3",
       "Filter": "CHAFilter1",
       "ExtSel": "0"
@@ -1212,7 +1212,7 @@
       "UMask": "0x38",
       "EventName": "UNC_H_TOR_INSERTS.IPQ",
       "BriefDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -IPQ",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -IPQ",
       "Counter": "0,1,2,3",
       "Filter": "CHAFilter1",
       "ExtSel": "0"
@@ -1223,7 +1223,7 @@
       "UMask": "0x1F",
       "EventName": "UNC_H_TOR_INSERTS.HIT",
       "BriefDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -Hit (Not a Miss)",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -Hit (Not a Miss)",
       "Counter": "0,1,2,3",
       "Filter": "CHAFilter1",
       "ExtSel": "0"
@@ -1234,7 +1234,7 @@
       "UMask": "0x2F",
       "EventName": "UNC_H_TOR_INSERTS.MISS",
       "BriefDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -Miss",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -Miss",
       "Counter": "0,1,2,3",
       "Filter": "CHAFilter1",
       "ExtSel": "0"
@@ -1245,7 +1245,7 @@
       "UMask": "0x31",
       "EventName": "UNC_H_TOR_OCCUPANCY.IRQ",
       "BriefDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent -IRQ or PRQ",
-      "PublicDescription": "0",
+      "PublicDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent -IRQ or PRQ",
       "Counter": "0",
       "Filter": "CHAFilter1",
       "ExtSel": "0"
@@ -1256,7 +1256,7 @@
       "UMask": "0x32",
       "EventName": "UNC_H_TOR_OCCUPANCY.EVICT",
       "BriefDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent -SF/LLC Evictions",
-      "PublicDescription": "0",
+      "PublicDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent -SF/LLC Evictions",
       "Counter": "0",
       "Filter": "CHAFilter1",
       "ExtSel": "0"
@@ -1267,7 +1267,7 @@
       "UMask": "0x34",
       "EventName": "UNC_H_TOR_OCCUPANCY.PRQ",
       "BriefDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent -PRQ",
-      "PublicDescription": "0",
+      "PublicDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent -PRQ",
       "Counter": "0",
       "Filter": "CHAFilter1",
       "ExtSel": "0"
@@ -1278,7 +1278,7 @@
       "UMask": "0x38",
       "EventName": "UNC_H_TOR_OCCUPANCY.IPQ",
       "BriefDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent -IPQ",
-      "PublicDescription": "0",
+      "PublicDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent -IPQ",
       "Counter": "0",
       "Filter": "CHAFilter1",
       "ExtSel": "0"
@@ -1289,7 +1289,7 @@
       "UMask": "0x1F",
       "EventName": "UNC_H_TOR_OCCUPANCY.HIT",
       "BriefDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent -Hit (Not a Miss)",
-      "PublicDescription": "0",
+      "PublicDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent -Hit (Not a Miss)",
       "Counter": "0",
       "Filter": "CHAFilter1",
       "ExtSel": "0"
@@ -1300,7 +1300,7 @@
       "UMask": "0x2F",
       "EventName": "UNC_H_TOR_OCCUPANCY.MISS",
       "BriefDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent -Miss",
-      "PublicDescription": "0",
+      "PublicDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent -Miss",
       "Counter": "0",
       "Filter": "CHAFilter1",
       "ExtSel": "0"
@@ -1311,7 +1311,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_MISC.RSPI_WAS_FSE",
       "BriefDescription": "Miscellaneous events in the Cbo. Silent Snoop Eviction",
-      "PublicDescription": "0",
+      "PublicDescription": "Miscellaneous events in the Cbo. Silent Snoop Eviction",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1322,7 +1322,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_MISC.WC_ALIASING",
       "BriefDescription": "Miscellaneous events in the Cbo. Write Combining Aliasing",
-      "PublicDescription": "0",
+      "PublicDescription": "Miscellaneous events in the Cbo. Write Combining Aliasing",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1333,7 +1333,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_MISC.RFO_HIT_S",
       "BriefDescription": "Miscellaneous events in the Cbo. RFO HitS",
-      "PublicDescription": "0",
+      "PublicDescription": "Miscellaneous events in the Cbo. RFO HitS",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1344,7 +1344,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_MISC.CV0_PREF_VIC",
       "BriefDescription": "Miscellaneous events in the Cbo. CV0 Prefetch Victim",
-      "PublicDescription": "0",
+      "PublicDescription": "Miscellaneous events in the Cbo. CV0 Prefetch Victim",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1355,7 +1355,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_MISC.CV0_PREF_MISS",
       "BriefDescription": "Miscellaneous events in the Cbo. CV0 Prefetch Miss",
-      "PublicDescription": "0",
+      "PublicDescription": "Miscellaneous events in the Cbo. CV0 Prefetch Miss",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1366,7 +1366,7 @@
       "UMask": "0x11",
       "EventName": "UNC_C_TOR_INSERTS.IRQ_HIT",
       "BriefDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -IRQ",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -IRQ",
       "Counter": "0,1,2,3",
       "Filter": "CHAFilter1",
       "ExtSel": "0"
@@ -1377,7 +1377,7 @@
       "UMask": "0x21",
       "EventName": "UNC_C_TOR_INSERTS.IRQ_MISS",
       "BriefDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -IRQ",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -IRQ",
       "Counter": "0,1,2,3",
       "Filter": "CHAFilter1",
       "ExtSel": "0"
@@ -1388,7 +1388,7 @@
       "UMask": "0x14",
       "EventName": "UNC_C_TOR_INSERTS.PRQ_HIT",
       "BriefDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -PRQ",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -PRQ",
       "Counter": "0,1,2,3",
       "Filter": "CHAFilter1",
       "ExtSel": "0"
@@ -1399,7 +1399,7 @@
       "UMask": "0x24",
       "EventName": "UNC_C_TOR_INSERTS.PRQ_MISS",
       "BriefDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -PRQ",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -PRQ",
       "Counter": "0,1,2,3",
       "Filter": "CHAFilter1",
       "ExtSel": "0"
@@ -1410,7 +1410,7 @@
       "UMask": "0x18",
       "EventName": "UNC_C_TOR_INSERTS.IPQ_HIT",
       "BriefDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -IPQ",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -IPQ",
       "Counter": "0,1,2,3",
       "Filter": "CHAFilter1",
       "ExtSel": "0"
@@ -1421,7 +1421,7 @@
       "UMask": "0x28",
       "EventName": "UNC_C_TOR_INSERTS.IPQ_MISS",
       "BriefDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -IPQ",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -IPQ",
       "Counter": "0,1,2,3",
       "Filter": "CHAFilter1",
       "ExtSel": "0"
@@ -1432,7 +1432,7 @@
       "UMask": "0x37",
       "EventName": "UNC_C_TOR_INSERTS.LOC_ALL",
       "BriefDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -IRQ or PRQ",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of entries successfully inserted into the TOR that match  qualifications specified by the subevent -IRQ or PRQ",
       "Counter": "0,1,2,3",
       "Filter": "CHAFilter1",
       "ExtSel": "0"
@@ -1443,7 +1443,7 @@
       "UMask": "0x11",
       "EventName": "UNC_H_TOR_OCCUPANCY.IRQ_HIT",
       "BriefDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent -IRQ or PRQ hit",
-      "PublicDescription": "0",
+      "PublicDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent -IRQ or PRQ hit",
       "Counter": "0",
       "Filter": "CHAFilter1",
       "ExtSel": "0"
@@ -1454,7 +1454,7 @@
       "UMask": "0x21",
       "EventName": "UNC_H_TOR_OCCUPANCY.IRQ_MISS",
       "BriefDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent -IRQ or PRQ miss",
-      "PublicDescription": "0",
+      "PublicDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent -IRQ or PRQ miss",
       "Counter": "0",
       "Filter": "CHAFilter1",
       "ExtSel": "0"
@@ -1465,7 +1465,7 @@
       "UMask": "0x14",
       "EventName": "UNC_H_TOR_OCCUPANCY.PRQ_HIT",
       "BriefDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent -PRQ hit",
-      "PublicDescription": "0",
+      "PublicDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent -PRQ hit",
       "Counter": "0",
       "Filter": "CHAFilter1",
       "ExtSel": "0"
@@ -1476,7 +1476,7 @@
       "UMask": "0x24",
       "EventName": "UNC_H_TOR_OCCUPANCY.PRQ_MISS",
       "BriefDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent -PRQ miss",
-      "PublicDescription": "0",
+      "PublicDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent -PRQ miss",
       "Counter": "0",
       "Filter": "CHAFilter1",
       "ExtSel": "0"
@@ -1487,7 +1487,7 @@
       "UMask": "0x18",
       "EventName": "UNC_H_TOR_OCCUPANCY.IPQ_HIT",
       "BriefDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent -IPQ hit",
-      "PublicDescription": "0",
+      "PublicDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent -IPQ hit",
       "Counter": "0",
       "Filter": "CHAFilter1",
       "ExtSel": "0"
@@ -1498,7 +1498,7 @@
       "UMask": "0x28",
       "EventName": "UNC_H_TOR_OCCUPANCY.IPQ_MISS",
       "BriefDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent -IPQ miss",
-      "PublicDescription": "0",
+      "PublicDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent -IPQ miss",
       "Counter": "0",
       "Filter": "CHAFilter1",
       "ExtSel": "0"
@@ -1509,7 +1509,7 @@
       "UMask": "0x00",
       "EventName": "UNC_H_CLOCK",
       "BriefDescription": "Uncore Clocks",
-      "PublicDescription": "0",
+      "PublicDescription": "Uncore Clocks",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1520,7 +1520,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_AG0_AD_CRD_ACQUIRED.TGR0",
       "BriefDescription": "CMS Agent0 AD Credits Acquired For Transgress 0",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 AD Credits Acquired For Transgress 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1531,7 +1531,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_AG0_AD_CRD_ACQUIRED.TGR1",
       "BriefDescription": "CMS Agent0 AD Credits Acquired For Transgress 1",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 AD Credits Acquired For Transgress 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1542,7 +1542,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_AG0_AD_CRD_ACQUIRED.TGR2",
       "BriefDescription": "CMS Agent0 AD Credits Acquired For Transgress 2",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 AD Credits Acquired For Transgress 2",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1553,7 +1553,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_AG0_AD_CRD_ACQUIRED.TGR3",
       "BriefDescription": "CMS Agent0 AD Credits Acquired For Transgress 3",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 AD Credits Acquired For Transgress 3",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1564,7 +1564,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_AG0_AD_CRD_ACQUIRED.TGR4",
       "BriefDescription": "CMS Agent0 AD Credits Acquired For Transgress 4",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 AD Credits Acquired For Transgress 4",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1575,7 +1575,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_AG0_AD_CRD_ACQUIRED.TGR5",
       "BriefDescription": "CMS Agent0 AD Credits Acquired For Transgress 5",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 AD Credits Acquired For Transgress 5",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1586,7 +1586,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_AG0_AD_CRD_ACQUIRED.TGR6",
       "BriefDescription": "CMS Agent0 AD Credits Acquired For Transgress 6",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 AD Credits Acquired For Transgress 6",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1597,7 +1597,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_AG0_AD_CRD_ACQUIRED.TGR7",
       "BriefDescription": "CMS Agent0 AD Credits Acquired For Transgress 7",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 AD Credits Acquired For Transgress 7",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1608,7 +1608,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_AG0_AD_CRD_ACQUIRED_EXT.TGR8",
       "BriefDescription": "CMS Agent0 AD Credits Acquired For Transgress 8",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 AD Credits Acquired For Transgress 8",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1619,7 +1619,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_AG0_AD_CRD_ACQUIRED_EXT.ANY_OF_TGR0_THRU_TGR7",
       "BriefDescription": "CMS Agent0 AD Credits Acquired For Transgress 0-7",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 AD Credits Acquired For Transgress 0-7",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1630,7 +1630,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_AG0_AD_CRD_OCCUPANCY.TGR0",
       "BriefDescription": "CMS Agent0 AD Credits Occupancy For Transgress 0",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 AD Credits Occupancy For Transgress 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1641,7 +1641,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_AG0_AD_CRD_OCCUPANCY.TGR1",
       "BriefDescription": "CMS Agent0 AD Credits Occupancy For Transgress 1",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 AD Credits Occupancy For Transgress 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1652,7 +1652,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_AG0_AD_CRD_OCCUPANCY.TGR2",
       "BriefDescription": "CMS Agent0 AD Credits Occupancy For Transgress 2",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 AD Credits Occupancy For Transgress 2",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1663,7 +1663,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_AG0_AD_CRD_OCCUPANCY.TGR3",
       "BriefDescription": "CMS Agent0 AD Credits Occupancy For Transgress 3",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 AD Credits Occupancy For Transgress 3",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1674,7 +1674,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_AG0_AD_CRD_OCCUPANCY.TGR4",
       "BriefDescription": "CMS Agent0 AD Credits Occupancy For Transgress 4",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 AD Credits Occupancy For Transgress 4",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1685,7 +1685,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_AG0_AD_CRD_OCCUPANCY.TGR5",
       "BriefDescription": "CMS Agent0 AD Credits Occupancy For Transgress 5",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 AD Credits Occupancy For Transgress 5",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1696,7 +1696,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_AG0_AD_CRD_OCCUPANCY.TGR6",
       "BriefDescription": "CMS Agent0 AD Credits Occupancy For Transgress 6",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 AD Credits Occupancy For Transgress 6",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1707,7 +1707,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_AG0_AD_CRD_OCCUPANCY.TGR7",
       "BriefDescription": "CMS Agent0 AD Credits Occupancy For Transgress 7",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 AD Credits Occupancy For Transgress 7",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1718,7 +1718,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_AG0_AD_CRD_OCCUPANCY_EXT.TGR8",
       "BriefDescription": "CMS Agent0 AD Credits Occupancy For Transgress 8",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 AD Credits Occupancy For Transgress 8",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1729,7 +1729,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_AG0_AD_CRD_OCCUPANCY_EXT.ANY_OF_TGR0_THRU_TGR7",
       "BriefDescription": "CMS Agent0 AD Credits Occupancy For Transgress 0-7",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 AD Credits Occupancy For Transgress 0-7",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1740,7 +1740,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_AG1_AD_CRD_ACQUIRED.TGR0",
       "BriefDescription": "CMS Agent1 AD Credits Acquired For Transgress 0",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 AD Credits Acquired For Transgress 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1751,7 +1751,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_AG1_AD_CRD_ACQUIRED.TGR1",
       "BriefDescription": "CMS Agent1 AD Credits Acquired For Transgress 1",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 AD Credits Acquired For Transgress 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1762,7 +1762,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_AG1_AD_CRD_ACQUIRED.TGR2",
       "BriefDescription": "CMS Agent1 AD Credits Acquired For Transgress 2",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 AD Credits Acquired For Transgress 2",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1773,7 +1773,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_AG1_AD_CRD_ACQUIRED.TGR3",
       "BriefDescription": "CMS Agent1 AD Credits Acquired For Transgress 3",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 AD Credits Acquired For Transgress 3",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1784,7 +1784,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_AG1_AD_CRD_ACQUIRED.TGR4",
       "BriefDescription": "CMS Agent1 AD Credits Acquired For Transgress 4",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 AD Credits Acquired For Transgress 4",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1795,7 +1795,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_AG1_AD_CRD_ACQUIRED.TGR5",
       "BriefDescription": "CMS Agent1 AD Credits Acquired For Transgress 5",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 AD Credits Acquired For Transgress 5",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1806,7 +1806,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_AG1_AD_CRD_ACQUIRED.TGR6",
       "BriefDescription": "CMS Agent1 AD Credits Acquired For Transgress 6",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 AD Credits Acquired For Transgress 6",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1817,7 +1817,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_AG1_AD_CRD_ACQUIRED.TGR7",
       "BriefDescription": "CMS Agent1 AD Credits Acquired For Transgress 7",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 AD Credits Acquired For Transgress 7",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1828,7 +1828,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_AG1_AD_CRD_ACQUIRED_EXT.TGR8",
       "BriefDescription": "CMS Agent1 AD Credits Acquired For Transgress 8",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 AD Credits Acquired For Transgress 8",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1839,7 +1839,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_AG1_AD_CRD_ACQUIRED_EXT.ANY_OF_TGR0_THRU_TGR7",
       "BriefDescription": "CMS Agent1 AD Credits Acquired For Transgress 0-7",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 AD Credits Acquired For Transgress 0-7",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1850,7 +1850,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_AG1_AD_CRD_OCCUPANCY.TGR0",
       "BriefDescription": "CMS Agent1 AD Credits Occupancy For Transgress 0",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 AD Credits Occupancy For Transgress 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1861,7 +1861,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_AG1_AD_CRD_OCCUPANCY.TGR1",
       "BriefDescription": "CMS Agent1 AD Credits Occupancy For Transgress 1",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 AD Credits Occupancy For Transgress 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1872,7 +1872,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_AG1_AD_CRD_OCCUPANCY.TGR2",
       "BriefDescription": "CMS Agent1 AD Credits Occupancy For Transgress 2",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 AD Credits Occupancy For Transgress 2",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1883,7 +1883,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_AG1_AD_CRD_OCCUPANCY.TGR3",
       "BriefDescription": "CMS Agent1 AD Credits Occupancy For Transgress 3",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 AD Credits Occupancy For Transgress 3",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1894,7 +1894,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_AG1_AD_CRD_OCCUPANCY.TGR4",
       "BriefDescription": "CMS Agent1 AD Credits Occupancy For Transgress 4",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 AD Credits Occupancy For Transgress 4",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1905,7 +1905,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_AG1_AD_CRD_OCCUPANCY.TGR5",
       "BriefDescription": "CMS Agent1 AD Credits Occupancy For Transgress 5",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 AD Credits Occupancy For Transgress 5",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1916,7 +1916,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_AG1_AD_CRD_OCCUPANCY.TGR6",
       "BriefDescription": "CMS Agent1 AD Credits Occupancy For Transgress 6",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 AD Credits Occupancy For Transgress 6",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1927,7 +1927,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_AG1_AD_CRD_OCCUPANCY.TGR7",
       "BriefDescription": "CMS Agent1 AD Credits Occupancy For Transgress 7",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 AD Credits Occupancy For Transgress 7",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1938,7 +1938,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_AG1_AD_CRD_OCCUPANCY_EXT.TGR8",
       "BriefDescription": "CMS Agent1 AD Credits Occupancy For Transgress 8",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 AD Credits Occupancy For Transgress 8",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1949,7 +1949,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_AG1_AD_CRD_OCCUPANCY_EXT.ANY_OF_TGR0_THRU_TGR7",
       "BriefDescription": "CMS Agent1 AD Credits Occupancy For Transgress 0-7",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 AD Credits Occupancy For Transgress 0-7",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1960,7 +1960,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_AG0_BL_CRD_ACQUIRED.TGR0",
       "BriefDescription": "CMS Agent0 BL Credits Acquired For Transgress 0",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 BL Credits Acquired For Transgress 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1971,7 +1971,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_AG0_BL_CRD_ACQUIRED.TGR1",
       "BriefDescription": "CMS Agent0 BL Credits Acquired For Transgress 1",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 BL Credits Acquired For Transgress 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1982,7 +1982,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_AG0_BL_CRD_ACQUIRED.TGR2",
       "BriefDescription": "CMS Agent0 BL Credits Acquired For Transgress 2",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 BL Credits Acquired For Transgress 2",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -1993,7 +1993,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_AG0_BL_CRD_ACQUIRED.TGR3",
       "BriefDescription": "CMS Agent0 BL Credits Acquired For Transgress 3",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 BL Credits Acquired For Transgress 3",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2004,7 +2004,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_AG0_BL_CRD_ACQUIRED.TGR4",
       "BriefDescription": "CMS Agent0 BL Credits Acquired For Transgress 4",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 BL Credits Acquired For Transgress 4",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2015,7 +2015,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_AG0_BL_CRD_ACQUIRED.TGR5",
       "BriefDescription": "CMS Agent0 BL Credits Acquired For Transgress 5",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 BL Credits Acquired For Transgress 5",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2026,7 +2026,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_AG0_BL_CRD_ACQUIRED.TGR6",
       "BriefDescription": "CMS Agent0 BL Credits Acquired For Transgress 6",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 BL Credits Acquired For Transgress 6",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2037,7 +2037,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_AG0_BL_CRD_ACQUIRED.TGR7",
       "BriefDescription": "CMS Agent0 BL Credits Acquired For Transgress 7",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 BL Credits Acquired For Transgress 7",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2048,7 +2048,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_AG0_BL_CRD_ACQUIRED_EXT.TGR8",
       "BriefDescription": "CMS Agent0 BL Credits Acquired For Transgress 8",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 BL Credits Acquired For Transgress 8",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2059,7 +2059,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_AG0_BL_CRD_ACQUIRED_EXT.ANY_OF_TGR0_THRU_TGR7",
       "BriefDescription": "CMS Agent0 BL Credits Acquired For Transgress 0-7",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 BL Credits Acquired For Transgress 0-7",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2070,7 +2070,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_AG0_BL_CRD_OCCUPANCY.TGR0",
       "BriefDescription": "CMS Agent0 BL Credits Occupancy For Transgress 0",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 BL Credits Occupancy For Transgress 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2081,7 +2081,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_AG0_BL_CRD_OCCUPANCY.TGR1",
       "BriefDescription": "CMS Agent0 BL Credits Occupancy For Transgress 1",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 BL Credits Occupancy For Transgress 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2092,7 +2092,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_AG0_BL_CRD_OCCUPANCY.TGR2",
       "BriefDescription": "CMS Agent0 BL Credits Occupancy For Transgress 2",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 BL Credits Occupancy For Transgress 2",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2103,7 +2103,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_AG0_BL_CRD_OCCUPANCY.TGR3",
       "BriefDescription": "CMS Agent0 BL Credits Occupancy For Transgress 3",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 BL Credits Occupancy For Transgress 3",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2114,7 +2114,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_AG0_BL_CRD_OCCUPANCY.TGR4",
       "BriefDescription": "CMS Agent0 BL Credits Occupancy For Transgress 4",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 BL Credits Occupancy For Transgress 4",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2125,7 +2125,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_AG0_BL_CRD_OCCUPANCY.TGR5",
       "BriefDescription": "CMS Agent0 BL Credits Occupancy For Transgress 5",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 BL Credits Occupancy For Transgress 5",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2136,7 +2136,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_AG0_BL_CRD_OCCUPANCY.TGR6",
       "BriefDescription": "CMS Agent0 BL Credits Occupancy For Transgress 6",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 BL Credits Occupancy For Transgress 6",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2147,7 +2147,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_AG0_BL_CRD_OCCUPANCY.TGR7",
       "BriefDescription": "CMS Agent0 BL Credits Occupancy For Transgress 7",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 BL Credits Occupancy For Transgress 7",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2158,7 +2158,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_AG0_BL_CRD_OCCUPANCY_EXT.TGR8",
       "BriefDescription": "CMS Agent0 BL Credits Occupancy For Transgress 8",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 BL Credits Occupancy For Transgress 8",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2169,7 +2169,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_AG0_BL_CRD_OCCUPANCY_EXT.ANY_OF_TGR0_THRU_TGR7",
       "BriefDescription": "CMS Agent0 BL Credits Occupancy For Transgress 0-7",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent0 BL Credits Occupancy For Transgress 0-7",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2180,7 +2180,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_AG1_BL_CRD_ACQUIRED.TGR0",
       "BriefDescription": "CMS Agent1 BL Credits Acquired For Transgress 0",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 BL Credits Acquired For Transgress 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2191,7 +2191,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_AG1_BL_CRD_ACQUIRED.TGR1",
       "BriefDescription": "CMS Agent1 BL Credits Acquired For Transgress 1",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 BL Credits Acquired For Transgress 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2202,7 +2202,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_AG1_BL_CRD_ACQUIRED.TGR2",
       "BriefDescription": "CMS Agent1 BL Credits Acquired For Transgress 2",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 BL Credits Acquired For Transgress 2",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2213,7 +2213,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_AG1_BL_CRD_ACQUIRED.TGR3",
       "BriefDescription": "CMS Agent1 BL Credits Acquired For Transgress 3",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 BL Credits Acquired For Transgress 3",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2224,7 +2224,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_AG1_BL_CRD_ACQUIRED.TGR4",
       "BriefDescription": "CMS Agent1 BL Credits Acquired For Transgress 4",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 BL Credits Acquired For Transgress 4",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2235,7 +2235,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_AG1_BL_CRD_ACQUIRED.TGR5",
       "BriefDescription": "CMS Agent1 BL Credits Acquired For Transgress 5",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 BL Credits Acquired For Transgress 5",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2246,7 +2246,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_AG1_BL_CRD_ACQUIRED.TGR6",
       "BriefDescription": "CMS Agent1 BL Credits Acquired For Transgress 6",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 BL Credits Acquired For Transgress 6",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2257,7 +2257,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_AG1_BL_CRD_ACQUIRED.TGR7",
       "BriefDescription": "CMS Agent1 BL Credits Acquired For Transgress 7",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 BL Credits Acquired For Transgress 7",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2268,7 +2268,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_AG1_BL_CRD_ACQUIRED_EXT.TGR8",
       "BriefDescription": "CMS Agent1 BL Credits Acquired For Transgress 8",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 BL Credits Acquired For Transgress 8",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2279,7 +2279,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_AG1_BL_CRD_ACQUIRED_EXT.ANY_OF_TGR0_THRU_TGR7",
       "BriefDescription": "CMS Agent1 BL Credits Acquired For Transgress 0-7",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 BL Credits Acquired For Transgress 0-7",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2290,7 +2290,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_AG1_BL_CRD_OCCUPANCY.TGR0",
       "BriefDescription": "CMS Agent1 BL Credits Occupancy For Transgress 0",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 BL Credits Occupancy For Transgress 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2301,7 +2301,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_AG1_BL_CRD_OCCUPANCY.TGR1",
       "BriefDescription": "CMS Agent1 BL Credits Occupancy For Transgress 1",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 BL Credits Occupancy For Transgress 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2312,7 +2312,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_AG1_BL_CRD_OCCUPANCY.TGR2",
       "BriefDescription": "CMS Agent1 BL Credits Occupancy For Transgress 2",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 BL Credits Occupancy For Transgress 2",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2323,7 +2323,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_AG1_BL_CRD_OCCUPANCY.TGR3",
       "BriefDescription": "CMS Agent1 BL Credits Occupancy For Transgress 3",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 BL Credits Occupancy For Transgress 3",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2334,7 +2334,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_AG1_BL_CRD_OCCUPANCY.TGR4",
       "BriefDescription": "CMS Agent1 BL Credits Occupancy For Transgress 4",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 BL Credits Occupancy For Transgress 4",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2345,7 +2345,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_AG1_BL_CRD_OCCUPANCY.TGR5",
       "BriefDescription": "CMS Agent1 BL Credits Occupancy For Transgress 5",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 BL Credits Occupancy For Transgress 5",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2356,7 +2356,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_AG1_BL_CRD_OCCUPANCY.TGR6",
       "BriefDescription": "CMS Agent1 BL Credits Occupancy For Transgress 6",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 BL Credits Occupancy For Transgress 6",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2367,7 +2367,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_AG1_BL_CRD_OCCUPANCY.TGR7",
       "BriefDescription": "CMS Agent1 BL Credits Occupancy For Transgress 7",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 BL Credits Occupancy For Transgress 7",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2378,7 +2378,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_AG1_BL_CRD_OCCUPANCY_EXT.TGR8",
       "BriefDescription": "CMS Agent1 BL Credits Occupancy For Transgress 8",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 BL Credits Occupancy For Transgress 8",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2389,7 +2389,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_AG1_BL_CRD_OCCUPANCY_EXT.ANY_OF_TGR0_THRU_TGR7",
       "BriefDescription": "CMS Agent1 BL Credits Occupancy For Transgress 0-7",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Agent1 BL Credits Occupancy For Transgress 0-7",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2400,7 +2400,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_AG0_STALL_NO_CRD_EGRESS_HORZ_AD.TGR0",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 0",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2411,7 +2411,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_AG0_STALL_NO_CRD_EGRESS_HORZ_AD.TGR1",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 1",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2422,7 +2422,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_AG0_STALL_NO_CRD_EGRESS_HORZ_AD.TGR2",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 2",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 2",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2433,7 +2433,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_AG0_STALL_NO_CRD_EGRESS_HORZ_AD.TGR3",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 3",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 3",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2444,7 +2444,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_AG0_STALL_NO_CRD_EGRESS_HORZ_AD.TGR4",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 4",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 4",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2455,7 +2455,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_AG0_STALL_NO_CRD_EGRESS_HORZ_AD.TGR5",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 5",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 5",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2466,7 +2466,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_AG0_STALL_NO_CRD_EGRESS_HORZ_AD.TGR6",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 6",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 6",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2477,7 +2477,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_AG0_STALL_NO_CRD_EGRESS_HORZ_AD.TGR7",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 7",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 7",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2488,7 +2488,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_AG0_STALL_NO_CRD_EGRESS_HORZ_AD_EXT.TGR8",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 8",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 8",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2499,7 +2499,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_AG0_STALL_NO_CRD_EGRESS_HORZ_AD_EXT.ANY_OF_TGR0_THRU_TGR7",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 0-7",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 0-7",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2510,7 +2510,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_AG1_STALL_NO_CRD_EGRESS_HORZ_AD.TGR0",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 0",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2521,7 +2521,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_AG1_STALL_NO_CRD_EGRESS_HORZ_AD.TGR1",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 1",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2532,7 +2532,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_AG1_STALL_NO_CRD_EGRESS_HORZ_AD.TGR2",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 2",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 2",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2543,7 +2543,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_AG1_STALL_NO_CRD_EGRESS_HORZ_AD.TGR3",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 3",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 3",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2554,7 +2554,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_AG1_STALL_NO_CRD_EGRESS_HORZ_AD.TGR4",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 4",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 4",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2565,7 +2565,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_AG1_STALL_NO_CRD_EGRESS_HORZ_AD.TGR5",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 5",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 5",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2576,7 +2576,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_AG1_STALL_NO_CRD_EGRESS_HORZ_AD.TGR6",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 6",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 6",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2587,7 +2587,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_AG1_STALL_NO_CRD_EGRESS_HORZ_AD.TGR7",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 7",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 7",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2598,7 +2598,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_AG1_STALL_NO_CRD_EGRESS_HORZ_AD_EXT.TGR8",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 8",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 8",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2609,7 +2609,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_AG1_STALL_NO_CRD_EGRESS_HORZ_AD_EXT.ANY_OF_TGR0_THRU_TGR7",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 0-7",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 0-7",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2620,7 +2620,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_AG0_STALL_NO_CRD_EGRESS_HORZ_BL.TGR0",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 0",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2631,7 +2631,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_AG0_STALL_NO_CRD_EGRESS_HORZ_BL.TGR1",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 1",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2642,7 +2642,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_AG0_STALL_NO_CRD_EGRESS_HORZ_BL.TGR2",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 2",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 2",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2653,7 +2653,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_AG0_STALL_NO_CRD_EGRESS_HORZ_BL.TGR3",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 3",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 3",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2664,7 +2664,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_AG0_STALL_NO_CRD_EGRESS_HORZ_BL.TGR4",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 4",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 4",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2675,7 +2675,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_AG0_STALL_NO_CRD_EGRESS_HORZ_BL.TGR5",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 5",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 5",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2686,7 +2686,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_AG0_STALL_NO_CRD_EGRESS_HORZ_BL.TGR6",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 6",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 6",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2697,7 +2697,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_AG0_STALL_NO_CRD_EGRESS_HORZ_BL.TGR7",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 7",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 7",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2708,7 +2708,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_AG0_STALL_NO_CRD_EGRESS_HORZ_BL_EXT.TGR8",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 8",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 8",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2719,7 +2719,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_AG0_STALL_NO_CRD_EGRESS_HORZ_BL_EXT.ANY_OF_TGR0_THRU_TGR7",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 0-7",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 0-7",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2730,7 +2730,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_AG1_STALL_NO_CRD_EGRESS_HORZ_BL.TGR0",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 0",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2741,7 +2741,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_AG1_STALL_NO_CRD_EGRESS_HORZ_BL.TGR1",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 1",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2752,7 +2752,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_AG1_STALL_NO_CRD_EGRESS_HORZ_BL.TGR2",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 2",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 2",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2763,7 +2763,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_AG1_STALL_NO_CRD_EGRESS_HORZ_BL.TGR3",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 3",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 3",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2774,7 +2774,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_AG1_STALL_NO_CRD_EGRESS_HORZ_BL.TGR4",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 4",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 4",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2785,7 +2785,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_AG1_STALL_NO_CRD_EGRESS_HORZ_BL.TGR5",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 5",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 5",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2796,7 +2796,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_AG1_STALL_NO_CRD_EGRESS_HORZ_BL.TGR6",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 6",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 6",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2807,7 +2807,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_AG1_STALL_NO_CRD_EGRESS_HORZ_BL.TGR7",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 7",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 7",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2818,7 +2818,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_AG1_STALL_NO_CRD_EGRESS_HORZ_BL_EXT.TGR8",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 8",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 8",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2829,7 +2829,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_AG1_STALL_NO_CRD_EGRESS_HORZ_BL_EXT.ANY_OF_TGR0_THRU_TGR7",
       "BriefDescription": "Stall on No AD Transgress Credits For Transgress 0-7",
-      "PublicDescription": "0",
+      "PublicDescription": "Stall on No AD Transgress Credits For Transgress 0-7",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2840,7 +2840,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_EGRESS_VERT_OCCUPANCY.AD_AG0",
       "BriefDescription": "CMS Vert Egress Occupancy AD - Agent 0",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vert Egress Occupancy AD - Agent 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2851,7 +2851,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_EGRESS_VERT_OCCUPANCY.AK_AG0",
       "BriefDescription": "CMS Vert Egress Occupancy AK - Agent 0",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vert Egress Occupancy AK - Agent 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2862,7 +2862,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_EGRESS_VERT_OCCUPANCY.BL_AG0",
       "BriefDescription": "CMS Vert Egress Occupancy BL - Agent 0",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vert Egress Occupancy BL - Agent 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2873,7 +2873,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_EGRESS_VERT_OCCUPANCY.IV_AG0",
       "BriefDescription": "CMS Vert Egress Occupancy IV - Agent 0",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vert Egress Occupancy IV - Agent 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2884,7 +2884,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_EGRESS_VERT_OCCUPANCY.AD_AG1",
       "BriefDescription": "CMS Vert Egress Occupancy AD - Agent 1",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vert Egress Occupancy AD - Agent 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2895,7 +2895,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_EGRESS_VERT_OCCUPANCY.AK_AG1",
       "BriefDescription": "CMS Vert Egress Occupancy AK - Agent 1",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vert Egress Occupancy AK - Agent 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2906,7 +2906,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_EGRESS_VERT_OCCUPANCY.BL_AG1",
       "BriefDescription": "CMS Vert Egress Occupancy BL - Agent 1",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vert Egress Occupancy BL - Agent 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2917,7 +2917,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_EGRESS_VERT_INSERTS.AD_AG0",
       "BriefDescription": "CMS Vert Egress Allocations AD - Agent 0",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vert Egress Allocations AD - Agent 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2928,7 +2928,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_EGRESS_VERT_INSERTS.AK_AG0",
       "BriefDescription": "CMS Vert Egress Allocations AK - Agent 0",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vert Egress Allocations AK - Agent 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2939,7 +2939,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_EGRESS_VERT_INSERTS.BL_AG0",
       "BriefDescription": "CMS Vert Egress Allocations BL - Agent 0",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vert Egress Allocations BL - Agent 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2950,7 +2950,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_EGRESS_VERT_INSERTS.IV_AG0",
       "BriefDescription": "CMS Vert Egress Allocations IV - Agent 0",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vert Egress Allocations IV - Agent 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2961,7 +2961,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_EGRESS_VERT_INSERTS.AD_AG1",
       "BriefDescription": "CMS Vert Egress Allocations AD - Agent 1",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vert Egress Allocations AD - Agent 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2972,7 +2972,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_EGRESS_VERT_INSERTS.AK_AG1",
       "BriefDescription": "CMS Vert Egress Allocations AK - Agent 1",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vert Egress Allocations AK - Agent 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2983,7 +2983,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_EGRESS_VERT_INSERTS.BL_AG1",
       "BriefDescription": "CMS Vert Egress Allocations BL - Agent 1",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vert Egress Allocations BL - Agent 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -2994,7 +2994,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_EGRESS_VERT_CYCLES_FULL.AD_AG0",
       "BriefDescription": "Cycles CMS Vertical Egress Queue Is Full AD - Agent 0",
-      "PublicDescription": "0",
+      "PublicDescription": "Cycles CMS Vertical Egress Queue Is Full AD - Agent 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3005,7 +3005,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_EGRESS_VERT_CYCLES_FULL.AK_AG0",
       "BriefDescription": "Cycles CMS Vertical Egress Queue Is Full AK - Agent 0",
-      "PublicDescription": "0",
+      "PublicDescription": "Cycles CMS Vertical Egress Queue Is Full AK - Agent 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3016,7 +3016,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_EGRESS_VERT_CYCLES_FULL.BL_AG0",
       "BriefDescription": "Cycles CMS Vertical Egress Queue Is Full BL - Agent 0",
-      "PublicDescription": "0",
+      "PublicDescription": "Cycles CMS Vertical Egress Queue Is Full BL - Agent 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3027,7 +3027,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_EGRESS_VERT_CYCLES_FULL.IV_AG0",
       "BriefDescription": "Cycles CMS Vertical Egress Queue Is Full IV - Agent 0",
-      "PublicDescription": "0",
+      "PublicDescription": "Cycles CMS Vertical Egress Queue Is Full IV - Agent 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3038,7 +3038,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_EGRESS_VERT_CYCLES_FULL.AD_AG1",
       "BriefDescription": "Cycles CMS Vertical Egress Queue Is Full AD - Agent 1",
-      "PublicDescription": "0",
+      "PublicDescription": "Cycles CMS Vertical Egress Queue Is Full AD - Agent 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3049,7 +3049,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_EGRESS_VERT_CYCLES_FULL.AK_AG1",
       "BriefDescription": "Cycles CMS Vertical Egress Queue Is Full AK - Agent 1",
-      "PublicDescription": "0",
+      "PublicDescription": "Cycles CMS Vertical Egress Queue Is Full AK - Agent 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3060,7 +3060,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_EGRESS_VERT_CYCLES_FULL.BL_AG1",
       "BriefDescription": "Cycles CMS Vertical Egress Queue Is Full BL - Agent 1",
-      "PublicDescription": "0",
+      "PublicDescription": "Cycles CMS Vertical Egress Queue Is Full BL - Agent 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3071,7 +3071,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_EGRESS_VERT_CYCLES_NE.AD_AG0",
       "BriefDescription": "Cycles CMS Vertical Egress Queue Is Not Empty AD - Agent 0",
-      "PublicDescription": "0",
+      "PublicDescription": "Cycles CMS Vertical Egress Queue Is Not Empty AD - Agent 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3082,7 +3082,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_EGRESS_VERT_CYCLES_NE.AK_AG0",
       "BriefDescription": "Cycles CMS Vertical Egress Queue Is Not Empty AK - Agent 0",
-      "PublicDescription": "0",
+      "PublicDescription": "Cycles CMS Vertical Egress Queue Is Not Empty AK - Agent 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3093,7 +3093,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_EGRESS_VERT_CYCLES_NE.BL_AG0",
       "BriefDescription": "Cycles CMS Vertical Egress Queue Is Not Empty BL - Agent 0",
-      "PublicDescription": "0",
+      "PublicDescription": "Cycles CMS Vertical Egress Queue Is Not Empty BL - Agent 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3104,7 +3104,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_EGRESS_VERT_CYCLES_NE.IV_AG0",
       "BriefDescription": "Cycles CMS Vertical Egress Queue Is Not Empty IV - Agent 0",
-      "PublicDescription": "0",
+      "PublicDescription": "Cycles CMS Vertical Egress Queue Is Not Empty IV - Agent 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3115,7 +3115,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_EGRESS_VERT_CYCLES_NE.AD_AG1",
       "BriefDescription": "Cycles CMS Vertical Egress Queue Is Not Empty AD - Agent 1",
-      "PublicDescription": "0",
+      "PublicDescription": "Cycles CMS Vertical Egress Queue Is Not Empty AD - Agent 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3126,7 +3126,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_EGRESS_VERT_CYCLES_NE.AK_AG1",
       "BriefDescription": "Cycles CMS Vertical Egress Queue Is Not Empty AK - Agent 1",
-      "PublicDescription": "0",
+      "PublicDescription": "Cycles CMS Vertical Egress Queue Is Not Empty AK - Agent 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3137,7 +3137,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_EGRESS_VERT_CYCLES_NE.BL_AG1",
       "BriefDescription": "Cycles CMS Vertical Egress Queue Is Not Empty BL - Agent 1",
-      "PublicDescription": "0",
+      "PublicDescription": "Cycles CMS Vertical Egress Queue Is Not Empty BL - Agent 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3148,7 +3148,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_EGRESS_VERT_NACK.AD_AG0",
       "BriefDescription": "CMS Vertical Egress NACKs",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical Egress NACKs",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3159,7 +3159,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_EGRESS_VERT_NACK.AK_AG0",
       "BriefDescription": "CMS Vertical Egress NACKs Onto AK Ring",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical Egress NACKs Onto AK Ring",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3170,7 +3170,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_EGRESS_VERT_NACK.BL_AG0",
       "BriefDescription": "CMS Vertical Egress NACKs Onto BL Ring",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical Egress NACKs Onto BL Ring",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3181,7 +3181,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_EGRESS_VERT_NACK.IV_AG0",
       "BriefDescription": "CMS Vertical Egress NACKs",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical Egress NACKs",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3192,7 +3192,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_EGRESS_VERT_NACK.AD_AG1",
       "BriefDescription": "CMS Vertical Egress NACKs",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical Egress NACKs",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3203,7 +3203,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_EGRESS_VERT_NACK.AK_AG1",
       "BriefDescription": "CMS Vertical Egress NACKs",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical Egress NACKs",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3214,7 +3214,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_EGRESS_VERT_NACK.BL_AG1",
       "BriefDescription": "CMS Vertical Egress NACKs",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical Egress NACKs",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3225,7 +3225,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_EGRESS_VERT_STARVED.AD_AG0",
       "BriefDescription": "CMS Vertical Egress Injection Starvation",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical Egress Injection Starvation",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3236,7 +3236,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_EGRESS_VERT_STARVED.AK_AG0",
       "BriefDescription": "CMS Vertical Egress Injection Starvation Onto AK Ring",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical Egress Injection Starvation Onto AK Ring",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3247,7 +3247,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_EGRESS_VERT_STARVED.BL_AG0",
       "BriefDescription": "CMS Vertical Egress Injection Starvation Onto BL Ring",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical Egress Injection Starvation Onto BL Ring",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3258,7 +3258,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_EGRESS_VERT_STARVED.IV_AG0",
       "BriefDescription": "CMS Vertical Egress Injection Starvation",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical Egress Injection Starvation",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3269,7 +3269,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_EGRESS_VERT_STARVED.AD_AG1",
       "BriefDescription": "CMS Vertical Egress Injection Starvation",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical Egress Injection Starvation",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3280,7 +3280,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_EGRESS_VERT_STARVED.AK_AG1",
       "BriefDescription": "CMS Vertical Egress Injection Starvation",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical Egress Injection Starvation",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3291,7 +3291,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_EGRESS_VERT_STARVED.BL_AG1",
       "BriefDescription": "CMS Vertical Egress Injection Starvation",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical Egress Injection Starvation",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3302,7 +3302,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_EGRESS_VERT_ADS_USED.AD_AG0",
       "BriefDescription": "CMS Vertical ADS Used",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical ADS Used",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3313,7 +3313,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_EGRESS_VERT_ADS_USED.AK_AG0",
       "BriefDescription": "CMS Vertical ADS Used",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical ADS Used",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3324,7 +3324,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_EGRESS_VERT_ADS_USED.BL_AG0",
       "BriefDescription": "CMS Vertical ADS Used",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical ADS Used",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3335,7 +3335,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_EGRESS_VERT_ADS_USED.AD_AG1",
       "BriefDescription": "CMS Vertical ADS Used",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical ADS Used",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3346,7 +3346,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_EGRESS_VERT_ADS_USED.AK_AG1",
       "BriefDescription": "CMS Vertical ADS Used",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical ADS Used",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3357,7 +3357,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_EGRESS_VERT_ADS_USED.BL_AG1",
       "BriefDescription": "CMS Vertical ADS Used",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical ADS Used",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3368,7 +3368,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_EGRESS_VERT_BYPASS.AD_AG0",
       "BriefDescription": "CMS Vertical Egress Bypass. AD ring agent 0",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical Egress Bypass. AD ring agent 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3379,7 +3379,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_EGRESS_VERT_BYPASS.AK_AG0",
       "BriefDescription": "CMS Vertical Egress Bypass. AK ring agent 0",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical Egress Bypass. AK ring agent 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3390,7 +3390,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_EGRESS_VERT_BYPASS.BL_AG0",
       "BriefDescription": "CMS Vertical Egress Bypass. BL ring agent 0",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical Egress Bypass. BL ring agent 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3401,7 +3401,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_EGRESS_VERT_BYPASS.IV",
       "BriefDescription": "CMS Vertical Egress Bypass. IV ring agent 0",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical Egress Bypass. IV ring agent 0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3412,7 +3412,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_EGRESS_VERT_BYPASS.AD_AG1",
       "BriefDescription": "CMS Vertical Egress Bypass. AD ring agent 1",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical Egress Bypass. AD ring agent 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3423,7 +3423,7 @@
       "UMask": "0x20",
       "EventName": "UNC_H_EGRESS_VERT_BYPASS.AK_AG1",
       "BriefDescription": "CMS Vertical Egress Bypass. AK ring agent 1",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical Egress Bypass. AK ring agent 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3434,7 +3434,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_EGRESS_VERT_BYPASS.BL_AG1",
       "BriefDescription": "CMS Vertical Egress Bypass. BL ring agent 1",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Vertical Egress Bypass. BL ring agent 1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3445,7 +3445,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_EGRESS_HORZ_OCCUPANCY.AD",
       "BriefDescription": "CMS Horizontal Egress Occupancy AD",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Horizontal Egress Occupancy AD",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3456,7 +3456,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_EGRESS_HORZ_OCCUPANCY.AK",
       "BriefDescription": "CMS Horizontal Egress Occupancy AK",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Horizontal Egress Occupancy AK",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3467,7 +3467,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_EGRESS_HORZ_OCCUPANCY.BL",
       "BriefDescription": "CMS Horizontal Egress Occupancy BL",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Horizontal Egress Occupancy BL",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3478,7 +3478,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_EGRESS_HORZ_OCCUPANCY.IV",
       "BriefDescription": "CMS Horizontal Egress Occupancy IV",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Horizontal Egress Occupancy IV",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3489,7 +3489,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_EGRESS_HORZ_INSERTS.AD",
       "BriefDescription": "CMS Horizontal Egress Inserts AD",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Horizontal Egress Inserts AD",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3500,7 +3500,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_EGRESS_HORZ_INSERTS.AK",
       "BriefDescription": "CMS Horizontal Egress Inserts AK",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Horizontal Egress Inserts AK",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3511,7 +3511,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_EGRESS_HORZ_INSERTS.BL",
       "BriefDescription": "CMS Horizontal Egress Inserts BL",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Horizontal Egress Inserts BL",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3522,7 +3522,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_EGRESS_HORZ_INSERTS.IV",
       "BriefDescription": "CMS Horizontal Egress Inserts IV",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Horizontal Egress Inserts IV",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3533,7 +3533,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_EGRESS_HORZ_CYCLES_FULL.AD",
       "BriefDescription": "Cycles CMS Horizontal Egress Queue is Full AD",
-      "PublicDescription": "0",
+      "PublicDescription": "Cycles CMS Horizontal Egress Queue is Full AD",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3544,7 +3544,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_EGRESS_HORZ_CYCLES_FULL.AK",
       "BriefDescription": "Cycles CMS Horizontal Egress Queue is Full AK",
-      "PublicDescription": "0",
+      "PublicDescription": "Cycles CMS Horizontal Egress Queue is Full AK",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3555,7 +3555,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_EGRESS_HORZ_CYCLES_FULL.BL",
       "BriefDescription": "Cycles CMS Horizontal Egress Queue is Full BL",
-      "PublicDescription": "0",
+      "PublicDescription": "Cycles CMS Horizontal Egress Queue is Full BL",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3566,7 +3566,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_EGRESS_HORZ_CYCLES_FULL.IV",
       "BriefDescription": "Cycles CMS Horizontal Egress Queue is Full IV",
-      "PublicDescription": "0",
+      "PublicDescription": "Cycles CMS Horizontal Egress Queue is Full IV",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3577,7 +3577,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_EGRESS_HORZ_CYCLES_NE.AD",
       "BriefDescription": "Cycles CMS Horizontal Egress Queue is Not Empty AD",
-      "PublicDescription": "0",
+      "PublicDescription": "Cycles CMS Horizontal Egress Queue is Not Empty AD",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3588,7 +3588,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_EGRESS_HORZ_CYCLES_NE.AK",
       "BriefDescription": "Cycles CMS Horizontal Egress Queue is Not Empty AK",
-      "PublicDescription": "0",
+      "PublicDescription": "Cycles CMS Horizontal Egress Queue is Not Empty AK",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3599,7 +3599,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_EGRESS_HORZ_CYCLES_NE.BL",
       "BriefDescription": "Cycles CMS Horizontal Egress Queue is Not Empty BL",
-      "PublicDescription": "0",
+      "PublicDescription": "Cycles CMS Horizontal Egress Queue is Not Empty BL",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3610,7 +3610,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_EGRESS_HORZ_CYCLES_NE.IV",
       "BriefDescription": "Cycles CMS Horizontal Egress Queue is Not Empty IV",
-      "PublicDescription": "0",
+      "PublicDescription": "Cycles CMS Horizontal Egress Queue is Not Empty IV",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3621,7 +3621,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_EGRESS_HORZ_NACK.AD",
       "BriefDescription": "CMS Horizontal Egress NACKs",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Horizontal Egress NACKs",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3632,7 +3632,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_EGRESS_HORZ_NACK.AK",
       "BriefDescription": "CMS Horizontal Egress NACKs",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Horizontal Egress NACKs",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3643,7 +3643,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_EGRESS_HORZ_NACK.BL",
       "BriefDescription": "CMS Horizontal Egress NACKs",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Horizontal Egress NACKs",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3654,7 +3654,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_EGRESS_HORZ_NACK.IV",
       "BriefDescription": "CMS Horizontal Egress NACKs",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Horizontal Egress NACKs",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3665,7 +3665,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_EGRESS_HORZ_STARVED.AD",
       "BriefDescription": "CMS Horizontal Egress Injection Starvation",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Horizontal Egress Injection Starvation",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3676,7 +3676,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_EGRESS_HORZ_STARVED.AK",
       "BriefDescription": "CMS Horizontal Egress Injection Starvation",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Horizontal Egress Injection Starvation",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3687,7 +3687,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_EGRESS_HORZ_STARVED.BL",
       "BriefDescription": "CMS Horizontal Egress Injection Starvation",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Horizontal Egress Injection Starvation",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3698,7 +3698,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_EGRESS_HORZ_STARVED.IV",
       "BriefDescription": "CMS Horizontal Egress Injection Starvation",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Horizontal Egress Injection Starvation",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3709,7 +3709,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_EGRESS_HORZ_ADS_USED.AD",
       "BriefDescription": "CMS Horizontal ADS Used",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Horizontal ADS Used",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3720,7 +3720,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_EGRESS_HORZ_ADS_USED.AK",
       "BriefDescription": "CMS Horizontal ADS Used",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Horizontal ADS Used",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3731,7 +3731,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_EGRESS_HORZ_ADS_USED.BL",
       "BriefDescription": "CMS Horizontal ADS Used",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Horizontal ADS Used",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3742,7 +3742,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_EGRESS_HORZ_BYPASS.AD",
       "BriefDescription": "CMS Horizontal Egress Bypass. AD ring",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Horizontal Egress Bypass. AD ring",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3753,7 +3753,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_EGRESS_HORZ_BYPASS.AK",
       "BriefDescription": "CMS Horizontal Egress Bypass. AK ring",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Horizontal Egress Bypass. AK ring",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3764,7 +3764,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_EGRESS_HORZ_BYPASS.BL",
       "BriefDescription": "CMS Horizontal Egress Bypass. BL ring",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Horizontal Egress Bypass. BL ring",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3775,7 +3775,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_EGRESS_HORZ_BYPASS.IV",
       "BriefDescription": "CMS Horizontal Egress Bypass. IV ring",
-      "PublicDescription": "0",
+      "PublicDescription": "CMS Horizontal Egress Bypass. IV ring",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3786,7 +3786,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_RING_BOUNCES_VERT.AD",
       "BriefDescription": "Number of incoming messages from the Vertical ring that were bounced, by ring type.",
-      "PublicDescription": "0",
+      "PublicDescription": "Number of incoming messages from the Vertical ring that were bounced, by ring type.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3797,7 +3797,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_RING_BOUNCES_VERT.AK",
       "BriefDescription": "Number of incoming messages from the Vertical ring that were bounced, by ring type - Acknowledgements to core",
-      "PublicDescription": "0",
+      "PublicDescription": "Number of incoming messages from the Vertical ring that were bounced, by ring type - Acknowledgements to core",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3808,7 +3808,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_RING_BOUNCES_VERT.BL",
       "BriefDescription": "Number of incoming messages from the Vertical ring that were bounced, by ring type - Data Responses to core.",
-      "PublicDescription": "0",
+      "PublicDescription": "Number of incoming messages from the Vertical ring that were bounced, by ring type - Data Responses to core.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3819,7 +3819,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_RING_BOUNCES_VERT.IV",
       "BriefDescription": "Number of incoming messages from the Vertical ring that were bounced, by ring type - Snoops of processor's cache.",
-      "PublicDescription": "0",
+      "PublicDescription": "Number of incoming messages from the Vertical ring that were bounced, by ring type - Snoops of processor's cache.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3830,7 +3830,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_RING_BOUNCES_HORZ.AD",
       "BriefDescription": "Number of incoming messages from the Horizontal ring that were bounced, by ring type.",
-      "PublicDescription": "0",
+      "PublicDescription": "Number of incoming messages from the Horizontal ring that were bounced, by ring type.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3841,7 +3841,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_RING_BOUNCES_HORZ.AK",
       "BriefDescription": "Number of incoming messages from the Horizontal ring that were bounced, by ring type - Acknowledgements to core",
-      "PublicDescription": "0",
+      "PublicDescription": "Number of incoming messages from the Horizontal ring that were bounced, by ring type - Acknowledgements to core",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3852,7 +3852,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_RING_BOUNCES_HORZ.BL",
       "BriefDescription": "Number of incoming messages from the Horizontal ring that were bounced, by ring type - Data Responses to core.",
-      "PublicDescription": "0",
+      "PublicDescription": "Number of incoming messages from the Horizontal ring that were bounced, by ring type - Data Responses to core.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3863,7 +3863,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_RING_BOUNCES_HORZ.IV",
       "BriefDescription": "Number of incoming messages from the Horizontal ring that were bounced, by ring type - Snoops of processor's cache.",
-      "PublicDescription": "0",
+      "PublicDescription": "Number of incoming messages from the Horizontal ring that were bounced, by ring type - Snoops of processor's cache.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3874,7 +3874,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_RING_SINK_STARVED_VERT.AD",
       "BriefDescription": "Vertical ring sink starvation count - AD ring",
-      "PublicDescription": "0",
+      "PublicDescription": "Vertical ring sink starvation count - AD ring",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3885,7 +3885,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_RING_SINK_STARVED_VERT.AK",
       "BriefDescription": "Vertical ring sink starvation count - AK ring",
-      "PublicDescription": "0",
+      "PublicDescription": "Vertical ring sink starvation count - AK ring",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3896,7 +3896,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_RING_SINK_STARVED_VERT.BL",
       "BriefDescription": "Vertical ring sink starvation count - BL ring",
-      "PublicDescription": "0",
+      "PublicDescription": "Vertical ring sink starvation count - BL ring",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3907,7 +3907,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_RING_SINK_STARVED_VERT.IV",
       "BriefDescription": "Vertical ring sink starvation count - IV ring",
-      "PublicDescription": "0",
+      "PublicDescription": "Vertical ring sink starvation count - IV ring",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3918,7 +3918,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_RING_SINK_STARVED_HORZ.AD",
       "BriefDescription": "Horizontal ring sink starvation count - AD ring",
-      "PublicDescription": "0",
+      "PublicDescription": "Horizontal ring sink starvation count - AD ring",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3929,7 +3929,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_RING_SINK_STARVED_HORZ.AK",
       "BriefDescription": "Horizontal ring sink starvation count - AK ring",
-      "PublicDescription": "0",
+      "PublicDescription": "Horizontal ring sink starvation count - AK ring",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3940,7 +3940,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_RING_SINK_STARVED_HORZ.BL",
       "BriefDescription": "Horizontal ring sink starvation count - BL ring",
-      "PublicDescription": "0",
+      "PublicDescription": "Horizontal ring sink starvation count - BL ring",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3951,7 +3951,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_RING_SINK_STARVED_HORZ.IV",
       "BriefDescription": "Horizontal ring sink starvation count - IV ring",
-      "PublicDescription": "0",
+      "PublicDescription": "Horizontal ring sink starvation count - IV ring",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3962,7 +3962,7 @@
       "UMask": "0x00",
       "EventName": "UNC_H_RING_SRC_THRTL",
       "BriefDescription": "Counts cycles in throttle mode.",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts cycles in throttle mode.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3973,7 +3973,7 @@
       "UMask": "0x00",
       "EventName": "UNC_H_FAST_ASSERTED.VERT",
       "BriefDescription": "Counts cycles source throttling is asserted - vertical",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts cycles source throttling is asserted - vertical",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3984,7 +3984,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_FAST_ASSERTED.HORZ",
       "BriefDescription": "Counts cycles source throttling is asserted - horizontal",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts cycles source throttling is asserted - horizontal",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -3995,7 +3995,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_VERT_RING_AD_IN_USE.UP_EVEN",
       "BriefDescription": "Counts the number of cycles that the Vertical AD ring is being used at this ring stop - Up and Even",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Vertical AD ring is being used at this ring stop - Up and Even",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4006,7 +4006,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_VERT_RING_AD_IN_USE.UP_ODD",
       "BriefDescription": "Counts the number of cycles that the Vertical AD ring is being used at this ring stop - Up and Odd",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Vertical AD ring is being used at this ring stop - Up and Odd",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4017,7 +4017,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_VERT_RING_AD_IN_USE.DN_EVEN",
       "BriefDescription": "Counts the number of cycles that the Vertical AD ring is being used at this ring stop - Down and Even",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Vertical AD ring is being used at this ring stop - Down and Even",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4028,7 +4028,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_VERT_RING_AD_IN_USE.DN_ODD",
       "BriefDescription": "Counts the number of cycles that the Vertical AD ring is being used at this ring stop - Down and Odd",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Vertical AD ring is being used at this ring stop - Down and Odd",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4039,7 +4039,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_HORZ_RING_AD_IN_USE.LEFT_EVEN",
       "BriefDescription": "Counts the number of cycles that the Horizontal AD ring is being used at this ring stop - Left and Even",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Horizontal AD ring is being used at this ring stop - Left and Even",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4050,7 +4050,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_HORZ_RING_AD_IN_USE.LEFT_ODD",
       "BriefDescription": "Counts the number of cycles that the Horizontal AD ring is being used at this ring stop - Left and Odd",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Horizontal AD ring is being used at this ring stop - Left and Odd",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4061,7 +4061,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_HORZ_RING_AD_IN_USE.RIGHT_EVEN",
       "BriefDescription": "Counts the number of cycles that the Horizontal AD ring is being used at this ring stop - Right and Even",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Horizontal AD ring is being used at this ring stop - Right and Even",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4072,7 +4072,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_HORZ_RING_AD_IN_USE.RIGHT_ODD",
       "BriefDescription": "Counts the number of cycles that the Horizontal AD ring is being used at this ring stop - Right and Odd",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Horizontal AD ring is being used at this ring stop - Right and Odd",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4083,7 +4083,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_VERT_RING_AK_IN_USE.UP_EVEN",
       "BriefDescription": "Counts the number of cycles that the Vertical AK ring is being used at this ring stop - Up and Even",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Vertical AK ring is being used at this ring stop - Up and Even",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4094,7 +4094,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_VERT_RING_AK_IN_USE.UP_ODD",
       "BriefDescription": "Counts the number of cycles that the Vertical AK ring is being used at this ring stop - Up and Odd",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Vertical AK ring is being used at this ring stop - Up and Odd",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4105,7 +4105,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_VERT_RING_AK_IN_USE.DN_EVEN",
       "BriefDescription": "Counts the number of cycles that the Vertical AK ring is being used at this ring stop - Down and Even",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Vertical AK ring is being used at this ring stop - Down and Even",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4116,7 +4116,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_VERT_RING_AK_IN_USE.DN_ODD",
       "BriefDescription": "Counts the number of cycles that the Vertical AK ring is being used at this ring stop - Down and Odd",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Vertical AK ring is being used at this ring stop - Down and Odd",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4127,7 +4127,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_HORZ_RING_AK_IN_USE.LEFT_EVEN",
       "BriefDescription": "Counts the number of cycles that the Horizontal AK ring is being used at this ring stop - Left and Even",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Horizontal AK ring is being used at this ring stop - Left and Even",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4138,7 +4138,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_HORZ_RING_AK_IN_USE.LEFT_ODD",
       "BriefDescription": "Counts the number of cycles that the Horizontal AK ring is being used at this ring stop - Left and Odd",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Horizontal AK ring is being used at this ring stop - Left and Odd",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4149,7 +4149,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_HORZ_RING_AK_IN_USE.RIGHT_EVEN",
       "BriefDescription": "Counts the number of cycles that the Horizontal AK ring is being used at this ring stop - Right and Even",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Horizontal AK ring is being used at this ring stop - Right and Even",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4160,7 +4160,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_HORZ_RING_AK_IN_USE.RIGHT_ODD",
       "BriefDescription": "Counts the number of cycles that the Horizontal AK ring is being used at this ring stop - Right and Odd",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Horizontal AK ring is being used at this ring stop - Right and Odd",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4171,7 +4171,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_VERT_RING_BL_IN_USE.UP_EVEN",
       "BriefDescription": "Counts the number of cycles that the Vertical BL ring is being used at this ring stop - Up and Even",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Vertical BL ring is being used at this ring stop - Up and Even",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4182,7 +4182,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_VERT_RING_BL_IN_USE.UP_ODD",
       "BriefDescription": "Counts the number of cycles that the Vertical BL ring is being used at this ring stop - Up and Odd",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Vertical BL ring is being used at this ring stop - Up and Odd",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4193,7 +4193,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_VERT_RING_BL_IN_USE.DN_EVEN",
       "BriefDescription": "Counts the number of cycles that the Vertical BL ring is being used at this ring stop - Down and Even",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Vertical BL ring is being used at this ring stop - Down and Even",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4204,7 +4204,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_VERT_RING_BL_IN_USE.DN_ODD",
       "BriefDescription": "Counts the number of cycles that the Vertical BL ring is being used at this ring stop - Down and Odd",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Vertical BL ring is being used at this ring stop - Down and Odd",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4215,7 +4215,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_HORZ_RING_BL_IN_USE.LEFT_EVEN",
       "BriefDescription": "Counts the number of cycles that the Horizontal BL ring is being used at this ring stop - Left and Even",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Horizontal BL ring is being used at this ring stop - Left and Even",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4226,7 +4226,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_HORZ_RING_BL_IN_USE.LEFT_ODD",
       "BriefDescription": "Counts the number of cycles that the Horizontal BL ring is being used at this ring stop - Left and Odd",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Horizontal BL ring is being used at this ring stop - Left and Odd",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4237,7 +4237,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_HORZ_RING_BL_IN_USE.RIGHT_EVEN",
       "BriefDescription": "Counts the number of cycles that the Horizontal BL ring is being used at this ring stop - Right and Even",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Horizontal BL ring is being used at this ring stop - Right and Even",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4248,7 +4248,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_HORZ_RING_BL_IN_USE.RIGHT_ODD",
       "BriefDescription": "Counts the number of cycles that the Horizontal BL ring is being used at this ring stop - Right and Odd",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Horizontal BL ring is being used at this ring stop - Right and Odd",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4259,7 +4259,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_VERT_RING_IV_IN_USE.UP",
       "BriefDescription": "Counts the number of cycles that the Vertical IV ring is being used at this ring stop - Up",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Vertical IV ring is being used at this ring stop - Up",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4270,7 +4270,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_VERT_RING_IV_IN_USE.DN",
       "BriefDescription": "Counts the number of cycles that the Vertical IV ring is being used at this ring stop - Down",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Vertical IV ring is being used at this ring stop - Down",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4281,7 +4281,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_HORZ_RING_IV_IN_USE.LEFT",
       "BriefDescription": "Counts the number of cycles that the Horizontal IV ring is being used at this ring stop - Left",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Horizontal IV ring is being used at this ring stop - Left",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4292,7 +4292,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_HORZ_RING_IV_IN_USE.RIGHT",
       "BriefDescription": "Counts the number of cycles that the Horizontal IV ring is being used at this ring stop - Right",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of cycles that the Horizontal IV ring is being used at this ring stop - Right",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4303,7 +4303,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_EGRESS_ORDERING.IV_SNP_GO_UP",
       "BriefDescription": "Counts number of cycles IV was blocked in the TGR Egress due to SNP/GO Ordering requirements",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts number of cycles IV was blocked in the TGR Egress due to SNP/GO Ordering requirements",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4314,7 +4314,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_EGRESS_ORDERING.IV_SNP_GO_DN",
       "BriefDescription": "Counts number of cycles IV was blocked in the TGR Egress due to SNP/GO Ordering requirements",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts number of cycles IV was blocked in the TGR Egress due to SNP/GO Ordering requirements",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4325,7 +4325,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_TG_INGRESS_OCCUPANCY.AD_BNC",
       "BriefDescription": "Transgress Ingress Occupancy. Occupancy event for the Ingress buffers in the CMS  The Ingress is used to queue up requests received from the mesh",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Ingress Occupancy. Occupancy event for the Ingress buffers in the CMS  The Ingress is used to queue up requests received from the mesh",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4336,7 +4336,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_TG_INGRESS_OCCUPANCY.AK_BNC",
       "BriefDescription": "Transgress Ingress Occupancy. Occupancy event for the Ingress buffers in the CMS  The Ingress is used to queue up requests received from the mesh",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Ingress Occupancy. Occupancy event for the Ingress buffers in the CMS  The Ingress is used to queue up requests received from the mesh",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4347,7 +4347,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_TG_INGRESS_OCCUPANCY.BL_BNC",
       "BriefDescription": "Transgress Ingress Occupancy. Occupancy event for the Ingress buffers in the CMS  The Ingress is used to queue up requests received from the mesh",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Ingress Occupancy. Occupancy event for the Ingress buffers in the CMS  The Ingress is used to queue up requests received from the mesh",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4358,7 +4358,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_TG_INGRESS_OCCUPANCY.IV_BNC",
       "BriefDescription": "Transgress Ingress Occupancy. Occupancy event for the Ingress buffers in the CMS  The Ingress is used to queue up requests received from the mesh",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Ingress Occupancy. Occupancy event for the Ingress buffers in the CMS  The Ingress is used to queue up requests received from the mesh",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4369,7 +4369,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_TG_INGRESS_OCCUPANCY.AD_CRD",
       "BriefDescription": "Transgress Ingress Occupancy. Occupancy event for the Ingress buffers in the CMS  The Ingress is used to queue up requests received from the mesh",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Ingress Occupancy. Occupancy event for the Ingress buffers in the CMS  The Ingress is used to queue up requests received from the mesh",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4380,7 +4380,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_TG_INGRESS_OCCUPANCY.BL_CRD",
       "BriefDescription": "Transgress Ingress Occupancy. Occupancy event for the Ingress buffers in the CMS  The Ingress is used to queue up requests received from the mesh",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Ingress Occupancy. Occupancy event for the Ingress buffers in the CMS  The Ingress is used to queue up requests received from the mesh",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4391,7 +4391,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_TG_INGRESS_INSERTS.AD_BNC",
       "BriefDescription": "Transgress Ingress Allocations. Number of allocations into the CMS Ingress  The Ingress is used to queue up requests received from the mesh",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Ingress Allocations. Number of allocations into the CMS Ingress  The Ingress is used to queue up requests received from the mesh",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4402,7 +4402,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_TG_INGRESS_INSERTS.AK_BNC",
       "BriefDescription": "Transgress Ingress Allocations. Number of allocations into the CMS Ingress  The Ingress is used to queue up requests received from the mesh",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Ingress Allocations. Number of allocations into the CMS Ingress  The Ingress is used to queue up requests received from the mesh",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4413,7 +4413,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_TG_INGRESS_INSERTS.BL_BNC",
       "BriefDescription": "Transgress Ingress Allocations. Number of allocations into the CMS Ingress  The Ingress is used to queue up requests received from the mesh",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Ingress Allocations. Number of allocations into the CMS Ingress  The Ingress is used to queue up requests received from the mesh",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4424,7 +4424,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_TG_INGRESS_INSERTS.IV_BNC",
       "BriefDescription": "Transgress Ingress Allocations. Number of allocations into the CMS Ingress  The Ingress is used to queue up requests received from the mesh",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Ingress Allocations. Number of allocations into the CMS Ingress  The Ingress is used to queue up requests received from the mesh",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4435,7 +4435,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_TG_INGRESS_INSERTS.AD_CRD",
       "BriefDescription": "Transgress Ingress Allocations. Number of allocations into the CMS Ingress  The Ingress is used to queue up requests received from the mesh",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Ingress Allocations. Number of allocations into the CMS Ingress  The Ingress is used to queue up requests received from the mesh",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4446,7 +4446,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_TG_INGRESS_INSERTS.BL_CRD",
       "BriefDescription": "Transgress Ingress Allocations. Number of allocations into the CMS Ingress  The Ingress is used to queue up requests received from the mesh",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Ingress Allocations. Number of allocations into the CMS Ingress  The Ingress is used to queue up requests received from the mesh",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4457,7 +4457,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_TG_INGRESS_BYPASS.AD_BNC",
       "BriefDescription": "Transgress Ingress Bypass. Number of packets bypassing the CMS Ingress .",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Ingress Bypass. Number of packets bypassing the CMS Ingress .",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4468,7 +4468,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_TG_INGRESS_BYPASS.AK_BNC",
       "BriefDescription": "Transgress Ingress Bypass. Number of packets bypassing the CMS Ingress .",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Ingress Bypass. Number of packets bypassing the CMS Ingress .",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4479,7 +4479,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_TG_INGRESS_BYPASS.BL_BNC",
       "BriefDescription": "Transgress Ingress Bypass. Number of packets bypassing the CMS Ingress .",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Ingress Bypass. Number of packets bypassing the CMS Ingress .",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4490,7 +4490,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_TG_INGRESS_BYPASS.IV_BNC",
       "BriefDescription": "Transgress Ingress Bypass. Number of packets bypassing the CMS Ingress .",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Ingress Bypass. Number of packets bypassing the CMS Ingress .",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4501,7 +4501,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_TG_INGRESS_BYPASS.AD_CRD",
       "BriefDescription": "Transgress Ingress Bypass. Number of packets bypassing the CMS Ingress .",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Ingress Bypass. Number of packets bypassing the CMS Ingress .",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4512,7 +4512,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_TG_INGRESS_BYPASS.BL_CRD",
       "BriefDescription": "Transgress Ingress Bypass. Number of packets bypassing the CMS Ingress .",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Ingress Bypass. Number of packets bypassing the CMS Ingress .",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4523,7 +4523,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_TG_INGRESS_CRD_STARVED.AD_BNC",
       "BriefDescription": "Transgress Injection Starvation. Counts cycles under injection starvation mode.  This starvation is triggered when the CMS Ingress cannot send a transaction onto the mesh for a long period of time.  In this case, the Ingress is unable to forward to the Egress due to a lack of credit.",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Injection Starvation. Counts cycles under injection starvation mode.  This starvation is triggered when the CMS Ingress cannot send a transaction onto the mesh for a long period of time.  In this case, the Ingress is unable to forward to the Egress due to a lack of credit.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4534,7 +4534,7 @@
       "UMask": "0x02",
       "EventName": "UNC_H_TG_INGRESS_CRD_STARVED.AK_BNC",
       "BriefDescription": "Transgress Injection Starvation. Counts cycles under injection starvation mode.  This starvation is triggered when the CMS Ingress cannot send a transaction onto the mesh for a long period of time.  In this case, the Ingress is unable to forward to the Egress due to a lack of credit.",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Injection Starvation. Counts cycles under injection starvation mode.  This starvation is triggered when the CMS Ingress cannot send a transaction onto the mesh for a long period of time.  In this case, the Ingress is unable to forward to the Egress due to a lack of credit.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4545,7 +4545,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_TG_INGRESS_CRD_STARVED.BL_BNC",
       "BriefDescription": "Transgress Injection Starvation. Counts cycles under injection starvation mode.  This starvation is triggered when the CMS Ingress cannot send a transaction onto the mesh for a long period of time.  In this case, the Ingress is unable to forward to the Egress due to a lack of credit.",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Injection Starvation. Counts cycles under injection starvation mode.  This starvation is triggered when the CMS Ingress cannot send a transaction onto the mesh for a long period of time.  In this case, the Ingress is unable to forward to the Egress due to a lack of credit.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4556,7 +4556,7 @@
       "UMask": "0x08",
       "EventName": "UNC_H_TG_INGRESS_CRD_STARVED.IV_BNC",
       "BriefDescription": "Transgress Injection Starvation. Counts cycles under injection starvation mode.  This starvation is triggered when the CMS Ingress cannot send a transaction onto the mesh for a long period of time.  In this case, the Ingress is unable to forward to the Egress due to a lack of credit.",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Injection Starvation. Counts cycles under injection starvation mode.  This starvation is triggered when the CMS Ingress cannot send a transaction onto the mesh for a long period of time.  In this case, the Ingress is unable to forward to the Egress due to a lack of credit.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4567,7 +4567,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_TG_INGRESS_CRD_STARVED.AD_CRD",
       "BriefDescription": "Transgress Injection Starvation. Counts cycles under injection starvation mode.  This starvation is triggered when the CMS Ingress cannot send a transaction onto the mesh for a long period of time.  In this case, the Ingress is unable to forward to the Egress due to a lack of credit.",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Injection Starvation. Counts cycles under injection starvation mode.  This starvation is triggered when the CMS Ingress cannot send a transaction onto the mesh for a long period of time.  In this case, the Ingress is unable to forward to the Egress due to a lack of credit.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4578,7 +4578,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_TG_INGRESS_CRD_STARVED.BL_CRD",
       "BriefDescription": "Transgress Injection Starvation. Counts cycles under injection starvation mode.  This starvation is triggered when the CMS Ingress cannot send a transaction onto the mesh for a long period of time.  In this case, the Ingress is unable to forward to the Egress due to a lack of credit.",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Injection Starvation. Counts cycles under injection starvation mode.  This starvation is triggered when the CMS Ingress cannot send a transaction onto the mesh for a long period of time.  In this case, the Ingress is unable to forward to the Egress due to a lack of credit.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4589,7 +4589,7 @@
       "UMask": "0x80",
       "EventName": "UNC_H_TG_INGRESS_CRD_STARVED.IFV",
       "BriefDescription": "Transgress Injection Starvation. Counts cycles under injection starvation mode.  This starvation is triggered when the CMS Ingress cannot send a transaction onto the mesh for a long period of time.  In this case, the Ingress is unable to forward to the Egress due to a lack of credit.",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Injection Starvation. Counts cycles under injection starvation mode.  This starvation is triggered when the CMS Ingress cannot send a transaction onto the mesh for a long period of time.  In this case, the Ingress is unable to forward to the Egress due to a lack of credit.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4600,7 +4600,7 @@
       "UMask": "0x01",
       "EventName": "UNC_H_TG_INGRESS_BUSY_STARVED.AD_BNC",
       "BriefDescription": "Transgress Injection Starvation. Counts cycles under injection starvation mode.  This starvation is triggered when the CMS Ingress cannot send a transaction onto the mesh for a long period of time.  In this case, because a message from the other queue has higher priority",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Injection Starvation. Counts cycles under injection starvation mode.  This starvation is triggered when the CMS Ingress cannot send a transaction onto the mesh for a long period of time.  In this case, because a message from the other queue has higher priority",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4611,7 +4611,7 @@
       "UMask": "0x04",
       "EventName": "UNC_H_TG_INGRESS_BUSY_STARVED.BL_BNC",
       "BriefDescription": "Transgress Injection Starvation. Counts cycles under injection starvation mode.  This starvation is triggered when the CMS Ingress cannot send a transaction onto the mesh for a long period of time.  In this case, because a message from the other queue has higher priority",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Injection Starvation. Counts cycles under injection starvation mode.  This starvation is triggered when the CMS Ingress cannot send a transaction onto the mesh for a long period of time.  In this case, because a message from the other queue has higher priority",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4622,7 +4622,7 @@
       "UMask": "0x10",
       "EventName": "UNC_H_TG_INGRESS_BUSY_STARVED.AD_CRD",
       "BriefDescription": "Transgress Injection Starvation. Counts cycles under injection starvation mode.  This starvation is triggered when the CMS Ingress cannot send a transaction onto the mesh for a long period of time.  In this case, because a message from the other queue has higher priority",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Injection Starvation. Counts cycles under injection starvation mode.  This starvation is triggered when the CMS Ingress cannot send a transaction onto the mesh for a long period of time.  In this case, because a message from the other queue has higher priority",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4633,7 +4633,7 @@
       "UMask": "0x40",
       "EventName": "UNC_H_TG_INGRESS_BUSY_STARVED.BL_CRD",
       "BriefDescription": "Transgress Injection Starvation. Counts cycles under injection starvation mode.  This starvation is triggered when the CMS Ingress cannot send a transaction onto the mesh for a long period of time.  In this case, because a message from the other queue has higher priority",
-      "PublicDescription": "0",
+      "PublicDescription": "Transgress Injection Starvation. Counts cycles under injection starvation mode.  This starvation is triggered when the CMS Ingress cannot send a transaction onto the mesh for a long period of time.  In this case, because a message from the other queue has higher priority",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4644,7 +4644,7 @@
       "UMask": "0x00",
       "EventName": "UNC_E_E_CLOCKTICKS",
       "BriefDescription": "ECLK count",
-      "PublicDescription": "0",
+      "PublicDescription": "ECLK count",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4655,7 +4655,7 @@
       "UMask": "0x01",
       "EventName": "UNC_E_RPQ_INSERTS",
       "BriefDescription": "Counts the number of read requests received by the MCDRAM controller. This event is valid in all three memory modes: flat, cache and hybrid. In cache and hybrid memory mode, this event counts all read requests as well as streaming stores that hit or miss in the MCDRAM cache.",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of read requests received by the MCDRAM controller. This event is valid in all three memory modes: flat, cache and hybrid. In cache and hybrid memory mode, this event counts all read requests as well as streaming stores that hit or miss in the MCDRAM cache.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4666,7 +4666,7 @@
       "UMask": "0x01",
       "EventName": "UNC_E_WPQ_INSERTS",
       "BriefDescription": "Counts the number of write requests received by the MCDRAM controller. This event is valid in all three memory modes: flat, cache and hybrid. In cache and hybrid memory mode, this event counts all streaming stores, writebacks and, read requests that miss in MCDRAM cache.",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of write requests received by the MCDRAM controller. This event is valid in all three memory modes: flat, cache and hybrid. In cache and hybrid memory mode, this event counts all streaming stores, writebacks and, read requests that miss in MCDRAM cache.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4677,7 +4677,7 @@
       "UMask": "0x00",
       "EventName": "UNC_E_U_CLOCKTICKS",
       "BriefDescription": "UCLK count",
-      "PublicDescription": "0",
+      "PublicDescription": "UCLK count",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4688,7 +4688,7 @@
       "UMask": "0x01",
       "EventName": "UNC_E_EDC_ACCESS.HIT_CLEAN",
       "BriefDescription": "Counts the number of read requests and streaming stores that hit in MCDRAM cache and the data in MCDRAM is clean with respect to DDR. This event is only valid in cache and hybrid memory mode.",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of read requests and streaming stores that hit in MCDRAM cache and the data in MCDRAM is clean with respect to DDR. This event is only valid in cache and hybrid memory mode.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4699,7 +4699,7 @@
       "UMask": "0x02",
       "EventName": "UNC_E_EDC_ACCESS.HIT_DIRTY",
       "BriefDescription": "Counts the number of read requests and streaming stores that hit in MCDRAM cache and the data in MCDRAM is dirty with respect to DDR. This event is only valid in cache and hybrid memory mode.",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of read requests and streaming stores that hit in MCDRAM cache and the data in MCDRAM is dirty with respect to DDR. This event is only valid in cache and hybrid memory mode.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4710,7 +4710,7 @@
       "UMask": "0x04",
       "EventName": "UNC_E_EDC_ACCESS.MISS_CLEAN",
       "BriefDescription": "Counts the number of read requests and streaming stores that miss in MCDRAM cache and the data evicted from the MCDRAM is clean with respect to DDR. This event is only valid in cache and hybrid memory mode.",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of read requests and streaming stores that miss in MCDRAM cache and the data evicted from the MCDRAM is clean with respect to DDR. This event is only valid in cache and hybrid memory mode.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4721,7 +4721,7 @@
       "UMask": "0x08",
       "EventName": "UNC_E_EDC_ACCESS.MISS_DIRTY",
       "BriefDescription": "Counts the number of read requests and streaming stores that miss in MCDRAM cache and the data evicted from the MCDRAM is dirty with respect to DDR. This event is only valid in cache and hybrid memory mode.",
-      "PublicDescription": "0",
+      "PublicDescription": "Counts the number of read requests and streaming stores that miss in MCDRAM cache and the data evicted from the MCDRAM is dirty with respect to DDR. This event is only valid in cache and hybrid memory mode.",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4732,7 +4732,7 @@
       "UMask": "0x10",
       "EventName": "UNC_E_EDC_ACCESS.MISS_INVALID",
       "BriefDescription": "Number of EDC Hits or Misses. Miss I",
-      "PublicDescription": "0",
+      "PublicDescription": "Number of EDC Hits or Misses. Miss I",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4743,7 +4743,7 @@
       "UMask": "0x00",
       "EventName": "UNC_M_D_CLOCKTICKS",
       "BriefDescription": "DCLK count",
-      "PublicDescription": "0",
+      "PublicDescription": "DCLK count",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4754,7 +4754,7 @@
       "UMask": "0x01",
       "EventName": "UNC_M_CAS_COUNT.RD",
       "BriefDescription": "CAS Reads",
-      "PublicDescription": "0",
+      "PublicDescription": "CAS Reads",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4765,7 +4765,7 @@
       "UMask": "0x02",
       "EventName": "UNC_M_CAS_COUNT.WR",
       "BriefDescription": "CAS Writes",
-      "PublicDescription": "0",
+      "PublicDescription": "CAS Writes",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4776,7 +4776,7 @@
       "UMask": "0x03",
       "EventName": "UNC_M_CAS_COUNT.ALL",
       "BriefDescription": "CAS All",
-      "PublicDescription": "0",
+      "PublicDescription": "CAS All",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4787,7 +4787,7 @@
       "UMask": "0x00",
       "EventName": "UNC_M_U_CLOCKTICKS",
       "BriefDescription": "UCLK count",
-      "PublicDescription": "0",
+      "PublicDescription": "UCLK count",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4798,7 +4798,7 @@
       "UMask": "0x01",
       "EventName": "UNC_M2P_INGRESS_CYCLES_NE.CBO_IDI",
       "BriefDescription": "Ingress Queue Cycles Not Empty. Counts the number of cycles when the M2PCIe Ingress is not empty.CBO_IDI",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Queue Cycles Not Empty. Counts the number of cycles when the M2PCIe Ingress is not empty.CBO_IDI",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4809,7 +4809,7 @@
       "UMask": "0x02",
       "EventName": "UNC_M2P_INGRESS_CYCLES_NE.CBO_NCB",
       "BriefDescription": "Ingress Queue Cycles Not Empty. Counts the number of cycles when the M2PCIe Ingress is not empty.CBO_NCB",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Queue Cycles Not Empty. Counts the number of cycles when the M2PCIe Ingress is not empty.CBO_NCB",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4820,7 +4820,7 @@
       "UMask": "0x04",
       "EventName": "UNC_M2P_INGRESS_CYCLES_NE.CBO_NCS",
       "BriefDescription": "Ingress Queue Cycles Not Empty. Counts the number of cycles when the M2PCIe Ingress is not empty.CBO_NCS",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Queue Cycles Not Empty. Counts the number of cycles when the M2PCIe Ingress is not empty.CBO_NCS",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4831,7 +4831,7 @@
       "UMask": "0x80",
       "EventName": "UNC_M2P_INGRESS_CYCLES_NE.ALL",
       "BriefDescription": "Ingress Queue Cycles Not Empty. Counts the number of cycles when the M2PCIe Ingress is not empty.ALL",
-      "PublicDescription": "0",
+      "PublicDescription": "Ingress Queue Cycles Not Empty. Counts the number of cycles when the M2PCIe Ingress is not empty.ALL",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4842,7 +4842,7 @@
       "UMask": "0x01",
       "EventName": "UNC_M2P_EGRESS_CYCLES_NE.AD_0",
       "BriefDescription": "Egress (to CMS) Cycles Not Empty. Counts the number of cycles when the M2PCIe Egress is not empty.  AD_0",
-      "PublicDescription": "0",
+      "PublicDescription": "Egress (to CMS) Cycles Not Empty. Counts the number of cycles when the M2PCIe Egress is not empty.  AD_0",
       "Counter": "0,1",
       "Filter": "null",
       "ExtSel": "0"
@@ -4853,7 +4853,7 @@
       "UMask": "0x02",
       "EventName": "UNC_M2P_EGRESS_CYCLES_NE.AK_0",
       "BriefDescription": "Egress (to CMS) Cycles Not Empty. Counts the number of cycles when the M2PCIe Egress is not empty.  AK_0",
-      "PublicDescription": "0",
+      "PublicDescription": "Egress (to CMS) Cycles Not Empty. Counts the number of cycles when the M2PCIe Egress is not empty.  AK_0",
       "Counter": "0,1",
       "Filter": "null",
       "ExtSel": "0"
@@ -4864,7 +4864,7 @@
       "UMask": "0x04",
       "EventName": "UNC_M2P_EGRESS_CYCLES_NE.BL_0",
       "BriefDescription": "Egress (to CMS) Cycles Not Empty. Counts the number of cycles when the M2PCIe Egress is not empty.  BL_0",
-      "PublicDescription": "0",
+      "PublicDescription": "Egress (to CMS) Cycles Not Empty. Counts the number of cycles when the M2PCIe Egress is not empty.  BL_0",
       "Counter": "0,1",
       "Filter": "null",
       "ExtSel": "0"
@@ -4875,7 +4875,7 @@
       "UMask": "0x08",
       "EventName": "UNC_M2P_EGRESS_CYCLES_NE.AD_1",
       "BriefDescription": "Egress (to CMS) Cycles Not Empty. Counts the number of cycles when the M2PCIe Egress is not empty.  AD_1",
-      "PublicDescription": "0",
+      "PublicDescription": "Egress (to CMS) Cycles Not Empty. Counts the number of cycles when the M2PCIe Egress is not empty.  AD_1",
       "Counter": "0,1",
       "Filter": "null",
       "ExtSel": "0"
@@ -4886,7 +4886,7 @@
       "UMask": "0x10",
       "EventName": "UNC_M2P_EGRESS_CYCLES_NE.AK_1",
       "BriefDescription": "Egress (to CMS) Cycles Not Empty. Counts the number of cycles when the M2PCIe Egress is not empty.  AK_1",
-      "PublicDescription": "0",
+      "PublicDescription": "Egress (to CMS) Cycles Not Empty. Counts the number of cycles when the M2PCIe Egress is not empty.  AK_1",
       "Counter": "0,1",
       "Filter": "null",
       "ExtSel": "0"
@@ -4897,7 +4897,7 @@
       "UMask": "0x20",
       "EventName": "UNC_M2P_EGRESS_CYCLES_NE.BL_1",
       "BriefDescription": "Egress (to CMS) Cycles Not Empty. Counts the number of cycles when the M2PCIe Egress is not empty.  BL_1",
-      "PublicDescription": "0",
+      "PublicDescription": "Egress (to CMS) Cycles Not Empty. Counts the number of cycles when the M2PCIe Egress is not empty.  BL_1",
       "Counter": "0,1",
       "Filter": "null",
       "ExtSel": "0"
@@ -4908,7 +4908,7 @@
       "UMask": "0x01",
       "EventName": "UNC_M2P_EGRESS_INSERTS.AD_0",
       "BriefDescription": "Egress (to CMS) Ingress. Counts the number of number of messages inserted into the  the M2PCIe Egress queue. AD_0",
-      "PublicDescription": "0",
+      "PublicDescription": "Egress (to CMS) Ingress. Counts the number of number of messages inserted into the  the M2PCIe Egress queue. AD_0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4919,7 +4919,7 @@
       "UMask": "0x02",
       "EventName": "UNC_M2P_EGRESS_INSERTS.AK_0",
       "BriefDescription": "Egress (to CMS) Ingress. Counts the number of number of messages inserted into the  the M2PCIe Egress queue. AK_0",
-      "PublicDescription": "0",
+      "PublicDescription": "Egress (to CMS) Ingress. Counts the number of number of messages inserted into the  the M2PCIe Egress queue. AK_0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4930,7 +4930,7 @@
       "UMask": "0x04",
       "EventName": "UNC_M2P_EGRESS_INSERTS.BL_0",
       "BriefDescription": "Egress (to CMS) Ingress. Counts the number of number of messages inserted into the  the M2PCIe Egress queue. BL_0",
-      "PublicDescription": "0",
+      "PublicDescription": "Egress (to CMS) Ingress. Counts the number of number of messages inserted into the  the M2PCIe Egress queue. BL_0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4941,7 +4941,7 @@
       "UMask": "0x08",
       "EventName": "UNC_M2P_EGRESS_INSERTS.AK_CRD_0",
       "BriefDescription": "Egress (to CMS) Ingress. Counts the number of number of messages inserted into the  the M2PCIe Egress queue. AK_CRD_0",
-      "PublicDescription": "0",
+      "PublicDescription": "Egress (to CMS) Ingress. Counts the number of number of messages inserted into the  the M2PCIe Egress queue. AK_CRD_0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4952,7 +4952,7 @@
       "UMask": "0x10",
       "EventName": "UNC_M2P_EGRESS_INSERTS.AD_1",
       "BriefDescription": "Egress (to CMS) Ingress. Counts the number of number of messages inserted into the  the M2PCIe Egress queue. AD_1",
-      "PublicDescription": "0",
+      "PublicDescription": "Egress (to CMS) Ingress. Counts the number of number of messages inserted into the  the M2PCIe Egress queue. AD_1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4963,7 +4963,7 @@
       "UMask": "0x20",
       "EventName": "UNC_M2P_EGRESS_INSERTS.AK_1",
       "BriefDescription": "Egress (to CMS) Ingress. Counts the number of number of messages inserted into the  the M2PCIe Egress queue. AK_1",
-      "PublicDescription": "0",
+      "PublicDescription": "Egress (to CMS) Ingress. Counts the number of number of messages inserted into the  the M2PCIe Egress queue. AK_1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4974,7 +4974,7 @@
       "UMask": "0x40",
       "EventName": "UNC_M2P_EGRESS_INSERTS.BL_1",
       "BriefDescription": "Egress (to CMS) Ingress. Counts the number of number of messages inserted into the  the M2PCIe Egress queue. BL_1",
-      "PublicDescription": "0",
+      "PublicDescription": "Egress (to CMS) Ingress. Counts the number of number of messages inserted into the  the M2PCIe Egress queue. BL_1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4985,7 +4985,7 @@
       "UMask": "0x80",
       "EventName": "UNC_M2P_EGRESS_INSERTS.AK_CRD_1",
       "BriefDescription": "Egress (to CMS) Ingress. Counts the number of number of messages inserted into the  the M2PCIe Egress queue. AK_CRD_1",
-      "PublicDescription": "0",
+      "PublicDescription": "Egress (to CMS) Ingress. Counts the number of number of messages inserted into the  the M2PCIe Egress queue. AK_CRD_1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -4996,7 +4996,7 @@
       "UMask": "0x01",
       "EventName": "UNC_M2P_EGRESS_CYCLES_FULL.AD_0",
       "BriefDescription": "Egress (to CMS) Cycles Full. Counts the number of cycles when the M2PCIe Egress is full.  AD_0",
-      "PublicDescription": "0",
+      "PublicDescription": "Egress (to CMS) Cycles Full. Counts the number of cycles when the M2PCIe Egress is full.  AD_0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -5007,7 +5007,7 @@
       "UMask": "0x02",
       "EventName": "UNC_M2P_EGRESS_CYCLES_FULL.AK_0",
       "BriefDescription": "Egress (to CMS) Cycles Full. Counts the number of cycles when the M2PCIe Egress is full.  AK_0",
-      "PublicDescription": "0",
+      "PublicDescription": "Egress (to CMS) Cycles Full. Counts the number of cycles when the M2PCIe Egress is full.  AK_0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -5018,7 +5018,7 @@
       "UMask": "0x04",
       "EventName": "UNC_M2P_EGRESS_CYCLES_FULL.BL_0",
       "BriefDescription": "Egress (to CMS) Cycles Full. Counts the number of cycles when the M2PCIe Egress is full.  BL_0",
-      "PublicDescription": "0",
+      "PublicDescription": "Egress (to CMS) Cycles Full. Counts the number of cycles when the M2PCIe Egress is full.  BL_0",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -5029,7 +5029,7 @@
       "UMask": "0x08",
       "EventName": "UNC_M2P_EGRESS_CYCLES_FULL.AD_1",
       "BriefDescription": "Egress (to CMS) Cycles Full. Counts the number of cycles when the M2PCIe Egress is full.  AD_1",
-      "PublicDescription": "0",
+      "PublicDescription": "Egress (to CMS) Cycles Full. Counts the number of cycles when the M2PCIe Egress is full.  AD_1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -5040,7 +5040,7 @@
       "UMask": "0x10",
       "EventName": "UNC_M2P_EGRESS_CYCLES_FULL.AK_1",
       "BriefDescription": "Egress (to CMS) Cycles Full. Counts the number of cycles when the M2PCIe Egress is full.  AK_1",
-      "PublicDescription": "0",
+      "PublicDescription": "Egress (to CMS) Cycles Full. Counts the number of cycles when the M2PCIe Egress is full.  AK_1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
@@ -5051,7 +5051,7 @@
       "UMask": "0x20",
       "EventName": "UNC_M2P_EGRESS_CYCLES_FULL.BL_1",
       "BriefDescription": "Egress (to CMS) Cycles Full. Counts the number of cycles when the M2PCIe Egress is full.  BL_1",
-      "PublicDescription": "0",
+      "PublicDescription": "Egress (to CMS) Cycles Full. Counts the number of cycles when the M2PCIe Egress is full.  BL_1",
       "Counter": "0,1,2,3",
       "Filter": "null",
       "ExtSel": "0"
