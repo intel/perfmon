@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Core(TM) Processor - V1.04",
-    "DatePublished": "06/29/2023",
-    "Version": "1.04",
+    "Info": "Performance Monitoring Events for Intel(R) Core(TM) Processor - V1.05",
+    "DatePublished": "09/06/2023",
+    "Version": "1.05",
     "Legend": ""
   },
   "Events": [
@@ -29,6 +29,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -53,6 +54,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -77,6 +79,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -101,6 +104,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -125,6 +129,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -149,6 +154,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -173,6 +179,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -197,6 +204,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -221,6 +229,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -245,6 +254,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -269,6 +279,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -293,6 +304,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -317,6 +329,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -341,6 +354,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -365,6 +379,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -389,6 +404,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -413,6 +429,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -437,6 +454,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -461,6 +479,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -485,6 +504,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -509,6 +529,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -533,6 +554,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -557,6 +579,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -581,6 +604,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -605,6 +629,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -629,6 +654,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -653,6 +679,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -677,6 +704,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -701,6 +729,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -725,6 +754,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -749,6 +779,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -773,6 +804,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -797,6 +829,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -821,6 +854,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -845,6 +879,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -869,6 +904,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -893,6 +929,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -917,6 +954,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -941,6 +979,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -965,6 +1004,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -989,6 +1029,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1013,6 +1054,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1037,6 +1079,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1061,6 +1104,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1085,6 +1129,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1109,6 +1154,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1133,6 +1179,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1157,6 +1204,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1181,6 +1229,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1205,6 +1254,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1229,6 +1279,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1253,6 +1304,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1277,6 +1329,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1301,6 +1354,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1325,6 +1379,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1349,6 +1404,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1373,6 +1429,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1397,6 +1454,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1421,6 +1479,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1445,6 +1504,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1469,6 +1529,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1493,6 +1554,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1517,6 +1579,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1541,6 +1604,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1565,6 +1629,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1589,6 +1654,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1613,6 +1679,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1637,6 +1704,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1661,6 +1729,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1685,6 +1754,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1709,7 +1779,83 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
+    },
+    {
+      "EventCode": "0x2A,0x2B",
+      "UMask": "0x01",
+      "EventName": "OCR.DEMAND_DATA_RD.L3_MISS",
+      "BriefDescription": "Counts demand data reads that were not supplied by the L3 cache.",
+      "PublicDescription": "Counts demand data reads that were not supplied by the L3 cache.",
+      "Counter": "0,1,2,3,4,5,6,7",
+      "PEBScounters": "0",
+      "SampleAfterValue": "100003",
+      "MSRIndex": "0x1a6,0x1a7",
+      "MSRValue": "0x3FBFC00001",
+      "CollectPEBSRecord": "0",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "PDISTCounter": "0",
+      "Speculative": "0"
+    },
+    {
+      "EventCode": "0x2A,0x2B",
+      "UMask": "0x01",
+      "EventName": "OCR.DEMAND_DATA_RD.ANY_RESPONSE",
+      "BriefDescription": "Counts demand data reads that have any type of response.",
+      "PublicDescription": "Counts demand data reads that have any type of response.",
+      "Counter": "0,1,2,3,4,5,6,7",
+      "PEBScounters": "0",
+      "SampleAfterValue": "100003",
+      "MSRIndex": "0x1a6,0x1a7",
+      "MSRValue": "0x10001",
+      "CollectPEBSRecord": "0",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "PDISTCounter": "0",
+      "Speculative": "0"
+    },
+    {
+      "EventCode": "0x2A,0x2B",
+      "UMask": "0x01",
+      "EventName": "OCR.DEMAND_DATA_RD.DRAM",
+      "BriefDescription": "Counts demand data reads that were supplied by DRAM.",
+      "PublicDescription": "Counts demand data reads that were supplied by DRAM.",
+      "Counter": "0,1,2,3,4,5,6,7",
+      "PEBScounters": "0",
+      "SampleAfterValue": "100003",
+      "MSRIndex": "0x1a6,0x1a7",
+      "MSRValue": "0x184000001",
+      "CollectPEBSRecord": "0",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "PDISTCounter": "0",
+      "Speculative": "0"
     },
     {
       "EventCode": "0x2A,0x2B",
@@ -1733,6 +1879,57 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
+      "Speculative": "0"
+    },
+    {
+      "EventCode": "0x2A,0x2B",
+      "UMask": "0x01",
+      "EventName": "OCR.DEMAND_RFO.L3_MISS",
+      "BriefDescription": "Counts demand read for ownership (RFO) requests and software prefetches for exclusive ownership (PREFETCHW) that were not supplied by the L3 cache.",
+      "PublicDescription": "Counts demand read for ownership (RFO) requests and software prefetches for exclusive ownership (PREFETCHW) that were not supplied by the L3 cache.",
+      "Counter": "0,1,2,3,4,5,6,7",
+      "PEBScounters": "0",
+      "SampleAfterValue": "100003",
+      "MSRIndex": "0x1a6,0x1a7",
+      "MSRValue": "0x3FBFC00002",
+      "CollectPEBSRecord": "0",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "PDISTCounter": "0",
+      "Speculative": "0"
+    },
+    {
+      "EventCode": "0x2A,0x2B",
+      "UMask": "0x01",
+      "EventName": "OCR.DEMAND_RFO.ANY_RESPONSE",
+      "BriefDescription": "Counts demand read for ownership (RFO) requests and software prefetches for exclusive ownership (PREFETCHW) that have any type of response.",
+      "PublicDescription": "Counts demand read for ownership (RFO) requests and software prefetches for exclusive ownership (PREFETCHW) that have any type of response.",
+      "Counter": "0,1,2,3,4,5,6,7",
+      "PEBScounters": "0",
+      "SampleAfterValue": "100003",
+      "MSRIndex": "0x1a6,0x1a7",
+      "MSRValue": "0x10002",
+      "CollectPEBSRecord": "0",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -1757,6 +1954,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -1781,6 +1979,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -1805,6 +2004,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -1829,6 +2029,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1853,6 +2054,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1877,6 +2079,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1901,6 +2104,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1925,6 +2129,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1949,6 +2154,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1973,6 +2179,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1997,6 +2204,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2021,6 +2229,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2045,6 +2254,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2069,6 +2279,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2093,6 +2304,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2117,6 +2329,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2141,6 +2354,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2165,6 +2379,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -2189,6 +2404,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2213,6 +2429,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2237,6 +2454,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2261,6 +2479,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2285,6 +2504,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2309,6 +2529,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2333,6 +2554,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2357,6 +2579,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2381,6 +2604,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2405,6 +2629,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2429,6 +2654,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2453,6 +2679,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2477,6 +2704,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2501,6 +2729,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2525,6 +2754,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2549,6 +2779,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2573,6 +2804,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2597,6 +2829,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2621,6 +2854,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2645,6 +2879,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2669,6 +2904,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2693,6 +2929,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2717,6 +2954,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2741,6 +2979,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2765,6 +3004,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2789,6 +3029,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2813,6 +3054,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2837,6 +3079,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2861,6 +3104,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2885,6 +3129,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2909,14 +3154,15 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
       "EventCode": "0x9c",
       "UMask": "0x01",
       "EventName": "IDQ_UOPS_NOT_DELIVERED.CYCLES_0_UOPS_DELIV.CORE",
-      "BriefDescription": "Cycles when no uops are not delivered by the IDQ when backend of the machine is not stalled",
-      "PublicDescription": "Counts the number of cycles when no uops were delivered by the Instruction Decode Queue (IDQ) to the back-end of the pipeline when there was no back-end stalls. This event counts for one SMT thread in a given cycle.",
+      "BriefDescription": "Cycles when no uops are not delivered by the IDQ when backend of the machine is not stalled [This event is alias to IDQ_BUBBLES.CYCLES_0_UOPS_DELIV.CORE]",
+      "PublicDescription": "Counts the number of cycles when no uops were delivered by the Instruction Decode Queue (IDQ) to the back-end of the pipeline when there was no back-end stalls. This event counts for one SMT thread in a given cycle. [This event is alias to IDQ_BUBBLES.CYCLES_0_UOPS_DELIV.CORE]",
       "Counter": "0,1,2,3,4,5,6,7",
       "PEBScounters": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "1000003",
@@ -2933,14 +3179,15 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
       "EventCode": "0x9c",
       "UMask": "0x01",
       "EventName": "IDQ_UOPS_NOT_DELIVERED.CYCLES_FE_WAS_OK",
-      "BriefDescription": "Cycles when optimal number of uops was delivered to the back-end when the back-end is not stalled",
-      "PublicDescription": "Counts the number of cycles when the optimal number of uops were delivered by the Instruction Decode Queue (IDQ) to the back-end of the pipeline when there was no back-end stalls. This event counts for one SMT thread in a given cycle.",
+      "BriefDescription": "Cycles when optimal number of uops was delivered to the back-end when the back-end is not stalled [This event is alias to IDQ_BUBBLES.CYCLES_FE_WAS_OK]",
+      "PublicDescription": "Counts the number of cycles when the optimal number of uops were delivered by the Instruction Decode Queue (IDQ) to the back-end of the pipeline when there was no back-end stalls. This event counts for one SMT thread in a given cycle. [This event is alias to IDQ_BUBBLES.CYCLES_FE_WAS_OK]",
       "Counter": "0,1,2,3,4,5,6,7",
       "PEBScounters": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "1000003",
@@ -2957,6 +3204,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2981,6 +3229,57 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
+      "Speculative": "1"
+    },
+    {
+      "EventCode": "0x9c",
+      "UMask": "0x01",
+      "EventName": "IDQ_BUBBLES.CYCLES_0_UOPS_DELIV.CORE",
+      "BriefDescription": "Cycles when no uops are not delivered by the IDQ when backend of the machine is not stalled [This event is alias to IDQ_UOPS_NOT_DELIVERED.CYCLES_0_UOPS_DELIV.CORE]",
+      "PublicDescription": "Counts the number of cycles when no uops were delivered by the Instruction Decode Queue (IDQ) to the back-end of the pipeline when there was no back-end stalls. This event counts for one SMT thread in a given cycle. [This event is alias to IDQ_UOPS_NOT_DELIVERED.CYCLES_0_UOPS_DELIV.CORE]",
+      "Counter": "0,1,2,3,4,5,6,7",
+      "PEBScounters": "0,1,2,3,4,5,6,7",
+      "SampleAfterValue": "1000003",
+      "MSRIndex": "0x00",
+      "MSRValue": "0x00",
+      "CollectPEBSRecord": "2",
+      "TakenAlone": "0",
+      "CounterMask": "6",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "PDISTCounter": "0",
+      "Speculative": "1"
+    },
+    {
+      "EventCode": "0x9c",
+      "UMask": "0x01",
+      "EventName": "IDQ_BUBBLES.CYCLES_FE_WAS_OK",
+      "BriefDescription": "Cycles when optimal number of uops was delivered to the back-end when the back-end is not stalled [This event is alias to IDQ_UOPS_NOT_DELIVERED.CYCLES_FE_WAS_OK]",
+      "PublicDescription": "Counts the number of cycles when the optimal number of uops were delivered by the Instruction Decode Queue (IDQ) to the back-end of the pipeline when there was no back-end stalls. This event counts for one SMT thread in a given cycle. [This event is alias to IDQ_UOPS_NOT_DELIVERED.CYCLES_FE_WAS_OK]",
+      "Counter": "0,1,2,3,4,5,6,7",
+      "PEBScounters": "0,1,2,3,4,5,6,7",
+      "SampleAfterValue": "1000003",
+      "MSRIndex": "0x00",
+      "MSRValue": "0x00",
+      "CollectPEBSRecord": "2",
+      "TakenAlone": "0",
+      "CounterMask": "1",
+      "Invert": "1",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3005,6 +3304,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3029,6 +3329,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3053,6 +3354,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3077,6 +3379,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3101,6 +3404,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3125,6 +3429,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3149,6 +3454,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3173,6 +3479,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3197,6 +3504,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3221,6 +3529,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3245,6 +3554,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3269,6 +3579,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3293,6 +3604,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3317,6 +3629,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3341,6 +3654,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3365,6 +3679,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3389,6 +3704,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3413,6 +3729,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3437,6 +3754,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3461,6 +3779,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3485,6 +3804,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3509,6 +3829,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3533,6 +3854,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3557,6 +3879,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3581,6 +3904,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3605,6 +3929,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3629,6 +3954,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3653,6 +3979,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3677,6 +4004,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3701,6 +4029,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3725,6 +4054,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3749,6 +4079,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3773,6 +4104,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3797,6 +4129,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3821,6 +4154,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3845,6 +4179,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3869,6 +4204,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3893,6 +4229,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3917,6 +4254,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3941,6 +4279,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3965,6 +4304,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3989,6 +4329,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4013,6 +4354,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4037,6 +4379,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4061,6 +4404,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4085,6 +4429,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4109,6 +4454,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4133,6 +4479,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4157,6 +4504,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4181,6 +4529,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4205,6 +4554,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4229,6 +4579,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4253,6 +4604,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4277,6 +4629,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4301,6 +4654,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4325,6 +4679,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4349,6 +4704,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4373,6 +4729,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4397,6 +4754,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4421,6 +4779,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4445,6 +4804,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4469,6 +4829,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4493,6 +4854,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4517,6 +4879,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4541,6 +4904,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4565,6 +4929,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4589,6 +4954,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4613,6 +4979,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4637,6 +5004,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4661,6 +5029,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4685,6 +5054,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4709,6 +5079,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4733,6 +5104,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4757,6 +5129,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4781,6 +5154,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4805,6 +5179,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4829,6 +5204,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4853,6 +5229,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4877,6 +5254,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4901,6 +5279,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4925,6 +5304,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4949,6 +5329,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4973,6 +5354,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4997,6 +5379,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5021,6 +5404,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5045,6 +5429,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5069,6 +5454,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5093,6 +5479,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5117,6 +5504,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5141,6 +5529,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5165,6 +5554,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5189,6 +5579,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5213,6 +5604,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5237,6 +5629,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5261,6 +5654,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5285,6 +5679,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5309,6 +5704,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5333,6 +5729,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5357,6 +5754,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5381,6 +5779,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5405,6 +5804,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5429,6 +5829,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5453,6 +5854,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5477,6 +5879,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5501,6 +5904,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5525,6 +5929,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5549,6 +5954,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5573,6 +5979,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5597,6 +6004,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5621,6 +6029,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5645,6 +6054,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5669,6 +6079,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5693,6 +6104,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5717,6 +6129,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5741,6 +6154,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5765,6 +6179,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5789,6 +6204,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5813,6 +6229,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5837,6 +6254,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5861,6 +6279,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5885,6 +6304,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5909,6 +6329,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5933,6 +6354,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5957,6 +6379,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5981,6 +6404,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6005,6 +6429,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6029,6 +6454,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6053,6 +6479,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6077,6 +6504,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6101,6 +6529,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6125,6 +6554,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6149,6 +6579,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6173,6 +6604,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6197,6 +6629,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6221,6 +6654,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6245,6 +6679,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6269,6 +6704,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6293,6 +6729,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6317,6 +6754,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6341,6 +6779,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6365,6 +6804,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6389,6 +6829,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6413,6 +6854,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6437,6 +6879,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6461,6 +6904,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6485,6 +6929,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6509,6 +6954,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6533,6 +6979,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6557,6 +7004,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6581,6 +7029,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6605,6 +7054,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6629,6 +7079,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6653,6 +7104,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6677,6 +7129,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6701,6 +7154,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6725,6 +7179,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6749,6 +7204,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6773,6 +7229,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6797,6 +7254,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6821,6 +7279,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6845,6 +7304,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6869,6 +7329,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6893,6 +7354,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6917,6 +7379,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6941,6 +7404,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6965,6 +7429,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6989,6 +7454,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7013,6 +7479,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7037,6 +7504,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7061,6 +7529,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7085,6 +7554,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -7109,6 +7579,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7133,6 +7604,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7157,6 +7629,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7181,6 +7654,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7205,6 +7679,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7229,6 +7704,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7253,6 +7729,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7277,6 +7754,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7301,6 +7779,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7325,6 +7804,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -7349,6 +7829,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -7373,6 +7854,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -7397,6 +7879,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -7421,6 +7904,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -7445,6 +7929,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     }
   ]

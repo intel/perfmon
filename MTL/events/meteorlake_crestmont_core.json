@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Core(TM) Processor - V1.04",
-    "DatePublished": "06/29/2023",
-    "Version": "1.04",
+    "Info": "Performance Monitoring Events for Intel(R) Core(TM) Processor - V1.05",
+    "DatePublished": "09/06/2023",
+    "Version": "1.05",
     "Legend": ""
   },
   "Events": [
@@ -29,6 +29,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "32",
       "Speculative": "0"
     },
     {
@@ -53,6 +54,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -77,6 +79,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -101,6 +104,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -125,6 +129,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -149,6 +154,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -173,6 +179,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -197,6 +204,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -221,6 +229,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -245,6 +254,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -269,6 +279,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -293,6 +304,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -317,6 +329,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -341,6 +354,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -365,6 +379,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -389,6 +404,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -413,6 +429,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -437,6 +454,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -461,6 +479,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -485,6 +504,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -509,6 +529,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -533,6 +554,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -557,6 +579,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -581,6 +604,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -605,6 +629,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -629,6 +654,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -653,6 +679,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -677,6 +704,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -701,6 +729,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -725,6 +754,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -749,6 +779,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -773,6 +804,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -797,6 +829,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -821,6 +854,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -845,6 +879,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -869,6 +904,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -893,6 +929,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -917,6 +954,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -941,6 +979,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -965,6 +1004,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -989,6 +1029,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1013,6 +1054,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1037,6 +1079,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1061,6 +1104,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1085,6 +1129,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1109,6 +1154,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1133,6 +1179,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1157,6 +1204,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "1",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1181,6 +1229,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1205,6 +1254,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1229,6 +1279,32 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
+      "Speculative": "1"
+    },
+    {
+      "EventCode": "0x71",
+      "UMask": "0x80",
+      "EventName": "TOPDOWN_FE_BOUND.OTHER",
+      "BriefDescription": "Counts the number of issue slots every cycle that were not delivered by the frontend that do not categorize into any other common frontend stall",
+      "PublicDescription": "Counts the number of issue slots every cycle that were not delivered by the frontend that do not categorize into any other common frontend stall",
+      "Counter": "0,1,2,3,4,5,6,7",
+      "PEBScounters": "0,1,2,3,4,5,6,7",
+      "SampleAfterValue": "1000003",
+      "MSRIndex": "0x00",
+      "MSRValue": "0x00",
+      "CollectPEBSRecord": "2",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1253,6 +1329,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1277,6 +1354,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -1301,6 +1379,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1325,6 +1404,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1349,6 +1429,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1373,6 +1454,32 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
+      "Speculative": "1"
+    },
+    {
+      "EventCode": "0x73",
+      "UMask": "0x04",
+      "EventName": "TOPDOWN_BAD_SPECULATION.MISPREDICT",
+      "BriefDescription": "Counts the number of issue slots every cycle that were not consumed by the backend due to Branch Mispredict",
+      "PublicDescription": "Counts the number of issue slots every cycle that were not consumed by the backend due to Branch Mispredict",
+      "Counter": "0,1,2,3,4,5,6,7",
+      "PEBScounters": "0,1,2,3,4,5,6,7",
+      "SampleAfterValue": "1000003",
+      "MSRIndex": "0x00",
+      "MSRValue": "0x00",
+      "CollectPEBSRecord": "2",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1397,6 +1504,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1421,6 +1529,57 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
+      "Speculative": "1"
+    },
+    {
+      "EventCode": "0x74",
+      "UMask": "0x02",
+      "EventName": "TOPDOWN_BE_BOUND.MEM_SCHEDULER",
+      "BriefDescription": "Counts the number of issue slots every cycle that were not consumed by the backend due to memory reservation stall (scheduler not being able to accept another uop).  This could be caused by RSV full or load/store buffer block.",
+      "PublicDescription": "Counts the number of issue slots every cycle that were not consumed by the backend due to memory reservation stall (scheduler not being able to accept another uop).  This could be caused by RSV full or load/store buffer block.",
+      "Counter": "0,1,2,3,4,5,6,7",
+      "PEBScounters": "0,1,2,3,4,5,6,7",
+      "SampleAfterValue": "1000003",
+      "MSRIndex": "0x00",
+      "MSRValue": "0x00",
+      "CollectPEBSRecord": "2",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "PDISTCounter": "NA",
+      "Speculative": "1"
+    },
+    {
+      "EventCode": "0x74",
+      "UMask": "0x08",
+      "EventName": "TOPDOWN_BE_BOUND.NON_MEM_SCHEDULER",
+      "BriefDescription": "Counts the number of issue slots every cycle that were not consumed by the backend due to IEC and FPC RAT stalls - which can be due to the FIQ and IEC reservation station stall (integer, FP and SIMD scheduler not being able to accept another uop. )",
+      "PublicDescription": "Counts the number of issue slots every cycle that were not consumed by the backend due to IEC and FPC RAT stalls - which can be due to the FIQ and IEC reservation station stall (integer, FP and SIMD scheduler not being able to accept another uop. )",
+      "Counter": "0,1,2,3,4,5,6,7",
+      "PEBScounters": "0,1,2,3,4,5,6,7",
+      "SampleAfterValue": "1000003",
+      "MSRIndex": "0x00",
+      "MSRValue": "0x00",
+      "CollectPEBSRecord": "2",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1445,6 +1604,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1469,6 +1629,32 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
+      "Speculative": "1"
+    },
+    {
+      "EventCode": "0x74",
+      "UMask": "0x40",
+      "EventName": "TOPDOWN_BE_BOUND.REORDER_BUFFER",
+      "BriefDescription": "Counts the number of issue slots every cycle that were not consumed by the backend due to ROB full",
+      "PublicDescription": "Counts the number of issue slots every cycle that were not consumed by the backend due to ROB full",
+      "Counter": "0,1,2,3,4,5,6,7",
+      "PEBScounters": "0,1,2,3,4,5,6,7",
+      "SampleAfterValue": "1000003",
+      "MSRIndex": "0x00",
+      "MSRValue": "0x00",
+      "CollectPEBSRecord": "2",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1493,6 +1679,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1517,6 +1704,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1541,6 +1729,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1565,6 +1754,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1589,6 +1779,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1613,6 +1804,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1637,6 +1829,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1661,7 +1854,108 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
+    },
+    {
+      "EventCode": "0xB7",
+      "UMask": "0x01,0x02",
+      "EventName": "OCR.STREAMING_WR.ANY_RESPONSE",
+      "BriefDescription": "Counts streaming stores that have any type of response.",
+      "PublicDescription": "Counts streaming stores that have any type of response.",
+      "Counter": "0,1,2,3,4,5,6,7",
+      "PEBScounters": "0",
+      "SampleAfterValue": "100003",
+      "MSRIndex": "0x1a6,0x1a7",
+      "MSRValue": "0x10800",
+      "CollectPEBSRecord": "0",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "PDISTCounter": "0",
+      "Speculative": "0"
+    },
+    {
+      "EventCode": "0xB7",
+      "UMask": "0x01,0x02",
+      "EventName": "OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HIT_WITH_FWD",
+      "BriefDescription": "Counts demand data reads that were supplied by the L3 cache where a snoop was sent, the snoop hit, and non-modified data was forwarded.",
+      "PublicDescription": "Counts demand data reads that were supplied by the L3 cache where a snoop was sent, the snoop hit, and non-modified data was forwarded.",
+      "Counter": "0,1,2,3,4,5,6,7",
+      "PEBScounters": "0",
+      "SampleAfterValue": "100003",
+      "MSRIndex": "0x1a6,0x1a7",
+      "MSRValue": "0x8003C0001",
+      "CollectPEBSRecord": "0",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "PDISTCounter": "0",
+      "Speculative": "0"
+    },
+    {
+      "EventCode": "0xB7",
+      "UMask": "0x01,0x02",
+      "EventName": "OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HITM",
+      "BriefDescription": "Counts demand data reads that were supplied by the L3 cache where a snoop was sent, the snoop hit, and modified data was forwarded.",
+      "PublicDescription": "Counts demand data reads that were supplied by the L3 cache where a snoop was sent, the snoop hit, and modified data was forwarded.",
+      "Counter": "0,1,2,3,4,5,6,7",
+      "PEBScounters": "0",
+      "SampleAfterValue": "100003",
+      "MSRIndex": "0x1a6,0x1a7",
+      "MSRValue": "0x10003C0001",
+      "CollectPEBSRecord": "0",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "PDISTCounter": "0",
+      "Speculative": "0"
+    },
+    {
+      "EventCode": "0xB7",
+      "UMask": "0x01,0x02",
+      "EventName": "OCR.DEMAND_RFO.L3_HIT.SNOOP_HITM",
+      "BriefDescription": "Counts demand reads for ownership (RFO) and software prefetches for exclusive ownership (PREFETCHW) that were supplied by the L3 cache where a snoop was sent, the snoop hit, and modified data was forwarded.",
+      "PublicDescription": "Counts demand reads for ownership (RFO) and software prefetches for exclusive ownership (PREFETCHW) that were supplied by the L3 cache where a snoop was sent, the snoop hit, and modified data was forwarded.",
+      "Counter": "0,1,2,3,4,5,6,7",
+      "PEBScounters": "0",
+      "SampleAfterValue": "100003",
+      "MSRIndex": "0x1a6,0x1a7",
+      "MSRValue": "0x10003C0002",
+      "CollectPEBSRecord": "0",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "PDISTCounter": "0",
+      "Speculative": "0"
     },
     {
       "EventCode": "0xc0",
@@ -1685,6 +1979,32 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
+      "Speculative": "0"
+    },
+    {
+      "EventCode": "0xc2",
+      "UMask": "0x00",
+      "EventName": "UOPS_RETIRED.ALL",
+      "BriefDescription": "Counts the total number of uops retired.",
+      "PublicDescription": "Counts the total number of uops retired.",
+      "Counter": "0,1,2,3,4,5,6,7",
+      "PEBScounters": "0,1,2,3,4,5,6,7",
+      "SampleAfterValue": "2000003",
+      "MSRIndex": "0x00",
+      "MSRValue": "0x00",
+      "CollectPEBSRecord": "2",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "1",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -1709,6 +2029,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -1733,6 +2054,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -1757,6 +2079,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -1781,6 +2104,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -1805,6 +2129,32 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
+      "Speculative": "1"
+    },
+    {
+      "EventCode": "0xc3",
+      "UMask": "0x02",
+      "EventName": "MACHINE_CLEARS.MEMORY_ORDERING",
+      "BriefDescription": "Counts the number of machine clears due to memory ordering caused by a snoop from an external agent. Does not count internally generated machine clears such as those due to memory disambiguation.",
+      "PublicDescription": "Counts the number of machine clears due to memory ordering caused by a snoop from an external agent. Does not count internally generated machine clears such as those due to memory disambiguation.",
+      "Counter": "0,1,2,3,4,5,6,7",
+      "PEBScounters": "0,1,2,3,4,5,6,7",
+      "SampleAfterValue": "20003",
+      "MSRIndex": "0x00",
+      "MSRValue": "0x00",
+      "CollectPEBSRecord": "2",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1829,6 +2179,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1853,6 +2204,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1877,6 +2229,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1901,6 +2254,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -1925,6 +2279,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -1949,6 +2304,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -1973,6 +2329,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -1997,6 +2354,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2021,6 +2379,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2045,6 +2404,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2069,6 +2429,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2093,6 +2454,32 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
+      "Speculative": "0"
+    },
+    {
+      "EventCode": "0xc5",
+      "UMask": "0xfe",
+      "EventName": "BR_MISP_RETIRED.COND_TAKEN",
+      "BriefDescription": "Counts the number of mispredicted taken JCC (Jump on Conditional Code) branch instructions retired.",
+      "PublicDescription": "Counts the number of mispredicted taken JCC (Jump on Conditional Code) branch instructions retired.",
+      "Counter": "0,1,2,3,4,5,6,7",
+      "PEBScounters": "0,1,2,3,4,5,6,7",
+      "SampleAfterValue": "200003",
+      "MSRIndex": "0x00",
+      "MSRValue": "0x00",
+      "CollectPEBSRecord": "2",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "1",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2117,6 +2504,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2141,6 +2529,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2165,6 +2554,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2189,6 +2579,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2213,6 +2604,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2237,6 +2629,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2261,6 +2654,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2285,6 +2679,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2309,6 +2704,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2333,6 +2729,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2357,6 +2754,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2381,6 +2779,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2405,6 +2804,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2429,6 +2829,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2453,6 +2854,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2477,6 +2879,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2501,6 +2904,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2525,6 +2929,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2549,6 +2954,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2573,6 +2979,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2597,6 +3004,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2621,6 +3029,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2645,6 +3054,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2669,6 +3079,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2693,6 +3104,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0,1",
       "Speculative": "0"
     },
     {
@@ -2717,6 +3129,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     }
   ]
