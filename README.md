@@ -269,6 +269,7 @@ This field lists the known bugs that apply to the events. For the latest errata 
 
 | Platform | Specification Updates / Errata Documentation |
 | --- | --- |
+| RPL[^rpl_footnote] | [13th Generation Intel&reg; Core&trade; Processor Specification Update (Doc. #740518)](https://cdrdv2.intel.com/v1/dl/getContent/740518?explicitVersion=true) |
 | ADL | [12th Generation Intel&reg; Core&trade; Processor Specification Update (Doc. #682436)](https://cdrdv2.intel.com/v1/dl/getContent/682436?explicitVersion=true) |
 | CLX | [2nd Gen Intel&reg; Xeon&reg; Scalable Processors Specification Update (Doc. #338848)](https://cdrdv2.intel.com/v1/dl/getContent/338848?explicitVersion=true) |
 | HSW | [Desktop 4th Generation Intel&reg; Core&trade; Processor Family Specification Update (Doc. #328899)](https://www.intel.com/content/dam/www/public/us/en/documents/specification-updates/4th-gen-core-family-desktop-specification-update.pdf) |
@@ -280,6 +281,8 @@ This field lists the known bugs that apply to the events. For the latest errata 
 | SPR | [4th Gen Intel&reg; Xeon&reg; Scalable Processors Codename Sapphire Rapids Specification Update (Doc. #772415)](https://cdrdv2.intel.com/v1/dl/getContent/772415?explicitVersion=true) |
 | SKX | [Intel&reg; Xeon&reg; Processor Scalable Family Specification Update (Doc. #336065)](https://cdrdv2.intel.com/v1/dl/getContent/336065?explicitVersion=true) |
 | TGL | [11th Generation Intel&reg; Core&trade; Processor Specification Update (Doc. #631123)](https://cdrdv2.intel.com/v1/dl/getContent/631123?explicitVersion=true) |
+
+[^rpl_footnote]: Raptor Lake device IDs are mapped to Alder Lake event files. See `mapfile.csv`.
 
 ### Offcore
 This field is specific to the json format. There is only 1 file for core and offcore events in this format. This field is set to 1 for offcore events
