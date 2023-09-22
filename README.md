@@ -249,6 +249,19 @@ A '0' in this field means that the event cannot collect a PEBS record with a Pre
 precise event and can be programmed in one of two ways - as a regular event or as a PEBS event. And a '2' in this field means
 that the event can only be programmed as a PEBS event.
 
+### PDISTCounter
+PDist (Precise distribution) eliminates any skid or shadowing effects from PEBS. With PDist, the PEBS record will be
+generated precisely upon completion of the instruction or operation that causes the counter to overflow (there is no
+"wait for next occurrence" by default). [^pdist_footnote]
+
+| Example Values | Description |
+| --- | --- |
+| NA | Precise distribution is not applicable for this event. |
+| 32 | Precise distribution is supported on fixed counter 0 for this event. |
+| 0,1 | Precise distribution is supported on programmable counters 0 and 1 for this event. |
+
+[^pdist_footnote]: Excerpt from Intel SDM section, "PDist: Precise Distribution".
+
 ### PRECISE_STORE
 A '1' in this field means the event uses the Precise Store feature and Bit 3 and bit 63 in IA32_PEBS_ENABLE MSR must be set
 to enable IA32_PMC3 as a PEBS counter and enable the precise store facility respectively. Processors based on SandyBridge and
