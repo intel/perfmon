@@ -749,16 +749,16 @@ class Model:
                         cell = field(j)
                         if cell:
                             break
-                    # UNC_ARB is a BDW uncore PMU not present on
-                    # BDW-DE, substitute for the BDX version.
-                    if self.shortname == 'BDW-DE' and 'UNC_ARB' in cell:
+                    # UNC_ARB and UNC_CLOCK are BDW uncore PMU events
+                    # not present on BDW-DE, substitute for the BDX
+                    # version.
+                    if (self.shortname == 'BDW-DE' and
+                        ('UNC_ARB' in cell or 'UNC_CLOCK' in cell)):
                         for j in ratio_column['BDX']:
                             cell = field(j)
                             if cell:
                                 break
 
-                if 'UNC_CLOCK.SOCKET' in cell and self.shortname in ['BDW-DE', 'TGL']:
-                    cell = None
                 return cell
 
             def locate_with() -> Optional[str]:
@@ -933,32 +933,26 @@ class Model:
                         ('TOPDOWN.SLOTS:perf_metrics', 'TOPDOWN.SLOTS'),
                         ('TOPDOWN.SLOTS:percore', 'TOPDOWN.SLOTS'),
                     ]
+                    hsx_uncore_fixups = [
+                        ('UNC_C_TOR_OCCUPANCY.MISS_OPCODE:opc=0x182:c1',
+                         'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182\,thresh\=1@'),
+                        ('UNC_C_TOR_OCCUPANCY.MISS_OPCODE:opc=0x182',
+                         'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182@'),
+                        ('UNC_C_TOR_INSERTS.MISS_OPCODE:opc=0x182',
+                         'UNC_C_TOR_INSERTS.MISS_OPCODE@filter_opc\=0x182@'),
+                        ('UNC_C_CLOCKTICKS:one_unit', 'cbox_0@event\=0x0@'),
+                    ]
                     arch_fixups = {
                         'ADL': td_event_fixups,
-                        'BDX': [
-                            ('UNC_C_TOR_OCCUPANCY.MISS_OPCODE:opc=0x182:c1',
-                             'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182\,thresh\=1@'),
-                            ('UNC_C_TOR_OCCUPANCY.MISS_OPCODE:opc=0x182',
-                             'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182@'),
-                            ('UNC_C_TOR_INSERTS.MISS_OPCODE:opc=0x182',
-                             'UNC_C_TOR_INSERTS.MISS_OPCODE@filter_opc\=0x182@'),
-                            ('UNC_C_CLOCKTICKS:one_unit', 'cbox_0@event\=0x0@'),
-                        ],
+                        'BDW-DE': hsx_uncore_fixups,
+                        'BDX': hsx_uncore_fixups,
                         'CLX': [
                             ('UNC_M_CLOCKTICKS:one_unit', 'imc_0@event\=0x0@'),
                             ('UNC_CHA_CLOCKTICKS:one_unit', 'cha_0@event\=0x0@'),
                             ('UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD:c1',
                              'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
                         ],
-                        'HSX': [
-                            ('UNC_C_TOR_OCCUPANCY.MISS_OPCODE:opc=0x182:c1',
-                             'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182\,thresh\=1@'),
-                            ('UNC_C_TOR_OCCUPANCY.MISS_OPCODE:opc=0x182',
-                             'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182@'),
-                            ('UNC_C_TOR_INSERTS.MISS_OPCODE:opc=0x182',
-                             'UNC_C_TOR_INSERTS.MISS_OPCODE@filter_opc\=0x182@'),
-                            ('UNC_C_CLOCKTICKS:one_unit', 'cbox_0@event\=0x0@'),
-                        ],
+                        'HSX': hsx_uncore_fixups,
                         'ICL': td_event_fixups,
                         'ICX': [
                             ('UNC_CHA_CLOCKTICKS:one_unit', 'cha_0@event\=0x0@'),
