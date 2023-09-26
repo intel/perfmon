@@ -220,13 +220,14 @@ register whose address is given in MSRIndex column. For example, in the case of 
 latency threshold value to write into the MSR defined in MSRIndex (0x3F6).
 
 ### CollectPEBSRecord
-Applies to processors that support both precise and non-precise events in Processor Event Based Sampling, such as Goldmont.
+Applies to processors that support both precise and non-precise events in **Processor** Event Based Sampling, such as Goldmont.
 
 0. The event cannot be programmed to collect a PEBS record.
 1. The event may be programmed to collect a PEBS record, but caution is advised. For instance, PEBS collection of this event may consume limited PEBS resources whereas interrupt-based sampling may be sufficient for the usage model.
 2. The event may programmed to collect a PEBS record, and due to the nature of the event, PEBS collection may be preferred. For instance,
 PEBS collection of Goldmont's `HW_INTERUPTS.RECIEVED` event is recommended because the hardware interrupt being counted may lead to the masking of
 interrupts which would interfere with interrupt-based sampling.
+3. This event must be programmed to collect a PEBS record.
 
 ### TakenAlone
 This field is set for an event which can only be sampled or counted by itself, meaning that when this event is being collected,
