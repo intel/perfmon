@@ -739,10 +739,24 @@ class Model:
                 """Find the formula for CPU in the current CSV line."""
                 cell = field(tma_cpu)
                 if not cell:
-                    for j in ratio_column[tma_cpu]:
+                    cpu = tma_cpu
+                    # BDW-DE is a BDW with the server
+                    # uncore. Page_Walks_Utilization must come from
+                    # the server BDX CPU.
+                    if self.shortname == 'BDW-DE' and field('Level1') == 'Page_Walks_Utilization':
+                        cpu = 'BDX'
+                    for j in ratio_column[cpu]:
                         cell = field(j)
                         if cell:
                             break
+                    # UNC_ARB is a BDW uncore PMU not present on
+                    # BDW-DE, substitute for the BDX version.
+                    if self.shortname == 'BDW-DE' and 'UNC_ARB' in cell:
+                        for j in ratio_column['BDX']:
+                            cell = field(j)
+                            if cell:
+                                break
+
                 if 'UNC_CLOCK.SOCKET' in cell and self.shortname in ['BDW-DE', 'TGL']:
                     cell = None
                 return cell
@@ -929,10 +943,6 @@ class Model:
                             ('UNC_C_TOR_INSERTS.MISS_OPCODE:opc=0x182',
                              'UNC_C_TOR_INSERTS.MISS_OPCODE@filter_opc\=0x182@'),
                             ('UNC_C_CLOCKTICKS:one_unit', 'cbox_0@event\=0x0@'),
-                        ],
-                        'BDW-DE': [
-                            ('UNC_ARB_COH_TRK_REQUESTS.ALL', 'arb@event\=0x84\,umask\=0x1@'),
-                            ('UNC_ARB_TRK_REQUESTS.ALL', 'arb@event\=0x81\,umask\=0x1@'),
                         ],
                         'CLX': [
                             ('UNC_M_CLOCKTICKS:one_unit', 'imc_0@event\=0x0@'),
@@ -1157,17 +1167,7 @@ class Model:
             def save_form(name, group, form, desc, locate, scale_unit, threshold,
                           issues):
                 if self.shortname == 'BDW-DE':
-                    if name == 'Page_Walks_Utilization':
-                        # Force in the BDX versions.
-                        form = ('(ITLB_MISSES.WALK_DURATION + '
-                                'DTLB_LOAD_MISSES.WALK_DURATION + '
-                                'DTLB_STORE_MISSES.WALK_DURATION + 7 * '
-                                '(DTLB_STORE_MISSES.WALK_COMPLETED + '
-                                'DTLB_LOAD_MISSES.WALK_COMPLETED + '
-                                'ITLB_MISSES.WALK_COMPLETED)) / (2 * CORE_CLKS)')
-                    elif name in ['tma_false_sharing',
-                                  'tma_info_system_mem_parallel_requests',
-                                  'tma_info_system_mem_request_latency']:
+                    if name in ['tma_false_sharing']:
                         # Uncore events missing for BDW-DE, so drop.
                         _verboseprint3(f'Dropping metric {name}')
                         return
