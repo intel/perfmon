@@ -502,7 +502,7 @@
       "UMaskExt": "0x00",
       "EventName": "UNC_IIO_CLOCKTICKS",
       "BriefDescription": "Clockticks of the IIO Traffic Controller",
-      "PublicDescription": "Counts clockticks of the 1GHz trafiic controller clock in the IIO unit.",
+      "PublicDescription": "Counts clockticks of the 1GHz traffic controller clock in the IIO unit.",
       "Counter": "0,1,2,3",
       "MSRValue": "0x00",
       "ELLC": "0",

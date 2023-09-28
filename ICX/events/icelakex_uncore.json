@@ -1612,7 +1612,7 @@
       "UMaskExt": "0x00",
       "EventName": "UNC_I_COHERENT_OPS.WBMTOI",
       "BriefDescription": "Coherent Ops : WbMtoI",
-      "PublicDescription": "Coherent Ops : WbMtoI : Counts the number of coherency related operations servied by the IRP",
+      "PublicDescription": "Coherent Ops : WbMtoI : Counts the number of coherency related operations serviced by the IRP",
       "Counter": "0,1",
       "MSRValue": "0x00",
       "ELLC": "0",

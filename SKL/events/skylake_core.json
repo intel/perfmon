@@ -2864,7 +2864,7 @@
       "UMask": "0x10",
       "EventName": "ITLB_MISSES.WALK_PENDING",
       "BriefDescription": "Counts 1 per cycle for each PMH that is busy with a page walk for an instruction fetch request. EPT page walk duration are excluded in Skylake.",
-      "PublicDescription": "Counts 1 per cycle for each PMH (Page Miss Handler) that is busy with a page walk for an instruction fetch request. EPT page walk duration are excluded in Skylake michroarchitecture.",
+      "PublicDescription": "Counts 1 per cycle for each PMH (Page Miss Handler) that is busy with a page walk for an instruction fetch request. EPT page walk duration are excluded in Skylake microarchitecture.",
       "Counter": "0,1,2,3",
       "CounterHTOff": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "100003",
