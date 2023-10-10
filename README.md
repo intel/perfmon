@@ -24,35 +24,32 @@ Perfmon Metrics is a set of metric files and scripts used to perform performance
 
 #### JSON Format Explanation
 
-"Name": The string name of the metric being defined
+* `MetricName`: The string name of the metric being defined.
 
-"Level": Integer value representing the relationship of this metric in a hierarchy of metrics. This field can be used along with "ParentCategory" to define a tree structure of metrics. Root level metrics have a level of 1
+* `Level`: Integer value representing the relationship of this metric in a hierarchy of metrics. This field can be used along with "ParentCategory" to define a tree structure of metrics. Root level metrics have a level of 1.
 
-"BriefDescription": The description of the metric is measuring, long description will be in the documents section of this github
+* `BriefDescription`: The description of what the metric is measuring. Long descriptions will be in the documents section of this GitHub.
 
-"UnitOfMeasure": the unit of measure for a metric, can be time, frequency, number of samples, percent
+* `UnitOfMeasure`: The unit of measure for a metric, can be time, frequency, number of samples, percent.
 
-"Events": List of events and their alias which is used in the formula
+* `Events`: List of events and their alias which is used in the formula.
 
-{
-"Name": The name of the event from the JSON event list in the event list folder. May change per platform
+    * `Name`: The name of the event from the JSON event list in the event list folder. May change per platform.
 
-"Alias": The alias used for the event in the formula
-},
+    * `Alias`: The alias used for the event in the formula.
 
+* `Constants`: List of constants required for the given metric with the same fields as those defined for the event list: Name and Alias.
 
-"Constants": List of constants required for the given metric with the same fields as those defined for the event list: Name and Alias.
+* `Formula`: String providing the arithmetic to be performed to form the metric value based on the provided aliases.
 
-"Formula": String providing the arithmetic to be performed to form the metric value based on the provided aliases.
+* `Category`: Useful tagging for the metric. Intended to be used for parsing when creating a subset of metrics list. Some categories will be general, IO, TMA, microservices
 
-"Category": Useful tagging for the metric. Intended to be used for parsing when creating a subset of metrics list. Some categories will be general, IO, TMA, microservices
+* `Threshold`: When the threshold evaluates as true then it indicates that this metric is meaningful for the current analysis. `<sign> X` requires that the value of the node should hold true the relationship with X. `P` requires that the nodes parent needs to pass the threshold for this to be true. `;` separator, `&` and, `|` or `$issueXX` is a unique tag that associates together multiple nodes from different categories of the tree. For example, Bad_Speculation is tightly coupled with Branch_Resteers (from the Frontend_Bound Category). `~overlap` indicates a weight of a specific node overlaps with its siblings. I.e. their costs are not mutually exclusive. For example, value of Branch_Resteers may overlap with ICache_Misses.
+Example: `> 0.2 & P` means the current node's values is above 20% and the Parent node is highlighted.
 
-"Threshold": When the threshold evaluates as true then it indicates that this metric is meaningful for the current analysis. '<sign> X' requires that the value of the node should hold true the relationship with X. 'P' requires that the nodes parent needs to pass the threshold for this to be true. ';' separator, '&' and, '|' or '$issueXX' is a unique tag that associates together multiple nodes from different categories of the tree. For example, Bad_Speculation is tightly coupled with Branch_Resteers (from the Frontend_Bound Category). '~overlap' indicates a weight of a specific node overlaps with its siblings. I.e. their costs are not mutually exclusive. For example, value of Branch_Resteers may overlap with ICache_Misses.
-Example: "> 0.2 & P" means the current node's values is above 20% and the Parent node is highlighted.
+* `ResolutionLevels`: List of resolution levels that tools can choose to compute for the given metric. For example, if the list contains `THREAD`, then the metric can be computed at a per thread level. The metric is not valid when data is aggregated at a level not present in the resolution level list. If the list contains `THREAD, CORE, SOCKET, SYSTEM` then this indicates that a tool can choose to compute this metric at the thread level, or aggregate counts across core or socket or system level to report a broader metric resolution.
 
-"ResolutionLevels": List of resolution levels that tools can choose to compute for the given metric. For example, if the list contains "THREAD", then the metric can be computed at a per thread level. The metric is not valid when data is aggregated at a level not present in the resolution level list. If the list contains "THREAD, CORE, SOCKET, SYSTEM" then this indicates that a tool can choose to compute this metric at the thread level, or aggregate counts across core or socket or system level to report a broader metric resolution.
-
-"MetricGroup": Grouping for perf, further explanation added on perf script release
+* `MetricGroup`: Grouping for perf, further explanation added on perf script release.
 
 #### JSON Constant Explanation
 
@@ -210,23 +207,24 @@ workload or tool preference.
 
 ### MSRIndex
 Additional MSRs may be required for programming certain events. This field gives the address of such MSRS.
-Potential values are:
-* 0x3F6: MSR_PEBS_LD_LAT - used to configure the Load Latency Perforamnce Monitoring Facility
+Examples include:
+* 0x3F6: MSR_PEBS_LD_LAT - used to configure the Load Latency Performance Monitoring Facility
 * 0x1A6/0x1A7: MSR_OFFCORE_RSP_X - used to configure the offcore response events
 
 ### MSRValue
-When an MSRIndex is used (indicated by the MSRIndex column), this field will contain the value that needs to be loaded into the
-register whose address is given in MSRIndex column. For example, in the case of the load latency events, MSRValue defines the
+When an MSRIndex is used (indicated by MSRIndex), this field will contain the value that needs to be loaded into the
+register whose address is given in MSRIndex. For example, in the case of the load latency events, MSRValue defines the
 latency threshold value to write into the MSR defined in MSRIndex (0x3F6).
 
 ### CollectPEBSRecord
-Applies to processors that support both precise and non-precise events in Processor Event Based Sampling, such as Goldmont.
+Applies to processors that support both precise and non-precise events in **Processor** Event Based Sampling, such as Goldmont.
 
 0. The event cannot be programmed to collect a PEBS record.
 1. The event may be programmed to collect a PEBS record, but caution is advised. For instance, PEBS collection of this event may consume limited PEBS resources whereas interrupt-based sampling may be sufficient for the usage model.
-2. The event may programmed to collect a PEBS record, and due to the nature of the event, PEBS collection may be preferred. For instance,
+2. The event may be programmed to collect a PEBS record, and due to the nature of the event, PEBS collection may be preferred. For instance,
 PEBS collection of Goldmont's `HW_INTERUPTS.RECIEVED` event is recommended because the hardware interrupt being counted may lead to the masking of
 interrupts which would interfere with interrupt-based sampling.
+3. The event must be programmed to collect a PEBS record.
 
 ### TakenAlone
 This field is set for an event which can only be sampled or counted by itself, meaning that when this event is being collected,
@@ -249,6 +247,19 @@ A '0' in this field means that the event cannot collect a PEBS record with a Pre
 precise event and can be programmed in one of two ways - as a regular event or as a PEBS event. And a '2' in this field means
 that the event can only be programmed as a PEBS event.
 
+### PDISTCounter
+PDist (Precise distribution) eliminates any skid or shadowing effects from PEBS. With PDist, the PEBS record will be
+generated precisely upon completion of the instruction or operation that causes the counter to overflow (there is no
+"wait for next occurrence" by default). [^pdist_footnote]
+
+| Example Values | Description |
+| --- | --- |
+| NA | Precise distribution is not applicable for this event. |
+| 32 | Precise distribution is supported on fixed counter 0 for this event. |
+| 0,1 | Precise distribution is supported on programmable counters 0 and 1 for this event. |
+
+[^pdist_footnote]: Excerpt from Intel SDM section, "PDist: Precise Distribution".
+
 ### PRECISE_STORE
 A '1' in this field means the event uses the Precise Store feature and Bit 3 and bit 63 in IA32_PEBS_ENABLE MSR must be set
 to enable IA32_PMC3 as a PEBS counter and enable the precise store facility respectively. Processors based on SandyBridge and
@@ -269,6 +280,7 @@ This field lists the known bugs that apply to the events. For the latest errata 
 
 | Platform | Specification Updates / Errata Documentation |
 | --- | --- |
+| RPL[^rpl_footnote] | [13th Generation Intel&reg; Core&trade; Processor Specification Update (Doc. #740518)](https://cdrdv2.intel.com/v1/dl/getContent/740518?explicitVersion=true) |
 | ADL | [12th Generation Intel&reg; Core&trade; Processor Specification Update (Doc. #682436)](https://cdrdv2.intel.com/v1/dl/getContent/682436?explicitVersion=true) |
 | CLX | [2nd Gen Intel&reg; Xeon&reg; Scalable Processors Specification Update (Doc. #338848)](https://cdrdv2.intel.com/v1/dl/getContent/338848?explicitVersion=true) |
 | HSW | [Desktop 4th Generation Intel&reg; Core&trade; Processor Family Specification Update (Doc. #328899)](https://www.intel.com/content/dam/www/public/us/en/documents/specification-updates/4th-gen-core-family-desktop-specification-update.pdf) |
@@ -280,6 +292,8 @@ This field lists the known bugs that apply to the events. For the latest errata 
 | SPR | [4th Gen Intel&reg; Xeon&reg; Scalable Processors Codename Sapphire Rapids Specification Update (Doc. #772415)](https://cdrdv2.intel.com/v1/dl/getContent/772415?explicitVersion=true) |
 | SKX | [Intel&reg; Xeon&reg; Processor Scalable Family Specification Update (Doc. #336065)](https://cdrdv2.intel.com/v1/dl/getContent/336065?explicitVersion=true) |
 | TGL | [11th Generation Intel&reg; Core&trade; Processor Specification Update (Doc. #631123)](https://cdrdv2.intel.com/v1/dl/getContent/631123?explicitVersion=true) |
+
+[^rpl_footnote]: Raptor Lake device IDs are mapped to Alder Lake event files. See `mapfile.csv`.
 
 ### Offcore
 This field is specific to the json format. There is only 1 file for core and offcore events in this format. This field is set to 1 for offcore events
