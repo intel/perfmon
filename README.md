@@ -247,6 +247,10 @@ A '0' in this field means that the event cannot collect a PEBS record with a Pre
 precise event and can be programmed in one of two ways - as a regular event or as a PEBS event. And a '2' in this field means
 that the event can only be programmed as a PEBS event.
 
+:warning: Starting with ICL, ICX, and subsequent platforms, downstream tools will need to reference
+`CollectPEBSRecord` and `Precise` attributes instead of `PEBS`. Please refer to
+https://github.com/intel/perfmon/issues/114 for additional information.
+
 ### PDISTCounter
 PDist (Precise distribution) eliminates any skid or shadowing effects from PEBS. With PDist, the PEBS record will be
 generated precisely upon completion of the instruction or operation that causes the counter to overflow (there is no
@@ -259,6 +263,24 @@ generated precisely upon completion of the instruction or operation that causes 
 | 0,1 | Precise distribution is supported on programmable counters 0 and 1 for this event. |
 
 [^pdist_footnote]: Excerpt from Intel SDM section, "PDist: Precise Distribution".
+
+### Precise
+The core event attribute `Precise` indicates if an event can collect a precise eventing instruction
+pointer in the PEBS record.
+
+
+| Value | Description |
+| --- | --- |
+| 0 | This event cannot provide a precise IP in the PEBS record. |
+| 1 | This event can provide a precise IP in the PEBS record. |
+
+> For precise events, upon triggering a PEBS assist, there will be a finite delay between the time
+the counter overflows and when the microcode starts to carry out its data collection obligations.
+The Reduced Skid mechanism mitigates the "skid" problem by providing an early indication of when
+the counter is about to overflow, allowing the machine to more precisely trap on the instruction
+that actually caused the counter overflow thus greatly reducing skid. [^reduced_skid_footnote]
+
+[^reduced_skid_footnote]: Excerpt from Intel SDM section, "Reduced Skid PEBS".
 
 ### PRECISE_STORE
 A '1' in this field means the event uses the Precise Store feature and Bit 3 and bit 63 in IA32_PEBS_ENABLE MSR must be set
