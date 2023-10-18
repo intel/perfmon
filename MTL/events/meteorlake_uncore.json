@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Core(TM) Processor - V1.05",
-    "DatePublished": "09/06/2023",
-    "Version": "1.05",
+    "Info": "Performance Monitoring Events for Intel(R) Core(TM) processors based on Meteor Lake performance hybrid architecture - V1.06",
+    "DatePublished": "10/12/2023",
+    "Version": "1.06",
     "Legend": ""
   },
   "Events": [
@@ -328,6 +328,20 @@
       "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
+    },
+    {
+      "Unit": "NCU",
+      "EventCode": "0x00",
+      "UMask": "0x01",
+      "EventName": "UNC_CLOCK.SOCKET",
+      "BriefDescription": "This 48-bit fixed counter counts the UCLK cycles.",
+      "PublicDescription": "This 48-bit fixed counter counts the UCLK cycles.",
+      "Counter": "FIXED",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "Deprecated": "0",
+      "CounterType": "FIXED"
     }
   ]
 }
