@@ -8,7 +8,7 @@
   },
   "Events": [
     {
-      "EventCode": "0x00",
+      "EventCode": "FIXED",
       "UMask": "0x01",
       "EventName": "INST_RETIRED.ANY",
       "BriefDescription": "Instructions retired from execution.",
@@ -31,7 +31,7 @@
       "Deprecated": "0"
     },
     {
-      "EventCode": "0x00",
+      "EventCode": "FIXED",
       "UMask": "0x02",
       "EventName": "CPU_CLK_UNHALTED.THREAD",
       "BriefDescription": "Core cycles when the thread is not in halt state",
@@ -54,7 +54,7 @@
       "Deprecated": "0"
     },
     {
-      "EventCode": "0x00",
+      "EventCode": "FIXED",
       "UMask": "0x02",
       "EventName": "CPU_CLK_UNHALTED.THREAD_ANY",
       "BriefDescription": "Core cycles when at least one thread on the physical core is not in halt state.",
@@ -77,7 +77,7 @@
       "Deprecated": "0"
     },
     {
-      "EventCode": "0x00",
+      "EventCode": "FIXED",
       "UMask": "0x03",
       "EventName": "CPU_CLK_UNHALTED.REF_TSC",
       "BriefDescription": "Reference cycles when the core is not in halt state.",
