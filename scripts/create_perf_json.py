@@ -353,6 +353,14 @@ class PerfmonJsonEvent:
             self.event_code = "0xff"
             self.umask = None
 
+        # Unset event_code for fixed core counters. Example:
+        #   "EventCode": "FIXED",
+        #   "EventName": "INST_RETIRED.ANY",
+        #   "Counter": "Fixed counter 0",
+        if "Counter" in jd and "fixed counter" in jd["Counter"].lower():
+            if str(self.event_code).lower() == 'fixed':
+                self.event_code = None
+
         if self.filter:
             remove_filter_start = [
                 "cbofilter",
