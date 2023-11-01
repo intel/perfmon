@@ -584,9 +584,8 @@ class Model:
         cycles = metric.Event('cycles')
         cycles_in_tx = metric.Event('cycles\-t')
         transaction_start = metric.Event('tx\-start')
-        elision_start = metric.Event('el\-start')
         cycles_in_tx_cp = metric.Event('cycles\-ct')
-        return metric.MetricGroup('transaction', [
+        metrics = [
             metric.Metric('tsx_transactional_cycles',
                    'Percentage of cycles within a transaction region.',
                     metric.Select(cycles_in_tx / cycles, metric.has_event(cycles_in_tx), 0),
@@ -602,13 +601,18 @@ class Model:
                                  metric.has_event(cycles_in_tx),
                                  0),
                    "cycles / transaction"),
-            metric.Metric('tsx_cycles_per_elision',
-                   'Number of cycles within a transaction divided by the number of elisions.',
-                   metric.Select(cycles_in_tx / elision_start,
-                                 metric.has_event(cycles_in_tx),
-                                 0),
-                   "cycles / elision"),
-        ])
+        ]
+        if self.shortname != 'SPR':
+            elision_start = metric.Event('el\-start')
+            metrics += [
+                metric.Metric('tsx_cycles_per_elision',
+                              'Number of cycles within a transaction divided by the number of elisions.',
+                              metric.Select(cycles_in_tx / elision_start,
+                                            metric.has_event(elision_start),
+                                            0),
+                              "cycles / elision"),
+            ]
+        return metric.MetricGroup('transaction', metrics)
 
 
     def smi_json(self) -> metric.MetricGroup:
