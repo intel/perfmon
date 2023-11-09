@@ -2,7 +2,7 @@
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for Intel(R) Xeon(R) Processor Scalable Family based on Skylake microarchitecture - V",
-    "DatePublished": "05/12/2023",
+    "DatePublished": "11/09/2023",
     "Version": "",
     "Legend": ""
   },
@@ -897,6 +897,25 @@
       "Category": "",
       "Threshold": "",
       "ResolutionLevels": "CHA, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "upi_data_receive_bw",
+      "LegacyName": "metric_UPI Data receive BW (MB/sec) (only data)",
+      "Level": 1,
+      "BriefDescription": "Intel(R) Ultra Path Interconnect (UPI) data receive bandwidth (MB/sec)",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_UPI_RxL_FLITS.ALL_DATA",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(a * (64 / 9.0) / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "UPI, SOCKET, SYSTEM",
       "MetricGroup": ""
     },
     {

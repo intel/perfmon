@@ -294,6 +294,13 @@
         "ScaleUnit": "1MB/s"
     },
     {
+        "BriefDescription": "Intel(R) Ultra Path Interconnect (UPI) data receive bandwidth (MB/sec)",
+        "MetricExpr": "( UNC_UPI_RxL_FLITS.ALL_DATA * (64 / 9.0) / 1000000) / duration_time",
+        "MetricGroup": "",
+        "MetricName": "upi_data_receive_bw",
+        "ScaleUnit": "1MB/s"
+    },
+    {
         "BriefDescription": "Bandwidth (MB/sec) of write requests that miss the last level cache (LLC) and go to remote memory.",
         "MetricExpr": "( UNC_CHA_REQUESTS.WRITES_REMOTE * 64 / 1000000) / duration_time",
         "MetricGroup": "",
