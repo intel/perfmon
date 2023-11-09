@@ -259,6 +259,13 @@
         "ScaleUnit": "1MB/s"
     },
     {
+        "BriefDescription": "Intel(R) Ultra Path Interconnect (UPI) data receive bandwidth (MB/sec)",
+        "MetricExpr": "( UNC_UPI_RxL_FLITS.ALL_DATA * (64 / 9.0) / 1000000) / duration_time",
+        "MetricGroup": "",
+        "MetricName": "upi_data_receive_bw",
+        "ScaleUnit": "1MB/s"
+    },
+    {
         "BriefDescription": "This category represents fraction of slots where the processor's Frontend undersupplies its Backend. Frontend denotes the first part of the processor core responsible to fetch operations that are executed later on by the Backend part. Within the Frontend; a branch predictor predicts the next address to fetch; cache-lines are fetched from the memory subsystem; parsed into instructions; and lastly decoded into micro-operations (uops). Ideally the Frontend can issue Pipeline_Width uops every cycle to the Backend. Frontend Bound denotes unutilized issue-slots when there is no Backend stall; i.e. bubbles where Frontend delivered no uops while Backend could have accepted them. For example; stalls due to instruction-cache misses would be categorized under Frontend Bound.",
         "MetricExpr": "( IDQ_UOPS_NOT_DELIVERED.CORE / ( ( 4 ) * ( ( CPU_CLK_UNHALTED.THREAD_ANY / 2 ) if #SMT_on else ( CPU_CLK_UNHALTED.THREAD ) ) ) )",
         "MetricGroup": "TmaL1;PGO;TopdownL1;tma_L1_group",
