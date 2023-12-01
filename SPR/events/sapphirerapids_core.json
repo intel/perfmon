@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 4th Generation Intel(R) Xeon(R) Processor Scalable Family based on Sapphire Rapids microarchitecture - V1.16",
-    "DatePublished": "08/16/2023",
-    "Version": "1.16",
+    "Info": "Performance Monitoring Events for 4th Generation Intel(R) Xeon(R) Processor Scalable Family based on Sapphire Rapids microarchitecture - V1.17",
+    "DatePublished": "11/09/2023",
+    "Version": "1.17",
     "Legend": ""
   },
   "Events": [
@@ -18,6 +18,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -29,6 +30,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "32",
       "Speculative": "0"
     },
     {
@@ -42,6 +44,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -53,6 +56,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "32",
       "Speculative": "0"
     },
     {
@@ -66,6 +70,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -77,6 +82,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -90,6 +96,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -101,6 +108,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -114,6 +122,7 @@
       "SampleAfterValue": "10000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -125,6 +134,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -138,6 +148,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -149,6 +160,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -162,6 +174,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -173,6 +186,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -186,6 +200,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -197,6 +212,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -210,6 +226,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -221,6 +238,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -234,6 +252,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -245,6 +264,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -258,6 +278,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -269,6 +290,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -282,6 +304,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -293,6 +316,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -306,6 +330,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -317,6 +342,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -330,6 +356,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -341,6 +368,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -354,6 +382,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -365,6 +394,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -378,6 +408,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -389,6 +420,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -402,6 +434,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -413,6 +446,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -426,6 +460,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -437,6 +472,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -450,6 +486,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -461,6 +498,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -474,6 +512,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -485,6 +524,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -498,6 +538,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -509,6 +550,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -522,6 +564,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -533,6 +576,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -546,6 +590,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -557,6 +602,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -570,6 +616,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -581,6 +628,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -594,6 +642,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -605,6 +654,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -618,6 +668,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -629,6 +680,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -642,6 +694,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -653,6 +706,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -666,6 +720,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -677,6 +732,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -690,6 +746,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -701,6 +758,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -714,6 +772,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -725,6 +784,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -738,6 +798,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -749,6 +810,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -762,6 +824,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -773,6 +836,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "1",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -786,6 +850,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -797,6 +862,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -810,6 +876,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -821,6 +888,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -834,6 +902,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -845,6 +914,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -858,6 +928,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -869,6 +940,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -882,6 +954,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -893,6 +966,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -906,6 +980,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -917,6 +992,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -930,6 +1006,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -941,6 +1018,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -954,6 +1032,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -965,6 +1044,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -978,6 +1058,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -989,6 +1070,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1002,6 +1084,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1013,6 +1096,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1026,6 +1110,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1037,6 +1122,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1050,6 +1136,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1061,6 +1148,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1074,6 +1162,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1085,6 +1174,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1098,6 +1188,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1109,6 +1200,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1122,6 +1214,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1133,6 +1226,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1146,6 +1240,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1157,6 +1252,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1170,6 +1266,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1181,6 +1278,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1194,6 +1292,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1205,6 +1304,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1218,6 +1318,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1229,6 +1330,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1242,6 +1344,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1253,6 +1356,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1266,6 +1370,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1277,6 +1382,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1290,6 +1396,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1301,6 +1408,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1314,6 +1422,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1325,6 +1434,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1338,6 +1448,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1349,6 +1460,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1362,6 +1474,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1373,6 +1486,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1386,6 +1500,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1397,6 +1512,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1410,6 +1526,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1421,6 +1538,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1434,6 +1552,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1445,6 +1564,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1458,6 +1578,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1469,6 +1590,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1482,6 +1604,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1493,6 +1616,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1506,6 +1630,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1517,6 +1642,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1530,6 +1656,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -1541,6 +1668,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1554,6 +1682,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1565,6 +1694,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1578,6 +1708,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1589,6 +1720,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1602,6 +1734,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1613,6 +1746,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1626,6 +1760,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1637,6 +1772,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1650,6 +1786,7 @@
       "SampleAfterValue": "25003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1661,6 +1798,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1674,6 +1812,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1685,6 +1824,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1698,6 +1838,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1709,6 +1850,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1722,6 +1864,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1733,6 +1876,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1746,6 +1890,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1757,6 +1902,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1770,6 +1916,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1781,6 +1928,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1794,6 +1942,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1805,6 +1954,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1818,6 +1968,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1829,6 +1980,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -1842,6 +1994,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "2",
@@ -1853,6 +2006,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1866,6 +2020,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "3",
@@ -1877,6 +2032,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1890,6 +2046,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "5",
@@ -1901,6 +2058,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1914,6 +2072,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "9",
@@ -1925,6 +2084,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1938,6 +2098,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1949,6 +2110,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1962,6 +2124,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -1973,6 +2136,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -1986,6 +2150,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -1997,6 +2162,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2010,6 +2176,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -2021,6 +2188,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2034,6 +2202,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -2045,6 +2214,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "1",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2058,6 +2228,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -2069,6 +2240,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2082,6 +2254,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -2093,6 +2266,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2106,6 +2280,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -2117,6 +2292,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2130,6 +2306,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -2141,6 +2318,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2154,6 +2332,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -2165,6 +2344,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2178,6 +2358,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -2189,6 +2370,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2202,6 +2384,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -2213,6 +2396,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2226,6 +2410,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -2237,6 +2422,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2250,6 +2436,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -2261,6 +2448,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2274,6 +2462,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -2285,6 +2474,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2298,6 +2488,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -2309,6 +2500,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2322,6 +2514,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -2333,6 +2526,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2346,6 +2540,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "6",
@@ -2357,6 +2552,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2370,6 +2566,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -2381,6 +2578,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2394,6 +2592,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -2405,6 +2604,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2418,6 +2618,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "6",
@@ -2429,6 +2630,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2442,6 +2644,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -2453,6 +2656,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2466,6 +2670,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -2477,6 +2682,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2490,6 +2696,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -2501,6 +2708,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2514,6 +2722,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -2525,6 +2734,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2538,6 +2748,7 @@
       "SampleAfterValue": "500009",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -2549,6 +2760,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2562,6 +2774,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -2573,6 +2786,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2586,6 +2800,7 @@
       "SampleAfterValue": "500009",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -2597,6 +2812,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2610,6 +2826,7 @@
       "SampleAfterValue": "500009",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -2621,6 +2838,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2634,6 +2852,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -2645,6 +2864,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2658,6 +2878,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "6",
@@ -2669,6 +2890,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2682,6 +2904,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -2693,6 +2916,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2706,6 +2930,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -2717,6 +2942,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2730,6 +2956,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "6",
@@ -2741,6 +2968,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2754,6 +2982,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -2765,6 +2994,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2778,6 +3008,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -2789,6 +3020,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2802,6 +3034,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -2813,6 +3046,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2826,6 +3060,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -2837,6 +3072,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2850,6 +3086,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "4",
@@ -2861,6 +3098,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2874,6 +3112,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "5",
@@ -2885,6 +3124,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2898,6 +3138,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "6",
@@ -2909,6 +3150,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2922,6 +3164,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "8",
@@ -2933,6 +3176,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2946,6 +3190,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "12",
@@ -2957,6 +3202,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2970,6 +3216,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "16",
@@ -2981,6 +3228,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -2994,6 +3242,7 @@
       "SampleAfterValue": "10000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -3005,6 +3254,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3018,6 +3268,7 @@
       "SampleAfterValue": "10000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -3029,6 +3280,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3042,6 +3294,7 @@
       "SampleAfterValue": "10000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -3053,6 +3306,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3066,6 +3320,7 @@
       "SampleAfterValue": "10000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -3077,6 +3332,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3090,6 +3346,7 @@
       "SampleAfterValue": "10000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -3101,6 +3358,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3114,6 +3372,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -3125,6 +3384,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "1",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3138,6 +3398,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -3149,6 +3410,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "1",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3162,6 +3424,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -3173,6 +3436,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3186,6 +3450,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -3197,6 +3462,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3210,6 +3476,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -3221,6 +3488,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3234,6 +3502,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -3245,6 +3514,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3258,6 +3528,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -3269,6 +3540,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3282,6 +3554,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -3293,6 +3566,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3306,6 +3580,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "5",
@@ -3317,6 +3592,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3330,6 +3606,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "2",
@@ -3341,6 +3618,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3354,6 +3632,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -3365,6 +3644,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3378,6 +3658,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -3389,6 +3670,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3402,6 +3684,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "6",
@@ -3413,6 +3696,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3426,6 +3710,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -3437,6 +3722,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3450,6 +3736,7 @@
       "SampleAfterValue": "500009",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -3461,6 +3748,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3474,6 +3762,7 @@
       "SampleAfterValue": "500009",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -3485,6 +3774,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3498,6 +3788,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -3509,6 +3800,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3522,6 +3814,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -3533,19 +3826,21 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
       "EventCode": "0xad",
       "UMask": "0x40",
       "EventName": "INT_MISC.UNKNOWN_BRANCH_CYCLES",
-      "BriefDescription": "INT_MISC.UNKNOWN_BRANCH_CYCLES",
-      "PublicDescription": "INT_MISC.UNKNOWN_BRANCH_CYCLES",
+      "BriefDescription": "Bubble cycles of BAClear (Unknown Branch).",
+      "PublicDescription": "Bubble cycles of BAClear (Unknown Branch).",
       "Counter": "0,1,2,3,4,5,6,7",
       "PEBScounters": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x3F7",
       "MSRValue": "0x7",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -3557,6 +3852,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3570,6 +3866,7 @@
       "SampleAfterValue": "500009",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -3581,6 +3878,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3594,6 +3892,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -3605,6 +3904,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3618,6 +3918,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -3629,6 +3930,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "1",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3642,6 +3944,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -3653,6 +3956,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3666,6 +3970,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -3677,6 +3982,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3690,6 +3996,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -3701,6 +4008,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "1",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3714,6 +4022,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -3725,6 +4034,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "1",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3738,6 +4048,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -3749,6 +4060,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3762,6 +4074,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -3773,6 +4086,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3786,6 +4100,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "2",
@@ -3797,6 +4112,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3810,6 +4126,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "3",
@@ -3821,6 +4138,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3834,6 +4152,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "4",
@@ -3845,6 +4164,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3858,6 +4178,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -3869,6 +4190,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "1",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3882,6 +4204,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -3893,6 +4216,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3906,6 +4230,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -3917,6 +4242,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3930,6 +4256,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -3941,6 +4268,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3954,6 +4282,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -3965,6 +4294,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -3978,6 +4308,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "2",
@@ -3989,6 +4320,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4002,6 +4334,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "3",
@@ -4013,6 +4346,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4026,6 +4360,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "4",
@@ -4037,6 +4372,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4050,6 +4386,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4061,6 +4398,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4074,6 +4412,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4085,6 +4424,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4098,6 +4438,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4109,6 +4450,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4122,6 +4464,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4133,6 +4476,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4146,6 +4490,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4157,6 +4502,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4170,6 +4516,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4181,6 +4528,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4194,6 +4542,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4205,6 +4554,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4218,6 +4568,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4229,19 +4580,21 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
       "EventCode": "0xb3",
       "UMask": "0x01",
       "EventName": "FP_ARITH_DISPATCHED.PORT_0",
-      "BriefDescription": "FP_ARITH_DISPATCHED.PORT_0",
-      "PublicDescription": "FP_ARITH_DISPATCHED.PORT_0",
+      "BriefDescription": "FP_ARITH_DISPATCHED.PORT_0 [This event is alias to FP_ARITH_DISPATCHED.V0]",
+      "PublicDescription": "FP_ARITH_DISPATCHED.PORT_0 [This event is alias to FP_ARITH_DISPATCHED.V0]",
       "Counter": "0,1,2,3,4,5,6,7",
       "PEBScounters": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4253,19 +4606,47 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
+      "Speculative": "1"
+    },
+    {
+      "EventCode": "0xb3",
+      "UMask": "0x01",
+      "EventName": "FP_ARITH_DISPATCHED.V0",
+      "BriefDescription": "FP_ARITH_DISPATCHED.V0 [This event is alias to FP_ARITH_DISPATCHED.PORT_0]",
+      "PublicDescription": "FP_ARITH_DISPATCHED.V0 [This event is alias to FP_ARITH_DISPATCHED.PORT_0]",
+      "Counter": "0,1,2,3,4,5,6,7",
+      "PEBScounters": "0,1,2,3,4,5,6,7",
+      "SampleAfterValue": "2000003",
+      "MSRIndex": "0x00",
+      "MSRValue": "0x00",
+      "Precise": "0",
+      "CollectPEBSRecord": "2",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
       "EventCode": "0xb3",
       "UMask": "0x02",
       "EventName": "FP_ARITH_DISPATCHED.PORT_1",
-      "BriefDescription": "FP_ARITH_DISPATCHED.PORT_1",
-      "PublicDescription": "FP_ARITH_DISPATCHED.PORT_1",
+      "BriefDescription": "FP_ARITH_DISPATCHED.PORT_1 [This event is alias to FP_ARITH_DISPATCHED.V1]",
+      "PublicDescription": "FP_ARITH_DISPATCHED.PORT_1 [This event is alias to FP_ARITH_DISPATCHED.V1]",
       "Counter": "0,1,2,3,4,5,6,7",
       "PEBScounters": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4277,19 +4658,47 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
+      "Speculative": "1"
+    },
+    {
+      "EventCode": "0xb3",
+      "UMask": "0x02",
+      "EventName": "FP_ARITH_DISPATCHED.V1",
+      "BriefDescription": "FP_ARITH_DISPATCHED.V1 [This event is alias to FP_ARITH_DISPATCHED.PORT_1]",
+      "PublicDescription": "FP_ARITH_DISPATCHED.V1 [This event is alias to FP_ARITH_DISPATCHED.PORT_1]",
+      "Counter": "0,1,2,3,4,5,6,7",
+      "PEBScounters": "0,1,2,3,4,5,6,7",
+      "SampleAfterValue": "2000003",
+      "MSRIndex": "0x00",
+      "MSRValue": "0x00",
+      "Precise": "0",
+      "CollectPEBSRecord": "2",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
       "EventCode": "0xb3",
       "UMask": "0x04",
       "EventName": "FP_ARITH_DISPATCHED.PORT_5",
-      "BriefDescription": "FP_ARITH_DISPATCHED.PORT_5",
-      "PublicDescription": "FP_ARITH_DISPATCHED.PORT_5",
+      "BriefDescription": "FP_ARITH_DISPATCHED.PORT_5 [This event is alias to FP_ARITH_DISPATCHED.V2]",
+      "PublicDescription": "FP_ARITH_DISPATCHED.PORT_5 [This event is alias to FP_ARITH_DISPATCHED.V2]",
       "Counter": "0,1,2,3,4,5,6,7",
       "PEBScounters": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4301,6 +4710,33 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
+      "Speculative": "1"
+    },
+    {
+      "EventCode": "0xb3",
+      "UMask": "0x04",
+      "EventName": "FP_ARITH_DISPATCHED.V2",
+      "BriefDescription": "FP_ARITH_DISPATCHED.V2 [This event is alias to FP_ARITH_DISPATCHED.PORT_5]",
+      "PublicDescription": "FP_ARITH_DISPATCHED.V2 [This event is alias to FP_ARITH_DISPATCHED.PORT_5]",
+      "Counter": "0,1,2,3,4,5,6,7",
+      "PEBScounters": "0,1,2,3,4,5,6,7",
+      "SampleAfterValue": "2000003",
+      "MSRIndex": "0x00",
+      "MSRValue": "0x00",
+      "Precise": "0",
+      "CollectPEBSRecord": "2",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4314,6 +4750,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4325,6 +4762,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4338,6 +4776,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4349,6 +4788,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "0"
     },
     {
@@ -4362,6 +4802,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4373,6 +4814,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4386,6 +4828,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4397,6 +4840,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4410,6 +4854,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4421,6 +4866,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4434,6 +4880,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4445,6 +4892,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4458,6 +4906,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4469,6 +4918,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4482,6 +4932,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4493,6 +4944,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4506,6 +4958,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4517,6 +4970,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4530,6 +4984,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4541,6 +4996,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4554,6 +5010,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4565,6 +5022,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4578,6 +5036,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -4589,6 +5048,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "1",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4602,6 +5062,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -4613,6 +5074,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4626,6 +5088,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -4637,6 +5100,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4650,6 +5114,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x3F7",
       "MSRValue": "0x8",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -4661,6 +5126,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4674,6 +5140,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -4685,6 +5152,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4698,6 +5166,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4709,6 +5178,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4722,6 +5192,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4733,6 +5204,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -4746,6 +5218,7 @@
       "SampleAfterValue": "400009",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4757,6 +5230,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4770,6 +5244,7 @@
       "SampleAfterValue": "400009",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4781,6 +5256,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4794,6 +5270,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4805,6 +5282,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4818,6 +5296,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4829,6 +5308,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4842,6 +5322,7 @@
       "SampleAfterValue": "400009",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4853,6 +5334,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4866,6 +5348,7 @@
       "SampleAfterValue": "400009",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4877,6 +5360,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4890,6 +5374,7 @@
       "SampleAfterValue": "400009",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4901,6 +5386,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4914,6 +5400,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4925,6 +5412,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4938,6 +5426,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4949,6 +5438,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4962,6 +5452,7 @@
       "SampleAfterValue": "400009",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4973,6 +5464,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -4986,6 +5478,7 @@
       "SampleAfterValue": "400009",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -4997,6 +5490,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5010,6 +5504,7 @@
       "SampleAfterValue": "400009",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -5021,6 +5516,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5034,6 +5530,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -5045,6 +5542,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5058,6 +5556,7 @@
       "SampleAfterValue": "400009",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -5069,6 +5568,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5082,6 +5582,7 @@
       "SampleAfterValue": "400009",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -5093,6 +5594,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5106,6 +5608,7 @@
       "SampleAfterValue": "400009",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -5117,6 +5620,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5130,6 +5634,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -5141,6 +5646,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5154,6 +5660,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x3F7",
       "MSRValue": "0x11",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -5165,6 +5672,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5178,6 +5686,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x3F7",
       "MSRValue": "0x14",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -5189,6 +5698,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5202,6 +5712,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x3F7",
       "MSRValue": "0x12",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -5213,6 +5724,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5226,6 +5738,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x3F7",
       "MSRValue": "0x13",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -5237,6 +5750,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5250,6 +5764,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x3F7",
       "MSRValue": "0x600106",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -5261,6 +5776,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5274,6 +5790,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x3F7",
       "MSRValue": "0x608006",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -5285,6 +5802,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5298,6 +5816,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x3F7",
       "MSRValue": "0x601006",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -5309,6 +5828,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5322,6 +5842,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x3F7",
       "MSRValue": "0x600206",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -5333,6 +5854,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5346,6 +5868,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x3F7",
       "MSRValue": "0x100206",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -5357,6 +5880,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5370,6 +5894,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x3F7",
       "MSRValue": "0x610006",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -5381,6 +5906,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5394,6 +5920,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x3F7",
       "MSRValue": "0x602006",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -5405,6 +5932,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5418,6 +5946,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x3F7",
       "MSRValue": "0x600406",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -5429,6 +5958,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5442,6 +5972,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x3F7",
       "MSRValue": "0x620006",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -5453,6 +5984,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5466,6 +5998,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x3F7",
       "MSRValue": "0x604006",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -5477,6 +6010,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5490,6 +6024,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x3F7",
       "MSRValue": "0x600806",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -5501,6 +6036,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5514,6 +6050,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x3F7",
       "MSRValue": "0x15",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -5525,6 +6062,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5538,6 +6076,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x3F7",
       "MSRValue": "0x17",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -5549,6 +6088,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5562,6 +6102,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x3F7",
       "MSRValue": "0x8",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -5573,6 +6114,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5586,6 +6128,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x3F7",
       "MSRValue": "0x1",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -5597,6 +6140,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5610,6 +6154,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -5621,6 +6166,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5634,6 +6180,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -5645,6 +6192,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5658,6 +6206,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -5669,6 +6218,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5682,6 +6232,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -5693,6 +6244,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5706,6 +6258,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -5717,6 +6270,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5730,6 +6284,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -5741,6 +6296,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5754,6 +6310,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -5765,6 +6322,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5778,6 +6336,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -5789,6 +6348,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5802,6 +6362,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -5813,6 +6374,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5826,6 +6388,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -5837,6 +6400,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5850,6 +6414,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -5861,6 +6426,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5874,6 +6440,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -5885,6 +6452,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5898,6 +6466,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -5909,6 +6478,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5922,6 +6492,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -5933,6 +6504,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5946,6 +6518,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -5957,6 +6530,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5970,6 +6544,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -5981,6 +6556,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -5994,6 +6570,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6005,6 +6582,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6018,6 +6596,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6029,6 +6608,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6042,6 +6622,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6053,6 +6634,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6066,6 +6648,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6077,6 +6660,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6090,6 +6674,7 @@
       "SampleAfterValue": "1009",
       "MSRIndex": "0x3F6",
       "MSRValue": "0x80",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -6101,6 +6686,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "0"
     },
     {
@@ -6114,6 +6700,7 @@
       "SampleAfterValue": "20011",
       "MSRIndex": "0x3F6",
       "MSRValue": "0x10",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -6125,6 +6712,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "0"
     },
     {
@@ -6138,6 +6726,7 @@
       "SampleAfterValue": "503",
       "MSRIndex": "0x3F6",
       "MSRValue": "0x100",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -6149,6 +6738,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "0"
     },
     {
@@ -6162,6 +6752,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x3F6",
       "MSRValue": "0x20",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -6173,6 +6764,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "0"
     },
     {
@@ -6186,6 +6778,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x3F6",
       "MSRValue": "0x4",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -6197,6 +6790,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "0"
     },
     {
@@ -6210,6 +6804,7 @@
       "SampleAfterValue": "101",
       "MSRIndex": "0x3F6",
       "MSRValue": "0x200",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -6221,6 +6816,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "0"
     },
     {
@@ -6234,6 +6830,7 @@
       "SampleAfterValue": "2003",
       "MSRIndex": "0x3F6",
       "MSRValue": "0x40",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -6245,6 +6842,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "0"
     },
     {
@@ -6258,6 +6856,7 @@
       "SampleAfterValue": "50021",
       "MSRIndex": "0x3F6",
       "MSRValue": "0x8",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -6269,6 +6868,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "NA",
       "Speculative": "0"
     },
     {
@@ -6282,6 +6882,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6293,6 +6894,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6306,6 +6908,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6317,6 +6920,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6330,6 +6934,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6341,6 +6946,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6354,6 +6960,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6365,6 +6972,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6378,6 +6986,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6389,6 +6998,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6402,6 +7012,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6413,6 +7024,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6426,6 +7038,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6437,6 +7050,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6450,6 +7064,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6461,6 +7076,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6474,6 +7090,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6485,6 +7102,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6498,6 +7116,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6509,6 +7128,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6522,6 +7142,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6533,6 +7154,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6546,6 +7168,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6557,6 +7180,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6570,6 +7194,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6581,6 +7206,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6594,6 +7220,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6605,6 +7232,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6618,6 +7246,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6629,6 +7258,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6642,6 +7272,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6653,6 +7284,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6666,6 +7298,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6677,6 +7310,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6690,6 +7324,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6701,6 +7336,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6714,6 +7350,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6725,6 +7362,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6738,6 +7376,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6749,6 +7388,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6762,6 +7402,7 @@
       "SampleAfterValue": "100021",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6773,6 +7414,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6786,6 +7428,7 @@
       "SampleAfterValue": "200003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6797,6 +7440,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6810,6 +7454,7 @@
       "SampleAfterValue": "100021",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6821,6 +7466,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6834,6 +7480,7 @@
       "SampleAfterValue": "50021",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6845,6 +7492,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6858,6 +7506,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6869,6 +7518,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6882,6 +7532,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6893,6 +7544,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6906,6 +7558,7 @@
       "SampleAfterValue": "20011",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6917,6 +7570,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6930,6 +7584,7 @@
       "SampleAfterValue": "20011",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6941,6 +7596,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6954,6 +7610,7 @@
       "SampleAfterValue": "20011",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6965,6 +7622,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -6978,6 +7636,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -6989,6 +7648,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7002,6 +7662,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7013,6 +7674,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7026,6 +7688,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7037,6 +7700,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7050,6 +7714,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7061,6 +7726,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7074,6 +7740,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7085,6 +7752,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7098,6 +7766,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7109,6 +7778,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7122,6 +7792,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7133,6 +7804,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7146,6 +7818,7 @@
       "SampleAfterValue": "400009",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7157,6 +7830,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -7170,6 +7844,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7181,6 +7856,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7194,6 +7870,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7205,6 +7882,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7218,6 +7896,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7229,6 +7908,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7242,6 +7922,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7253,6 +7934,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7266,6 +7948,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7277,6 +7960,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7290,6 +7974,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7301,6 +7986,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7314,6 +8000,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7325,6 +8012,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7338,6 +8026,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7349,6 +8038,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7362,6 +8052,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7373,6 +8064,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7386,6 +8078,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7397,6 +8090,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -7410,6 +8104,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7421,6 +8116,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -7434,6 +8130,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7445,6 +8142,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -7458,6 +8156,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7469,6 +8168,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -7482,6 +8182,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "1",
@@ -7493,6 +8194,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -7506,6 +8208,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7517,6 +8220,7 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "1"
     },
     {
@@ -7530,6 +8234,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x10001",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7541,6 +8246,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7554,6 +8260,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x3F3FFC0002",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7565,6 +8272,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7578,6 +8286,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x10004",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7589,6 +8298,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7602,6 +8312,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x10400",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7613,6 +8324,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7626,6 +8338,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x10800",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7637,6 +8350,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7650,6 +8364,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x3F3FFC4477",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7661,6 +8376,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7674,6 +8390,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x12380",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7685,6 +8402,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7698,6 +8416,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x3F803C0001",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7709,6 +8428,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7722,6 +8442,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x3F803C0002",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7733,6 +8454,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7746,6 +8468,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x3F803C0004",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7757,6 +8480,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7770,6 +8494,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x3F003C4477",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7781,6 +8506,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7794,6 +8520,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x80080800",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7805,6 +8532,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7818,6 +8546,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x80082380",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7829,6 +8558,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7842,6 +8572,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x84000800",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7853,6 +8584,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7866,6 +8598,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x84002380",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7877,6 +8610,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7890,6 +8624,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x3F04C04477",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7901,6 +8636,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7914,6 +8650,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x3F33004477",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7925,6 +8662,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7938,6 +8676,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x90002380",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7949,6 +8688,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7962,6 +8702,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x3FBFC00001",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7973,6 +8714,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -7986,6 +8728,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x3FBFC00004",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -7997,6 +8740,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8010,6 +8754,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x3F3FC00002",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8021,6 +8766,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8034,6 +8780,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x3F3FC04477",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8045,6 +8792,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8058,6 +8806,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x94000800",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8069,6 +8818,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8082,6 +8832,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x94002380",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8093,6 +8844,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8106,6 +8858,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x104000001",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8117,6 +8870,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8130,6 +8884,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x104000002",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8141,6 +8896,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8154,6 +8910,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x104000004",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8165,6 +8922,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8178,6 +8936,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x104004477",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8189,6 +8948,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8202,6 +8962,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x730000001",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8213,6 +8974,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8226,6 +8988,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x730004477",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8237,6 +9000,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8250,6 +9014,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x73C000001",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8261,6 +9026,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8274,6 +9040,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x73C000002",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8285,6 +9052,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8298,6 +9066,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x73C000004",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8309,6 +9078,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8322,6 +9092,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x73C004477",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8333,6 +9104,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8346,6 +9118,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x703000001",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8357,6 +9130,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8370,6 +9144,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x703004477",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8381,6 +9156,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8394,6 +9170,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x703C00001",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8405,6 +9182,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8418,6 +9196,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x4003C0001",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8429,6 +9208,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8442,6 +9222,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x4003C4477",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8453,6 +9234,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8466,6 +9248,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x8003C0001",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8477,6 +9260,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8490,6 +9274,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x830000001",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8501,6 +9286,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8514,6 +9300,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x8003C4477",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8525,6 +9312,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8538,6 +9326,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x830004477",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8549,6 +9338,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8562,6 +9352,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x10003C0001",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8573,6 +9364,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8586,6 +9378,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x1030000001",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8597,6 +9390,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8610,6 +9404,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x10003C0002",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8621,6 +9416,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8634,6 +9430,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x10003C0004",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8645,6 +9442,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8658,6 +9456,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x10003C4477",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8669,6 +9468,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8682,6 +9482,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x1030004477",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8693,6 +9494,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8706,6 +9508,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x708000001",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8717,6 +9520,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8730,6 +9534,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x708000002",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8741,6 +9546,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8754,6 +9560,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x708000004",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8765,6 +9572,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8778,6 +9586,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x708004477",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8789,6 +9598,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8802,6 +9612,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x1008000001",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8813,6 +9624,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8826,6 +9638,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x808000001",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8837,6 +9650,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8850,6 +9664,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x1008000002",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8861,6 +9676,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8874,6 +9690,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x808000002",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8885,6 +9702,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8898,6 +9716,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x1008000004",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8909,6 +9728,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8922,6 +9742,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x808000004",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8933,6 +9754,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8946,6 +9768,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x1008004477",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8957,6 +9780,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8970,6 +9794,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x808004477",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -8981,6 +9806,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -8994,6 +9820,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x70C004477",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -9005,6 +9832,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -9018,6 +9846,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x700C00001",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -9029,6 +9858,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -9042,6 +9872,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x700C04477",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -9053,6 +9884,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -9066,6 +9898,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x10070",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -9077,6 +9910,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -9090,6 +9924,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x70CC04477",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -9101,6 +9936,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -9114,6 +9950,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x1830004477",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -9125,6 +9962,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -9138,6 +9976,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x733004477",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -9149,6 +9988,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -9162,6 +10002,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x1F80040022",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -9173,6 +10014,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -9186,6 +10028,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x10808",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -9197,6 +10040,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -9210,6 +10054,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0xFBFF80822",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -9221,6 +10066,7 @@
       "Errata": "null",
       "Offcore": "1",
       "Deprecated": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     }
   ]
