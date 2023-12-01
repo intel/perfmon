@@ -126,6 +126,7 @@ GenuineIntel-6-6A,V1.23,/ICX/events/icelakex_uncore.json,uncore,,,
 GenuineIntel-6-6A,V1.23,/ICX/events/icelakex_uncore_experimental.json,uncore experimental,,,
 GenuineIntel-6-6C,V1.23,/ICX/events/icelakex_core.json,core,,,
 GenuineIntel-6-6C,V1.23,/ICX/events/icelakex_uncore.json,uncore,,,
+GenuineIntel-6-6C,V1.23,/ICX/events/icelakex_uncore_experimental.json,uncore experimental,,,
 GenuineIntel-6-96,V1.04,/EHL/events/elkhartlake_core.json,core,,,
 GenuineIntel-6-9C,V1.04,/EHL/events/elkhartlake_core.json,core,,,
 GenuineIntel-6-97,V1.23,/ADL/events/alderlake_gracemont_core.json,hybridcore,0x20,0x000001,Atom
