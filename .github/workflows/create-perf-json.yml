@@ -27,6 +27,10 @@ jobs:
       with:
         python-version: "3.x"
 
+    - name: Run unittests
+      working-directory: ./scripts/unittesting
+      run: python metric_test.py
+
     - name: Create perf json files
       working-directory: ./scripts
       run: python create_perf_json.py -v

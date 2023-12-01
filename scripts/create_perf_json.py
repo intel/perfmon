@@ -3,7 +3,6 @@
 #
 # create_perf_json.py
 # --outdir <Output directory where files are written - default perf>
-# --basepath <Base directory of event, metric and other files - default '..' >
 # --verbose/-v/-vv/-vvv <Print verbosity during generation>
 #
 # ASSUMES: That the script is being run in the scripts folder of the repo.
@@ -17,10 +16,9 @@ import csv
 from itertools import takewhile
 import json
 import metric
-import os
+from pathlib import Path
 import re
 from typing import DefaultDict, Dict, Optional, Set, TextIO, Tuple
-import urllib.request
 
 _verbose = 0
 def _verboseprintX(level:int, *args, **kwargs):
@@ -480,7 +478,7 @@ class Model:
     Data related to 1 CPU model such as Skylake or Broadwell.
     """
     def __init__(self, shortname: str, longname: str, version: str,
-                 models: Set[str], files: Dict[str, str]):
+                 models: Set[str], files: Dict[str, Path]):
         """
         Constructs a model.
 
@@ -504,7 +502,7 @@ class Model:
 
     def __str__(self):
         return f'{self.shortname} / {self.longname}\n\tmodels={self.models}\n\tfiles:\n\t\t' + \
-            '\n\t\t'.join([f'{type} = {url}' for (type, url) in self.files.items()])
+            '\n\t\t'.join([f'{type} = {path}' for (type, path) in self.files.items()])
 
     def mapfile_line(self) -> str:
         """
@@ -720,7 +718,7 @@ class Model:
         thresholds: Dict[str, str] = {}
         issue_to_metrics: Dict[str, Set[str]] = collections.defaultdict(set)
         found_key = False
-        csvf = csv.reader([l.decode('utf-8') for l in csvfile.readlines()])
+        csvf = csv.reader(csvfile)
         for l in csvf:
             if l[0] == 'Key':
                 found_key = True
@@ -1465,7 +1463,7 @@ class Model:
                 })
 
         if 'extra metrics' in self.files:
-            with urllib.request.urlopen(self.files['extra metrics']) as extra_json:
+            with open(self.files['extra metrics'], 'r') as extra_json:
                 broken_metrics = {
                     'ICX': {
                         # Missing event: UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFDRD
@@ -1497,7 +1495,7 @@ class Model:
         return jo
 
 
-    def to_perf_json(self, outdir: str):
+    def to_perf_json(self, outdir: Path):
         # Map from a topic to its list of events as dictionaries.
         pmon_topic_events: Dict[str, list[Dict[str, str]]] = \
             collections.defaultdict(list)
@@ -1516,7 +1514,7 @@ class Model:
             pmu_prefix = None
             if event_type in ['atom', 'core']:
                 pmu_prefix = f'cpu_{event_type}' if 'atom' in self.files else 'cpu'
-            with urllib.request.urlopen(self.files[event_type]) as event_json:
+            with open(self.files[event_type], 'r') as event_json:
                 json_data = json.load(event_json)
                 # UNC_IIO_BANDWIDTH_OUT events are broken on Linux pre-SPR so skip if they exist.
                 pmon_events = [PerfmonJsonEvent(self.shortname, pmu_prefix, x)
@@ -1551,11 +1549,8 @@ class Model:
 
         if 'uncore csv' in self.files:
             _verboseprint2(f'Rewriting events with {self.files["uncore csv"]}')
-            with urllib.request.urlopen(self.files['uncore csv']) as uncore_csv:
-                csv_lines = [
-                    l.decode('utf-8') for l in uncore_csv.readlines()
-                ]
-                csvfile = csv.reader(csv_lines)
+            with open(self.files['uncore csv'], 'r') as uncore_csv:
+                csvfile = csv.reader(uncore_csv)
                 for l in csvfile:
                     while len(l) < 7:
                         l.append('')
@@ -1642,8 +1637,8 @@ class Model:
 
         for topic, events_ in pmon_topic_events.items():
             events_ = sorted(events_, key=lambda event: event['EventName'])
-            filename = f'{topic.lower().replace(" ", "-")}.json'
-            with open(f'{outdir}/{filename}', 'w', encoding='ascii') as perf_json:
+            output_path = Path(outdir, f'{topic.lower().replace(" ", "-")}.json')
+            with open(output_path, 'w', encoding='ascii') as perf_json:
                 json.dump(events_, perf_json, sort_keys=True, indent=4,
                           separators=(',', ': '))
                 perf_json.write('\n')
@@ -1654,7 +1649,7 @@ class Model:
             if metric_csv_key not in self.files:
                 continue
             pmu_prefix = unit if 'atom' in self.files else 'cpu'
-            with urllib.request.urlopen(self.files[metric_csv_key]) as metric_csv:
+            with open(self.files[metric_csv_key], 'r') as metric_csv:
                 csv_metrics = self.extract_tma_metrics(metric_csv, pmu_prefix, events)
                 csv_metrics = sorted(csv_metrics,
                                      key=lambda m: (m['Unit'] if 'Unit' in m else 'cpu',
@@ -1673,14 +1668,14 @@ class Model:
                              key=lambda m: (m['Unit'] if 'Unit' in m else 'cpu',
                                             m['MetricName'])
                              )
-            with open(f'{outdir}/{self.shortname.lower().replace("-","")}-metrics.json',
-                      'w', encoding='ascii') as perf_metric_json:
+            output_path = Path(outdir, f'{self.shortname.lower().replace("-","")}-metrics.json')
+            with open(output_path, 'w', encoding='ascii') as perf_metric_json:
                 json.dump(metrics, perf_metric_json, sort_keys=True, indent=4,
                           separators=(',', ': '))
                 perf_metric_json.write('\n')
 
         if self.metricgroups:
-            with open(f'{outdir}/metricgroups.json', 'w', encoding='ascii') as metricgroups_json:
+            with open(Path(outdir, 'metricgroups.json'), 'w', encoding='ascii') as metricgroups_json:
                 json.dump(self.metricgroups, metricgroups_json, sort_keys=True, indent=4,
                           separators=(',', ': '))
                 metricgroups_json.write('\n')
@@ -1691,7 +1686,7 @@ class Mapfile:
     The read representation of mapfile.csv.
     """
 
-    def __init__(self, base_path: str):
+    def __init__(self, base_path: Path):
         self.archs = []
         # Map from shortname (like SKL) to longname (like Skylake).
         longnames: Dict[str, str] = {}
@@ -1700,16 +1695,14 @@ class Mapfile:
         models: DefaultDict[str, Set[str]] = collections.defaultdict(set)
         # Map from shortname to a map from a kind of file to the path
         # of that file.
-        files: Dict[str, Dict[str, str]] = collections.defaultdict(dict)
+        files: Dict[str, Dict[str, Path]] = collections.defaultdict(dict)
         # Map from shortname to the version of the event files.
         versions: Dict[str, str] = {}
 
-        _verboseprint(f'Opening: {base_path}/mapfile.csv')
-        with urllib.request.urlopen(f'{base_path}/mapfile.csv') as mapfile_csv:
-            mapfile_csv_lines = [
-                l.decode('utf-8') for l in mapfile_csv.readlines()
-            ]
-            mapfile = csv.reader(mapfile_csv_lines)
+        mapfile_path = Path(base_path, 'mapfile.csv')
+        _verboseprint(f'Opening: {mapfile_path}')
+        with open(mapfile_path, 'r') as mapfile_csv:
+            mapfile = csv.reader(mapfile_csv)
             first_row = True
             for l in mapfile:
                 while len(l) < 7:
@@ -1733,7 +1726,9 @@ class Mapfile:
                 # longname (like Skylake).
                 shortname = re.sub(r'/([^/]*)/.*', r'\1', path)
                 longname = re.sub(rf'/{shortname}/events/([^_]*)_.*', r'\1', path)
-                url = base_path + path
+
+                # Drop leading slash before combining with base path.
+                filepath = Path(base_path, path[1:])
 
                 # Workarounds:
                 if family_model == 'GenuineIntel-6-BE':
@@ -1769,42 +1764,37 @@ class Mapfile:
                     assert versions[shortname] == version
                 models[shortname].add(family_model)
                 if shortname in files and event_type in files[shortname]:
-                    assert files[shortname][event_type] == url, \
-                        f'Expected {shortname}/{longname} to have just 1 {event_type} url {files[shortname][event_type]} but found {url}'
+                    assert files[shortname][event_type] == filepath, \
+                        f'Expected {shortname}/{longname} to have just 1 {event_type} filepath {files[shortname][event_type]} but found {filepath}'
                 else:
-                    files[shortname][event_type] = url
+                    files[shortname][event_type] = filepath
 
         for (shortname, longname) in longnames.items():
             # Add uncore CSV file if it exists.
-            try:
-                uncore_csv_url = f'{base_path}/scripts/config/perf-uncore-events-{shortname.lower()}.csv'
-                urllib.request.urlopen(uncore_csv_url)
-                files[shortname]['uncore csv'] = uncore_csv_url
-            except:
-                pass
+            uncore_csv_path = Path(base_path, 'scripts', 'config',
+                                   f'perf-uncore-events-{shortname.lower()}.csv')
+            if uncore_csv_path.is_file():
+                files[shortname]['uncore csv'] = uncore_csv_path
 
             # Add metric files that will be used for each model.
-            files[shortname]['tma metrics'] = base_path + '/TMA_Metrics-full.csv'
+            files[shortname]['tma metrics'] = Path(base_path, 'TMA_Metrics-full.csv')
             if shortname == 'ADLN':
-                files[shortname]['tma metrics'] = base_path + '/E-core_TMA_Metrics.csv'
+                files[shortname]['tma metrics'] = Path(base_path, 'E-core_TMA_Metrics.csv')
             if 'atom' in files[shortname]:
-                files[shortname][
-                    'e-core tma metrics'] = base_path + '/E-core_TMA_Metrics.csv'
-            cpu_metrics_url = f'{base_path}/{shortname}/metrics/perf/{longname.lower()}_metrics_perf.json'
-            try:
-                urllib.request.urlopen(cpu_metrics_url)
-                _verboseprint2(f'Found {cpu_metrics_url}')
-                files[shortname]['extra metrics'] = cpu_metrics_url
-            except:
-                _verboseprint2(f'Didn\'t find {cpu_metrics_url}')
-                if shortname in ['BDX','CLX','HSX','ICX','SKX','SPR']:
+                files[shortname]['e-core tma metrics'] = Path(base_path, 'E-core_TMA_Metrics.csv')
+
+            cpu_metrics_path = Path(base_path, shortname, 'metrics', 'perf',
+                                    f'{longname.lower()}_metrics_perf.json')
+            if cpu_metrics_path.is_file():
+                _verboseprint2(f'Found {cpu_metrics_path}')
+                files[shortname]['extra metrics'] = cpu_metrics_path
+            else:
+                _verboseprint2(f'Didn\'t find {cpu_metrics_path}')
+                if shortname in ['BDX', 'CLX', 'HSX', 'ICX', 'SKX', 'SPR']:
                     raise
-                else:
-                    pass
 
             self.archs += [
-                Model(shortname, longname, versions[shortname],
-                      models[shortname], files[shortname])
+                Model(shortname, longname, versions[shortname], models[shortname], files[shortname])
             ]
         self.archs.sort()
         _verboseprint2('Parsed models:\n' + str(self))
@@ -1812,36 +1802,50 @@ class Mapfile:
     def __str__(self):
         return ''.join(str(model) for model in self.archs)
 
-    def to_perf_json(self, outdir: str):
+    def to_perf_json(self, outdir: Path):
         """
         Create a perf style mapfile.csv.
         """
-        _verboseprint(f'Writing mapfile to {outdir}/mapfile.csv')
-        gen_mapfile = open(f'{outdir}/mapfile.csv', 'w', encoding='ascii')
-        for model in self.archs:
-            gen_mapfile.write(model.mapfile_line() + '\n')
+        output_mapfile_path = Path(outdir, 'mapfile.csv')
+        _verboseprint(f'Writing mapfile to {output_mapfile_path}')
+        with open(output_mapfile_path, 'w', encoding='ascii') as gen_mapfile:
+            for model in self.archs:
+                gen_mapfile.write(model.mapfile_line() + '\n')
 
         for model in self.archs:
-            modeldir = outdir + '/' + model.longname
+            modeldir = Path(outdir, model.longname)
             _verboseprint(f'Creating event json for {model.shortname} in {modeldir}')
-            os.system(f'mkdir -p {modeldir}')
+            modeldir.mkdir(exist_ok=True)
             model.to_perf_json(modeldir)
 
 
 def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument('--outdir', default='perf',
+    scriptdir = Path(__file__).resolve().parent
+    basepath = scriptdir.parent
+    default_outdir = Path(scriptdir, 'perf')
+
+    ap = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    ap.add_argument('--outdir',
+                    default=default_outdir,
+                    type=Path,
                     help='Directory to write output to.')
-    ap.add_argument('--basepath', default=f'file://{os.getcwd()}/..',
-                    help='Base directory containing event, metric and other files.')
-    ap.add_argument('--verbose', '-v', action='count', default=0, dest='verbose',
+    ap.add_argument('--verbose',
+                    '-v',
+                    action='count',
+                    default=0,
+                    dest='verbose',
                     help='Additional output when running.')
     args = ap.parse_args()
 
     global _verbose
     _verbose = args.verbose
-    os.system(f'mkdir -p {args.outdir}')
-    Mapfile(args.basepath).to_perf_json(args.outdir)
+
+    outdir = args.outdir.resolve()
+    if outdir.exists() and not outdir.is_dir():
+        raise IOError(f'Output directory argument {outdir} exists but is not a directory.')
+    outdir.mkdir(exist_ok=True)
+
+    Mapfile(basepath).to_perf_json(outdir)
 
 if __name__ == '__main__':
     main()
