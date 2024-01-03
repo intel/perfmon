@@ -1060,8 +1060,8 @@ class Model:
                              rf'{pmu_prefix}@\1\\,inv@'),
                             ('(' + event_pattern + rf'):c(\d+)',
                              rf'{pmu_prefix}@\1\\,cmask\\=\2@'),
-                            ('(' + event_pattern + rf'):u0x([a-fA-F0-9]+)',
-                             rf'{pmu_prefix}@\1\\,umask\\=0x\2@'),
+                            ('(' + event_pattern + rf'):u((0x[a-fA-F0-9]+|\d+))',
+                             rf'{pmu_prefix}@\1\\,umask\\=\2@'),
                             ('(' + event_pattern + rf'):e1',
                              rf'{pmu_prefix}@\1\\,edge@'),
                         ]:
