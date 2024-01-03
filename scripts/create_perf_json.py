@@ -842,6 +842,8 @@ class Model:
                 csv_groups = metric_group(metric_name)
                 if csv_groups:
                     for group in csv_groups.split(';'):
+                        if not group:
+                            continue
                         mgroups.append(group)
                         if group not in self.metricgroups:
                             self.metricgroups[group] = 'Grouping from Top-down Microarchitecture Analysis Metrics spreadsheet'
@@ -877,6 +879,8 @@ class Model:
                     csv_groups = metric_group(metric_name)
                     if csv_groups:
                         for group in csv_groups.split(';'):
+                            if not group:
+                                continue
                             mgroups.append(group)
                             if group not in self.metricgroups:
                                 self.metricgroups[group] = 'Grouping from Top-down Microarchitecture Analysis Metrics spreadsheet'
