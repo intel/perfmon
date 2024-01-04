@@ -1189,7 +1189,8 @@ class Model:
                              'imc_0', 'uncore_cha_0', 'cbox_0', 'arb', 'cbox',
                              'num_packages', 'num_cores', 'SYSTEM_TSC_FREQ',
                              'filter_tid', 'TSC', 'cha', 'config1',
-                             'source_count', 'slots', 'thresh', 'has_pmem']:
+                             'source_count', 'slots', 'thresh', 'has_pmem',
+                             'num_dies']:
                         continue
                     if v.startswith('tma_') or v.startswith('topdown\\-'):
                         continue
@@ -1460,12 +1461,8 @@ class Model:
             form = resolve_all(form, expand_metrics=False)
             if form:
                 formula = metric.ParsePerfJson(form)
-                jo.append({
-                    'MetricName': 'UNCORE_FREQ',
-                    'MetricExpr': formula.ToPerfJson(),
-                    'BriefDescription': 'Uncore frequency per die [GHZ]',
-                    'MetricGroup': 'SoC'
-                })
+                save_form('UNCORE_FREQ', 'SoC', formula.ToPerfJson(),
+                          'Uncore frequency per die [GHZ]', None, None, None, [])
 
         if 'extra metrics' in self.files:
             with open(self.files['extra metrics'], 'r') as extra_json:
