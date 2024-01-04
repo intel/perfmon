@@ -842,6 +842,8 @@ class Model:
                 csv_groups = metric_group(metric_name)
                 if csv_groups:
                     for group in csv_groups.split(';'):
+                        if not group:
+                            continue
                         mgroups.append(group)
                         if group not in self.metricgroups:
                             self.metricgroups[group] = 'Grouping from Top-down Microarchitecture Analysis Metrics spreadsheet'
@@ -877,6 +879,8 @@ class Model:
                     csv_groups = metric_group(metric_name)
                     if csv_groups:
                         for group in csv_groups.split(';'):
+                            if not group:
+                                continue
                             mgroups.append(group)
                             if group not in self.metricgroups:
                                 self.metricgroups[group] = 'Grouping from Top-down Microarchitecture Analysis Metrics spreadsheet'
@@ -904,7 +908,7 @@ class Model:
                 form = find_form()
                 if form and form != '#NA':
                     aux_name = field('Level1')
-                    assert aux_name.startswith('#')
+                    assert aux_name.startswith('#') or aux_name == 'Num_CPUs'
                     aux[aux_name] = form
                     _verboseprint3(f'Adding aux {aux_name}: {form}')
 
@@ -945,7 +949,9 @@ class Model:
                         ('UNC_C_CLOCKTICKS:one_unit', 'cbox_0@event\=0x0@'),
                     ]
                     arch_fixups = {
-                        'ADL': td_event_fixups,
+                        'ADL': td_event_fixups + [
+                            ('UNC_ARB_DAT_OCCUPANCY.RD:c1', 'UNC_ARB_DAT_OCCUPANCY.RD@cmask\=1@'),
+                        ],
                         'BDW-DE': hsx_uncore_fixups,
                         'BDX': hsx_uncore_fixups,
                         'CLX': [
@@ -979,7 +985,9 @@ class Model:
                              'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182\,thresh\=1@'),
                             ('UNC_C_CLOCKTICKS:one_unit', 'cbox_0@event\=0x0@'),
                         ],
-                        'RKL': td_event_fixups,
+                        'RKL': td_event_fixups + [
+                            ('UNC_ARB_DAT_OCCUPANCY.RD:c1', 'UNC_ARB_DAT_OCCUPANCY.RD@cmask\=1@'),
+                        ],
                         'SKL': [
                             ('UNC_ARB_TRK_OCCUPANCY.DATA_READ:c1',
                              'UNC_ARB_TRK_OCCUPANCY.DATA_READ@cmask\=1@'),
@@ -1052,8 +1060,8 @@ class Model:
                              rf'{pmu_prefix}@\1\\,inv@'),
                             ('(' + event_pattern + rf'):c(\d+)',
                              rf'{pmu_prefix}@\1\\,cmask\\=\2@'),
-                            ('(' + event_pattern + rf'):u0x([a-fA-F0-9]+)',
-                             rf'{pmu_prefix}@\1\\,umask\\=0x\2@'),
+                            ('(' + event_pattern + rf'):u((0x[a-fA-F0-9]+|\d+))',
+                             rf'{pmu_prefix}@\1\\,umask\\=\2@'),
                             ('(' + event_pattern + rf'):e1',
                              rf'{pmu_prefix}@\1\\,edge@'),
                         ]:
@@ -1095,8 +1103,11 @@ class Model:
                     return expr
 
                 def resolve_aux(v: str) -> str:
-                    if any(v == i for i in ['#core_wide', '#Model', '#SMT_on', '#num_dies','#has_pmem']):
+                    if any(v == i for i in ['#core_wide', '#Model', '#SMT_on', '#num_dies',
+                                            '#has_pmem', '#num_cpus_online']):
                         return v
+                    if v == 'Num_CPUs':
+                        return '#num_cpus_online'
                     if v == '#PMM_App_Direct':
                         return '#has_pmem > 0'
                     if v == '#DurationTimeInSeconds':
@@ -1142,7 +1153,7 @@ class Model:
                         return expand_hhq(v[3:])
                     if v.startswith('##'):
                         return expand_hh(v[2:])
-                    if v.startswith('#'):
+                    if v.startswith('#') or v == 'Num_CPUs':
                         return resolve_aux(v)
                     return resolve_info(v)
 
@@ -1185,13 +1196,15 @@ class Model:
                              'imc_0', 'uncore_cha_0', 'cbox_0', 'arb', 'cbox',
                              'num_packages', 'num_cores', 'SYSTEM_TSC_FREQ',
                              'filter_tid', 'TSC', 'cha', 'config1',
-                             'source_count', 'slots', 'thresh', 'has_pmem']:
+                             'source_count', 'slots', 'thresh', 'has_pmem',
+                             'num_dies', 'num_cpus_online']:
                         continue
                     if v.startswith('tma_') or v.startswith('topdown\\-'):
                         continue
                     assert v in events or v.upper() in events or v in infoname or v in aux, \
                         f'Expected {v} to be an event in "{name}": "{form}" on {self.shortname}'
 
+                assert f'{pmu_prefix}@UNC' not in form, form
                 if group:
                     group = ';'.join(sorted(set(group.split(';'))))
                 # Check for duplicate metrics. Note, done after
@@ -1455,12 +1468,8 @@ class Model:
             form = resolve_all(form, expand_metrics=False)
             if form:
                 formula = metric.ParsePerfJson(form)
-                jo.append({
-                    'MetricName': 'UNCORE_FREQ',
-                    'MetricExpr': formula.ToPerfJson(),
-                    'BriefDescription': 'Uncore frequency per die [GHZ]',
-                    'MetricGroup': 'SoC'
-                })
+                save_form('UNCORE_FREQ', 'SoC', formula.ToPerfJson(),
+                          'Uncore frequency per die [GHZ]', None, None, None, [])
 
         if 'extra metrics' in self.files:
             with open(self.files['extra metrics'], 'r') as extra_json:
