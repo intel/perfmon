@@ -1073,15 +1073,14 @@ class Model:
                     if pmu_prefix != 'cpu':
                         for name in events:
                             if events[name].unit.startswith('cpu') and name in form:
-                                if form == name:
-                                    form = f'{pmu_prefix}@{name}@'
-                                else:
-                                    form = re.sub(rf'([^@]){name}:([a-zA-Z])',
-                                                  rf'\1{pmu_prefix}@{name}@\2',
-                                                  form, re.IGNORECASE)
-                                    form = re.sub(rf'([^@]){name}([^a-zA-Z0-9_])',
-                                                  rf'\1{pmu_prefix}@{name}@\2',
-                                                  form, re.IGNORECASE)
+                                if form == name or form.startswith(f'{name} '):
+                                    form = f'{pmu_prefix}@{name}@' + form[len(name):]
+                                form = re.sub(rf'([^@]){name}:([a-zA-Z])',
+                                              rf'\1{pmu_prefix}@{name}@\2',
+                                              form, re.IGNORECASE)
+                                form = re.sub(rf'([^@]){name}([^a-zA-Z0-9_])',
+                                              rf'\1{pmu_prefix}@{name}@\2',
+                                              form, re.IGNORECASE)
 
                     changed = True
                     while changed:
