@@ -945,7 +945,9 @@ class Model:
                         ('UNC_C_CLOCKTICKS:one_unit', 'cbox_0@event\=0x0@'),
                     ]
                     arch_fixups = {
-                        'ADL': td_event_fixups,
+                        'ADL': td_event_fixups + [
+                            ('UNC_ARB_DAT_OCCUPANCY.RD:c1', 'UNC_ARB_DAT_OCCUPANCY.RD@cmask\=1@'),
+                        ],
                         'BDW-DE': hsx_uncore_fixups,
                         'BDX': hsx_uncore_fixups,
                         'CLX': [
@@ -979,7 +981,9 @@ class Model:
                              'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182\,thresh\=1@'),
                             ('UNC_C_CLOCKTICKS:one_unit', 'cbox_0@event\=0x0@'),
                         ],
-                        'RKL': td_event_fixups,
+                        'RKL': td_event_fixups + [
+                            ('UNC_ARB_DAT_OCCUPANCY.RD:c1', 'UNC_ARB_DAT_OCCUPANCY.RD@cmask\=1@'),
+                        ],
                         'SKL': [
                             ('UNC_ARB_TRK_OCCUPANCY.DATA_READ:c1',
                              'UNC_ARB_TRK_OCCUPANCY.DATA_READ@cmask\=1@'),
@@ -1192,6 +1196,7 @@ class Model:
                     assert v in events or v.upper() in events or v in infoname or v in aux, \
                         f'Expected {v} to be an event in "{name}": "{form}" on {self.shortname}'
 
+                assert f'{pmu_prefix}@UNC' not in form, form
                 if group:
                     group = ';'.join(sorted(set(group.split(';'))))
                 # Check for duplicate metrics. Note, done after
