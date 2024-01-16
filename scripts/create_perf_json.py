@@ -169,12 +169,14 @@ def topic(event_name: str, unit: str) -> str:
     if unit and unit not in ['cpu', 'cpu_atom', 'cpu_core']:
         unit_to_topic = {
             'cha': 'Uncore-Cache',
+            'chacms': 'Uncore-Cache',
             'cbox': 'Uncore-Cache',
             'ha': 'Uncore-Cache',
             'hac_cbo': 'Uncore-Cache',
             'cxlcm': 'Uncore-CXL',
             'cxldp': 'Uncore-CXL',
             'arb': 'Uncore-Interconnect',
+            'b2cmi': 'Uncore-Interconnect',
             'hac_arb': 'Uncore-Interconnect',
             'irp': 'Uncore-Interconnect',
             'm2m': 'Uncore-Interconnect',
