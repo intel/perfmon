@@ -2,13 +2,32 @@
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for 4th Generation Intel(R) Xeon(R) Processor Scalable Family based on Sapphire Rapids microarchitecture0",
-    "DatePublished": "01/17/2024",
+    "DatePublished": "01/12/2024",
     "Version": "0",
     "Legend": "",
     "TmaVersion": "4.7",
     "TmaFlavor": "Full"
   },
   "Metrics": [
+    {
+      "MetricName": "upi_data_receive_bw",
+      "LegacyName": "metric_UPI Data receive BW (MB/sec) (only data)",
+      "Level": 1,
+      "BriefDescription": "Intel(R) Ultra Path Interconnect (UPI) data receive bandwidth (MB/sec)",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_UPI_RxL_FLITS.ALL_DATA",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(a * (64 / 9.0) / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "UPI, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
     {
       "MetricName": "llc_miss_local_memory_bandwidth_read",
       "LegacyName": "metric_llc_miss_local_memory_bandwidth_read_MB/s",
@@ -83,25 +102,6 @@
       "Category": "",
       "Threshold": "",
       "ResolutionLevels": "CHA, SOCKET, SYSTEM",
-      "MetricGroup": ""
-    },
-    {
-      "MetricName": "upi_data_receive_bw",
-      "LegacyName": "metric_UPI Data receive BW (MB/sec) (only data)",
-      "Level": 1,
-      "BriefDescription": "Intel(R) Ultra Path Interconnect (UPI) data receive bandwidth (MB/sec)",
-      "UnitOfMeasure": "MB/sec",
-      "Events": [
-        {
-          "Name": "UNC_UPI_RxL_FLITS.ALL_DATA",
-          "Alias": "a"
-        }
-      ],
-      "Constants": [],
-      "Formula": "(a * (64 / 9.0) / 1000000) / DURATIONTIMEINSECONDS",
-      "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "UPI, SOCKET, SYSTEM",
       "MetricGroup": ""
     },
     {
@@ -1517,7 +1517,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( 3 ) * a / ( b / c ) / ( d ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( 3 ) * a / ( b / c ) / ( d ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueMC; $issueMS; $issueMV; $issueSO",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2139,7 +2139,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( 13 * a / ( b ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( 13 * a / ( b ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2179,7 +2179,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( 16 * max( 0 , a - b ) + ( a / c ) * ( ( 10 ) * d + ( min( e , f ) ) ) ) / ( e ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( 16 * max( 0 , a - b ) + ( a / c ) * ( ( 10 ) * d + ( min( e , f ) ) ) ) / ( e ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 20 & P; $issueRFO",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2211,7 +2211,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( a / b ) * c / ( d ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( a / b ) * c / ( d ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 20 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2348,7 +2348,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( ( ( 80 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( e * ( f / ( f + g ) ) ) + ( ( 79.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( h ) ) * ( 1 + ( i / j ) / 2 ) / ( a ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( ( 80 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) ) * ( e * ( f / ( f + g ) ) ) + ( ( 79.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) ) * ( h ) ) * ( 1 + ( i / j ) / 2 ) / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueSyncxn",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2405,7 +2405,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( ( 79.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( e + f * ( 1 - ( g / ( g + h ) ) ) ) * ( 1 + ( i / j ) / 2 ) / ( a ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( 79.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) ) * ( e + f * ( 1 - ( g / ( g + h ) ) ) ) * ( 1 + ( i / j ) / 2 ) / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueSyncxn",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2450,7 +2450,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( e * ( 1 + ( f / g ) / 2 ) ) / ( a ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) ) * ( e * ( 1 + ( f / g ) / 2 ) ) / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P; $issueLat; ~overlap",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2485,65 +2485,8 @@
       "MetricGroup": "MemoryBW;Offcore"
     },
     {
-      "MetricName": "DRAM_Bound",
-      "LegacyName": "metric_TMA_....DRAM_Bound(%)",
-      "ParentCategory": "Memory_Bound",
-      "Level": 3,
-      "BriefDescription": "This metric estimates how often the CPU was stalled on accesses to external memory (DRAM) by loads. Better caching can improve the latency and increase performance.",
-      "UnitOfMeasure": "percent",
-      "Events": [
-        {
-          "Name": "MEMORY_ACTIVITY.STALLS_L3_MISS",
-          "Alias": "a"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.THREAD",
-          "Alias": "b"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM",
-          "Alias": "c"
-        },
-        {
-          "Name": "MEM_LOAD_RETIRED.FB_HIT",
-          "Alias": "d"
-        },
-        {
-          "Name": "MEM_LOAD_RETIRED.L1_MISS",
-          "Alias": "e"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM",
-          "Alias": "f"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD",
-          "Alias": "g"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM",
-          "Alias": "h"
-        },
-        {
-          "Name": "MEM_LOAD_RETIRED.LOCAL_PMM",
-          "Alias": "i"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM",
-          "Alias": "j"
-        }
-      ],
-      "Constants": [],
-      "Formula": "100 * ( min( ( ( ( a / ( b ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( c * ( 1 + ( d / e ) ) ) + 10 * ( ( f * ( 1 + ( d / e ) ) ) + ( g * ( 1 + ( d / e ) ) ) + ( h * ( 1 + ( d / e ) ) ) ) ) / ( ( 19 * ( c * ( 1 + ( d / e ) ) ) + 10 * ( ( f * ( 1 + ( d / e ) ) ) + ( g * ( 1 + ( d / e ) ) ) + ( h * ( 1 + ( d / e ) ) ) ) ) + ( 25 * ( i * ( 1 + ( d / e ) ) ) + 33 * ( j * ( 1 + ( d / e ) ) ) ) ) ) ) * ( a / ( b ) ) ) if ( ( 1000000 ) * ( j + i ) > e ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) )",
-      "Category": "TMA",
-      "Threshold": "> 10 & P",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "MemoryBound;TmaL3mem"
-    },
-    {
       "MetricName": "MEM_Bandwidth",
       "LegacyName": "metric_TMA_......MEM_Bandwidth(%)",
-      "ParentCategory": "DRAM_Bound",
       "Level": 4,
       "BriefDescription": "This metric estimates fraction of cycles where the core's performance was likely hurt due to approaching bandwidth limits of external memory - DRAM ([SPR-HBM] and/or HBM).  The underlying heuristic assumes that a similar off-core traffic is generated by all IA cores. This metric does not aggregate non-data-read requests by this logical processor; requests from other IA Logical Processors/Physical Cores/sockets; or other non-IA devices like GPU; hence the maximum external memory bandwidth limits may or may not be approached when this metric is flagged (see Uncore counters for that).",
       "UnitOfMeasure": "percent",
@@ -2591,7 +2534,6 @@
     {
       "MetricName": "MEM_Latency",
       "LegacyName": "metric_TMA_......MEM_Latency(%)",
-      "ParentCategory": "DRAM_Bound",
       "Level": 4,
       "BriefDescription": "This metric estimates fraction of cycles where the performance was likely hurt due to latency from external memory - DRAM ([SPR-HBM] and/or HBM).  This metric does not aggregate requests from other Logical Processors/Physical Cores/sockets (see Uncore counters for that).",
       "UnitOfMeasure": "percent",
@@ -2655,7 +2597,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( ( 108 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * e * ( 1 + ( f / g ) / 2 ) / ( a ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( 108 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) ) * e * ( 1 + ( f / g ) / 2 ) / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2700,7 +2642,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( ( 186 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * e * ( 1 + ( f / g ) / 2 ) / ( a ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( 186 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) ) * e * ( 1 + ( f / g ) / 2 ) / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2749,7 +2691,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( ( ( 172.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * e + ( ( 172.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * f ) * ( 1 + ( g / h ) / 2 ) / ( a ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( ( 172.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) ) * e + ( ( 172.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) ) * f ) * ( 1 + ( g / h ) / 2 ) / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueSyncxn",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2805,7 +2747,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( ( ( 1 - ( ( 19 * ( a * ( 1 + ( b / c ) ) ) + 10 * ( ( d * ( 1 + ( b / c ) ) ) + ( e * ( 1 + ( b / c ) ) ) + ( f * ( 1 + ( b / c ) ) ) ) ) / ( ( 19 * ( a * ( 1 + ( b / c ) ) ) + 10 * ( ( d * ( 1 + ( b / c ) ) ) + ( e * ( 1 + ( b / c ) ) ) + ( f * ( 1 + ( b / c ) ) ) ) ) + ( 25 * ( g * ( 1 + ( b / c ) ) ) + 33 * ( h * ( 1 + ( b / c ) ) ) ) ) ) ) * ( i / ( j ) ) ) if ( ( 1000000 ) * ( h + g ) > c ) else 0 ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( ( 1 - ( ( 19 * ( a * ( 1 + ( b / c ) ) ) + 10 * ( ( d * ( 1 + ( b / c ) ) ) + ( e * ( 1 + ( b / c ) ) ) + ( f * ( 1 + ( b / c ) ) ) ) ) / ( ( 19 * ( a * ( 1 + ( b / c ) ) ) + 10 * ( ( d * ( 1 + ( b / c ) ) ) + ( e * ( 1 + ( b / c ) ) ) + ( f * ( 1 + ( b / c ) ) ) ) ) + ( 25 * ( g * ( 1 + ( b / c ) ) ) + 33 * ( h * ( 1 + ( b / c ) ) ) ) ) ) ) * ( i / ( j ) ) ) if ( ( 1000000 ) * ( h + g ) > c ) else 0 ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2865,7 +2807,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( ( a * ( 10 ) * ( 1 - ( b / c ) ) ) + ( 1 - ( b / c ) ) * ( min( d , e ) ) ) / ( d ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( a * ( 10 ) * ( 1 - ( b / c ) ) ) + ( 1 - ( b / c ) ) * ( min( d , e ) ) ) / ( d ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P; $issueRFO; $issueSL; ~overlap",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2902,7 +2844,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( 80 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * e / ( a ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( 80 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) ) ) * e / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueSyncxn",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2954,7 +2896,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( 9 * a / ( b ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( 9 * a / ( b ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 20 & P; $issueSmSt",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2986,7 +2928,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( ( 7 ) * a + b ) / ( c if ( 1 ) else ( d ) ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( 7 ) * a + b ) / ( c if ( 1 ) else ( d ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueTLB",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3018,7 +2960,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( min( ( ( ( 7 ) * a + b ) / ( c if ( 1 ) else ( d ) ) ) , ( 1.0 ) ) ) - ( min( ( b / ( c if ( 1 ) else ( d ) ) ) , ( 1.0 ) ) ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( min( ( ( ( 7 ) * a + b ) / ( c if ( 1 ) else ( d ) ) ) , ( 1 ) ) ) - ( min( ( b / ( c if ( 1 ) else ( d ) ) ) , ( 1 ) ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3046,7 +2988,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( a / ( b if ( 1 ) else ( c ) ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( a / ( b if ( 1 ) else ( c ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3230,7 +3172,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( 13 * a / ( b ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( 13 * a / ( b ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3382,7 +3324,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( 160 * a / ( b ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( 160 * a / ( b ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5; $issueMV",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3765,7 +3707,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( ( ( a / ( b + c + a + d ) ) * e / f ) + ( ( g + h ) / ( ( a / ( b + c + a + d ) ) * ( i ) ) ) + ( min( ( ( j + k ) / ( ( a / ( b + c + a + d ) ) * ( i ) ) ) , ( 1.0 ) ) ) )",
+      "Formula": "100 * ( ( ( a / ( b + c + a + d ) ) * e / f ) + ( ( g + h ) / ( ( a / ( b + c + a + d ) ) * ( i ) ) ) + ( min( ( ( j + k ) / ( ( a / ( b + c + a + d ) ) * ( i ) ) ) , ( 1 ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 20 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3893,7 +3835,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( a + b ) / ( ( c / ( d + e + c + f ) ) * ( g ) ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( a + b ) / ( ( c / ( d + e + c + f ) ) * ( g ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P; $issue2P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3941,7 +3883,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( a + b + c ) / ( ( d / ( e + f + d + g ) ) * ( h ) ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( a + b + c ) / ( ( d / ( e + f + d + g ) ) * ( h ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P; $issue2P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3989,7 +3931,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( a + b + c ) / ( ( d / ( e + f + d + g ) ) * ( h ) ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( a + b + c ) / ( ( d / ( e + f + d + g ) ) * ( h ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P; $issue2P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4037,7 +3979,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( a + b + c ) / ( ( d / ( e + f + d + g ) ) * ( h ) ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( a + b + c ) / ( ( d / ( e + f + d + g ) ) * ( h ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P; $issue2P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4417,7 +4359,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( max( 0 , ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) - ( ( ( ( a / ( b + c + a + d ) ) * f / g ) + ( ( h + i ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( min( ( ( k + l ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) , ( 1.0 ) ) ) ) + ( ( ( m + n ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( ( o + p + q ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * r / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * s / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * ( t - s ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) ) ) )",
+      "Formula": "100 * ( max( 0 , ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) - ( ( ( ( a / ( b + c + a + d ) ) * f / g ) + ( ( h + i ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( min( ( ( k + l ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) , ( 1 ) ) ) ) + ( ( ( m + n ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( ( o + p + q ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * r / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * s / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * ( t - s ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 30 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4633,7 +4575,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * a / ( b ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * a / ( b ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4733,7 +4675,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( max( 0 , ( a / ( b ) ) - ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * c / ( b ) ) , ( 1.0 ) ) ) ) )",
+      "Formula": "100 * ( max( 0 , ( a / ( b ) ) - ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * c / ( b ) ) , ( 1 ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4836,7 +4778,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( 100 * ( 1 - ( 10 * ( a / ( b ) ) * ( max( ( c / ( d + e + f + g ) ) * ( 1 - h / ( i - j ) ) , 0.0001 ) ) / ( c / ( d + e + f + g ) ) ) ) * ( ( c / ( d + e + f + g ) ) + ( ( k / ( d + e + f + g ) - l / ( b ) ) ) * ( ( ( c / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - l / ( b ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * m / ( n ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1.0 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) ) )",
+      "Formula": "100 * ( 100 * ( 1 - ( 10 * ( a / ( b ) ) * ( max( ( c / ( d + e + f + g ) ) * ( 1 - h / ( i - j ) ) , 0.0001 ) ) / ( c / ( d + e + f + g ) ) ) ) * ( ( c / ( d + e + f + g ) ) + ( ( k / ( d + e + f + g ) - l / ( b ) ) ) * ( ( ( c / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - l / ( b ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * m / ( n ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 20; $issueBM",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4919,7 +4861,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( 100 * ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( h / ( i ) ) + ( j / ( i ) ) + ( k / ( i ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1.0 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) )",
+      "Formula": "100 * ( 100 * ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( h / ( i ) ) + ( j / ( i ) ) + ( k / ( i ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 20",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -5030,787 +4972,11 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( 100 * ( ( a / ( a + b + c + d ) - e / ( f ) ) - ( 1 - ( 10 * ( g / ( f ) ) * ( max( ( h / ( a + b + c + d ) ) * ( 1 - i / ( j - k ) ) , 0.0001 ) ) / ( h / ( a + b + c + d ) ) ) ) * ( ( l / ( a + b + c + d ) - e / ( f ) ) ) * ( ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) * m / ( n ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1.0 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) - ( ( 1 - w / x ) * ( ( ( l / ( a + b + c + d ) - e / ( f ) ) ) * ( ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1.0 ) ) ) + ( m / ( n ) + ( q / ( n ) ) ) * ( ( ( 1 - ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) ) * m / ( n ) ) + ( ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) * m / ( n ) ) * ( max( ( h / ( a + b + c + d ) ) * ( 1 - i / ( j - k ) ) , 0.0001 ) ) / ( h / ( a + b + c + d ) ) ) / ( ( ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) * m / ( n ) ) + ( ( 1 - ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) ) * m / ( n ) ) + ( q / ( n ) ) ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1.0 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) ) ) ) - ( 100 * ( ( l / ( a + b + c + d ) - e / ( f ) ) ) * ( ( p / ( n ) ) + ( o / ( n ) ) + ( q / ( n ) ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1.0 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) ) )",
+      "Formula": "100 * ( 100 * ( ( a / ( a + b + c + d ) - e / ( f ) ) - ( 1 - ( 10 * ( g / ( f ) ) * ( max( ( h / ( a + b + c + d ) ) * ( 1 - i / ( j - k ) ) , 0.0001 ) ) / ( h / ( a + b + c + d ) ) ) ) * ( ( l / ( a + b + c + d ) - e / ( f ) ) ) * ( ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) * m / ( n ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) - ( ( 1 - w / x ) * ( ( ( l / ( a + b + c + d ) - e / ( f ) ) ) * ( ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1 ) ) ) + ( m / ( n ) + ( q / ( n ) ) ) * ( ( ( 1 - ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) ) * m / ( n ) ) + ( ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) * m / ( n ) ) * ( max( ( h / ( a + b + c + d ) ) * ( 1 - i / ( j - k ) ) , 0.0001 ) ) / ( h / ( a + b + c + d ) ) ) / ( ( ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) * m / ( n ) ) + ( ( 1 - ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) ) * m / ( n ) ) + ( q / ( n ) ) ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) ) ) ) - ( 100 * ( ( l / ( a + b + c + d ) - e / ( f ) ) ) * ( ( p / ( n ) ) + ( o / ( n ) ) + ( q / ( n ) ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 20",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "Fed;FetchBW;Frontend"
-    },
-    {
-      "MetricName": "Info_Bottleneck_Cache_Memory_Bandwidth",
-      "LegacyName": "metric_TMA_Info_Bottleneck_Cache_Memory_Bandwidth",
-      "Level": 1,
-      "BriefDescription": "Total pipeline cost of external Memory- or Cache-Bandwidth related bottlenecks",
-      "UnitOfMeasure": "",
-      "Events": [
-        {
-          "Name": "PERF_METRICS.MEMORY_BOUND",
-          "Alias": "a"
-        },
-        {
-          "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_FWD",
-          "Alias": "a_a"
-        },
-        {
-          "Name": "OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HITM",
-          "Alias": "a_b"
-        },
-        {
-          "Name": "OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HIT_WITH_FWD",
-          "Alias": "a_c"
-        },
-        {
-          "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS",
-          "Alias": "a_d"
-        },
-        {
-          "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_NO_FWD",
-          "Alias": "a_e"
-        },
-        {
-          "Name": "MEM_LOAD_RETIRED.L3_HIT",
-          "Alias": "a_f"
-        },
-        {
-          "Name": "L1D_PEND_MISS.FB_FULL",
-          "Alias": "a_g"
-        },
-        {
-          "Name": "DTLB_LOAD_MISSES.STLB_HIT:c1",
-          "Alias": "a_h"
-        },
-        {
-          "Name": "DTLB_LOAD_MISSES.WALK_ACTIVE",
-          "Alias": "a_i"
-        },
-        {
-          "Name": "CYCLE_ACTIVITY.CYCLES_MEM_ANY",
-          "Alias": "a_j"
-        },
-        {
-          "Name": "MEMORY_ACTIVITY.CYCLES_L1D_MISS",
-          "Alias": "a_k"
-        },
-        {
-          "Name": "LD_BLOCKS.STORE_FORWARD",
-          "Alias": "a_l"
-        },
-        {
-          "Name": "MEM_INST_RETIRED.LOCK_LOADS",
-          "Alias": "a_m"
-        },
-        {
-          "Name": "L2_RQSTS.ALL_RFO",
-          "Alias": "a_n"
-        },
-        {
-          "Name": "MEM_INST_RETIRED.ALL_STORES",
-          "Alias": "a_o"
-        },
-        {
-          "Name": "L2_RQSTS.RFO_HIT",
-          "Alias": "a_p"
-        },
-        {
-          "Name": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO",
-          "Alias": "a_q"
-        },
-        {
-          "Name": "L1D_PEND_MISS.PENDING",
-          "Alias": "a_r"
-        },
-        {
-          "Name": "MEM_LOAD_COMPLETED.L1_MISS_ANY",
-          "Alias": "a_s"
-        },
-        {
-          "Name": "LD_BLOCKS.NO_SR",
-          "Alias": "a_t"
-        },
-        {
-          "Name": "PERF_METRICS.FRONTEND_BOUND",
-          "Alias": "b"
-        },
-        {
-          "Name": "PERF_METRICS.BAD_SPECULATION",
-          "Alias": "c"
-        },
-        {
-          "Name": "PERF_METRICS.RETIRING",
-          "Alias": "d"
-        },
-        {
-          "Name": "PERF_METRICS.BACKEND_BOUND",
-          "Alias": "e"
-        },
-        {
-          "Name": "MEMORY_ACTIVITY.STALLS_L3_MISS",
-          "Alias": "f"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.THREAD",
-          "Alias": "g"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM",
-          "Alias": "h"
-        },
-        {
-          "Name": "MEM_LOAD_RETIRED.FB_HIT",
-          "Alias": "i"
-        },
-        {
-          "Name": "MEM_LOAD_RETIRED.L1_MISS",
-          "Alias": "j"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM",
-          "Alias": "k"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD",
-          "Alias": "l"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM",
-          "Alias": "m"
-        },
-        {
-          "Name": "MEM_LOAD_RETIRED.LOCAL_PMM",
-          "Alias": "n"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM",
-          "Alias": "o"
-        },
-        {
-          "Name": "EXE_ACTIVITY.BOUND_ON_LOADS",
-          "Alias": "p"
-        },
-        {
-          "Name": "MEMORY_ACTIVITY.STALLS_L1D_MISS",
-          "Alias": "q"
-        },
-        {
-          "Name": "MEMORY_ACTIVITY.STALLS_L2_MISS",
-          "Alias": "r"
-        },
-        {
-          "Name": "EXE_ACTIVITY.BOUND_ON_STORES",
-          "Alias": "s"
-        },
-        {
-          "Name": "OFFCORE_REQUESTS_OUTSTANDING.ALL_DATA_RD:c4",
-          "Alias": "t"
-        },
-        {
-          "Name": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DATA_RD",
-          "Alias": "u"
-        },
-        {
-          "Name": "XQ.FULL_CYCLES",
-          "Alias": "v"
-        },
-        {
-          "Name": "L1D_PEND_MISS.L2_STALLS",
-          "Alias": "w"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.REF_TSC",
-          "Alias": "x"
-        }
-      ],
-      "Constants": [
-        {
-          "Name": "DURATIONTIMEINMILLISECONDS",
-          "Alias": "durationtimeinmilliseconds"
-        },
-        {
-          "Name": "SYSTEM_TSC_FREQ",
-          "Alias": "y"
-        }
-      ],
-      "Formula": "100 * ( 100 * ( ( ( a / ( b + c + d + e ) ) * ( ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) + ( s / ( g ) ) ) ) * ( ( ( min( g , t ) ) / ( g ) ) / ( ( ( min( g , t ) ) / ( g ) ) + ( ( min( g , u ) ) / ( g ) - ( ( min( g , t ) ) / ( g ) ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( ( r - f ) / ( g ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) + ( s / ( g ) ) ) ) * ( ( ( v + w ) / ( g ) ) / ( ( min( ( ( ( ( 80 * ( ( ( g ) / x ) * y / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / x ) * y / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_a * ( a_b / ( a_b + a_c ) ) ) + ( ( 79.5 * ( ( ( g ) / x ) * y / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / x ) * y / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_d ) ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 79.5 * ( ( ( g ) / x ) * y / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / x ) * y / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_e + a_a * ( 1 - ( a_b / ( a_b + a_c ) ) ) ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 37 * ( ( ( g ) / x ) * y / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / x ) * y / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_f * ( 1 + ( i / j ) / 2 ) ) / ( g ) ) , ( 1.0 ) ) ) + ( ( v + w ) / ( g ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( max( ( p - q ) / ( g ) , 0 ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) + ( s / ( g ) ) ) ) * ( ( a_g / ( g ) ) / ( ( min( ( 7 ) * a_h + a_i , max( a_j - a_k , 0 ) ) / ( g ) ) + ( min( ( 13 * a_l / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( 16 * max( 0 , a_m - a_n ) + ( a_m / a_o ) * ( ( 10 ) * a_p + ( min( g , a_q ) ) ) ) / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( a_r / a_s ) * a_t / ( g ) ) , ( 1.0 ) ) ) + ( a_g / ( g ) ) ) ) ) ) )",
-      "Category": "TMA",
-      "Threshold": "> 20; $issueBW",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Mem;MemoryBW;Offcore"
-    },
-    {
-      "MetricName": "Info_Bottleneck_Cache_Memory_Latency",
-      "LegacyName": "metric_TMA_Info_Bottleneck_Cache_Memory_Latency",
-      "Level": 1,
-      "BriefDescription": "Total pipeline cost of external Memory- or Cache-Latency related bottlenecks",
-      "UnitOfMeasure": "",
-      "Events": [
-        {
-          "Name": "PERF_METRICS.MEMORY_BOUND",
-          "Alias": "a"
-        },
-        {
-          "Name": "OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HITM",
-          "Alias": "a_a"
-        },
-        {
-          "Name": "OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HIT_WITH_FWD",
-          "Alias": "a_b"
-        },
-        {
-          "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS",
-          "Alias": "a_c"
-        },
-        {
-          "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_NO_FWD",
-          "Alias": "a_d"
-        },
-        {
-          "Name": "XQ.FULL_CYCLES",
-          "Alias": "a_e"
-        },
-        {
-          "Name": "L1D_PEND_MISS.L2_STALLS",
-          "Alias": "a_f"
-        },
-        {
-          "Name": "MEM_STORE_RETIRED.L2_HIT",
-          "Alias": "a_g"
-        },
-        {
-          "Name": "MEM_INST_RETIRED.LOCK_LOADS",
-          "Alias": "a_h"
-        },
-        {
-          "Name": "MEM_INST_RETIRED.ALL_STORES",
-          "Alias": "a_i"
-        },
-        {
-          "Name": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO",
-          "Alias": "a_j"
-        },
-        {
-          "Name": "OCR.DEMAND_RFO.L3_HIT.SNOOP_HITM",
-          "Alias": "a_k"
-        },
-        {
-          "Name": "MEM_INST_RETIRED.SPLIT_STORES",
-          "Alias": "a_l"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.DISTRIBUTED",
-          "Alias": "a_m"
-        },
-        {
-          "Name": "OCR.STREAMING_WR.ANY_RESPONSE",
-          "Alias": "a_n"
-        },
-        {
-          "Name": "DTLB_STORE_MISSES.STLB_HIT:c1",
-          "Alias": "a_o"
-        },
-        {
-          "Name": "DTLB_STORE_MISSES.WALK_ACTIVE",
-          "Alias": "a_p"
-        },
-        {
-          "Name": "PERF_METRICS.FRONTEND_BOUND",
-          "Alias": "b"
-        },
-        {
-          "Name": "PERF_METRICS.BAD_SPECULATION",
-          "Alias": "c"
-        },
-        {
-          "Name": "PERF_METRICS.RETIRING",
-          "Alias": "d"
-        },
-        {
-          "Name": "PERF_METRICS.BACKEND_BOUND",
-          "Alias": "e"
-        },
-        {
-          "Name": "MEMORY_ACTIVITY.STALLS_L3_MISS",
-          "Alias": "f"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.THREAD",
-          "Alias": "g"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM",
-          "Alias": "h"
-        },
-        {
-          "Name": "MEM_LOAD_RETIRED.FB_HIT",
-          "Alias": "i"
-        },
-        {
-          "Name": "MEM_LOAD_RETIRED.L1_MISS",
-          "Alias": "j"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM",
-          "Alias": "k"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD",
-          "Alias": "l"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM",
-          "Alias": "m"
-        },
-        {
-          "Name": "MEM_LOAD_RETIRED.LOCAL_PMM",
-          "Alias": "n"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM",
-          "Alias": "o"
-        },
-        {
-          "Name": "EXE_ACTIVITY.BOUND_ON_LOADS",
-          "Alias": "p"
-        },
-        {
-          "Name": "MEMORY_ACTIVITY.STALLS_L1D_MISS",
-          "Alias": "q"
-        },
-        {
-          "Name": "MEMORY_ACTIVITY.STALLS_L2_MISS",
-          "Alias": "r"
-        },
-        {
-          "Name": "EXE_ACTIVITY.BOUND_ON_STORES",
-          "Alias": "s"
-        },
-        {
-          "Name": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DATA_RD",
-          "Alias": "t"
-        },
-        {
-          "Name": "OFFCORE_REQUESTS_OUTSTANDING.ALL_DATA_RD:c4",
-          "Alias": "u"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.REF_TSC",
-          "Alias": "v"
-        },
-        {
-          "Name": "MEM_LOAD_RETIRED.L3_HIT",
-          "Alias": "y"
-        },
-        {
-          "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_FWD",
-          "Alias": "z"
-        }
-      ],
-      "Constants": [
-        {
-          "Name": "DURATIONTIMEINMILLISECONDS",
-          "Alias": "durationtimeinmilliseconds"
-        },
-        {
-          "Name": "SYSTEM_TSC_FREQ",
-          "Alias": "w"
-        }
-      ],
-      "Formula": "100 * ( 100 * ( ( ( a / ( b + c + d + e ) ) * ( ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) + ( s / ( g ) ) ) ) * ( ( ( min( g , t ) ) / ( g ) - ( ( min( g , u ) ) / ( g ) ) ) / ( ( ( min( g , u ) ) / ( g ) ) + ( ( min( g , t ) ) / ( g ) - ( ( min( g , u ) ) / ( g ) ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( ( r - f ) / ( g ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) + ( s / ( g ) ) ) ) * ( ( min( ( ( ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( y * ( 1 + ( i / j ) / 2 ) ) / ( g ) ) , ( 1.0 ) ) ) / ( ( min( ( ( ( ( 80 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( z * ( a_a / ( a_a + a_b ) ) ) + ( ( 79.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_c ) ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 79.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_d + z * ( 1 - ( a_a / ( a_a + a_b ) ) ) ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( y * ( 1 + ( i / j ) / 2 ) ) / ( g ) ) , ( 1.0 ) ) ) + ( ( a_e + a_f ) / ( g ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( q - r ) / ( g ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) + ( s / ( g ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( s / ( g ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) + ( s / ( g ) ) ) ) * ( ( min( ( ( ( a_g * ( 10 ) * ( 1 - ( a_h / a_i ) ) ) + ( 1 - ( a_h / a_i ) ) * ( min( g , a_j ) ) ) / ( g ) ) , ( 1.0 ) ) ) / ( ( min( ( ( ( a_g * ( 10 ) * ( 1 - ( a_h / a_i ) ) ) + ( 1 - ( a_h / a_i ) ) * ( min( g , a_j ) ) ) / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( 80 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_k / ( g ) ) , ( 1.0 ) ) ) + ( a_l / ( a_m if ( 1 ) else ( g ) ) ) + ( min( ( 9 * a_n / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 7 ) * a_o + a_p ) / ( a_m if ( 1 ) else ( g ) ) ) , ( 1.0 ) ) ) ) ) ) ) )",
-      "Category": "TMA",
-      "Threshold": "> 20; $issueLat",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Mem;MemoryLat;Offcore"
-    },
-    {
-      "MetricName": "Info_Bottleneck_Memory_Data_TLBs",
-      "LegacyName": "metric_TMA_Info_Bottleneck_Memory_Data_TLBs",
-      "Level": 1,
-      "BriefDescription": "Total pipeline cost of Memory Address Translation related bottlenecks (data-side TLBs)",
-      "UnitOfMeasure": "",
-      "Events": [
-        {
-          "Name": "PERF_METRICS.MEMORY_BOUND",
-          "Alias": "a"
-        },
-        {
-          "Name": "MEM_INST_RETIRED.ALL_STORES",
-          "Alias": "a_a"
-        },
-        {
-          "Name": "L2_RQSTS.RFO_HIT",
-          "Alias": "a_b"
-        },
-        {
-          "Name": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO",
-          "Alias": "a_c"
-        },
-        {
-          "Name": "L1D_PEND_MISS.PENDING",
-          "Alias": "a_d"
-        },
-        {
-          "Name": "MEM_LOAD_COMPLETED.L1_MISS_ANY",
-          "Alias": "a_e"
-        },
-        {
-          "Name": "LD_BLOCKS.NO_SR",
-          "Alias": "a_f"
-        },
-        {
-          "Name": "L1D_PEND_MISS.FB_FULL",
-          "Alias": "a_g"
-        },
-        {
-          "Name": "DTLB_STORE_MISSES.STLB_HIT:c1",
-          "Alias": "a_h"
-        },
-        {
-          "Name": "DTLB_STORE_MISSES.WALK_ACTIVE",
-          "Alias": "a_i"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.DISTRIBUTED",
-          "Alias": "a_j"
-        },
-        {
-          "Name": "MEM_STORE_RETIRED.L2_HIT",
-          "Alias": "a_k"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.REF_TSC",
-          "Alias": "a_l"
-        },
-        {
-          "Name": "OCR.DEMAND_RFO.L3_HIT.SNOOP_HITM",
-          "Alias": "a_o"
-        },
-        {
-          "Name": "MEM_INST_RETIRED.SPLIT_STORES",
-          "Alias": "a_p"
-        },
-        {
-          "Name": "OCR.STREAMING_WR.ANY_RESPONSE",
-          "Alias": "a_q"
-        },
-        {
-          "Name": "PERF_METRICS.FRONTEND_BOUND",
-          "Alias": "b"
-        },
-        {
-          "Name": "PERF_METRICS.BAD_SPECULATION",
-          "Alias": "c"
-        },
-        {
-          "Name": "PERF_METRICS.RETIRING",
-          "Alias": "d"
-        },
-        {
-          "Name": "PERF_METRICS.BACKEND_BOUND",
-          "Alias": "e"
-        },
-        {
-          "Name": "EXE_ACTIVITY.BOUND_ON_LOADS",
-          "Alias": "f"
-        },
-        {
-          "Name": "MEMORY_ACTIVITY.STALLS_L1D_MISS",
-          "Alias": "g"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.THREAD",
-          "Alias": "h"
-        },
-        {
-          "Name": "MEMORY_ACTIVITY.STALLS_L2_MISS",
-          "Alias": "i"
-        },
-        {
-          "Name": "MEMORY_ACTIVITY.STALLS_L3_MISS",
-          "Alias": "j"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM",
-          "Alias": "k"
-        },
-        {
-          "Name": "MEM_LOAD_RETIRED.FB_HIT",
-          "Alias": "l"
-        },
-        {
-          "Name": "MEM_LOAD_RETIRED.L1_MISS",
-          "Alias": "m"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM",
-          "Alias": "n"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD",
-          "Alias": "o"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM",
-          "Alias": "p"
-        },
-        {
-          "Name": "MEM_LOAD_RETIRED.LOCAL_PMM",
-          "Alias": "q"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM",
-          "Alias": "r"
-        },
-        {
-          "Name": "EXE_ACTIVITY.BOUND_ON_STORES",
-          "Alias": "s"
-        },
-        {
-          "Name": "DTLB_LOAD_MISSES.STLB_HIT:c1",
-          "Alias": "t"
-        },
-        {
-          "Name": "DTLB_LOAD_MISSES.WALK_ACTIVE",
-          "Alias": "u"
-        },
-        {
-          "Name": "CYCLE_ACTIVITY.CYCLES_MEM_ANY",
-          "Alias": "v"
-        },
-        {
-          "Name": "MEMORY_ACTIVITY.CYCLES_L1D_MISS",
-          "Alias": "w"
-        },
-        {
-          "Name": "LD_BLOCKS.STORE_FORWARD",
-          "Alias": "x"
-        },
-        {
-          "Name": "MEM_INST_RETIRED.LOCK_LOADS",
-          "Alias": "y"
-        },
-        {
-          "Name": "L2_RQSTS.ALL_RFO",
-          "Alias": "z"
-        }
-      ],
-      "Constants": [
-        {
-          "Name": "SYSTEM_TSC_FREQ",
-          "Alias": "a_m"
-        },
-        {
-          "Name": "DURATIONTIMEINMILLISECONDS",
-          "Alias": "durationtimeinmilliseconds"
-        }
-      ],
-      "Formula": "100 * ( 100 * ( ( a / ( b + c + d + e ) ) * ( ( max( ( f - g ) / ( h ) , 0 ) ) / max( ( a / ( b + c + d + e ) ) , ( ( max( ( f - g ) / ( h ) , 0 ) ) + ( ( g - i ) / ( h ) ) + ( ( i - j ) / ( h ) ) + ( min( ( ( ( j / ( h ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( k * ( 1 + ( l / m ) ) ) + 10 * ( ( n * ( 1 + ( l / m ) ) ) + ( o * ( 1 + ( l / m ) ) ) + ( p * ( 1 + ( l / m ) ) ) ) ) / ( ( 19 * ( k * ( 1 + ( l / m ) ) ) + 10 * ( ( n * ( 1 + ( l / m ) ) ) + ( o * ( 1 + ( l / m ) ) ) + ( p * ( 1 + ( l / m ) ) ) ) ) + ( 25 * ( q * ( 1 + ( l / m ) ) ) + 33 * ( r * ( 1 + ( l / m ) ) ) ) ) ) ) * ( j / ( h ) ) ) if ( ( 1000000 ) * ( r + q ) > m ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( k * ( 1 + ( l / m ) ) ) + 10 * ( ( n * ( 1 + ( l / m ) ) ) + ( o * ( 1 + ( l / m ) ) ) + ( p * ( 1 + ( l / m ) ) ) ) ) / ( ( 19 * ( k * ( 1 + ( l / m ) ) ) + 10 * ( ( n * ( 1 + ( l / m ) ) ) + ( o * ( 1 + ( l / m ) ) ) + ( p * ( 1 + ( l / m ) ) ) ) ) + ( 25 * ( q * ( 1 + ( l / m ) ) ) + 33 * ( r * ( 1 + ( l / m ) ) ) ) ) ) ) * ( j / ( h ) ) ) if ( ( 1000000 ) * ( r + q ) > m ) else 0 ) ) , ( 1.0 ) ) ) + ( s / ( h ) ) ) ) ) * ( ( min( ( 7 ) * t + u , max( v - w , 0 ) ) / ( h ) ) / max( ( max( ( f - g ) / ( h ) , 0 ) ) , ( ( min( ( 7 ) * t + u , max( v - w , 0 ) ) / ( h ) ) + ( min( ( 13 * x / ( h ) ) , ( 1.0 ) ) ) + ( min( ( ( 16 * max( 0 , y - z ) + ( y / a_a ) * ( ( 10 ) * a_b + ( min( h , a_c ) ) ) ) / ( h ) ) , ( 1.0 ) ) ) + ( min( ( ( a_d / a_e ) * a_f / ( h ) ) , ( 1.0 ) ) ) + ( a_g / ( h ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( s / ( h ) ) / ( ( max( ( f - g ) / ( h ) , 0 ) ) + ( ( g - i ) / ( h ) ) + ( ( i - j ) / ( h ) ) + ( min( ( ( ( j / ( h ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( k * ( 1 + ( l / m ) ) ) + 10 * ( ( n * ( 1 + ( l / m ) ) ) + ( o * ( 1 + ( l / m ) ) ) + ( p * ( 1 + ( l / m ) ) ) ) ) / ( ( 19 * ( k * ( 1 + ( l / m ) ) ) + 10 * ( ( n * ( 1 + ( l / m ) ) ) + ( o * ( 1 + ( l / m ) ) ) + ( p * ( 1 + ( l / m ) ) ) ) ) + ( 25 * ( q * ( 1 + ( l / m ) ) ) + 33 * ( r * ( 1 + ( l / m ) ) ) ) ) ) ) * ( j / ( h ) ) ) if ( ( 1000000 ) * ( r + q ) > m ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( k * ( 1 + ( l / m ) ) ) + 10 * ( ( n * ( 1 + ( l / m ) ) ) + ( o * ( 1 + ( l / m ) ) ) + ( p * ( 1 + ( l / m ) ) ) ) ) / ( ( 19 * ( k * ( 1 + ( l / m ) ) ) + 10 * ( ( n * ( 1 + ( l / m ) ) ) + ( o * ( 1 + ( l / m ) ) ) + ( p * ( 1 + ( l / m ) ) ) ) ) + ( 25 * ( q * ( 1 + ( l / m ) ) ) + 33 * ( r * ( 1 + ( l / m ) ) ) ) ) ) ) * ( j / ( h ) ) ) if ( ( 1000000 ) * ( r + q ) > m ) else 0 ) ) , ( 1.0 ) ) ) + ( s / ( h ) ) ) ) * ( ( min( ( ( ( 7 ) * a_h + a_i ) / ( a_j if ( 1 ) else ( h ) ) ) , ( 1.0 ) ) ) / ( ( min( ( ( ( a_k * ( 10 ) * ( 1 - ( y / a_a ) ) ) + ( 1 - ( y / a_a ) ) * ( min( h , a_c ) ) ) / ( h ) ) , ( 1.0 ) ) ) + ( min( ( ( 80 * ( ( ( h ) / a_l ) * a_m / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_o / ( h ) ) , ( 1.0 ) ) ) + ( a_p / ( a_j if ( 1 ) else ( h ) ) ) + ( min( ( 9 * a_q / ( h ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 7 ) * a_h + a_i ) / ( a_j if ( 1 ) else ( h ) ) ) , ( 1.0 ) ) ) ) ) ) ) )",
-      "Category": "TMA",
-      "Threshold": "> 20; $issueTLB",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Mem;MemoryTLB;Offcore"
-    },
-    {
-      "MetricName": "Info_Bottleneck_Memory_Synchronization",
-      "LegacyName": "metric_TMA_Info_Bottleneck_Memory_Synchronization",
-      "Level": 1,
-      "BriefDescription": "Total pipeline cost of Memory Synchronization related bottlenecks (data transfers and coherency updates across processors)",
-      "UnitOfMeasure": "",
-      "Events": [
-        {
-          "Name": "PERF_METRICS.MEMORY_BOUND",
-          "Alias": "a"
-        },
-        {
-          "Name": "OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HIT_WITH_FWD",
-          "Alias": "a_a"
-        },
-        {
-          "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS",
-          "Alias": "a_b"
-        },
-        {
-          "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_NO_FWD",
-          "Alias": "a_c"
-        },
-        {
-          "Name": "MEM_LOAD_RETIRED.L3_HIT",
-          "Alias": "a_d"
-        },
-        {
-          "Name": "XQ.FULL_CYCLES",
-          "Alias": "a_e"
-        },
-        {
-          "Name": "L1D_PEND_MISS.L2_STALLS",
-          "Alias": "a_f"
-        },
-        {
-          "Name": "OCR.DEMAND_RFO.L3_HIT.SNOOP_HITM",
-          "Alias": "a_g"
-        },
-        {
-          "Name": "MEM_STORE_RETIRED.L2_HIT",
-          "Alias": "a_h"
-        },
-        {
-          "Name": "MEM_INST_RETIRED.LOCK_LOADS",
-          "Alias": "a_i"
-        },
-        {
-          "Name": "MEM_INST_RETIRED.ALL_STORES",
-          "Alias": "a_j"
-        },
-        {
-          "Name": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO",
-          "Alias": "a_k"
-        },
-        {
-          "Name": "MEM_INST_RETIRED.SPLIT_STORES",
-          "Alias": "a_l"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.DISTRIBUTED",
-          "Alias": "a_m"
-        },
-        {
-          "Name": "OCR.STREAMING_WR.ANY_RESPONSE",
-          "Alias": "a_n"
-        },
-        {
-          "Name": "DTLB_STORE_MISSES.STLB_HIT:c1",
-          "Alias": "a_o"
-        },
-        {
-          "Name": "DTLB_STORE_MISSES.WALK_ACTIVE",
-          "Alias": "a_p"
-        },
-        {
-          "Name": "INT_MISC.UOP_DROPPING",
-          "Alias": "a_q"
-        },
-        {
-          "Name": "TOPDOWN.SLOTS:perf_metrics",
-          "Alias": "a_r"
-        },
-        {
-          "Name": "PERF_METRICS.BRANCH_MISPREDICTS",
-          "Alias": "a_s"
-        },
-        {
-          "Name": "MACHINE_CLEARS.MEMORY_ORDERING",
-          "Alias": "a_t"
-        },
-        {
-          "Name": "MACHINE_CLEARS.COUNT",
-          "Alias": "a_u"
-        },
-        {
-          "Name": "PERF_METRICS.FRONTEND_BOUND",
-          "Alias": "b"
-        },
-        {
-          "Name": "PERF_METRICS.BAD_SPECULATION",
-          "Alias": "c"
-        },
-        {
-          "Name": "PERF_METRICS.RETIRING",
-          "Alias": "d"
-        },
-        {
-          "Name": "PERF_METRICS.BACKEND_BOUND",
-          "Alias": "e"
-        },
-        {
-          "Name": "MEMORY_ACTIVITY.STALLS_L3_MISS",
-          "Alias": "f"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.THREAD",
-          "Alias": "g"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM",
-          "Alias": "h"
-        },
-        {
-          "Name": "MEM_LOAD_RETIRED.FB_HIT",
-          "Alias": "i"
-        },
-        {
-          "Name": "MEM_LOAD_RETIRED.L1_MISS",
-          "Alias": "j"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM",
-          "Alias": "k"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD",
-          "Alias": "l"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM",
-          "Alias": "m"
-        },
-        {
-          "Name": "MEM_LOAD_RETIRED.LOCAL_PMM",
-          "Alias": "n"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM",
-          "Alias": "o"
-        },
-        {
-          "Name": "EXE_ACTIVITY.BOUND_ON_LOADS",
-          "Alias": "p"
-        },
-        {
-          "Name": "MEMORY_ACTIVITY.STALLS_L1D_MISS",
-          "Alias": "q"
-        },
-        {
-          "Name": "MEMORY_ACTIVITY.STALLS_L2_MISS",
-          "Alias": "r"
-        },
-        {
-          "Name": "EXE_ACTIVITY.BOUND_ON_STORES",
-          "Alias": "s"
-        },
-        {
-          "Name": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DATA_RD",
-          "Alias": "t"
-        },
-        {
-          "Name": "OFFCORE_REQUESTS_OUTSTANDING.ALL_DATA_RD:c4",
-          "Alias": "u"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.REF_TSC",
-          "Alias": "v"
-        },
-        {
-          "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_FWD",
-          "Alias": "y"
-        },
-        {
-          "Name": "OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HITM",
-          "Alias": "z"
-        }
-      ],
-      "Constants": [
-        {
-          "Name": "DURATIONTIMEINMILLISECONDS",
-          "Alias": "durationtimeinmilliseconds"
-        },
-        {
-          "Name": "SYSTEM_TSC_FREQ",
-          "Alias": "w"
-        }
-      ],
-      "Formula": "100 * ( 100 * ( ( a / ( b + c + d + e ) ) * ( ( ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) + ( s / ( g ) ) ) ) * ( ( ( min( g , t ) ) / ( g ) - ( ( min( g , u ) ) / ( g ) ) ) / ( ( ( min( g , u ) ) / ( g ) ) + ( ( min( g , t ) ) / ( g ) - ( ( min( g , u ) ) / ( g ) ) ) ) ) * ( min( ( ( ( ( 172.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * m + ( ( 172.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * l ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1.0 ) ) ) / ( ( min( ( ( ( 108 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * k * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 186 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * h * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 172.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * m + ( ( 172.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * l ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1.0 ) ) ) ) + ( ( ( r - f ) / ( g ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) + ( s / ( g ) ) ) ) * ( ( min( ( ( ( ( 80 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( y * ( z / ( z + a_a ) ) ) + ( ( 79.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_b ) ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 79.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_c + y * ( 1 - ( z / ( z + a_a ) ) ) ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1.0 ) ) ) ) / ( ( min( ( ( ( ( 80 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( y * ( z / ( z + a_a ) ) ) + ( ( 79.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_b ) ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 79.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_c + y * ( 1 - ( z / ( z + a_a ) ) ) ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_d * ( 1 + ( i / j ) / 2 ) ) / ( g ) ) , ( 1.0 ) ) ) + ( ( a_e + a_f ) / ( g ) ) ) + ( ( s / ( g ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) + ( s / ( g ) ) ) ) * ( min( ( ( 80 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_g / ( g ) ) , ( 1.0 ) ) ) / ( ( ( min( ( ( ( a_h * ( 10 ) * ( 1 - ( a_i / a_j ) ) ) + ( 1 - ( a_i / a_j ) ) * ( min( g , a_k ) ) ) / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( 80 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_g / ( g ) ) , ( 1.0 ) ) ) + ( a_l / ( a_m if ( 1 ) else ( g ) ) ) + ( min( ( 9 * a_n / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 7 ) * a_o + a_p ) / ( a_m if ( 1 ) else ( g ) ) ) , ( 1.0 ) ) ) ) - ( min( ( ( ( a_h * ( 10 ) * ( 1 - ( a_i / a_j ) ) ) + ( 1 - ( a_i / a_j ) ) * ( min( g , a_k ) ) ) / ( g ) ) , ( 1.0 ) ) ) ) ) + ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - a_q / ( a_r ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( a_s / ( b + c + d + e ) ) ) ) * ( 1 - ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - a_q / ( a_r ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( a_s / ( b + c + d + e ) ) ) ) * ( 1 - a_t / a_u ) , 0.0001 ) ) / ( ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - a_q / ( a_r ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( a_s / ( b + c + d + e ) ) ) ) * ( 1 - a_t / a_u ) , 0.0001 ) ) ) ) ) )",
-      "Category": "TMA",
-      "Threshold": "> 10; $issueTLB",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Mem;Offcore"
     },
     {
       "MetricName": "Info_Bottleneck_Compute_Bound_Est",
@@ -6068,379 +5234,11 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( 100 * ( ( ( 1 - a / b ) * ( ( ( c / ( d + e + f + g ) - h / ( i ) ) ) * ( ( min( ( ( 3 ) * j / ( k / l ) / ( m ) ) , ( 1.0 ) ) ) + ( n / ( m ) + ( o / ( m ) ) ) * ( ( ( 1 - ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) ) * n / ( m ) ) + ( ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * n / ( m ) ) * ( max( ( p / ( d + e + f + g ) ) * ( 1 - q / ( r - s ) ) , 0.0001 ) ) / ( p / ( d + e + f + g ) ) ) / ( ( ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * n / ( m ) ) + ( ( 1 - ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) ) * n / ( m ) ) + ( o / ( m ) ) ) ) / ( ( t / ( m ) ) + ( u / ( m ) ) + ( n / ( m ) + ( o / ( m ) ) ) + ( min( ( ( 3 ) * j / ( k / l ) / ( m ) ) , ( 1.0 ) ) ) + ( v / ( m ) ) + ( w / ( m ) ) ) ) ) + ( 10 * ( x / ( i ) ) * ( max( ( p / ( d + e + f + g ) ) * ( 1 - q / ( r - s ) ) , 0.0001 ) ) / ( p / ( d + e + f + g ) ) ) * ( p / ( d + e + f + g ) ) + ( ( max( 0 , ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) - ( p / ( d + e + f + g ) ) ) ) * ( max( ( max( 0 , ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) - ( p / ( d + e + f + g ) ) ) ) * ( 1 - y / s ) , 0.0001 ) ) / ( ( max( ( max( 0 , ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) - ( p / ( d + e + f + g ) ) ) ) * ( 1 - y / s ) , 0.0001 ) ) ) ) + ( ( max( 0 , ( g / ( d + e + f + g ) ) - ( z / ( d + e + f + g ) ) ) ) * ( ( a_a / ( m ) + ( a_b / ( m ) ) ) + a_c / ( m ) * ( ( a_d + a_c ) / ( m ) * ( a_e - a_f ) / ( m ) ) ) / ( ( a_g / ( m ) ) + ( a_a / ( m ) + ( a_b / ( m ) ) ) + ( a_h / ( a_i if ( 1 ) else ( m ) ) ) + ( ( ( ( a_d + a_c ) / ( m ) * ( a_e - a_f ) / ( m ) ) * ( m ) + ( a_j + ( f / ( d + e + f + g ) ) * a_k ) ) / ( m ) if ( a_g < ( a_e - a_f ) ) else ( a_j + ( f / ( d + e + f + g ) ) * a_k ) / ( m ) ) ) ) + ( ( ( ( x / ( i ) ) / ( ( max( 0 , ( a_l / ( d + e + f + g ) ) - ( x / ( i ) ) ) ) + ( x / ( i ) ) ) ) * ( ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * a_m / ( i ) ) , ( 1.0 ) ) ) / ( x / ( i ) ) ) ) * ( a_l / ( d + e + f + g ) ) ) ) )",
+      "Formula": "100 * ( 100 * ( ( ( 1 - a / b ) * ( ( ( c / ( d + e + f + g ) - h / ( i ) ) ) * ( ( min( ( ( 3 ) * j / ( k / l ) / ( m ) ) , ( 1 ) ) ) + ( n / ( m ) + ( o / ( m ) ) ) * ( ( ( 1 - ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) ) * n / ( m ) ) + ( ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * n / ( m ) ) * ( max( ( p / ( d + e + f + g ) ) * ( 1 - q / ( r - s ) ) , 0.0001 ) ) / ( p / ( d + e + f + g ) ) ) / ( ( ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * n / ( m ) ) + ( ( 1 - ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) ) * n / ( m ) ) + ( o / ( m ) ) ) ) / ( ( t / ( m ) ) + ( u / ( m ) ) + ( n / ( m ) + ( o / ( m ) ) ) + ( min( ( ( 3 ) * j / ( k / l ) / ( m ) ) , ( 1 ) ) ) + ( v / ( m ) ) + ( w / ( m ) ) ) ) ) + ( 10 * ( x / ( i ) ) * ( max( ( p / ( d + e + f + g ) ) * ( 1 - q / ( r - s ) ) , 0.0001 ) ) / ( p / ( d + e + f + g ) ) ) * ( p / ( d + e + f + g ) ) + ( ( max( 0 , ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) - ( p / ( d + e + f + g ) ) ) ) * ( max( ( max( 0 , ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) - ( p / ( d + e + f + g ) ) ) ) * ( 1 - y / s ) , 0.0001 ) ) / ( ( max( ( max( 0 , ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) - ( p / ( d + e + f + g ) ) ) ) * ( 1 - y / s ) , 0.0001 ) ) ) ) + ( ( max( 0 , ( g / ( d + e + f + g ) ) - ( z / ( d + e + f + g ) ) ) ) * ( ( a_a / ( m ) + ( a_b / ( m ) ) ) + a_c / ( m ) * ( ( a_d + a_c ) / ( m ) * ( a_e - a_f ) / ( m ) ) ) / ( ( a_g / ( m ) ) + ( a_a / ( m ) + ( a_b / ( m ) ) ) + ( a_h / ( a_i if ( 1 ) else ( m ) ) ) + ( ( ( ( a_d + a_c ) / ( m ) * ( a_e - a_f ) / ( m ) ) * ( m ) + ( a_j + ( f / ( d + e + f + g ) ) * a_k ) ) / ( m ) if ( a_g < ( a_e - a_f ) ) else ( a_j + ( f / ( d + e + f + g ) ) * a_k ) / ( m ) ) ) ) + ( ( ( ( x / ( i ) ) / ( ( max( 0 , ( a_l / ( d + e + f + g ) ) - ( x / ( i ) ) ) ) + ( x / ( i ) ) ) ) * ( ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * a_m / ( i ) ) , ( 1 ) ) ) / ( x / ( i ) ) ) ) * ( a_l / ( d + e + f + g ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 10; $issueMS",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "Bad;Cor;Ret"
-    },
-    {
-      "MetricName": "Info_Bottleneck_Other_Bottlenecks",
-      "LegacyName": "metric_TMA_Info_Bottleneck_Other_Bottlenecks",
-      "Level": 1,
-      "BriefDescription": "Total pipeline cost of remaining bottlenecks (apart from those listed in the Info.Bottlenecks metrics class). Examples include data-dependencies (Core Bound when Low ILP) and other unlisted memory-related stalls.",
-      "UnitOfMeasure": "",
-      "Events": [
-        {
-          "Name": "PERF_METRICS.FETCH_LATENCY",
-          "Alias": "a"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM",
-          "Alias": "a_a"
-        },
-        {
-          "Name": "MEM_LOAD_RETIRED.FB_HIT",
-          "Alias": "a_b"
-        },
-        {
-          "Name": "MEM_LOAD_RETIRED.L1_MISS",
-          "Alias": "a_c"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM",
-          "Alias": "a_d"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD",
-          "Alias": "a_e"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM",
-          "Alias": "a_f"
-        },
-        {
-          "Name": "MEM_LOAD_RETIRED.LOCAL_PMM",
-          "Alias": "a_g"
-        },
-        {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM",
-          "Alias": "a_h"
-        },
-        {
-          "Name": "EXE_ACTIVITY.BOUND_ON_LOADS",
-          "Alias": "a_i"
-        },
-        {
-          "Name": "MEMORY_ACTIVITY.STALLS_L1D_MISS",
-          "Alias": "a_j"
-        },
-        {
-          "Name": "MEMORY_ACTIVITY.STALLS_L2_MISS",
-          "Alias": "a_k"
-        },
-        {
-          "Name": "EXE_ACTIVITY.BOUND_ON_STORES",
-          "Alias": "a_l"
-        },
-        {
-          "Name": "OFFCORE_REQUESTS_OUTSTANDING.ALL_DATA_RD:c4",
-          "Alias": "a_m"
-        },
-        {
-          "Name": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DATA_RD",
-          "Alias": "a_n"
-        },
-        {
-          "Name": "XQ.FULL_CYCLES",
-          "Alias": "a_o"
-        },
-        {
-          "Name": "L1D_PEND_MISS.L2_STALLS",
-          "Alias": "a_p"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.REF_TSC",
-          "Alias": "a_q"
-        },
-        {
-          "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_FWD",
-          "Alias": "a_t"
-        },
-        {
-          "Name": "OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HITM",
-          "Alias": "a_u"
-        },
-        {
-          "Name": "OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HIT_WITH_FWD",
-          "Alias": "a_v"
-        },
-        {
-          "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS",
-          "Alias": "a_w"
-        },
-        {
-          "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_NO_FWD",
-          "Alias": "a_x"
-        },
-        {
-          "Name": "MEM_LOAD_RETIRED.L3_HIT",
-          "Alias": "a_y"
-        },
-        {
-          "Name": "L1D_PEND_MISS.FB_FULL",
-          "Alias": "a_z"
-        },
-        {
-          "Name": "PERF_METRICS.FRONTEND_BOUND",
-          "Alias": "b"
-        },
-        {
-          "Name": "DTLB_LOAD_MISSES.STLB_HIT:c1",
-          "Alias": "b_a"
-        },
-        {
-          "Name": "DTLB_LOAD_MISSES.WALK_ACTIVE",
-          "Alias": "b_b"
-        },
-        {
-          "Name": "CYCLE_ACTIVITY.CYCLES_MEM_ANY",
-          "Alias": "b_c"
-        },
-        {
-          "Name": "MEMORY_ACTIVITY.CYCLES_L1D_MISS",
-          "Alias": "b_d"
-        },
-        {
-          "Name": "LD_BLOCKS.STORE_FORWARD",
-          "Alias": "b_e"
-        },
-        {
-          "Name": "MEM_INST_RETIRED.LOCK_LOADS",
-          "Alias": "b_f"
-        },
-        {
-          "Name": "L2_RQSTS.ALL_RFO",
-          "Alias": "b_g"
-        },
-        {
-          "Name": "MEM_INST_RETIRED.ALL_STORES",
-          "Alias": "b_h"
-        },
-        {
-          "Name": "L2_RQSTS.RFO_HIT",
-          "Alias": "b_i"
-        },
-        {
-          "Name": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO",
-          "Alias": "b_j"
-        },
-        {
-          "Name": "L1D_PEND_MISS.PENDING",
-          "Alias": "b_k"
-        },
-        {
-          "Name": "MEM_LOAD_COMPLETED.L1_MISS_ANY",
-          "Alias": "b_l"
-        },
-        {
-          "Name": "LD_BLOCKS.NO_SR",
-          "Alias": "b_m"
-        },
-        {
-          "Name": "MEM_STORE_RETIRED.L2_HIT",
-          "Alias": "b_n"
-        },
-        {
-          "Name": "OCR.DEMAND_RFO.L3_HIT.SNOOP_HITM",
-          "Alias": "b_o"
-        },
-        {
-          "Name": "MEM_INST_RETIRED.SPLIT_STORES",
-          "Alias": "b_p"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.DISTRIBUTED",
-          "Alias": "b_q"
-        },
-        {
-          "Name": "OCR.STREAMING_WR.ANY_RESPONSE",
-          "Alias": "b_r"
-        },
-        {
-          "Name": "DTLB_STORE_MISSES.STLB_HIT:c1",
-          "Alias": "b_s"
-        },
-        {
-          "Name": "DTLB_STORE_MISSES.WALK_ACTIVE",
-          "Alias": "b_t"
-        },
-        {
-          "Name": "MACHINE_CLEARS.MEMORY_ORDERING",
-          "Alias": "b_u"
-        },
-        {
-          "Name": "ARITH.DIV_ACTIVE",
-          "Alias": "b_v"
-        },
-        {
-          "Name": "RESOURCE_STALLS.SCOREBOARD",
-          "Alias": "b_w"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.C02",
-          "Alias": "b_x"
-        },
-        {
-          "Name": "EXE.AMX_BUSY",
-          "Alias": "b_y"
-        },
-        {
-          "Name": "EXE_ACTIVITY.3_PORTS_UTIL:u0x80",
-          "Alias": "b_z"
-        },
-        {
-          "Name": "PERF_METRICS.BAD_SPECULATION",
-          "Alias": "c"
-        },
-        {
-          "Name": "RS.EMPTY:u1",
-          "Alias": "c_a"
-        },
-        {
-          "Name": "CYCLE_ACTIVITY.STALLS_TOTAL",
-          "Alias": "c_b"
-        },
-        {
-          "Name": "EXE_ACTIVITY.1_PORTS_UTIL",
-          "Alias": "c_c"
-        },
-        {
-          "Name": "EXE_ACTIVITY.2_PORTS_UTIL:u0xc",
-          "Alias": "c_d"
-        },
-        {
-          "Name": "UOPS_EXECUTED.CYCLES_GE_3",
-          "Alias": "c_e"
-        },
-        {
-          "Name": "EXE_ACTIVITY.2_PORTS_UTIL",
-          "Alias": "c_f"
-        },
-        {
-          "Name": "PERF_METRICS.HEAVY_OPERATIONS",
-          "Alias": "c_g"
-        },
-        {
-          "Name": "ASSISTS.ANY",
-          "Alias": "c_h"
-        },
-        {
-          "Name": "BR_INST_RETIRED.ALL_BRANCHES",
-          "Alias": "c_i"
-        },
-        {
-          "Name": "BR_INST_RETIRED.NEAR_CALL",
-          "Alias": "c_j"
-        },
-        {
-          "Name": "PERF_METRICS.RETIRING",
-          "Alias": "d"
-        },
-        {
-          "Name": "PERF_METRICS.BACKEND_BOUND",
-          "Alias": "e"
-        },
-        {
-          "Name": "INT_MISC.UOP_DROPPING",
-          "Alias": "f"
-        },
-        {
-          "Name": "TOPDOWN.SLOTS:perf_metrics",
-          "Alias": "g"
-        },
-        {
-          "Name": "ICACHE_TAG.STALLS",
-          "Alias": "h"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.THREAD",
-          "Alias": "i"
-        },
-        {
-          "Name": "ICACHE_DATA.STALLS",
-          "Alias": "j"
-        },
-        {
-          "Name": "INT_MISC.UNKNOWN_BRANCH_CYCLES",
-          "Alias": "k"
-        },
-        {
-          "Name": "INT_MISC.CLEAR_RESTEER_CYCLES",
-          "Alias": "l"
-        },
-        {
-          "Name": "UOPS_RETIRED.MS:c1:e1",
-          "Alias": "m"
-        },
-        {
-          "Name": "UOPS_RETIRED.SLOTS",
-          "Alias": "n"
-        },
-        {
-          "Name": "UOPS_ISSUED.ANY",
-          "Alias": "o"
-        },
-        {
-          "Name": "DECODE.LCP",
-          "Alias": "p"
-        },
-        {
-          "Name": "DSB2MITE_SWITCHES.PENALTY_CYCLES",
-          "Alias": "q"
-        },
-        {
-          "Name": "UOPS_RETIRED.MS",
-          "Alias": "r"
-        },
-        {
-          "Name": "PERF_METRICS.BRANCH_MISPREDICTS",
-          "Alias": "s"
-        },
-        {
-          "Name": "BR_MISP_RETIRED.ALL_BRANCHES",
-          "Alias": "t"
-        },
-        {
-          "Name": "INT_MISC.CLEARS_COUNT",
-          "Alias": "u"
-        },
-        {
-          "Name": "MACHINE_CLEARS.COUNT",
-          "Alias": "v"
-        },
-        {
-          "Name": "INST_RETIRED.REP_ITERATION",
-          "Alias": "w"
-        },
-        {
-          "Name": "UOPS_RETIRED.MS:c1",
-          "Alias": "x"
-        },
-        {
-          "Name": "PERF_METRICS.MEMORY_BOUND",
-          "Alias": "y"
-        },
-        {
-          "Name": "MEMORY_ACTIVITY.STALLS_L3_MISS",
-          "Alias": "z"
-        }
-      ],
-      "Constants": [
-        {
-          "Name": "SYSTEM_TSC_FREQ",
-          "Alias": "a_r"
-        },
-        {
-          "Name": "DURATIONTIMEINMILLISECONDS",
-          "Alias": "durationtimeinmilliseconds"
-        }
-      ],
-      "Formula": "100 - ( ( 100 * ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( h / ( i ) ) + ( j / ( i ) ) + ( k / ( i ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1.0 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) + ( 100 * ( ( b / ( b + c + d + e ) - f / ( g ) ) - ( 1 - ( 10 * ( r / ( g ) ) * ( max( ( s / ( b + c + d + e ) ) * ( 1 - t / ( u - v ) ) , 0.0001 ) ) / ( s / ( b + c + d + e ) ) ) ) * ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1.0 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) - ( ( 1 - w / x ) * ( ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1.0 ) ) ) + ( l / ( i ) + ( k / ( i ) ) ) * ( ( ( 1 - ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) ) * l / ( i ) ) + ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) * ( max( ( s / ( b + c + d + e ) ) * ( 1 - t / ( u - v ) ) , 0.0001 ) ) / ( s / ( b + c + d + e ) ) ) / ( ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) + ( ( 1 - ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) ) * l / ( i ) ) + ( k / ( i ) ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1.0 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) ) ) - ( 100 * ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( h / ( i ) ) + ( j / ( i ) ) + ( k / ( i ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1.0 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) ) + ( 100 * ( 1 - ( 10 * ( r / ( g ) ) * ( max( ( s / ( b + c + d + e ) ) * ( 1 - t / ( u - v ) ) , 0.0001 ) ) / ( s / ( b + c + d + e ) ) ) ) * ( ( s / ( b + c + d + e ) ) + ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1.0 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) ) + ( 100 * ( ( ( y / ( b + c + d + e ) ) * ( ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( ( min( i , a_m ) ) / ( i ) ) / ( ( ( min( i , a_m ) ) / ( i ) ) + ( ( min( i , a_n ) ) / ( i ) - ( ( min( i , a_m ) ) / ( i ) ) ) ) ) ) + ( ( y / ( b + c + d + e ) ) * ( ( ( a_k - z ) / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( ( a_o + a_p ) / ( i ) ) / ( ( min( ( ( ( ( 80 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_t * ( a_u / ( a_u + a_v ) ) ) + ( ( 79.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_w ) ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 79.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_x + a_t * ( 1 - ( a_u / ( a_u + a_v ) ) ) ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_y * ( 1 + ( a_b / a_c ) / 2 ) ) / ( i ) ) , ( 1.0 ) ) ) + ( ( a_o + a_p ) / ( i ) ) ) ) ) + ( ( y / ( b + c + d + e ) ) * ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( a_z / ( i ) ) / ( ( min( ( 7 ) * b_a + b_b , max( b_c - b_d , 0 ) ) / ( i ) ) + ( min( ( 13 * b_e / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( 16 * max( 0 , b_f - b_g ) + ( b_f / b_h ) * ( ( 10 ) * b_i + ( min( i , b_j ) ) ) ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( b_k / b_l ) * b_m / ( i ) ) , ( 1.0 ) ) ) + ( a_z / ( i ) ) ) ) ) ) ) + ( 100 * ( ( ( y / ( b + c + d + e ) ) * ( ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( ( min( i , a_n ) ) / ( i ) - ( ( min( i , a_m ) ) / ( i ) ) ) / ( ( ( min( i , a_m ) ) / ( i ) ) + ( ( min( i , a_n ) ) / ( i ) - ( ( min( i , a_m ) ) / ( i ) ) ) ) ) ) + ( ( y / ( b + c + d + e ) ) * ( ( ( a_k - z ) / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( min( ( ( ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_y * ( 1 + ( a_b / a_c ) / 2 ) ) / ( i ) ) , ( 1.0 ) ) ) / ( ( min( ( ( ( ( 80 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_t * ( a_u / ( a_u + a_v ) ) ) + ( ( 79.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_w ) ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 79.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_x + a_t * ( 1 - ( a_u / ( a_u + a_v ) ) ) ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_y * ( 1 + ( a_b / a_c ) / 2 ) ) / ( i ) ) , ( 1.0 ) ) ) + ( ( a_o + a_p ) / ( i ) ) ) ) ) + ( ( y / ( b + c + d + e ) ) * ( ( a_j - a_k ) / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) + ( a_l / ( i ) ) ) ) + ( ( y / ( b + c + d + e ) ) * ( ( a_l / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( min( ( ( ( b_n * ( 10 ) * ( 1 - ( b_f / b_h ) ) ) + ( 1 - ( b_f / b_h ) ) * ( min( i , b_j ) ) ) / ( i ) ) , ( 1.0 ) ) ) / ( ( min( ( ( ( b_n * ( 10 ) * ( 1 - ( b_f / b_h ) ) ) + ( 1 - ( b_f / b_h ) ) * ( min( i , b_j ) ) ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( 80 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_o / ( i ) ) , ( 1.0 ) ) ) + ( b_p / ( b_q if ( 1 ) else ( i ) ) ) + ( min( ( 9 * b_r / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 7 ) * b_s + b_t ) / ( b_q if ( 1 ) else ( i ) ) ) , ( 1.0 ) ) ) ) ) ) ) ) + ( 100 * ( ( y / ( b + c + d + e ) ) * ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) / max( ( y / ( b + c + d + e ) ) , ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) + ( a_l / ( i ) ) ) ) ) * ( ( min( ( 7 ) * b_a + b_b , max( b_c - b_d , 0 ) ) / ( i ) ) / max( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) , ( ( min( ( 7 ) * b_a + b_b , max( b_c - b_d , 0 ) ) / ( i ) ) + ( min( ( 13 * b_e / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( 16 * max( 0 , b_f - b_g ) + ( b_f / b_h ) * ( ( 10 ) * b_i + ( min( i , b_j ) ) ) ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( b_k / b_l ) * b_m / ( i ) ) , ( 1.0 ) ) ) + ( a_z / ( i ) ) ) ) ) + ( ( y / ( b + c + d + e ) ) * ( ( a_l / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( min( ( ( ( 7 ) * b_s + b_t ) / ( b_q if ( 1 ) else ( i ) ) ) , ( 1.0 ) ) ) / ( ( min( ( ( ( b_n * ( 10 ) * ( 1 - ( b_f / b_h ) ) ) + ( 1 - ( b_f / b_h ) ) * ( min( i , b_j ) ) ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( 80 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_o / ( i ) ) , ( 1.0 ) ) ) + ( b_p / ( b_q if ( 1 ) else ( i ) ) ) + ( min( ( 9 * b_r / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 7 ) * b_s + b_t ) / ( b_q if ( 1 ) else ( i ) ) ) , ( 1.0 ) ) ) ) ) ) ) ) + ( 100 * ( ( y / ( b + c + d + e ) ) * ( ( ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( ( min( i , a_n ) ) / ( i ) - ( ( min( i , a_m ) ) / ( i ) ) ) / ( ( ( min( i , a_m ) ) / ( i ) ) + ( ( min( i , a_n ) ) / ( i ) - ( ( min( i , a_m ) ) / ( i ) ) ) ) ) * ( min( ( ( ( ( 172.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * a_f + ( ( 172.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * a_e ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1.0 ) ) ) / ( ( min( ( ( ( 108 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * a_d * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 186 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * a_a * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 172.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * a_f + ( ( 172.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * a_e ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1.0 ) ) ) ) + ( ( ( a_k - z ) / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( min( ( ( ( ( 80 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_t * ( a_u / ( a_u + a_v ) ) ) + ( ( 79.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_w ) ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 79.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_x + a_t * ( 1 - ( a_u / ( a_u + a_v ) ) ) ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1.0 ) ) ) ) / ( ( min( ( ( ( ( 80 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_t * ( a_u / ( a_u + a_v ) ) ) + ( ( 79.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_w ) ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 79.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_x + a_t * ( 1 - ( a_u / ( a_u + a_v ) ) ) ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_y * ( 1 + ( a_b / a_c ) / 2 ) ) / ( i ) ) , ( 1.0 ) ) ) + ( ( a_o + a_p ) / ( i ) ) ) + ( ( a_l / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) + ( a_l / ( i ) ) ) ) * ( min( ( ( 80 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_o / ( i ) ) , ( 1.0 ) ) ) / ( ( ( min( ( ( ( b_n * ( 10 ) * ( 1 - ( b_f / b_h ) ) ) + ( 1 - ( b_f / b_h ) ) * ( min( i , b_j ) ) ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( 80 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_o / ( i ) ) , ( 1.0 ) ) ) + ( b_p / ( b_q if ( 1 ) else ( i ) ) ) + ( min( ( 9 * b_r / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 7 ) * b_s + b_t ) / ( b_q if ( 1 ) else ( i ) ) ) , ( 1.0 ) ) ) ) - ( min( ( ( ( b_n * ( 10 ) * ( 1 - ( b_f / b_h ) ) ) + ( 1 - ( b_f / b_h ) ) * ( min( i , b_j ) ) ) / ( i ) ) , ( 1.0 ) ) ) ) ) + ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( 1 - ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( 1 - b_u / v ) , 0.0001 ) ) / ( ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( 1 - b_u / v ) , 0.0001 ) ) ) ) ) ) + ( 100 * ( ( ( max( 0 , ( e / ( b + c + d + e ) ) - ( y / ( b + c + d + e ) ) ) ) * ( b_v / ( i ) ) / ( ( b_v / ( i ) ) + ( b_w / ( i ) + ( b_x / ( i ) ) ) + ( b_y / ( b_q if ( 1 ) else ( i ) ) ) + ( ( ( ( b_z + c_a ) / ( i ) * ( c_b - a_i ) / ( i ) ) * ( i ) + ( c_c + ( d / ( b + c + d + e ) ) * c_d ) ) / ( i ) if ( b_v < ( c_b - a_i ) ) else ( c_c + ( d / ( b + c + d + e ) ) * c_d ) / ( i ) ) ) ) + ( ( max( 0 , ( e / ( b + c + d + e ) ) - ( y / ( b + c + d + e ) ) ) ) * ( b_y / ( b_q if ( 1 ) else ( i ) ) ) / ( ( b_v / ( i ) ) + ( b_w / ( i ) + ( b_x / ( i ) ) ) + ( b_y / ( b_q if ( 1 ) else ( i ) ) ) + ( ( ( ( b_z + c_a ) / ( i ) * ( c_b - a_i ) / ( i ) ) * ( i ) + ( c_c + ( d / ( b + c + d + e ) ) * c_d ) ) / ( i ) if ( b_v < ( c_b - a_i ) ) else ( c_c + ( d / ( b + c + d + e ) ) * c_d ) / ( i ) ) ) ) + ( ( max( 0 , ( e / ( b + c + d + e ) ) - ( y / ( b + c + d + e ) ) ) ) * ( ( ( ( ( b_z + c_a ) / ( i ) * ( c_b - a_i ) / ( i ) ) * ( i ) + ( c_c + ( d / ( b + c + d + e ) ) * c_d ) ) / ( i ) if ( b_v < ( c_b - a_i ) ) else ( c_c + ( d / ( b + c + d + e ) ) * c_d ) / ( i ) ) / ( ( b_v / ( i ) ) + ( b_w / ( i ) + ( b_x / ( i ) ) ) + ( b_y / ( b_q if ( 1 ) else ( i ) ) ) + ( ( ( ( b_z + c_a ) / ( i ) * ( c_b - a_i ) / ( i ) ) * ( i ) + ( c_c + ( d / ( b + c + d + e ) ) * c_d ) ) / ( i ) if ( b_v < ( c_b - a_i ) ) else ( c_c + ( d / ( b + c + d + e ) ) * c_d ) / ( i ) ) ) ) * ( ( c_e / ( i ) ) / ( ( ( b_z + c_a ) / ( i ) * ( c_b - a_i ) / ( i ) ) + ( c_c / ( i ) ) + ( c_f / ( i ) ) + ( c_e / ( i ) ) ) ) ) ) ) + ( 100 * ( ( ( 1 - w / x ) * ( ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1.0 ) ) ) + ( l / ( i ) + ( k / ( i ) ) ) * ( ( ( 1 - ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) ) * l / ( i ) ) + ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) * ( max( ( s / ( b + c + d + e ) ) * ( 1 - t / ( u - v ) ) , 0.0001 ) ) / ( s / ( b + c + d + e ) ) ) / ( ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) + ( ( 1 - ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) ) * l / ( i ) ) + ( k / ( i ) ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1.0 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) ) + ( 10 * ( r / ( g ) ) * ( max( ( s / ( b + c + d + e ) ) * ( 1 - t / ( u - v ) ) , 0.0001 ) ) / ( s / ( b + c + d + e ) ) ) * ( s / ( b + c + d + e ) ) + ( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( 1 - b_u / v ) , 0.0001 ) ) / ( ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( 1 - b_u / v ) , 0.0001 ) ) ) ) + ( ( max( 0 , ( e / ( b + c + d + e ) ) - ( y / ( b + c + d + e ) ) ) ) * ( ( b_w / ( i ) + ( b_x / ( i ) ) ) + c_a / ( i ) * ( ( b_z + c_a ) / ( i ) * ( c_b - a_i ) / ( i ) ) ) / ( ( b_v / ( i ) ) + ( b_w / ( i ) + ( b_x / ( i ) ) ) + ( b_y / ( b_q if ( 1 ) else ( i ) ) ) + ( ( ( ( b_z + c_a ) / ( i ) * ( c_b - a_i ) / ( i ) ) * ( i ) + ( c_c + ( d / ( b + c + d + e ) ) * c_d ) ) / ( i ) if ( b_v < ( c_b - a_i ) ) else ( c_c + ( d / ( b + c + d + e ) ) * c_d ) / ( i ) ) ) ) + ( ( ( ( r / ( g ) ) / ( ( max( 0 , ( c_g / ( b + c + d + e ) ) - ( r / ( g ) ) ) ) + ( r / ( g ) ) ) ) * ( ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * c_h / ( g ) ) , ( 1.0 ) ) ) / ( r / ( g ) ) ) ) * ( c_g / ( b + c + d + e ) ) ) ) ) + ( 100 * ( ( c_i + c_j ) / ( g ) ) ) + ( 100 * ( ( d / ( b + c + d + e ) ) - ( ( c_i + c_j ) / ( g ) ) - ( ( ( ( r / ( g ) ) / ( ( max( 0 , ( c_g / ( b + c + d + e ) ) - ( r / ( g ) ) ) ) + ( r / ( g ) ) ) ) * ( ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * c_h / ( g ) ) , ( 1.0 ) ) ) / ( r / ( g ) ) ) ) * ( c_g / ( b + c + d + e ) ) ) ) ) )",
-      "Category": "TMA",
-      "Threshold": "> 20",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Cor;Offcore"
     },
     {
       "MetricName": "Info_Bottleneck_Branching_Overhead",
@@ -6518,7 +5316,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( 100 * ( ( a / ( b + c + a + d ) ) - ( ( e + f ) / ( g ) ) - ( ( ( ( h / ( g ) ) / ( ( max( 0 , ( i / ( b + c + a + d ) ) - ( h / ( g ) ) ) ) + ( h / ( g ) ) ) ) * ( ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * j / ( g ) ) , ( 1.0 ) ) ) / ( h / ( g ) ) ) ) * ( i / ( b + c + a + d ) ) ) ) )",
+      "Formula": "100 * ( 100 * ( ( a / ( b + c + a + d ) ) - ( ( e + f ) / ( g ) ) - ( ( ( ( h / ( g ) ) / ( ( max( 0 , ( i / ( b + c + a + d ) ) - ( h / ( g ) ) ) ) + ( h / ( g ) ) ) ) * ( ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * j / ( g ) ) , ( 1 ) ) ) / ( h / ( g ) ) ) ) * ( i / ( b + c + a + d ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 20",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -6796,7 +5594,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "( ( 1 * a + 2 * b + 4 * c + 8 * d + 16 * e ) ) / ( f if ( 1 ) else ( g ) )",
+      "Formula": "( 1 * a + 2 * b + 4 * c + 8 * d + 16 * e ) / ( f if ( 1 ) else ( g ) )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "CORE",
@@ -7152,7 +5950,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "a / ( ( 1 * b + 2 * c + 4 * d + 8 * e + 16 * f ) )",
+      "Formula": "a / ( 1 * b + 2 * c + 4 * d + 8 * e + 16 * f )",
       "Category": "TMA",
       "Threshold": "< 10",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -7509,7 +6307,7 @@
       "MetricName": "Info_Pipeline_Execute",
       "LegacyName": "metric_TMA_Info_Pipeline_Execute",
       "Level": 1,
-      "BriefDescription": "",
+      "BriefDescription": "Instruction-Level-Parallelism (average number of uops executed when there is execution) per physical core",
       "UnitOfMeasure": "",
       "Events": [
         {
@@ -7836,7 +6634,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( 100 * ( ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( h / ( i ) ) / ( ( j / ( i ) ) + ( k / ( i ) ) + ( l / ( i ) + ( m / ( i ) ) ) + ( min( ( ( 3 ) * n / ( o / p ) / ( i ) ) , ( 1.0 ) ) ) + ( q / ( i ) ) + ( h / ( i ) ) ) + ( max( 0 , ( b / ( b + c + d + e ) - f / ( g ) ) - ( ( a / ( b + c + d + e ) - f / ( g ) ) ) ) ) * ( ( r - s ) / ( t if ( 1 ) else ( i ) ) / 2 ) / ( ( ( r - s ) / ( t if ( 1 ) else ( i ) ) / 2 ) + ( ( u - v ) / ( t if ( 1 ) else ( i ) ) / 2 ) ) ) )",
+      "Formula": "100 * ( 100 * ( ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( h / ( i ) ) / ( ( j / ( i ) ) + ( k / ( i ) ) + ( l / ( i ) + ( m / ( i ) ) ) + ( min( ( ( 3 ) * n / ( o / p ) / ( i ) ) , ( 1 ) ) ) + ( q / ( i ) ) + ( h / ( i ) ) ) + ( max( 0 , ( b / ( b + c + d + e ) - f / ( g ) ) - ( ( a / ( b + c + d + e ) - f / ( g ) ) ) ) ) * ( ( r - s ) / ( t if ( 1 ) else ( i ) ) / 2 ) / ( ( ( r - s ) / ( t if ( 1 ) else ( i ) ) / 2 ) + ( ( u - v ) / ( t if ( 1 ) else ( i ) ) / 2 ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 10; $issueFB",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -7919,7 +6717,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( 100 * ( ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( h / ( i ) ) / ( ( h / ( i ) ) + ( j / ( i ) ) + ( k / ( i ) + ( l / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1.0 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) )",
+      "Formula": "100 * ( 100 * ( ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( h / ( i ) ) / ( ( h / ( i ) ) + ( j / ( i ) ) + ( k / ( i ) + ( l / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 5; $issueFL",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -8137,7 +6935,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "( 100 * ( 1 - ( 10 * ( a / ( b ) ) * ( max( ( c / ( d + e + f + g ) ) * ( 1 - h / ( i - j ) ) , 0.0001 ) ) / ( c / ( d + e + f + g ) ) ) ) * ( ( c / ( d + e + f + g ) ) + ( ( k / ( d + e + f + g ) - l / ( b ) ) ) * ( ( ( c / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - l / ( b ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * m / ( n ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1.0 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) ) ) * ( b ) / h / 100",
+      "Formula": "( 100 * ( 1 - ( 10 * ( a / ( b ) ) * ( max( ( c / ( d + e + f + g ) ) * ( 1 - h / ( i - j ) ) , 0.0001 ) ) / ( c / ( d + e + f + g ) ) ) ) * ( ( c / ( d + e + f + g ) ) + ( ( k / ( d + e + f + g ) - l / ( b ) ) ) * ( ( ( c / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - l / ( b ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * m / ( n ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) ) ) * ( b ) / h / 100",
       "Category": "TMA",
       "Threshold": "; $issueBM",
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
@@ -8574,7 +7372,7 @@
       "MetricName": "Info_Memory_L1D_Cache_Fill_BW",
       "LegacyName": "metric_TMA_Info_Memory_L1D_Cache_Fill_BW",
       "Level": 1,
-      "BriefDescription": "",
+      "BriefDescription": "Average per-thread data fill bandwidth to the L1 data cache [GB / sec]",
       "UnitOfMeasure": "",
       "Events": [
         {
@@ -8588,7 +7386,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "64 * a / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) )",
+      "Formula": "64 * a / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -8598,7 +7396,7 @@
       "MetricName": "Info_Memory_L2_Cache_Fill_BW",
       "LegacyName": "metric_TMA_Info_Memory_L2_Cache_Fill_BW",
       "Level": 1,
-      "BriefDescription": "",
+      "BriefDescription": "Average per-thread data fill bandwidth to the L2 cache [GB / sec]",
       "UnitOfMeasure": "",
       "Events": [
         {
@@ -8612,7 +7410,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "64 * a / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) )",
+      "Formula": "64 * a / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -8622,7 +7420,7 @@
       "MetricName": "Info_Memory_L3_Cache_Fill_BW",
       "LegacyName": "metric_TMA_Info_Memory_L3_Cache_Fill_BW",
       "Level": 1,
-      "BriefDescription": "",
+      "BriefDescription": "Average per-thread data fill bandwidth to the L3 cache [GB / sec]",
       "UnitOfMeasure": "",
       "Events": [
         {
@@ -8636,7 +7434,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "64 * a / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) )",
+      "Formula": "64 * a / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -8646,7 +7444,7 @@
       "MetricName": "Info_Memory_L3_Cache_Access_BW",
       "LegacyName": "metric_TMA_Info_Memory_L3_Cache_Access_BW",
       "Level": 1,
-      "BriefDescription": "",
+      "BriefDescription": "Average per-thread data access bandwidth to the L3 cache [GB / sec]",
       "UnitOfMeasure": "",
       "Events": [
         {
@@ -8660,7 +7458,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "64 * a / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) )",
+      "Formula": "64 * a / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -8788,7 +7586,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "( 64 * a / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) )",
+      "Formula": "( 64 * a / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
@@ -8812,7 +7610,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "( 64 * a / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) )",
+      "Formula": "( 64 * a / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
@@ -8836,7 +7634,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "( 64 * a / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) )",
+      "Formula": "( 64 * a / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
@@ -8860,7 +7658,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "( 64 * a / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) )",
+      "Formula": "( 64 * a / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 ) )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
@@ -9193,7 +7991,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) )",
+      "Formula": "( ( a ) / b ) * c / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "SOCKET, SYSTEM",
@@ -9217,7 +8015,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "( a ) / 1e9 / ( ( durationtimeinmilliseconds / 1000 ) )",
+      "Formula": "( a ) / 1e9 / ( durationtimeinmilliseconds / 1000 )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "SOCKET, SYSTEM",
@@ -9257,7 +8055,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "( ( ( 1 * a + 2 * b + 4 * c + 8 * d + 16 * e ) ) / ( 1000000000 ) ) / ( ( durationtimeinmilliseconds / 1000 ) )",
+      "Formula": "( ( 1 * a + 2 * b + 4 * c + 8 * d + 16 * e ) / ( 1000000000 ) ) / ( durationtimeinmilliseconds / 1000 )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -9400,7 +8198,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "( 64 * ( a + b ) / ( 1000000000 ) ) / ( ( durationtimeinmilliseconds / 1000 ) )",
+      "Formula": "( 64 * ( a + b ) / ( 1000000000 ) ) / ( durationtimeinmilliseconds / 1000 )",
       "Category": "TMA",
       "Threshold": "; $issueBW",
       "ResolutionLevels": "CHANNEL, IMC, SOCKET, SYSTEM",
@@ -9432,7 +8230,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "( 1000000000 ) * ( a / b ) / ( ( c ) / ( ( durationtimeinmilliseconds / 1000 ) ) )",
+      "Formula": "( 1000000000 ) * ( a / b ) / ( ( c ) / ( durationtimeinmilliseconds / 1000 ) )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "SOCKET, SYSTEM",
@@ -9533,7 +8331,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "( ( 64 * a / ( 1000000000 ) ) / ( ( durationtimeinmilliseconds / 1000 ) ) )",
+      "Formula": "( ( 64 * a / ( 1000000000 ) ) / ( durationtimeinmilliseconds / 1000 ) )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "CHANNEL, IMC, SOCKET, SYSTEM",
@@ -9557,7 +8355,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "( ( 64 * a / ( 1000000000 ) ) / ( ( durationtimeinmilliseconds / 1000 ) ) )",
+      "Formula": "( ( 64 * a / ( 1000000000 ) ) / ( durationtimeinmilliseconds / 1000 ) )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "CHANNEL, IMC, SOCKET, SYSTEM",
@@ -9581,7 +8379,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "a * 64 / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) )",
+      "Formula": "a * 64 / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "SOCKET, SYSTEM",
@@ -9609,7 +8407,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "( a + b ) * 64 / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) )",
+      "Formula": "( a + b ) * 64 / ( 1000000000 ) / ( durationtimeinmilliseconds / 1000 )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "SOCKET, SYSTEM",
@@ -9717,7 +8515,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "64 * a / 1e9 / ( ( durationtimeinmilliseconds / 1000 ) )",
+      "Formula": "64 * a / 1e9 / ( durationtimeinmilliseconds / 1000 )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -9741,7 +8539,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "64 * a / 1e9 / ( ( durationtimeinmilliseconds / 1000 ) )",
+      "Formula": "64 * a / 1e9 / ( durationtimeinmilliseconds / 1000 )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -9765,7 +8563,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "64 * a / 1e9 / ( ( durationtimeinmilliseconds / 1000 ) )",
+      "Formula": "64 * a / 1e9 / ( durationtimeinmilliseconds / 1000 )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
