@@ -36,7 +36,7 @@ jobs:
       run: python create_perf_json.py -v
 
     - name: Archive perf json files
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: perf-json
         path: scripts/perf

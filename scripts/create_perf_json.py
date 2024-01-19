@@ -169,12 +169,14 @@ def topic(event_name: str, unit: str) -> str:
     if unit and unit not in ['cpu', 'cpu_atom', 'cpu_core']:
         unit_to_topic = {
             'cha': 'Uncore-Cache',
+            'chacms': 'Uncore-Cache',
             'cbox': 'Uncore-Cache',
             'ha': 'Uncore-Cache',
             'hac_cbo': 'Uncore-Cache',
             'cxlcm': 'Uncore-CXL',
             'cxldp': 'Uncore-CXL',
             'arb': 'Uncore-Interconnect',
+            'b2cmi': 'Uncore-Interconnect',
             'hac_arb': 'Uncore-Interconnect',
             'irp': 'Uncore-Interconnect',
             'm2m': 'Uncore-Interconnect',
@@ -1073,15 +1075,14 @@ class Model:
                     if pmu_prefix != 'cpu':
                         for name in events:
                             if events[name].unit.startswith('cpu') and name in form:
-                                if form == name:
-                                    form = f'{pmu_prefix}@{name}@'
-                                else:
-                                    form = re.sub(rf'([^@]){name}:([a-zA-Z])',
-                                                  rf'\1{pmu_prefix}@{name}@\2',
-                                                  form, re.IGNORECASE)
-                                    form = re.sub(rf'([^@]){name}([^a-zA-Z0-9_])',
-                                                  rf'\1{pmu_prefix}@{name}@\2',
-                                                  form, re.IGNORECASE)
+                                if form == name or form.startswith(f'{name} '):
+                                    form = f'{pmu_prefix}@{name}@' + form[len(name):]
+                                form = re.sub(rf'([^@]){name}:([a-zA-Z])',
+                                              rf'\1{pmu_prefix}@{name}@\2',
+                                              form, re.IGNORECASE)
+                                form = re.sub(rf'([^@]){name}([^a-zA-Z0-9_])',
+                                              rf'\1{pmu_prefix}@{name}@\2',
+                                              form, re.IGNORECASE)
 
                     changed = True
                     while changed:
@@ -1366,6 +1367,18 @@ class Model:
                     'tma_split_stores': nmi,
                     'tma_store_fwd_blk': nmi,
                 }
+                # Alderlake/sapphirerapids add topdown l2 events
+                # meaning fewer events and triggering NMI issues.
+                alderlake_constraints = {
+                    # Metrics with more events than counters.
+                    'tma_info_system_mem_read_latency': no_group,
+                    'tma_info_system_mem_request_latency': no_group,
+                    # Metrics that would fit were the NMI watchdog disabled.
+                    'tma_ports_utilized_2': nmi,
+                    'tma_ports_utilized_3m': nmi,
+                    'tma_memory_fence': nmi,
+                    'tma_slow_pause': nmi,
+                }
                 errata_constraints = {
                     # 4 programmable, 3 fixed counters per HT
                     'JKT': sandybridge_constraints,
@@ -1392,10 +1405,11 @@ class Model:
                     'ICX': icelake_constraints,
                     'RKL': icelake_constraints,
                     'TGL': icelake_constraints,
-                    'ADL': icelake_constraints,
-                    'ADLN': icelake_constraints,
-                    'RPL': icelake_constraints,
-                    'SPR': icelake_constraints,
+                    # As above but l2 topdown counters
+                    'ADL': alderlake_constraints,
+                    'ADLN': alderlake_constraints,
+                    'RPL': alderlake_constraints,
+                    'SPR': alderlake_constraints,
                 }
                 if name in errata_constraints[self.shortname]:
                     j['MetricConstraint'] = errata_constraints[self.shortname][name]
