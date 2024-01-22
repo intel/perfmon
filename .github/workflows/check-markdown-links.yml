@@ -5,6 +5,9 @@ on:
     # Tuesdays at 9AM PST. GitHub Actions run in UTC.
     - cron: '0 16 * * 2'
 
+permissions:
+  contents: read
+
 jobs:
   markdown-link-check:
     runs-on: ubuntu-latest

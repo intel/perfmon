@@ -120,7 +120,7 @@ In this repository there are three, related, metrics file types.
 
 | Files | Description and Additional Information |
 | ---| --- |
-| `TMA_Metrics.xlsx`<br/>`Atom_TMA.xlsx`<br/>`E-core_TMA_Metrics.xlsx`| Official TMA releases. Performance architect maintained metrics for Top-down analysis methodology. <br />- [Ahmad Yasin, "A Top-Down method for performance analysis and counters architecture", ISPASS 2014](https://doi.org/10.1109/ISPASS.2014.6844459)<br />- [Intel&copy; VTune&trade; Top-down Microarchitecture Analysis Method](https://www.intel.com/content/www/us/en/docs/vtune-profiler/cookbook/2023-1/top-down-microarchitecture-analysis-method.html) |
+| `TMA_Metrics.xlsx`<br/>`Atom_TMA.xlsx`<br/>`E-core_TMA_Metrics.xlsx`| Official TMA releases. Performance architect maintained metrics for Top-down analysis methodology. <br />- [Ahmad Yasin, "A Top-Down method for performance analysis and counters architecture", ISPASS 2014](https://doi.org/10.1109/ISPASS.2014.6844459)<br />- [Intel&copy; VTune&trade; Top-down Microarchitecture Analysis Method](https://www.intel.com/content/www/us/en/docs/vtune-profiler/cookbook/2024-0/top-down-microarchitecture-analysis-method.html) |
 | `TMA_Metrics.csv`<br/>`TMA_Metrics-full.csv`<br/>`E-core_TMA_Metrics.csv`<br/>`Atom_TMA.csv`| CSV formatted metrics from the above `.xlsx` spreadsheets. |
 | `{platform}/metrics` | JSON formatted metrics intended for performance monitoring tools. Full description in the previous documentation section. |
 
@@ -302,15 +302,14 @@ This field lists the known bugs that apply to the events. For the latest errata 
 
 | Platform | Specification Updates / Errata Documentation |
 | --- | --- |
-| RPL[^rpl_footnote] | [13th Generation Intel&reg; Core&trade; Processor Specification Update (Doc. #740518)](https://cdrdv2.intel.com/v1/dl/getContent/740518?explicitVersion=true) |
 | ADL | [12th Generation Intel&reg; Core&trade; Processor Specification Update (Doc. #682436)](https://cdrdv2.intel.com/v1/dl/getContent/682436?explicitVersion=true) |
 | CLX | [2nd Gen Intel&reg; Xeon&reg; Scalable Processors Specification Update (Doc. #338848)](https://cdrdv2.intel.com/v1/dl/getContent/338848?explicitVersion=true) |
-| HSW | [Desktop 4th Generation Intel&reg; Core&trade; Processor Family Specification Update (Doc. #328899)](https://www.intel.com/content/dam/www/public/us/en/documents/specification-updates/4th-gen-core-family-desktop-specification-update.pdf) |
 | HSX | [Intel&reg; Xeon&reg; Processor E5 v3 Product Family Specification Update (Doc. #330785)](https://cdrdv2.intel.com/v1/dl/getContent/330785?explicitVersion=true)
 | ICL | [10th Generation Intel&reg; Core&trade; Processor Specification Update (Doc. #341079)](https://cdrdv2.intel.com/v1/dl/getContent/341079?explicitVersion=true) |
 | ICX | [3rd Gen Intel&reg; Xeon&reg; Scalable Processors, Codename Ice Lake Specification Update (Doc. #637780)](https://cdrdv2.intel.com/v1/dl/getContent/637780?explicitVersion=true) |
 | IVB | [Desktop 3rd Generation Intel&reg; Core&trade; Processor Family Specification Update (Doc. #326766)](https://www.intel.com/content/dam/www/public/us/en/documents/specification-updates/3rd-gen-core-desktop-specification-update.pdf) |
-| JKT | [Intel&reg; Xeon&reg; Processor E5 Product Family Specification Update (Doc. #326510)](https://www.intel.com/content/dam/www/public/us/en/documents/specification-updates/xeon-e5-family-spec-update.pdf) |
+| MTL | [Intel&reg; Core&trade; Ultra Processor Specification Update (Doc. #792254)](https://cdrdv2.intel.com/v1/dl/getContent/792254?explicitVersion=true) |
+| RPL[^rpl_footnote] | [13th Generation Intel&reg; Core&trade;, 14th Generation Intel&reg; Core&trade; Processor Specification Update (Doc. #740518)](https://cdrdv2.intel.com/v1/dl/getContent/740518?explicitVersion=true) |
 | SPR | [4th Gen Intel&reg; Xeon&reg; Scalable Processors Codename Sapphire Rapids Specification Update (Doc. #772415)](https://cdrdv2.intel.com/v1/dl/getContent/772415?explicitVersion=true) |
 | SKX | [Intel&reg; Xeon&reg; Processor Scalable Family Specification Update (Doc. #336065)](https://cdrdv2.intel.com/v1/dl/getContent/336065?explicitVersion=true) |
 | TGL | [11th Generation Intel&reg; Core&trade; Processor Specification Update (Doc. #631123)](https://cdrdv2.intel.com/v1/dl/getContent/631123?explicitVersion=true) |
