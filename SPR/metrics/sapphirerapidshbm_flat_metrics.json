@@ -2,13 +2,108 @@
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for 4th Generation Intel(R) Xeon(R) Processor Scalable Family based on Sapphire Rapids microarchitecture0",
-    "DatePublished": "01/12/2024",
+    "DatePublished": "01/22/2024",
     "Version": "0",
     "Legend": "",
     "TmaVersion": "4.7",
     "TmaFlavor": "Full"
   },
   "Metrics": [
+    {
+      "MetricName": "upi_data_receive_bw",
+      "LegacyName": "metric_UPI Data receive BW (MB/sec) (only data)",
+      "Level": 1,
+      "BriefDescription": "Intel(R) Ultra Path Interconnect (UPI) data receive bandwidth (MB/sec)",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_UPI_RxL_FLITS.ALL_DATA",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(a * (64 / 9.0) / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "UPI, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "llc_miss_local_memory_bandwidth_read",
+      "LegacyName": "metric_llc_miss_local_memory_bandwidth_read_MB/s",
+      "Level": 1,
+      "BriefDescription": "Bandwidth (MB/sec) of read requests that miss the last level cache (LLC) and go to local memory.",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_CHA_REQUESTS.READS_LOCAL",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "llc_miss_local_memory_bandwidth_write",
+      "LegacyName": "metric_llc_miss_local_memory_bandwidth_write_MB/s",
+      "Level": 1,
+      "BriefDescription": "Bandwidth (MB/sec) of write requests that miss the last level cache (LLC) and go to local memory.",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_CHA_REQUESTS.WRITES_LOCAL",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "llc_miss_remote_memory_bandwidth_read",
+      "LegacyName": "metric_llc_miss_remote_memory_bandwidth_read_MB/s",
+      "Level": 1,
+      "BriefDescription": "Bandwidth (MB/sec) of read requests that miss the last level cache (LLC) and go to remote memory.",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_CHA_REQUESTS.READS_REMOTE",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
+    {
+      "MetricName": "llc_miss_remote_memory_bandwidth_write",
+      "LegacyName": "metric_llc_miss_remote_memory_bandwidth_write_MB/s",
+      "Level": 1,
+      "BriefDescription": "Bandwidth (MB/sec) of write requests that miss the last level cache (LLC) and go to remote memory.",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_CHA_REQUESTS.WRITES_REMOTE",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "Threshold": "",
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
+      "MetricGroup": ""
+    },
     {
       "MetricName": "cpu_operating_frequency",
       "LegacyName": "metric_CPU operating frequency (in GHz)",
@@ -1422,7 +1517,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( 3 ) * a / ( b / c ) / ( d ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( 3 ) * a / ( b / c ) / ( d ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueMC; $issueMS; $issueMV; $issueSO",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -1545,8 +1640,17 @@
           "Alias": "d"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( ( a - b ) / ( c if ( 1 ) else ( d ) ) / 2 )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( ( a - b ) / ( c if smt_on else ( d ) ) / 2 )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -1577,8 +1681,17 @@
           "Alias": "d"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( ( a - b ) / ( c if ( 1 ) else ( d ) ) / 2 )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( ( a - b ) / ( c if smt_on else ( d ) ) / 2 )",
       "Category": "TMA",
       "Threshold": "> 10 & P; $issueD0",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -1609,8 +1722,17 @@
           "Alias": "d"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( ( a - b ) / ( c if ( 1 ) else ( d ) ) / 2 )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( ( a - b ) / ( c if smt_on else ( d ) ) / 2 )",
       "Category": "TMA",
       "Threshold": "> 15 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2044,7 +2166,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( 13 * a / ( b ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( 13 * a / ( b ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2084,7 +2206,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( 16 * max( 0 , a - b ) + ( a / c ) * ( ( 10 ) * d + ( min( e , f ) ) ) ) / ( e ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( 16 * max( 0 , a - b ) + ( a / c ) * ( ( 10 ) * d + ( min( e , f ) ) ) ) / ( e ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 20 & P; $issueRFO",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2116,7 +2238,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( a / b ) * c / ( d ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( a / b ) * c / ( d ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 20 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2253,7 +2375,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( ( ( 80 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( e * ( f / ( f + g ) ) ) + ( ( 79.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( h ) ) * ( 1 + ( i / j ) / 2 ) / ( a ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( ( 80 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( e * ( f / ( f + g ) ) ) + ( ( 79.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( h ) ) * ( 1 + ( i / j ) / 2 ) / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueSyncxn",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2310,7 +2432,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( ( 79.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( e + f * ( 1 - ( g / ( g + h ) ) ) ) * ( 1 + ( i / j ) / 2 ) / ( a ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( 79.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( e + f * ( 1 - ( g / ( g + h ) ) ) ) * ( 1 + ( i / j ) / 2 ) / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueSyncxn",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2355,7 +2477,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( e * ( 1 + ( f / g ) / 2 ) ) / ( a ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( e * ( 1 + ( f / g ) / 2 ) ) / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P; $issueLat; ~overlap",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2564,7 +2686,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( ( 108 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * e * ( 1 + ( f / g ) / 2 ) / ( a ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( 108 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * e * ( 1 + ( f / g ) / 2 ) / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2609,7 +2731,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( ( 186 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * e * ( 1 + ( f / g ) / 2 ) / ( a ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( 186 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * e * ( 1 + ( f / g ) / 2 ) / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2658,7 +2780,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( ( ( 172.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * e + ( ( 172.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * f ) * ( 1 + ( g / h ) / 2 ) / ( a ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( ( 172.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * e + ( ( 172.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * f ) * ( 1 + ( g / h ) / 2 ) / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueSyncxn",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2714,7 +2836,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( ( ( 1 - ( ( 19 * ( a * ( 1 + ( b / c ) ) ) + 10 * ( ( d * ( 1 + ( b / c ) ) ) + ( e * ( 1 + ( b / c ) ) ) + ( f * ( 1 + ( b / c ) ) ) ) ) / ( ( 19 * ( a * ( 1 + ( b / c ) ) ) + 10 * ( ( d * ( 1 + ( b / c ) ) ) + ( e * ( 1 + ( b / c ) ) ) + ( f * ( 1 + ( b / c ) ) ) ) ) + ( 25 * ( g * ( 1 + ( b / c ) ) ) + 33 * ( h * ( 1 + ( b / c ) ) ) ) ) ) ) * ( i / ( j ) ) ) if ( ( 1000000 ) * ( h + g ) > c ) else 0 ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( ( 1 - ( ( 19 * ( a * ( 1 + ( b / c ) ) ) + 10 * ( ( d * ( 1 + ( b / c ) ) ) + ( e * ( 1 + ( b / c ) ) ) + ( f * ( 1 + ( b / c ) ) ) ) ) / ( ( 19 * ( a * ( 1 + ( b / c ) ) ) + 10 * ( ( d * ( 1 + ( b / c ) ) ) + ( e * ( 1 + ( b / c ) ) ) + ( f * ( 1 + ( b / c ) ) ) ) ) + ( 25 * ( g * ( 1 + ( b / c ) ) ) + 33 * ( h * ( 1 + ( b / c ) ) ) ) ) ) ) * ( i / ( j ) ) ) if ( ( 1000000 ) * ( h + g ) > c ) else 0 ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2774,7 +2896,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( ( a * ( 10 ) * ( 1 - ( b / c ) ) ) + ( 1 - ( b / c ) ) * ( min( d , e ) ) ) / ( d ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( a * ( 10 ) * ( 1 - ( b / c ) ) ) + ( 1 - ( b / c ) ) * ( min( d , e ) ) ) / ( d ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P; $issueRFO; $issueSL; ~overlap",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2811,7 +2933,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( 80 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * e / ( a ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( 80 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * e / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueSyncxn",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2838,8 +2960,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( a / ( b if ( 1 ) else ( c ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( a / ( b if smt_on else ( c ) ) )",
       "Category": "TMA",
       "Threshold": "> 20 & P; $issueSpSt",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2863,7 +2994,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( 9 * a / ( b ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( 9 * a / ( b ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 20 & P; $issueSmSt",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2894,8 +3025,17 @@
           "Alias": "d"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( min( ( ( ( 7 ) * a + b ) / ( c if ( 1 ) else ( d ) ) ) , ( 1.0 ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( min( ( ( ( 7 ) * a + b ) / ( c if smt_on else ( d ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueTLB",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2926,8 +3066,17 @@
           "Alias": "d"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( min( ( ( min( ( ( ( 7 ) * a + b ) / ( c if ( 1 ) else ( d ) ) ) , ( 1.0 ) ) ) - ( min( ( b / ( c if ( 1 ) else ( d ) ) ) , ( 1.0 ) ) ) ) , ( 1.0 ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( min( ( ( min( ( ( ( 7 ) * a + b ) / ( c if smt_on else ( d ) ) ) , ( 1 ) ) ) - ( min( ( b / ( c if smt_on else ( d ) ) ) , ( 1 ) ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2954,8 +3103,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( min( ( a / ( b if ( 1 ) else ( c ) ) ) , ( 1.0 ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( min( ( a / ( b if smt_on else ( c ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3139,7 +3297,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( 13 * a / ( b ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( 13 * a / ( b ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3166,8 +3324,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( a / ( b if ( 1 ) else ( c ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( a / ( b if smt_on else ( c ) ) )",
       "Category": "TMA",
       "Threshold": "> 50 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3291,7 +3458,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( 160 * a / ( b ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( 160 * a / ( b ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5; $issueMV",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3402,8 +3569,17 @@
           "Alias": "f"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( ( a + b + c + d ) / ( 5 * ( e if ( 1 ) else ( f ) ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( ( a + b + c + d ) / ( 5 * ( e if smt_on else ( f ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 40",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3430,8 +3606,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( a / ( b if ( 1 ) else ( c ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( a / ( b if smt_on else ( c ) ) )",
       "Category": "TMA",
       "Threshold": "> 60; $issue2P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3458,8 +3643,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( a / ( b if ( 1 ) else ( c ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( a / ( b if smt_on else ( c ) ) )",
       "Category": "TMA",
       "Threshold": "> 60; $issue2P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3486,8 +3680,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( a / ( b if ( 1 ) else ( c ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( a / ( b if smt_on else ( c ) ) )",
       "Category": "TMA",
       "Threshold": "> 60; $issue2P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3514,8 +3717,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( a / ( 3 * ( b if ( 1 ) else ( c ) ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( a / ( 3 * ( b if smt_on else ( c ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 60",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3546,8 +3758,17 @@
           "Alias": "d"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( ( a + b ) / ( 4 * ( c if ( 1 ) else ( d ) ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( ( a + b ) / ( 4 * ( c if smt_on else ( d ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 60",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3674,7 +3895,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( ( ( a / ( b + c + a + d ) ) * e / f ) + ( ( g + h ) / ( ( a / ( b + c + a + d ) ) * ( i ) ) ) + ( min( ( ( j + k ) / ( ( a / ( b + c + a + d ) ) * ( i ) ) ) , ( 1.0 ) ) ) )",
+      "Formula": "100 * ( ( ( a / ( b + c + a + d ) ) * e / f ) + ( ( g + h ) / ( ( a / ( b + c + a + d ) ) * ( i ) ) ) + ( min( ( ( j + k ) / ( ( a / ( b + c + a + d ) ) * ( i ) ) ) , ( 1 ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 20 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3802,7 +4023,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( a + b ) / ( ( c / ( d + e + c + f ) ) * ( g ) ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( a + b ) / ( ( c / ( d + e + c + f ) ) * ( g ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P; $issue2P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3850,7 +4071,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( a + b + c ) / ( ( d / ( e + f + d + g ) ) * ( h ) ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( a + b + c ) / ( ( d / ( e + f + d + g ) ) * ( h ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P; $issue2P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3898,7 +4119,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( a + b + c ) / ( ( d / ( e + f + d + g ) ) * ( h ) ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( a + b + c ) / ( ( d / ( e + f + d + g ) ) * ( h ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P; $issue2P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3946,7 +4167,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( a + b + c ) / ( ( d / ( e + f + d + g ) ) * ( h ) ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( a + b + c ) / ( ( d / ( e + f + d + g ) ) * ( h ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P; $issue2P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4326,7 +4547,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( max( 0 , ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) - ( ( ( ( a / ( b + c + a + d ) ) * f / g ) + ( ( h + i ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( min( ( ( k + l ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) , ( 1.0 ) ) ) ) + ( ( ( m + n ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( ( o + p + q ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * r / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * s / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * ( t - s ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) ) ) )",
+      "Formula": "100 * ( max( 0 , ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) - ( ( ( ( a / ( b + c + a + d ) ) * f / g ) + ( ( h + i ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( min( ( ( k + l ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) , ( 1 ) ) ) ) + ( ( ( m + n ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( ( o + p + q ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * r / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * s / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * ( t - s ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 30 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4542,7 +4763,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * a / ( b ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * a / ( b ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4642,7 +4863,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( max( 0 , ( a / ( b ) ) - ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * c / ( b ) ) , ( 1.0 ) ) ) ) )",
+      "Formula": "100 * ( max( 0 , ( a / ( b ) ) - ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * c / ( b ) ) , ( 1 ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4745,7 +4966,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( 100 * ( 1 - ( 10 * ( a / ( b ) ) * ( max( ( c / ( d + e + f + g ) ) * ( 1 - h / ( i - j ) ) , 0.0001 ) ) / ( c / ( d + e + f + g ) ) ) ) * ( ( c / ( d + e + f + g ) ) + ( ( k / ( d + e + f + g ) - l / ( b ) ) ) * ( ( ( c / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - l / ( b ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * m / ( n ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1.0 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) ) )",
+      "Formula": "100 * ( 100 * ( 1 - ( 10 * ( a / ( b ) ) * ( max( ( c / ( d + e + f + g ) ) * ( 1 - h / ( i - j ) ) , 0.0001 ) ) / ( c / ( d + e + f + g ) ) ) ) * ( ( c / ( d + e + f + g ) ) + ( ( k / ( d + e + f + g ) - l / ( b ) ) ) * ( ( ( c / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - l / ( b ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * m / ( n ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 20; $issueBM",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4828,7 +5049,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( 100 * ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( h / ( i ) ) + ( j / ( i ) ) + ( k / ( i ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1.0 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) )",
+      "Formula": "100 * ( 100 * ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( h / ( i ) ) + ( j / ( i ) ) + ( k / ( i ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 20",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4939,7 +5160,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( 100 * ( ( a / ( a + b + c + d ) - e / ( f ) ) - ( 1 - ( 10 * ( g / ( f ) ) * ( max( ( h / ( a + b + c + d ) ) * ( 1 - i / ( j - k ) ) , 0.0001 ) ) / ( h / ( a + b + c + d ) ) ) ) * ( ( l / ( a + b + c + d ) - e / ( f ) ) ) * ( ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) * m / ( n ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1.0 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) - ( ( 1 - w / x ) * ( ( ( l / ( a + b + c + d ) - e / ( f ) ) ) * ( ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1.0 ) ) ) + ( m / ( n ) + ( q / ( n ) ) ) * ( ( ( 1 - ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) ) * m / ( n ) ) + ( ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) * m / ( n ) ) * ( max( ( h / ( a + b + c + d ) ) * ( 1 - i / ( j - k ) ) , 0.0001 ) ) / ( h / ( a + b + c + d ) ) ) / ( ( ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) * m / ( n ) ) + ( ( 1 - ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) ) * m / ( n ) ) + ( q / ( n ) ) ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1.0 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) ) ) ) - ( 100 * ( ( l / ( a + b + c + d ) - e / ( f ) ) ) * ( ( p / ( n ) ) + ( o / ( n ) ) + ( q / ( n ) ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1.0 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) ) )",
+      "Formula": "100 * ( 100 * ( ( a / ( a + b + c + d ) - e / ( f ) ) - ( 1 - ( 10 * ( g / ( f ) ) * ( max( ( h / ( a + b + c + d ) ) * ( 1 - i / ( j - k ) ) , 0.0001 ) ) / ( h / ( a + b + c + d ) ) ) ) * ( ( l / ( a + b + c + d ) - e / ( f ) ) ) * ( ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) * m / ( n ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) - ( ( 1 - w / x ) * ( ( ( l / ( a + b + c + d ) - e / ( f ) ) ) * ( ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1 ) ) ) + ( m / ( n ) + ( q / ( n ) ) ) * ( ( ( 1 - ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) ) * m / ( n ) ) + ( ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) * m / ( n ) ) * ( max( ( h / ( a + b + c + d ) ) * ( 1 - i / ( j - k ) ) , 0.0001 ) ) / ( h / ( a + b + c + d ) ) ) / ( ( ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) * m / ( n ) ) + ( ( 1 - ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) ) * m / ( n ) ) + ( q / ( n ) ) ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) ) ) ) - ( 100 * ( ( l / ( a + b + c + d ) - e / ( f ) ) ) * ( ( p / ( n ) ) + ( o / ( n ) ) + ( q / ( n ) ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 20",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -5029,8 +5250,17 @@
           "Alias": "s"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( 100 * ( ( ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) * ( f / ( g ) ) / ( ( f / ( g ) ) + ( h / ( g ) + ( i / ( g ) ) ) + ( j / ( k if ( 1 ) else ( g ) ) ) + ( ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) * ( g ) + ( p + ( d / ( b + c + d + a ) ) * q ) ) / ( g ) if ( f < ( n - o ) ) else ( p + ( d / ( b + c + d + a ) ) * q ) / ( g ) ) ) ) + ( ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) * ( j / ( k if ( 1 ) else ( g ) ) ) / ( ( f / ( g ) ) + ( h / ( g ) + ( i / ( g ) ) ) + ( j / ( k if ( 1 ) else ( g ) ) ) + ( ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) * ( g ) + ( p + ( d / ( b + c + d + a ) ) * q ) ) / ( g ) if ( f < ( n - o ) ) else ( p + ( d / ( b + c + d + a ) ) * q ) / ( g ) ) ) ) + ( ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) * ( ( ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) * ( g ) + ( p + ( d / ( b + c + d + a ) ) * q ) ) / ( g ) if ( f < ( n - o ) ) else ( p + ( d / ( b + c + d + a ) ) * q ) / ( g ) ) / ( ( f / ( g ) ) + ( h / ( g ) + ( i / ( g ) ) ) + ( j / ( k if ( 1 ) else ( g ) ) ) + ( ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) * ( g ) + ( p + ( d / ( b + c + d + a ) ) * q ) ) / ( g ) if ( f < ( n - o ) ) else ( p + ( d / ( b + c + d + a ) ) * q ) / ( g ) ) ) ) * ( ( r / ( g ) ) / ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) + ( p / ( g ) ) + ( s / ( g ) ) + ( r / ( g ) ) ) ) ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( 100 * ( ( ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) * ( f / ( g ) ) / ( ( f / ( g ) ) + ( h / ( g ) + ( i / ( g ) ) ) + ( j / ( k if smt_on else ( g ) ) ) + ( ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) * ( g ) + ( p + ( d / ( b + c + d + a ) ) * q ) ) / ( g ) if ( f < ( n - o ) ) else ( p + ( d / ( b + c + d + a ) ) * q ) / ( g ) ) ) ) + ( ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) * ( j / ( k if smt_on else ( g ) ) ) / ( ( f / ( g ) ) + ( h / ( g ) + ( i / ( g ) ) ) + ( j / ( k if smt_on else ( g ) ) ) + ( ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) * ( g ) + ( p + ( d / ( b + c + d + a ) ) * q ) ) / ( g ) if ( f < ( n - o ) ) else ( p + ( d / ( b + c + d + a ) ) * q ) / ( g ) ) ) ) + ( ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) * ( ( ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) * ( g ) + ( p + ( d / ( b + c + d + a ) ) * q ) ) / ( g ) if ( f < ( n - o ) ) else ( p + ( d / ( b + c + d + a ) ) * q ) / ( g ) ) / ( ( f / ( g ) ) + ( h / ( g ) + ( i / ( g ) ) ) + ( j / ( k if smt_on else ( g ) ) ) + ( ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) * ( g ) + ( p + ( d / ( b + c + d + a ) ) * q ) ) / ( g ) if ( f < ( n - o ) ) else ( p + ( d / ( b + c + d + a ) ) * q ) / ( g ) ) ) ) * ( ( r / ( g ) ) / ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) + ( p / ( g ) ) + ( s / ( g ) ) + ( r / ( g ) ) ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 20; $issueComp",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -5200,8 +5430,17 @@
           "Alias": "z"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( 100 * ( ( ( 1 - a / b ) * ( ( ( c / ( d + e + f + g ) - h / ( i ) ) ) * ( ( min( ( ( 3 ) * j / ( k / l ) / ( m ) ) , ( 1.0 ) ) ) + ( n / ( m ) + ( o / ( m ) ) ) * ( ( ( 1 - ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) ) * n / ( m ) ) + ( ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * n / ( m ) ) * ( max( ( p / ( d + e + f + g ) ) * ( 1 - q / ( r - s ) ) , 0.0001 ) ) / ( p / ( d + e + f + g ) ) ) / ( ( ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * n / ( m ) ) + ( ( 1 - ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) ) * n / ( m ) ) + ( o / ( m ) ) ) ) / ( ( t / ( m ) ) + ( u / ( m ) ) + ( n / ( m ) + ( o / ( m ) ) ) + ( min( ( ( 3 ) * j / ( k / l ) / ( m ) ) , ( 1.0 ) ) ) + ( v / ( m ) ) + ( w / ( m ) ) ) ) ) + ( 10 * ( x / ( i ) ) * ( max( ( p / ( d + e + f + g ) ) * ( 1 - q / ( r - s ) ) , 0.0001 ) ) / ( p / ( d + e + f + g ) ) ) * ( p / ( d + e + f + g ) ) + ( ( max( 0 , ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) - ( p / ( d + e + f + g ) ) ) ) * ( max( ( max( 0 , ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) - ( p / ( d + e + f + g ) ) ) ) * ( 1 - y / s ) , 0.0001 ) ) / ( ( max( ( max( 0 , ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) - ( p / ( d + e + f + g ) ) ) ) * ( 1 - y / s ) , 0.0001 ) ) ) ) + ( ( max( 0 , ( g / ( d + e + f + g ) ) - ( z / ( d + e + f + g ) ) ) ) * ( ( a_a / ( m ) + ( a_b / ( m ) ) ) + a_c / ( m ) * ( ( a_d + a_c ) / ( m ) * ( a_e - a_f ) / ( m ) ) ) / ( ( a_g / ( m ) ) + ( a_a / ( m ) + ( a_b / ( m ) ) ) + ( a_h / ( a_i if ( 1 ) else ( m ) ) ) + ( ( ( ( a_d + a_c ) / ( m ) * ( a_e - a_f ) / ( m ) ) * ( m ) + ( a_j + ( f / ( d + e + f + g ) ) * a_k ) ) / ( m ) if ( a_g < ( a_e - a_f ) ) else ( a_j + ( f / ( d + e + f + g ) ) * a_k ) / ( m ) ) ) ) + ( ( ( ( x / ( i ) ) / ( ( max( 0 , ( a_l / ( d + e + f + g ) ) - ( x / ( i ) ) ) ) + ( x / ( i ) ) ) ) * ( ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * a_m / ( i ) ) , ( 1.0 ) ) ) / ( x / ( i ) ) ) ) * ( a_l / ( d + e + f + g ) ) ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( 100 * ( ( ( 1 - a / b ) * ( ( ( c / ( d + e + f + g ) - h / ( i ) ) ) * ( ( min( ( ( 3 ) * j / ( k / l ) / ( m ) ) , ( 1 ) ) ) + ( n / ( m ) + ( o / ( m ) ) ) * ( ( ( 1 - ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) ) * n / ( m ) ) + ( ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * n / ( m ) ) * ( max( ( p / ( d + e + f + g ) ) * ( 1 - q / ( r - s ) ) , 0.0001 ) ) / ( p / ( d + e + f + g ) ) ) / ( ( ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * n / ( m ) ) + ( ( 1 - ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) ) * n / ( m ) ) + ( o / ( m ) ) ) ) / ( ( t / ( m ) ) + ( u / ( m ) ) + ( n / ( m ) + ( o / ( m ) ) ) + ( min( ( ( 3 ) * j / ( k / l ) / ( m ) ) , ( 1 ) ) ) + ( v / ( m ) ) + ( w / ( m ) ) ) ) ) + ( 10 * ( x / ( i ) ) * ( max( ( p / ( d + e + f + g ) ) * ( 1 - q / ( r - s ) ) , 0.0001 ) ) / ( p / ( d + e + f + g ) ) ) * ( p / ( d + e + f + g ) ) + ( ( max( 0 , ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) - ( p / ( d + e + f + g ) ) ) ) * ( max( ( max( 0 , ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) - ( p / ( d + e + f + g ) ) ) ) * ( 1 - y / s ) , 0.0001 ) ) / ( ( max( ( max( 0 , ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) - ( p / ( d + e + f + g ) ) ) ) * ( 1 - y / s ) , 0.0001 ) ) ) ) + ( ( max( 0 , ( g / ( d + e + f + g ) ) - ( z / ( d + e + f + g ) ) ) ) * ( ( a_a / ( m ) + ( a_b / ( m ) ) ) + a_c / ( m ) * ( ( a_d + a_c ) / ( m ) * ( a_e - a_f ) / ( m ) ) ) / ( ( a_g / ( m ) ) + ( a_a / ( m ) + ( a_b / ( m ) ) ) + ( a_h / ( a_i if smt_on else ( m ) ) ) + ( ( ( ( a_d + a_c ) / ( m ) * ( a_e - a_f ) / ( m ) ) * ( m ) + ( a_j + ( f / ( d + e + f + g ) ) * a_k ) ) / ( m ) if ( a_g < ( a_e - a_f ) ) else ( a_j + ( f / ( d + e + f + g ) ) * a_k ) / ( m ) ) ) ) + ( ( ( ( x / ( i ) ) / ( ( max( 0 , ( a_l / ( d + e + f + g ) ) - ( x / ( i ) ) ) ) + ( x / ( i ) ) ) ) * ( ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * a_m / ( i ) ) , ( 1 ) ) ) / ( x / ( i ) ) ) ) * ( a_l / ( d + e + f + g ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 10; $issueMS",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -5283,7 +5522,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( 100 * ( ( a / ( b + c + a + d ) ) - ( ( e + f ) / ( g ) ) - ( ( ( ( h / ( g ) ) / ( ( max( 0 , ( i / ( b + c + a + d ) ) - ( h / ( g ) ) ) ) + ( h / ( g ) ) ) ) * ( ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * j / ( g ) ) , ( 1.0 ) ) ) / ( h / ( g ) ) ) ) * ( i / ( b + c + a + d ) ) ) ) )",
+      "Formula": "100 * ( 100 * ( ( a / ( b + c + a + d ) ) - ( ( e + f ) / ( g ) ) - ( ( ( ( h / ( g ) ) / ( ( max( 0 , ( i / ( b + c + a + d ) ) - ( h / ( g ) ) ) ) + ( h / ( g ) ) ) ) * ( ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * j / ( g ) ) , ( 1 ) ) ) / ( h / ( g ) ) ) ) * ( i / ( b + c + a + d ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 20",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -5467,8 +5706,17 @@
           "Alias": "b"
         }
       ],
-      "Constants": [],
-      "Formula": "( a ) / ( b / 2 ) if ( 1 ) else 1",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "( a ) / ( b / 2 ) if smt_on else 1",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "THREAD",
@@ -5517,8 +5765,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "a / ( b if ( 1 ) else ( c ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "a / ( b if smt_on else ( c ) )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "CORE",
@@ -5560,8 +5817,17 @@
           "Alias": "g"
         }
       ],
-      "Constants": [],
-      "Formula": "( ( 1 * a + 2 * b + 4 * c + 8 * d + 16 * e ) ) / ( f if ( 1 ) else ( g ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "( ( 1 * a + 2 * b + 4 * c + 8 * d + 16 * e ) ) / ( f if smt_on else ( g ) )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "CORE",
@@ -5595,8 +5861,17 @@
           "Alias": "e"
         }
       ],
-      "Constants": [],
-      "Formula": "( a + b + c ) / ( 2 * ( d if ( 1 ) else ( e ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "( a + b + c ) / ( 2 * ( d if smt_on else ( e ) ) )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "CORE",
@@ -5664,8 +5939,17 @@
           "Alias": "b"
         }
       ],
-      "Constants": [],
-      "Formula": "a if ( 1 ) else ( b )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "a if smt_on else ( b )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "CORE",
@@ -5739,8 +6023,17 @@
           "Alias": "o"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( 1 - ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) / ( ( ( ( f + g ) / ( h ) * ( i - j ) / ( h ) ) * ( h ) + ( k + ( d / ( b + c + d + a ) ) * l ) ) / ( h ) if ( m < ( i - j ) ) else ( k + ( d / ( b + c + d + a ) ) * l ) / ( h ) ) if ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) < ( ( ( ( f + g ) / ( h ) * ( i - j ) / ( h ) ) * ( h ) + ( k + ( d / ( b + c + d + a ) ) * l ) ) / ( h ) if ( m < ( i - j ) ) else ( k + ( d / ( b + c + d + a ) ) * l ) / ( h ) ) else 1 ) if ( 1 - n / o if ( 1 ) else 0 ) > 0.5 else 0",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( 1 - ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) / ( ( ( ( f + g ) / ( h ) * ( i - j ) / ( h ) ) * ( h ) + ( k + ( d / ( b + c + d + a ) ) * l ) ) / ( h ) if ( m < ( i - j ) ) else ( k + ( d / ( b + c + d + a ) ) * l ) / ( h ) ) if ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) < ( ( ( ( f + g ) / ( h ) * ( i - j ) / ( h ) ) * ( h ) + ( k + ( d / ( b + c + d + a ) ) * l ) ) / ( h ) if ( m < ( i - j ) ) else ( k + ( d / ( b + c + d + a ) ) * l ) / ( h ) ) else 1 ) if ( 1 - n / o if smt_on else 0 ) > 0.5 else 0",
       "Category": "TMA",
       "Threshold": "> 50",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -6274,7 +6567,7 @@
       "MetricName": "Info_Pipeline_Execute",
       "LegacyName": "metric_TMA_Info_Pipeline_Execute",
       "Level": 1,
-      "BriefDescription": "i",
+      "BriefDescription": "",
       "UnitOfMeasure": "",
       "Events": [
         {
@@ -6290,8 +6583,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "a / ( ( b / 2 ) if ( 1 ) else c )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "a / ( ( b / 2 ) if smt_on else c )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -6600,8 +6902,17 @@
           "Alias": "v"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( 100 * ( ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( h / ( i ) ) / ( ( j / ( i ) ) + ( k / ( i ) ) + ( l / ( i ) + ( m / ( i ) ) ) + ( min( ( ( 3 ) * n / ( o / p ) / ( i ) ) , ( 1.0 ) ) ) + ( q / ( i ) ) + ( h / ( i ) ) ) + ( max( 0 , ( b / ( b + c + d + e ) - f / ( g ) ) - ( ( a / ( b + c + d + e ) - f / ( g ) ) ) ) ) * ( ( r - s ) / ( t if ( 1 ) else ( i ) ) / 2 ) / ( ( ( r - s ) / ( t if ( 1 ) else ( i ) ) / 2 ) + ( ( u - v ) / ( t if ( 1 ) else ( i ) ) / 2 ) ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( 100 * ( ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( h / ( i ) ) / ( ( j / ( i ) ) + ( k / ( i ) ) + ( l / ( i ) + ( m / ( i ) ) ) + ( min( ( ( 3 ) * n / ( o / p ) / ( i ) ) , ( 1 ) ) ) + ( q / ( i ) ) + ( h / ( i ) ) ) + ( max( 0 , ( b / ( b + c + d + e ) - f / ( g ) ) - ( ( a / ( b + c + d + e ) - f / ( g ) ) ) ) ) * ( ( r - s ) / ( t if smt_on else ( i ) ) / 2 ) / ( ( ( r - s ) / ( t if smt_on else ( i ) ) / 2 ) + ( ( u - v ) / ( t if smt_on else ( i ) ) / 2 ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 10; $issueFB",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -6684,7 +6995,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( 100 * ( ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( h / ( i ) ) / ( ( h / ( i ) ) + ( j / ( i ) ) + ( k / ( i ) + ( l / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1.0 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) )",
+      "Formula": "100 * ( 100 * ( ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( h / ( i ) ) / ( ( h / ( i ) ) + ( j / ( i ) ) + ( k / ( i ) + ( l / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 5; $issueFL",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -6902,7 +7213,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "( 100 * ( 1 - ( 10 * ( a / ( b ) ) * ( max( ( c / ( d + e + f + g ) ) * ( 1 - h / ( i - j ) ) , 0.0001 ) ) / ( c / ( d + e + f + g ) ) ) ) * ( ( c / ( d + e + f + g ) ) + ( ( k / ( d + e + f + g ) - l / ( b ) ) ) * ( ( ( c / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - l / ( b ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * m / ( n ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1.0 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) ) ) * ( b ) / h / 100",
+      "Formula": "( 100 * ( 1 - ( 10 * ( a / ( b ) ) * ( max( ( c / ( d + e + f + g ) ) * ( 1 - h / ( i - j ) ) , 0.0001 ) ) / ( c / ( d + e + f + g ) ) ) ) * ( ( c / ( d + e + f + g ) ) + ( ( k / ( d + e + f + g ) - l / ( b ) ) ) * ( ( ( c / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - l / ( b ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * m / ( n ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) ) ) * ( b ) / h / 100",
       "Category": "TMA",
       "Threshold": "; $issueBM",
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
@@ -7459,8 +7770,17 @@
           "Alias": "e"
         }
       ],
-      "Constants": [],
-      "Formula": "( a + b + c ) / ( 4 * ( d if ( 1 ) else ( e ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "( a + b + c ) / ( 4 * ( d if smt_on else ( e ) ) )",
       "Category": "TMA",
       "Threshold": "> 0.5",
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
@@ -7816,6 +8136,29 @@
       "MetricGroup": "Offcore"
     },
     {
+      "MetricName": "Info_Memory_Offcore_Read_HBM_PKI",
+      "LegacyName": "metric_TMA_Info_Memory_Offcore_Read_HBM_PKI",
+      "Level": 1,
+      "BriefDescription": "High-Bandwidth Memory (HBM) accesses per kilo instruction for reads-to-core requests (speculative; including in-core HW prefetches)",
+      "UnitOfMeasure": "",
+      "Events": [
+        {
+          "Name": "OCR.DEMAND_DATA_RD.PMM",
+          "Alias": "a"
+        },
+        {
+          "Name": "INST_RETIRED.ANY",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "1000 * a / ( b )",
+      "Category": "TMA",
+      "Threshold": "",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Offcore;Server"
+    },
+    {
       "MetricName": "Info_Memory_Offcore_MWrite_Any_PKI",
       "LegacyName": "metric_TMA_Info_Memory_Offcore_MWrite_Any_PKI",
       "Level": 1,
@@ -7907,53 +8250,6 @@
       "Threshold": "",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "HPC;Summary"
-    },
-    {
-      "MetricName": "Info_System_CPUs_Utilized",
-      "LegacyName": "metric_TMA_Info_System_CPUs_Utilized",
-      "Level": 1,
-      "BriefDescription": "Average number of utilized CPUs",
-      "UnitOfMeasure": "",
-      "Events": [
-        {
-          "Name": "CPU_CLK_UNHALTED.REF_TSC",
-          "Alias": "a"
-        }
-      ],
-      "Constants": [
-        {
-          "Name": "SYSTEM_TSC_FREQ",
-          "Alias": "b"
-        }
-      ],
-      "Formula": "( 224 ) * ( a / b )",
-      "Category": "TMA",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Summary"
-    },
-    {
-      "MetricName": "Info_Memory_Offcore_Read_HBM_PKI",
-      "LegacyName": "metric_TMA_Info_Memory_Offcore_Read_HBM_PKI",
-      "Level": 1,
-      "BriefDescription": "High-Bandwidth Memory (HBM) accesses per kilo instruction for reads-to-core requests (speculative; including in-core HW prefetches)",
-      "UnitOfMeasure": "",
-      "Events": [
-        {
-          "Name": "OCR.DEMAND_DATA_RD.PMM",
-          "Alias": "a"
-        },
-        {
-          "Name": "INST_RETIRED.ANY",
-          "Alias": "b"
-        }
-      ],
-      "Constants": [],
-      "Formula": "1000 * a / ( b )",
-      "Category": "TMA",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Offcore;Server"
     },
     {
       "MetricName": "Info_System_Core_Frequency",
@@ -8090,8 +8386,17 @@
           "Alias": "b"
         }
       ],
-      "Constants": [],
-      "Formula": "1 - a / b if ( 1 ) else 0",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "1 - a / b if smt_on else 0",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
@@ -8577,7 +8882,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "64 * a / 1e9 / ( durationtimeinmilliseconds / 1000 )",
+      "Formula": "64 * a / 1e9 / ( ( durationtimeinmilliseconds / 1000 ) )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",

@@ -2,7 +2,7 @@
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for 4th Generation Intel(R) Xeon(R) Processor Scalable Family based on Sapphire Rapids microarchitecture0",
-    "DatePublished": "01/17/2024",
+    "DatePublished": "01/22/2024",
     "Version": "0",
     "Legend": "",
     "TmaVersion": "4.7",
@@ -1517,7 +1517,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( 3 ) * a / ( b / c ) / ( d ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( 3 ) * a / ( b / c ) / ( d ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueMC; $issueMS; $issueMV; $issueSO",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -1640,8 +1640,17 @@
           "Alias": "d"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( ( a - b ) / ( c if ( 1 ) else ( d ) ) / 2 )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( ( a - b ) / ( c if smt_on else ( d ) ) / 2 )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -1672,8 +1681,17 @@
           "Alias": "d"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( ( a - b ) / ( c if ( 1 ) else ( d ) ) / 2 )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( ( a - b ) / ( c if smt_on else ( d ) ) / 2 )",
       "Category": "TMA",
       "Threshold": "> 10 & P; $issueD0",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -1704,8 +1722,17 @@
           "Alias": "d"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( ( a - b ) / ( c if ( 1 ) else ( d ) ) / 2 )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( ( a - b ) / ( c if smt_on else ( d ) ) / 2 )",
       "Category": "TMA",
       "Threshold": "> 15 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2139,7 +2166,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( 13 * a / ( b ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( 13 * a / ( b ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2179,7 +2206,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( 16 * max( 0 , a - b ) + ( a / c ) * ( ( 10 ) * d + ( min( e , f ) ) ) ) / ( e ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( 16 * max( 0 , a - b ) + ( a / c ) * ( ( 10 ) * d + ( min( e , f ) ) ) ) / ( e ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 20 & P; $issueRFO",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2211,7 +2238,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( a / b ) * c / ( d ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( a / b ) * c / ( d ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 20 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2348,7 +2375,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( ( ( 80 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( e * ( f / ( f + g ) ) ) + ( ( 79.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( h ) ) * ( 1 + ( i / j ) / 2 ) / ( a ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( ( 80 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( e * ( f / ( f + g ) ) ) + ( ( 79.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( h ) ) * ( 1 + ( i / j ) / 2 ) / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueSyncxn",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2405,7 +2432,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( ( 79.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( e + f * ( 1 - ( g / ( g + h ) ) ) ) * ( 1 + ( i / j ) / 2 ) / ( a ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( 79.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( e + f * ( 1 - ( g / ( g + h ) ) ) ) * ( 1 + ( i / j ) / 2 ) / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueSyncxn",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2450,7 +2477,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( e * ( 1 + ( f / g ) / 2 ) ) / ( a ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( e * ( 1 + ( f / g ) / 2 ) ) / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P; $issueLat; ~overlap",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2534,7 +2561,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( ( a / ( b ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( c * ( 1 + ( d / e ) ) ) + 10 * ( ( f * ( 1 + ( d / e ) ) ) + ( g * ( 1 + ( d / e ) ) ) + ( h * ( 1 + ( d / e ) ) ) ) ) / ( ( 19 * ( c * ( 1 + ( d / e ) ) ) + 10 * ( ( f * ( 1 + ( d / e ) ) ) + ( g * ( 1 + ( d / e ) ) ) + ( h * ( 1 + ( d / e ) ) ) ) ) + ( 25 * ( i * ( 1 + ( d / e ) ) ) + 33 * ( j * ( 1 + ( d / e ) ) ) ) ) ) ) * ( a / ( b ) ) ) if ( ( 1000000 ) * ( j + i ) > e ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( a / ( b ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( c * ( 1 + ( d / e ) ) ) + 10 * ( ( f * ( 1 + ( d / e ) ) ) + ( g * ( 1 + ( d / e ) ) ) + ( h * ( 1 + ( d / e ) ) ) ) ) / ( ( 19 * ( c * ( 1 + ( d / e ) ) ) + 10 * ( ( f * ( 1 + ( d / e ) ) ) + ( g * ( 1 + ( d / e ) ) ) + ( h * ( 1 + ( d / e ) ) ) ) ) + ( 25 * ( i * ( 1 + ( d / e ) ) ) + 33 * ( j * ( 1 + ( d / e ) ) ) ) ) ) ) * ( a / ( b ) ) ) if ( ( 1000000 ) * ( j + i ) > e ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2655,7 +2682,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( ( 108 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * e * ( 1 + ( f / g ) / 2 ) / ( a ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( 108 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * e * ( 1 + ( f / g ) / 2 ) / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2700,7 +2727,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( ( 186 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * e * ( 1 + ( f / g ) / 2 ) / ( a ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( 186 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * e * ( 1 + ( f / g ) / 2 ) / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2749,7 +2776,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( ( ( 172.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * e + ( ( 172.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * f ) * ( 1 + ( g / h ) / 2 ) / ( a ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( ( 172.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * e + ( ( 172.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * f ) * ( 1 + ( g / h ) / 2 ) / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueSyncxn",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2805,7 +2832,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( ( ( 1 - ( ( 19 * ( a * ( 1 + ( b / c ) ) ) + 10 * ( ( d * ( 1 + ( b / c ) ) ) + ( e * ( 1 + ( b / c ) ) ) + ( f * ( 1 + ( b / c ) ) ) ) ) / ( ( 19 * ( a * ( 1 + ( b / c ) ) ) + 10 * ( ( d * ( 1 + ( b / c ) ) ) + ( e * ( 1 + ( b / c ) ) ) + ( f * ( 1 + ( b / c ) ) ) ) ) + ( 25 * ( g * ( 1 + ( b / c ) ) ) + 33 * ( h * ( 1 + ( b / c ) ) ) ) ) ) ) * ( i / ( j ) ) ) if ( ( 1000000 ) * ( h + g ) > c ) else 0 ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( ( 1 - ( ( 19 * ( a * ( 1 + ( b / c ) ) ) + 10 * ( ( d * ( 1 + ( b / c ) ) ) + ( e * ( 1 + ( b / c ) ) ) + ( f * ( 1 + ( b / c ) ) ) ) ) / ( ( 19 * ( a * ( 1 + ( b / c ) ) ) + 10 * ( ( d * ( 1 + ( b / c ) ) ) + ( e * ( 1 + ( b / c ) ) ) + ( f * ( 1 + ( b / c ) ) ) ) ) + ( 25 * ( g * ( 1 + ( b / c ) ) ) + 33 * ( h * ( 1 + ( b / c ) ) ) ) ) ) ) * ( i / ( j ) ) ) if ( ( 1000000 ) * ( h + g ) > c ) else 0 ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2865,7 +2892,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( ( a * ( 10 ) * ( 1 - ( b / c ) ) ) + ( 1 - ( b / c ) ) * ( min( d , e ) ) ) / ( d ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( a * ( 10 ) * ( 1 - ( b / c ) ) ) + ( 1 - ( b / c ) ) * ( min( d , e ) ) ) / ( d ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P; $issueRFO; $issueSL; ~overlap",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2902,7 +2929,7 @@
           "Alias": "durationtimeinmilliseconds"
         }
       ],
-      "Formula": "100 * ( min( ( ( 80 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * e / ( a ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( 80 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * e / ( a ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueSyncxn",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2929,8 +2956,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( a / ( b if ( 1 ) else ( c ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( a / ( b if smt_on else ( c ) ) )",
       "Category": "TMA",
       "Threshold": "> 20 & P; $issueSpSt",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2954,7 +2990,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( 9 * a / ( b ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( 9 * a / ( b ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 20 & P; $issueSmSt",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2985,8 +3021,17 @@
           "Alias": "d"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( min( ( ( ( 7 ) * a + b ) / ( c if ( 1 ) else ( d ) ) ) , ( 1.0 ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( min( ( ( ( 7 ) * a + b ) / ( c if smt_on else ( d ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueTLB",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3017,8 +3062,17 @@
           "Alias": "d"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( min( ( ( min( ( ( ( 7 ) * a + b ) / ( c if ( 1 ) else ( d ) ) ) , ( 1.0 ) ) ) - ( min( ( b / ( c if ( 1 ) else ( d ) ) ) , ( 1.0 ) ) ) ) , ( 1.0 ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( min( ( ( min( ( ( ( 7 ) * a + b ) / ( c if smt_on else ( d ) ) ) , ( 1 ) ) ) - ( min( ( b / ( c if smt_on else ( d ) ) ) , ( 1 ) ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3045,8 +3099,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( min( ( a / ( b if ( 1 ) else ( c ) ) ) , ( 1.0 ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( min( ( a / ( b if smt_on else ( c ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3230,7 +3293,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( 13 * a / ( b ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( 13 * a / ( b ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3257,8 +3320,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( a / ( b if ( 1 ) else ( c ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( a / ( b if smt_on else ( c ) ) )",
       "Category": "TMA",
       "Threshold": "> 50 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3382,7 +3454,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( 160 * a / ( b ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( 160 * a / ( b ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5; $issueMV",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3493,8 +3565,17 @@
           "Alias": "f"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( ( a + b + c + d ) / ( 5 * ( e if ( 1 ) else ( f ) ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( ( a + b + c + d ) / ( 5 * ( e if smt_on else ( f ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 40",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3521,8 +3602,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( a / ( b if ( 1 ) else ( c ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( a / ( b if smt_on else ( c ) ) )",
       "Category": "TMA",
       "Threshold": "> 60; $issue2P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3549,8 +3639,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( a / ( b if ( 1 ) else ( c ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( a / ( b if smt_on else ( c ) ) )",
       "Category": "TMA",
       "Threshold": "> 60; $issue2P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3577,8 +3676,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( a / ( b if ( 1 ) else ( c ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( a / ( b if smt_on else ( c ) ) )",
       "Category": "TMA",
       "Threshold": "> 60; $issue2P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3605,8 +3713,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( a / ( 3 * ( b if ( 1 ) else ( c ) ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( a / ( 3 * ( b if smt_on else ( c ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 60",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3637,8 +3754,17 @@
           "Alias": "d"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( ( a + b ) / ( 4 * ( c if ( 1 ) else ( d ) ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( ( a + b ) / ( 4 * ( c if smt_on else ( d ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 60",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3765,7 +3891,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( ( ( a / ( b + c + a + d ) ) * e / f ) + ( ( g + h ) / ( ( a / ( b + c + a + d ) ) * ( i ) ) ) + ( min( ( ( j + k ) / ( ( a / ( b + c + a + d ) ) * ( i ) ) ) , ( 1.0 ) ) ) )",
+      "Formula": "100 * ( ( ( a / ( b + c + a + d ) ) * e / f ) + ( ( g + h ) / ( ( a / ( b + c + a + d ) ) * ( i ) ) ) + ( min( ( ( j + k ) / ( ( a / ( b + c + a + d ) ) * ( i ) ) ) , ( 1 ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 20 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3893,7 +4019,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( a + b ) / ( ( c / ( d + e + c + f ) ) * ( g ) ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( a + b ) / ( ( c / ( d + e + c + f ) ) * ( g ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P; $issue2P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3941,7 +4067,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( a + b + c ) / ( ( d / ( e + f + d + g ) ) * ( h ) ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( a + b + c ) / ( ( d / ( e + f + d + g ) ) * ( h ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P; $issue2P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3989,7 +4115,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( a + b + c ) / ( ( d / ( e + f + d + g ) ) * ( h ) ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( a + b + c ) / ( ( d / ( e + f + d + g ) ) * ( h ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P; $issue2P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4037,7 +4163,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( a + b + c ) / ( ( d / ( e + f + d + g ) ) * ( h ) ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( a + b + c ) / ( ( d / ( e + f + d + g ) ) * ( h ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P; $issue2P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4417,7 +4543,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( max( 0 , ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) - ( ( ( ( a / ( b + c + a + d ) ) * f / g ) + ( ( h + i ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( min( ( ( k + l ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) , ( 1.0 ) ) ) ) + ( ( ( m + n ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( ( o + p + q ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * r / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * s / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * ( t - s ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) ) ) )",
+      "Formula": "100 * ( max( 0 , ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) - ( ( ( ( a / ( b + c + a + d ) ) * f / g ) + ( ( h + i ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( min( ( ( k + l ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) , ( 1 ) ) ) ) + ( ( ( m + n ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( ( o + p + q ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * r / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * s / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * ( t - s ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 30 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4633,7 +4759,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * a / ( b ) ) , ( 1.0 ) ) )",
+      "Formula": "100 * ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * a / ( b ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4733,7 +4859,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( max( 0 , ( a / ( b ) ) - ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * c / ( b ) ) , ( 1.0 ) ) ) ) )",
+      "Formula": "100 * ( max( 0 , ( a / ( b ) ) - ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * c / ( b ) ) , ( 1 ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4836,7 +4962,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( 100 * ( 1 - ( 10 * ( a / ( b ) ) * ( max( ( c / ( d + e + f + g ) ) * ( 1 - h / ( i - j ) ) , 0.0001 ) ) / ( c / ( d + e + f + g ) ) ) ) * ( ( c / ( d + e + f + g ) ) + ( ( k / ( d + e + f + g ) - l / ( b ) ) ) * ( ( ( c / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - l / ( b ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * m / ( n ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1.0 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) ) )",
+      "Formula": "100 * ( 100 * ( 1 - ( 10 * ( a / ( b ) ) * ( max( ( c / ( d + e + f + g ) ) * ( 1 - h / ( i - j ) ) , 0.0001 ) ) / ( c / ( d + e + f + g ) ) ) ) * ( ( c / ( d + e + f + g ) ) + ( ( k / ( d + e + f + g ) - l / ( b ) ) ) * ( ( ( c / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - l / ( b ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * m / ( n ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 20; $issueBM",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4919,7 +5045,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( 100 * ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( h / ( i ) ) + ( j / ( i ) ) + ( k / ( i ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1.0 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) )",
+      "Formula": "100 * ( 100 * ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( h / ( i ) ) + ( j / ( i ) ) + ( k / ( i ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 20",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -5030,7 +5156,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( 100 * ( ( a / ( a + b + c + d ) - e / ( f ) ) - ( 1 - ( 10 * ( g / ( f ) ) * ( max( ( h / ( a + b + c + d ) ) * ( 1 - i / ( j - k ) ) , 0.0001 ) ) / ( h / ( a + b + c + d ) ) ) ) * ( ( l / ( a + b + c + d ) - e / ( f ) ) ) * ( ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) * m / ( n ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1.0 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) - ( ( 1 - w / x ) * ( ( ( l / ( a + b + c + d ) - e / ( f ) ) ) * ( ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1.0 ) ) ) + ( m / ( n ) + ( q / ( n ) ) ) * ( ( ( 1 - ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) ) * m / ( n ) ) + ( ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) * m / ( n ) ) * ( max( ( h / ( a + b + c + d ) ) * ( 1 - i / ( j - k ) ) , 0.0001 ) ) / ( h / ( a + b + c + d ) ) ) / ( ( ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) * m / ( n ) ) + ( ( 1 - ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) ) * m / ( n ) ) + ( q / ( n ) ) ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1.0 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) ) ) ) - ( 100 * ( ( l / ( a + b + c + d ) - e / ( f ) ) ) * ( ( p / ( n ) ) + ( o / ( n ) ) + ( q / ( n ) ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1.0 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) ) )",
+      "Formula": "100 * ( 100 * ( ( a / ( a + b + c + d ) - e / ( f ) ) - ( 1 - ( 10 * ( g / ( f ) ) * ( max( ( h / ( a + b + c + d ) ) * ( 1 - i / ( j - k ) ) , 0.0001 ) ) / ( h / ( a + b + c + d ) ) ) ) * ( ( l / ( a + b + c + d ) - e / ( f ) ) ) * ( ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) * m / ( n ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) - ( ( 1 - w / x ) * ( ( ( l / ( a + b + c + d ) - e / ( f ) ) ) * ( ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1 ) ) ) + ( m / ( n ) + ( q / ( n ) ) ) * ( ( ( 1 - ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) ) * m / ( n ) ) + ( ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) * m / ( n ) ) * ( max( ( h / ( a + b + c + d ) ) * ( 1 - i / ( j - k ) ) , 0.0001 ) ) / ( h / ( a + b + c + d ) ) ) / ( ( ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) * m / ( n ) ) + ( ( 1 - ( ( h / ( a + b + c + d ) ) / ( max( 1 - ( ( a / ( a + b + c + d ) - e / ( f ) ) + ( d / ( a + b + c + d ) ) + ( c / ( a + b + c + d ) ) ) , 0 ) ) ) ) * m / ( n ) ) + ( q / ( n ) ) ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) ) ) ) - ( 100 * ( ( l / ( a + b + c + d ) - e / ( f ) ) ) * ( ( p / ( n ) ) + ( o / ( n ) ) + ( q / ( n ) ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 20",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -5230,7 +5356,7 @@
           "Alias": "y"
         }
       ],
-      "Formula": "100 * ( 100 * ( ( ( a / ( b + c + d + e ) ) * ( ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) + ( s / ( g ) ) ) ) * ( ( ( min( g , t ) ) / ( g ) ) / ( ( ( min( g , t ) ) / ( g ) ) + ( ( min( g , u ) ) / ( g ) - ( ( min( g , t ) ) / ( g ) ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( ( r - f ) / ( g ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) + ( s / ( g ) ) ) ) * ( ( ( v + w ) / ( g ) ) / ( ( min( ( ( ( ( 80 * ( ( ( g ) / x ) * y / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / x ) * y / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_a * ( a_b / ( a_b + a_c ) ) ) + ( ( 79.5 * ( ( ( g ) / x ) * y / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / x ) * y / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_d ) ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 79.5 * ( ( ( g ) / x ) * y / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / x ) * y / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_e + a_a * ( 1 - ( a_b / ( a_b + a_c ) ) ) ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 37 * ( ( ( g ) / x ) * y / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / x ) * y / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_f * ( 1 + ( i / j ) / 2 ) ) / ( g ) ) , ( 1.0 ) ) ) + ( ( v + w ) / ( g ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( max( ( p - q ) / ( g ) , 0 ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) + ( s / ( g ) ) ) ) * ( ( a_g / ( g ) ) / ( ( min( ( 7 ) * a_h + a_i , max( a_j - a_k , 0 ) ) / ( g ) ) + ( min( ( 13 * a_l / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( 16 * max( 0 , a_m - a_n ) + ( a_m / a_o ) * ( ( 10 ) * a_p + ( min( g , a_q ) ) ) ) / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( a_r / a_s ) * a_t / ( g ) ) , ( 1.0 ) ) ) + ( a_g / ( g ) ) ) ) ) ) )",
+      "Formula": "100 * ( 100 * ( ( ( a / ( b + c + d + e ) ) * ( ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1 ) ) ) + ( s / ( g ) ) ) ) * ( ( ( min( g , t ) ) / ( g ) ) / ( ( ( min( g , t ) ) / ( g ) ) + ( ( min( g , u ) ) / ( g ) - ( ( min( g , t ) ) / ( g ) ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( ( r - f ) / ( g ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1 ) ) ) + ( s / ( g ) ) ) ) * ( ( ( v + w ) / ( g ) ) / ( ( min( ( ( ( ( 80 * ( ( ( g ) / x ) * y / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / x ) * y / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_a * ( a_b / ( a_b + a_c ) ) ) + ( ( 79.5 * ( ( ( g ) / x ) * y / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / x ) * y / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_d ) ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1 ) ) ) + ( min( ( ( ( 79.5 * ( ( ( g ) / x ) * y / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / x ) * y / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_e + a_a * ( 1 - ( a_b / ( a_b + a_c ) ) ) ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1 ) ) ) + ( min( ( ( ( 37 * ( ( ( g ) / x ) * y / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / x ) * y / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_f * ( 1 + ( i / j ) / 2 ) ) / ( g ) ) , ( 1 ) ) ) + ( ( v + w ) / ( g ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( max( ( p - q ) / ( g ) , 0 ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1 ) ) ) + ( s / ( g ) ) ) ) * ( ( a_g / ( g ) ) / ( ( min( ( 7 ) * a_h + a_i , max( a_j - a_k , 0 ) ) / ( g ) ) + ( min( ( 13 * a_l / ( g ) ) , ( 1 ) ) ) + ( min( ( ( 16 * max( 0 , a_m - a_n ) + ( a_m / a_o ) * ( ( 10 ) * a_p + ( min( g , a_q ) ) ) ) / ( g ) ) , ( 1 ) ) ) + ( min( ( ( a_r / a_s ) * a_t / ( g ) ) , ( 1 ) ) ) + ( a_g / ( g ) ) ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 20; $issueBW",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -5410,11 +5536,19 @@
           "Alias": "durationtimeinmilliseconds"
         },
         {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        },
+        {
           "Name": "SYSTEM_TSC_FREQ",
           "Alias": "w"
         }
       ],
-      "Formula": "100 * ( 100 * ( ( ( a / ( b + c + d + e ) ) * ( ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) + ( s / ( g ) ) ) ) * ( ( ( min( g , t ) ) / ( g ) - ( ( min( g , u ) ) / ( g ) ) ) / ( ( ( min( g , u ) ) / ( g ) ) + ( ( min( g , t ) ) / ( g ) - ( ( min( g , u ) ) / ( g ) ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( ( r - f ) / ( g ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) + ( s / ( g ) ) ) ) * ( ( min( ( ( ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( y * ( 1 + ( i / j ) / 2 ) ) / ( g ) ) , ( 1.0 ) ) ) / ( ( min( ( ( ( ( 80 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( z * ( a_a / ( a_a + a_b ) ) ) + ( ( 79.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_c ) ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 79.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_d + z * ( 1 - ( a_a / ( a_a + a_b ) ) ) ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( y * ( 1 + ( i / j ) / 2 ) ) / ( g ) ) , ( 1.0 ) ) ) + ( ( a_e + a_f ) / ( g ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( q - r ) / ( g ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) + ( s / ( g ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( s / ( g ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) + ( s / ( g ) ) ) ) * ( ( min( ( ( ( a_g * ( 10 ) * ( 1 - ( a_h / a_i ) ) ) + ( 1 - ( a_h / a_i ) ) * ( min( g , a_j ) ) ) / ( g ) ) , ( 1.0 ) ) ) / ( ( min( ( ( ( a_g * ( 10 ) * ( 1 - ( a_h / a_i ) ) ) + ( 1 - ( a_h / a_i ) ) * ( min( g , a_j ) ) ) / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( 80 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_k / ( g ) ) , ( 1.0 ) ) ) + ( a_l / ( a_m if ( 1 ) else ( g ) ) ) + ( min( ( 9 * a_n / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 7 ) * a_o + a_p ) / ( a_m if ( 1 ) else ( g ) ) ) , ( 1.0 ) ) ) ) ) ) ) )",
+      "Formula": "100 * ( 100 * ( ( ( a / ( b + c + d + e ) ) * ( ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1 ) ) ) + ( s / ( g ) ) ) ) * ( ( ( min( g , t ) ) / ( g ) - ( ( min( g , u ) ) / ( g ) ) ) / ( ( ( min( g , u ) ) / ( g ) ) + ( ( min( g , t ) ) / ( g ) - ( ( min( g , u ) ) / ( g ) ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( ( r - f ) / ( g ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1 ) ) ) + ( s / ( g ) ) ) ) * ( ( min( ( ( ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( y * ( 1 + ( i / j ) / 2 ) ) / ( g ) ) , ( 1 ) ) ) / ( ( min( ( ( ( ( 80 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( z * ( a_a / ( a_a + a_b ) ) ) + ( ( 79.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_c ) ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1 ) ) ) + ( min( ( ( ( 79.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_d + z * ( 1 - ( a_a / ( a_a + a_b ) ) ) ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1 ) ) ) + ( min( ( ( ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( y * ( 1 + ( i / j ) / 2 ) ) / ( g ) ) , ( 1 ) ) ) + ( ( a_e + a_f ) / ( g ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( q - r ) / ( g ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1 ) ) ) + ( s / ( g ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( s / ( g ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1 ) ) ) + ( s / ( g ) ) ) ) * ( ( min( ( ( ( a_g * ( 10 ) * ( 1 - ( a_h / a_i ) ) ) + ( 1 - ( a_h / a_i ) ) * ( min( g , a_j ) ) ) / ( g ) ) , ( 1 ) ) ) / ( ( min( ( ( ( a_g * ( 10 ) * ( 1 - ( a_h / a_i ) ) ) + ( 1 - ( a_h / a_i ) ) * ( min( g , a_j ) ) ) / ( g ) ) , ( 1 ) ) ) + ( min( ( ( 80 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_k / ( g ) ) , ( 1 ) ) ) + ( a_l / ( a_m if smt_on else ( g ) ) ) + ( min( ( 9 * a_n / ( g ) ) , ( 1 ) ) ) + ( min( ( ( ( 7 ) * a_o + a_p ) / ( a_m if smt_on else ( g ) ) ) , ( 1 ) ) ) ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 20; $issueLat",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -5600,9 +5734,17 @@
         {
           "Name": "DURATIONTIMEINMILLISECONDS",
           "Alias": "durationtimeinmilliseconds"
+        },
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
         }
       ],
-      "Formula": "100 * ( 100 * ( ( a / ( b + c + d + e ) ) * ( ( max( ( f - g ) / ( h ) , 0 ) ) / max( ( a / ( b + c + d + e ) ) , ( ( max( ( f - g ) / ( h ) , 0 ) ) + ( ( g - i ) / ( h ) ) + ( ( i - j ) / ( h ) ) + ( min( ( ( ( j / ( h ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( k * ( 1 + ( l / m ) ) ) + 10 * ( ( n * ( 1 + ( l / m ) ) ) + ( o * ( 1 + ( l / m ) ) ) + ( p * ( 1 + ( l / m ) ) ) ) ) / ( ( 19 * ( k * ( 1 + ( l / m ) ) ) + 10 * ( ( n * ( 1 + ( l / m ) ) ) + ( o * ( 1 + ( l / m ) ) ) + ( p * ( 1 + ( l / m ) ) ) ) ) + ( 25 * ( q * ( 1 + ( l / m ) ) ) + 33 * ( r * ( 1 + ( l / m ) ) ) ) ) ) ) * ( j / ( h ) ) ) if ( ( 1000000 ) * ( r + q ) > m ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( k * ( 1 + ( l / m ) ) ) + 10 * ( ( n * ( 1 + ( l / m ) ) ) + ( o * ( 1 + ( l / m ) ) ) + ( p * ( 1 + ( l / m ) ) ) ) ) / ( ( 19 * ( k * ( 1 + ( l / m ) ) ) + 10 * ( ( n * ( 1 + ( l / m ) ) ) + ( o * ( 1 + ( l / m ) ) ) + ( p * ( 1 + ( l / m ) ) ) ) ) + ( 25 * ( q * ( 1 + ( l / m ) ) ) + 33 * ( r * ( 1 + ( l / m ) ) ) ) ) ) ) * ( j / ( h ) ) ) if ( ( 1000000 ) * ( r + q ) > m ) else 0 ) ) , ( 1.0 ) ) ) + ( s / ( h ) ) ) ) ) * ( ( min( ( 7 ) * t + u , max( v - w , 0 ) ) / ( h ) ) / max( ( max( ( f - g ) / ( h ) , 0 ) ) , ( ( min( ( 7 ) * t + u , max( v - w , 0 ) ) / ( h ) ) + ( min( ( 13 * x / ( h ) ) , ( 1.0 ) ) ) + ( min( ( ( 16 * max( 0 , y - z ) + ( y / a_a ) * ( ( 10 ) * a_b + ( min( h , a_c ) ) ) ) / ( h ) ) , ( 1.0 ) ) ) + ( min( ( ( a_d / a_e ) * a_f / ( h ) ) , ( 1.0 ) ) ) + ( a_g / ( h ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( s / ( h ) ) / ( ( max( ( f - g ) / ( h ) , 0 ) ) + ( ( g - i ) / ( h ) ) + ( ( i - j ) / ( h ) ) + ( min( ( ( ( j / ( h ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( k * ( 1 + ( l / m ) ) ) + 10 * ( ( n * ( 1 + ( l / m ) ) ) + ( o * ( 1 + ( l / m ) ) ) + ( p * ( 1 + ( l / m ) ) ) ) ) / ( ( 19 * ( k * ( 1 + ( l / m ) ) ) + 10 * ( ( n * ( 1 + ( l / m ) ) ) + ( o * ( 1 + ( l / m ) ) ) + ( p * ( 1 + ( l / m ) ) ) ) ) + ( 25 * ( q * ( 1 + ( l / m ) ) ) + 33 * ( r * ( 1 + ( l / m ) ) ) ) ) ) ) * ( j / ( h ) ) ) if ( ( 1000000 ) * ( r + q ) > m ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( k * ( 1 + ( l / m ) ) ) + 10 * ( ( n * ( 1 + ( l / m ) ) ) + ( o * ( 1 + ( l / m ) ) ) + ( p * ( 1 + ( l / m ) ) ) ) ) / ( ( 19 * ( k * ( 1 + ( l / m ) ) ) + 10 * ( ( n * ( 1 + ( l / m ) ) ) + ( o * ( 1 + ( l / m ) ) ) + ( p * ( 1 + ( l / m ) ) ) ) ) + ( 25 * ( q * ( 1 + ( l / m ) ) ) + 33 * ( r * ( 1 + ( l / m ) ) ) ) ) ) ) * ( j / ( h ) ) ) if ( ( 1000000 ) * ( r + q ) > m ) else 0 ) ) , ( 1.0 ) ) ) + ( s / ( h ) ) ) ) * ( ( min( ( ( ( 7 ) * a_h + a_i ) / ( a_j if ( 1 ) else ( h ) ) ) , ( 1.0 ) ) ) / ( ( min( ( ( ( a_k * ( 10 ) * ( 1 - ( y / a_a ) ) ) + ( 1 - ( y / a_a ) ) * ( min( h , a_c ) ) ) / ( h ) ) , ( 1.0 ) ) ) + ( min( ( ( 80 * ( ( ( h ) / a_l ) * a_m / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_o / ( h ) ) , ( 1.0 ) ) ) + ( a_p / ( a_j if ( 1 ) else ( h ) ) ) + ( min( ( 9 * a_q / ( h ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 7 ) * a_h + a_i ) / ( a_j if ( 1 ) else ( h ) ) ) , ( 1.0 ) ) ) ) ) ) ) )",
+      "Formula": "100 * ( 100 * ( ( a / ( b + c + d + e ) ) * ( ( max( ( f - g ) / ( h ) , 0 ) ) / max( ( a / ( b + c + d + e ) ) , ( ( max( ( f - g ) / ( h ) , 0 ) ) + ( ( g - i ) / ( h ) ) + ( ( i - j ) / ( h ) ) + ( min( ( ( ( j / ( h ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( k * ( 1 + ( l / m ) ) ) + 10 * ( ( n * ( 1 + ( l / m ) ) ) + ( o * ( 1 + ( l / m ) ) ) + ( p * ( 1 + ( l / m ) ) ) ) ) / ( ( 19 * ( k * ( 1 + ( l / m ) ) ) + 10 * ( ( n * ( 1 + ( l / m ) ) ) + ( o * ( 1 + ( l / m ) ) ) + ( p * ( 1 + ( l / m ) ) ) ) ) + ( 25 * ( q * ( 1 + ( l / m ) ) ) + 33 * ( r * ( 1 + ( l / m ) ) ) ) ) ) ) * ( j / ( h ) ) ) if ( ( 1000000 ) * ( r + q ) > m ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( k * ( 1 + ( l / m ) ) ) + 10 * ( ( n * ( 1 + ( l / m ) ) ) + ( o * ( 1 + ( l / m ) ) ) + ( p * ( 1 + ( l / m ) ) ) ) ) / ( ( 19 * ( k * ( 1 + ( l / m ) ) ) + 10 * ( ( n * ( 1 + ( l / m ) ) ) + ( o * ( 1 + ( l / m ) ) ) + ( p * ( 1 + ( l / m ) ) ) ) ) + ( 25 * ( q * ( 1 + ( l / m ) ) ) + 33 * ( r * ( 1 + ( l / m ) ) ) ) ) ) ) * ( j / ( h ) ) ) if ( ( 1000000 ) * ( r + q ) > m ) else 0 ) ) , ( 1 ) ) ) + ( s / ( h ) ) ) ) ) * ( ( min( ( 7 ) * t + u , max( v - w , 0 ) ) / ( h ) ) / max( ( max( ( f - g ) / ( h ) , 0 ) ) , ( ( min( ( 7 ) * t + u , max( v - w , 0 ) ) / ( h ) ) + ( min( ( 13 * x / ( h ) ) , ( 1 ) ) ) + ( min( ( ( 16 * max( 0 , y - z ) + ( y / a_a ) * ( ( 10 ) * a_b + ( min( h , a_c ) ) ) ) / ( h ) ) , ( 1 ) ) ) + ( min( ( ( a_d / a_e ) * a_f / ( h ) ) , ( 1 ) ) ) + ( a_g / ( h ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( s / ( h ) ) / ( ( max( ( f - g ) / ( h ) , 0 ) ) + ( ( g - i ) / ( h ) ) + ( ( i - j ) / ( h ) ) + ( min( ( ( ( j / ( h ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( k * ( 1 + ( l / m ) ) ) + 10 * ( ( n * ( 1 + ( l / m ) ) ) + ( o * ( 1 + ( l / m ) ) ) + ( p * ( 1 + ( l / m ) ) ) ) ) / ( ( 19 * ( k * ( 1 + ( l / m ) ) ) + 10 * ( ( n * ( 1 + ( l / m ) ) ) + ( o * ( 1 + ( l / m ) ) ) + ( p * ( 1 + ( l / m ) ) ) ) ) + ( 25 * ( q * ( 1 + ( l / m ) ) ) + 33 * ( r * ( 1 + ( l / m ) ) ) ) ) ) ) * ( j / ( h ) ) ) if ( ( 1000000 ) * ( r + q ) > m ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( k * ( 1 + ( l / m ) ) ) + 10 * ( ( n * ( 1 + ( l / m ) ) ) + ( o * ( 1 + ( l / m ) ) ) + ( p * ( 1 + ( l / m ) ) ) ) ) / ( ( 19 * ( k * ( 1 + ( l / m ) ) ) + 10 * ( ( n * ( 1 + ( l / m ) ) ) + ( o * ( 1 + ( l / m ) ) ) + ( p * ( 1 + ( l / m ) ) ) ) ) + ( 25 * ( q * ( 1 + ( l / m ) ) ) + 33 * ( r * ( 1 + ( l / m ) ) ) ) ) ) ) * ( j / ( h ) ) ) if ( ( 1000000 ) * ( r + q ) > m ) else 0 ) ) , ( 1 ) ) ) + ( s / ( h ) ) ) ) * ( ( min( ( ( ( 7 ) * a_h + a_i ) / ( a_j if smt_on else ( h ) ) ) , ( 1 ) ) ) / ( ( min( ( ( ( a_k * ( 10 ) * ( 1 - ( y / a_a ) ) ) + ( 1 - ( y / a_a ) ) * ( min( h , a_c ) ) ) / ( h ) ) , ( 1 ) ) ) + ( min( ( ( 80 * ( ( ( h ) / a_l ) * a_m / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_o / ( h ) ) , ( 1 ) ) ) + ( a_p / ( a_j if smt_on else ( h ) ) ) + ( min( ( 9 * a_q / ( h ) ) , ( 1 ) ) ) + ( min( ( ( ( 7 ) * a_h + a_i ) / ( a_j if smt_on else ( h ) ) ) , ( 1 ) ) ) ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 20; $issueTLB",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -5802,11 +5944,19 @@
           "Alias": "durationtimeinmilliseconds"
         },
         {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        },
+        {
           "Name": "SYSTEM_TSC_FREQ",
           "Alias": "w"
         }
       ],
-      "Formula": "100 * ( 100 * ( ( a / ( b + c + d + e ) ) * ( ( ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) + ( s / ( g ) ) ) ) * ( ( ( min( g , t ) ) / ( g ) - ( ( min( g , u ) ) / ( g ) ) ) / ( ( ( min( g , u ) ) / ( g ) ) + ( ( min( g , t ) ) / ( g ) - ( ( min( g , u ) ) / ( g ) ) ) ) ) * ( min( ( ( ( ( 172.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * m + ( ( 172.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * l ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1.0 ) ) ) / ( ( min( ( ( ( 108 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * k * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 186 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * h * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 172.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * m + ( ( 172.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * l ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1.0 ) ) ) ) + ( ( ( r - f ) / ( g ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) + ( s / ( g ) ) ) ) * ( ( min( ( ( ( ( 80 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( y * ( z / ( z + a_a ) ) ) + ( ( 79.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_b ) ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 79.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_c + y * ( 1 - ( z / ( z + a_a ) ) ) ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1.0 ) ) ) ) / ( ( min( ( ( ( ( 80 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( y * ( z / ( z + a_a ) ) ) + ( ( 79.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_b ) ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 79.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_c + y * ( 1 - ( z / ( z + a_a ) ) ) ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_d * ( 1 + ( i / j ) / 2 ) ) / ( g ) ) , ( 1.0 ) ) ) + ( ( a_e + a_f ) / ( g ) ) ) + ( ( s / ( g ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1.0 ) ) ) + ( s / ( g ) ) ) ) * ( min( ( ( 80 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_g / ( g ) ) , ( 1.0 ) ) ) / ( ( ( min( ( ( ( a_h * ( 10 ) * ( 1 - ( a_i / a_j ) ) ) + ( 1 - ( a_i / a_j ) ) * ( min( g , a_k ) ) ) / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( 80 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_g / ( g ) ) , ( 1.0 ) ) ) + ( a_l / ( a_m if ( 1 ) else ( g ) ) ) + ( min( ( 9 * a_n / ( g ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 7 ) * a_o + a_p ) / ( a_m if ( 1 ) else ( g ) ) ) , ( 1.0 ) ) ) ) - ( min( ( ( ( a_h * ( 10 ) * ( 1 - ( a_i / a_j ) ) ) + ( 1 - ( a_i / a_j ) ) * ( min( g , a_k ) ) ) / ( g ) ) , ( 1.0 ) ) ) ) ) + ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - a_q / ( a_r ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( a_s / ( b + c + d + e ) ) ) ) * ( 1 - ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - a_q / ( a_r ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( a_s / ( b + c + d + e ) ) ) ) * ( 1 - a_t / a_u ) , 0.0001 ) ) / ( ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - a_q / ( a_r ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( a_s / ( b + c + d + e ) ) ) ) * ( 1 - a_t / a_u ) , 0.0001 ) ) ) ) ) )",
+      "Formula": "100 * ( 100 * ( ( a / ( b + c + d + e ) ) * ( ( ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1 ) ) ) + ( s / ( g ) ) ) ) * ( ( ( min( g , t ) ) / ( g ) - ( ( min( g , u ) ) / ( g ) ) ) / ( ( ( min( g , u ) ) / ( g ) ) + ( ( min( g , t ) ) / ( g ) - ( ( min( g , u ) ) / ( g ) ) ) ) ) * ( min( ( ( ( ( 172.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * m + ( ( 172.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * l ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1 ) ) ) / ( ( min( ( ( ( 108 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * k * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1 ) ) ) + ( min( ( ( ( 186 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * h * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 172.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * m + ( ( 172.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * l ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1 ) ) ) ) + ( ( ( r - f ) / ( g ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1 ) ) ) + ( s / ( g ) ) ) ) * ( ( min( ( ( ( ( 80 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( y * ( z / ( z + a_a ) ) ) + ( ( 79.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_b ) ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1 ) ) ) + ( min( ( ( ( 79.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_c + y * ( 1 - ( z / ( z + a_a ) ) ) ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1 ) ) ) ) / ( ( min( ( ( ( ( 80 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( y * ( z / ( z + a_a ) ) ) + ( ( 79.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_b ) ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1 ) ) ) + ( min( ( ( ( 79.5 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_c + y * ( 1 - ( z / ( z + a_a ) ) ) ) * ( 1 + ( i / j ) / 2 ) / ( g ) ) , ( 1 ) ) ) + ( min( ( ( ( 37 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_d * ( 1 + ( i / j ) / 2 ) ) / ( g ) ) , ( 1 ) ) ) + ( ( a_e + a_f ) / ( g ) ) ) + ( ( s / ( g ) ) / ( ( max( ( p - q ) / ( g ) , 0 ) ) + ( ( q - r ) / ( g ) ) + ( ( r - f ) / ( g ) ) + ( min( ( ( ( f / ( g ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) / ( ( 19 * ( h * ( 1 + ( i / j ) ) ) + 10 * ( ( k * ( 1 + ( i / j ) ) ) + ( l * ( 1 + ( i / j ) ) ) + ( m * ( 1 + ( i / j ) ) ) ) ) + ( 25 * ( n * ( 1 + ( i / j ) ) ) + 33 * ( o * ( 1 + ( i / j ) ) ) ) ) ) ) * ( f / ( g ) ) ) if ( ( 1000000 ) * ( o + n ) > j ) else 0 ) ) , ( 1 ) ) ) + ( s / ( g ) ) ) ) * ( min( ( ( 80 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_g / ( g ) ) , ( 1 ) ) ) / ( ( ( min( ( ( ( a_h * ( 10 ) * ( 1 - ( a_i / a_j ) ) ) + ( 1 - ( a_i / a_j ) ) * ( min( g , a_k ) ) ) / ( g ) ) , ( 1 ) ) ) + ( min( ( ( 80 * ( ( ( g ) / v ) * w / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_g / ( g ) ) , ( 1 ) ) ) + ( a_l / ( a_m if smt_on else ( g ) ) ) + ( min( ( 9 * a_n / ( g ) ) , ( 1 ) ) ) + ( min( ( ( ( 7 ) * a_o + a_p ) / ( a_m if smt_on else ( g ) ) ) , ( 1 ) ) ) ) - ( min( ( ( ( a_h * ( 10 ) * ( 1 - ( a_i / a_j ) ) ) + ( 1 - ( a_i / a_j ) ) * ( min( g , a_k ) ) ) / ( g ) ) , ( 1 ) ) ) ) ) + ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - a_q / ( a_r ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( a_s / ( b + c + d + e ) ) ) ) * ( 1 - ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - a_q / ( a_r ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( a_s / ( b + c + d + e ) ) ) ) * ( 1 - a_t / a_u ) , 0.0001 ) ) / ( ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - a_q / ( a_r ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( a_s / ( b + c + d + e ) ) ) ) * ( 1 - a_t / a_u ) , 0.0001 ) ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 10; $issueTLB",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -5896,8 +6046,17 @@
           "Alias": "s"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( 100 * ( ( ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) * ( f / ( g ) ) / ( ( f / ( g ) ) + ( h / ( g ) + ( i / ( g ) ) ) + ( j / ( k if ( 1 ) else ( g ) ) ) + ( ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) * ( g ) + ( p + ( d / ( b + c + d + a ) ) * q ) ) / ( g ) if ( f < ( n - o ) ) else ( p + ( d / ( b + c + d + a ) ) * q ) / ( g ) ) ) ) + ( ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) * ( j / ( k if ( 1 ) else ( g ) ) ) / ( ( f / ( g ) ) + ( h / ( g ) + ( i / ( g ) ) ) + ( j / ( k if ( 1 ) else ( g ) ) ) + ( ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) * ( g ) + ( p + ( d / ( b + c + d + a ) ) * q ) ) / ( g ) if ( f < ( n - o ) ) else ( p + ( d / ( b + c + d + a ) ) * q ) / ( g ) ) ) ) + ( ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) * ( ( ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) * ( g ) + ( p + ( d / ( b + c + d + a ) ) * q ) ) / ( g ) if ( f < ( n - o ) ) else ( p + ( d / ( b + c + d + a ) ) * q ) / ( g ) ) / ( ( f / ( g ) ) + ( h / ( g ) + ( i / ( g ) ) ) + ( j / ( k if ( 1 ) else ( g ) ) ) + ( ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) * ( g ) + ( p + ( d / ( b + c + d + a ) ) * q ) ) / ( g ) if ( f < ( n - o ) ) else ( p + ( d / ( b + c + d + a ) ) * q ) / ( g ) ) ) ) * ( ( r / ( g ) ) / ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) + ( p / ( g ) ) + ( s / ( g ) ) + ( r / ( g ) ) ) ) ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( 100 * ( ( ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) * ( f / ( g ) ) / ( ( f / ( g ) ) + ( h / ( g ) + ( i / ( g ) ) ) + ( j / ( k if smt_on else ( g ) ) ) + ( ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) * ( g ) + ( p + ( d / ( b + c + d + a ) ) * q ) ) / ( g ) if ( f < ( n - o ) ) else ( p + ( d / ( b + c + d + a ) ) * q ) / ( g ) ) ) ) + ( ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) * ( j / ( k if smt_on else ( g ) ) ) / ( ( f / ( g ) ) + ( h / ( g ) + ( i / ( g ) ) ) + ( j / ( k if smt_on else ( g ) ) ) + ( ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) * ( g ) + ( p + ( d / ( b + c + d + a ) ) * q ) ) / ( g ) if ( f < ( n - o ) ) else ( p + ( d / ( b + c + d + a ) ) * q ) / ( g ) ) ) ) + ( ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) * ( ( ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) * ( g ) + ( p + ( d / ( b + c + d + a ) ) * q ) ) / ( g ) if ( f < ( n - o ) ) else ( p + ( d / ( b + c + d + a ) ) * q ) / ( g ) ) / ( ( f / ( g ) ) + ( h / ( g ) + ( i / ( g ) ) ) + ( j / ( k if smt_on else ( g ) ) ) + ( ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) * ( g ) + ( p + ( d / ( b + c + d + a ) ) * q ) ) / ( g ) if ( f < ( n - o ) ) else ( p + ( d / ( b + c + d + a ) ) * q ) / ( g ) ) ) ) * ( ( r / ( g ) ) / ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) + ( p / ( g ) ) + ( s / ( g ) ) + ( r / ( g ) ) ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 20; $issueComp",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -6067,8 +6226,17 @@
           "Alias": "z"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( 100 * ( ( ( 1 - a / b ) * ( ( ( c / ( d + e + f + g ) - h / ( i ) ) ) * ( ( min( ( ( 3 ) * j / ( k / l ) / ( m ) ) , ( 1.0 ) ) ) + ( n / ( m ) + ( o / ( m ) ) ) * ( ( ( 1 - ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) ) * n / ( m ) ) + ( ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * n / ( m ) ) * ( max( ( p / ( d + e + f + g ) ) * ( 1 - q / ( r - s ) ) , 0.0001 ) ) / ( p / ( d + e + f + g ) ) ) / ( ( ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * n / ( m ) ) + ( ( 1 - ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) ) * n / ( m ) ) + ( o / ( m ) ) ) ) / ( ( t / ( m ) ) + ( u / ( m ) ) + ( n / ( m ) + ( o / ( m ) ) ) + ( min( ( ( 3 ) * j / ( k / l ) / ( m ) ) , ( 1.0 ) ) ) + ( v / ( m ) ) + ( w / ( m ) ) ) ) ) + ( 10 * ( x / ( i ) ) * ( max( ( p / ( d + e + f + g ) ) * ( 1 - q / ( r - s ) ) , 0.0001 ) ) / ( p / ( d + e + f + g ) ) ) * ( p / ( d + e + f + g ) ) + ( ( max( 0 , ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) - ( p / ( d + e + f + g ) ) ) ) * ( max( ( max( 0 , ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) - ( p / ( d + e + f + g ) ) ) ) * ( 1 - y / s ) , 0.0001 ) ) / ( ( max( ( max( 0 , ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) - ( p / ( d + e + f + g ) ) ) ) * ( 1 - y / s ) , 0.0001 ) ) ) ) + ( ( max( 0 , ( g / ( d + e + f + g ) ) - ( z / ( d + e + f + g ) ) ) ) * ( ( a_a / ( m ) + ( a_b / ( m ) ) ) + a_c / ( m ) * ( ( a_d + a_c ) / ( m ) * ( a_e - a_f ) / ( m ) ) ) / ( ( a_g / ( m ) ) + ( a_a / ( m ) + ( a_b / ( m ) ) ) + ( a_h / ( a_i if ( 1 ) else ( m ) ) ) + ( ( ( ( a_d + a_c ) / ( m ) * ( a_e - a_f ) / ( m ) ) * ( m ) + ( a_j + ( f / ( d + e + f + g ) ) * a_k ) ) / ( m ) if ( a_g < ( a_e - a_f ) ) else ( a_j + ( f / ( d + e + f + g ) ) * a_k ) / ( m ) ) ) ) + ( ( ( ( x / ( i ) ) / ( ( max( 0 , ( a_l / ( d + e + f + g ) ) - ( x / ( i ) ) ) ) + ( x / ( i ) ) ) ) * ( ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * a_m / ( i ) ) , ( 1.0 ) ) ) / ( x / ( i ) ) ) ) * ( a_l / ( d + e + f + g ) ) ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( 100 * ( ( ( 1 - a / b ) * ( ( ( c / ( d + e + f + g ) - h / ( i ) ) ) * ( ( min( ( ( 3 ) * j / ( k / l ) / ( m ) ) , ( 1 ) ) ) + ( n / ( m ) + ( o / ( m ) ) ) * ( ( ( 1 - ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) ) * n / ( m ) ) + ( ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * n / ( m ) ) * ( max( ( p / ( d + e + f + g ) ) * ( 1 - q / ( r - s ) ) , 0.0001 ) ) / ( p / ( d + e + f + g ) ) ) / ( ( ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * n / ( m ) ) + ( ( 1 - ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) ) * n / ( m ) ) + ( o / ( m ) ) ) ) / ( ( t / ( m ) ) + ( u / ( m ) ) + ( n / ( m ) + ( o / ( m ) ) ) + ( min( ( ( 3 ) * j / ( k / l ) / ( m ) ) , ( 1 ) ) ) + ( v / ( m ) ) + ( w / ( m ) ) ) ) ) + ( 10 * ( x / ( i ) ) * ( max( ( p / ( d + e + f + g ) ) * ( 1 - q / ( r - s ) ) , 0.0001 ) ) / ( p / ( d + e + f + g ) ) ) * ( p / ( d + e + f + g ) ) + ( ( max( 0 , ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) - ( p / ( d + e + f + g ) ) ) ) * ( max( ( max( 0 , ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) - ( p / ( d + e + f + g ) ) ) ) * ( 1 - y / s ) , 0.0001 ) ) / ( ( max( ( max( 0 , ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) - ( p / ( d + e + f + g ) ) ) ) * ( 1 - y / s ) , 0.0001 ) ) ) ) + ( ( max( 0 , ( g / ( d + e + f + g ) ) - ( z / ( d + e + f + g ) ) ) ) * ( ( a_a / ( m ) + ( a_b / ( m ) ) ) + a_c / ( m ) * ( ( a_d + a_c ) / ( m ) * ( a_e - a_f ) / ( m ) ) ) / ( ( a_g / ( m ) ) + ( a_a / ( m ) + ( a_b / ( m ) ) ) + ( a_h / ( a_i if smt_on else ( m ) ) ) + ( ( ( ( a_d + a_c ) / ( m ) * ( a_e - a_f ) / ( m ) ) * ( m ) + ( a_j + ( f / ( d + e + f + g ) ) * a_k ) ) / ( m ) if ( a_g < ( a_e - a_f ) ) else ( a_j + ( f / ( d + e + f + g ) ) * a_k ) / ( m ) ) ) ) + ( ( ( ( x / ( i ) ) / ( ( max( 0 , ( a_l / ( d + e + f + g ) ) - ( x / ( i ) ) ) ) + ( x / ( i ) ) ) ) * ( ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * a_m / ( i ) ) , ( 1 ) ) ) / ( x / ( i ) ) ) ) * ( a_l / ( d + e + f + g ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 10; $issueMS",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -6434,9 +6602,17 @@
         {
           "Name": "DURATIONTIMEINMILLISECONDS",
           "Alias": "durationtimeinmilliseconds"
+        },
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
         }
       ],
-      "Formula": "100 - ( ( 100 * ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( h / ( i ) ) + ( j / ( i ) ) + ( k / ( i ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1.0 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) + ( 100 * ( ( b / ( b + c + d + e ) - f / ( g ) ) - ( 1 - ( 10 * ( r / ( g ) ) * ( max( ( s / ( b + c + d + e ) ) * ( 1 - t / ( u - v ) ) , 0.0001 ) ) / ( s / ( b + c + d + e ) ) ) ) * ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1.0 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) - ( ( 1 - w / x ) * ( ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1.0 ) ) ) + ( l / ( i ) + ( k / ( i ) ) ) * ( ( ( 1 - ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) ) * l / ( i ) ) + ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) * ( max( ( s / ( b + c + d + e ) ) * ( 1 - t / ( u - v ) ) , 0.0001 ) ) / ( s / ( b + c + d + e ) ) ) / ( ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) + ( ( 1 - ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) ) * l / ( i ) ) + ( k / ( i ) ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1.0 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) ) ) - ( 100 * ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( h / ( i ) ) + ( j / ( i ) ) + ( k / ( i ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1.0 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) ) + ( 100 * ( 1 - ( 10 * ( r / ( g ) ) * ( max( ( s / ( b + c + d + e ) ) * ( 1 - t / ( u - v ) ) , 0.0001 ) ) / ( s / ( b + c + d + e ) ) ) ) * ( ( s / ( b + c + d + e ) ) + ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1.0 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) ) + ( 100 * ( ( ( y / ( b + c + d + e ) ) * ( ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( ( min( i , a_m ) ) / ( i ) ) / ( ( ( min( i , a_m ) ) / ( i ) ) + ( ( min( i , a_n ) ) / ( i ) - ( ( min( i , a_m ) ) / ( i ) ) ) ) ) ) + ( ( y / ( b + c + d + e ) ) * ( ( ( a_k - z ) / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( ( a_o + a_p ) / ( i ) ) / ( ( min( ( ( ( ( 80 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_t * ( a_u / ( a_u + a_v ) ) ) + ( ( 79.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_w ) ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 79.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_x + a_t * ( 1 - ( a_u / ( a_u + a_v ) ) ) ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_y * ( 1 + ( a_b / a_c ) / 2 ) ) / ( i ) ) , ( 1.0 ) ) ) + ( ( a_o + a_p ) / ( i ) ) ) ) ) + ( ( y / ( b + c + d + e ) ) * ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( a_z / ( i ) ) / ( ( min( ( 7 ) * b_a + b_b , max( b_c - b_d , 0 ) ) / ( i ) ) + ( min( ( 13 * b_e / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( 16 * max( 0 , b_f - b_g ) + ( b_f / b_h ) * ( ( 10 ) * b_i + ( min( i , b_j ) ) ) ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( b_k / b_l ) * b_m / ( i ) ) , ( 1.0 ) ) ) + ( a_z / ( i ) ) ) ) ) ) ) + ( 100 * ( ( ( y / ( b + c + d + e ) ) * ( ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( ( min( i , a_n ) ) / ( i ) - ( ( min( i , a_m ) ) / ( i ) ) ) / ( ( ( min( i , a_m ) ) / ( i ) ) + ( ( min( i , a_n ) ) / ( i ) - ( ( min( i , a_m ) ) / ( i ) ) ) ) ) ) + ( ( y / ( b + c + d + e ) ) * ( ( ( a_k - z ) / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( min( ( ( ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_y * ( 1 + ( a_b / a_c ) / 2 ) ) / ( i ) ) , ( 1.0 ) ) ) / ( ( min( ( ( ( ( 80 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_t * ( a_u / ( a_u + a_v ) ) ) + ( ( 79.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_w ) ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 79.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_x + a_t * ( 1 - ( a_u / ( a_u + a_v ) ) ) ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_y * ( 1 + ( a_b / a_c ) / 2 ) ) / ( i ) ) , ( 1.0 ) ) ) + ( ( a_o + a_p ) / ( i ) ) ) ) ) + ( ( y / ( b + c + d + e ) ) * ( ( a_j - a_k ) / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) + ( a_l / ( i ) ) ) ) + ( ( y / ( b + c + d + e ) ) * ( ( a_l / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( min( ( ( ( b_n * ( 10 ) * ( 1 - ( b_f / b_h ) ) ) + ( 1 - ( b_f / b_h ) ) * ( min( i , b_j ) ) ) / ( i ) ) , ( 1.0 ) ) ) / ( ( min( ( ( ( b_n * ( 10 ) * ( 1 - ( b_f / b_h ) ) ) + ( 1 - ( b_f / b_h ) ) * ( min( i , b_j ) ) ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( 80 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_o / ( i ) ) , ( 1.0 ) ) ) + ( b_p / ( b_q if ( 1 ) else ( i ) ) ) + ( min( ( 9 * b_r / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 7 ) * b_s + b_t ) / ( b_q if ( 1 ) else ( i ) ) ) , ( 1.0 ) ) ) ) ) ) ) ) + ( 100 * ( ( y / ( b + c + d + e ) ) * ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) / max( ( y / ( b + c + d + e ) ) , ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) + ( a_l / ( i ) ) ) ) ) * ( ( min( ( 7 ) * b_a + b_b , max( b_c - b_d , 0 ) ) / ( i ) ) / max( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) , ( ( min( ( 7 ) * b_a + b_b , max( b_c - b_d , 0 ) ) / ( i ) ) + ( min( ( 13 * b_e / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( 16 * max( 0 , b_f - b_g ) + ( b_f / b_h ) * ( ( 10 ) * b_i + ( min( i , b_j ) ) ) ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( b_k / b_l ) * b_m / ( i ) ) , ( 1.0 ) ) ) + ( a_z / ( i ) ) ) ) ) + ( ( y / ( b + c + d + e ) ) * ( ( a_l / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( min( ( ( ( 7 ) * b_s + b_t ) / ( b_q if ( 1 ) else ( i ) ) ) , ( 1.0 ) ) ) / ( ( min( ( ( ( b_n * ( 10 ) * ( 1 - ( b_f / b_h ) ) ) + ( 1 - ( b_f / b_h ) ) * ( min( i , b_j ) ) ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( 80 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_o / ( i ) ) , ( 1.0 ) ) ) + ( b_p / ( b_q if ( 1 ) else ( i ) ) ) + ( min( ( 9 * b_r / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 7 ) * b_s + b_t ) / ( b_q if ( 1 ) else ( i ) ) ) , ( 1.0 ) ) ) ) ) ) ) ) + ( 100 * ( ( y / ( b + c + d + e ) ) * ( ( ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( ( min( i , a_n ) ) / ( i ) - ( ( min( i , a_m ) ) / ( i ) ) ) / ( ( ( min( i , a_m ) ) / ( i ) ) + ( ( min( i , a_n ) ) / ( i ) - ( ( min( i , a_m ) ) / ( i ) ) ) ) ) * ( min( ( ( ( ( 172.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * a_f + ( ( 172.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * a_e ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1.0 ) ) ) / ( ( min( ( ( ( 108 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * a_d * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 186 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * a_a * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 172.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * a_f + ( ( 172.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * a_e ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1.0 ) ) ) ) + ( ( ( a_k - z ) / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( min( ( ( ( ( 80 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_t * ( a_u / ( a_u + a_v ) ) ) + ( ( 79.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_w ) ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 79.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_x + a_t * ( 1 - ( a_u / ( a_u + a_v ) ) ) ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1.0 ) ) ) ) / ( ( min( ( ( ( ( 80 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_t * ( a_u / ( a_u + a_v ) ) ) + ( ( 79.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_w ) ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 79.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_x + a_t * ( 1 - ( a_u / ( a_u + a_v ) ) ) ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_y * ( 1 + ( a_b / a_c ) / 2 ) ) / ( i ) ) , ( 1.0 ) ) ) + ( ( a_o + a_p ) / ( i ) ) ) + ( ( a_l / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) ) ) , ( 1.0 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1.0 ) ) ) + ( a_l / ( i ) ) ) ) * ( min( ( ( 80 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_o / ( i ) ) , ( 1.0 ) ) ) / ( ( ( min( ( ( ( b_n * ( 10 ) * ( 1 - ( b_f / b_h ) ) ) + ( 1 - ( b_f / b_h ) ) * ( min( i , b_j ) ) ) / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( 80 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_o / ( i ) ) , ( 1.0 ) ) ) + ( b_p / ( b_q if ( 1 ) else ( i ) ) ) + ( min( ( 9 * b_r / ( i ) ) , ( 1.0 ) ) ) + ( min( ( ( ( 7 ) * b_s + b_t ) / ( b_q if ( 1 ) else ( i ) ) ) , ( 1.0 ) ) ) ) - ( min( ( ( ( b_n * ( 10 ) * ( 1 - ( b_f / b_h ) ) ) + ( 1 - ( b_f / b_h ) ) * ( min( i , b_j ) ) ) / ( i ) ) , ( 1.0 ) ) ) ) ) + ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( 1 - ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( 1 - b_u / v ) , 0.0001 ) ) / ( ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( 1 - b_u / v ) , 0.0001 ) ) ) ) ) ) + ( 100 * ( ( ( max( 0 , ( e / ( b + c + d + e ) ) - ( y / ( b + c + d + e ) ) ) ) * ( b_v / ( i ) ) / ( ( b_v / ( i ) ) + ( b_w / ( i ) + ( b_x / ( i ) ) ) + ( b_y / ( b_q if ( 1 ) else ( i ) ) ) + ( ( ( ( b_z + c_a ) / ( i ) * ( c_b - a_i ) / ( i ) ) * ( i ) + ( c_c + ( d / ( b + c + d + e ) ) * c_d ) ) / ( i ) if ( b_v < ( c_b - a_i ) ) else ( c_c + ( d / ( b + c + d + e ) ) * c_d ) / ( i ) ) ) ) + ( ( max( 0 , ( e / ( b + c + d + e ) ) - ( y / ( b + c + d + e ) ) ) ) * ( b_y / ( b_q if ( 1 ) else ( i ) ) ) / ( ( b_v / ( i ) ) + ( b_w / ( i ) + ( b_x / ( i ) ) ) + ( b_y / ( b_q if ( 1 ) else ( i ) ) ) + ( ( ( ( b_z + c_a ) / ( i ) * ( c_b - a_i ) / ( i ) ) * ( i ) + ( c_c + ( d / ( b + c + d + e ) ) * c_d ) ) / ( i ) if ( b_v < ( c_b - a_i ) ) else ( c_c + ( d / ( b + c + d + e ) ) * c_d ) / ( i ) ) ) ) + ( ( max( 0 , ( e / ( b + c + d + e ) ) - ( y / ( b + c + d + e ) ) ) ) * ( ( ( ( ( b_z + c_a ) / ( i ) * ( c_b - a_i ) / ( i ) ) * ( i ) + ( c_c + ( d / ( b + c + d + e ) ) * c_d ) ) / ( i ) if ( b_v < ( c_b - a_i ) ) else ( c_c + ( d / ( b + c + d + e ) ) * c_d ) / ( i ) ) / ( ( b_v / ( i ) ) + ( b_w / ( i ) + ( b_x / ( i ) ) ) + ( b_y / ( b_q if ( 1 ) else ( i ) ) ) + ( ( ( ( b_z + c_a ) / ( i ) * ( c_b - a_i ) / ( i ) ) * ( i ) + ( c_c + ( d / ( b + c + d + e ) ) * c_d ) ) / ( i ) if ( b_v < ( c_b - a_i ) ) else ( c_c + ( d / ( b + c + d + e ) ) * c_d ) / ( i ) ) ) ) * ( ( c_e / ( i ) ) / ( ( ( b_z + c_a ) / ( i ) * ( c_b - a_i ) / ( i ) ) + ( c_c / ( i ) ) + ( c_f / ( i ) ) + ( c_e / ( i ) ) ) ) ) ) ) + ( 100 * ( ( ( 1 - w / x ) * ( ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1.0 ) ) ) + ( l / ( i ) + ( k / ( i ) ) ) * ( ( ( 1 - ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) ) * l / ( i ) ) + ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) * ( max( ( s / ( b + c + d + e ) ) * ( 1 - t / ( u - v ) ) , 0.0001 ) ) / ( s / ( b + c + d + e ) ) ) / ( ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) + ( ( 1 - ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) ) * l / ( i ) ) + ( k / ( i ) ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1.0 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) ) + ( 10 * ( r / ( g ) ) * ( max( ( s / ( b + c + d + e ) ) * ( 1 - t / ( u - v ) ) , 0.0001 ) ) / ( s / ( b + c + d + e ) ) ) * ( s / ( b + c + d + e ) ) + ( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( 1 - b_u / v ) , 0.0001 ) ) / ( ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( 1 - b_u / v ) , 0.0001 ) ) ) ) + ( ( max( 0 , ( e / ( b + c + d + e ) ) - ( y / ( b + c + d + e ) ) ) ) * ( ( b_w / ( i ) + ( b_x / ( i ) ) ) + c_a / ( i ) * ( ( b_z + c_a ) / ( i ) * ( c_b - a_i ) / ( i ) ) ) / ( ( b_v / ( i ) ) + ( b_w / ( i ) + ( b_x / ( i ) ) ) + ( b_y / ( b_q if ( 1 ) else ( i ) ) ) + ( ( ( ( b_z + c_a ) / ( i ) * ( c_b - a_i ) / ( i ) ) * ( i ) + ( c_c + ( d / ( b + c + d + e ) ) * c_d ) ) / ( i ) if ( b_v < ( c_b - a_i ) ) else ( c_c + ( d / ( b + c + d + e ) ) * c_d ) / ( i ) ) ) ) + ( ( ( ( r / ( g ) ) / ( ( max( 0 , ( c_g / ( b + c + d + e ) ) - ( r / ( g ) ) ) ) + ( r / ( g ) ) ) ) * ( ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * c_h / ( g ) ) , ( 1.0 ) ) ) / ( r / ( g ) ) ) ) * ( c_g / ( b + c + d + e ) ) ) ) ) + ( 100 * ( ( c_i + c_j ) / ( g ) ) ) + ( 100 * ( ( d / ( b + c + d + e ) ) - ( ( c_i + c_j ) / ( g ) ) - ( ( ( ( r / ( g ) ) / ( ( max( 0 , ( c_g / ( b + c + d + e ) ) - ( r / ( g ) ) ) ) + ( r / ( g ) ) ) ) * ( ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * c_h / ( g ) ) , ( 1.0 ) ) ) / ( r / ( g ) ) ) ) * ( c_g / ( b + c + d + e ) ) ) ) ) )",
+      "Formula": "100 - ( ( 100 * ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( h / ( i ) ) + ( j / ( i ) ) + ( k / ( i ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) + ( 100 * ( ( b / ( b + c + d + e ) - f / ( g ) ) - ( 1 - ( 10 * ( r / ( g ) ) * ( max( ( s / ( b + c + d + e ) ) * ( 1 - t / ( u - v ) ) , 0.0001 ) ) / ( s / ( b + c + d + e ) ) ) ) * ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) - ( ( 1 - w / x ) * ( ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1 ) ) ) + ( l / ( i ) + ( k / ( i ) ) ) * ( ( ( 1 - ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) ) * l / ( i ) ) + ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) * ( max( ( s / ( b + c + d + e ) ) * ( 1 - t / ( u - v ) ) , 0.0001 ) ) / ( s / ( b + c + d + e ) ) ) / ( ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) + ( ( 1 - ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) ) * l / ( i ) ) + ( k / ( i ) ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) ) ) - ( 100 * ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( h / ( i ) ) + ( j / ( i ) ) + ( k / ( i ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) ) + ( 100 * ( 1 - ( 10 * ( r / ( g ) ) * ( max( ( s / ( b + c + d + e ) ) * ( 1 - t / ( u - v ) ) , 0.0001 ) ) / ( s / ( b + c + d + e ) ) ) ) * ( ( s / ( b + c + d + e ) ) + ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) ) + ( 100 * ( ( ( y / ( b + c + d + e ) ) * ( ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( ( min( i , a_m ) ) / ( i ) ) / ( ( ( min( i , a_m ) ) / ( i ) ) + ( ( min( i , a_n ) ) / ( i ) - ( ( min( i , a_m ) ) / ( i ) ) ) ) ) ) + ( ( y / ( b + c + d + e ) ) * ( ( ( a_k - z ) / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( ( a_o + a_p ) / ( i ) ) / ( ( min( ( ( ( ( 80 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_t * ( a_u / ( a_u + a_v ) ) ) + ( ( 79.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_w ) ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1 ) ) ) + ( min( ( ( ( 79.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_x + a_t * ( 1 - ( a_u / ( a_u + a_v ) ) ) ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1 ) ) ) + ( min( ( ( ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_y * ( 1 + ( a_b / a_c ) / 2 ) ) / ( i ) ) , ( 1 ) ) ) + ( ( a_o + a_p ) / ( i ) ) ) ) ) + ( ( y / ( b + c + d + e ) ) * ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( a_z / ( i ) ) / ( ( min( ( 7 ) * b_a + b_b , max( b_c - b_d , 0 ) ) / ( i ) ) + ( min( ( 13 * b_e / ( i ) ) , ( 1 ) ) ) + ( min( ( ( 16 * max( 0 , b_f - b_g ) + ( b_f / b_h ) * ( ( 10 ) * b_i + ( min( i , b_j ) ) ) ) / ( i ) ) , ( 1 ) ) ) + ( min( ( ( b_k / b_l ) * b_m / ( i ) ) , ( 1 ) ) ) + ( a_z / ( i ) ) ) ) ) ) ) + ( 100 * ( ( ( y / ( b + c + d + e ) ) * ( ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( ( min( i , a_n ) ) / ( i ) - ( ( min( i , a_m ) ) / ( i ) ) ) / ( ( ( min( i , a_m ) ) / ( i ) ) + ( ( min( i , a_n ) ) / ( i ) - ( ( min( i , a_m ) ) / ( i ) ) ) ) ) ) + ( ( y / ( b + c + d + e ) ) * ( ( ( a_k - z ) / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( min( ( ( ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_y * ( 1 + ( a_b / a_c ) / 2 ) ) / ( i ) ) , ( 1 ) ) ) / ( ( min( ( ( ( ( 80 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_t * ( a_u / ( a_u + a_v ) ) ) + ( ( 79.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_w ) ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1 ) ) ) + ( min( ( ( ( 79.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_x + a_t * ( 1 - ( a_u / ( a_u + a_v ) ) ) ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1 ) ) ) + ( min( ( ( ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_y * ( 1 + ( a_b / a_c ) / 2 ) ) / ( i ) ) , ( 1 ) ) ) + ( ( a_o + a_p ) / ( i ) ) ) ) ) + ( ( y / ( b + c + d + e ) ) * ( ( a_j - a_k ) / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) + ( a_l / ( i ) ) ) ) + ( ( y / ( b + c + d + e ) ) * ( ( a_l / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( min( ( ( ( b_n * ( 10 ) * ( 1 - ( b_f / b_h ) ) ) + ( 1 - ( b_f / b_h ) ) * ( min( i , b_j ) ) ) / ( i ) ) , ( 1 ) ) ) / ( ( min( ( ( ( b_n * ( 10 ) * ( 1 - ( b_f / b_h ) ) ) + ( 1 - ( b_f / b_h ) ) * ( min( i , b_j ) ) ) / ( i ) ) , ( 1 ) ) ) + ( min( ( ( 80 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_o / ( i ) ) , ( 1 ) ) ) + ( b_p / ( b_q if smt_on else ( i ) ) ) + ( min( ( 9 * b_r / ( i ) ) , ( 1 ) ) ) + ( min( ( ( ( 7 ) * b_s + b_t ) / ( b_q if smt_on else ( i ) ) ) , ( 1 ) ) ) ) ) ) ) ) + ( 100 * ( ( y / ( b + c + d + e ) ) * ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) / max( ( y / ( b + c + d + e ) ) , ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) + ( a_l / ( i ) ) ) ) ) * ( ( min( ( 7 ) * b_a + b_b , max( b_c - b_d , 0 ) ) / ( i ) ) / max( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) , ( ( min( ( 7 ) * b_a + b_b , max( b_c - b_d , 0 ) ) / ( i ) ) + ( min( ( 13 * b_e / ( i ) ) , ( 1 ) ) ) + ( min( ( ( 16 * max( 0 , b_f - b_g ) + ( b_f / b_h ) * ( ( 10 ) * b_i + ( min( i , b_j ) ) ) ) / ( i ) ) , ( 1 ) ) ) + ( min( ( ( b_k / b_l ) * b_m / ( i ) ) , ( 1 ) ) ) + ( a_z / ( i ) ) ) ) ) + ( ( y / ( b + c + d + e ) ) * ( ( a_l / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( min( ( ( ( 7 ) * b_s + b_t ) / ( b_q if smt_on else ( i ) ) ) , ( 1 ) ) ) / ( ( min( ( ( ( b_n * ( 10 ) * ( 1 - ( b_f / b_h ) ) ) + ( 1 - ( b_f / b_h ) ) * ( min( i , b_j ) ) ) / ( i ) ) , ( 1 ) ) ) + ( min( ( ( 80 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_o / ( i ) ) , ( 1 ) ) ) + ( b_p / ( b_q if smt_on else ( i ) ) ) + ( min( ( 9 * b_r / ( i ) ) , ( 1 ) ) ) + ( min( ( ( ( 7 ) * b_s + b_t ) / ( b_q if smt_on else ( i ) ) ) , ( 1 ) ) ) ) ) ) ) ) + ( 100 * ( ( y / ( b + c + d + e ) ) * ( ( ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( ( min( i , a_n ) ) / ( i ) - ( ( min( i , a_m ) ) / ( i ) ) ) / ( ( ( min( i , a_m ) ) / ( i ) ) + ( ( min( i , a_n ) ) / ( i ) - ( ( min( i , a_m ) ) / ( i ) ) ) ) ) * ( min( ( ( ( ( 172.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * a_f + ( ( 172.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * a_e ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1 ) ) ) / ( ( min( ( ( ( 108 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * a_d * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1 ) ) ) + ( min( ( ( ( 186 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * a_a * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 172.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * a_f + ( ( 172.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * a_e ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1 ) ) ) ) + ( ( ( a_k - z ) / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) + ( a_l / ( i ) ) ) ) * ( ( min( ( ( ( ( 80 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_t * ( a_u / ( a_u + a_v ) ) ) + ( ( 79.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_w ) ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1 ) ) ) + ( min( ( ( ( 79.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_x + a_t * ( 1 - ( a_u / ( a_u + a_v ) ) ) ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1 ) ) ) ) / ( ( min( ( ( ( ( 80 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_t * ( a_u / ( a_u + a_v ) ) ) + ( ( 79.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_w ) ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1 ) ) ) + ( min( ( ( ( 79.5 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_x + a_t * ( 1 - ( a_u / ( a_u + a_v ) ) ) ) * ( 1 + ( a_b / a_c ) / 2 ) / ( i ) ) , ( 1 ) ) ) + ( min( ( ( ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_y * ( 1 + ( a_b / a_c ) / 2 ) ) / ( i ) ) , ( 1 ) ) ) + ( ( a_o + a_p ) / ( i ) ) ) + ( ( a_l / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - z ) / ( i ) ) + ( min( ( ( ( z / ( i ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) ) + ( min( ( ( ( ( 1 - ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) / ( ( 19 * ( a_a * ( 1 + ( a_b / a_c ) ) ) + 10 * ( ( a_d * ( 1 + ( a_b / a_c ) ) ) + ( a_e * ( 1 + ( a_b / a_c ) ) ) + ( a_f * ( 1 + ( a_b / a_c ) ) ) ) ) + ( 25 * ( a_g * ( 1 + ( a_b / a_c ) ) ) + 33 * ( a_h * ( 1 + ( a_b / a_c ) ) ) ) ) ) ) * ( z / ( i ) ) ) if ( ( 1000000 ) * ( a_h + a_g ) > a_c ) else 0 ) ) , ( 1 ) ) ) + ( a_l / ( i ) ) ) ) * ( min( ( ( 80 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_o / ( i ) ) , ( 1 ) ) ) / ( ( ( min( ( ( ( b_n * ( 10 ) * ( 1 - ( b_f / b_h ) ) ) + ( 1 - ( b_f / b_h ) ) * ( min( i , b_j ) ) ) / ( i ) ) , ( 1 ) ) ) + ( min( ( ( 80 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_o / ( i ) ) , ( 1 ) ) ) + ( b_p / ( b_q if smt_on else ( i ) ) ) + ( min( ( 9 * b_r / ( i ) ) , ( 1 ) ) ) + ( min( ( ( ( 7 ) * b_s + b_t ) / ( b_q if smt_on else ( i ) ) ) , ( 1 ) ) ) ) - ( min( ( ( ( b_n * ( 10 ) * ( 1 - ( b_f / b_h ) ) ) + ( 1 - ( b_f / b_h ) ) * ( min( i , b_j ) ) ) / ( i ) ) , ( 1 ) ) ) ) ) + ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( 1 - ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( 1 - b_u / v ) , 0.0001 ) ) / ( ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( 1 - b_u / v ) , 0.0001 ) ) ) ) ) ) + ( 100 * ( ( ( max( 0 , ( e / ( b + c + d + e ) ) - ( y / ( b + c + d + e ) ) ) ) * ( b_v / ( i ) ) / ( ( b_v / ( i ) ) + ( b_w / ( i ) + ( b_x / ( i ) ) ) + ( b_y / ( b_q if smt_on else ( i ) ) ) + ( ( ( ( b_z + c_a ) / ( i ) * ( c_b - a_i ) / ( i ) ) * ( i ) + ( c_c + ( d / ( b + c + d + e ) ) * c_d ) ) / ( i ) if ( b_v < ( c_b - a_i ) ) else ( c_c + ( d / ( b + c + d + e ) ) * c_d ) / ( i ) ) ) ) + ( ( max( 0 , ( e / ( b + c + d + e ) ) - ( y / ( b + c + d + e ) ) ) ) * ( b_y / ( b_q if smt_on else ( i ) ) ) / ( ( b_v / ( i ) ) + ( b_w / ( i ) + ( b_x / ( i ) ) ) + ( b_y / ( b_q if smt_on else ( i ) ) ) + ( ( ( ( b_z + c_a ) / ( i ) * ( c_b - a_i ) / ( i ) ) * ( i ) + ( c_c + ( d / ( b + c + d + e ) ) * c_d ) ) / ( i ) if ( b_v < ( c_b - a_i ) ) else ( c_c + ( d / ( b + c + d + e ) ) * c_d ) / ( i ) ) ) ) + ( ( max( 0 , ( e / ( b + c + d + e ) ) - ( y / ( b + c + d + e ) ) ) ) * ( ( ( ( ( b_z + c_a ) / ( i ) * ( c_b - a_i ) / ( i ) ) * ( i ) + ( c_c + ( d / ( b + c + d + e ) ) * c_d ) ) / ( i ) if ( b_v < ( c_b - a_i ) ) else ( c_c + ( d / ( b + c + d + e ) ) * c_d ) / ( i ) ) / ( ( b_v / ( i ) ) + ( b_w / ( i ) + ( b_x / ( i ) ) ) + ( b_y / ( b_q if smt_on else ( i ) ) ) + ( ( ( ( b_z + c_a ) / ( i ) * ( c_b - a_i ) / ( i ) ) * ( i ) + ( c_c + ( d / ( b + c + d + e ) ) * c_d ) ) / ( i ) if ( b_v < ( c_b - a_i ) ) else ( c_c + ( d / ( b + c + d + e ) ) * c_d ) / ( i ) ) ) ) * ( ( c_e / ( i ) ) / ( ( ( b_z + c_a ) / ( i ) * ( c_b - a_i ) / ( i ) ) + ( c_c / ( i ) ) + ( c_f / ( i ) ) + ( c_e / ( i ) ) ) ) ) ) ) + ( 100 * ( ( ( 1 - w / x ) * ( ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1 ) ) ) + ( l / ( i ) + ( k / ( i ) ) ) * ( ( ( 1 - ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) ) * l / ( i ) ) + ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) * ( max( ( s / ( b + c + d + e ) ) * ( 1 - t / ( u - v ) ) , 0.0001 ) ) / ( s / ( b + c + d + e ) ) ) / ( ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) + ( ( 1 - ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) ) * l / ( i ) ) + ( k / ( i ) ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) ) + ( 10 * ( r / ( g ) ) * ( max( ( s / ( b + c + d + e ) ) * ( 1 - t / ( u - v ) ) , 0.0001 ) ) / ( s / ( b + c + d + e ) ) ) * ( s / ( b + c + d + e ) ) + ( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( 1 - b_u / v ) , 0.0001 ) ) / ( ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( 1 - b_u / v ) , 0.0001 ) ) ) ) + ( ( max( 0 , ( e / ( b + c + d + e ) ) - ( y / ( b + c + d + e ) ) ) ) * ( ( b_w / ( i ) + ( b_x / ( i ) ) ) + c_a / ( i ) * ( ( b_z + c_a ) / ( i ) * ( c_b - a_i ) / ( i ) ) ) / ( ( b_v / ( i ) ) + ( b_w / ( i ) + ( b_x / ( i ) ) ) + ( b_y / ( b_q if smt_on else ( i ) ) ) + ( ( ( ( b_z + c_a ) / ( i ) * ( c_b - a_i ) / ( i ) ) * ( i ) + ( c_c + ( d / ( b + c + d + e ) ) * c_d ) ) / ( i ) if ( b_v < ( c_b - a_i ) ) else ( c_c + ( d / ( b + c + d + e ) ) * c_d ) / ( i ) ) ) ) + ( ( ( ( r / ( g ) ) / ( ( max( 0 , ( c_g / ( b + c + d + e ) ) - ( r / ( g ) ) ) ) + ( r / ( g ) ) ) ) * ( ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * c_h / ( g ) ) , ( 1 ) ) ) / ( r / ( g ) ) ) ) * ( c_g / ( b + c + d + e ) ) ) ) ) + ( 100 * ( ( c_i + c_j ) / ( g ) ) ) + ( 100 * ( ( d / ( b + c + d + e ) ) - ( ( c_i + c_j ) / ( g ) ) - ( ( ( ( r / ( g ) ) / ( ( max( 0 , ( c_g / ( b + c + d + e ) ) - ( r / ( g ) ) ) ) + ( r / ( g ) ) ) ) * ( ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * c_h / ( g ) ) , ( 1 ) ) ) / ( r / ( g ) ) ) ) * ( c_g / ( b + c + d + e ) ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 20",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -6518,7 +6694,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( 100 * ( ( a / ( b + c + a + d ) ) - ( ( e + f ) / ( g ) ) - ( ( ( ( h / ( g ) ) / ( ( max( 0 , ( i / ( b + c + a + d ) ) - ( h / ( g ) ) ) ) + ( h / ( g ) ) ) ) * ( ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * j / ( g ) ) , ( 1.0 ) ) ) / ( h / ( g ) ) ) ) * ( i / ( b + c + a + d ) ) ) ) )",
+      "Formula": "100 * ( 100 * ( ( a / ( b + c + a + d ) ) - ( ( e + f ) / ( g ) ) - ( ( ( ( h / ( g ) ) / ( ( max( 0 , ( i / ( b + c + a + d ) ) - ( h / ( g ) ) ) ) + ( h / ( g ) ) ) ) * ( ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * j / ( g ) ) , ( 1 ) ) ) / ( h / ( g ) ) ) ) * ( i / ( b + c + a + d ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 20",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -6702,8 +6878,17 @@
           "Alias": "b"
         }
       ],
-      "Constants": [],
-      "Formula": "( a ) / ( b / 2 ) if ( 1 ) else 1",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "( a ) / ( b / 2 ) if smt_on else 1",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "THREAD",
@@ -6752,8 +6937,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "a / ( b if ( 1 ) else ( c ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "a / ( b if smt_on else ( c ) )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "CORE",
@@ -6795,8 +6989,17 @@
           "Alias": "g"
         }
       ],
-      "Constants": [],
-      "Formula": "( ( 1 * a + 2 * b + 4 * c + 8 * d + 16 * e ) ) / ( f if ( 1 ) else ( g ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "( ( 1 * a + 2 * b + 4 * c + 8 * d + 16 * e ) ) / ( f if smt_on else ( g ) )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "CORE",
@@ -6830,8 +7033,17 @@
           "Alias": "e"
         }
       ],
-      "Constants": [],
-      "Formula": "( a + b + c ) / ( 2 * ( d if ( 1 ) else ( e ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "( a + b + c ) / ( 2 * ( d if smt_on else ( e ) ) )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "CORE",
@@ -6899,8 +7111,17 @@
           "Alias": "b"
         }
       ],
-      "Constants": [],
-      "Formula": "a if ( 1 ) else ( b )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "a if smt_on else ( b )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "CORE",
@@ -6974,8 +7195,17 @@
           "Alias": "o"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( 1 - ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) / ( ( ( ( f + g ) / ( h ) * ( i - j ) / ( h ) ) * ( h ) + ( k + ( d / ( b + c + d + a ) ) * l ) ) / ( h ) if ( m < ( i - j ) ) else ( k + ( d / ( b + c + d + a ) ) * l ) / ( h ) ) if ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) < ( ( ( ( f + g ) / ( h ) * ( i - j ) / ( h ) ) * ( h ) + ( k + ( d / ( b + c + d + a ) ) * l ) ) / ( h ) if ( m < ( i - j ) ) else ( k + ( d / ( b + c + d + a ) ) * l ) / ( h ) ) else 1 ) if ( 1 - n / o if ( 1 ) else 0 ) > 0.5 else 0",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( 1 - ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) / ( ( ( ( f + g ) / ( h ) * ( i - j ) / ( h ) ) * ( h ) + ( k + ( d / ( b + c + d + a ) ) * l ) ) / ( h ) if ( m < ( i - j ) ) else ( k + ( d / ( b + c + d + a ) ) * l ) / ( h ) ) if ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) < ( ( ( ( f + g ) / ( h ) * ( i - j ) / ( h ) ) * ( h ) + ( k + ( d / ( b + c + d + a ) ) * l ) ) / ( h ) if ( m < ( i - j ) ) else ( k + ( d / ( b + c + d + a ) ) * l ) / ( h ) ) else 1 ) if ( 1 - n / o if smt_on else 0 ) > 0.5 else 0",
       "Category": "TMA",
       "Threshold": "> 50",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -7525,8 +7755,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "a / ( ( b / 2 ) if ( 1 ) else c )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "a / ( ( b / 2 ) if smt_on else c )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -7835,8 +8074,17 @@
           "Alias": "v"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( 100 * ( ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( h / ( i ) ) / ( ( j / ( i ) ) + ( k / ( i ) ) + ( l / ( i ) + ( m / ( i ) ) ) + ( min( ( ( 3 ) * n / ( o / p ) / ( i ) ) , ( 1.0 ) ) ) + ( q / ( i ) ) + ( h / ( i ) ) ) + ( max( 0 , ( b / ( b + c + d + e ) - f / ( g ) ) - ( ( a / ( b + c + d + e ) - f / ( g ) ) ) ) ) * ( ( r - s ) / ( t if ( 1 ) else ( i ) ) / 2 ) / ( ( ( r - s ) / ( t if ( 1 ) else ( i ) ) / 2 ) + ( ( u - v ) / ( t if ( 1 ) else ( i ) ) / 2 ) ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( 100 * ( ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( h / ( i ) ) / ( ( j / ( i ) ) + ( k / ( i ) ) + ( l / ( i ) + ( m / ( i ) ) ) + ( min( ( ( 3 ) * n / ( o / p ) / ( i ) ) , ( 1 ) ) ) + ( q / ( i ) ) + ( h / ( i ) ) ) + ( max( 0 , ( b / ( b + c + d + e ) - f / ( g ) ) - ( ( a / ( b + c + d + e ) - f / ( g ) ) ) ) ) * ( ( r - s ) / ( t if smt_on else ( i ) ) / 2 ) / ( ( ( r - s ) / ( t if smt_on else ( i ) ) / 2 ) + ( ( u - v ) / ( t if smt_on else ( i ) ) / 2 ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 10; $issueFB",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -7919,7 +8167,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( 100 * ( ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( h / ( i ) ) / ( ( h / ( i ) ) + ( j / ( i ) ) + ( k / ( i ) + ( l / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1.0 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) )",
+      "Formula": "100 * ( 100 * ( ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( h / ( i ) ) / ( ( h / ( i ) ) + ( j / ( i ) ) + ( k / ( i ) + ( l / ( i ) ) ) + ( min( ( ( 3 ) * m / ( n / o ) / ( i ) ) , ( 1 ) ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 5; $issueFL",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -8137,7 +8385,7 @@
         }
       ],
       "Constants": [],
-      "Formula": "( 100 * ( 1 - ( 10 * ( a / ( b ) ) * ( max( ( c / ( d + e + f + g ) ) * ( 1 - h / ( i - j ) ) , 0.0001 ) ) / ( c / ( d + e + f + g ) ) ) ) * ( ( c / ( d + e + f + g ) ) + ( ( k / ( d + e + f + g ) - l / ( b ) ) ) * ( ( ( c / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - l / ( b ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * m / ( n ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1.0 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) ) ) * ( b ) / h / 100",
+      "Formula": "( 100 * ( 1 - ( 10 * ( a / ( b ) ) * ( max( ( c / ( d + e + f + g ) ) * ( 1 - h / ( i - j ) ) , 0.0001 ) ) / ( c / ( d + e + f + g ) ) ) ) * ( ( c / ( d + e + f + g ) ) + ( ( k / ( d + e + f + g ) - l / ( b ) ) ) * ( ( ( c / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - l / ( b ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * m / ( n ) ) / ( ( o / ( n ) ) + ( p / ( n ) ) + ( m / ( n ) + ( q / ( n ) ) ) + ( min( ( ( 3 ) * r / ( s / t ) / ( n ) ) , ( 1 ) ) ) + ( u / ( n ) ) + ( v / ( n ) ) ) ) ) * ( b ) / h / 100",
       "Category": "TMA",
       "Threshold": "; $issueBM",
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
@@ -8694,8 +8942,17 @@
           "Alias": "e"
         }
       ],
-      "Constants": [],
-      "Formula": "( a + b + c ) / ( 4 * ( d if ( 1 ) else ( e ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "( a + b + c ) / ( 4 * ( d if smt_on else ( e ) ) )",
       "Category": "TMA",
       "Threshold": "> 0.5",
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
@@ -9144,30 +9401,6 @@
       "MetricGroup": "HPC;Summary"
     },
     {
-      "MetricName": "Info_System_CPUs_Utilized",
-      "LegacyName": "metric_TMA_Info_System_CPUs_Utilized",
-      "Level": 1,
-      "BriefDescription": "Average number of utilized CPUs",
-      "UnitOfMeasure": "",
-      "Events": [
-        {
-          "Name": "CPU_CLK_UNHALTED.REF_TSC",
-          "Alias": "a"
-        }
-      ],
-      "Constants": [
-        {
-          "Name": "SYSTEM_TSC_FREQ",
-          "Alias": "b"
-        }
-      ],
-      "Formula": "( 224 ) * ( a / b )",
-      "Category": "TMA",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Summary"
-    },
-    {
       "MetricName": "Info_System_Core_Frequency",
       "LegacyName": "metric_TMA_Info_System_Core_Frequency",
       "Level": 1,
@@ -9302,8 +9535,17 @@
           "Alias": "b"
         }
       ],
-      "Constants": [],
-      "Formula": "1 - a / b if ( 1 ) else 0",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "1 - a / b if smt_on else 0",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",

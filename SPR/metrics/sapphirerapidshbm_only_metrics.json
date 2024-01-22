@@ -2,7 +2,7 @@
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for 4th Generation Intel(R) Xeon(R) Processor Scalable Family based on Sapphire Rapids microarchitecture0",
-    "DatePublished": "01/12/2024",
+    "DatePublished": "01/22/2024",
     "Version": "0",
     "Legend": "",
     "TmaVersion": "4.7",
@@ -1640,8 +1640,17 @@
           "Alias": "d"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( ( a - b ) / ( c if ( 1 ) else ( d ) ) / 2 )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( ( a - b ) / ( c if smt_on else ( d ) ) / 2 )",
       "Category": "TMA",
       "Threshold": "> 10 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -1672,8 +1681,17 @@
           "Alias": "d"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( ( a - b ) / ( c if ( 1 ) else ( d ) ) / 2 )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( ( a - b ) / ( c if smt_on else ( d ) ) / 2 )",
       "Category": "TMA",
       "Threshold": "> 10 & P; $issueD0",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -1704,8 +1722,17 @@
           "Alias": "d"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( ( a - b ) / ( c if ( 1 ) else ( d ) ) / 2 )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( ( a - b ) / ( c if smt_on else ( d ) ) / 2 )",
       "Category": "TMA",
       "Threshold": "> 15 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2485,8 +2512,88 @@
       "MetricGroup": "MemoryBW;Offcore"
     },
     {
+      "MetricName": "HBM_Bound",
+      "LegacyName": "metric_TMA_....HBM_Bound(%)",
+      "Level": 3,
+      "BriefDescription": "This metric estimates how often the CPU was stalled due to High Bandwidth Memory (HBM) accesses by loads.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "MEMORY_ACTIVITY.STALLS_L3_MISS",
+          "Alias": "a"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( ( a / ( b ) ) )",
+      "Category": "TMA",
+      "Threshold": "> 10 & P",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "MemoryBound;Offcore;Server;TmaL3mem"
+    },
+    {
+      "MetricName": "DRAM_Bound",
+      "LegacyName": "metric_TMA_....DRAM_Bound(%)",
+      "ParentCategory": "Memory_Bound",
+      "Level": 3,
+      "BriefDescription": "This metric estimates how often the CPU was stalled on accesses to external memory (DRAM) by loads. Better caching can improve the latency and increase performance.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "MEMORY_ACTIVITY.STALLS_L3_MISS",
+          "Alias": "a"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Alias": "b"
+        },
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM",
+          "Alias": "c"
+        },
+        {
+          "Name": "MEM_LOAD_RETIRED.FB_HIT",
+          "Alias": "d"
+        },
+        {
+          "Name": "MEM_LOAD_RETIRED.L1_MISS",
+          "Alias": "e"
+        },
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM",
+          "Alias": "f"
+        },
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD",
+          "Alias": "g"
+        },
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM",
+          "Alias": "h"
+        },
+        {
+          "Name": "MEM_LOAD_RETIRED.LOCAL_PMM",
+          "Alias": "i"
+        },
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_PMM",
+          "Alias": "j"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( min( ( ( ( a / ( b ) ) - ( min( ( ( ( ( 1 - ( ( 19 * ( c * ( 1 + ( d / e ) ) ) + 10 * ( ( f * ( 1 + ( d / e ) ) ) + ( g * ( 1 + ( d / e ) ) ) + ( h * ( 1 + ( d / e ) ) ) ) ) / ( ( 19 * ( c * ( 1 + ( d / e ) ) ) + 10 * ( ( f * ( 1 + ( d / e ) ) ) + ( g * ( 1 + ( d / e ) ) ) + ( h * ( 1 + ( d / e ) ) ) ) ) + ( 25 * ( i * ( 1 + ( d / e ) ) ) + 33 * ( j * ( 1 + ( d / e ) ) ) ) ) ) ) * ( a / ( b ) ) ) if ( ( 1000000 ) * ( j + i ) > e ) else 0 ) ) , ( 1 ) ) ) ) ) , ( 1 ) ) )",
+      "Category": "TMA",
+      "Threshold": "> 10 & P",
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "MemoryBound;TmaL3mem"
+    },
+    {
       "MetricName": "MEM_Bandwidth",
       "LegacyName": "metric_TMA_......MEM_Bandwidth(%)",
+      "ParentCategory": "DRAM_Bound",
       "Level": 4,
       "BriefDescription": "This metric estimates fraction of cycles where the core's performance was likely hurt due to approaching bandwidth limits of external memory - DRAM ([SPR-HBM] and/or HBM).  The underlying heuristic assumes that a similar off-core traffic is generated by all IA cores. This metric does not aggregate non-data-read requests by this logical processor; requests from other IA Logical Processors/Physical Cores/sockets; or other non-IA devices like GPU; hence the maximum external memory bandwidth limits may or may not be approached when this metric is flagged (see Uncore counters for that).",
       "UnitOfMeasure": "percent",
@@ -2534,6 +2641,7 @@
     {
       "MetricName": "MEM_Latency",
       "LegacyName": "metric_TMA_......MEM_Latency(%)",
+      "ParentCategory": "DRAM_Bound",
       "Level": 4,
       "BriefDescription": "This metric estimates fraction of cycles where the performance was likely hurt due to latency from external memory - DRAM ([SPR-HBM] and/or HBM).  This metric does not aggregate requests from other Logical Processors/Physical Cores/sockets (see Uncore counters for that).",
       "UnitOfMeasure": "percent",
@@ -2871,8 +2979,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( a / ( b if ( 1 ) else ( c ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( a / ( b if smt_on else ( c ) ) )",
       "Category": "TMA",
       "Threshold": "> 20 & P; $issueSpSt",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2927,8 +3044,17 @@
           "Alias": "d"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( min( ( ( ( 7 ) * a + b ) / ( c if ( 1 ) else ( d ) ) ) , ( 1 ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( min( ( ( ( 7 ) * a + b ) / ( c if smt_on else ( d ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P; $issueTLB",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2959,8 +3085,17 @@
           "Alias": "d"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( min( ( ( min( ( ( ( 7 ) * a + b ) / ( c if ( 1 ) else ( d ) ) ) , ( 1 ) ) ) - ( min( ( b / ( c if ( 1 ) else ( d ) ) ) , ( 1 ) ) ) ) , ( 1 ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( min( ( ( min( ( ( ( 7 ) * a + b ) / ( c if smt_on else ( d ) ) ) , ( 1 ) ) ) - ( min( ( b / ( c if smt_on else ( d ) ) ) , ( 1 ) ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2987,8 +3122,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( min( ( a / ( b if ( 1 ) else ( c ) ) ) , ( 1 ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( min( ( a / ( b if smt_on else ( c ) ) ) , ( 1 ) ) )",
       "Category": "TMA",
       "Threshold": "> 5 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3199,8 +3343,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( a / ( b if ( 1 ) else ( c ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( a / ( b if smt_on else ( c ) ) )",
       "Category": "TMA",
       "Threshold": "> 50 & P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3435,8 +3588,17 @@
           "Alias": "f"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( ( a + b + c + d ) / ( 5 * ( e if ( 1 ) else ( f ) ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( ( a + b + c + d ) / ( 5 * ( e if smt_on else ( f ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 40",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3463,8 +3625,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( a / ( b if ( 1 ) else ( c ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( a / ( b if smt_on else ( c ) ) )",
       "Category": "TMA",
       "Threshold": "> 60; $issue2P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3491,8 +3662,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( a / ( b if ( 1 ) else ( c ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( a / ( b if smt_on else ( c ) ) )",
       "Category": "TMA",
       "Threshold": "> 60; $issue2P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3519,8 +3699,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( a / ( b if ( 1 ) else ( c ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( a / ( b if smt_on else ( c ) ) )",
       "Category": "TMA",
       "Threshold": "> 60; $issue2P",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3547,8 +3736,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( a / ( 3 * ( b if ( 1 ) else ( c ) ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( a / ( 3 * ( b if smt_on else ( c ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 60",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3579,8 +3777,17 @@
           "Alias": "d"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( ( a + b ) / ( 4 * ( c if ( 1 ) else ( d ) ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( ( a + b ) / ( 4 * ( c if smt_on else ( d ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 60",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -5062,8 +5269,17 @@
           "Alias": "s"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( 100 * ( ( ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) * ( f / ( g ) ) / ( ( f / ( g ) ) + ( h / ( g ) + ( i / ( g ) ) ) + ( j / ( k if ( 1 ) else ( g ) ) ) + ( ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) * ( g ) + ( p + ( d / ( b + c + d + a ) ) * q ) ) / ( g ) if ( f < ( n - o ) ) else ( p + ( d / ( b + c + d + a ) ) * q ) / ( g ) ) ) ) + ( ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) * ( j / ( k if ( 1 ) else ( g ) ) ) / ( ( f / ( g ) ) + ( h / ( g ) + ( i / ( g ) ) ) + ( j / ( k if ( 1 ) else ( g ) ) ) + ( ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) * ( g ) + ( p + ( d / ( b + c + d + a ) ) * q ) ) / ( g ) if ( f < ( n - o ) ) else ( p + ( d / ( b + c + d + a ) ) * q ) / ( g ) ) ) ) + ( ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) * ( ( ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) * ( g ) + ( p + ( d / ( b + c + d + a ) ) * q ) ) / ( g ) if ( f < ( n - o ) ) else ( p + ( d / ( b + c + d + a ) ) * q ) / ( g ) ) / ( ( f / ( g ) ) + ( h / ( g ) + ( i / ( g ) ) ) + ( j / ( k if ( 1 ) else ( g ) ) ) + ( ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) * ( g ) + ( p + ( d / ( b + c + d + a ) ) * q ) ) / ( g ) if ( f < ( n - o ) ) else ( p + ( d / ( b + c + d + a ) ) * q ) / ( g ) ) ) ) * ( ( r / ( g ) ) / ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) + ( p / ( g ) ) + ( s / ( g ) ) + ( r / ( g ) ) ) ) ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( 100 * ( ( ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) * ( f / ( g ) ) / ( ( f / ( g ) ) + ( h / ( g ) + ( i / ( g ) ) ) + ( j / ( k if smt_on else ( g ) ) ) + ( ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) * ( g ) + ( p + ( d / ( b + c + d + a ) ) * q ) ) / ( g ) if ( f < ( n - o ) ) else ( p + ( d / ( b + c + d + a ) ) * q ) / ( g ) ) ) ) + ( ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) * ( j / ( k if smt_on else ( g ) ) ) / ( ( f / ( g ) ) + ( h / ( g ) + ( i / ( g ) ) ) + ( j / ( k if smt_on else ( g ) ) ) + ( ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) * ( g ) + ( p + ( d / ( b + c + d + a ) ) * q ) ) / ( g ) if ( f < ( n - o ) ) else ( p + ( d / ( b + c + d + a ) ) * q ) / ( g ) ) ) ) + ( ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) * ( ( ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) * ( g ) + ( p + ( d / ( b + c + d + a ) ) * q ) ) / ( g ) if ( f < ( n - o ) ) else ( p + ( d / ( b + c + d + a ) ) * q ) / ( g ) ) / ( ( f / ( g ) ) + ( h / ( g ) + ( i / ( g ) ) ) + ( j / ( k if smt_on else ( g ) ) ) + ( ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) * ( g ) + ( p + ( d / ( b + c + d + a ) ) * q ) ) / ( g ) if ( f < ( n - o ) ) else ( p + ( d / ( b + c + d + a ) ) * q ) / ( g ) ) ) ) * ( ( r / ( g ) ) / ( ( ( l + m ) / ( g ) * ( n - o ) / ( g ) ) + ( p / ( g ) ) + ( s / ( g ) ) + ( r / ( g ) ) ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 20; $issueComp",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -5233,8 +5449,17 @@
           "Alias": "z"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( 100 * ( ( ( 1 - a / b ) * ( ( ( c / ( d + e + f + g ) - h / ( i ) ) ) * ( ( min( ( ( 3 ) * j / ( k / l ) / ( m ) ) , ( 1 ) ) ) + ( n / ( m ) + ( o / ( m ) ) ) * ( ( ( 1 - ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) ) * n / ( m ) ) + ( ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * n / ( m ) ) * ( max( ( p / ( d + e + f + g ) ) * ( 1 - q / ( r - s ) ) , 0.0001 ) ) / ( p / ( d + e + f + g ) ) ) / ( ( ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * n / ( m ) ) + ( ( 1 - ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) ) * n / ( m ) ) + ( o / ( m ) ) ) ) / ( ( t / ( m ) ) + ( u / ( m ) ) + ( n / ( m ) + ( o / ( m ) ) ) + ( min( ( ( 3 ) * j / ( k / l ) / ( m ) ) , ( 1 ) ) ) + ( v / ( m ) ) + ( w / ( m ) ) ) ) ) + ( 10 * ( x / ( i ) ) * ( max( ( p / ( d + e + f + g ) ) * ( 1 - q / ( r - s ) ) , 0.0001 ) ) / ( p / ( d + e + f + g ) ) ) * ( p / ( d + e + f + g ) ) + ( ( max( 0 , ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) - ( p / ( d + e + f + g ) ) ) ) * ( max( ( max( 0 , ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) - ( p / ( d + e + f + g ) ) ) ) * ( 1 - y / s ) , 0.0001 ) ) / ( ( max( ( max( 0 , ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) - ( p / ( d + e + f + g ) ) ) ) * ( 1 - y / s ) , 0.0001 ) ) ) ) + ( ( max( 0 , ( g / ( d + e + f + g ) ) - ( z / ( d + e + f + g ) ) ) ) * ( ( a_a / ( m ) + ( a_b / ( m ) ) ) + a_c / ( m ) * ( ( a_d + a_c ) / ( m ) * ( a_e - a_f ) / ( m ) ) ) / ( ( a_g / ( m ) ) + ( a_a / ( m ) + ( a_b / ( m ) ) ) + ( a_h / ( a_i if ( 1 ) else ( m ) ) ) + ( ( ( ( a_d + a_c ) / ( m ) * ( a_e - a_f ) / ( m ) ) * ( m ) + ( a_j + ( f / ( d + e + f + g ) ) * a_k ) ) / ( m ) if ( a_g < ( a_e - a_f ) ) else ( a_j + ( f / ( d + e + f + g ) ) * a_k ) / ( m ) ) ) ) + ( ( ( ( x / ( i ) ) / ( ( max( 0 , ( a_l / ( d + e + f + g ) ) - ( x / ( i ) ) ) ) + ( x / ( i ) ) ) ) * ( ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * a_m / ( i ) ) , ( 1 ) ) ) / ( x / ( i ) ) ) ) * ( a_l / ( d + e + f + g ) ) ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( 100 * ( ( ( 1 - a / b ) * ( ( ( c / ( d + e + f + g ) - h / ( i ) ) ) * ( ( min( ( ( 3 ) * j / ( k / l ) / ( m ) ) , ( 1 ) ) ) + ( n / ( m ) + ( o / ( m ) ) ) * ( ( ( 1 - ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) ) * n / ( m ) ) + ( ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * n / ( m ) ) * ( max( ( p / ( d + e + f + g ) ) * ( 1 - q / ( r - s ) ) , 0.0001 ) ) / ( p / ( d + e + f + g ) ) ) / ( ( ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) * n / ( m ) ) + ( ( 1 - ( ( p / ( d + e + f + g ) ) / ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) ) ) * n / ( m ) ) + ( o / ( m ) ) ) ) / ( ( t / ( m ) ) + ( u / ( m ) ) + ( n / ( m ) + ( o / ( m ) ) ) + ( min( ( ( 3 ) * j / ( k / l ) / ( m ) ) , ( 1 ) ) ) + ( v / ( m ) ) + ( w / ( m ) ) ) ) ) + ( 10 * ( x / ( i ) ) * ( max( ( p / ( d + e + f + g ) ) * ( 1 - q / ( r - s ) ) , 0.0001 ) ) / ( p / ( d + e + f + g ) ) ) * ( p / ( d + e + f + g ) ) + ( ( max( 0 , ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) - ( p / ( d + e + f + g ) ) ) ) * ( max( ( max( 0 , ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) - ( p / ( d + e + f + g ) ) ) ) * ( 1 - y / s ) , 0.0001 ) ) / ( ( max( ( max( 0 , ( max( 1 - ( ( d / ( d + e + f + g ) - h / ( i ) ) + ( g / ( d + e + f + g ) ) + ( f / ( d + e + f + g ) ) ) , 0 ) ) - ( p / ( d + e + f + g ) ) ) ) * ( 1 - y / s ) , 0.0001 ) ) ) ) + ( ( max( 0 , ( g / ( d + e + f + g ) ) - ( z / ( d + e + f + g ) ) ) ) * ( ( a_a / ( m ) + ( a_b / ( m ) ) ) + a_c / ( m ) * ( ( a_d + a_c ) / ( m ) * ( a_e - a_f ) / ( m ) ) ) / ( ( a_g / ( m ) ) + ( a_a / ( m ) + ( a_b / ( m ) ) ) + ( a_h / ( a_i if smt_on else ( m ) ) ) + ( ( ( ( a_d + a_c ) / ( m ) * ( a_e - a_f ) / ( m ) ) * ( m ) + ( a_j + ( f / ( d + e + f + g ) ) * a_k ) ) / ( m ) if ( a_g < ( a_e - a_f ) ) else ( a_j + ( f / ( d + e + f + g ) ) * a_k ) / ( m ) ) ) ) + ( ( ( ( x / ( i ) ) / ( ( max( 0 , ( a_l / ( d + e + f + g ) ) - ( x / ( i ) ) ) ) + ( x / ( i ) ) ) ) * ( ( min( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * a_m / ( i ) ) , ( 1 ) ) ) / ( x / ( i ) ) ) ) * ( a_l / ( d + e + f + g ) ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 10; $issueMS",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -5500,8 +5725,17 @@
           "Alias": "b"
         }
       ],
-      "Constants": [],
-      "Formula": "( a ) / ( b / 2 ) if ( 1 ) else 1",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "( a ) / ( b / 2 ) if smt_on else 1",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "THREAD",
@@ -5550,8 +5784,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "a / ( b if ( 1 ) else ( c ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "a / ( b if smt_on else ( c ) )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "CORE",
@@ -5593,8 +5836,17 @@
           "Alias": "g"
         }
       ],
-      "Constants": [],
-      "Formula": "( 1 * a + 2 * b + 4 * c + 8 * d + 16 * e ) / ( f if ( 1 ) else ( g ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "( 1 * a + 2 * b + 4 * c + 8 * d + 16 * e ) / ( f if smt_on else ( g ) )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "CORE",
@@ -5628,8 +5880,17 @@
           "Alias": "e"
         }
       ],
-      "Constants": [],
-      "Formula": "( a + b + c ) / ( 2 * ( d if ( 1 ) else ( e ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "( a + b + c ) / ( 2 * ( d if smt_on else ( e ) ) )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "CORE",
@@ -5697,8 +5958,17 @@
           "Alias": "b"
         }
       ],
-      "Constants": [],
-      "Formula": "a if ( 1 ) else ( b )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "a if smt_on else ( b )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "CORE",
@@ -5772,8 +6042,17 @@
           "Alias": "o"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( 1 - ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) / ( ( ( ( f + g ) / ( h ) * ( i - j ) / ( h ) ) * ( h ) + ( k + ( d / ( b + c + d + a ) ) * l ) ) / ( h ) if ( m < ( i - j ) ) else ( k + ( d / ( b + c + d + a ) ) * l ) / ( h ) ) if ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) < ( ( ( ( f + g ) / ( h ) * ( i - j ) / ( h ) ) * ( h ) + ( k + ( d / ( b + c + d + a ) ) * l ) ) / ( h ) if ( m < ( i - j ) ) else ( k + ( d / ( b + c + d + a ) ) * l ) / ( h ) ) else 1 ) if ( 1 - n / o if ( 1 ) else 0 ) > 0.5 else 0",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( 1 - ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) / ( ( ( ( f + g ) / ( h ) * ( i - j ) / ( h ) ) * ( h ) + ( k + ( d / ( b + c + d + a ) ) * l ) ) / ( h ) if ( m < ( i - j ) ) else ( k + ( d / ( b + c + d + a ) ) * l ) / ( h ) ) if ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) < ( ( ( ( f + g ) / ( h ) * ( i - j ) / ( h ) ) * ( h ) + ( k + ( d / ( b + c + d + a ) ) * l ) ) / ( h ) if ( m < ( i - j ) ) else ( k + ( d / ( b + c + d + a ) ) * l ) / ( h ) ) else 1 ) if ( 1 - n / o if smt_on else 0 ) > 0.5 else 0",
       "Category": "TMA",
       "Threshold": "> 50",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -6323,8 +6602,17 @@
           "Alias": "c"
         }
       ],
-      "Constants": [],
-      "Formula": "a / ( ( b / 2 ) if ( 1 ) else c )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "a / ( ( b / 2 ) if smt_on else c )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -6633,8 +6921,17 @@
           "Alias": "v"
         }
       ],
-      "Constants": [],
-      "Formula": "100 * ( 100 * ( ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( h / ( i ) ) / ( ( j / ( i ) ) + ( k / ( i ) ) + ( l / ( i ) + ( m / ( i ) ) ) + ( min( ( ( 3 ) * n / ( o / p ) / ( i ) ) , ( 1 ) ) ) + ( q / ( i ) ) + ( h / ( i ) ) ) + ( max( 0 , ( b / ( b + c + d + e ) - f / ( g ) ) - ( ( a / ( b + c + d + e ) - f / ( g ) ) ) ) ) * ( ( r - s ) / ( t if ( 1 ) else ( i ) ) / 2 ) / ( ( ( r - s ) / ( t if ( 1 ) else ( i ) ) / 2 ) + ( ( u - v ) / ( t if ( 1 ) else ( i ) ) / 2 ) ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "100 * ( 100 * ( ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( h / ( i ) ) / ( ( j / ( i ) ) + ( k / ( i ) ) + ( l / ( i ) + ( m / ( i ) ) ) + ( min( ( ( 3 ) * n / ( o / p ) / ( i ) ) , ( 1 ) ) ) + ( q / ( i ) ) + ( h / ( i ) ) ) + ( max( 0 , ( b / ( b + c + d + e ) - f / ( g ) ) - ( ( a / ( b + c + d + e ) - f / ( g ) ) ) ) ) * ( ( r - s ) / ( t if smt_on else ( i ) ) / 2 ) / ( ( ( r - s ) / ( t if smt_on else ( i ) ) / 2 ) + ( ( u - v ) / ( t if smt_on else ( i ) ) / 2 ) ) ) )",
       "Category": "TMA",
       "Threshold": "> 10; $issueFB",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -7492,8 +7789,17 @@
           "Alias": "e"
         }
       ],
-      "Constants": [],
-      "Formula": "( a + b + c ) / ( 4 * ( d if ( 1 ) else ( e ) ) )",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "( a + b + c ) / ( 4 * ( d if smt_on else ( e ) ) )",
       "Category": "TMA",
       "Threshold": "> 0.5",
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
@@ -7957,9 +8263,17 @@
         {
           "Name": "SYSTEM_TSC_FREQ",
           "Alias": "b"
+        },
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
         }
       ],
-      "Formula": "( 224 ) * ( a / b )",
+      "Formula": "( 224 if smt_on else 112 ) * ( a / b )",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -8100,8 +8414,17 @@
           "Alias": "b"
         }
       ],
-      "Constants": [],
-      "Formula": "1 - a / b if ( 1 ) else 0",
+      "Constants": [
+        {
+          "Name": "HYPERTHREADING_ON",
+          "Alias": "smt_on"
+        },
+        {
+          "Name": "THREADS_PER_CORE",
+          "Alias": "threads"
+        }
+      ],
+      "Formula": "1 - a / b if smt_on else 0",
       "Category": "TMA",
       "Threshold": "",
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
