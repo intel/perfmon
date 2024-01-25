@@ -28,7 +28,9 @@
         "CPU_CLK_UNHALTED.THREAD:SUP":"CPU_CLK_UNHALTED.THREAD:k",
         "UNC_M_CLOCKTICKS:one_unit": "imc_0@event\\=0x0@",
         "UNC_C_CLOCKTICKS:one_unit": "cbox_0@event\\=0x0@",
-        "UNC_CHA_CLOCKTICKS:one_unit": "cha_0@event\\=0x0@"
+        "UNC_CHA_CLOCKTICKS:one_unit": "cha_0@event\\=0x0@",
+        "FREERUN_PKG_ENERGY_STATUS":"power@energy\\-pkg@",
+        "FREERUN_DRAM_ENERGY_STATUS":"power@energy\\-ram@"
     },
     "metric_source_events":{
         "CHAS_PER_SOCKET":"UNC_CHA([^\\s]*)",
