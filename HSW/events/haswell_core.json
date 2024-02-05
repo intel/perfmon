@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 4th Generation Intel(R) Core(TM) Processor - V33",
-    "DatePublished": "03/06/2023",
-    "Version": "33",
+    "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for 4th Generation Intel(R) Core(TM) Processor - V35",
+    "DatePublished": "01/08/2024",
+    "Version": "35",
     "Legend": ""
   },
   "Events": [
@@ -6463,7 +6463,7 @@
       "Invert": "0",
       "AnyThread": "0",
       "EdgeDetect": "0",
-      "PEBS": "1",
+      "PEBS": "2",
       "Data_LA": "0",
       "L1_Hit_Indication": "0",
       "Errata": "null",
