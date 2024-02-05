@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 6th Generation Intel(R) Core(TM) Processor - V57",
-    "DatePublished": "06/06/2023",
-    "Version": "57",
+    "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for 6th Generation Intel(R) Core(TM) Processor - V58",
+    "DatePublished": "01/09/2024",
+    "Version": "58",
     "Legend": ""
   },
   "Events": [
@@ -2864,7 +2864,7 @@
       "UMask": "0x10",
       "EventName": "ITLB_MISSES.WALK_PENDING",
       "BriefDescription": "Counts 1 per cycle for each PMH that is busy with a page walk for an instruction fetch request. EPT page walk duration are excluded in Skylake.",
-      "PublicDescription": "Counts 1 per cycle for each PMH (Page Miss Handler) that is busy with a page walk for an instruction fetch request. EPT page walk duration are excluded in Skylake michroarchitecture.",
+      "PublicDescription": "Counts 1 per cycle for each PMH (Page Miss Handler) that is busy with a page walk for an instruction fetch request. EPT page walk duration are excluded in Skylake microarchitecture.",
       "Counter": "0,1,2,3",
       "CounterHTOff": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "100003",
@@ -4508,7 +4508,7 @@
       "Invert": "0",
       "AnyThread": "0",
       "EdgeDetect": "0",
-      "PEBS": "1",
+      "PEBS": "2",
       "Data_LA": "0",
       "L1_Hit_Indication": "0",
       "Errata": "SKL091, SKL044",
@@ -5934,7 +5934,7 @@
       "Invert": "0",
       "AnyThread": "0",
       "EdgeDetect": "0",
-      "PEBS": "1",
+      "PEBS": "2",
       "Data_LA": "0",
       "L1_Hit_Indication": "0",
       "Errata": "null",
