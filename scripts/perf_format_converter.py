@@ -52,7 +52,7 @@ INPUT_DIR_PATH = Path("./inputs/")
 OUTPUT_DIR_PATH = Path("./outputs/")
 
 # Fields to always display event if empty
-PERSISTENT_FIELDS = ["MetricGroup"]
+PERSISTENT_FIELDS = ["MetricGroup", "BriefDescription"]
 
 
 def main():
