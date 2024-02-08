@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 5th Generation Intel(R) Core(TM) Processor - V28",
-    "DatePublished": "04/14/2023",
-    "Version": "28",
+    "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for 5th Generation Intel(R) Core(TM) Processor - V29",
+    "DatePublished": "01/09/2024",
+    "Version": "29",
     "Legend": ""
   },
   "Events": [
@@ -17,7 +17,8 @@
       "Counter": "0,1",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "CBO",
@@ -29,7 +30,8 @@
       "Counter": "0,1",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "CBO",
@@ -41,7 +43,8 @@
       "Counter": "0,1",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "CBO",
@@ -53,7 +56,8 @@
       "Counter": "0,1",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "CBO",
@@ -65,7 +69,8 @@
       "Counter": "0,1",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "CBO",
@@ -77,7 +82,8 @@
       "Counter": "0,1",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "CBO",
@@ -89,7 +95,8 @@
       "Counter": "0,1",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "CBO",
@@ -101,7 +108,8 @@
       "Counter": "0,1",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "CBO",
@@ -113,7 +121,8 @@
       "Counter": "0,1",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "CBO",
@@ -125,7 +134,8 @@
       "Counter": "0,1",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "CBO",
@@ -137,7 +147,8 @@
       "Counter": "0,1",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "CBO",
@@ -149,7 +160,8 @@
       "Counter": "0,1",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "CBO",
@@ -161,7 +173,8 @@
       "Counter": "0,1",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "CBO",
@@ -173,7 +186,8 @@
       "Counter": "0,1",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "CBO",
@@ -185,7 +199,8 @@
       "Counter": "0,1",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "ARB",
@@ -194,10 +209,11 @@
       "EventName": "UNC_ARB_TRK_OCCUPANCY.ALL",
       "BriefDescription": "Each cycle counts number of all Core outgoing valid entries. Such entry is defined as valid from its allocation till first of IDI0 or DRS0 messages is sent out. Accounts for Coherent and non-coherent traffic.",
       "PublicDescription": "Each cycle counts number of all Core outgoing valid entries. Such entry is defined as valid from its allocation till first of IDI0 or DRS0 messages is sent out. Accounts for Coherent and non-coherent traffic.",
-      "Counter": "0,",
+      "Counter": "0",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "ARB",
@@ -206,10 +222,11 @@
       "EventName": "UNC_ARB_TRK_OCCUPANCY.DRD_DIRECT",
       "BriefDescription": "Each cycle count number of 'valid' coherent Data Read entries that are in DirectData mode. Such entry is defined as valid when it is allocated till data sent to Core (first chunk, IDI0). Applicable for IA Cores' requests in normal case.",
       "PublicDescription": "Each cycle count number of valid coherent Data Read entries that are in DirectData mode. Such entry is defined as valid when it is allocated till data sent to Core (first chunk, IDI0). Applicable for IA Cores' requests in normal case.",
-      "Counter": "0,",
+      "Counter": "0",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "ARB",
@@ -221,7 +238,8 @@
       "Counter": "0,1",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "ARB",
@@ -233,7 +251,8 @@
       "Counter": "0,1",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "ARB",
@@ -245,7 +264,8 @@
       "Counter": "0,1",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "ARB",
@@ -257,7 +277,8 @@
       "Counter": "0,1",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "ARB",
@@ -266,10 +287,11 @@
       "EventName": "UNC_ARB_TRK_OCCUPANCY.CYCLES_WITH_ANY_REQUEST",
       "BriefDescription": "Cycles with at least one request outstanding is waiting for data return from memory controller. Account for coherent and non-coherent requests initiated by IA Cores, Processor Graphics Unit, or LLC.;",
       "PublicDescription": "Cycles with at least one request outstanding is waiting for data return from memory controller. Account for coherent and non-coherent requests initiated by IA Cores, Processor Graphics Unit, or LLC.",
-      "Counter": "0,",
+      "Counter": "0",
       "CounterMask": "1",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "NCU",
@@ -281,7 +303,8 @@
       "Counter": "FIXED",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     }
   ]
 }

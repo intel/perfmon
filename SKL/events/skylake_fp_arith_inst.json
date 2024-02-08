@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 6th Generation Intel(R) Core(TM) Processor - V57",
-    "DatePublished": "06/06/2023",
-    "Version": "57",
+    "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for 6th Generation Intel(R) Core(TM) Processor - V58",
+    "DatePublished": "01/09/2024",
+    "Version": "58",
     "Legend": ""
   },
   "Events": [

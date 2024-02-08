@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 10th Generation Intel(R) Core(TM) Processor - V1.19",
-    "DatePublished": "06/06/2023",
-    "Version": "1.19",
+    "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for 10th Generation Intel(R) Core(TM) Processor - V1.21",
+    "DatePublished": "01/11/2024",
+    "Version": "1.21",
     "Legend": ""
   },
   "Events": [
@@ -17,7 +17,8 @@
       "Counter": "0",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "ARB",
@@ -29,7 +30,8 @@
       "Counter": "1",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "ARB",
@@ -41,7 +43,8 @@
       "Counter": "0",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "ARB",
@@ -53,7 +56,8 @@
       "Counter": "0",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "ARB",
@@ -65,7 +69,8 @@
       "Counter": "0,1",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "ARB",
@@ -77,7 +82,8 @@
       "Counter": "0",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     },
     {
       "Unit": "ARB",
@@ -89,7 +95,8 @@
       "Counter": "0",
       "CounterMask": "0",
       "Invert": "0",
-      "EdgeDetect": "0"
+      "EdgeDetect": "0",
+      "Deprecated": "0"
     }
   ]
 }
