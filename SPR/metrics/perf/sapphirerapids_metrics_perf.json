@@ -1768,12 +1768,6 @@
         "MetricName": "tma_info_system_upi_data_transmit_bw"
     },
     {
-        "BriefDescription": "PerfMon Event Multiplexing accuracy indicator",
-        "MetricExpr": "CPU_CLK_UNHALTED.THREAD_P / CPU_CLK_UNHALTED.THREAD",
-        "MetricGroup": "Summary;TopdownL1;tma_L1_group",
-        "MetricName": "tma_info_system_mux"
-    },
-    {
         "BriefDescription": "Socket actual clocks when any core is active on that socket",
         "MetricExpr": "cha_0@event\\=0x0@",
         "MetricGroup": "SoC;TopdownL1;tma_L1_group",
