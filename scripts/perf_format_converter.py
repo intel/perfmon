@@ -300,7 +300,7 @@ class PerfFormatConverter:
                 if split[0] in event_info["translations"]:
                     translation += "\\\\," + event_info["translations"][split[0]] + "\\\\=" + "0x" + split[1]
             else:
-                match = re.match(r"([a-zA-z]+)([\d]+)", option)
+                match = re.match(r"([a-zA-Z]+)([\d]+)", option)
                 if match:
                     if match[1] in event_info["translations"]:
                         translation += "\\\\,"+ event_info["translations"][match[1]] + "\\\\=" + "0x" + match[2]
