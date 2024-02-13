@@ -878,6 +878,12 @@ class Model:
             elif l[0].startswith('Info'):
                 metric_name = field('Level1')
                 form = find_form()
+                if metric_name == 'CORE_CLKS':
+                    if tma_cpu in ['CPX', 'CLX', 'KBLR/CFL/CML', 'SKX', 'SKL/KBL',
+                                'BDX', 'BDW', 'HSX', 'HSW', 'IVT', 'IVB',
+                                'JKT/SNB-EP', 'SNB']:
+                        # Substitute the #EBS mode formula as perf allows thread/process monitoring.
+                        form = "((CPU_CLK_UNHALTED.THREAD / 2) * (1 + CPU_CLK_UNHALTED.ONE_THREAD_ACTIVE / CPU_CLK_UNHALTED.REF_XCLK)) if #EBS_Mode else (CPU_CLK_UNHALTED.THREAD_ANY / 2) if #SMT_on else CLKS"
                 if form:
                     tma_metric_name = f'tma_{l[0].lower().replace(".","_")}_{metric_name.lower()}'
                     mgroups = []
