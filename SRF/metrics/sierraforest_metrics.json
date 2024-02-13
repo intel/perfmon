@@ -4,9 +4,7 @@
     "Info": "Performance Monitoring Metrics for Intel(R) Xeon(R) Processor Scalable Family0",
     "DatePublished": "02/12/2024",
     "Version": "0",
-    "Legend": "",
-    "TmaVersion": "3.5",
-    "TmaFlavor": "Private"
+    "Legend": ""
   },
   "Metrics": [
     {
