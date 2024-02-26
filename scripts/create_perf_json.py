@@ -335,9 +335,20 @@ class PerfmonJsonEvent:
                 self.unit = unit_fixups[self.unit]
             elif self.unit == "NCU" and self.event_name == "UNC_CLOCK.SOCKET":
                 self.unit = "CLOCK"
-            elif self.unit == "PCU" and self.umask:
-                # TODO: convert to right filter for occupancy
-                self.umask = None
+            elif self.event_name.startswith("UNC_P_POWER_STATE_OCCUPANCY"):
+                # Older uncore_pcu PMUs don't have a umask, fix to occ_sel.
+                assert self.unit == "PCU"
+                if shortname in ['SNB', 'IVB', 'HSW', 'BDW', 'BDW-DE', 'BDX',
+                                 'HSX', 'IVT', 'JKT']:
+                    self.umask = None
+                    assert not self.filter
+                    if self.event_name.endswith("C0"):
+                        self.filter = "occ_sel=1"
+                    elif self.event_name.endswith("C3"):
+                        self.filter = "occ_sel=2"
+                    else:
+                        assert self.event_name.endswith("C6")
+                        self.filter = "occ_sel=3"
         if jd.get('CounterType') == "FREERUN":
             self.unit = f"{self.unit.lower()}_free_running"
             m = re.search(r'_MC(\d+)_', self.event_name)
