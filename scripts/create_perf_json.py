@@ -154,12 +154,6 @@ _topics: Dict[str, Set[tuple[str, int]]] = {
     }
 }
 
-MIN_MAX_PEBS = re.compile(r"([A-Za-z0-9\_\.@]+)\*(min|max)\(\s*(\$PEBS)\s*,((\s*([^\s\)]+)\s*)+)\)")
-NON_REL_OPS = r"(?<!##)(?<!##2)/|[\(\)]+|[\+\-,]|\*(?![\$])|(?<!##)\?| if not | if | else |min\(|max\(| and | or | in | not "
-REL_OPS = r"[<>]=?|=="
-STR_OPS = r"'[A-Z\-]+'"
-OPS = NON_REL_OPS + "|" + REL_OPS + "|" + STR_OPS
-
 # Sort the matches with the highest priority first to allow the loop
 # to exit early when a lower priority match to the current is found.
 for topic in _topics.keys():
@@ -653,6 +647,12 @@ class Model:
 
     @staticmethod
     def extract_pebs_formula(formula):
+        MIN_MAX_PEBS = re.compile(r"([A-Za-z0-9\_\.@]+)\*(min|max)\(\s*(\$PEBS)\s*,((\s*([^\s\)])\s*)+)\)")
+        NON_REL_OPS = r"(?<!##)(?<!##2)/|[\(\)]+|[\+\-,]|\*(?![\$])|(?<!##)\?| if not | if | else |min\(|max\(| and | or | in | not "
+        REL_OPS = r"[<>]=?|=="
+        STR_OPS = r"'[A-Z\-]+'"
+        OPS = NON_REL_OPS + "|" + REL_OPS + "|" + STR_OPS
+
         new_formula = formula
         # catch X*min/max($PEBS,Y)
         if MIN_MAX_PEBS.search(formula):
@@ -662,8 +662,8 @@ class Model:
                 pebs = m.group(3)
                 alternative = m.group(4).strip()
 
-                new_string = f' {min_max}( {main_event}*{pebs} , {main_event} * {alternative} ) '
-                new_formula = re.sub(m.re, new_string, new_formula)
+                new_string = f' {main_event} * {min_max}({main_event}:retire_latency, {alternative}) '
+                new_formula = re.sub(m.re, new_string, new_formula, count=1)
 
         formula_list = re.split(OPS, new_formula)
         for element in formula_list:
@@ -697,7 +697,7 @@ class Model:
             "SKL/KBL": ("SKL/KBL", "BDW", "HSW", "IVB", "SNB"),
             'SKX': ('SKX', 'SKL/KBL', 'BDX', 'BDW', 'HSX', 'HSW', 'IVT', 'IVB',
                     'JKT/SNB-EP', 'SNB'),
-            "KBLR/CFL": ("KBLR/CFL", "SKL/KBL", "BDW", "HSW", "IVB", "SNB"),
+            "KBLR/CFL/CML": ("KBLR/CFL/CML", "SKL/KBL", "BDW", "HSW", "IVB", "SNB"),
             'CLX': ('CLX', 'KBLR/CFL/CML', 'SKX', 'SKL/KBL', 'BDX', 'BDW', 'HSX', 'HSW',
                     'IVT', 'IVB', 'JKT/SNB-EP', 'SNB'),
             "ICL": ("ICL", "CNL", "KBLR/CFL/CML", "SKL/KBL", "BDW", "HSW", "IVB", "SNB"),
@@ -712,9 +712,9 @@ class Model:
             'SPR': ('SPR', 'ADL/RPL', 'TGL', 'RKL', 'ICX', 'ICL', 'CNL', 'CPX', 'CLX',
                     'KBLR/CFL/CML', 'SKX', 'SKL/KBL', 'BDX', 'BDW', 'HSX', 'HSW', 'IVT',
                     'IVB', 'JKT/SNB-EP', 'SNB'),
-            "GRT": ("GRT",),
+            "GRT": ("GRT"),
             "MTL": ('MTL', 'ADL/RPL', 'TGL', 'RKL', 'ICL', 'CNL', 'KBLR/CFL/CML',
-                        'SKL/KBL', 'BDW', 'HSW', 'IVB', 'SNB'),
+                    'SKL/KBL', 'BDW', 'HSW', 'IVB', 'SNB'),
         }
         tma_cpu = None
         if self.shortname == 'BDW-DE':
@@ -1259,10 +1259,8 @@ class Model:
                         continue
                     if v.startswith('tma_') or v.startswith('topdown\\-'):
                         continue
-                    #assert v in events or v.upper() in events or v in infoname or v in aux, \
-                    #    f'Expected {v} to be an event in "{name}": "{form}" on {self.shortname}'
-                    if v not in events and v.upper() not in events and v not in infoname and v not in aux:
-                        _verboseprint(f'Warning: Expected {v} to be an event in "{name}": "{form}" on {self.shortname}')
+                    assert v in events or v.upper() in events or v in infoname or v in aux, \
+                        f'Expected {v} to be an event in "{name}": "{form}" on {self.shortname}'
 
                 assert f'{pmu_prefix}@UNC' not in form, form
                 if group:
@@ -1568,9 +1566,6 @@ class Model:
                     skip = {}
                 for em in json.load(extra_json):
                     if em['MetricName'] in skip:
-                        continue
-                    if em['MetricName'] in ignore:
-                        _verboseprint2(f"Skipping {em['MetricName']}")
                         continue
                     dups = [m for m in jo if m['MetricName'] == em['MetricName']]
                     if dups:
