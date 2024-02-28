@@ -1567,6 +1567,9 @@ class Model:
                 for em in json.load(extra_json):
                     if em['MetricName'] in skip:
                         continue
+                    if em['MetricName'] in ignore:
+                        _verboseprint2(f"Skipping {em['MetricName']}")
+                        continue
                     dups = [m for m in jo if m['MetricName'] == em['MetricName']]
                     if dups:
                         _verboseprint3(f'Not replacing:\n\t{dups[0]["MetricExpr"]}\nwith:\n\t{em["MetricExpr"]}')
