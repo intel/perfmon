@@ -304,6 +304,7 @@ class PerfmonJsonEvent:
         self.sample_after_value = get('SampleAfterValue')
         self.umask = get('UMask')
         self.unit = get('Unit')
+        self.counter = get('Counter')
         # Sanity check certain old perfmon keys or values that could
         # be used in perf json don't exist.
         assert 'Internal' not in jd
@@ -467,6 +468,7 @@ class PerfmonJsonEvent:
         add_to_result('SampleAfterValue', self.sample_after_value)
         add_to_result('UMask', self.umask)
         add_to_result('Unit', self.unit)
+        add_to_result('Counter', self.counter)
         return result
 
 def rewrite_metrics_in_terms_of_others(metrics: list[Dict[str,str]]) -> list[Dict[str,str]]:
