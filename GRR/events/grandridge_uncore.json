@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Grand Ridge Base Transceiver Station Family - V1.01",
-    "DatePublished": "01/16/2024",
-    "Version": "1.01",
+    "Info": "Performance Monitoring Events for Intel(R) Grand Ridge Base Transceiver Station Family - V1.02",
+    "DatePublished": "02/26/2024",
+    "Version": "1.02",
     "Legend": ""
   },
   "Events": [
@@ -3616,7 +3616,7 @@
       "UMaskExt": "0x00000000",
       "EventName": "UNC_CHACMS_CLOCKTICKS",
       "BriefDescription": "Clockticks for CMS units attached to CHA",
-      "PublicDescription": "UNC_CHACMS_CLOCKTICKS",
+      "PublicDescription": "Clockticks for CMS units attached to CHA",
       "Counter": "0,1,2,3",
       "ELLC": "0",
       "Filter": "na",
