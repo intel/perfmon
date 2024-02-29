@@ -513,6 +513,7 @@ class Model:
         self.models = sorted(models)
         self.files = files
         self.metricgroups = {}
+        self.unit_counters = {}
 
     def __lt__(self, other: 'Model') -> bool:
         """ Sort by models gloally by name."""
@@ -1584,6 +1585,33 @@ class Model:
 
         return jo
 
+    def count_counters(self, event_type, pmon_events):
+        # Count number of counters in each PMU unit
+
+        print(f"Event_type: {event_type}")
+        print(f"Number of events = {len(pmon_events)}")
+        for event in pmon_events:
+            if not event.counter or "FREERUN" in event.event_name:
+                print(event.event_name)
+                continue
+            counters = event.counter.split(',')
+            if "fixed" in counters[0].lower():
+                type = "NumFixedCounters"
+                counters = event.counter.split(' ')
+                if not counters[-1].isnumeric():
+                    counters[0] = '0'
+            else:
+                type = "NumCounters"
+            if not event.unit:
+                unit = event_type
+            else:
+                unit = event.unit
+            v = int(counters[-1]) + 1
+            if unit in self.unit_counters:
+                self.unit_counters[unit][type] = str(max(int(self.unit_counters[unit][type]), v))
+            else:
+                self.unit_counters[unit] = {'Unit':unit, 'NumFixedCounters': '0', 'NumCounters': '0'}
+                self.unit_counters[unit][type] = v
 
     def to_perf_json(self, outdir: Path):
         # Map from a topic to its list of events as dictionaries.
@@ -1636,6 +1664,7 @@ class Model:
                     pmon_topic_events[event.topic].append(dict_event)
                     dict_events[event.event_name] = dict_event
                     events[event.event_name] = event
+                self.count_counters(event_type, pmon_events)
 
         if 'uncore csv' in self.files:
             _verboseprint2(f'Rewriting events with {self.files["uncore csv"]}')
@@ -1732,6 +1761,10 @@ class Model:
                 json.dump(events_, perf_json, sort_keys=True, indent=4,
                           separators=(',', ': '))
                 perf_json.write('\n')
+        # Write units and counters data to counter.json file
+        output_counters = Path(outdir, f'counter.json')
+        with open(output_counters, 'w', encoding='ascii') as cnt_json:
+            json.dump(list(self.unit_counters.values()), cnt_json, indent=4)
 
         metrics = []
         for metric_csv_key, unit in [('tma metrics', 'cpu_core'),
