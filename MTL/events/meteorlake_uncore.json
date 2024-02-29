@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Core(TM) processors based on Meteor Lake performance hybrid architecture - V1.07",
-    "DatePublished": "12/04/2023",
-    "Version": "1.07",
+    "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for Intel(R) Core(TM) processors based on Meteor Lake performance hybrid architecture - V1.08",
+    "DatePublished": "02/22/2024",
+    "Version": "1.08",
     "Legend": ""
   },
   "Events": [
@@ -234,7 +234,7 @@
     {
       "Unit": "HAC_ARB",
       "EventCode": "0x81",
-      "UMask": "0x1",
+      "UMask": "0x01",
       "EventName": "UNC_HAC_ARB_TRK_REQUESTS.ALL",
       "BriefDescription": "Total number of all outgoing entries allocated. Accounts for Coherent and non-coherent traffic.",
       "PublicDescription": "Total number of all outgoing entries allocated. Accounts for Coherent and non-coherent traffic.",
@@ -248,7 +248,7 @@
     {
       "Unit": "HAC_ARB",
       "EventCode": "0x81",
-      "UMask": "0x2",
+      "UMask": "0x02",
       "EventName": "UNC_HAC_ARB_REQ_TRK_REQUEST.DRD",
       "BriefDescription": "Number of all coherent Data Read entries. Doesn't include prefetches",
       "PublicDescription": "Number of all coherent Data Read entries. Doesn't include prefetches",
@@ -261,8 +261,8 @@
     },
     {
       "Unit": "HAC_ARB",
-      "EventCode": "0x8a",
-      "UMask": "0x1",
+      "EventCode": "0x8A",
+      "UMask": "0x01",
       "EventName": "UNC_HAC_ARB_TRANSACTIONS.ALL",
       "BriefDescription": "Number of all CMI transactions",
       "PublicDescription": "Number of all CMI transactions",
@@ -275,8 +275,8 @@
     },
     {
       "Unit": "HAC_ARB",
-      "EventCode": "0x8a",
-      "UMask": "0x2",
+      "EventCode": "0x8A",
+      "UMask": "0x02",
       "EventName": "UNC_HAC_ARB_TRANSACTIONS.READS",
       "BriefDescription": "Number of all CMI reads",
       "PublicDescription": "Number of all CMI reads",
@@ -289,8 +289,8 @@
     },
     {
       "Unit": "HAC_ARB",
-      "EventCode": "0x8a",
-      "UMask": "0x4",
+      "EventCode": "0x8A",
+      "UMask": "0x04",
       "EventName": "UNC_HAC_ARB_TRANSACTIONS.WRITES",
       "BriefDescription": "Number of all CMI writes not including Mflush",
       "PublicDescription": "Number of all CMI writes not including Mflush",
@@ -304,7 +304,7 @@
     {
       "Unit": "HAC_CBO",
       "EventCode": "0x35",
-      "UMask": "0x1",
+      "UMask": "0x01",
       "EventName": "UNC_HAC_CBO_TOR_ALLOCATION.DRD",
       "BriefDescription": "Asserted on coherent DRD + DRdPref  allocations into the queue. Cacheable only",
       "PublicDescription": "Asserted on coherent DRD + DRdPref  allocations into the queue. Cacheable only",
@@ -318,7 +318,7 @@
     {
       "Unit": "HAC_CBO",
       "EventCode": "0x35",
-      "UMask": "0x8",
+      "UMask": "0x08",
       "EventName": "UNC_HAC_CBO_TOR_ALLOCATION.ALL",
       "BriefDescription": "Number of all entries allocated. Includes also retries.",
       "PublicDescription": "Number of all entries allocated. Includes also retries.",
@@ -342,6 +342,20 @@
       "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "FIXED"
+    },
+    {
+      "Unit": "ARB",
+      "EventCode": "0x85",
+      "UMask": "0x02",
+      "EventName": "UNC_ARB_DAT_OCCUPANCY.RD",
+      "BriefDescription": "Each cycle counts number of coherent reads pending on data return from memory controller that were issued by any core.",
+      "PublicDescription": "Each cycle counts number of coherent reads pending on data return from memory controller that were issued by any core.",
+      "Counter": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "Deprecated": "0",
+      "CounterType": "PGMABLE"
     }
   ]
 }
