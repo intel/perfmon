@@ -672,7 +672,7 @@ class Model:
             if '$PEBS' in element:
                 event_name = element.split('*')[0]
                 mod = 'R' if '@' in event_name else ':R'
-                new_element = "( " + event_name + ' * ' + event_name + mod + ' )'
+                new_element = f'( {event_name} * {event_name}{mod} )'
                 new_formula = new_formula.replace(element, new_element)
         return new_formula
 
