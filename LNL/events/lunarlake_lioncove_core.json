@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Core(TM) Processor - V1.00",
-    "DatePublished": "08/07/2023",
-    "Version": "1.00",
+    "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for Intel(R) Core(TM) Processor - V1.01",
+    "DatePublished": "02/28/2024",
+    "Version": "1.01",
     "Legend": ""
   },
   "Events": [
@@ -19,6 +19,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -30,6 +31,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "32",
       "Speculative": "0"
     },
     {
@@ -37,13 +40,14 @@
       "UMask": "0x02",
       "UMaskExt": "0x00",
       "EventName": "CPU_CLK_UNHALTED.THREAD",
-      "BriefDescription": "Core cycles when the thread is not in halt state",
-      "PublicDescription": "Counts the number of core cycles while the thread is not in a halt state. The thread enters the halt state when it is running the HLT instruction. This event is a component in many key event ratios. The core frequency may change from time to time due to transitions associated with Enhanced Intel SpeedStep Technology or TM2. For this reason this event may have a changing ratio with regards to time. When the core frequency is constant, this event can approximate elapsed time while the core was not in the halt state. It is counted on a dedicated fixed counter, leaving the eight programmable counters available for other events.",
+      "BriefDescription": "Core cycles when the thread is not in a halt state.",
+      "PublicDescription": "Counts the number of core cycles while the thread is not in a halt state. The thread enters the halt state when it is running the HLT instruction. This event is a component in many key event ratios. The core frequency may change from time to time due to transitions associated with Enhanced Intel SpeedStep Technology or TM2. For this reason this event may have a changing ratio with regards to time. When the core frequency is constant, this event can approximate elapsed time while the core was not in the halt state. It is counted on a dedicated fixed counter, leaving the programmable counters available for other events.",
       "Counter": "Fixed counter 1",
       "PEBScounters": "33",
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -55,6 +59,36 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "NA",
+      "Speculative": "1"
+    },
+    {
+      "EventCode": "0x00",
+      "UMask": "0x02",
+      "UMaskExt": "0x00",
+      "EventName": "CPU_CLK_UNHALTED.CORE",
+      "BriefDescription": "Core cycles when the core is not in a halt state.",
+      "PublicDescription": "Counts the number of core cycles while the core is not in a halt state. The core enters the halt state when it is running the HLT instruction. This event is a component in many key event ratios. The core frequency may change from time to time due to transitions associated with Enhanced Intel SpeedStep Technology or TM2. For this reason this event may have a changing ratio with regards to time. When the core frequency is constant, this event can approximate elapsed time while the core was not in the halt state. It is counted on a dedicated fixed counter, leaving the programmable counters available for other events.",
+      "Counter": "Fixed counter 1",
+      "PEBScounters": "33",
+      "SampleAfterValue": "2000003",
+      "MSRIndex": "0x00",
+      "MSRValue": "0x00",
+      "Precise": "0",
+      "CollectPEBSRecord": "2",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -69,6 +103,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -80,6 +115,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -94,6 +131,7 @@
       "SampleAfterValue": "10000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -105,6 +143,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -119,6 +159,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -130,6 +171,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -144,6 +187,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -155,6 +199,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -169,6 +215,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -180,6 +227,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -194,6 +243,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -205,6 +255,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -214,11 +266,12 @@
       "EventName": "OCR.DEMAND_DATA_RD.L3_MISS",
       "BriefDescription": "Counts demand data reads that were not supplied by the L3 cache.",
       "PublicDescription": "Counts demand data reads that were not supplied by the L3 cache.",
-      "Counter": "0,1,2,3,4,5,6,7",
+      "Counter": "0,1,2,3",
       "PEBScounters": "0",
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
-      "MSRValue": "0x3FBFC00001",
+      "MSRValue": "0xFE7F8000001",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -230,6 +283,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -239,11 +294,12 @@
       "EventName": "OCR.DEMAND_DATA_RD.ANY_RESPONSE",
       "BriefDescription": "Counts demand data reads that have any type of response.",
       "PublicDescription": "Counts demand data reads that have any type of response.",
-      "Counter": "0,1,2,3,4,5,6,7",
+      "Counter": "0,1,2,3",
       "PEBScounters": "0",
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x10001",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -255,6 +311,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -264,11 +322,12 @@
       "EventName": "OCR.DEMAND_DATA_RD.DRAM",
       "BriefDescription": "Counts demand data reads that were supplied by DRAM.",
       "PublicDescription": "Counts demand data reads that were supplied by DRAM.",
-      "Counter": "0,1,2,3,4,5,6,7",
+      "Counter": "0,1,2,3",
       "PEBScounters": "0",
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
-      "MSRValue": "0x184000001",
+      "MSRValue": "0x1E780000001",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -280,6 +339,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -289,11 +350,12 @@
       "EventName": "OCR.DEMAND_RFO.L3_MISS",
       "BriefDescription": "Counts demand read for ownership (RFO) requests and software prefetches for exclusive ownership (PREFETCHW) that were not supplied by the L3 cache.",
       "PublicDescription": "Counts demand read for ownership (RFO) requests and software prefetches for exclusive ownership (PREFETCHW) that were not supplied by the L3 cache.",
-      "Counter": "0,1,2,3,4,5,6,7",
+      "Counter": "0,1,2,3",
       "PEBScounters": "0",
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
-      "MSRValue": "0x3FBFC00002",
+      "MSRValue": "0xFE7F8000002",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -305,6 +367,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -314,11 +378,12 @@
       "EventName": "OCR.DEMAND_RFO.ANY_RESPONSE",
       "BriefDescription": "Counts demand read for ownership (RFO) requests and software prefetches for exclusive ownership (PREFETCHW) that have any type of response.",
       "PublicDescription": "Counts demand read for ownership (RFO) requests and software prefetches for exclusive ownership (PREFETCHW) that have any type of response.",
-      "Counter": "0,1,2,3,4,5,6,7",
+      "Counter": "0,1,2,3",
       "PEBScounters": "0",
       "SampleAfterValue": "100003",
       "MSRIndex": "0x1a6,0x1a7",
       "MSRValue": "0x10002",
+      "Precise": "0",
       "CollectPEBSRecord": "0",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -330,6 +395,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -344,6 +411,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -355,6 +423,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -369,6 +439,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -380,6 +451,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -387,13 +460,14 @@
       "UMask": "0x00",
       "UMaskExt": "0x00",
       "EventName": "CPU_CLK_UNHALTED.THREAD_P",
-      "BriefDescription": "Thread cycles when thread is not in halt state",
-      "PublicDescription": "This is an architectural event that counts the number of thread cycles while the thread is not in a halt state. The thread enters the halt state when it is running the HLT instruction. The core frequency may change from time to time due to power or thermal throttling. For this reason, this event may have a changing ratio with regards to wall clock time.",
+      "BriefDescription": "Thread cycles when thread is not in halt state [This event is alias to CPU_CLK_UNHALTED.CORE_P]",
+      "PublicDescription": "This is an architectural event that counts the number of thread cycles while the thread is not in a halt state. The thread enters the halt state when it is running the HLT instruction. The core frequency may change from time to time due to power or thermal throttling. For this reason, this event may have a changing ratio with regards to wall clock time. [This event is alias to CPU_CLK_UNHALTED.CORE_P]",
       "Counter": "0,1,2,3,4,5,6,7,8,9",
       "PEBScounters": "0,1,2,3,4,5,6,7,8,9",
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -405,6 +479,36 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "NA",
+      "Speculative": "1"
+    },
+    {
+      "EventCode": "0x3c",
+      "UMask": "0x00",
+      "UMaskExt": "0x00",
+      "EventName": "CPU_CLK_UNHALTED.CORE_P",
+      "BriefDescription": "Thread cycles when thread is not in halt state [This event is alias to CPU_CLK_UNHALTED.THREAD_P]",
+      "PublicDescription": "This is an architectural event that counts the number of thread cycles while the thread is not in a halt state. The thread enters the halt state when it is running the HLT instruction. The core frequency may change from time to time due to power or thermal throttling. For this reason, this event may have a changing ratio with regards to wall clock time. [This event is alias to CPU_CLK_UNHALTED.THREAD_P]",
+      "Counter": "0,1,2,3,4,5,6,7,8,9",
+      "PEBScounters": "0,1,2,3,4,5,6,7,8,9",
+      "SampleAfterValue": "2000003",
+      "MSRIndex": "0x00",
+      "MSRValue": "0x00",
+      "Precise": "0",
+      "CollectPEBSRecord": "2",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -419,6 +523,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -430,6 +535,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -438,12 +545,13 @@
       "UMaskExt": "0x00",
       "EventName": "IDQ_BUBBLES.CORE",
       "BriefDescription": "This event counts a subset of the Topdown Slots event that were no operation was delivered to the back-end pipeline due to instruction fetch limitations when the back-end could have accepted more operations. Common examples include instruction cache misses or x86 instruction decode limitations.",
-      "PublicDescription": "This event counts a subset of the Topdown Slots event that were no operation was delivered to the back-end pipeline due to instruction fetch limitations when the back-end could have accepted more operations. Common examples include instruction cache misses or x86 instruction decode limitations.\nSoftware can use this event as the numerator for the Frontend Bound metric (or top-level category) of the Top-down Microarchitecture Analysis method.",
+      "PublicDescription": "This event counts a subset of the Topdown Slots event that were no operation was delivered to the back-end pipeline due to instruction fetch limitations when the back-end could have accepted more operations. Common examples include instruction cache misses or x86 instruction decode limitations. Software can use this event as the numerator for the Frontend Bound metric (or top-level category) of the Top-down Microarchitecture Analysis method.",
       "Counter": "0,1,2,3,4,5,6,7,8,9",
       "PEBScounters": "0,1,2,3,4,5,6,7,8,9",
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -455,6 +563,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -469,6 +579,7 @@
       "SampleAfterValue": "10000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -480,6 +591,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -488,12 +601,13 @@
       "UMaskExt": "0x00",
       "EventName": "TOPDOWN.BACKEND_BOUND_SLOTS",
       "BriefDescription": "This event counts a subset of the Topdown Slots event that were not consumed by the back-end pipeline due to lack of back-end resources, as a result of memory subsystem delays, execution units limitations, or other conditions.",
-      "PublicDescription": "This event counts a subset of the Topdown Slots event that were not consumed by the back-end pipeline due to lack of back-end resources, as a result of memory subsystem delays, execution units limitations, or other conditions.\nSoftware can use this event as the numerator for the Backend Bound metric (or top-level category) of the Top-down Microarchitecture Analysis method.",
-      "Counter": "3",
-      "PEBScounters": "3",
+      "PublicDescription": "This event counts a subset of the Topdown Slots event that were not consumed by the back-end pipeline due to lack of back-end resources, as a result of memory subsystem delays, execution units limitations, or other conditions. Software can use this event as the numerator for the Backend Bound metric (or top-level category) of the Top-down Microarchitecture Analysis method.",
+      "Counter": "0,1,2,3,4,5,6,7,8,9",
+      "PEBScounters": "0,1,2,3,4,5,6,7,8,9",
       "SampleAfterValue": "10000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -505,6 +619,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "NA",
       "Speculative": "1"
     },
     {
@@ -519,6 +635,7 @@
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -530,6 +647,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -538,12 +657,13 @@
       "UMaskExt": "0x00",
       "EventName": "UOPS_RETIRED.SLOTS",
       "BriefDescription": "This event counts a subset of the Topdown Slots event that are utilized by operations that eventually get retired (committed) by the processor pipeline. Usually, this event positively correlates with higher performance  for example, as measured by the instructions-per-cycle metric.",
-      "PublicDescription": "This event counts a subset of the Topdown Slots event that are utilized by operations that eventually get retired (committed) by the processor pipeline. Usually, this event positively correlates with higher performance  for example, as measured by the instructions-per-cycle metric.\nSoftware can use this event as the numerator for the Retiring metric (or top-level category) of the Top-down Microarchitecture Analysis method.",
+      "PublicDescription": "This event counts a subset of the Topdown Slots event that are utilized by operations that eventually get retired (committed) by the processor pipeline. Usually, this event positively correlates with higher performance  for example, as measured by the instructions-per-cycle metric. Software can use this event as the numerator for the Retiring metric (or top-level category) of the Top-down Microarchitecture Analysis method.",
       "Counter": "0,1,2,3,4,5,6,7,8,9",
       "PEBScounters": "0,1,2,3,4,5,6,7,8,9",
       "SampleAfterValue": "2000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "0",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -555,6 +675,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -569,6 +691,7 @@
       "SampleAfterValue": "400009",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -580,6 +703,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -594,6 +719,7 @@
       "SampleAfterValue": "400009",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -605,6 +731,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -619,6 +747,7 @@
       "SampleAfterValue": "1009",
       "MSRIndex": "0x3F6",
       "MSRValue": "0x80",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -630,6 +759,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -644,6 +775,7 @@
       "SampleAfterValue": "20011",
       "MSRIndex": "0x3F6",
       "MSRValue": "0x10",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -655,6 +787,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -669,6 +803,7 @@
       "SampleAfterValue": "503",
       "MSRIndex": "0x3F6",
       "MSRValue": "0x100",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -680,6 +815,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -694,6 +831,7 @@
       "SampleAfterValue": "100007",
       "MSRIndex": "0x3F6",
       "MSRValue": "0x20",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -705,6 +843,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -719,6 +859,7 @@
       "SampleAfterValue": "100003",
       "MSRIndex": "0x3F6",
       "MSRValue": "0x4",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -730,6 +871,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -744,6 +887,7 @@
       "SampleAfterValue": "101",
       "MSRIndex": "0x3F6",
       "MSRValue": "0x200",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -755,6 +899,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -769,6 +915,7 @@
       "SampleAfterValue": "2003",
       "MSRIndex": "0x3F6",
       "MSRValue": "0x40",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -780,6 +927,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -794,6 +943,7 @@
       "SampleAfterValue": "50021",
       "MSRIndex": "0x3F6",
       "MSRValue": "0x8",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -805,6 +955,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -819,6 +971,7 @@
       "SampleAfterValue": "53",
       "MSRIndex": "0x3F6",
       "MSRValue": "0x400",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -830,6 +983,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -844,6 +999,7 @@
       "SampleAfterValue": "23",
       "MSRIndex": "0x3F6",
       "MSRValue": "0x800",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "1",
       "CounterMask": "0",
@@ -855,6 +1011,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -869,6 +1027,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -880,6 +1039,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -894,6 +1055,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -905,6 +1067,8 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     },
     {
@@ -919,6 +1083,7 @@
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
       "MSRValue": "0x00",
+      "Precise": "1",
       "CollectPEBSRecord": "2",
       "TakenAlone": "0",
       "CounterMask": "0",
@@ -930,6 +1095,36 @@
       "Errata": "null",
       "Offcore": "0",
       "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "0",
+      "Speculative": "0"
+    },
+    {
+      "EventCode": "0xe4",
+      "UMask": "0x01",
+      "UMaskExt": "0x00",
+      "EventName": "MISC_RETIRED.LBR_INSERTS",
+      "BriefDescription": "LBR record is inserted",
+      "PublicDescription": "LBR record is inserted",
+      "Counter": "0,1,2,3,4,5,6,7,8,9",
+      "PEBScounters": "0,1,2,3,4,5,6,7,8,9",
+      "SampleAfterValue": "1000003",
+      "MSRIndex": "0x00",
+      "MSRValue": "0x00",
+      "Precise": "1",
+      "CollectPEBSRecord": "2",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "1",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "Equal": "0",
+      "PDISTCounter": "0",
       "Speculative": "0"
     }
   ]
