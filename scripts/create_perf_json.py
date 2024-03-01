@@ -662,7 +662,8 @@ class Model:
                 pebs = m.group(3)
                 alternative = m.group(4).strip()
 
-                new_string = f' {main_event} * {min_max}({main_event}:retire_latency, {alternative}) '
+                mod = 'R' if '@' in main_event else ':R'
+                new_string = f' {main_event} * {min_max}({main_event}{mod}, {alternative}) '
                 new_formula = re.sub(m.re, new_string, new_formula, count=1)
 
         formula_list = re.split(OPS, new_formula)
@@ -670,7 +671,8 @@ class Model:
             element = element.strip()
             if '$PEBS' in element:
                 event_name = element.split('*')[0]
-                new_element = "( " + event_name + ' * ' + event_name + ':retire_latency )'
+                mod = 'R' if '@' in event_name else ':R'
+                new_element = "( " + event_name + ' * ' + event_name + mod + ' )'
                 new_formula = new_formula.replace(element, new_element)
         return new_formula
 
