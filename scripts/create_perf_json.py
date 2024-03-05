@@ -153,6 +153,7 @@ _topics: Dict[str, Set[tuple[str, int]]] = {
         (r'TLB_FLUSH.*', 1),
     }
 }
+
 # Sort the matches with the highest priority first to allow the loop
 # to exit early when a lower priority match to the current is found.
 for topic in _topics.keys():
@@ -560,6 +561,7 @@ class Model:
             (['ICL', 'TGL', 'RKL'], [6, 7], [2, 3, 6, 7, 8, 9, 10]),
             (['ICX', 'SPR'], [1, 6], [2, 6]),
             (['ADL', 'GRT', 'ADLN'], [1, 6, 7], [2, 3, 6, 7, 8, 9, 10]),
+            (['MTL'], [1, 6, 7], [2, 3, 6, 7, 8, 9, 10]),
             (['SLM'], [1, 6], [6]),
             (['KNL', 'KNM'], [6], [2, 3, 6]),
             (['GLM', 'SNR'], [1, 3, 6], [2, 3, 6, 10]),
@@ -643,6 +645,36 @@ class Model:
                           threshold=(metric.Event('smi_cycles') > 0.10))
         ])
 
+    @staticmethod
+    def extract_pebs_formula(formula):
+        MIN_MAX_PEBS = re.compile(r"([A-Za-z0-9\_\.@]+)\*(min|max)\(\s*(\$PEBS)\s*,((\s*([^\s\)])\s*)+)\)")
+        NON_REL_OPS = r"(?<!##)(?<!##2)/|[\(\)]+|[\+\-,]|\*(?![\$])|(?<!##)\?| if not | if | else |min\(|max\(| and | or | in | not "
+        REL_OPS = r"[<>]=?|=="
+        STR_OPS = r"'[A-Z\-]+'"
+        OPS = NON_REL_OPS + "|" + REL_OPS + "|" + STR_OPS
+
+        new_formula = formula
+        # catch X*min/max($PEBS,Y)
+        if MIN_MAX_PEBS.search(formula):
+            for m in re.finditer(MIN_MAX_PEBS, formula):
+                main_event = m.group(1).strip()
+                min_max = m.group(2)
+                pebs = m.group(3)
+                alternative = m.group(4).strip()
+
+                mod = 'R' if '@' in main_event else ':R'
+                new_string = f' {main_event} * {min_max}({main_event}{mod}, {alternative}) '
+                new_formula = re.sub(m.re, new_string, new_formula, count=1)
+
+        formula_list = re.split(OPS, new_formula)
+        for element in formula_list:
+            element = element.strip()
+            if '$PEBS' in element:
+                event_name = element.split('*')[0]
+                mod = 'R' if '@' in event_name else ':R'
+                new_element = f'( {event_name} * {event_name}{mod} )'
+                new_formula = new_formula.replace(element, new_element)
+        return new_formula
 
     def extract_tma_metrics(self, csvfile: TextIO, pmu_prefix: str,
                             events: Dict[str, PerfmonJsonEvent]):
@@ -667,7 +699,7 @@ class Model:
             "SKL/KBL": ("SKL/KBL", "BDW", "HSW", "IVB", "SNB"),
             'SKX': ('SKX', 'SKL/KBL', 'BDX', 'BDW', 'HSX', 'HSW', 'IVT', 'IVB',
                     'JKT/SNB-EP', 'SNB'),
-            "KBLR/CFL": ("KBLR/CFL", "SKL/KBL", "BDW", "HSW", "IVB", "SNB"),
+            "KBLR/CFL/CML": ("KBLR/CFL/CML", "SKL/KBL", "BDW", "HSW", "IVB", "SNB"),
             'CLX': ('CLX', 'KBLR/CFL/CML', 'SKX', 'SKL/KBL', 'BDX', 'BDW', 'HSX', 'HSW',
                     'IVT', 'IVB', 'JKT/SNB-EP', 'SNB'),
             "ICL": ("ICL", "CNL", "KBLR/CFL/CML", "SKL/KBL", "BDW", "HSW", "IVB", "SNB"),
@@ -683,6 +715,8 @@ class Model:
                     'KBLR/CFL/CML', 'SKX', 'SKL/KBL', 'BDX', 'BDW', 'HSX', 'HSW', 'IVT',
                     'IVB', 'JKT/SNB-EP', 'SNB'),
             "GRT": ("GRT"),
+            "MTL": ('MTL', 'ADL/RPL', 'TGL', 'RKL', 'ICL', 'CNL', 'KBLR/CFL/CML',
+                    'SKL/KBL', 'BDW', 'HSW', 'IVB', 'SNB'),
         }
         tma_cpu = None
         if self.shortname == 'BDW-DE':
@@ -745,6 +779,8 @@ class Model:
                 if tma_cpu not in col_heading:
                     if tma_cpu == 'ADL/RPL' and 'GRT' in col_heading:
                         tma_cpu = 'GRT'
+                    if tma_cpu == 'MTL' and 'CMT' in col_heading:
+                        tma_cpu = 'CMT'
                 _verboseprint3(f'Columns: {col_heading}. Levels: {levels}')
             elif not found_key:
                 continue
@@ -1007,6 +1043,9 @@ class Model:
                              'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182\,thresh\=1@'),
                             ('UNC_C_CLOCKTICKS:one_unit', 'cbox_0@event\=0x0@'),
                         ],
+                        'MTL': td_event_fixups + [
+                            ('UNC_ARB_DAT_OCCUPANCY.RD:c1', 'UNC_ARB_DAT_OCCUPANCY.RD@cmask\=1@'),
+                        ],
                         'RKL': td_event_fixups + [
                             ('UNC_ARB_DAT_OCCUPANCY.RD:c1', 'UNC_ARB_DAT_OCCUPANCY.RD@cmask\=1@'),
                         ],
@@ -1218,7 +1257,7 @@ class Model:
                              'num_packages', 'num_cores', 'SYSTEM_TSC_FREQ',
                              'filter_tid', 'TSC', 'cha', 'config1',
                              'source_count', 'slots', 'thresh', 'has_pmem',
-                             'num_dies', 'num_cpus_online']:
+                             'num_dies', 'num_cpus_online', 'PEBS']:
                         continue
                     if v.startswith('tma_') or v.startswith('topdown\\-'):
                         continue
@@ -1269,6 +1308,8 @@ class Model:
                     append_to_desc(f'Related metrics: {", ".join(sorted(related))}')
 
                 try:
+                    if "$PEBS" in form:
+                        form = self.extract_pebs_formula(form)
                     j = {
                         'MetricName': name,
                         'MetricExpr': metric.ParsePerfJson(form).Simplify().ToPerfJson(),
@@ -1430,6 +1471,7 @@ class Model:
                     'ADLN': alderlake_constraints,
                     'RPL': alderlake_constraints,
                     'SPR': alderlake_constraints,
+                    'MTL': alderlake_constraints,
                 }
                 if name in errata_constraints[self.shortname]:
                     j['MetricConstraint'] = errata_constraints[self.shortname][name]
@@ -1526,6 +1568,9 @@ class Model:
                     skip = {}
                 for em in json.load(extra_json):
                     if em['MetricName'] in skip:
+                        continue
+                    if em['MetricName'] in ignore:
+                        _verboseprint2(f"Skipping {em['MetricName']}")
                         continue
                     dups = [m for m in jo if m['MetricName'] == em['MetricName']]
                     if dups:
