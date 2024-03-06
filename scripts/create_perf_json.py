@@ -1865,6 +1865,11 @@ class Mapfile:
                     first_row = False
                     continue
 
+                # Skip mapfile metrics entries metrics/*_metrics.json. This utility uses
+                # metrics/perf/*metrics_perf.json files.
+                if event_type == 'metrics':
+                    continue
+
                 # From path compute the shortname (like SKL) and the
                 # longname (like Skylake).
                 shortname = re.sub(r'/([^/]*)/.*', r'\1', path)
