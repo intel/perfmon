@@ -1,3 +1,4 @@
+# Copyright (C) 2022 Google
 # SPDX-License-Identifier: BSD-3-Clause
 import os
 import sys
