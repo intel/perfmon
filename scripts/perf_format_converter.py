@@ -1,5 +1,5 @@
 # Copyright (C) 2021 Intel Corporation
-# Copyright (C) 2021 Google
+# Copyright (C) 2021 Google LLC
 # SPDX-License-Identifier: BSD-3-Clause
 
 # REQUIREMENT: Install Python3 on your machine
