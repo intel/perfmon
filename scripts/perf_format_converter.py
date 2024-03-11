@@ -385,12 +385,11 @@ class PerfFormatConverter:
 
 
         # Add level and parent groups
-        if metric["Category"] == "TMA" and "Info" not in metric["MetricName"]:
+        if metric["Category"] == "TMA" and ("Info" not in metric["MetricName"] or "TmaL1" in metric["MetricGroup"]):
             new_groups.append("TopdownL" + str(metric["Level"]))
             new_groups.append("tma_L" + str(metric["Level"]) + "_group")
             if "ParentCategory" in metric:
                 new_groups.append("tma_" + metric["ParentCategory"].lower().replace(" ", "_") + "_group")
-
         return ";".join(new_groups) if new_groups.count != 0 else ""
 
 
