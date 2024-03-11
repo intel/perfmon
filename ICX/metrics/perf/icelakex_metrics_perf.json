@@ -1043,13 +1043,13 @@
     {
         "BriefDescription": "Total issue-pipeline slots (per-Physical Core till ICL; per-Logical Processor ICL onward)",
         "MetricExpr": "slots",
-        "MetricGroup": "TmaL1",
+        "MetricGroup": "TmaL1;TopdownL1;tma_L1_group",
         "MetricName": "tma_info_thread_slots"
     },
     {
         "BriefDescription": "Fraction of Physical Core issue-slots utilized by this Logical Processor",
         "MetricExpr": "( slots ) / ( TOPDOWN.SLOTS / 2 ) if #SMT_on else 1",
-        "MetricGroup": "SMT;TmaL1",
+        "MetricGroup": "SMT;TmaL1;TopdownL1;tma_L1_group",
         "MetricName": "tma_info_thread_slots_utilization"
     },
     {
@@ -1061,7 +1061,7 @@
     {
         "BriefDescription": "Instructions Per Cycle across hyper-threads (per physical core)",
         "MetricExpr": "INST_RETIRED.ANY / ( CPU_CLK_UNHALTED.DISTRIBUTED if #SMT_on else ( CPU_CLK_UNHALTED.THREAD ) )",
-        "MetricGroup": "Ret;SMT;TmaL1",
+        "MetricGroup": "Ret;SMT;TmaL1;TopdownL1;tma_L1_group",
         "MetricName": "tma_info_core_coreipc"
     },
     {
@@ -1193,7 +1193,7 @@
     {
         "BriefDescription": "Total number of retired Instructions",
         "MetricExpr": "INST_RETIRED.ANY",
-        "MetricGroup": "Summary;TmaL1",
+        "MetricGroup": "Summary;TmaL1;TopdownL1;tma_L1_group",
         "MetricName": "tma_info_inst_mix_instructions"
     },
     {
