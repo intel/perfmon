@@ -1588,11 +1588,8 @@ class Model:
     def count_counters(self, event_type, pmon_events):
         # Count number of counters in each PMU unit
 
-        print(f"Event_type: {event_type}")
-        print(f"Number of events = {len(pmon_events)}")
         for event in pmon_events:
             if not event.counter or "FREERUN" in event.event_name:
-                print(event.event_name)
                 continue
             counters = event.counter.split(',')
             if "fixed" in counters[0].lower():
