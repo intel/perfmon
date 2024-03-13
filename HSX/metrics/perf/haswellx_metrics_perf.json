@@ -688,32 +688,32 @@
     {
         "BriefDescription": "Instructions Per Cycle (per Logical Processor)",
         "MetricExpr": "INST_RETIRED.ANY / ( CPU_CLK_UNHALTED.THREAD )",
-        "MetricGroup": "Ret;Summary;TopdownL1;tma_L1_group",
+        "MetricGroup": "Ret;Summary",
         "MetricName": "tma_info_thread_ipc"
     },
     {
         "BriefDescription": "Uops Per Instruction",
         "MetricExpr": "( UOPS_RETIRED.RETIRE_SLOTS ) / INST_RETIRED.ANY",
-        "MetricGroup": "Pipeline;Ret;Retire;TopdownL1;tma_L1_group",
+        "MetricGroup": "Pipeline;Ret;Retire",
         "MetricName": "tma_info_thread_uoppi"
     },
     {
         "BriefDescription": "Instruction per taken branch",
         "MetricExpr": "( UOPS_RETIRED.RETIRE_SLOTS ) / BR_INST_RETIRED.NEAR_TAKEN",
-        "MetricGroup": "Branches;Fed;FetchBW;TopdownL1;tma_L1_group",
+        "MetricGroup": "Branches;Fed;FetchBW",
         "MetricName": "tma_info_thread_uptb"
     },
     {
         "BriefDescription": "Cycles Per Instruction (per Logical Processor)",
         "MetricExpr": "1 / ( INST_RETIRED.ANY / ( CPU_CLK_UNHALTED.THREAD ) )",
-        "MetricGroup": "Pipeline;Mem;TopdownL1;tma_L1_group",
+        "MetricGroup": "Pipeline;Mem",
         "MetricName": "tma_info_thread_cpi",
         "ScaleUnit": "1per_instr"
     },
     {
         "BriefDescription": "Per-Logical Processor actual clocks when the Logical Processor is active.",
         "MetricExpr": "CPU_CLK_UNHALTED.THREAD",
-        "MetricGroup": "Pipeline;TopdownL1;tma_L1_group",
+        "MetricGroup": "Pipeline",
         "MetricName": "tma_info_thread_clks"
     },
     {
@@ -731,49 +731,49 @@
     {
         "BriefDescription": "Instruction-Level-Parallelism (average number of uops executed when there is execution) per thread (logical-processor)",
         "MetricExpr": "( UOPS_EXECUTED.CORE / 2 / ( ( cpu@UOPS_EXECUTED.CORE\\,cmask\\=0x1@ / 2 ) if #SMT_on else cpu@UOPS_EXECUTED.CORE\\,cmask\\=0x1@ ) ) if #SMT_on else UOPS_EXECUTED.CORE / ( ( cpu@UOPS_EXECUTED.CORE\\,cmask\\=0x1@ / 2 ) if #SMT_on else cpu@UOPS_EXECUTED.CORE\\,cmask\\=0x1@ )",
-        "MetricGroup": "Backend;Cor;Pipeline;PortsUtil;TopdownL1;tma_L1_group",
+        "MetricGroup": "Backend;Cor;Pipeline;PortsUtil",
         "MetricName": "tma_info_core_ilp"
     },
     {
         "BriefDescription": "Core actual clocks when any Logical Processor is active on the Physical Core",
         "MetricExpr": "( CPU_CLK_UNHALTED.THREAD_ANY / 2 ) if #SMT_on else ( CPU_CLK_UNHALTED.THREAD )",
-        "MetricGroup": "SMT;TopdownL1;tma_L1_group",
+        "MetricGroup": "SMT",
         "MetricName": "tma_info_core_core_clks"
     },
     {
         "BriefDescription": "Instructions per Load (lower number means higher occurrence rate)",
         "MetricExpr": "INST_RETIRED.ANY / MEM_UOPS_RETIRED.ALL_LOADS",
-        "MetricGroup": "InsType;TopdownL1;tma_L1_group",
+        "MetricGroup": "InsType",
         "MetricName": "tma_info_inst_mix_ipload"
     },
     {
         "BriefDescription": "Instructions per Store (lower number means higher occurrence rate)",
         "MetricExpr": "INST_RETIRED.ANY / MEM_UOPS_RETIRED.ALL_STORES",
-        "MetricGroup": "InsType;TopdownL1;tma_L1_group",
+        "MetricGroup": "InsType",
         "MetricName": "tma_info_inst_mix_ipstore"
     },
     {
         "BriefDescription": "Instructions per Branch (lower number means higher occurrence rate)",
         "MetricExpr": "INST_RETIRED.ANY / BR_INST_RETIRED.ALL_BRANCHES",
-        "MetricGroup": "Branches;Fed;InsType;TopdownL1;tma_L1_group",
+        "MetricGroup": "Branches;Fed;InsType",
         "MetricName": "tma_info_inst_mix_ipbranch"
     },
     {
         "BriefDescription": "Instructions per (near) call (lower number means higher occurrence rate)",
         "MetricExpr": "INST_RETIRED.ANY / BR_INST_RETIRED.NEAR_CALL",
-        "MetricGroup": "Branches;Fed;PGO;TopdownL1;tma_L1_group",
+        "MetricGroup": "Branches;Fed;PGO",
         "MetricName": "tma_info_inst_mix_ipcall"
     },
     {
         "BriefDescription": "Instruction per taken branch",
         "MetricExpr": "INST_RETIRED.ANY / BR_INST_RETIRED.NEAR_TAKEN",
-        "MetricGroup": "Branches;Fed;FetchBW;Frontend;PGO;TopdownL1;tma_L1_group",
+        "MetricGroup": "Branches;Fed;FetchBW;Frontend;PGO",
         "MetricName": "tma_info_inst_mix_iptb"
     },
     {
         "BriefDescription": "Branch instructions per taken branch. ",
         "MetricExpr": "BR_INST_RETIRED.ALL_BRANCHES / BR_INST_RETIRED.NEAR_TAKEN",
-        "MetricGroup": "Branches;Fed;PGO;TopdownL1;tma_L1_group",
+        "MetricGroup": "Branches;Fed;PGO",
         "MetricName": "tma_info_inst_mix_bptkbranch"
     },
     {
@@ -785,194 +785,194 @@
     {
         "BriefDescription": "Average number of Uops retired in cycles where at least one uop has retired.",
         "MetricExpr": "( UOPS_RETIRED.RETIRE_SLOTS ) / cpu@UOPS_RETIRED.RETIRE_SLOTS\\,cmask\\=0x1@",
-        "MetricGroup": "Pipeline;Ret;TopdownL1;tma_L1_group",
+        "MetricGroup": "Pipeline;Ret",
         "MetricName": "tma_info_pipeline_retire"
     },
     {
         "BriefDescription": "Fraction of Uops delivered by the DSB (aka Decoded ICache; or Uop Cache)",
         "MetricExpr": "IDQ.DSB_UOPS / ( ( IDQ.DSB_UOPS + LSD.UOPS + IDQ.MITE_UOPS + IDQ.MS_UOPS ) )",
-        "MetricGroup": "DSB;Fed;FetchBW;TopdownL1;tma_L1_group",
+        "MetricGroup": "DSB;Fed;FetchBW",
         "MetricName": "tma_info_frontend_dsb_coverage"
     },
     {
         "BriefDescription": "Instructions per speculative Unknown Branch Misprediction (BAClear) (lower number means higher occurrence rate)",
         "MetricExpr": "( INST_RETIRED.ANY ) / BACLEARS.ANY",
-        "MetricGroup": "Fed;TopdownL1;tma_L1_group",
+        "MetricGroup": "Fed",
         "MetricName": "tma_info_frontend_ipunknown_branch"
     },
     {
         "BriefDescription": "Number of Instructions per non-speculative Branch Misprediction (JEClear) (lower number means higher occurrence rate)",
         "MetricExpr": "INST_RETIRED.ANY / BR_MISP_RETIRED.ALL_BRANCHES",
-        "MetricGroup": "Bad;BadSpec;BrMispredicts;TopdownL1;tma_L1_group",
+        "MetricGroup": "Bad;BadSpec;BrMispredicts",
         "MetricName": "tma_info_bad_spec_ipmispredict"
     },
     {
         "BriefDescription": "Instructions per retired mispredicts for indirect CALL or JMP branches (lower number means higher occurrence rate).",
         "MetricExpr": "( INST_RETIRED.ANY ) / ( ( ( UOPS_RETIRED.RETIRE_SLOTS ) / UOPS_ISSUED.ANY ) * BR_MISP_EXEC.INDIRECT )",
-        "MetricGroup": "Bad;BrMispredicts;TopdownL1;tma_L1_group",
+        "MetricGroup": "Bad;BrMispredicts",
         "MetricName": "tma_info_bad_spec_ipmisp_indirect"
     },
     {
         "BriefDescription": "Actual Average Latency for L1 data-cache miss demand load operations (in core cycles)",
         "MetricExpr": "L1D_PEND_MISS.PENDING / ( MEM_LOAD_UOPS_RETIRED.L1_MISS + MEM_LOAD_UOPS_RETIRED.HIT_LFB )",
-        "MetricGroup": "Mem;MemoryBound;MemoryLat;TopdownL1;tma_L1_group",
+        "MetricGroup": "Mem;MemoryBound;MemoryLat",
         "MetricName": "tma_info_memory_load_miss_real_latency"
     },
     {
         "BriefDescription": "Memory-Level-Parallelism (average number of L1 miss demand load when there is at least one such miss. Per-Logical Processor)",
         "MetricExpr": "L1D_PEND_MISS.PENDING / L1D_PEND_MISS.PENDING_CYCLES",
-        "MetricGroup": "Mem;MemoryBound;MemoryBW;TopdownL1;tma_L1_group",
+        "MetricGroup": "Mem;MemoryBound;MemoryBW",
         "MetricName": "tma_info_memory_mlp"
     },
     {
         "BriefDescription": "L1 cache true misses per kilo instruction for retired demand loads",
         "MetricExpr": "1000 * MEM_LOAD_UOPS_RETIRED.L1_MISS / INST_RETIRED.ANY",
-        "MetricGroup": "CacheHits;Mem;TopdownL1;tma_L1_group",
+        "MetricGroup": "CacheHits;Mem",
         "MetricName": "tma_info_memory_l1mpki"
     },
     {
         "BriefDescription": "L2 cache true misses per kilo instruction for retired demand loads",
         "MetricExpr": "1000 * MEM_LOAD_UOPS_RETIRED.L2_MISS / INST_RETIRED.ANY",
-        "MetricGroup": "Mem;Backend;CacheHits;TopdownL1;tma_L1_group",
+        "MetricGroup": "Mem;Backend;CacheHits",
         "MetricName": "tma_info_memory_l2mpki"
     },
     {
         "BriefDescription": "L3 cache true misses per kilo instruction for retired demand loads",
         "MetricExpr": "1000 * MEM_LOAD_UOPS_RETIRED.L3_MISS / INST_RETIRED.ANY",
-        "MetricGroup": "Mem;TopdownL1;tma_L1_group",
+        "MetricGroup": "Mem",
         "MetricName": "tma_info_memory_l3mpki"
     },
     {
         "BriefDescription": "",
         "MetricExpr": "64 * L1D.REPLACEMENT / ( 1000000000 ) / ( ( ( duration_time * 1000 ) / 1000 ) )",
-        "MetricGroup": "Mem;MemoryBW;TopdownL1;tma_L1_group",
+        "MetricGroup": "Mem;MemoryBW",
         "MetricName": "tma_info_memory_l1d_cache_fill_bw"
     },
     {
         "BriefDescription": "",
         "MetricExpr": "64 * L2_LINES_IN.ALL / ( 1000000000 ) / ( ( ( duration_time * 1000 ) / 1000 ) )",
-        "MetricGroup": "Mem;MemoryBW;TopdownL1;tma_L1_group",
+        "MetricGroup": "Mem;MemoryBW",
         "MetricName": "tma_info_memory_l2_cache_fill_bw"
     },
     {
         "BriefDescription": "",
         "MetricExpr": "64 * LONGEST_LAT_CACHE.MISS / ( 1000000000 ) / ( ( ( duration_time * 1000 ) / 1000 ) )",
-        "MetricGroup": "Mem;MemoryBW;TopdownL1;tma_L1_group",
+        "MetricGroup": "Mem;MemoryBW",
         "MetricName": "tma_info_memory_l3_cache_fill_bw"
     },
     {
         "BriefDescription": "Utilization of the core's Page Walker(s) serving STLB misses triggered by instruction/Load/Store accesses",
         "MetricExpr": "( ITLB_MISSES.WALK_DURATION + DTLB_LOAD_MISSES.WALK_DURATION + DTLB_STORE_MISSES.WALK_DURATION ) / ( ( CPU_CLK_UNHALTED.THREAD_ANY / 2 ) if #SMT_on else ( CPU_CLK_UNHALTED.THREAD ) )",
-        "MetricGroup": "Mem;MemoryTLB;TopdownL1;tma_L1_group",
+        "MetricGroup": "Mem;MemoryTLB",
         "MetricName": "tma_info_memory_page_walks_utilization"
     },
     {
         "BriefDescription": "Average per-core data fill bandwidth to the L1 data cache [GB / sec]",
         "MetricExpr": "( 64 * L1D.REPLACEMENT / ( 1000000000 ) / ( ( ( duration_time * 1000 ) / 1000 ) ) )",
-        "MetricGroup": "Mem;MemoryBW;TopdownL1;tma_L1_group",
+        "MetricGroup": "Mem;MemoryBW",
         "MetricName": "tma_info_memory_l1d_cache_fill_bw_2t"
     },
     {
         "BriefDescription": "Average per-core data fill bandwidth to the L2 cache [GB / sec]",
         "MetricExpr": "( 64 * L2_LINES_IN.ALL / ( 1000000000 ) / ( ( ( duration_time * 1000 ) / 1000 ) ) )",
-        "MetricGroup": "Mem;MemoryBW;TopdownL1;tma_L1_group",
+        "MetricGroup": "Mem;MemoryBW",
         "MetricName": "tma_info_memory_l2_cache_fill_bw_2t"
     },
     {
         "BriefDescription": "Average per-core data fill bandwidth to the L3 cache [GB / sec]",
         "MetricExpr": "( 64 * LONGEST_LAT_CACHE.MISS / ( 1000000000 ) / ( ( ( duration_time * 1000 ) / 1000 ) ) )",
-        "MetricGroup": "Mem;MemoryBW;TopdownL1;tma_L1_group",
+        "MetricGroup": "Mem;MemoryBW",
         "MetricName": "tma_info_memory_l3_cache_fill_bw_2t"
     },
     {
         "BriefDescription": "Average Latency for L2 cache miss demand Loads",
         "MetricExpr": "OFFCORE_REQUESTS_OUTSTANDING.DEMAND_DATA_RD / OFFCORE_REQUESTS.DEMAND_DATA_RD",
-        "MetricGroup": "Memory_Lat;Offcore;TopdownL1;tma_L1_group",
+        "MetricGroup": "Memory_Lat;Offcore",
         "MetricName": "tma_info_memory_load_l2_miss_latency"
     },
     {
         "BriefDescription": "Average Parallel L2 cache miss demand Loads",
         "MetricExpr": "OFFCORE_REQUESTS_OUTSTANDING.DEMAND_DATA_RD / OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_DATA_RD",
-        "MetricGroup": "Memory_BW;Offcore;TopdownL1;tma_L1_group",
+        "MetricGroup": "Memory_BW;Offcore",
         "MetricName": "tma_info_memory_load_l2_mlp"
     },
     {
         "BriefDescription": "Average Parallel L2 cache miss data reads",
         "MetricExpr": "OFFCORE_REQUESTS_OUTSTANDING.ALL_DATA_RD / OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DATA_RD",
-        "MetricGroup": "Memory_BW;Offcore;TopdownL1;tma_L1_group",
+        "MetricGroup": "Memory_BW;Offcore",
         "MetricName": "tma_info_memory_data_l2_mlp"
     },
     {
         "BriefDescription": "Average CPU Utilization (percentage)",
         "MetricExpr": "CPU_CLK_UNHALTED.REF_TSC / #SYSTEM_TSC_FREQ",
-        "MetricGroup": "HPC;Summary;TopdownL1;tma_L1_group",
+        "MetricGroup": "HPC;Summary",
         "MetricName": "tma_info_system_cpu_utilization"
     },
     {
         "BriefDescription": "Measured Average Core Frequency for unhalted processors [GHz]",
         "MetricExpr": "( ( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC ) * #SYSTEM_TSC_FREQ / ( 1000000000 ) / ( ( ( duration_time * 1000 ) / 1000 ) )",
-        "MetricGroup": "Summary;Power;TopdownL1;tma_L1_group",
+        "MetricGroup": "Summary;Power",
         "MetricName": "tma_info_system_core_frequency"
     },
     {
         "BriefDescription": "Measured Average Uncore Frequency for the SoC [GHz]",
         "MetricExpr": "( cbox_0@event\\=0x0@ ) / 1e9 / ( ( ( duration_time * 1000 ) / 1000 ) )",
-        "MetricGroup": "SoC;TopdownL1;tma_L1_group",
+        "MetricGroup": "SoC",
         "MetricName": "tma_info_system_uncore_frequency"
     },
     {
         "BriefDescription": "Average Frequency Utilization relative nominal frequency",
         "MetricExpr": "( CPU_CLK_UNHALTED.THREAD ) / CPU_CLK_UNHALTED.REF_TSC",
-        "MetricGroup": "Power;TopdownL1;tma_L1_group",
+        "MetricGroup": "Power",
         "MetricName": "tma_info_system_turbo_utilization"
     },
     {
         "BriefDescription": "Fraction of cycles where both hardware Logical Processors were active",
         "MetricExpr": "1 - CPU_CLK_UNHALTED.ONE_THREAD_ACTIVE / ( CPU_CLK_UNHALTED.REF_XCLK_ANY / 2 ) if #SMT_on else 0",
-        "MetricGroup": "SMT;TopdownL1;tma_L1_group",
+        "MetricGroup": "SMT",
         "MetricName": "tma_info_system_smt_2t_utilization"
     },
     {
         "BriefDescription": "Fraction of cycles spent in the Operating System (OS) Kernel mode",
         "MetricExpr": "CPU_CLK_UNHALTED.THREAD_P:k / CPU_CLK_UNHALTED.THREAD",
-        "MetricGroup": "OS;TopdownL1;tma_L1_group",
+        "MetricGroup": "OS",
         "MetricName": "tma_info_system_kernel_utilization"
     },
     {
         "BriefDescription": "Cycles Per Instruction for the Operating System (OS) Kernel mode",
         "MetricExpr": "CPU_CLK_UNHALTED.THREAD_P:k / cpu@INST_RETIRED.ANY_P@",
-        "MetricGroup": "OS;TopdownL1;tma_L1_group",
+        "MetricGroup": "OS",
         "MetricName": "tma_info_system_kernel_cpi",
         "ScaleUnit": "1per_instr"
     },
     {
         "BriefDescription": "Average external Memory Bandwidth Use for reads and writes [GB / sec]",
         "MetricExpr": "( 64 * ( UNC_M_CAS_COUNT.RD + UNC_M_CAS_COUNT.WR ) / ( 1000000000 ) ) / ( ( ( duration_time * 1000 ) / 1000 ) )",
-        "MetricGroup": "HPC;MemOffcore;MemoryBW;SoC;TopdownL1;tma_L1_group",
+        "MetricGroup": "HPC;MemOffcore;MemoryBW;SoC",
         "MetricName": "tma_info_system_dram_bw_use"
     },
     {
         "BriefDescription": "Average latency of data read request to external memory (in nanoseconds). Accounts for demand loads and L1/L2 prefetches. ([RKL+]memory-controller only)",
         "MetricExpr": "( 1000000000 ) * ( cbox@UNC_C_TOR_OCCUPANCY.MISS_OPCODE\\,filter_opc\\=0x182@ / cbox@UNC_C_TOR_INSERTS.MISS_OPCODE\\,filter_opc\\=0x182@ ) / ( ( cbox_0@event\\=0x0@ ) / ( ( ( duration_time * 1000 ) / 1000 ) ) )",
-        "MetricGroup": "Mem;MemoryLat;SoC;TopdownL1;tma_L1_group",
+        "MetricGroup": "Mem;MemoryLat;SoC",
         "MetricName": "tma_info_system_mem_read_latency"
     },
     {
         "BriefDescription": "Average number of parallel data read requests to external memory. Accounts for demand loads and L1/L2 prefetches",
         "MetricExpr": "cbox@UNC_C_TOR_OCCUPANCY.MISS_OPCODE\\,filter_opc\\=0x182@ / cbox@UNC_C_TOR_OCCUPANCY.MISS_OPCODE\\,filter_opc\\=0x182@",
-        "MetricGroup": "Mem;MemoryBW;SoC;TopdownL1;tma_L1_group",
+        "MetricGroup": "Mem;MemoryBW;SoC",
         "MetricName": "tma_info_system_mem_parallel_reads"
     },
     {
         "BriefDescription": "Socket actual clocks when any core is active on that socket",
         "MetricExpr": "cbox_0@event\\=0x0@",
-        "MetricGroup": "SoC;TopdownL1;tma_L1_group",
+        "MetricGroup": "SoC",
         "MetricName": "tma_info_system_socket_clks"
     },
     {
         "BriefDescription": "Instructions per Far Branch ( Far Branches apply upon transition from application to operating system, handling interrupts, exceptions) [lower number means higher occurrence rate]",
         "MetricExpr": "INST_RETIRED.ANY / cpu@BR_INST_RETIRED.FAR_BRANCH@",
-        "MetricGroup": "Branches;OS;TopdownL1;tma_L1_group",
+        "MetricGroup": "Branches;OS",
         "MetricName": "tma_info_system_ipfarbranch"
     }
 ]
