@@ -1,3 +1,7 @@
+# Copyright (C) 2022 Intel Corporation
+# Copyright (C) 2022 Google LLC
+# SPDX-License-Identifier: BSD-3-Clause
+
 # REQUIREMENT: Install Python3 on your machine
 # USAGE: Run from command line with the following parameters -
 #
