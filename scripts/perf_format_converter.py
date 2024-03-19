@@ -191,9 +191,10 @@ class PerfFormatConverter:
                 new_metric = Metric(
                     brief_description=metric["BriefDescription"],
                     metric_expr=self.get_expression(metric),
-                    metric_group=self.fix_groups(metric),
+                    metric_group=self.get_groups(metric),
                     metric_name=self.translate_metric_name(metric),
-                    scale_unit=self.get_scale_unit(metric))
+                    scale_unit=self.get_scale_unit(metric),
+                    threshold=self.get_threshold(metric))
                 metrics.append(new_metric)
         except KeyError as error:
             sys.exit("Error in input JSON format during convert_to_perf_metrics():" + str(error) + ". Exiting")
@@ -366,7 +367,7 @@ class PerfFormatConverter:
         else:
             return None
 
-    def fix_groups(self, metric):
+    def get_groups(self, metric):
         """
         Converts a metrics group field delimited by commas to a new list
         delimited by semi-colons
@@ -383,14 +384,26 @@ class PerfFormatConverter:
             #new_groups = [g.strip() for g in groups.split(";") if not g.isspace() and g != ""]
             new_groups = [g.strip() for g in re.split(";|,", groups) if not g.isspace() and g != ""]
 
-
         # Add level and parent groups
         if metric["Category"] == "TMA" and ("Info" not in metric["MetricName"] or "TmaL1" in metric["MetricGroup"]):
             new_groups.append("TopdownL" + str(metric["Level"]))
             new_groups.append("tma_L" + str(metric["Level"]) + "_group")
             if "ParentCategory" in metric:
                 new_groups.append("tma_" + metric["ParentCategory"].lower().replace(" ", "_") + "_group")
+        
+        # Add count domain
+        if metric["CountDomain"] != "":
+            new_groups.append(metric["CountDomain"])
+
         return ";".join(new_groups) if new_groups.count != 0 else ""
+
+    def get_threshold(self, metric):
+        if "Threshold" in metric:
+            if "Formula" in metric["Threshold"]:
+                return self.clean_metric_names(metric["Threshold"]["Formula"])
+
+    def clean_metric_names(self, formula):
+        return re.sub(r'\([^\(\)]+\)', "", formula).lower().replace("metric_","").replace(".", "")
 
 
 class Metric:
@@ -399,12 +412,13 @@ class Metric:
     """
 
     def __init__(self, brief_description, metric_expr,
-                 metric_group, metric_name, scale_unit):
+                 metric_group, metric_name, scale_unit, threshold):
         self.BriefDescription = brief_description
         self.MetricExpr = metric_expr
         self.MetricGroup = metric_group
         self.MetricName = metric_name
         self.ScaleUnit = scale_unit
+        self.Threshold = threshold
 
 
 if __name__ == "__main__":
