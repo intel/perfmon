@@ -392,7 +392,7 @@ class PerfFormatConverter:
                 new_groups.append("tma_" + metric["ParentCategory"].lower().replace(" ", "_") + "_group")
         
         # Add count domain
-        if metric["CountDomain"] != "":
+        if "CountDomain" in metric and metric["CountDomain"] != "":
             new_groups.append(metric["CountDomain"])
 
         return ";".join(new_groups) if new_groups.count != 0 else ""
