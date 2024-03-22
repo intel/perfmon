@@ -782,7 +782,7 @@
     {
         "BriefDescription": "Total issue-pipeline slots (per-Physical Core till ICL; per-Logical Processor ICL onward)",
         "MetricExpr": "( 4 ) * ( ( CPU_CLK_UNHALTED.THREAD_ANY / 2 ) if #SMT_on else ( CPU_CLK_UNHALTED.THREAD ) )",
-        "MetricGroup": "TmaL1",
+        "MetricGroup": "TmaL1;TopdownL1",
         "MetricName": "tma_info_thread_slots"
     },
     {
@@ -794,7 +794,7 @@
     {
         "BriefDescription": "Instructions Per Cycle across hyper-threads (per physical core)",
         "MetricExpr": "INST_RETIRED.ANY / ( ( CPU_CLK_UNHALTED.THREAD_ANY / 2 ) if #SMT_on else ( CPU_CLK_UNHALTED.THREAD ) )",
-        "MetricGroup": "Ret;SMT;TmaL1",
+        "MetricGroup": "Ret;SMT;TmaL1;TopdownL1",
         "MetricName": "tma_info_core_coreipc"
     },
     {
@@ -896,7 +896,7 @@
     {
         "BriefDescription": "Total number of retired Instructions",
         "MetricExpr": "INST_RETIRED.ANY",
-        "MetricGroup": "Summary;TmaL1",
+        "MetricGroup": "Summary;TmaL1;TopdownL1",
         "MetricName": "tma_info_inst_mix_instructions"
     },
     {
