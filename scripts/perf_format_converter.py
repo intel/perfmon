@@ -209,37 +209,47 @@ class PerfFormatConverter:
         @param metric: metric data as a dictionary
         @returns: string containing un-aliased expression
         """
-        try:
-            # Get formula and events for conversion
-            base_formula = metric["Formula"].replace("DURATIONTIMEINSECONDS", "duration_time")
-            if base_formula.startswith("100 *") and metric["UnitOfMeasure"] == "percent":
-                base_formula = base_formula.replace("100 *", "");
-            events = metric["Events"]
-            constants = metric["Constants"]
+        # TMA metric
+        if "TMA" in metric["Category"]:
+            if "BaseFormula" in metric and metric["BaseFormula"] != "":
+                expression = metric["BaseFormula"].lower()
+                for name, replace in self.metric_assoc_replacement_dict.items():
+                    expression = expression.replace(name.lower(), replace.lower())
+                return expression 
+        
+        # Non TMA metric
+        else:
+            try:
+                # Get formula and events for conversion
+                base_formula = metric["Formula"].replace("DURATIONTIMEINSECONDS", "duration_time")
+                if base_formula.startswith("100 *") and metric["UnitOfMeasure"] == "percent":
+                    base_formula = base_formula.replace("100 *", "");
+                events = metric["Events"]
+                constants = metric["Constants"]
 
-            # Replace event/const aliases with names
-            expression = base_formula.lower()
-            for event in events:
-                reg = r"((?<=[\s+\-*\/\(\)])|(?<=^))({})((?=[\s+\-*\/\(\)])|(?=$))".format(event["Alias"].lower())
-                expression = re.sub(reg,
-                                    pad(self.translate_metric_event(event["Name"])),
-                                    expression)
-            for const in constants:
-                reg = r"((?<=[\s+\-*\/\(\)])|(?<=^))({})((?=[\s+\-*\/\(\)])|(?=$))".format(const["Alias"].lower())
-                expression = re.sub(reg,
-                                    pad(self.translate_metric_constant(const["Name"], metric)),
-                                    expression)
+                # Replace event/const aliases with names
+                expression = base_formula.lower()
+                for event in events:
+                    reg = r"((?<=[\s+\-*\/\(\)])|(?<=^))({})((?=[\s+\-*\/\(\)])|(?=$))".format(event["Alias"].lower())
+                    expression = re.sub(reg,
+                                        pad(self.translate_metric_event(event["Name"])),
+                                        expression)
+                for const in constants:
+                    reg = r"((?<=[\s+\-*\/\(\)])|(?<=^))({})((?=[\s+\-*\/\(\)])|(?=$))".format(const["Alias"].lower())
+                    expression = re.sub(reg,
+                                        pad(self.translate_metric_constant(const["Name"], metric)),
+                                        expression)
 
-            # Add slots to metrics that have topdown events but not slots
-            if any(event["Name"] for event in events if "PERF_METRICS" in event["Name"]):
-                if not any(event["Name"] for event in events if "SLOTS" in event["Name"]):
-                    expression = "( " + expression + " ) + ( 0 * slots )"
+                # Add slots to metrics that have topdown events but not slots
+                if any(event["Name"] for event in events if "PERF_METRICS" in event["Name"]):
+                    if not any(event["Name"] for event in events if "SLOTS" in event["Name"]):
+                        expression = "( " + expression + " ) + ( 0 * slots )"
 
-        except KeyError as error:
-            sys.exit("Error in input JSON format during get_expressions(): " + str(error) + ". Exiting")
+            except KeyError as error:
+                sys.exit("Error in input JSON format during get_expressions(): " + str(error) + ". Exiting")
 
-        # Remove any extra spaces in expression
-        return re.sub(r"[\s]{2,}", " ", expression.strip())
+            # Remove any extra spaces in expression
+            return re.sub(r"[\s]{2,}", " ", expression.strip())
 
     def translate_metric_name(self, metric):
         """
