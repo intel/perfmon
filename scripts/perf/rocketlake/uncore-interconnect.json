@@ -1,6 +1,7 @@
 [
     {
         "BriefDescription": "Number of entries allocated. Account for Any type: e.g. Snoop,  etc.",
+        "Counter": "1",
         "EventCode": "0x84",
         "EventName": "UNC_ARB_COH_TRK_REQUESTS.ALL",
         "PerPkg": "1",
@@ -33,6 +34,7 @@
     },
     {
         "BriefDescription": "Number of all coherent Data Read entries. Doesn't include prefetches",
+        "Counter": "1",
         "EventCode": "0x81",
         "EventName": "UNC_ARB_REQ_TRK_REQUEST.DRD",
         "PerPkg": "1",
@@ -57,6 +59,7 @@
     },
     {
         "BriefDescription": "Total number of all outgoing entries allocated. Accounts for Coherent and non-coherent traffic.",
+        "Counter": "1",
         "EventCode": "0x81",
         "EventName": "UNC_ARB_TRK_REQUESTS.ALL",
         "PerPkg": "1",
@@ -65,6 +68,7 @@
     },
     {
         "BriefDescription": "Number of all coherent Data Read entries. Doesn't include prefetches. This event is not supported on ICL products but is supported on RKL products.",
+        "Counter": "0,1",
         "EventCode": "0x81",
         "EventName": "UNC_ARB_TRK_REQUESTS.RD",
         "PerPkg": "1",

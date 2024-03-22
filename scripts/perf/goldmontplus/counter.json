@@ -1,0 +1,7 @@
+[
+    {
+        "Unit": "core",
+        "NumFixedCounters": "3",
+        "NumCounters": "4"
+    }
+]

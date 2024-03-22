@@ -1,0 +1,12 @@
+[
+    {
+        "Unit": "cpu_atom",
+        "NumFixedCounters": "3",
+        "NumCounters": "39"
+    },
+    {
+        "Unit": "cpu_core",
+        "NumFixedCounters": "4",
+        "NumCounters": "10"
+    }
+]

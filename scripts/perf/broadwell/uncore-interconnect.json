@@ -1,6 +1,7 @@
 [
     {
         "BriefDescription": "Number of entries allocated. Account for Any type: e.g. Snoop, Core aperture, etc.",
+        "Counter": "0,1",
         "EventCode": "0x84",
         "EventName": "UNC_ARB_COH_TRK_REQUESTS.ALL",
         "PerPkg": "1",
@@ -35,6 +36,7 @@
     },
     {
         "BriefDescription": "Total number of Core outgoing entries allocated. Accounts for Coherent and non-coherent traffic.",
+        "Counter": "0,1",
         "EventCode": "0x81",
         "EventName": "UNC_ARB_TRK_REQUESTS.ALL",
         "PerPkg": "1",
@@ -43,6 +45,7 @@
     },
     {
         "BriefDescription": "Number of Core coherent Data Read entries allocated in DirectData mode",
+        "Counter": "0,1",
         "EventCode": "0x81",
         "EventName": "UNC_ARB_TRK_REQUESTS.DRD_DIRECT",
         "PerPkg": "1",
@@ -52,6 +55,7 @@
     },
     {
         "BriefDescription": "Number of Writes allocated - any write transactions: full/partials writes and evictions.",
+        "Counter": "0,1",
         "EventCode": "0x81",
         "EventName": "UNC_ARB_TRK_REQUESTS.WRITES",
         "PerPkg": "1",

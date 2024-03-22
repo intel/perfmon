@@ -1,6 +1,7 @@
 [
     {
         "BriefDescription": "Counts the number of lfclk ticks",
+        "Counter": "0,1,2,3,4,5,6,7",
         "EventCode": "0x01",
         "EventName": "UNC_CXLCM_CLOCKTICKS",
         "PerPkg": "1",
@@ -9,6 +10,7 @@
     },
     {
         "BriefDescription": "Number of Allocation to Mem Rxx AGF 0",
+        "Counter": "4,5,6,7",
         "EventCode": "0x43",
         "EventName": "UNC_CXLCM_RxC_AGF_INSERTS.CACHE_DATA",
         "PerPkg": "1",
@@ -17,6 +19,7 @@
     },
     {
         "BriefDescription": "Number of Allocation to Cache Req AGF0",
+        "Counter": "4,5,6,7",
         "EventCode": "0x43",
         "EventName": "UNC_CXLCM_RxC_AGF_INSERTS.CACHE_REQ0",
         "PerPkg": "1",
@@ -25,6 +28,7 @@
     },
     {
         "BriefDescription": "Number of Allocation to Cache Rsp AGF",
+        "Counter": "4,5,6,7",
         "EventCode": "0x43",
         "EventName": "UNC_CXLCM_RxC_AGF_INSERTS.CACHE_REQ1",
         "PerPkg": "1",
@@ -33,6 +37,7 @@
     },
     {
         "BriefDescription": "Number of Allocation to Cache Data AGF",
+        "Counter": "4,5,6,7",
         "EventCode": "0x43",
         "EventName": "UNC_CXLCM_RxC_AGF_INSERTS.CACHE_RSP0",
         "PerPkg": "1",
@@ -41,6 +46,7 @@
     },
     {
         "BriefDescription": "Number of Allocation to Cache Rsp AGF",
+        "Counter": "4,5,6,7",
         "EventCode": "0x43",
         "EventName": "UNC_CXLCM_RxC_AGF_INSERTS.CACHE_RSP1",
         "PerPkg": "1",
@@ -49,6 +55,7 @@
     },
     {
         "BriefDescription": "Number of Allocation to Cache Req AGF 1",
+        "Counter": "4,5,6,7",
         "EventCode": "0x43",
         "EventName": "UNC_CXLCM_RxC_AGF_INSERTS.MEM_DATA",
         "PerPkg": "1",
@@ -57,6 +64,7 @@
     },
     {
         "BriefDescription": "Number of Allocation to Mem Data AGF",
+        "Counter": "4,5,6,7",
         "EventCode": "0x43",
         "EventName": "UNC_CXLCM_RxC_AGF_INSERTS.MEM_REQ",
         "PerPkg": "1",
@@ -65,6 +73,7 @@
     },
     {
         "BriefDescription": "Count the number of Flits with AK set",
+        "Counter": "4,5,6,7",
         "EventCode": "0x4b",
         "EventName": "UNC_CXLCM_RxC_FLITS.AK_HDR",
         "PerPkg": "1",
@@ -73,6 +82,7 @@
     },
     {
         "BriefDescription": "Count the number of Flits with BE set",
+        "Counter": "4,5,6,7",
         "EventCode": "0x4b",
         "EventName": "UNC_CXLCM_RxC_FLITS.BE_HDR",
         "PerPkg": "1",
@@ -81,6 +91,7 @@
     },
     {
         "BriefDescription": "Count the number of control flits received",
+        "Counter": "4,5,6,7",
         "EventCode": "0x4b",
         "EventName": "UNC_CXLCM_RxC_FLITS.CTRL",
         "PerPkg": "1",
@@ -89,6 +100,7 @@
     },
     {
         "BriefDescription": "Count the number of Headerless flits received",
+        "Counter": "4,5,6,7",
         "EventCode": "0x4b",
         "EventName": "UNC_CXLCM_RxC_FLITS.NO_HDR",
         "PerPkg": "1",
@@ -97,6 +109,7 @@
     },
     {
         "BriefDescription": "Count the number of protocol flits received",
+        "Counter": "4,5,6,7",
         "EventCode": "0x4b",
         "EventName": "UNC_CXLCM_RxC_FLITS.PROT",
         "PerPkg": "1",
@@ -105,6 +118,7 @@
     },
     {
         "BriefDescription": "Count the number of Flits with SZ set",
+        "Counter": "4,5,6,7",
         "EventCode": "0x4b",
         "EventName": "UNC_CXLCM_RxC_FLITS.SZ_HDR",
         "PerPkg": "1",
@@ -113,6 +127,7 @@
     },
     {
         "BriefDescription": "Count the number of flits received",
+        "Counter": "4,5,6,7",
         "EventCode": "0x4b",
         "EventName": "UNC_CXLCM_RxC_FLITS.VALID",
         "PerPkg": "1",
@@ -121,6 +136,7 @@
     },
     {
         "BriefDescription": "Count the number of valid messages in the flit",
+        "Counter": "4,5,6,7",
         "EventCode": "0x4b",
         "EventName": "UNC_CXLCM_RxC_FLITS.VALID_MSG",
         "PerPkg": "1",
@@ -129,6 +145,7 @@
     },
     {
         "BriefDescription": "Count the number of CRC errors detected",
+        "Counter": "4,5,6,7",
         "EventCode": "0x40",
         "EventName": "UNC_CXLCM_RxC_MISC.CRC_ERRORS",
         "PerPkg": "1",
@@ -137,6 +154,7 @@
     },
     {
         "BriefDescription": "Count the number of Init flits sent",
+        "Counter": "4,5,6,7",
         "EventCode": "0x40",
         "EventName": "UNC_CXLCM_RxC_MISC.INIT",
         "PerPkg": "1",
@@ -145,6 +163,7 @@
     },
     {
         "BriefDescription": "Count the number of LLCRD flits sent",
+        "Counter": "4,5,6,7",
         "EventCode": "0x40",
         "EventName": "UNC_CXLCM_RxC_MISC.LLCRD",
         "PerPkg": "1",
@@ -153,6 +172,7 @@
     },
     {
         "BriefDescription": "Count the number of Retry flits sent",
+        "Counter": "4,5,6,7",
         "EventCode": "0x40",
         "EventName": "UNC_CXLCM_RxC_MISC.RETRY",
         "PerPkg": "1",
@@ -161,6 +181,7 @@
     },
     {
         "BriefDescription": "Number of cycles the Packing Buffer is Full",
+        "Counter": "4,5,6,7",
         "EventCode": "0x52",
         "EventName": "UNC_CXLCM_RxC_PACK_BUF_FULL.CACHE_DATA",
         "PerPkg": "1",
@@ -169,6 +190,7 @@
     },
     {
         "BriefDescription": "Number of cycles the Packing Buffer is Full",
+        "Counter": "4,5,6,7",
         "EventCode": "0x52",
         "EventName": "UNC_CXLCM_RxC_PACK_BUF_FULL.CACHE_REQ",
         "PerPkg": "1",
@@ -177,6 +199,7 @@
     },
     {
         "BriefDescription": "Number of cycles the Packing Buffer is Full",
+        "Counter": "4,5,6,7",
         "EventCode": "0x52",
         "EventName": "UNC_CXLCM_RxC_PACK_BUF_FULL.CACHE_RSP",
         "PerPkg": "1",
@@ -185,6 +208,7 @@
     },
     {
         "BriefDescription": "Number of cycles the Packing Buffer is Full",
+        "Counter": "4,5,6,7",
         "EventCode": "0x52",
         "EventName": "UNC_CXLCM_RxC_PACK_BUF_FULL.MEM_DATA",
         "PerPkg": "1",
@@ -193,6 +217,7 @@
     },
     {
         "BriefDescription": "Number of cycles the Packing Buffer is Full",
+        "Counter": "4,5,6,7",
         "EventCode": "0x52",
         "EventName": "UNC_CXLCM_RxC_PACK_BUF_FULL.MEM_REQ",
         "PerPkg": "1",
@@ -201,6 +226,7 @@
     },
     {
         "BriefDescription": "Number of Allocation to Cache Data Packing buffer",
+        "Counter": "4,5,6,7",
         "EventCode": "0x41",
         "EventName": "UNC_CXLCM_RxC_PACK_BUF_INSERTS.CACHE_DATA",
         "PerPkg": "1",
@@ -209,6 +235,7 @@
     },
     {
         "BriefDescription": "Number of Allocation to Cache Req Packing buffer",
+        "Counter": "4,5,6,7",
         "EventCode": "0x41",
         "EventName": "UNC_CXLCM_RxC_PACK_BUF_INSERTS.CACHE_REQ",
         "PerPkg": "1",
@@ -217,6 +244,7 @@
     },
     {
         "BriefDescription": "Number of Allocation to Cache Rsp Packing buffer",
+        "Counter": "4,5,6,7",
         "EventCode": "0x41",
         "EventName": "UNC_CXLCM_RxC_PACK_BUF_INSERTS.CACHE_RSP",
         "PerPkg": "1",
@@ -225,6 +253,7 @@
     },
     {
         "BriefDescription": "Number of Allocation to Mem Data Packing buffer",
+        "Counter": "4,5,6,7",
         "EventCode": "0x41",
         "EventName": "UNC_CXLCM_RxC_PACK_BUF_INSERTS.MEM_DATA",
         "PerPkg": "1",
@@ -233,6 +262,7 @@
     },
     {
         "BriefDescription": "Number of Allocation to Mem Rxx Packing buffer",
+        "Counter": "4,5,6,7",
         "EventCode": "0x41",
         "EventName": "UNC_CXLCM_RxC_PACK_BUF_INSERTS.MEM_REQ",
         "PerPkg": "1",
@@ -241,6 +271,7 @@
     },
     {
         "BriefDescription": "Number of cycles of Not Empty for Cache Data Packing buffer",
+        "Counter": "4,5,6,7",
         "EventCode": "0x42",
         "EventName": "UNC_CXLCM_RxC_PACK_BUF_NE.CACHE_DATA",
         "PerPkg": "1",
@@ -249,6 +280,7 @@
     },
     {
         "BriefDescription": "Number of cycles of Not Empty for Cache Req Packing buffer",
+        "Counter": "4,5,6,7",
         "EventCode": "0x42",
         "EventName": "UNC_CXLCM_RxC_PACK_BUF_NE.CACHE_REQ",
         "PerPkg": "1",
@@ -257,6 +289,7 @@
     },
     {
         "BriefDescription": "Number of cycles of Not Empty for Cache Rsp Packing buffer",
+        "Counter": "4,5,6,7",
         "EventCode": "0x42",
         "EventName": "UNC_CXLCM_RxC_PACK_BUF_NE.CACHE_RSP",
         "PerPkg": "1",
@@ -265,6 +298,7 @@
     },
     {
         "BriefDescription": "Number of cycles of Not Empty for Mem Data Packing buffer",
+        "Counter": "4,5,6,7",
         "EventCode": "0x42",
         "EventName": "UNC_CXLCM_RxC_PACK_BUF_NE.MEM_DATA",
         "PerPkg": "1",
@@ -273,6 +307,7 @@
     },
     {
         "BriefDescription": "Number of cycles of Not Empty for Mem Rxx Packing buffer",
+        "Counter": "4,5,6,7",
         "EventCode": "0x42",
         "EventName": "UNC_CXLCM_RxC_PACK_BUF_NE.MEM_REQ",
         "PerPkg": "1",
@@ -281,6 +316,7 @@
     },
     {
         "BriefDescription": "Count the number of Flits with AK set",
+        "Counter": "0,1,2,3",
         "EventCode": "0x05",
         "EventName": "UNC_CXLCM_TxC_FLITS.AK_HDR",
         "PerPkg": "1",
@@ -289,6 +325,7 @@
     },
     {
         "BriefDescription": "Count the number of Flits with BE set",
+        "Counter": "0,1,2,3",
         "EventCode": "0x05",
         "EventName": "UNC_CXLCM_TxC_FLITS.BE_HDR",
         "PerPkg": "1",
@@ -297,6 +334,7 @@
     },
     {
         "BriefDescription": "Count the number of control flits packed",
+        "Counter": "0,1,2,3",
         "EventCode": "0x05",
         "EventName": "UNC_CXLCM_TxC_FLITS.CTRL",
         "PerPkg": "1",
@@ -305,6 +343,7 @@
     },
     {
         "BriefDescription": "Count the number of Headerless flits packed",
+        "Counter": "0,1,2,3",
         "EventCode": "0x05",
         "EventName": "UNC_CXLCM_TxC_FLITS.NO_HDR",
         "PerPkg": "1",
@@ -313,6 +352,7 @@
     },
     {
         "BriefDescription": "Count the number of protocol flits packed",
+        "Counter": "0,1,2,3",
         "EventCode": "0x05",
         "EventName": "UNC_CXLCM_TxC_FLITS.PROT",
         "PerPkg": "1",
@@ -321,6 +361,7 @@
     },
     {
         "BriefDescription": "Count the number of Flits with SZ set",
+        "Counter": "0,1,2,3",
         "EventCode": "0x05",
         "EventName": "UNC_CXLCM_TxC_FLITS.SZ_HDR",
         "PerPkg": "1",
@@ -329,6 +370,7 @@
     },
     {
         "BriefDescription": "Count the number of flits packed",
+        "Counter": "0,1,2,3",
         "EventCode": "0x05",
         "EventName": "UNC_CXLCM_TxC_FLITS.VALID",
         "PerPkg": "1",
@@ -337,6 +379,7 @@
     },
     {
         "BriefDescription": "Number of Allocation to Cache Data Packing buffer",
+        "Counter": "0,1,2,3",
         "EventCode": "0x02",
         "EventName": "UNC_CXLCM_TxC_PACK_BUF_INSERTS.CACHE_DATA",
         "PerPkg": "1",
@@ -345,6 +388,7 @@
     },
     {
         "BriefDescription": "Number of Allocation to Cache Req Packing buffer",
+        "Counter": "0,1,2,3",
         "EventCode": "0x02",
         "EventName": "UNC_CXLCM_TxC_PACK_BUF_INSERTS.CACHE_REQ0",
         "PerPkg": "1",
@@ -353,6 +397,7 @@
     },
     {
         "BriefDescription": "Number of Allocation to Cache Rsp1 Packing buffer",
+        "Counter": "0,1,2,3",
         "EventCode": "0x02",
         "EventName": "UNC_CXLCM_TxC_PACK_BUF_INSERTS.CACHE_REQ1",
         "PerPkg": "1",
@@ -361,6 +406,7 @@
     },
     {
         "BriefDescription": "Number of Allocation to Cache Rsp0 Packing buffer",
+        "Counter": "0,1,2,3",
         "EventCode": "0x02",
         "EventName": "UNC_CXLCM_TxC_PACK_BUF_INSERTS.CACHE_RSP0",
         "PerPkg": "1",
@@ -369,6 +415,7 @@
     },
     {
         "BriefDescription": "Number of Allocation to Cache Req Packing buffer",
+        "Counter": "0,1,2,3",
         "EventCode": "0x02",
         "EventName": "UNC_CXLCM_TxC_PACK_BUF_INSERTS.CACHE_RSP1",
         "PerPkg": "1",
@@ -377,6 +424,7 @@
     },
     {
         "BriefDescription": "Number of Allocation to Mem Data Packing buffer",
+        "Counter": "0,1,2,3",
         "EventCode": "0x02",
         "EventName": "UNC_CXLCM_TxC_PACK_BUF_INSERTS.MEM_DATA",
         "PerPkg": "1",
@@ -385,6 +433,7 @@
     },
     {
         "BriefDescription": "Number of Allocation to Mem Rxx Packing buffer",
+        "Counter": "0,1,2,3",
         "EventCode": "0x02",
         "EventName": "UNC_CXLCM_TxC_PACK_BUF_INSERTS.MEM_REQ",
         "PerPkg": "1",
@@ -393,6 +442,7 @@
     },
     {
         "BriefDescription": "Counts the number of uclk ticks",
+        "Counter": "0,1,2,3",
         "EventCode": "0x01",
         "EventName": "UNC_CXLDP_CLOCKTICKS",
         "PerPkg": "1",
@@ -401,6 +451,7 @@
     },
     {
         "BriefDescription": "Number of Allocation to M2S Data AGF",
+        "Counter": "0,1,2,3",
         "EventCode": "0x02",
         "EventName": "UNC_CXLDP_TxC_AGF_INSERTS.M2S_DATA",
         "PerPkg": "1",
@@ -409,6 +460,7 @@
     },
     {
         "BriefDescription": "Number of Allocation to M2S Req AGF",
+        "Counter": "0,1,2,3",
         "EventCode": "0x02",
         "EventName": "UNC_CXLDP_TxC_AGF_INSERTS.M2S_REQ",
         "PerPkg": "1",
@@ -417,6 +469,7 @@
     },
     {
         "BriefDescription": "Number of Allocation to U2C Data AGF",
+        "Counter": "0,1,2,3",
         "EventCode": "0x02",
         "EventName": "UNC_CXLDP_TxC_AGF_INSERTS.U2C_DATA",
         "PerPkg": "1",
@@ -425,6 +478,7 @@
     },
     {
         "BriefDescription": "Number of Allocation to U2C Req AGF",
+        "Counter": "0,1,2,3",
         "EventCode": "0x02",
         "EventName": "UNC_CXLDP_TxC_AGF_INSERTS.U2C_REQ",
         "PerPkg": "1",
@@ -433,6 +487,7 @@
     },
     {
         "BriefDescription": "Number of Allocation to U2C Rsp AGF 0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x02",
         "EventName": "UNC_CXLDP_TxC_AGF_INSERTS.U2C_RSP0",
         "PerPkg": "1",
@@ -441,6 +496,7 @@
     },
     {
         "BriefDescription": "Number of Allocation to U2C Rsp AGF 1",
+        "Counter": "0,1,2,3",
         "EventCode": "0x02",
         "EventName": "UNC_CXLDP_TxC_AGF_INSERTS.U2C_RSP1",
         "PerPkg": "1",

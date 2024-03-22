@@ -1,0 +1,57 @@
+[
+    {
+        "Unit": "core",
+        "NumFixedCounters": "3",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "CBOX",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "HA",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "IRP",
+        "NumFixedCounters": "0",
+        "NumCounters": "2"
+    },
+    {
+        "Unit": "PCU",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "QPI",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "R2PCIe",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "R3QPI",
+        "NumFixedCounters": "0",
+        "NumCounters": "3"
+    },
+    {
+        "Unit": "SBOX",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "UBOX",
+        "NumFixedCounters": "0",
+        "NumCounters": "2"
+    },
+    {
+        "Unit": "iMC",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    }
+]

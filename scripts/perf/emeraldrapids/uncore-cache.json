@@ -1,6 +1,7 @@
 [
     {
         "BriefDescription": "CHA to iMC Bypass : Intermediate bypass Taken",
+        "Counter": "0,1,2,3",
         "EventCode": "0x57",
         "EventName": "UNC_CHA_BYPASS_CHA_IMC.INTERMEDIATE",
         "PerPkg": "1",
@@ -10,6 +11,7 @@
     },
     {
         "BriefDescription": "CHA to iMC Bypass : Not Taken",
+        "Counter": "0,1,2,3",
         "EventCode": "0x57",
         "EventName": "UNC_CHA_BYPASS_CHA_IMC.NOT_TAKEN",
         "PerPkg": "1",
@@ -19,6 +21,7 @@
     },
     {
         "BriefDescription": "CHA to iMC Bypass : Taken",
+        "Counter": "0,1,2,3",
         "EventCode": "0x57",
         "EventName": "UNC_CHA_BYPASS_CHA_IMC.TAKEN",
         "PerPkg": "1",
@@ -28,6 +31,7 @@
     },
     {
         "BriefDescription": "CHA Clockticks",
+        "Counter": "0,1,2,3",
         "EventCode": "0x01",
         "EventName": "UNC_CHA_CLOCKTICKS",
         "PerPkg": "1",
@@ -36,6 +40,7 @@
     },
     {
         "BriefDescription": "CMS Clockticks",
+        "Counter": "0,1,2,3",
         "EventCode": "0xc0",
         "EventName": "UNC_CHA_CMS_CLOCKTICKS",
         "PerPkg": "1",
@@ -43,6 +48,7 @@
     },
     {
         "BriefDescription": "Core Cross Snoops Issued : Any Cycle with Multiple Snoops",
+        "Counter": "0,1,2,3",
         "EventCode": "0x33",
         "EventName": "UNC_CHA_CORE_SNP.ANY_GTONE",
         "PerPkg": "1",
@@ -52,6 +58,7 @@
     },
     {
         "BriefDescription": "Core Cross Snoops Issued : Any Single Snoop",
+        "Counter": "0,1,2,3",
         "EventCode": "0x33",
         "EventName": "UNC_CHA_CORE_SNP.ANY_ONE",
         "PerPkg": "1",
@@ -61,6 +68,7 @@
     },
     {
         "BriefDescription": "Core Cross Snoops Issued : Multiple Core Requests",
+        "Counter": "0,1,2,3",
         "EventCode": "0x33",
         "EventName": "UNC_CHA_CORE_SNP.CORE_GTONE",
         "PerPkg": "1",
@@ -70,6 +78,7 @@
     },
     {
         "BriefDescription": "Core Cross Snoops Issued : Single Core Requests",
+        "Counter": "0,1,2,3",
         "EventCode": "0x33",
         "EventName": "UNC_CHA_CORE_SNP.CORE_ONE",
         "PerPkg": "1",
@@ -79,6 +88,7 @@
     },
     {
         "BriefDescription": "Core Cross Snoops Issued : Multiple Eviction",
+        "Counter": "0,1,2,3",
         "EventCode": "0x33",
         "EventName": "UNC_CHA_CORE_SNP.EVICT_GTONE",
         "PerPkg": "1",
@@ -88,6 +98,7 @@
     },
     {
         "BriefDescription": "Core Cross Snoops Issued : Single Eviction",
+        "Counter": "0,1,2,3",
         "EventCode": "0x33",
         "EventName": "UNC_CHA_CORE_SNP.EVICT_ONE",
         "PerPkg": "1",
@@ -97,6 +108,7 @@
     },
     {
         "BriefDescription": "Core Cross Snoops Issued : Multiple External Snoops",
+        "Counter": "0,1,2,3",
         "EventCode": "0x33",
         "EventName": "UNC_CHA_CORE_SNP.EXT_GTONE",
         "PerPkg": "1",
@@ -106,6 +118,7 @@
     },
     {
         "BriefDescription": "Core Cross Snoops Issued : Single External Snoops",
+        "Counter": "0,1,2,3",
         "EventCode": "0x33",
         "EventName": "UNC_CHA_CORE_SNP.EXT_ONE",
         "PerPkg": "1",
@@ -115,6 +128,7 @@
     },
     {
         "BriefDescription": "Core Cross Snoops Issued : Multiple Snoop Targets from Remote",
+        "Counter": "0,1,2,3",
         "EventCode": "0x33",
         "EventName": "UNC_CHA_CORE_SNP.REMOTE_GTONE",
         "PerPkg": "1",
@@ -124,6 +138,7 @@
     },
     {
         "BriefDescription": "Core Cross Snoops Issued : Single Snoop Target from Remote",
+        "Counter": "0,1,2,3",
         "EventCode": "0x33",
         "EventName": "UNC_CHA_CORE_SNP.REMOTE_ONE",
         "PerPkg": "1",
@@ -133,6 +148,7 @@
     },
     {
         "BriefDescription": "Direct GO",
+        "Counter": "0,1,2,3",
         "EventCode": "0x6e",
         "EventName": "UNC_CHA_DIRECT_GO.HA_SUPPRESS_DRD",
         "PerPkg": "1",
@@ -141,6 +157,7 @@
     },
     {
         "BriefDescription": "Direct GO",
+        "Counter": "0,1,2,3",
         "EventCode": "0x6e",
         "EventName": "UNC_CHA_DIRECT_GO.HA_SUPPRESS_NO_D2C",
         "PerPkg": "1",
@@ -149,6 +166,7 @@
     },
     {
         "BriefDescription": "Direct GO",
+        "Counter": "0,1,2,3",
         "EventCode": "0x6e",
         "EventName": "UNC_CHA_DIRECT_GO.HA_TOR_DEALLOC",
         "PerPkg": "1",
@@ -157,6 +175,7 @@
     },
     {
         "BriefDescription": "Direct GO",
+        "Counter": "0,1,2,3",
         "EventCode": "0x6d",
         "EventName": "UNC_CHA_DIRECT_GO_OPC.EXTCMP",
         "PerPkg": "1",
@@ -165,6 +184,7 @@
     },
     {
         "BriefDescription": "Direct GO",
+        "Counter": "0,1,2,3",
         "EventCode": "0x6d",
         "EventName": "UNC_CHA_DIRECT_GO_OPC.FAST_GO",
         "PerPkg": "1",
@@ -173,6 +193,7 @@
     },
     {
         "BriefDescription": "Direct GO",
+        "Counter": "0,1,2,3",
         "EventCode": "0x6d",
         "EventName": "UNC_CHA_DIRECT_GO_OPC.FAST_GO_PULL",
         "PerPkg": "1",
@@ -181,6 +202,7 @@
     },
     {
         "BriefDescription": "Direct GO",
+        "Counter": "0,1,2,3",
         "EventCode": "0x6d",
         "EventName": "UNC_CHA_DIRECT_GO_OPC.GO",
         "PerPkg": "1",
@@ -189,6 +211,7 @@
     },
     {
         "BriefDescription": "Direct GO",
+        "Counter": "0,1,2,3",
         "EventCode": "0x6d",
         "EventName": "UNC_CHA_DIRECT_GO_OPC.GO_PULL",
         "PerPkg": "1",
@@ -197,6 +220,7 @@
     },
     {
         "BriefDescription": "Direct GO",
+        "Counter": "0,1,2,3",
         "EventCode": "0x6d",
         "EventName": "UNC_CHA_DIRECT_GO_OPC.IDLE_DUE_SUPPRESS",
         "PerPkg": "1",
@@ -205,6 +229,7 @@
     },
     {
         "BriefDescription": "Direct GO",
+        "Counter": "0,1,2,3",
         "EventCode": "0x6d",
         "EventName": "UNC_CHA_DIRECT_GO_OPC.NOP",
         "PerPkg": "1",
@@ -213,6 +238,7 @@
     },
     {
         "BriefDescription": "Direct GO",
+        "Counter": "0,1,2,3",
         "EventCode": "0x6d",
         "EventName": "UNC_CHA_DIRECT_GO_OPC.PULL",
         "PerPkg": "1",
@@ -221,6 +247,7 @@
     },
     {
         "BriefDescription": "Multi-socket cacheline Directory state lookups; Snoop Not Needed",
+        "Counter": "0,1,2,3",
         "EventCode": "0x53",
         "EventName": "UNC_CHA_DIR_LOOKUP.NO_SNP",
         "PerPkg": "1",
@@ -230,6 +257,7 @@
     },
     {
         "BriefDescription": "Multi-socket cacheline Directory state lookups; Snoop Needed",
+        "Counter": "0,1,2,3",
         "EventCode": "0x53",
         "EventName": "UNC_CHA_DIR_LOOKUP.SNP",
         "PerPkg": "1",
@@ -239,6 +267,7 @@
     },
     {
         "BriefDescription": "Multi-socket cacheline Directory state updates; Directory Updated memory write from the HA pipe",
+        "Counter": "0,1,2,3",
         "EventCode": "0x54",
         "EventName": "UNC_CHA_DIR_UPDATE.HA",
         "PerPkg": "1",
@@ -248,6 +277,7 @@
     },
     {
         "BriefDescription": "Multi-socket cacheline Directory state updates; Directory Updated memory write from TOR pipe",
+        "Counter": "0,1,2,3",
         "EventCode": "0x54",
         "EventName": "UNC_CHA_DIR_UPDATE.TOR",
         "PerPkg": "1",
@@ -257,6 +287,7 @@
     },
     {
         "BriefDescription": "Egress Blocking due to Ordering requirements : Down",
+        "Counter": "0,1,2,3",
         "EventCode": "0xba",
         "EventName": "UNC_CHA_EGRESS_ORDERING.IV_SNOOPGO_DN",
         "PerPkg": "1",
@@ -266,6 +297,7 @@
     },
     {
         "BriefDescription": "Egress Blocking due to Ordering requirements : Up",
+        "Counter": "0,1,2,3",
         "EventCode": "0xba",
         "EventName": "UNC_CHA_EGRESS_ORDERING.IV_SNOOPGO_UP",
         "PerPkg": "1",
@@ -275,6 +307,7 @@
     },
     {
         "BriefDescription": "Read request from a remote socket which hit in the HitMe Cache to a line In the E state",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5f",
         "EventName": "UNC_CHA_HITME_HIT.EX_RDS",
         "PerPkg": "1",
@@ -284,6 +317,7 @@
     },
     {
         "BriefDescription": "Counts Number of Hits in HitMe Cache : Shared hit and op is RdInvOwn, RdInv, Inv*",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5f",
         "EventName": "UNC_CHA_HITME_HIT.SHARED_OWNREQ",
         "PerPkg": "1",
@@ -292,6 +326,7 @@
     },
     {
         "BriefDescription": "Counts Number of Hits in HitMe Cache : op is WbMtoE",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5f",
         "EventName": "UNC_CHA_HITME_HIT.WBMTOE",
         "PerPkg": "1",
@@ -300,6 +335,7 @@
     },
     {
         "BriefDescription": "Counts Number of Hits in HitMe Cache : op is WbMtoI, WbPushMtoI, WbFlush, or WbMtoS",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5f",
         "EventName": "UNC_CHA_HITME_HIT.WBMTOI_OR_S",
         "PerPkg": "1",
@@ -308,6 +344,7 @@
     },
     {
         "BriefDescription": "Counts Number of times HitMe Cache is accessed : op is RdCode, RdData, RdDataMigratory, RdCur, RdInvOwn, RdInv, Inv*",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5e",
         "EventName": "UNC_CHA_HITME_LOOKUP.READ",
         "PerPkg": "1",
@@ -316,6 +353,7 @@
     },
     {
         "BriefDescription": "Counts Number of times HitMe Cache is accessed : op is WbMtoE, WbMtoI, WbPushMtoI, WbFlush, or WbMtoS",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5e",
         "EventName": "UNC_CHA_HITME_LOOKUP.WRITE",
         "PerPkg": "1",
@@ -324,6 +362,7 @@
     },
     {
         "BriefDescription": "Counts Number of Misses in HitMe Cache : No SF/LLC HitS/F and op is RdInvOwn",
+        "Counter": "0,1,2,3",
         "EventCode": "0x60",
         "EventName": "UNC_CHA_HITME_MISS.NOTSHARED_RDINVOWN",
         "PerPkg": "1",
@@ -332,6 +371,7 @@
     },
     {
         "BriefDescription": "Counts Number of Misses in HitMe Cache : op is RdCode, RdData, RdDataMigratory, RdCur, RdInv, Inv*",
+        "Counter": "0,1,2,3",
         "EventCode": "0x60",
         "EventName": "UNC_CHA_HITME_MISS.READ_OR_INV",
         "PerPkg": "1",
@@ -340,6 +380,7 @@
     },
     {
         "BriefDescription": "Counts Number of Misses in HitMe Cache : SF/LLC HitS/F and op is RdInvOwn",
+        "Counter": "0,1,2,3",
         "EventCode": "0x60",
         "EventName": "UNC_CHA_HITME_MISS.SHARED_RDINVOWN",
         "PerPkg": "1",
@@ -348,6 +389,7 @@
     },
     {
         "BriefDescription": "Counts the number of Allocate/Update to HitMe Cache : Deallocate HitME$ on Reads without RspFwdI*",
+        "Counter": "0,1,2,3",
         "EventCode": "0x61",
         "EventName": "UNC_CHA_HITME_UPDATE.DEALLOCATE",
         "PerPkg": "1",
@@ -356,6 +398,7 @@
     },
     {
         "BriefDescription": "Counts the number of Allocate/Update to HitMe Cache : op is RspIFwd or RspIFwdWb for a local request",
+        "Counter": "0,1,2,3",
         "EventCode": "0x61",
         "EventName": "UNC_CHA_HITME_UPDATE.DEALLOCATE_RSPFWDI_LOC",
         "PerPkg": "1",
@@ -365,6 +408,7 @@
     },
     {
         "BriefDescription": "Counts the number of Allocate/Update to HitMe Cache : Update HitMe Cache on RdInvOwn even if not RspFwdI*",
+        "Counter": "0,1,2,3",
         "EventCode": "0x61",
         "EventName": "UNC_CHA_HITME_UPDATE.RDINVOWN",
         "PerPkg": "1",
@@ -373,6 +417,7 @@
     },
     {
         "BriefDescription": "Counts the number of Allocate/Update to HitMe Cache : op is RspIFwd or RspIFwdWb for a remote request",
+        "Counter": "0,1,2,3",
         "EventCode": "0x61",
         "EventName": "UNC_CHA_HITME_UPDATE.RSPFWDI_REM",
         "PerPkg": "1",
@@ -382,6 +427,7 @@
     },
     {
         "BriefDescription": "Counts the number of Allocate/Update to HitMe Cache : Update HitMe Cache to SHARed",
+        "Counter": "0,1,2,3",
         "EventCode": "0x61",
         "EventName": "UNC_CHA_HITME_UPDATE.SHARED",
         "PerPkg": "1",
@@ -390,6 +436,7 @@
     },
     {
         "BriefDescription": "Normal priority reads issued to the memory controller from the CHA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x59",
         "EventName": "UNC_CHA_IMC_READS_COUNT.NORMAL",
         "PerPkg": "1",
@@ -399,6 +446,7 @@
     },
     {
         "BriefDescription": "HA to iMC Reads Issued : ISOCH",
+        "Counter": "0,1,2,3",
         "EventCode": "0x59",
         "EventName": "UNC_CHA_IMC_READS_COUNT.PRIORITY",
         "PerPkg": "1",
@@ -408,6 +456,7 @@
     },
     {
         "BriefDescription": "CHA to iMC Full Line Writes Issued; Full Line Non-ISOCH",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5b",
         "EventName": "UNC_CHA_IMC_WRITES_COUNT.FULL",
         "PerPkg": "1",
@@ -417,6 +466,7 @@
     },
     {
         "BriefDescription": "CHA to iMC Full Line Writes Issued : ISOCH Full Line",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5b",
         "EventName": "UNC_CHA_IMC_WRITES_COUNT.FULL_PRIORITY",
         "PerPkg": "1",
@@ -426,6 +476,7 @@
     },
     {
         "BriefDescription": "CHA to iMC Full Line Writes Issued : Partial Non-ISOCH",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5b",
         "EventName": "UNC_CHA_IMC_WRITES_COUNT.PARTIAL",
         "PerPkg": "1",
@@ -435,6 +486,7 @@
     },
     {
         "BriefDescription": "CHA to iMC Full Line Writes Issued : ISOCH Partial",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5b",
         "EventName": "UNC_CHA_IMC_WRITES_COUNT.PARTIAL_PRIORITY",
         "PerPkg": "1",
@@ -444,6 +496,7 @@
     },
     {
         "BriefDescription": "Cache and Snoop Filter Lookups; Any Request",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.ALL",
         "PerPkg": "1",
@@ -453,6 +506,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : All transactions from Remote Agents",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.ALL_REMOTE",
         "PerPkg": "1",
@@ -462,6 +516,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : All Requests",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.ANY_F",
         "PerPkg": "1",
@@ -470,6 +525,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : CRd Requests",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.CODE",
         "PerPkg": "1",
@@ -479,6 +535,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : CRd Requests",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.CODE_READ_F",
         "PerPkg": "1",
@@ -487,6 +544,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : Local non-prefetch requests",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.COREPREF_OR_DMND_LOCAL_F",
         "PerPkg": "1",
@@ -495,6 +553,7 @@
     },
     {
         "BriefDescription": "Cache and Snoop Filter Lookups; Data Read Request",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.DATA_RD",
         "PerPkg": "1",
@@ -504,6 +563,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : Data Reads",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.DATA_READ_ALL",
         "PerPkg": "1",
@@ -513,6 +573,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : Data Read Request",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.DATA_READ_F",
         "PerPkg": "1",
@@ -521,6 +582,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : Demand Data Reads, Core and LLC prefetches",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.DATA_READ_LOCAL",
         "PerPkg": "1",
@@ -530,6 +592,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : Data Read Misses",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.DATA_READ_MISS",
         "PerPkg": "1",
@@ -539,6 +602,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : E State",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.E",
         "PerPkg": "1",
@@ -548,6 +612,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : F State",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.F",
         "PerPkg": "1",
@@ -557,6 +622,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : Flush or Invalidate Requests",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.FLUSH_INV",
         "PerPkg": "1",
@@ -566,6 +632,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : Flush",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.FLUSH_OR_INV_F",
         "PerPkg": "1",
@@ -574,6 +641,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : I State",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.I",
         "PerPkg": "1",
@@ -583,6 +651,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : Local LLC prefetch requests (from LLC)",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.LLCPREF_LOCAL_F",
         "PerPkg": "1",
@@ -591,6 +660,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : Transactions homed locally",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.LOCALLY_HOMED_ADDRESS",
         "PerPkg": "1",
@@ -600,6 +670,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : CRd Requests that come from the local socket (usually the core)",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.LOCAL_CODE",
         "PerPkg": "1",
@@ -609,6 +680,7 @@
     },
     {
         "BriefDescription": "Cache and Snoop Filter Lookups; Data Read Request that come from the local socket (usually the core)",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.LOCAL_DATA_RD",
         "PerPkg": "1",
@@ -618,6 +690,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : Demand CRd Requests that come from the local socket (usually the core)",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.LOCAL_DMND_CODE",
         "PerPkg": "1",
@@ -627,6 +700,7 @@
     },
     {
         "BriefDescription": "Cache and Snoop Filter Lookups; Demand Data Reads that come from the local socket (usually the core)",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.LOCAL_DMND_DATA_RD",
         "PerPkg": "1",
@@ -636,6 +710,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : Demand RFO Requests that come from the local socket (usually the core)",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.LOCAL_DMND_RFO",
         "PerPkg": "1",
@@ -645,6 +720,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : Transactions homed locally",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.LOCAL_F",
         "PerPkg": "1",
@@ -653,6 +729,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : Flush or Invalidate Requests that come from the local socket (usually the core)",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.LOCAL_FLUSH_INV",
         "PerPkg": "1",
@@ -662,6 +739,7 @@
     },
     {
         "BriefDescription": "Cache and Snoop Filter Lookups; Prefetch requests to the LLC that come from the local socket (usually the core)",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.LOCAL_LLC_PF",
         "PerPkg": "1",
@@ -671,6 +749,7 @@
     },
     {
         "BriefDescription": "Cache and Snoop Filter Lookups; Data Read Prefetches that come from the local socket (usually the core)",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.LOCAL_PF",
         "PerPkg": "1",
@@ -680,6 +759,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : CRd Prefetches that come from the local socket (usually the core)",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.LOCAL_PF_CODE",
         "PerPkg": "1",
@@ -689,6 +769,7 @@
     },
     {
         "BriefDescription": "Cache and Snoop Filter Lookups; Data Read Prefetches that come from the local socket (usually the core)",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.LOCAL_PF_DATA_RD",
         "PerPkg": "1",
@@ -698,6 +779,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : RFO Prefetches that come from the local socket (usually the core)",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.LOCAL_PF_RFO",
         "PerPkg": "1",
@@ -707,6 +789,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : RFO Requests that come from the local socket (usually the core)",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.LOCAL_RFO",
         "PerPkg": "1",
@@ -716,6 +799,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : M State",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.M",
         "PerPkg": "1",
@@ -725,6 +809,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : All Misses",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.MISS_ALL",
         "PerPkg": "1",
@@ -734,6 +819,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : Write Requests",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.OTHER_REQ_F",
         "PerPkg": "1",
@@ -742,6 +828,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : Remote non-snoop requests",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.PREF_OR_DMND_REMOTE_F",
         "PerPkg": "1",
@@ -750,6 +837,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : Transactions homed remotely",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.REMOTELY_HOMED_ADDRESS",
         "PerPkg": "1",
@@ -759,6 +847,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : CRd Requests that come from a Remote socket.",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.REMOTE_CODE",
         "PerPkg": "1",
@@ -768,6 +857,7 @@
     },
     {
         "BriefDescription": "Cache and Snoop Filter Lookups; Data Read Requests that come from a Remote socket",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.REMOTE_DATA_RD",
         "PerPkg": "1",
@@ -777,6 +867,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : Transactions homed remotely",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.REMOTE_F",
         "PerPkg": "1",
@@ -785,6 +876,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : Flush or Invalidate requests that come from a Remote socket.",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.REMOTE_FLUSH_INV",
         "PerPkg": "1",
@@ -794,6 +886,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : Filters Requests for those that write info into the cache that come from a remote socket",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.REMOTE_OTHER",
         "PerPkg": "1",
@@ -803,6 +896,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : RFO Requests that come from a Remote socket.",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.REMOTE_RFO",
         "PerPkg": "1",
@@ -812,6 +906,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : Remote snoop requests",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.REMOTE_SNOOP_F",
         "PerPkg": "1",
@@ -820,6 +915,7 @@
     },
     {
         "BriefDescription": "Cache and Snoop Filter Lookups; Snoop Requests from a Remote Socket",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.REMOTE_SNP",
         "PerPkg": "1",
@@ -829,6 +925,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : RFO Requests",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.RFO",
         "PerPkg": "1",
@@ -838,6 +935,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : RFO Request Filter",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.RFO_F",
         "PerPkg": "1",
@@ -846,6 +944,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : Locally HOMed RFOs - Demand and Prefetches",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.RFO_LOCAL",
         "PerPkg": "1",
@@ -855,6 +954,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : S State",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.S",
         "PerPkg": "1",
@@ -864,6 +964,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : SnoopFilter - E State",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.SF_E",
         "PerPkg": "1",
@@ -873,6 +974,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : SnoopFilter - H State",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.SF_H",
         "PerPkg": "1",
@@ -882,6 +984,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : SnoopFilter - S State",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.SF_S",
         "PerPkg": "1",
@@ -891,6 +994,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : Writes",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.WRITE_LOCAL",
         "PerPkg": "1",
@@ -900,6 +1004,7 @@
     },
     {
         "BriefDescription": "Cache Lookups : Remote Writes",
+        "Counter": "0,1,2,3",
         "EventCode": "0x34",
         "EventName": "UNC_CHA_LLC_LOOKUP.WRITE_REMOTE",
         "PerPkg": "1",
@@ -909,6 +1014,7 @@
     },
     {
         "BriefDescription": "Lines Victimized : Lines in E state",
+        "Counter": "0,1,2,3",
         "EventCode": "0x37",
         "EventName": "UNC_CHA_LLC_VICTIMS.E_STATE",
         "PerPkg": "1",
@@ -918,6 +1024,7 @@
     },
     {
         "BriefDescription": "Lines Victimized : IA traffic",
+        "Counter": "0,1,2,3",
         "EventCode": "0x37",
         "EventName": "UNC_CHA_LLC_VICTIMS.IA",
         "PerPkg": "1",
@@ -927,6 +1034,7 @@
     },
     {
         "BriefDescription": "Lines Victimized : IO traffic",
+        "Counter": "0,1,2,3",
         "EventCode": "0x37",
         "EventName": "UNC_CHA_LLC_VICTIMS.IO",
         "PerPkg": "1",
@@ -936,6 +1044,7 @@
     },
     {
         "BriefDescription": "All LLC lines in E state that are victimized on a fill from an IO device",
+        "Counter": "0,1,2,3",
         "EventCode": "0x37",
         "EventName": "UNC_CHA_LLC_VICTIMS.IO_E",
         "PerPkg": "1",
@@ -945,6 +1054,7 @@
     },
     {
         "BriefDescription": "All LLC lines in F or S state that are victimized on a fill from an IO device",
+        "Counter": "0,1,2,3",
         "EventCode": "0x37",
         "EventName": "UNC_CHA_LLC_VICTIMS.IO_FS",
         "PerPkg": "1",
@@ -954,6 +1064,7 @@
     },
     {
         "BriefDescription": "All LLC lines in M state that are victimized on a fill from an IO device",
+        "Counter": "0,1,2,3",
         "EventCode": "0x37",
         "EventName": "UNC_CHA_LLC_VICTIMS.IO_M",
         "PerPkg": "1",
@@ -963,6 +1074,7 @@
     },
     {
         "BriefDescription": "All LLC lines in any state that are victimized on a fill from an IO device",
+        "Counter": "0,1,2,3",
         "EventCode": "0x37",
         "EventName": "UNC_CHA_LLC_VICTIMS.IO_MESF",
         "PerPkg": "1",
@@ -972,6 +1084,7 @@
     },
     {
         "BriefDescription": "Lines Victimized; Local - All Lines",
+        "Counter": "0,1,2,3",
         "EventCode": "0x37",
         "EventName": "UNC_CHA_LLC_VICTIMS.LOCAL_ALL",
         "PerPkg": "1",
@@ -981,6 +1094,7 @@
     },
     {
         "BriefDescription": "Lines Victimized",
+        "Counter": "0,1,2,3",
         "EventCode": "0x37",
         "EventName": "UNC_CHA_LLC_VICTIMS.LOCAL_E",
         "PerPkg": "1",
@@ -990,6 +1104,7 @@
     },
     {
         "BriefDescription": "Lines Victimized",
+        "Counter": "0,1,2,3",
         "EventCode": "0x37",
         "EventName": "UNC_CHA_LLC_VICTIMS.LOCAL_M",
         "PerPkg": "1",
@@ -999,6 +1114,7 @@
     },
     {
         "BriefDescription": "Lines Victimized : Local Only",
+        "Counter": "0,1,2,3",
         "EventCode": "0x37",
         "EventName": "UNC_CHA_LLC_VICTIMS.LOCAL_ONLY",
         "PerPkg": "1",
@@ -1007,6 +1123,7 @@
     },
     {
         "BriefDescription": "Lines Victimized",
+        "Counter": "0,1,2,3",
         "EventCode": "0x37",
         "EventName": "UNC_CHA_LLC_VICTIMS.LOCAL_S",
         "PerPkg": "1",
@@ -1016,6 +1133,7 @@
     },
     {
         "BriefDescription": "Lines Victimized : Lines in M state",
+        "Counter": "0,1,2,3",
         "EventCode": "0x37",
         "EventName": "UNC_CHA_LLC_VICTIMS.M_STATE",
         "PerPkg": "1",
@@ -1025,6 +1143,7 @@
     },
     {
         "BriefDescription": "Lines Victimized; Remote - All Lines",
+        "Counter": "0,1,2,3",
         "EventCode": "0x37",
         "EventName": "UNC_CHA_LLC_VICTIMS.REMOTE_ALL",
         "PerPkg": "1",
@@ -1034,6 +1153,7 @@
     },
     {
         "BriefDescription": "Lines Victimized",
+        "Counter": "0,1,2,3",
         "EventCode": "0x37",
         "EventName": "UNC_CHA_LLC_VICTIMS.REMOTE_E",
         "PerPkg": "1",
@@ -1043,6 +1163,7 @@
     },
     {
         "BriefDescription": "Lines Victimized",
+        "Counter": "0,1,2,3",
         "EventCode": "0x37",
         "EventName": "UNC_CHA_LLC_VICTIMS.REMOTE_M",
         "PerPkg": "1",
@@ -1052,6 +1173,7 @@
     },
     {
         "BriefDescription": "Lines Victimized : Remote Only",
+        "Counter": "0,1,2,3",
         "EventCode": "0x37",
         "EventName": "UNC_CHA_LLC_VICTIMS.REMOTE_ONLY",
         "PerPkg": "1",
@@ -1060,6 +1182,7 @@
     },
     {
         "BriefDescription": "Lines Victimized",
+        "Counter": "0,1,2,3",
         "EventCode": "0x37",
         "EventName": "UNC_CHA_LLC_VICTIMS.REMOTE_S",
         "PerPkg": "1",
@@ -1069,6 +1192,7 @@
     },
     {
         "BriefDescription": "Lines Victimized : Lines in S State",
+        "Counter": "0,1,2,3",
         "EventCode": "0x37",
         "EventName": "UNC_CHA_LLC_VICTIMS.S_STATE",
         "PerPkg": "1",
@@ -1078,6 +1202,7 @@
     },
     {
         "BriefDescription": "All LLC lines in E state that are victimized on a fill",
+        "Counter": "0,1,2,3",
         "EventCode": "0x37",
         "EventName": "UNC_CHA_LLC_VICTIMS.TOTAL_E",
         "PerPkg": "1",
@@ -1087,6 +1212,7 @@
     },
     {
         "BriefDescription": "All LLC lines in M state that are victimized on a fill",
+        "Counter": "0,1,2,3",
         "EventCode": "0x37",
         "EventName": "UNC_CHA_LLC_VICTIMS.TOTAL_M",
         "PerPkg": "1",
@@ -1096,6 +1222,7 @@
     },
     {
         "BriefDescription": "All LLC lines in S state that are victimized on a fill",
+        "Counter": "0,1,2,3",
         "EventCode": "0x37",
         "EventName": "UNC_CHA_LLC_VICTIMS.TOTAL_S",
         "PerPkg": "1",
@@ -1105,6 +1232,7 @@
     },
     {
         "BriefDescription": "Cbo Misc : CV0 Prefetch Miss",
+        "Counter": "0,1,2,3",
         "EventCode": "0x39",
         "EventName": "UNC_CHA_MISC.CV0_PREF_MISS",
         "PerPkg": "1",
@@ -1114,6 +1242,7 @@
     },
     {
         "BriefDescription": "Cbo Misc : CV0 Prefetch Victim",
+        "Counter": "0,1,2,3",
         "EventCode": "0x39",
         "EventName": "UNC_CHA_MISC.CV0_PREF_VIC",
         "PerPkg": "1",
@@ -1123,6 +1252,7 @@
     },
     {
         "BriefDescription": "Number of times that an RFO hit in S state.",
+        "Counter": "0,1,2,3",
         "EventCode": "0x39",
         "EventName": "UNC_CHA_MISC.RFO_HIT_S",
         "PerPkg": "1",
@@ -1132,6 +1262,7 @@
     },
     {
         "BriefDescription": "Cbo Misc : Silent Snoop Eviction",
+        "Counter": "0,1,2,3",
         "EventCode": "0x39",
         "EventName": "UNC_CHA_MISC.RSPI_WAS_FSE",
         "PerPkg": "1",
@@ -1141,6 +1272,7 @@
     },
     {
         "BriefDescription": "Cbo Misc : Write Combining Aliasing",
+        "Counter": "0,1,2,3",
         "EventCode": "0x39",
         "EventName": "UNC_CHA_MISC.WC_ALIASING",
         "PerPkg": "1",
@@ -1150,6 +1282,7 @@
     },
     {
         "BriefDescription": "OSB Snoop Broadcast : Local InvItoE",
+        "Counter": "0,1,2,3",
         "EventCode": "0x55",
         "EventName": "UNC_CHA_OSB.LOCAL_INVITOE",
         "PerPkg": "1",
@@ -1159,6 +1292,7 @@
     },
     {
         "BriefDescription": "OSB Snoop Broadcast : Local Rd",
+        "Counter": "0,1,2,3",
         "EventCode": "0x55",
         "EventName": "UNC_CHA_OSB.LOCAL_READ",
         "PerPkg": "1",
@@ -1168,6 +1302,7 @@
     },
     {
         "BriefDescription": "OSB Snoop Broadcast : Off",
+        "Counter": "0,1,2,3",
         "EventCode": "0x55",
         "EventName": "UNC_CHA_OSB.OFF_PWRHEURISTIC",
         "PerPkg": "1",
@@ -1177,6 +1312,7 @@
     },
     {
         "BriefDescription": "OSB Snoop Broadcast : Remote Rd",
+        "Counter": "0,1,2,3",
         "EventCode": "0x55",
         "EventName": "UNC_CHA_OSB.REMOTE_READ",
         "PerPkg": "1",
@@ -1186,6 +1322,7 @@
     },
     {
         "BriefDescription": "OSB Snoop Broadcast : Remote Rd InvItoE",
+        "Counter": "0,1,2,3",
         "EventCode": "0x55",
         "EventName": "UNC_CHA_OSB.REMOTE_READINVITOE",
         "PerPkg": "1",
@@ -1195,6 +1332,7 @@
     },
     {
         "BriefDescription": "OSB Snoop Broadcast : RFO HitS Snoop Broadcast",
+        "Counter": "0,1,2,3",
         "EventCode": "0x55",
         "EventName": "UNC_CHA_OSB.RFO_HITS_SNP_BCAST",
         "PerPkg": "1",
@@ -1204,6 +1342,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_PMM_MEMMODE_NM_INVITOX.LOCAL",
+        "Counter": "0,1,2,3",
         "EventCode": "0x65",
         "EventName": "UNC_CHA_PMM_MEMMODE_NM_INVITOX.LOCAL",
         "PerPkg": "1",
@@ -1212,6 +1351,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_PMM_MEMMODE_NM_INVITOX.REMOTE",
+        "Counter": "0,1,2,3",
         "EventCode": "0x65",
         "EventName": "UNC_CHA_PMM_MEMMODE_NM_INVITOX.REMOTE",
         "PerPkg": "1",
@@ -1220,6 +1360,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_PMM_MEMMODE_NM_INVITOX.SETCONFLICT",
+        "Counter": "0,1,2,3",
         "EventCode": "0x65",
         "EventName": "UNC_CHA_PMM_MEMMODE_NM_INVITOX.SETCONFLICT",
         "PerPkg": "1",
@@ -1228,6 +1369,7 @@
     },
     {
         "BriefDescription": "Memory Mode related events; Counts the number of times CHA saw a Near Memory set conflict in SF/LLC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x64",
         "EventName": "UNC_CHA_PMM_MEMMODE_NM_SETCONFLICTS.LLC",
         "PerPkg": "1",
@@ -1237,6 +1379,7 @@
     },
     {
         "BriefDescription": "Memory Mode related events; Counts the number of times CHA saw a Near memory set conflict in SF/LLC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x64",
         "EventName": "UNC_CHA_PMM_MEMMODE_NM_SETCONFLICTS.SF",
         "PerPkg": "1",
@@ -1246,6 +1389,7 @@
     },
     {
         "BriefDescription": "Memory Mode related events; Counts the number of times CHA saw a Near Memory set conflict in TOR",
+        "Counter": "0,1,2,3",
         "EventCode": "0x64",
         "EventName": "UNC_CHA_PMM_MEMMODE_NM_SETCONFLICTS.TOR",
         "PerPkg": "1",
@@ -1255,6 +1399,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_PMM_MEMMODE_NM_SETCONFLICTS2.IODC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x70",
         "EventName": "UNC_CHA_PMM_MEMMODE_NM_SETCONFLICTS2.IODC",
         "PerPkg": "1",
@@ -1263,6 +1408,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_PMM_MEMMODE_NM_SETCONFLICTS2.MEMWR",
+        "Counter": "0,1,2,3",
         "EventCode": "0x70",
         "EventName": "UNC_CHA_PMM_MEMMODE_NM_SETCONFLICTS2.MEMWR",
         "PerPkg": "1",
@@ -1271,6 +1417,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_PMM_MEMMODE_NM_SETCONFLICTS2.MEMWRNI",
+        "Counter": "0,1,2,3",
         "EventCode": "0x70",
         "EventName": "UNC_CHA_PMM_MEMMODE_NM_SETCONFLICTS2.MEMWRNI",
         "PerPkg": "1",
@@ -1279,6 +1426,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_PMM_QOS.DDR4_FAST_INSERT",
+        "Counter": "0,1,2,3",
         "EventCode": "0x66",
         "EventName": "UNC_CHA_PMM_QOS.DDR4_FAST_INSERT",
         "PerPkg": "1",
@@ -1287,6 +1435,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_PMM_QOS.REJ_IRQ",
+        "Counter": "0,1,2,3",
         "EventCode": "0x66",
         "EventName": "UNC_CHA_PMM_QOS.REJ_IRQ",
         "PerPkg": "1",
@@ -1295,6 +1444,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_PMM_QOS.SLOWTORQ_SKIP",
+        "Counter": "0,1,2,3",
         "EventCode": "0x66",
         "EventName": "UNC_CHA_PMM_QOS.SLOWTORQ_SKIP",
         "PerPkg": "1",
@@ -1303,6 +1453,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_PMM_QOS.SLOW_INSERT",
+        "Counter": "0,1,2,3",
         "EventCode": "0x66",
         "EventName": "UNC_CHA_PMM_QOS.SLOW_INSERT",
         "PerPkg": "1",
@@ -1311,6 +1462,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_PMM_QOS.THROTTLE",
+        "Counter": "0,1,2,3",
         "EventCode": "0x66",
         "EventName": "UNC_CHA_PMM_QOS.THROTTLE",
         "PerPkg": "1",
@@ -1319,6 +1471,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_PMM_QOS.THROTTLE_IRQ",
+        "Counter": "0,1,2,3",
         "EventCode": "0x66",
         "EventName": "UNC_CHA_PMM_QOS.THROTTLE_IRQ",
         "PerPkg": "1",
@@ -1327,6 +1480,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_PMM_QOS.THROTTLE_PRQ",
+        "Counter": "0,1,2,3",
         "EventCode": "0x66",
         "EventName": "UNC_CHA_PMM_QOS.THROTTLE_PRQ",
         "PerPkg": "1",
@@ -1335,6 +1489,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_PMM_QOS_OCCUPANCY.DDR_FAST_FIFO",
+        "Counter": "0,1,2,3",
         "EventCode": "0x67",
         "EventName": "UNC_CHA_PMM_QOS_OCCUPANCY.DDR_FAST_FIFO",
         "PerPkg": "1",
@@ -1344,6 +1499,7 @@
     },
     {
         "BriefDescription": "Number of SLOW TOR Request inserted to ha_pmm_tor_req_fifo",
+        "Counter": "0,1,2,3",
         "EventCode": "0x67",
         "EventName": "UNC_CHA_PMM_QOS_OCCUPANCY.DDR_SLOW_FIFO",
         "PerPkg": "1",
@@ -1352,6 +1508,7 @@
     },
     {
         "BriefDescription": "CHA iMC CHNx READ Credits Empty : MC0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x58",
         "EventName": "UNC_CHA_READ_NO_CREDITS.MC0",
         "PerPkg": "1",
@@ -1361,6 +1518,7 @@
     },
     {
         "BriefDescription": "CHA iMC CHNx READ Credits Empty : MC1",
+        "Counter": "0,1,2,3",
         "EventCode": "0x58",
         "EventName": "UNC_CHA_READ_NO_CREDITS.MC1",
         "PerPkg": "1",
@@ -1370,6 +1528,7 @@
     },
     {
         "BriefDescription": "CHA iMC CHNx READ Credits Empty : MC2",
+        "Counter": "0,1,2,3",
         "EventCode": "0x58",
         "EventName": "UNC_CHA_READ_NO_CREDITS.MC2",
         "PerPkg": "1",
@@ -1379,6 +1538,7 @@
     },
     {
         "BriefDescription": "CHA iMC CHNx READ Credits Empty : MC3",
+        "Counter": "0,1,2,3",
         "EventCode": "0x58",
         "EventName": "UNC_CHA_READ_NO_CREDITS.MC3",
         "PerPkg": "1",
@@ -1388,6 +1548,7 @@
     },
     {
         "BriefDescription": "CHA iMC CHNx READ Credits Empty : MC4",
+        "Counter": "0,1,2,3",
         "EventCode": "0x58",
         "EventName": "UNC_CHA_READ_NO_CREDITS.MC4",
         "PerPkg": "1",
@@ -1397,6 +1558,7 @@
     },
     {
         "BriefDescription": "CHA iMC CHNx READ Credits Empty : MC5",
+        "Counter": "0,1,2,3",
         "EventCode": "0x58",
         "EventName": "UNC_CHA_READ_NO_CREDITS.MC5",
         "PerPkg": "1",
@@ -1406,6 +1568,7 @@
     },
     {
         "BriefDescription": "Requests for exclusive ownership of a cache line without receiving data",
+        "Counter": "0,1,2,3",
         "EventCode": "0x50",
         "EventName": "UNC_CHA_REQUESTS.INVITOE",
         "PerPkg": "1",
@@ -1415,6 +1578,7 @@
     },
     {
         "BriefDescription": "Local requests for exclusive ownership of a cache line  without receiving data",
+        "Counter": "0,1,2,3",
         "EventCode": "0x50",
         "EventName": "UNC_CHA_REQUESTS.INVITOE_LOCAL",
         "PerPkg": "1",
@@ -1424,6 +1588,7 @@
     },
     {
         "BriefDescription": "Remote requests for exclusive ownership of a cache line  without receiving data",
+        "Counter": "0,1,2,3",
         "EventCode": "0x50",
         "EventName": "UNC_CHA_REQUESTS.INVITOE_REMOTE",
         "PerPkg": "1",
@@ -1433,6 +1598,7 @@
     },
     {
         "BriefDescription": "Read requests made into the CHA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x50",
         "EventName": "UNC_CHA_REQUESTS.READS",
         "PerPkg": "1",
@@ -1442,6 +1608,7 @@
     },
     {
         "BriefDescription": "Read requests from a unit on this socket",
+        "Counter": "0,1,2,3",
         "EventCode": "0x50",
         "EventName": "UNC_CHA_REQUESTS.READS_LOCAL",
         "PerPkg": "1",
@@ -1451,6 +1618,7 @@
     },
     {
         "BriefDescription": "Read requests from a remote socket",
+        "Counter": "0,1,2,3",
         "EventCode": "0x50",
         "EventName": "UNC_CHA_REQUESTS.READS_REMOTE",
         "PerPkg": "1",
@@ -1460,6 +1628,7 @@
     },
     {
         "BriefDescription": "Write requests made into the CHA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x50",
         "EventName": "UNC_CHA_REQUESTS.WRITES",
         "PerPkg": "1",
@@ -1469,6 +1638,7 @@
     },
     {
         "BriefDescription": "Write Requests from a unit on this socket",
+        "Counter": "0,1,2,3",
         "EventCode": "0x50",
         "EventName": "UNC_CHA_REQUESTS.WRITES_LOCAL",
         "PerPkg": "1",
@@ -1478,6 +1648,7 @@
     },
     {
         "BriefDescription": "Read and Write Requests; Writes Remote",
+        "Counter": "0,1,2,3",
         "EventCode": "0x50",
         "EventName": "UNC_CHA_REQUESTS.WRITES_REMOTE",
         "PerPkg": "1",
@@ -1487,6 +1658,7 @@
     },
     {
         "BriefDescription": "Ingress (from CMS) Allocations : IPQ",
+        "Counter": "0,1,2,3",
         "EventCode": "0x13",
         "EventName": "UNC_CHA_RxC_INSERTS.IPQ",
         "PerPkg": "1",
@@ -1496,6 +1668,7 @@
     },
     {
         "BriefDescription": "Ingress (from CMS) Allocations : IRQ",
+        "Counter": "0,1,2,3",
         "EventCode": "0x13",
         "EventName": "UNC_CHA_RxC_INSERTS.IRQ",
         "PerPkg": "1",
@@ -1505,6 +1678,7 @@
     },
     {
         "BriefDescription": "Ingress (from CMS) Allocations : IRQ Rejected",
+        "Counter": "0,1,2,3",
         "EventCode": "0x13",
         "EventName": "UNC_CHA_RxC_INSERTS.IRQ_REJ",
         "PerPkg": "1",
@@ -1514,6 +1688,7 @@
     },
     {
         "BriefDescription": "Ingress (from CMS) Allocations : PRQ",
+        "Counter": "0,1,2,3",
         "EventCode": "0x13",
         "EventName": "UNC_CHA_RxC_INSERTS.PRQ",
         "PerPkg": "1",
@@ -1523,6 +1698,7 @@
     },
     {
         "BriefDescription": "Ingress (from CMS) Allocations : PRQ",
+        "Counter": "0,1,2,3",
         "EventCode": "0x13",
         "EventName": "UNC_CHA_RxC_INSERTS.PRQ_REJ",
         "PerPkg": "1",
@@ -1532,6 +1708,7 @@
     },
     {
         "BriefDescription": "Ingress (from CMS) Allocations : RRQ",
+        "Counter": "0,1,2,3",
         "EventCode": "0x13",
         "EventName": "UNC_CHA_RxC_INSERTS.RRQ",
         "PerPkg": "1",
@@ -1541,6 +1718,7 @@
     },
     {
         "BriefDescription": "Ingress (from CMS) Allocations : WBQ",
+        "Counter": "0,1,2,3",
         "EventCode": "0x13",
         "EventName": "UNC_CHA_RxC_INSERTS.WBQ",
         "PerPkg": "1",
@@ -1550,6 +1728,7 @@
     },
     {
         "BriefDescription": "IPQ Requests (from CMS) Rejected - Set 0 : AD REQ on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x22",
         "EventName": "UNC_CHA_RxC_IPQ0_REJECT.AD_REQ_VN0",
         "PerPkg": "1",
@@ -1559,6 +1738,7 @@
     },
     {
         "BriefDescription": "IPQ Requests (from CMS) Rejected - Set 0 : AD RSP on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x22",
         "EventName": "UNC_CHA_RxC_IPQ0_REJECT.AD_RSP_VN0",
         "PerPkg": "1",
@@ -1568,6 +1748,7 @@
     },
     {
         "BriefDescription": "IPQ Requests (from CMS) Rejected - Set 0 : Non UPI AK Request",
+        "Counter": "0,1,2,3",
         "EventCode": "0x22",
         "EventName": "UNC_CHA_RxC_IPQ0_REJECT.AK_NON_UPI",
         "PerPkg": "1",
@@ -1577,6 +1758,7 @@
     },
     {
         "BriefDescription": "IPQ Requests (from CMS) Rejected - Set 0 : BL NCB on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x22",
         "EventName": "UNC_CHA_RxC_IPQ0_REJECT.BL_NCB_VN0",
         "PerPkg": "1",
@@ -1586,6 +1768,7 @@
     },
     {
         "BriefDescription": "IPQ Requests (from CMS) Rejected - Set 0 : BL NCS on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x22",
         "EventName": "UNC_CHA_RxC_IPQ0_REJECT.BL_NCS_VN0",
         "PerPkg": "1",
@@ -1595,6 +1778,7 @@
     },
     {
         "BriefDescription": "IPQ Requests (from CMS) Rejected - Set 0 : BL RSP on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x22",
         "EventName": "UNC_CHA_RxC_IPQ0_REJECT.BL_RSP_VN0",
         "PerPkg": "1",
@@ -1604,6 +1788,7 @@
     },
     {
         "BriefDescription": "IPQ Requests (from CMS) Rejected - Set 0 : BL WB on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x22",
         "EventName": "UNC_CHA_RxC_IPQ0_REJECT.BL_WB_VN0",
         "PerPkg": "1",
@@ -1613,6 +1798,7 @@
     },
     {
         "BriefDescription": "IPQ Requests (from CMS) Rejected - Set 0 : Non UPI IV Request",
+        "Counter": "0,1,2,3",
         "EventCode": "0x22",
         "EventName": "UNC_CHA_RxC_IPQ0_REJECT.IV_NON_UPI",
         "PerPkg": "1",
@@ -1622,6 +1808,7 @@
     },
     {
         "BriefDescription": "IPQ Requests (from CMS) Rejected - Set 1 : Allow Snoop",
+        "Counter": "0,1,2,3",
         "EventCode": "0x23",
         "EventName": "UNC_CHA_RxC_IPQ1_REJECT.ALLOW_SNP",
         "PerPkg": "1",
@@ -1630,6 +1817,7 @@
     },
     {
         "BriefDescription": "IPQ Requests (from CMS) Rejected - Set 1 : ANY0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x23",
         "EventName": "UNC_CHA_RxC_IPQ1_REJECT.ANY0",
         "PerPkg": "1",
@@ -1639,6 +1827,7 @@
     },
     {
         "BriefDescription": "IPQ Requests (from CMS) Rejected - Set 1 : HA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x23",
         "EventName": "UNC_CHA_RxC_IPQ1_REJECT.HA",
         "PerPkg": "1",
@@ -1647,6 +1836,7 @@
     },
     {
         "BriefDescription": "IPQ Requests (from CMS) Rejected - Set 1 : LLC OR SF Way",
+        "Counter": "0,1,2,3",
         "EventCode": "0x23",
         "EventName": "UNC_CHA_RxC_IPQ1_REJECT.LLC_OR_SF_WAY",
         "PerPkg": "1",
@@ -1656,6 +1846,7 @@
     },
     {
         "BriefDescription": "IPQ Requests (from CMS) Rejected - Set 1 : LLC Victim",
+        "Counter": "0,1,2,3",
         "EventCode": "0x23",
         "EventName": "UNC_CHA_RxC_IPQ1_REJECT.LLC_VICTIM",
         "PerPkg": "1",
@@ -1664,6 +1855,7 @@
     },
     {
         "BriefDescription": "IPQ Requests (from CMS) Rejected - Set 1 : PhyAddr Match",
+        "Counter": "0,1,2,3",
         "EventCode": "0x23",
         "EventName": "UNC_CHA_RxC_IPQ1_REJECT.PA_MATCH",
         "PerPkg": "1",
@@ -1673,6 +1865,7 @@
     },
     {
         "BriefDescription": "IPQ Requests (from CMS) Rejected - Set 1 : SF Victim",
+        "Counter": "0,1,2,3",
         "EventCode": "0x23",
         "EventName": "UNC_CHA_RxC_IPQ1_REJECT.SF_VICTIM",
         "PerPkg": "1",
@@ -1682,6 +1875,7 @@
     },
     {
         "BriefDescription": "IPQ Requests (from CMS) Rejected - Set 1 : Victim",
+        "Counter": "0,1,2,3",
         "EventCode": "0x23",
         "EventName": "UNC_CHA_RxC_IPQ1_REJECT.VICTIM",
         "PerPkg": "1",
@@ -1690,6 +1884,7 @@
     },
     {
         "BriefDescription": "IRQ Requests (from CMS) Rejected - Set 0 : AD REQ on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x18",
         "EventName": "UNC_CHA_RxC_IRQ0_REJECT.AD_REQ_VN0",
         "PerPkg": "1",
@@ -1699,6 +1894,7 @@
     },
     {
         "BriefDescription": "IRQ Requests (from CMS) Rejected - Set 0 : AD RSP on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x18",
         "EventName": "UNC_CHA_RxC_IRQ0_REJECT.AD_RSP_VN0",
         "PerPkg": "1",
@@ -1708,6 +1904,7 @@
     },
     {
         "BriefDescription": "IRQ Requests (from CMS) Rejected - Set 0 : Non UPI AK Request",
+        "Counter": "0,1,2,3",
         "EventCode": "0x18",
         "EventName": "UNC_CHA_RxC_IRQ0_REJECT.AK_NON_UPI",
         "PerPkg": "1",
@@ -1717,6 +1914,7 @@
     },
     {
         "BriefDescription": "IRQ Requests (from CMS) Rejected - Set 0 : BL NCB on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x18",
         "EventName": "UNC_CHA_RxC_IRQ0_REJECT.BL_NCB_VN0",
         "PerPkg": "1",
@@ -1726,6 +1924,7 @@
     },
     {
         "BriefDescription": "IRQ Requests (from CMS) Rejected - Set 0 : BL NCS on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x18",
         "EventName": "UNC_CHA_RxC_IRQ0_REJECT.BL_NCS_VN0",
         "PerPkg": "1",
@@ -1735,6 +1934,7 @@
     },
     {
         "BriefDescription": "IRQ Requests (from CMS) Rejected - Set 0 : BL RSP on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x18",
         "EventName": "UNC_CHA_RxC_IRQ0_REJECT.BL_RSP_VN0",
         "PerPkg": "1",
@@ -1744,6 +1944,7 @@
     },
     {
         "BriefDescription": "IRQ Requests (from CMS) Rejected - Set 0 : BL WB on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x18",
         "EventName": "UNC_CHA_RxC_IRQ0_REJECT.BL_WB_VN0",
         "PerPkg": "1",
@@ -1753,6 +1954,7 @@
     },
     {
         "BriefDescription": "IRQ Requests (from CMS) Rejected - Set 0 : Non UPI IV Request",
+        "Counter": "0,1,2,3",
         "EventCode": "0x18",
         "EventName": "UNC_CHA_RxC_IRQ0_REJECT.IV_NON_UPI",
         "PerPkg": "1",
@@ -1762,6 +1964,7 @@
     },
     {
         "BriefDescription": "IRQ Requests (from CMS) Rejected - Set 1 : Allow Snoop",
+        "Counter": "0,1,2,3",
         "EventCode": "0x19",
         "EventName": "UNC_CHA_RxC_IRQ1_REJECT.ALLOW_SNP",
         "PerPkg": "1",
@@ -1770,6 +1973,7 @@
     },
     {
         "BriefDescription": "IRQ Requests (from CMS) Rejected - Set 1 : ANY0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x19",
         "EventName": "UNC_CHA_RxC_IRQ1_REJECT.ANY0",
         "PerPkg": "1",
@@ -1779,6 +1983,7 @@
     },
     {
         "BriefDescription": "IRQ Requests (from CMS) Rejected - Set 1 : HA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x19",
         "EventName": "UNC_CHA_RxC_IRQ1_REJECT.HA",
         "PerPkg": "1",
@@ -1787,6 +1992,7 @@
     },
     {
         "BriefDescription": "IRQ Requests (from CMS) Rejected - Set 1 : LLC or SF Way",
+        "Counter": "0,1,2,3",
         "EventCode": "0x19",
         "EventName": "UNC_CHA_RxC_IRQ1_REJECT.LLC_OR_SF_WAY",
         "PerPkg": "1",
@@ -1796,6 +2002,7 @@
     },
     {
         "BriefDescription": "IRQ Requests (from CMS) Rejected - Set 1 : LLC Victim",
+        "Counter": "0,1,2,3",
         "EventCode": "0x19",
         "EventName": "UNC_CHA_RxC_IRQ1_REJECT.LLC_VICTIM",
         "PerPkg": "1",
@@ -1804,6 +2011,7 @@
     },
     {
         "BriefDescription": "Ingress (from CMS) Request Queue Rejects; PhyAddr Match",
+        "Counter": "0,1,2,3",
         "EventCode": "0x19",
         "EventName": "UNC_CHA_RxC_IRQ1_REJECT.PA_MATCH",
         "PerPkg": "1",
@@ -1812,6 +2020,7 @@
     },
     {
         "BriefDescription": "IRQ Requests (from CMS) Rejected - Set 1 : SF Victim",
+        "Counter": "0,1,2,3",
         "EventCode": "0x19",
         "EventName": "UNC_CHA_RxC_IRQ1_REJECT.SF_VICTIM",
         "PerPkg": "1",
@@ -1821,6 +2030,7 @@
     },
     {
         "BriefDescription": "IRQ Requests (from CMS) Rejected - Set 1 : Victim",
+        "Counter": "0,1,2,3",
         "EventCode": "0x19",
         "EventName": "UNC_CHA_RxC_IRQ1_REJECT.VICTIM",
         "PerPkg": "1",
@@ -1829,6 +2039,7 @@
     },
     {
         "BriefDescription": "ISMQ Rejects - Set 0 : AD REQ on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x24",
         "EventName": "UNC_CHA_RxC_ISMQ0_REJECT.AD_REQ_VN0",
         "PerPkg": "1",
@@ -1838,6 +2049,7 @@
     },
     {
         "BriefDescription": "ISMQ Rejects - Set 0 : AD RSP on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x24",
         "EventName": "UNC_CHA_RxC_ISMQ0_REJECT.AD_RSP_VN0",
         "PerPkg": "1",
@@ -1847,6 +2059,7 @@
     },
     {
         "BriefDescription": "ISMQ Rejects - Set 0 : Non UPI AK Request",
+        "Counter": "0,1,2,3",
         "EventCode": "0x24",
         "EventName": "UNC_CHA_RxC_ISMQ0_REJECT.AK_NON_UPI",
         "PerPkg": "1",
@@ -1856,6 +2069,7 @@
     },
     {
         "BriefDescription": "ISMQ Rejects - Set 0 : BL NCB on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x24",
         "EventName": "UNC_CHA_RxC_ISMQ0_REJECT.BL_NCB_VN0",
         "PerPkg": "1",
@@ -1865,6 +2079,7 @@
     },
     {
         "BriefDescription": "ISMQ Rejects - Set 0 : BL NCS on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x24",
         "EventName": "UNC_CHA_RxC_ISMQ0_REJECT.BL_NCS_VN0",
         "PerPkg": "1",
@@ -1874,6 +2089,7 @@
     },
     {
         "BriefDescription": "ISMQ Rejects - Set 0 : BL RSP on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x24",
         "EventName": "UNC_CHA_RxC_ISMQ0_REJECT.BL_RSP_VN0",
         "PerPkg": "1",
@@ -1883,6 +2099,7 @@
     },
     {
         "BriefDescription": "ISMQ Rejects - Set 0 : BL WB on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x24",
         "EventName": "UNC_CHA_RxC_ISMQ0_REJECT.BL_WB_VN0",
         "PerPkg": "1",
@@ -1892,6 +2109,7 @@
     },
     {
         "BriefDescription": "ISMQ Rejects - Set 0 : Non UPI IV Request",
+        "Counter": "0,1,2,3",
         "EventCode": "0x24",
         "EventName": "UNC_CHA_RxC_ISMQ0_REJECT.IV_NON_UPI",
         "PerPkg": "1",
@@ -1901,6 +2119,7 @@
     },
     {
         "BriefDescription": "ISMQ Retries - Set 0 : AD REQ on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2c",
         "EventName": "UNC_CHA_RxC_ISMQ0_RETRY.AD_REQ_VN0",
         "PerPkg": "1",
@@ -1910,6 +2129,7 @@
     },
     {
         "BriefDescription": "ISMQ Retries - Set 0 : AD RSP on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2c",
         "EventName": "UNC_CHA_RxC_ISMQ0_RETRY.AD_RSP_VN0",
         "PerPkg": "1",
@@ -1919,6 +2139,7 @@
     },
     {
         "BriefDescription": "ISMQ Retries - Set 0 : Non UPI AK Request",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2c",
         "EventName": "UNC_CHA_RxC_ISMQ0_RETRY.AK_NON_UPI",
         "PerPkg": "1",
@@ -1928,6 +2149,7 @@
     },
     {
         "BriefDescription": "ISMQ Retries - Set 0 : BL NCB on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2c",
         "EventName": "UNC_CHA_RxC_ISMQ0_RETRY.BL_NCB_VN0",
         "PerPkg": "1",
@@ -1937,6 +2159,7 @@
     },
     {
         "BriefDescription": "ISMQ Retries - Set 0 : BL NCS on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2c",
         "EventName": "UNC_CHA_RxC_ISMQ0_RETRY.BL_NCS_VN0",
         "PerPkg": "1",
@@ -1946,6 +2169,7 @@
     },
     {
         "BriefDescription": "ISMQ Retries - Set 0 : BL RSP on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2c",
         "EventName": "UNC_CHA_RxC_ISMQ0_RETRY.BL_RSP_VN0",
         "PerPkg": "1",
@@ -1955,6 +2179,7 @@
     },
     {
         "BriefDescription": "ISMQ Retries - Set 0 : BL WB on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2c",
         "EventName": "UNC_CHA_RxC_ISMQ0_RETRY.BL_WB_VN0",
         "PerPkg": "1",
@@ -1964,6 +2189,7 @@
     },
     {
         "BriefDescription": "ISMQ Retries - Set 0 : Non UPI IV Request",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2c",
         "EventName": "UNC_CHA_RxC_ISMQ0_RETRY.IV_NON_UPI",
         "PerPkg": "1",
@@ -1973,6 +2199,7 @@
     },
     {
         "BriefDescription": "ISMQ Rejects - Set 1 : ANY0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x25",
         "EventName": "UNC_CHA_RxC_ISMQ1_REJECT.ANY0",
         "PerPkg": "1",
@@ -1982,6 +2209,7 @@
     },
     {
         "BriefDescription": "ISMQ Rejects - Set 1 : HA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x25",
         "EventName": "UNC_CHA_RxC_ISMQ1_REJECT.HA",
         "PerPkg": "1",
@@ -1991,6 +2219,7 @@
     },
     {
         "BriefDescription": "ISMQ Retries - Set 1 : ANY0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2d",
         "EventName": "UNC_CHA_RxC_ISMQ1_RETRY.ANY0",
         "PerPkg": "1",
@@ -2000,6 +2229,7 @@
     },
     {
         "BriefDescription": "ISMQ Retries - Set 1 : HA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2d",
         "EventName": "UNC_CHA_RxC_ISMQ1_RETRY.HA",
         "PerPkg": "1",
@@ -2036,6 +2266,7 @@
     },
     {
         "BriefDescription": "Other Retries - Set 0 : AD REQ on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2e",
         "EventName": "UNC_CHA_RxC_OTHER0_RETRY.AD_REQ_VN0",
         "PerPkg": "1",
@@ -2045,6 +2276,7 @@
     },
     {
         "BriefDescription": "Other Retries - Set 0 : AD RSP on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2e",
         "EventName": "UNC_CHA_RxC_OTHER0_RETRY.AD_RSP_VN0",
         "PerPkg": "1",
@@ -2054,6 +2286,7 @@
     },
     {
         "BriefDescription": "Other Retries - Set 0 : Non UPI AK Request",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2e",
         "EventName": "UNC_CHA_RxC_OTHER0_RETRY.AK_NON_UPI",
         "PerPkg": "1",
@@ -2063,6 +2296,7 @@
     },
     {
         "BriefDescription": "Other Retries - Set 0 : BL NCB on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2e",
         "EventName": "UNC_CHA_RxC_OTHER0_RETRY.BL_NCB_VN0",
         "PerPkg": "1",
@@ -2072,6 +2306,7 @@
     },
     {
         "BriefDescription": "Other Retries - Set 0 : BL NCS on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2e",
         "EventName": "UNC_CHA_RxC_OTHER0_RETRY.BL_NCS_VN0",
         "PerPkg": "1",
@@ -2081,6 +2316,7 @@
     },
     {
         "BriefDescription": "Other Retries - Set 0 : BL RSP on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2e",
         "EventName": "UNC_CHA_RxC_OTHER0_RETRY.BL_RSP_VN0",
         "PerPkg": "1",
@@ -2090,6 +2326,7 @@
     },
     {
         "BriefDescription": "Other Retries - Set 0 : BL WB on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2e",
         "EventName": "UNC_CHA_RxC_OTHER0_RETRY.BL_WB_VN0",
         "PerPkg": "1",
@@ -2099,6 +2336,7 @@
     },
     {
         "BriefDescription": "Other Retries - Set 0 : Non UPI IV Request",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2e",
         "EventName": "UNC_CHA_RxC_OTHER0_RETRY.IV_NON_UPI",
         "PerPkg": "1",
@@ -2108,6 +2346,7 @@
     },
     {
         "BriefDescription": "Other Retries - Set 1 : Allow Snoop",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2f",
         "EventName": "UNC_CHA_RxC_OTHER1_RETRY.ALLOW_SNP",
         "PerPkg": "1",
@@ -2117,6 +2356,7 @@
     },
     {
         "BriefDescription": "Other Retries - Set 1 : ANY0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2f",
         "EventName": "UNC_CHA_RxC_OTHER1_RETRY.ANY0",
         "PerPkg": "1",
@@ -2126,6 +2366,7 @@
     },
     {
         "BriefDescription": "Other Retries - Set 1 : HA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2f",
         "EventName": "UNC_CHA_RxC_OTHER1_RETRY.HA",
         "PerPkg": "1",
@@ -2135,6 +2376,7 @@
     },
     {
         "BriefDescription": "Other Retries - Set 1 : LLC OR SF Way",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2f",
         "EventName": "UNC_CHA_RxC_OTHER1_RETRY.LLC_OR_SF_WAY",
         "PerPkg": "1",
@@ -2144,6 +2386,7 @@
     },
     {
         "BriefDescription": "Other Retries - Set 1 : LLC Victim",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2f",
         "EventName": "UNC_CHA_RxC_OTHER1_RETRY.LLC_VICTIM",
         "PerPkg": "1",
@@ -2153,6 +2396,7 @@
     },
     {
         "BriefDescription": "Other Retries - Set 1 : PhyAddr Match",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2f",
         "EventName": "UNC_CHA_RxC_OTHER1_RETRY.PA_MATCH",
         "PerPkg": "1",
@@ -2162,6 +2406,7 @@
     },
     {
         "BriefDescription": "Other Retries - Set 1 : SF Victim",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2f",
         "EventName": "UNC_CHA_RxC_OTHER1_RETRY.SF_VICTIM",
         "PerPkg": "1",
@@ -2171,6 +2416,7 @@
     },
     {
         "BriefDescription": "Other Retries - Set 1 : Victim",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2f",
         "EventName": "UNC_CHA_RxC_OTHER1_RETRY.VICTIM",
         "PerPkg": "1",
@@ -2180,6 +2426,7 @@
     },
     {
         "BriefDescription": "PRQ Requests (from CMS) Rejected - Set 0 : AD REQ on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x20",
         "EventName": "UNC_CHA_RxC_PRQ0_REJECT.AD_REQ_VN0",
         "PerPkg": "1",
@@ -2189,6 +2436,7 @@
     },
     {
         "BriefDescription": "PRQ Requests (from CMS) Rejected - Set 0 : AD RSP on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x20",
         "EventName": "UNC_CHA_RxC_PRQ0_REJECT.AD_RSP_VN0",
         "PerPkg": "1",
@@ -2198,6 +2446,7 @@
     },
     {
         "BriefDescription": "PRQ Requests (from CMS) Rejected - Set 0 : Non UPI AK Request",
+        "Counter": "0,1,2,3",
         "EventCode": "0x20",
         "EventName": "UNC_CHA_RxC_PRQ0_REJECT.AK_NON_UPI",
         "PerPkg": "1",
@@ -2207,6 +2456,7 @@
     },
     {
         "BriefDescription": "PRQ Requests (from CMS) Rejected - Set 0 : BL NCB on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x20",
         "EventName": "UNC_CHA_RxC_PRQ0_REJECT.BL_NCB_VN0",
         "PerPkg": "1",
@@ -2216,6 +2466,7 @@
     },
     {
         "BriefDescription": "PRQ Requests (from CMS) Rejected - Set 0 : BL NCS on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x20",
         "EventName": "UNC_CHA_RxC_PRQ0_REJECT.BL_NCS_VN0",
         "PerPkg": "1",
@@ -2225,6 +2476,7 @@
     },
     {
         "BriefDescription": "PRQ Requests (from CMS) Rejected - Set 0 : BL RSP on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x20",
         "EventName": "UNC_CHA_RxC_PRQ0_REJECT.BL_RSP_VN0",
         "PerPkg": "1",
@@ -2234,6 +2486,7 @@
     },
     {
         "BriefDescription": "PRQ Requests (from CMS) Rejected - Set 0 : BL WB on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x20",
         "EventName": "UNC_CHA_RxC_PRQ0_REJECT.BL_WB_VN0",
         "PerPkg": "1",
@@ -2243,6 +2496,7 @@
     },
     {
         "BriefDescription": "PRQ Requests (from CMS) Rejected - Set 0 : Non UPI IV Request",
+        "Counter": "0,1,2,3",
         "EventCode": "0x20",
         "EventName": "UNC_CHA_RxC_PRQ0_REJECT.IV_NON_UPI",
         "PerPkg": "1",
@@ -2252,6 +2506,7 @@
     },
     {
         "BriefDescription": "PRQ Requests (from CMS) Rejected - Set 1 : Allow Snoop",
+        "Counter": "0,1,2,3",
         "EventCode": "0x21",
         "EventName": "UNC_CHA_RxC_PRQ1_REJECT.ALLOW_SNP",
         "PerPkg": "1",
@@ -2260,6 +2515,7 @@
     },
     {
         "BriefDescription": "PRQ Requests (from CMS) Rejected - Set 1 : ANY0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x21",
         "EventName": "UNC_CHA_RxC_PRQ1_REJECT.ANY0",
         "PerPkg": "1",
@@ -2269,6 +2525,7 @@
     },
     {
         "BriefDescription": "PRQ Requests (from CMS) Rejected - Set 1 : HA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x21",
         "EventName": "UNC_CHA_RxC_PRQ1_REJECT.HA",
         "PerPkg": "1",
@@ -2277,6 +2534,7 @@
     },
     {
         "BriefDescription": "PRQ Requests (from CMS) Rejected - Set 1 : LLC OR SF Way",
+        "Counter": "0,1,2,3",
         "EventCode": "0x21",
         "EventName": "UNC_CHA_RxC_PRQ1_REJECT.LLC_OR_SF_WAY",
         "PerPkg": "1",
@@ -2286,6 +2544,7 @@
     },
     {
         "BriefDescription": "PRQ Requests (from CMS) Rejected - Set 1 : LLC Victim",
+        "Counter": "0,1,2,3",
         "EventCode": "0x21",
         "EventName": "UNC_CHA_RxC_PRQ1_REJECT.LLC_VICTIM",
         "PerPkg": "1",
@@ -2294,6 +2553,7 @@
     },
     {
         "BriefDescription": "PRQ Requests (from CMS) Rejected - Set 1 : PhyAddr Match",
+        "Counter": "0,1,2,3",
         "EventCode": "0x21",
         "EventName": "UNC_CHA_RxC_PRQ1_REJECT.PA_MATCH",
         "PerPkg": "1",
@@ -2303,6 +2563,7 @@
     },
     {
         "BriefDescription": "PRQ Requests (from CMS) Rejected - Set 1 : SF Victim",
+        "Counter": "0,1,2,3",
         "EventCode": "0x21",
         "EventName": "UNC_CHA_RxC_PRQ1_REJECT.SF_VICTIM",
         "PerPkg": "1",
@@ -2312,6 +2573,7 @@
     },
     {
         "BriefDescription": "PRQ Requests (from CMS) Rejected - Set 1 : Victim",
+        "Counter": "0,1,2,3",
         "EventCode": "0x21",
         "EventName": "UNC_CHA_RxC_PRQ1_REJECT.VICTIM",
         "PerPkg": "1",
@@ -2320,6 +2582,7 @@
     },
     {
         "BriefDescription": "Request Queue Retries - Set 0 : AD REQ on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2a",
         "EventName": "UNC_CHA_RxC_REQ_Q0_RETRY.AD_REQ_VN0",
         "PerPkg": "1",
@@ -2329,6 +2592,7 @@
     },
     {
         "BriefDescription": "Request Queue Retries - Set 0 : AD RSP on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2a",
         "EventName": "UNC_CHA_RxC_REQ_Q0_RETRY.AD_RSP_VN0",
         "PerPkg": "1",
@@ -2338,6 +2602,7 @@
     },
     {
         "BriefDescription": "Request Queue Retries - Set 0 : Non UPI AK Request",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2a",
         "EventName": "UNC_CHA_RxC_REQ_Q0_RETRY.AK_NON_UPI",
         "PerPkg": "1",
@@ -2347,6 +2612,7 @@
     },
     {
         "BriefDescription": "Request Queue Retries - Set 0 : BL NCB on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2a",
         "EventName": "UNC_CHA_RxC_REQ_Q0_RETRY.BL_NCB_VN0",
         "PerPkg": "1",
@@ -2356,6 +2622,7 @@
     },
     {
         "BriefDescription": "Request Queue Retries - Set 0 : BL NCS on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2a",
         "EventName": "UNC_CHA_RxC_REQ_Q0_RETRY.BL_NCS_VN0",
         "PerPkg": "1",
@@ -2365,6 +2632,7 @@
     },
     {
         "BriefDescription": "Request Queue Retries - Set 0 : BL RSP on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2a",
         "EventName": "UNC_CHA_RxC_REQ_Q0_RETRY.BL_RSP_VN0",
         "PerPkg": "1",
@@ -2374,6 +2642,7 @@
     },
     {
         "BriefDescription": "Request Queue Retries - Set 0 : BL WB on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2a",
         "EventName": "UNC_CHA_RxC_REQ_Q0_RETRY.BL_WB_VN0",
         "PerPkg": "1",
@@ -2383,6 +2652,7 @@
     },
     {
         "BriefDescription": "Request Queue Retries - Set 0 : Non UPI IV Request",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2a",
         "EventName": "UNC_CHA_RxC_REQ_Q0_RETRY.IV_NON_UPI",
         "PerPkg": "1",
@@ -2392,6 +2662,7 @@
     },
     {
         "BriefDescription": "Request Queue Retries - Set 1 : Allow Snoop",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2b",
         "EventName": "UNC_CHA_RxC_REQ_Q1_RETRY.ALLOW_SNP",
         "PerPkg": "1",
@@ -2401,6 +2672,7 @@
     },
     {
         "BriefDescription": "Request Queue Retries - Set 1 : ANY0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2b",
         "EventName": "UNC_CHA_RxC_REQ_Q1_RETRY.ANY0",
         "PerPkg": "1",
@@ -2410,6 +2682,7 @@
     },
     {
         "BriefDescription": "Request Queue Retries - Set 1 : HA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2b",
         "EventName": "UNC_CHA_RxC_REQ_Q1_RETRY.HA",
         "PerPkg": "1",
@@ -2419,6 +2692,7 @@
     },
     {
         "BriefDescription": "Request Queue Retries - Set 1 : LLC OR SF Way",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2b",
         "EventName": "UNC_CHA_RxC_REQ_Q1_RETRY.LLC_OR_SF_WAY",
         "PerPkg": "1",
@@ -2428,6 +2702,7 @@
     },
     {
         "BriefDescription": "Request Queue Retries - Set 1 : LLC Victim",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2b",
         "EventName": "UNC_CHA_RxC_REQ_Q1_RETRY.LLC_VICTIM",
         "PerPkg": "1",
@@ -2437,6 +2712,7 @@
     },
     {
         "BriefDescription": "Request Queue Retries - Set 1 : PhyAddr Match",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2b",
         "EventName": "UNC_CHA_RxC_REQ_Q1_RETRY.PA_MATCH",
         "PerPkg": "1",
@@ -2446,6 +2722,7 @@
     },
     {
         "BriefDescription": "Request Queue Retries - Set 1 : SF Victim",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2b",
         "EventName": "UNC_CHA_RxC_REQ_Q1_RETRY.SF_VICTIM",
         "PerPkg": "1",
@@ -2455,6 +2732,7 @@
     },
     {
         "BriefDescription": "Request Queue Retries - Set 1 : Victim",
+        "Counter": "0,1,2,3",
         "EventCode": "0x2b",
         "EventName": "UNC_CHA_RxC_REQ_Q1_RETRY.VICTIM",
         "PerPkg": "1",
@@ -2464,6 +2742,7 @@
     },
     {
         "BriefDescription": "RRQ Rejects - Set 0 : AD REQ on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x26",
         "EventName": "UNC_CHA_RxC_RRQ0_REJECT.AD_REQ_VN0",
         "PerPkg": "1",
@@ -2473,6 +2752,7 @@
     },
     {
         "BriefDescription": "RRQ Rejects - Set 0 : AD RSP on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x26",
         "EventName": "UNC_CHA_RxC_RRQ0_REJECT.AD_RSP_VN0",
         "PerPkg": "1",
@@ -2482,6 +2762,7 @@
     },
     {
         "BriefDescription": "RRQ Rejects - Set 0 : Non UPI AK Request",
+        "Counter": "0,1,2,3",
         "EventCode": "0x26",
         "EventName": "UNC_CHA_RxC_RRQ0_REJECT.AK_NON_UPI",
         "PerPkg": "1",
@@ -2491,6 +2772,7 @@
     },
     {
         "BriefDescription": "RRQ Rejects - Set 0 : BL NCB on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x26",
         "EventName": "UNC_CHA_RxC_RRQ0_REJECT.BL_NCB_VN0",
         "PerPkg": "1",
@@ -2500,6 +2782,7 @@
     },
     {
         "BriefDescription": "RRQ Rejects - Set 0 : BL NCS on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x26",
         "EventName": "UNC_CHA_RxC_RRQ0_REJECT.BL_NCS_VN0",
         "PerPkg": "1",
@@ -2509,6 +2792,7 @@
     },
     {
         "BriefDescription": "RRQ Rejects - Set 0 : BL RSP on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x26",
         "EventName": "UNC_CHA_RxC_RRQ0_REJECT.BL_RSP_VN0",
         "PerPkg": "1",
@@ -2518,6 +2802,7 @@
     },
     {
         "BriefDescription": "RRQ Rejects - Set 0 : BL WB on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x26",
         "EventName": "UNC_CHA_RxC_RRQ0_REJECT.BL_WB_VN0",
         "PerPkg": "1",
@@ -2527,6 +2812,7 @@
     },
     {
         "BriefDescription": "RRQ Rejects - Set 0 : Non UPI IV Request",
+        "Counter": "0,1,2,3",
         "EventCode": "0x26",
         "EventName": "UNC_CHA_RxC_RRQ0_REJECT.IV_NON_UPI",
         "PerPkg": "1",
@@ -2536,6 +2822,7 @@
     },
     {
         "BriefDescription": "RRQ Rejects - Set 1 : Allow Snoop",
+        "Counter": "0,1,2,3",
         "EventCode": "0x27",
         "EventName": "UNC_CHA_RxC_RRQ1_REJECT.ALLOW_SNP",
         "PerPkg": "1",
@@ -2545,6 +2832,7 @@
     },
     {
         "BriefDescription": "RRQ Rejects - Set 1 : ANY0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x27",
         "EventName": "UNC_CHA_RxC_RRQ1_REJECT.ANY0",
         "PerPkg": "1",
@@ -2554,6 +2842,7 @@
     },
     {
         "BriefDescription": "RRQ Rejects - Set 1 : HA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x27",
         "EventName": "UNC_CHA_RxC_RRQ1_REJECT.HA",
         "PerPkg": "1",
@@ -2563,6 +2852,7 @@
     },
     {
         "BriefDescription": "RRQ Rejects - Set 1 : LLC OR SF Way",
+        "Counter": "0,1,2,3",
         "EventCode": "0x27",
         "EventName": "UNC_CHA_RxC_RRQ1_REJECT.LLC_OR_SF_WAY",
         "PerPkg": "1",
@@ -2572,6 +2862,7 @@
     },
     {
         "BriefDescription": "RRQ Rejects - Set 1 : LLC Victim",
+        "Counter": "0,1,2,3",
         "EventCode": "0x27",
         "EventName": "UNC_CHA_RxC_RRQ1_REJECT.LLC_VICTIM",
         "PerPkg": "1",
@@ -2581,6 +2872,7 @@
     },
     {
         "BriefDescription": "RRQ Rejects - Set 1 : PhyAddr Match",
+        "Counter": "0,1,2,3",
         "EventCode": "0x27",
         "EventName": "UNC_CHA_RxC_RRQ1_REJECT.PA_MATCH",
         "PerPkg": "1",
@@ -2590,6 +2882,7 @@
     },
     {
         "BriefDescription": "RRQ Rejects - Set 1 : SF Victim",
+        "Counter": "0,1,2,3",
         "EventCode": "0x27",
         "EventName": "UNC_CHA_RxC_RRQ1_REJECT.SF_VICTIM",
         "PerPkg": "1",
@@ -2599,6 +2892,7 @@
     },
     {
         "BriefDescription": "RRQ Rejects - Set 1 : Victim",
+        "Counter": "0,1,2,3",
         "EventCode": "0x27",
         "EventName": "UNC_CHA_RxC_RRQ1_REJECT.VICTIM",
         "PerPkg": "1",
@@ -2608,6 +2902,7 @@
     },
     {
         "BriefDescription": "WBQ Rejects - Set 0 : AD REQ on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x28",
         "EventName": "UNC_CHA_RxC_WBQ0_REJECT.AD_REQ_VN0",
         "PerPkg": "1",
@@ -2617,6 +2912,7 @@
     },
     {
         "BriefDescription": "WBQ Rejects - Set 0 : AD RSP on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x28",
         "EventName": "UNC_CHA_RxC_WBQ0_REJECT.AD_RSP_VN0",
         "PerPkg": "1",
@@ -2626,6 +2922,7 @@
     },
     {
         "BriefDescription": "WBQ Rejects - Set 0 : Non UPI AK Request",
+        "Counter": "0,1,2,3",
         "EventCode": "0x28",
         "EventName": "UNC_CHA_RxC_WBQ0_REJECT.AK_NON_UPI",
         "PerPkg": "1",
@@ -2635,6 +2932,7 @@
     },
     {
         "BriefDescription": "WBQ Rejects - Set 0 : BL NCB on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x28",
         "EventName": "UNC_CHA_RxC_WBQ0_REJECT.BL_NCB_VN0",
         "PerPkg": "1",
@@ -2644,6 +2942,7 @@
     },
     {
         "BriefDescription": "WBQ Rejects - Set 0 : BL NCS on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x28",
         "EventName": "UNC_CHA_RxC_WBQ0_REJECT.BL_NCS_VN0",
         "PerPkg": "1",
@@ -2653,6 +2952,7 @@
     },
     {
         "BriefDescription": "WBQ Rejects - Set 0 : BL RSP on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x28",
         "EventName": "UNC_CHA_RxC_WBQ0_REJECT.BL_RSP_VN0",
         "PerPkg": "1",
@@ -2662,6 +2962,7 @@
     },
     {
         "BriefDescription": "WBQ Rejects - Set 0 : BL WB on VN0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x28",
         "EventName": "UNC_CHA_RxC_WBQ0_REJECT.BL_WB_VN0",
         "PerPkg": "1",
@@ -2671,6 +2972,7 @@
     },
     {
         "BriefDescription": "WBQ Rejects - Set 0 : Non UPI IV Request",
+        "Counter": "0,1,2,3",
         "EventCode": "0x28",
         "EventName": "UNC_CHA_RxC_WBQ0_REJECT.IV_NON_UPI",
         "PerPkg": "1",
@@ -2680,6 +2982,7 @@
     },
     {
         "BriefDescription": "WBQ Rejects - Set 1 : Allow Snoop",
+        "Counter": "0,1,2,3",
         "EventCode": "0x29",
         "EventName": "UNC_CHA_RxC_WBQ1_REJECT.ALLOW_SNP",
         "PerPkg": "1",
@@ -2689,6 +2992,7 @@
     },
     {
         "BriefDescription": "WBQ Rejects - Set 1 : ANY0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x29",
         "EventName": "UNC_CHA_RxC_WBQ1_REJECT.ANY0",
         "PerPkg": "1",
@@ -2698,6 +3002,7 @@
     },
     {
         "BriefDescription": "WBQ Rejects - Set 1 : HA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x29",
         "EventName": "UNC_CHA_RxC_WBQ1_REJECT.HA",
         "PerPkg": "1",
@@ -2707,6 +3012,7 @@
     },
     {
         "BriefDescription": "WBQ Rejects - Set 1 : LLC OR SF Way",
+        "Counter": "0,1,2,3",
         "EventCode": "0x29",
         "EventName": "UNC_CHA_RxC_WBQ1_REJECT.LLC_OR_SF_WAY",
         "PerPkg": "1",
@@ -2716,6 +3022,7 @@
     },
     {
         "BriefDescription": "WBQ Rejects - Set 1 : LLC Victim",
+        "Counter": "0,1,2,3",
         "EventCode": "0x29",
         "EventName": "UNC_CHA_RxC_WBQ1_REJECT.LLC_VICTIM",
         "PerPkg": "1",
@@ -2725,6 +3032,7 @@
     },
     {
         "BriefDescription": "WBQ Rejects - Set 1 : PhyAddr Match",
+        "Counter": "0,1,2,3",
         "EventCode": "0x29",
         "EventName": "UNC_CHA_RxC_WBQ1_REJECT.PA_MATCH",
         "PerPkg": "1",
@@ -2734,6 +3042,7 @@
     },
     {
         "BriefDescription": "WBQ Rejects - Set 1 : SF Victim",
+        "Counter": "0,1,2,3",
         "EventCode": "0x29",
         "EventName": "UNC_CHA_RxC_WBQ1_REJECT.SF_VICTIM",
         "PerPkg": "1",
@@ -2743,6 +3052,7 @@
     },
     {
         "BriefDescription": "WBQ Rejects - Set 1 : Victim",
+        "Counter": "0,1,2,3",
         "EventCode": "0x29",
         "EventName": "UNC_CHA_RxC_WBQ1_REJECT.VICTIM",
         "PerPkg": "1",
@@ -2752,6 +3062,7 @@
     },
     {
         "BriefDescription": "Snoops Sent : All",
+        "Counter": "0,1,2,3",
         "EventCode": "0x51",
         "EventName": "UNC_CHA_SNOOPS_SENT.ALL",
         "PerPkg": "1",
@@ -2761,6 +3072,7 @@
     },
     {
         "BriefDescription": "Snoops Sent : Broadcast snoop for Local Requests",
+        "Counter": "0,1,2,3",
         "EventCode": "0x51",
         "EventName": "UNC_CHA_SNOOPS_SENT.BCST_LOCAL",
         "PerPkg": "1",
@@ -2770,6 +3082,7 @@
     },
     {
         "BriefDescription": "Snoops Sent : Broadcast snoops for Remote Requests",
+        "Counter": "0,1,2,3",
         "EventCode": "0x51",
         "EventName": "UNC_CHA_SNOOPS_SENT.BCST_REMOTE",
         "PerPkg": "1",
@@ -2779,6 +3092,7 @@
     },
     {
         "BriefDescription": "Snoops Sent : Directed snoops for Local Requests",
+        "Counter": "0,1,2,3",
         "EventCode": "0x51",
         "EventName": "UNC_CHA_SNOOPS_SENT.DIRECT_LOCAL",
         "PerPkg": "1",
@@ -2788,6 +3102,7 @@
     },
     {
         "BriefDescription": "Snoops Sent : Directed snoops for Remote Requests",
+        "Counter": "0,1,2,3",
         "EventCode": "0x51",
         "EventName": "UNC_CHA_SNOOPS_SENT.DIRECT_REMOTE",
         "PerPkg": "1",
@@ -2797,6 +3112,7 @@
     },
     {
         "BriefDescription": "Snoops Sent : Broadcast or directed Snoops sent for Local Requests",
+        "Counter": "0,1,2,3",
         "EventCode": "0x51",
         "EventName": "UNC_CHA_SNOOPS_SENT.LOCAL",
         "PerPkg": "1",
@@ -2806,6 +3122,7 @@
     },
     {
         "BriefDescription": "Snoops Sent : Broadcast or directed Snoops sent for Remote Requests",
+        "Counter": "0,1,2,3",
         "EventCode": "0x51",
         "EventName": "UNC_CHA_SNOOPS_SENT.REMOTE",
         "PerPkg": "1",
@@ -2815,6 +3132,7 @@
     },
     {
         "BriefDescription": "Snoop Responses Received : RSPCNFLCT*",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5c",
         "EventName": "UNC_CHA_SNOOP_RESP.RSPCNFLCT",
         "PerPkg": "1",
@@ -2824,6 +3142,7 @@
     },
     {
         "BriefDescription": "Snoop Responses Received : RspFwd",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5c",
         "EventName": "UNC_CHA_SNOOP_RESP.RSPFWD",
         "PerPkg": "1",
@@ -2833,6 +3152,7 @@
     },
     {
         "BriefDescription": "Snoop Responses Received : Rsp*Fwd*WB",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5c",
         "EventName": "UNC_CHA_SNOOP_RESP.RSPFWDWB",
         "PerPkg": "1",
@@ -2842,6 +3162,7 @@
     },
     {
         "BriefDescription": "RspI Snoop Responses Received",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5c",
         "EventName": "UNC_CHA_SNOOP_RESP.RSPI",
         "PerPkg": "1",
@@ -2851,6 +3172,7 @@
     },
     {
         "BriefDescription": "RspIFwd Snoop Responses Received",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5c",
         "EventName": "UNC_CHA_SNOOP_RESP.RSPIFWD",
         "PerPkg": "1",
@@ -2860,6 +3182,7 @@
     },
     {
         "BriefDescription": "RspS Snoop Responses Received",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5c",
         "EventName": "UNC_CHA_SNOOP_RESP.RSPS",
         "PerPkg": "1",
@@ -2869,6 +3192,7 @@
     },
     {
         "BriefDescription": "RspSFwd Snoop Responses Received",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5c",
         "EventName": "UNC_CHA_SNOOP_RESP.RSPSFWD",
         "PerPkg": "1",
@@ -2878,6 +3202,7 @@
     },
     {
         "BriefDescription": "Snoop Responses Received : Rsp*WB",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5c",
         "EventName": "UNC_CHA_SNOOP_RESP.RSPWB",
         "PerPkg": "1",
@@ -2887,6 +3212,7 @@
     },
     {
         "BriefDescription": "Snoop Responses Received Local : RspCnflct",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5d",
         "EventName": "UNC_CHA_SNOOP_RESP_LOCAL.RSPCNFLCT",
         "PerPkg": "1",
@@ -2896,6 +3222,7 @@
     },
     {
         "BriefDescription": "Snoop Responses Received Local : RspFwd",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5d",
         "EventName": "UNC_CHA_SNOOP_RESP_LOCAL.RSPFWD",
         "PerPkg": "1",
@@ -2905,6 +3232,7 @@
     },
     {
         "BriefDescription": "Snoop Responses Received Local : Rsp*FWD*WB",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5d",
         "EventName": "UNC_CHA_SNOOP_RESP_LOCAL.RSPFWDWB",
         "PerPkg": "1",
@@ -2914,6 +3242,7 @@
     },
     {
         "BriefDescription": "Snoop Responses Received Local : RspI",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5d",
         "EventName": "UNC_CHA_SNOOP_RESP_LOCAL.RSPI",
         "PerPkg": "1",
@@ -2923,6 +3252,7 @@
     },
     {
         "BriefDescription": "Snoop Responses Received Local : RspIFwd",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5d",
         "EventName": "UNC_CHA_SNOOP_RESP_LOCAL.RSPIFWD",
         "PerPkg": "1",
@@ -2932,6 +3262,7 @@
     },
     {
         "BriefDescription": "Snoop Responses Received Local : RspS",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5d",
         "EventName": "UNC_CHA_SNOOP_RESP_LOCAL.RSPS",
         "PerPkg": "1",
@@ -2941,6 +3272,7 @@
     },
     {
         "BriefDescription": "Snoop Responses Received Local : RspSFwd",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5d",
         "EventName": "UNC_CHA_SNOOP_RESP_LOCAL.RSPSFWD",
         "PerPkg": "1",
@@ -2950,6 +3282,7 @@
     },
     {
         "BriefDescription": "Snoop Responses Received Local : Rsp*WB",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5d",
         "EventName": "UNC_CHA_SNOOP_RESP_LOCAL.RSPWB",
         "PerPkg": "1",
@@ -2959,6 +3292,7 @@
     },
     {
         "BriefDescription": "Misc Snoop Responses Received : MtoI RspIDataM",
+        "Counter": "0,1,2,3",
         "EventCode": "0x6b",
         "EventName": "UNC_CHA_SNOOP_RSP_MISC.MTOI_RSPDATAM",
         "PerPkg": "1",
@@ -2967,6 +3301,7 @@
     },
     {
         "BriefDescription": "Misc Snoop Responses Received : MtoI RspIFwdM",
+        "Counter": "0,1,2,3",
         "EventCode": "0x6b",
         "EventName": "UNC_CHA_SNOOP_RSP_MISC.MTOI_RSPIFWDM",
         "PerPkg": "1",
@@ -2975,6 +3310,7 @@
     },
     {
         "BriefDescription": "Misc Snoop Responses Received : Pull Data Partial - Hit LLC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x6b",
         "EventName": "UNC_CHA_SNOOP_RSP_MISC.PULLDATAPTL_HITLLC",
         "PerPkg": "1",
@@ -2983,6 +3319,7 @@
     },
     {
         "BriefDescription": "Misc Snoop Responses Received : Pull Data Partial - Hit SF",
+        "Counter": "0,1,2,3",
         "EventCode": "0x6b",
         "EventName": "UNC_CHA_SNOOP_RSP_MISC.PULLDATAPTL_HITSF",
         "PerPkg": "1",
@@ -2991,6 +3328,7 @@
     },
     {
         "BriefDescription": "Misc Snoop Responses Received : RspIFwdPtl Hit LLC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x6b",
         "EventName": "UNC_CHA_SNOOP_RSP_MISC.RSPIFWDMPTL_HITLLC",
         "PerPkg": "1",
@@ -2999,6 +3337,7 @@
     },
     {
         "BriefDescription": "Misc Snoop Responses Received : RspIFwdPtl Hit SF",
+        "Counter": "0,1,2,3",
         "EventCode": "0x6b",
         "EventName": "UNC_CHA_SNOOP_RSP_MISC.RSPIFWDMPTL_HITSF",
         "PerPkg": "1",
@@ -3007,6 +3346,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : All",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.ALL",
         "PerPkg": "1",
@@ -3016,6 +3356,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : DDR Access",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.DDR",
         "PerPkg": "1",
@@ -3024,6 +3365,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : SF/LLC Evictions",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.EVICT",
         "PerPkg": "1",
@@ -3033,6 +3375,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : Just Hits",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.HIT",
         "PerPkg": "1",
@@ -3041,6 +3384,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; All from Local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA",
         "PerPkg": "1",
@@ -3050,6 +3394,7 @@
     },
     {
         "BriefDescription": "TOR Inserts;CLFlush from Local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_CLFLUSH",
         "PerPkg": "1",
@@ -3059,6 +3404,7 @@
     },
     {
         "BriefDescription": "TOR Inserts;CLFlushOpt from Local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_CLFLUSHOPT",
         "PerPkg": "1",
@@ -3068,6 +3414,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; CRd from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_CRD",
         "PerPkg": "1",
@@ -3077,6 +3424,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; CRd Pref from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_CRD_PREF",
         "PerPkg": "1",
@@ -3086,6 +3434,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; DRd from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_DRD",
         "PerPkg": "1",
@@ -3095,6 +3444,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : DRd PTEs issued by iA Cores",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_DRDPTE",
         "PerPkg": "1",
@@ -3104,6 +3454,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; DRd Opt from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_DRD_OPT",
         "PerPkg": "1",
@@ -3113,6 +3464,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; DRd Opt Pref from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_DRD_OPT_PREF",
         "PerPkg": "1",
@@ -3122,6 +3474,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; DRd Pref from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_DRD_PREF",
         "PerPkg": "1",
@@ -3131,6 +3484,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; Hits from Local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_HIT",
         "PerPkg": "1",
@@ -3140,6 +3494,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; CRd hits from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_HIT_CRD",
         "PerPkg": "1",
@@ -3149,6 +3504,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; CRd Pref hits from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_HIT_CRD_PREF",
         "PerPkg": "1",
@@ -3158,6 +3514,7 @@
     },
     {
         "BriefDescription": "All requests issued from IA cores to CXL accelerator memory regions that hit the LLC.",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_HIT_CXL_ACC",
         "PerPkg": "1",
@@ -3166,6 +3523,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_TOR_INSERTS.IA_HIT_CXL_ACC_LOCAL",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_HIT_CXL_ACC_LOCAL",
         "PerPkg": "1",
@@ -3175,6 +3533,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; DRd hits from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_HIT_DRD",
         "PerPkg": "1",
@@ -3184,6 +3543,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : DRd PTEs issued by iA Cores that Hit the LLC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_HIT_DRDPTE",
         "PerPkg": "1",
@@ -3193,6 +3553,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; DRd Opt hits from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_HIT_DRD_OPT",
         "PerPkg": "1",
@@ -3202,6 +3563,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; DRd Opt Pref hits from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_HIT_DRD_OPT_PREF",
         "PerPkg": "1",
@@ -3211,6 +3573,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; DRd Pref hits from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_HIT_DRD_PREF",
         "PerPkg": "1",
@@ -3220,6 +3583,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : ItoMs issued by iA Cores that Hit LLC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_HIT_ITOM",
         "PerPkg": "1",
@@ -3229,6 +3593,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; LLCPrefCode hits from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_HIT_LLCPREFCODE",
         "PerPkg": "1",
@@ -3238,6 +3603,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; LLCPrefData hits from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_HIT_LLCPREFDATA",
         "PerPkg": "1",
@@ -3247,6 +3613,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; LLCPrefRFO hits from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_HIT_LLCPREFRFO",
         "PerPkg": "1",
@@ -3256,6 +3623,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; RFO hits from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_HIT_RFO",
         "PerPkg": "1",
@@ -3265,6 +3633,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; RFO Pref hits from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_HIT_RFO_PREF",
         "PerPkg": "1",
@@ -3274,6 +3643,7 @@
     },
     {
         "BriefDescription": "TOR Inserts;ItoM from Local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_ITOM",
         "PerPkg": "1",
@@ -3283,6 +3653,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : ItoMCacheNears issued by iA Cores",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_ITOMCACHENEAR",
         "PerPkg": "1",
@@ -3292,6 +3663,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; LLCPrefCode from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_LLCPREFCODE",
         "PerPkg": "1",
@@ -3301,6 +3673,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; LLCPrefData from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_LLCPREFDATA",
         "PerPkg": "1",
@@ -3310,6 +3683,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; LLCPrefRFO from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_LLCPREFRFO",
         "PerPkg": "1",
@@ -3319,6 +3693,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; misses from Local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS",
         "PerPkg": "1",
@@ -3328,6 +3703,7 @@
     },
     {
         "BriefDescription": "TOR Inserts for CRd misses from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_CRD",
         "PerPkg": "1",
@@ -3337,6 +3713,7 @@
     },
     {
         "BriefDescription": "CRds and equivalent opcodes issued from an IA core which miss the L3 and target memory in a CXL type 2 accelerator.",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_CRDMORPH_CXL_ACC",
         "PerPkg": "1",
@@ -3345,6 +3722,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : CRd issued by iA Cores that Missed the LLC - HOMed locally",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_CRD_LOCAL",
         "PerPkg": "1",
@@ -3354,6 +3732,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; CRd Pref misses from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_CRD_PREF",
         "PerPkg": "1",
@@ -3363,6 +3742,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : CRd_Prefs issued by iA Cores that Missed the LLC - HOMed locally",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_CRD_PREF_LOCAL",
         "PerPkg": "1",
@@ -3372,6 +3752,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : CRd_Prefs issued by iA Cores that Missed the LLC - HOMed remotely",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_CRD_PREF_REMOTE",
         "PerPkg": "1",
@@ -3381,6 +3762,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : CRd issued by iA Cores that Missed the LLC - HOMed remotely",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_CRD_REMOTE",
         "PerPkg": "1",
@@ -3390,6 +3772,7 @@
     },
     {
         "BriefDescription": "All requests issued from IA cores to CXL accelerator memory regions that miss the LLC.",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_CXL_ACC",
         "PerPkg": "1",
@@ -3398,6 +3781,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_TOR_INSERTS.IA_MISS_CXL_ACC_LOCAL",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_CXL_ACC_LOCAL",
         "PerPkg": "1",
@@ -3407,6 +3791,7 @@
     },
     {
         "BriefDescription": "TOR Inserts for DRd misses from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD",
         "PerPkg": "1",
@@ -3416,6 +3801,7 @@
     },
     {
         "BriefDescription": "DRds and equivalent opcodes issued from an IA core which miss the L3 and target memory in a CXL type 2 accelerator.",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRDMORPH_CXL_ACC",
         "PerPkg": "1",
@@ -3424,6 +3810,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : DRd PTEs issued by iA Cores that Missed the LLC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRDPTE",
         "PerPkg": "1",
@@ -3433,6 +3820,7 @@
     },
     {
         "BriefDescription": "DRds issued from an IA core which miss the L3 and target memory in a CXL type 2 memory expander card.",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_CXL_ACC",
         "PerPkg": "1",
@@ -3441,6 +3829,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_CXL_ACC_LOCAL",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_CXL_ACC_LOCAL",
         "PerPkg": "1",
@@ -3450,6 +3839,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_CXL_EXP_LOCAL",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_CXL_EXP_LOCAL",
         "PerPkg": "1",
@@ -3459,6 +3849,7 @@
     },
     {
         "BriefDescription": "TOR Inserts for DRds issued by IA Cores targeting DDR Mem that Missed the LLC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_DDR",
         "PerPkg": "1",
@@ -3468,6 +3859,7 @@
     },
     {
         "BriefDescription": "TOR Inserts for DRd misses from local IA targeting local memory",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_LOCAL",
         "PerPkg": "1",
@@ -3477,6 +3869,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : DRds issued by iA Cores targeting DDR Mem that Missed the LLC - HOMed locally",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_LOCAL_DDR",
         "PerPkg": "1",
@@ -3486,6 +3879,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : DRds issued by iA Cores targeting PMM Mem that Missed the LLC - HOMed locally",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_LOCAL_PMM",
         "PerPkg": "1",
@@ -3495,6 +3889,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; DRd Opt misses from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_OPT",
         "PerPkg": "1",
@@ -3504,6 +3899,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_OPT_CXL_ACC_LOCAL",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_OPT_CXL_ACC_LOCAL",
         "PerPkg": "1",
@@ -3513,6 +3909,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; DRd Opt Pref misses from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_OPT_PREF",
         "PerPkg": "1",
@@ -3522,6 +3919,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_OPT_PREF_CXL_ACC_LOCAL",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_OPT_PREF_CXL_ACC_LOCAL",
         "PerPkg": "1",
@@ -3531,6 +3929,7 @@
     },
     {
         "BriefDescription": "TOR Inserts for DRds issued by iA Cores targeting PMM Mem that Missed the LLC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PMM",
         "PerPkg": "1",
@@ -3540,6 +3939,7 @@
     },
     {
         "BriefDescription": "TOR Inserts for DRd Pref misses from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PREF",
         "PerPkg": "1",
@@ -3549,6 +3949,7 @@
     },
     {
         "BriefDescription": "L2 data prefetches issued from an IA core which miss the L3 and target memory in a CXL type 2 accelerator.",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PREF_CXL_ACC",
         "PerPkg": "1",
@@ -3557,6 +3958,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PREF_CXL_ACC_LOCAL",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PREF_CXL_ACC_LOCAL",
         "PerPkg": "1",
@@ -3566,6 +3968,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PREF_CXL_EXP_LOCAL",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PREF_CXL_EXP_LOCAL",
         "PerPkg": "1",
@@ -3575,6 +3978,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : DRd_Prefs issued by iA Cores targeting DDR Mem that Missed the LLC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PREF_DDR",
         "PerPkg": "1",
@@ -3584,6 +3988,7 @@
     },
     {
         "BriefDescription": "TOR Inserts for DRd Pref misses from local IA targeting local memory",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PREF_LOCAL",
         "PerPkg": "1",
@@ -3593,6 +3998,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : DRd_Prefs issued by iA Cores targeting DDR Mem that Missed the LLC - HOMed locally",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PREF_LOCAL_DDR",
         "PerPkg": "1",
@@ -3602,6 +4008,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : DRd_Prefs issued by iA Cores targeting PMM Mem that Missed the LLC - HOMed locally",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PREF_LOCAL_PMM",
         "PerPkg": "1",
@@ -3611,6 +4018,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : DRd_Prefs issued by iA Cores targeting PMM Mem that Missed the LLC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PREF_PMM",
         "PerPkg": "1",
@@ -3620,6 +4028,7 @@
     },
     {
         "BriefDescription": "TOR Inserts for DRd Pref misses from local IA targeting remote memory",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PREF_REMOTE",
         "PerPkg": "1",
@@ -3629,6 +4038,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : DRd_Prefs issued by iA Cores targeting DDR Mem that Missed the LLC - HOMed remotely",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PREF_REMOTE_DDR",
         "PerPkg": "1",
@@ -3638,6 +4048,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : DRd_Prefs issued by iA Cores targeting PMM Mem that Missed the LLC - HOMed remotely",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PREF_REMOTE_PMM",
         "PerPkg": "1",
@@ -3647,6 +4058,7 @@
     },
     {
         "BriefDescription": "TOR Inserts for DRd misses from local IA targeting remote memory",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_REMOTE",
         "PerPkg": "1",
@@ -3656,6 +4068,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : DRds issued by iA Cores targeting DDR Mem that Missed the LLC - HOMed remotely",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_REMOTE_DDR",
         "PerPkg": "1",
@@ -3665,6 +4078,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : DRds issued by iA Cores targeting PMM Mem that Missed the LLC - HOMed remotely",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_REMOTE_PMM",
         "PerPkg": "1",
@@ -3674,6 +4088,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : ItoMs issued by iA Cores that Missed LLC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_ITOM",
         "PerPkg": "1",
@@ -3683,6 +4098,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; LLCPrefCode misses from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFCODE",
         "PerPkg": "1",
@@ -3692,6 +4108,7 @@
     },
     {
         "BriefDescription": "LLC Prefetch Code transactions issued from an IA core which miss the L3 and target memory in a CXL type 2 accelerator.",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFCODE_CXL_ACC",
         "PerPkg": "1",
@@ -3700,6 +4117,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; LLCPrefData misses from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFDATA",
         "PerPkg": "1",
@@ -3709,6 +4127,7 @@
     },
     {
         "BriefDescription": "LLC data prefetches issued from an IA core which miss the L3 and target memory in a CXL type 2 accelerator.",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFDATA_CXL_ACC",
         "PerPkg": "1",
@@ -3717,6 +4136,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFDATA_CXL_ACC_LOCAL",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFDATA_CXL_ACC_LOCAL",
         "PerPkg": "1",
@@ -3726,6 +4146,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFDATA_CXL_EXP_LOCAL",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFDATA_CXL_EXP_LOCAL",
         "PerPkg": "1",
@@ -3735,6 +4156,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; LLCPrefRFO misses from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFRFO",
         "PerPkg": "1",
@@ -3744,6 +4166,7 @@
     },
     {
         "BriefDescription": "L2 RFO prefetches issued from an IA core which miss the L3 and target memory in a CXL type 2 accelerator.",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFRFO_CXL_ACC",
         "PerPkg": "1",
@@ -3752,6 +4175,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFRFO_CXL_ACC_LOCAL",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFRFO_CXL_ACC_LOCAL",
         "PerPkg": "1",
@@ -3761,6 +4185,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFRFO_CXL_EXP_LOCAL",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFRFO_CXL_EXP_LOCAL",
         "PerPkg": "1",
@@ -3770,6 +4195,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : WCiLFs issued by iA Cores targeting DDR that missed the LLC - HOMed locally",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_LOCAL_WCILF_DDR",
         "PerPkg": "1",
@@ -3779,6 +4205,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : WCiLFs issued by iA Cores targeting PMM that missed the LLC - HOMed locally",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_LOCAL_WCILF_PMM",
         "PerPkg": "1",
@@ -3788,6 +4215,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : WCiLs issued by iA Cores targeting DDR that missed the LLC - HOMed locally",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_LOCAL_WCIL_DDR",
         "PerPkg": "1",
@@ -3797,6 +4225,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : WCiLs issued by iA Cores targeting PMM that missed the LLC - HOMed locally",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_LOCAL_WCIL_PMM",
         "PerPkg": "1",
@@ -3806,6 +4235,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : WCiLFs issued by iA Cores targeting DDR that missed the LLC - HOMed remotely",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_REMOTE_WCILF_DDR",
         "PerPkg": "1",
@@ -3815,6 +4245,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : WCiLFs issued by iA Cores targeting PMM that missed the LLC - HOMed remotely",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_REMOTE_WCILF_PMM",
         "PerPkg": "1",
@@ -3824,6 +4255,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : WCiLs issued by iA Cores targeting DDR that missed the LLC - HOMed remotely",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_REMOTE_WCIL_DDR",
         "PerPkg": "1",
@@ -3833,6 +4265,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : WCiLs issued by iA Cores targeting PMM that missed the LLC - HOMed remotely",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_REMOTE_WCIL_PMM",
         "PerPkg": "1",
@@ -3842,6 +4275,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; RFO misses from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_RFO",
         "PerPkg": "1",
@@ -3851,6 +4285,7 @@
     },
     {
         "BriefDescription": "RFO and L2 RFO prefetches issued from an IA core which miss the L3 and target memory in a CXL type 2 accelerator.",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_RFOMORPH_CXL_ACC",
         "PerPkg": "1",
@@ -3859,6 +4294,7 @@
     },
     {
         "BriefDescription": "RFOs issued from an IA core which miss the L3 and target memory in a CXL type 2 accelerator.",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_RFO_CXL_ACC",
         "PerPkg": "1",
@@ -3867,6 +4303,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_TOR_INSERTS.IA_MISS_RFO_CXL_ACC_LOCAL",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_RFO_CXL_ACC_LOCAL",
         "PerPkg": "1",
@@ -3876,6 +4313,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_TOR_INSERTS.IA_MISS_RFO_CXL_EXP_LOCAL",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_RFO_CXL_EXP_LOCAL",
         "PerPkg": "1",
@@ -3885,6 +4323,7 @@
     },
     {
         "BriefDescription": "TOR Inserts RFO misses from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_RFO_LOCAL",
         "PerPkg": "1",
@@ -3894,6 +4333,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; RFO pref misses from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_RFO_PREF",
         "PerPkg": "1",
@@ -3903,6 +4343,7 @@
     },
     {
         "BriefDescription": "LLC RFO prefetches issued from an IA core which miss the L3 and target memory in a CXL type 2 accelerator.",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_RFO_PREF_CXL_ACC",
         "PerPkg": "1",
@@ -3911,6 +4352,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_TOR_INSERTS.IA_MISS_RFO_PREF_CXL_ACC_LOCAL",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_RFO_PREF_CXL_ACC_LOCAL",
         "PerPkg": "1",
@@ -3920,6 +4362,7 @@
     },
     {
         "BriefDescription": "UNC_CHA_TOR_INSERTS.IA_MISS_RFO_PREF_CXL_EXP_LOCAL",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_RFO_PREF_CXL_EXP_LOCAL",
         "PerPkg": "1",
@@ -3929,6 +4372,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; RFO prefetch misses from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_RFO_PREF_LOCAL",
         "PerPkg": "1",
@@ -3938,6 +4382,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; RFO prefetch misses from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_RFO_PREF_REMOTE",
         "PerPkg": "1",
@@ -3947,6 +4392,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; RFO misses from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_RFO_REMOTE",
         "PerPkg": "1",
@@ -3956,6 +4402,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : UCRdFs issued by iA Cores that Missed LLC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_UCRDF",
         "PerPkg": "1",
@@ -3965,6 +4412,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : WCiLs issued by iA Cores that Missed the LLC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_WCIL",
         "PerPkg": "1",
@@ -3974,6 +4422,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : WCiLF issued by iA Cores that Missed the LLC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_WCILF",
         "PerPkg": "1",
@@ -3983,6 +4432,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : WCiLFs issued by iA Cores targeting DDR that missed the LLC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_WCILF_DDR",
         "PerPkg": "1",
@@ -3992,6 +4442,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : WCiLFs issued by iA Cores targeting PMM that missed the LLC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_WCILF_PMM",
         "PerPkg": "1",
@@ -4001,6 +4452,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : WCiLs issued by iA Cores targeting DDR that missed the LLC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_WCIL_DDR",
         "PerPkg": "1",
@@ -4010,6 +4462,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : WCiLs issued by iA Cores targeting PMM that missed the LLC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_WCIL_PMM",
         "PerPkg": "1",
@@ -4019,6 +4472,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : WiLs issued by iA Cores that Missed LLC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_MISS_WIL",
         "PerPkg": "1",
@@ -4028,6 +4482,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; RFO from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_RFO",
         "PerPkg": "1",
@@ -4037,6 +4492,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; RFO pref from local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_RFO_PREF",
         "PerPkg": "1",
@@ -4046,6 +4502,7 @@
     },
     {
         "BriefDescription": "TOR Inserts;SpecItoM from Local IA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_SPECITOM",
         "PerPkg": "1",
@@ -4055,6 +4512,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : WBEFtoEs issued by an IA Core.  Non Modified Write Backs",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_WBEFTOE",
         "PerPkg": "1",
@@ -4064,6 +4522,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : WBEFtoEs issued by an IA Core.  Non Modified Write Backs",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_WBEFTOI",
         "PerPkg": "1",
@@ -4073,6 +4532,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : WBEFtoEs issued by an IA Core.  Non Modified Write Backs",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_WBMTOE",
         "PerPkg": "1",
@@ -4082,6 +4542,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : WbMtoIs issued by an iA Cores. Modified Write Backs",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_WBMTOI",
         "PerPkg": "1",
@@ -4091,6 +4552,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : WBEFtoEs issued by an IA Core.  Non Modified Write Backs",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_WBSTOI",
         "PerPkg": "1",
@@ -4100,6 +4562,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : WCiLs issued by iA Cores",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_WCIL",
         "PerPkg": "1",
@@ -4109,6 +4572,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : WCiLF issued by iA Cores",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IA_WCILF",
         "PerPkg": "1",
@@ -4118,6 +4582,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; All from local IO",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IO",
         "PerPkg": "1",
@@ -4127,6 +4592,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : CLFlushes issued by IO Devices",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IO_CLFLUSH",
         "PerPkg": "1",
@@ -4136,6 +4602,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; Hits from local IO",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IO_HIT",
         "PerPkg": "1",
@@ -4145,6 +4612,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; ItoM hits from local IO",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IO_HIT_ITOM",
         "PerPkg": "1",
@@ -4154,6 +4622,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : ItoMCacheNears, indicating a partial write request, from IO Devices that hit the LLC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IO_HIT_ITOMCACHENEAR",
         "PerPkg": "1",
@@ -4163,6 +4632,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; RdCur and FsRdCur hits from local IO",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IO_HIT_PCIRDCUR",
         "PerPkg": "1",
@@ -4172,6 +4642,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; RFO hits from local IO",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IO_HIT_RFO",
         "PerPkg": "1",
@@ -4181,6 +4652,7 @@
     },
     {
         "BriefDescription": "TOR Inserts for ItoM from local IO",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IO_ITOM",
         "PerPkg": "1",
@@ -4190,6 +4662,7 @@
     },
     {
         "BriefDescription": "TOR Inserts for ItoMCacheNears from IO devices.",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IO_ITOMCACHENEAR",
         "PerPkg": "1",
@@ -4198,7 +4671,48 @@
         "Unit": "CHA"
     },
     {
+        "BriefDescription": "ItoMCacheNear (partial write) transactions from an IO device that addresses memory on the local socket",
+        "Counter": "0,1,2,3",
+        "EventCode": "0x35",
+        "EventName": "UNC_CHA_TOR_INSERTS.IO_ITOMCACHENEAR_LOCAL",
+        "PerPkg": "1",
+        "PublicDescription": "TOR Inserts : ItoMCacheNears, indicating a partial write request, from IO Devices that missed the LLC : Counts the number of entries successfully inserted into the TOR that match qualifications specified by the subevent.   Does not include addressless requests such as locks and interrupts.",
+        "UMask": "0xcd42ff04",
+        "Unit": "CHA"
+    },
+    {
+        "BriefDescription": "ItoMCacheNear (partial write) transactions from an IO device that addresses memory on a remote socket",
+        "Counter": "0,1,2,3",
+        "EventCode": "0x35",
+        "EventName": "UNC_CHA_TOR_INSERTS.IO_ITOMCACHENEAR_REMOTE",
+        "PerPkg": "1",
+        "PublicDescription": "TOR Inserts : ItoMCacheNears, indicating a partial write request, from IO Devices that missed the LLC : Counts the number of entries successfully inserted into the TOR that match qualifications specified by the subevent.   Does not include addressless requests such as locks and interrupts.",
+        "UMask": "0xcd437f04",
+        "Unit": "CHA"
+    },
+    {
+        "BriefDescription": "ItoM (write) transactions from an IO device that addresses memory on the local socket",
+        "Counter": "0,1,2,3",
+        "EventCode": "0x35",
+        "EventName": "UNC_CHA_TOR_INSERTS.IO_ITOM_LOCAL",
+        "PerPkg": "1",
+        "PublicDescription": "Counts the number of entries successfully inserted into the TOR that match qualifications specified by the subevent.   Does not include addressless requests such as locks and interrupts.",
+        "UMask": "0xcc42ff04",
+        "Unit": "CHA"
+    },
+    {
+        "BriefDescription": "ItoM (write) transactions from an IO device that addresses memory on a remote socket",
+        "Counter": "0,1,2,3",
+        "EventCode": "0x35",
+        "EventName": "UNC_CHA_TOR_INSERTS.IO_ITOM_REMOTE",
+        "PerPkg": "1",
+        "PublicDescription": "Counts the number of entries successfully inserted into the TOR that match qualifications specified by the subevent.   Does not include addressless requests such as locks and interrupts.",
+        "UMask": "0xcc437f04",
+        "Unit": "CHA"
+    },
+    {
         "BriefDescription": "TOR Inserts; Misses from local IO",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IO_MISS",
         "PerPkg": "1",
@@ -4207,7 +4721,8 @@
         "Unit": "CHA"
     },
     {
-        "BriefDescription": "TOR Inserts; ItoM misses from local IO",
+        "BriefDescription": "TOR Inserts : ItoM, indicating a full cacheline write request, from IO Devices that missed the LLC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IO_MISS_ITOM",
         "PerPkg": "1",
@@ -4217,6 +4732,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : ItoMCacheNears, indicating a partial write request, from IO Devices that missed the LLC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IO_MISS_ITOMCACHENEAR",
         "PerPkg": "1",
@@ -4225,7 +4741,8 @@
         "Unit": "CHA"
     },
     {
-        "BriefDescription": "TOR Inserts; RdCur and FsRdCur misses from local IO",
+        "BriefDescription": "TOR Inserts; RdCur and FsRdCur requests from local IO that miss LLC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IO_MISS_PCIRDCUR",
         "PerPkg": "1",
@@ -4235,6 +4752,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; RFO misses from local IO",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IO_MISS_RFO",
         "PerPkg": "1",
@@ -4244,6 +4762,7 @@
     },
     {
         "BriefDescription": "TOR Inserts for RdCur from local IO",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IO_PCIRDCUR",
         "PerPkg": "1",
@@ -4252,7 +4771,28 @@
         "Unit": "CHA"
     },
     {
+        "BriefDescription": "PCIRDCUR (read) transactions from an IO device that addresses memory on a remote socket",
+        "Counter": "0,1,2,3",
+        "EventCode": "0x35",
+        "EventName": "UNC_CHA_TOR_INSERTS.IO_PCIRDCUR_LOCAL",
+        "PerPkg": "1",
+        "PublicDescription": "Counts the number of entries successfully inserted into the TOR that match qualifications specified by the subevent.   Does not include addressless requests such as locks and interrupts.",
+        "UMask": "0xc8f2ff04",
+        "Unit": "CHA"
+    },
+    {
+        "BriefDescription": "PCIRDCUR (read) transactions from an IO device that addresses memory on the local socket",
+        "Counter": "0,1,2,3",
+        "EventCode": "0x35",
+        "EventName": "UNC_CHA_TOR_INSERTS.IO_PCIRDCUR_REMOTE",
+        "PerPkg": "1",
+        "PublicDescription": "Counts the number of entries successfully inserted into the TOR that match qualifications specified by the subevent.   Does not include addressless requests such as locks and interrupts.",
+        "UMask": "0xc8f37f04",
+        "Unit": "CHA"
+    },
+    {
         "BriefDescription": "TOR Inserts; RFO from local IO",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IO_RFO",
         "PerPkg": "1",
@@ -4262,6 +4802,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : WbMtoIs issued by IO Devices",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IO_WBMTOI",
         "PerPkg": "1",
@@ -4271,6 +4812,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : IPQ",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IPQ",
         "PerPkg": "1",
@@ -4280,6 +4822,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : IRQ - iA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IRQ_IA",
         "PerPkg": "1",
@@ -4289,6 +4832,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : IRQ - Non iA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.IRQ_NON_IA",
         "PerPkg": "1",
@@ -4298,6 +4842,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : Just ISOC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.ISOC",
         "PerPkg": "1",
@@ -4306,6 +4851,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : Just Local Targets",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.LOCAL_TGT",
         "PerPkg": "1",
@@ -4314,6 +4860,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : All from Local iA and IO",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.LOC_ALL",
         "PerPkg": "1",
@@ -4323,6 +4870,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : All from Local iA",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.LOC_IA",
         "PerPkg": "1",
@@ -4332,6 +4880,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : All from Local IO",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.LOC_IO",
         "PerPkg": "1",
@@ -4341,6 +4890,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : Match the Opcode in b[29:19] of the extended umask field",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.MATCH_OPC",
         "PerPkg": "1",
@@ -4349,6 +4899,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : Just Misses",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.MISS",
         "PerPkg": "1",
@@ -4357,6 +4908,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : MMCFG Access",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.MMCFG",
         "PerPkg": "1",
@@ -4365,6 +4917,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : MMIO Access",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.MMIO",
         "PerPkg": "1",
@@ -4373,6 +4926,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : Just NearMem",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.NEARMEM",
         "PerPkg": "1",
@@ -4381,6 +4935,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : Just NonCoherent",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.NONCOH",
         "PerPkg": "1",
@@ -4389,6 +4944,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : Just NotNearMem",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.NOT_NEARMEM",
         "PerPkg": "1",
@@ -4397,6 +4953,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : PMM Access",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.PMM",
         "PerPkg": "1",
@@ -4405,6 +4962,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : Match the PreMorphed Opcode in b[29:19] of the extended umask field",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.PREMORPH_OPC",
         "PerPkg": "1",
@@ -4413,6 +4971,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : PRQ - IOSF",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.PRQ_IOSF",
         "PerPkg": "1",
@@ -4422,6 +4981,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : PRQ - Non IOSF",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.PRQ_NON_IOSF",
         "PerPkg": "1",
@@ -4431,6 +4991,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : Just Remote Targets",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.REMOTE_TGT",
         "PerPkg": "1",
@@ -4439,6 +5000,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : All from Remote",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.REM_ALL",
         "PerPkg": "1",
@@ -4448,6 +5010,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : All Snoops from Remote",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.REM_SNPS",
         "PerPkg": "1",
@@ -4457,6 +5020,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : RRQ",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.RRQ",
         "PerPkg": "1",
@@ -4466,6 +5030,7 @@
     },
     {
         "BriefDescription": "TOR Inserts for INVXTOM opcodes received from a remote socket which miss the L3 and target memory in a CXL type 3 memory expander local to this socket.",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.RRQ_MISS_INVXTOM_CXL_EXP_LOCAL",
         "PerPkg": "1",
@@ -4474,6 +5039,7 @@
     },
     {
         "BriefDescription": "TOR Inserts for RDCODE opcodes received from a remote socket which miss the L3 and target memory in a CXL type 3 memory expander local to this socket.",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.RRQ_MISS_RDCODE_CXL_EXP_LOCAL",
         "PerPkg": "1",
@@ -4482,6 +5048,7 @@
     },
     {
         "BriefDescription": "TOR Inserts for RDCUR opcodes received from a remote socket which miss the L3 and target memory in a CXL type 3 memory expander local to this socket.",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.RRQ_MISS_RDCUR_CXL_EXP_LOCAL",
         "PerPkg": "1",
@@ -4490,6 +5057,7 @@
     },
     {
         "BriefDescription": "TOR Inserts for RDDATA opcodes received from a remote socket which miss the L3 and target memory in a CXL type 3 memory expander local to this socket.",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.RRQ_MISS_RDDATA_CXL_EXP_LOCAL",
         "PerPkg": "1",
@@ -4498,6 +5066,7 @@
     },
     {
         "BriefDescription": "TOR Inserts for RDINVOWN_OPT opcodes received from a remote socket which miss the L3 and target memory in a CXL type 3 memory expander local to this socket.",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.RRQ_MISS_RDINVOWN_OPT_CXL_EXP_LOCAL",
         "PerPkg": "1",
@@ -4506,6 +5075,7 @@
     },
     {
         "BriefDescription": "TOR Inserts; All Snoops from Remote",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.SNPS_FROM_REM",
         "PerPkg": "1",
@@ -4515,6 +5085,7 @@
     },
     {
         "BriefDescription": "TOR Inserts : WBQ",
+        "Counter": "0,1,2,3",
         "EventCode": "0x35",
         "EventName": "UNC_CHA_TOR_INSERTS.WBQ",
         "PerPkg": "1",
@@ -5714,12 +6285,66 @@
         "Unit": "CHA"
     },
     {
+        "BriefDescription": "TOR Occupancy : ItoMCacheNears, indicating a partial write request, from IO Devices that missed the LLC and targets local memory",
+        "EventCode": "0x36",
+        "EventName": "UNC_CHA_TOR_OCCUPANCY.IO_MISS_ITOMCACHENEAR_LOCAL",
+        "PerPkg": "1",
+        "PublicDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent.     Does not include addressless requests such as locks and interrupts.",
+        "UMask": "0xcd42fe04",
+        "Unit": "CHA"
+    },
+    {
+        "BriefDescription": "TOR Occupancy : ItoMCacheNears, indicating a partial write request, from IO Devices that missed the LLC and targets remote memory",
+        "EventCode": "0x36",
+        "EventName": "UNC_CHA_TOR_OCCUPANCY.IO_MISS_ITOMCACHENEAR_REMOTE",
+        "PerPkg": "1",
+        "PublicDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent.     Does not include addressless requests such as locks and interrupts.",
+        "UMask": "0xcd437e04",
+        "Unit": "CHA"
+    },
+    {
+        "BriefDescription": "TOR Occupancy; ITOM misses from local IO and targets local memory",
+        "EventCode": "0x36",
+        "EventName": "UNC_CHA_TOR_OCCUPANCY.IO_MISS_ITOM_LOCAL",
+        "PerPkg": "1",
+        "PublicDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent.     Does not include addressless requests such as locks and interrupts.",
+        "UMask": "0xcc42fe04",
+        "Unit": "CHA"
+    },
+    {
+        "BriefDescription": "TOR Occupancy; ITOM misses from local IO and targets remote memory",
+        "EventCode": "0x36",
+        "EventName": "UNC_CHA_TOR_OCCUPANCY.IO_MISS_ITOM_REMOTE",
+        "PerPkg": "1",
+        "PublicDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent.     Does not include addressless requests such as locks and interrupts.",
+        "UMask": "0xcc437e04",
+        "Unit": "CHA"
+    },
+    {
         "BriefDescription": "TOR Occupancy; RdCur and FsRdCur misses from local IO",
         "EventCode": "0x36",
         "EventName": "UNC_CHA_TOR_OCCUPANCY.IO_MISS_PCIRDCUR",
         "PerPkg": "1",
         "PublicDescription": "TOR Occupancy : PCIRdCurs issued by IO Devices that missed the LLC : For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent.     Does not include addressless requests such as locks and interrupts.",
         "UMask": "0xc8f3fe04",
+        "Unit": "CHA"
+    },
+    {
+        "BriefDescription": "TOR Occupancy; RdCur and FsRdCur misses from local IO and targets local memory",
+        "EventCode": "0x36",
+        "EventName": "UNC_CHA_TOR_OCCUPANCY.IO_MISS_PCIRDCUR_LOCAL",
+        "PerPkg": "1",
+        "PublicDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent.     Does not include addressless requests such as locks and interrupts.",
+        "UMask": "0xc8f2fe04",
+        "Unit": "CHA"
+    },
+    {
+        "BriefDescription": "TOR Occupancy; RdCur and FsRdCur misses from local IO and targets remote memory",
+        "EventCode": "0x36",
+        "EventName": "UNC_CHA_TOR_OCCUPANCY.IO_MISS_PCIRDCUR_REMOTE",
+        "PerPkg": "1",
+        "PublicDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent.     Does not include addressless requests such as locks and interrupts.",
+        "UMask": "0xc8f37e04",
         "Unit": "CHA"
     },
     {
@@ -6013,6 +6638,7 @@
     },
     {
         "BriefDescription": "WbPushMtoI : Pushed to LLC",
+        "Counter": "0,1,2,3",
         "EventCode": "0x56",
         "EventName": "UNC_CHA_WB_PUSH_MTOI.LLC",
         "PerPkg": "1",
@@ -6022,6 +6648,7 @@
     },
     {
         "BriefDescription": "WbPushMtoI : Pushed to Memory",
+        "Counter": "0,1,2,3",
         "EventCode": "0x56",
         "EventName": "UNC_CHA_WB_PUSH_MTOI.MEM",
         "PerPkg": "1",
@@ -6031,6 +6658,7 @@
     },
     {
         "BriefDescription": "CHA iMC CHNx WRITE Credits Empty : MC0",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5a",
         "EventName": "UNC_CHA_WRITE_NO_CREDITS.MC0",
         "PerPkg": "1",
@@ -6040,6 +6668,7 @@
     },
     {
         "BriefDescription": "CHA iMC CHNx WRITE Credits Empty : MC1",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5a",
         "EventName": "UNC_CHA_WRITE_NO_CREDITS.MC1",
         "PerPkg": "1",
@@ -6049,6 +6678,7 @@
     },
     {
         "BriefDescription": "CHA iMC CHNx WRITE Credits Empty : MC2",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5a",
         "EventName": "UNC_CHA_WRITE_NO_CREDITS.MC2",
         "PerPkg": "1",
@@ -6058,6 +6688,7 @@
     },
     {
         "BriefDescription": "CHA iMC CHNx WRITE Credits Empty : MC3",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5a",
         "EventName": "UNC_CHA_WRITE_NO_CREDITS.MC3",
         "PerPkg": "1",
@@ -6067,6 +6698,7 @@
     },
     {
         "BriefDescription": "CHA iMC CHNx WRITE Credits Empty : MC4",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5a",
         "EventName": "UNC_CHA_WRITE_NO_CREDITS.MC4",
         "PerPkg": "1",
@@ -6076,6 +6708,7 @@
     },
     {
         "BriefDescription": "CHA iMC CHNx WRITE Credits Empty : MC5",
+        "Counter": "0,1,2,3",
         "EventCode": "0x5a",
         "EventName": "UNC_CHA_WRITE_NO_CREDITS.MC5",
         "PerPkg": "1",
@@ -6085,6 +6718,7 @@
     },
     {
         "BriefDescription": "XPT Prefetches : Dropped (on 0?) - Conflict",
+        "Counter": "0,1,2,3",
         "EventCode": "0x6f",
         "EventName": "UNC_CHA_XPT_PREF.DROP0_CONFLICT",
         "PerPkg": "1",
@@ -6094,6 +6728,7 @@
     },
     {
         "BriefDescription": "XPT Prefetches : Dropped (on 0?) - No Credits",
+        "Counter": "0,1,2,3",
         "EventCode": "0x6f",
         "EventName": "UNC_CHA_XPT_PREF.DROP0_NOCRD",
         "PerPkg": "1",
@@ -6103,6 +6738,7 @@
     },
     {
         "BriefDescription": "XPT Prefetches : Dropped (on 1?) - Conflict",
+        "Counter": "0,1,2,3",
         "EventCode": "0x6f",
         "EventName": "UNC_CHA_XPT_PREF.DROP1_CONFLICT",
         "PerPkg": "1",
@@ -6112,6 +6748,7 @@
     },
     {
         "BriefDescription": "XPT Prefetches : Dropped (on 1?) - No Credits",
+        "Counter": "0,1,2,3",
         "EventCode": "0x6f",
         "EventName": "UNC_CHA_XPT_PREF.DROP1_NOCRD",
         "PerPkg": "1",
@@ -6121,6 +6758,7 @@
     },
     {
         "BriefDescription": "XPT Prefetches : Sent (on 0?)",
+        "Counter": "0,1,2,3",
         "EventCode": "0x6f",
         "EventName": "UNC_CHA_XPT_PREF.SENT0",
         "PerPkg": "1",
@@ -6130,6 +6768,7 @@
     },
     {
         "BriefDescription": "XPT Prefetches : Sent (on 1?)",
+        "Counter": "0,1,2,3",
         "EventCode": "0x6f",
         "EventName": "UNC_CHA_XPT_PREF.SENT1",
         "PerPkg": "1",

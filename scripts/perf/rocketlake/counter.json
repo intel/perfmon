@@ -1,0 +1,17 @@
+[
+    {
+        "Unit": "core",
+        "NumFixedCounters": "4",
+        "NumCounters": "8"
+    },
+    {
+        "Unit": "ARB",
+        "NumFixedCounters": "0",
+        "NumCounters": "2"
+    },
+    {
+        "Unit": "CLOCK",
+        "NumFixedCounters": 1,
+        "NumCounters": "0"
+    }
+]

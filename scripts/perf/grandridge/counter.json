@@ -1,0 +1,42 @@
+[
+    {
+        "Unit": "core",
+        "NumFixedCounters": "3",
+        "NumCounters": "8"
+    },
+    {
+        "Unit": "B2CMI",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "CHA",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "IMC",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "IIO",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "IRP",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "PCU",
+        "NumFixedCounters": "0",
+        "NumCounters": 4
+    },
+    {
+        "Unit": "CHACMS",
+        "NumFixedCounters": "0",
+        "NumCounters": 4
+    }
+]

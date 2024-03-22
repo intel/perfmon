@@ -1,0 +1,57 @@
+[
+    {
+        "Unit": "core",
+        "NumFixedCounters": "4",
+        "NumCounters": "8"
+    },
+    {
+        "Unit": "CHA",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "IIO",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "IRP",
+        "NumFixedCounters": "0",
+        "NumCounters": "2"
+    },
+    {
+        "Unit": "iMC",
+        "NumFixedCounters": "1",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "M2M",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "UPI",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "M2PCIe",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "M3UPI",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "PCU",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "UBOX",
+        "NumFixedCounters": 1,
+        "NumCounters": "2"
+    }
+]

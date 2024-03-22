@@ -1,0 +1,67 @@
+[
+    {
+        "Unit": "core",
+        "NumFixedCounters": "3",
+        "NumCounters": "8"
+    },
+    {
+        "Unit": "B2CMI",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "CHA",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "IMC",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "B2HOT",
+        "NumFixedCounters": "0",
+        "NumCounters": 4
+    },
+    {
+        "Unit": "IIO",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "IRP",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "UPI",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "B2UPI",
+        "NumFixedCounters": "0",
+        "NumCounters": 4
+    },
+    {
+        "Unit": "B2CXL",
+        "NumFixedCounters": "0",
+        "NumCounters": 4
+    },
+    {
+        "Unit": "PCU",
+        "NumFixedCounters": "0",
+        "NumCounters": 4
+    },
+    {
+        "Unit": "CHACMS",
+        "NumFixedCounters": "0",
+        "NumCounters": 4
+    },
+    {
+        "Unit": "MDF",
+        "NumFixedCounters": "0",
+        "NumCounters": 4
+    }
+]

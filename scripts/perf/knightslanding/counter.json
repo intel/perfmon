@@ -1,0 +1,37 @@
+[
+    {
+        "Unit": "core",
+        "NumFixedCounters": "3",
+        "NumCounters": "2"
+    },
+    {
+        "Unit": "CHA",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "EDC_ECLK",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "EDC_UCLK",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "iMC_DCLK",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    },
+    {
+        "Unit": "iMC_UCLK",
+        "NumFixedCounters": "0",
+        "NumCounters": 4
+    },
+    {
+        "Unit": "M2PCIe",
+        "NumFixedCounters": "0",
+        "NumCounters": "4"
+    }
+]
