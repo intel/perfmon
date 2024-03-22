@@ -1760,10 +1760,12 @@ class Model:
                 json.dump(events_, perf_json, sort_keys=True, indent=4,
                           separators=(',', ': '))
                 perf_json.write('\n')
-        # Write units and counters data to counter.json file
-        output_counters = Path(outdir, 'counter.json')
-        with open(output_counters, 'w', encoding='ascii') as cnt_json:
-            json.dump(list(self.unit_counters.values()), cnt_json, indent=4)
+        # Skip hybrid because event grouping does not support it well yet
+        if self.shortname not in ['ADL', 'ADLN', 'MTL']:
+            # Write units and counters data to counter.json file
+            output_counters = Path(outdir, 'counter.json')
+            with open(output_counters, 'w', encoding='ascii') as cnt_json:
+                json.dump(list(self.unit_counters.values()), cnt_json, indent=4)
 
         metrics = []
         for metric_csv_key, unit in [('tma metrics', 'cpu_core'),
