@@ -1586,7 +1586,9 @@ class Model:
         return jo
 
     def count_counters(self, event_type, pmon_events):
-        # Count number of counters in each PMU unit
+        """
+        Count number of counters in each PMU unit
+        """
 
         for event in pmon_events:
             if not event.counter or "FREERUN" in event.event_name:
@@ -1759,7 +1761,7 @@ class Model:
                           separators=(',', ': '))
                 perf_json.write('\n')
         # Write units and counters data to counter.json file
-        output_counters = Path(outdir, f'counter.json')
+        output_counters = Path(outdir, 'counter.json')
         with open(output_counters, 'w', encoding='ascii') as cnt_json:
             json.dump(list(self.unit_counters.values()), cnt_json, indent=4)
 
