@@ -653,8 +653,15 @@ class Model:
         ])
 
     @staticmethod
-    def extract_pebs_formula(formula):
-        MIN_MAX_PEBS = re.compile(r"([A-Za-z0-9\_\.@]+)\*(min|max)\(\s*(\$PEBS)\s*,((\s*([^\s\)])\s*)+)\)")
+    def extract_pebs_formula(formula: str) -> str:
+        """
+        Convert metric formulas using $PEBS.
+
+        Example:
+            Input:  MEM_INST_RETIRED.STLB_HIT_LOADS*min($PEBS, 7) / tma_info_thread_clks + tma_load_stlb_miss
+            Return: MEM_INST_RETIRED.STLB_HIT_LOADS * min(MEM_INST_RETIRED.STLB_HIT_LOADS:R, 7) / tma_info_thread_clks + tma_load_stlb_miss
+        """
+        MIN_MAX_PEBS = re.compile(r"([A-Za-z0-9_.@]+)\*(min|max)\( *(\$PEBS) *,([a-z0-9_ */+-]+)\)")
         NON_REL_OPS = r"(?<!##)(?<!##2)/|[\(\)]+|[\+\-,]|\*(?![\$])|(?<!##)\?| if not | if | else |min\(|max\(| and | or | in | not "
         REL_OPS = r"[<>]=?|=="
         STR_OPS = r"'[A-Z\-]+'"
@@ -666,11 +673,10 @@ class Model:
             for m in re.finditer(MIN_MAX_PEBS, formula):
                 main_event = m.group(1).strip()
                 min_max = m.group(2)
-                pebs = m.group(3)
                 alternative = m.group(4).strip()
 
                 mod = 'R' if '@' in main_event else ':R'
-                new_string = f' {main_event} * {min_max}({main_event}{mod}, {alternative}) '
+                new_string = f'{main_event} * {min_max}({main_event}{mod}, {alternative})'
                 new_formula = re.sub(m.re, new_string, new_formula, count=1)
 
         formula_list = re.split(OPS, new_formula)
@@ -681,6 +687,7 @@ class Model:
                 mod = 'R' if '@' in event_name else ':R'
                 new_element = f'( {event_name} * {event_name}{mod} )'
                 new_formula = new_formula.replace(element, new_element)
+
         return new_formula
 
     def extract_tma_metrics(self, csvfile: TextIO, pmu_prefix: str,
