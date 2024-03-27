@@ -29,7 +29,7 @@ jobs:
 
     - name: Run unittests
       working-directory: ./scripts/unittesting
-      run: python metric_test.py
+      run: python -m unittest metric_test.py test_create_perf_json.py
 
     - name: Create perf json files
       working-directory: ./scripts
