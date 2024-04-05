@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 4th Generation Intel(R) Xeon(R) Processor Scalable Family based on Sapphire Rapids microarchitecture - V1.20",
-    "DatePublished": "03/14/2024",
-    "Version": "1.20",
+    "Info": "Performance Monitoring Events for 4th Generation Intel(R) Xeon(R) Processor Scalable Family based on Sapphire Rapids microarchitecture - V1.22",
+    "DatePublished": "04/01/2024",
+    "Version": "1.22",
     "Legend": ""
   },
   "Events": [
