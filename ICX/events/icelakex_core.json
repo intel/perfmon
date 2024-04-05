@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 3rd Generation Intel(R) Xeon(R) Processor Scalable Family based on Ice Lake microarchitecture - V1.24",
-    "DatePublished": "03/12/2024",
-    "Version": "1.24",
+    "Info": "Performance Monitoring Events for 3rd Generation Intel(R) Xeon(R) Processor Scalable Family based on Ice Lake microarchitecture - V1.25",
+    "DatePublished": "04/03/2024",
+    "Version": "1.25",
     "Legend": ""
   },
   "Events": [
@@ -1069,6 +1069,30 @@
       "EventName": "SW_PREFETCH_ACCESS.PREFETCHW",
       "BriefDescription": "Number of PREFETCHW instructions executed.",
       "PublicDescription": "Counts the number of PREFETCHW instructions executed.",
+      "Counter": "0,1,2,3",
+      "PEBScounters": "0,1,2,3",
+      "SampleAfterValue": "100003",
+      "MSRIndex": "0x00",
+      "MSRValue": "0x00",
+      "CollectPEBSRecord": "2",
+      "TakenAlone": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "PEBS": "0",
+      "Data_LA": "0",
+      "L1_Hit_Indication": "0",
+      "Errata": "null",
+      "Offcore": "0",
+      "Deprecated": "0",
+      "Speculative": "1"
+    },
+    {
+      "EventCode": "0x32",
+      "UMask": "0x0F",
+      "EventName": "SW_PREFETCH_ACCESS.ANY",
+      "BriefDescription": "Counts the number of PREFETCHNTA, PREFETCHW, PREFETCHT0, PREFETCHT1 or PREFETCHT2 instructions executed.",
+      "PublicDescription": "Counts the number of PREFETCHNTA, PREFETCHW, PREFETCHT0, PREFETCHT1 or PREFETCHT2 instructions executed.",
       "Counter": "0,1,2,3",
       "PEBScounters": "0,1,2,3",
       "SampleAfterValue": "100003",
