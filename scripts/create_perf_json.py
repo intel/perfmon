@@ -1606,12 +1606,12 @@ class Model:
                 continue
             counters = event.counter.split(',')
             if "fixed" in counters[0].lower():
-                type = "NumFixedCounters"
+                type = "CountersNumFixed"
                 counters = event.counter.split(' ')
                 if not counters[-1].isnumeric():
                     counters[0] = '0'
             else:
-                type = "NumCounters"
+                type = "CountersNumGP"
             if not event.unit:
                 unit = event_type
             else:
@@ -1620,7 +1620,7 @@ class Model:
             if unit in self.unit_counters:
                 self.unit_counters[unit][type] = str(max(int(self.unit_counters[unit][type]), v))
             else:
-                self.unit_counters[unit] = {'Unit':unit, 'NumFixedCounters': '0', 'NumCounters': '0'}
+                self.unit_counters[unit] = {'Unit':unit, 'CountersNumFixed': '0', 'CountersNumGP': '0'}
                 self.unit_counters[unit][type] = v
 
     def to_perf_json(self, outdir: Path):
