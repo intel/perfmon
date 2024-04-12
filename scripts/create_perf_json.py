@@ -1612,7 +1612,7 @@ class Model:
                 if not counters[-1].isnumeric():
                     counters[0] = '0'
             else:
-                type = "CountersNumGP"
+                type = "CountersNumGeneric"
             if not event.unit:
                 unit = event_type
             else:
@@ -1621,7 +1621,7 @@ class Model:
             if unit in self.unit_counters:
                 self.unit_counters[unit][type] = str(max(int(self.unit_counters[unit][type]), v))
             else:
-                self.unit_counters[unit] = {'Unit':unit, 'CountersNumFixed': '0', 'CountersNumGP': '0'}
+                self.unit_counters[unit] = {'Unit':unit, 'CountersNumFixed': '0', 'CountersNumGeneric': '0'}
                 self.unit_counters[unit][type] = v
 
     def to_perf_json(self, outdir: Path):
