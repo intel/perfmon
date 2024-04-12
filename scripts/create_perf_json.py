@@ -276,10 +276,11 @@ class PerfmonJsonEvent:
 
     def __init__(self, shortname: str, unit: str, jd: Dict[str, str]):
         """Constructor passed the dictionary of parsed json values."""
-        def get(key: str) -> str:
+        def get(key: str, counter: bool = False) -> str:
             drop_keys = {'0', '0x0', '0x00', 'na', 'null', 'tbd'}
             result = jd.get(key)
-            if not result or result in drop_keys:
+            # For the Counter field, value '0' is reasonable
+            if not result or (result in drop_keys and not counter):
                 return None
             result = re.sub('\xae', '(R)', result.strip())
             result = re.sub('\u2122', '(TM)', result)
@@ -308,7 +309,7 @@ class PerfmonJsonEvent:
         self.sample_after_value = get('SampleAfterValue')
         self.umask = get('UMask')
         self.unit = get('Unit')
-        self.counter = get('Counter')
+        self.counter = get('Counter', counter=True)
         # Sanity check certain old perfmon keys or values that could
         # be used in perf json don't exist.
         assert 'Internal' not in jd
