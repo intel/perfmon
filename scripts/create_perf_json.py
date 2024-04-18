@@ -279,6 +279,7 @@ class PerfmonJsonEvent:
         def get(key: str) -> str:
             drop_keys = {'0', '0x0', '0x00', 'na', 'null', 'tbd'}
             result = jd.get(key)
+            # For the Counter field, value '0' is reasonable
             if not result or result in drop_keys:
                 return None
             result = re.sub('\xae', '(R)', result.strip())
@@ -308,7 +309,7 @@ class PerfmonJsonEvent:
         self.sample_after_value = get('SampleAfterValue')
         self.umask = get('UMask')
         self.unit = get('Unit')
-        self.counter = get('Counter')
+        self.counter = jd.get('Counter').strip()
         # Sanity check certain old perfmon keys or values that could
         # be used in perf json don't exist.
         assert 'Internal' not in jd
@@ -1606,12 +1607,12 @@ class Model:
                 continue
             counters = event.counter.split(',')
             if "fixed" in counters[0].lower():
-                type = "NumFixedCounters"
+                type = "CountersNumFixed"
                 counters = event.counter.split(' ')
                 if not counters[-1].isnumeric():
                     counters[0] = '0'
             else:
-                type = "NumCounters"
+                type = "CountersNumGeneric"
             if not event.unit:
                 unit = event_type
             else:
@@ -1620,7 +1621,7 @@ class Model:
             if unit in self.unit_counters:
                 self.unit_counters[unit][type] = str(max(int(self.unit_counters[unit][type]), v))
             else:
-                self.unit_counters[unit] = {'Unit':unit, 'NumFixedCounters': '0', 'NumCounters': '0'}
+                self.unit_counters[unit] = {'Unit':unit, 'CountersNumFixed': '0', 'CountersNumGeneric': '0'}
                 self.unit_counters[unit][type] = v
 
     def to_perf_json(self, outdir: Path):
