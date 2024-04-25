@@ -1196,6 +1196,8 @@ class Model:
                         return '#has_pmem > 0'
                     if v == '#DurationTimeInSeconds':
                         return 'duration_time'
+                    if v == 'DurationTimeInMilliSeconds':
+                        return 'duration_time * 1000'
                     if v == '#EBS_Mode':
                         return '#core_wide < 1'
                     if v == '#NA':
@@ -1237,7 +1239,7 @@ class Model:
                         return expand_hhq(v[3:])
                     if v.startswith('##'):
                         return expand_hh(v[2:])
-                    if v.startswith('#') or v in ['Num_CPUs', 'Dependent_Loads_Weight']:
+                    if v.startswith('#') or v in ['Num_CPUs', 'Dependent_Loads_Weight', 'DurationTimeInMilliSeconds']:
                         return resolve_aux(v)
                     return resolve_info(v)
 
