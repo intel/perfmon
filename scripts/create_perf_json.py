@@ -567,7 +567,7 @@ class Model:
             (['KBL'], [3, 6, 7], [2, 3, 6, 7]),
             (['CNL'], [1, 3, 6, 7], [2, 3, 6, 7, 8, 9, 10]),
             (['ICL', 'TGL', 'RKL'], [6, 7], [2, 3, 6, 7, 8, 9, 10]),
-            (['ICX', 'SPR'], [1, 6], [2, 6]),
+            (['ICX', 'SPR', 'EMR'], [1, 6], [2, 6]),
             (['ADL', 'GRT', 'ADLN'], [1, 6, 7], [2, 3, 6, 7, 8, 9, 10]),
             (['MTL'], [1, 6, 7], [2, 3, 6, 7, 8, 9, 10]),
             (['SLM'], [1, 6], [6]),
@@ -602,7 +602,7 @@ class Model:
 
     def tsx_json(self) -> Optional[metric.MetricGroup]:
         if self.shortname not in ['SKL','SKX','KBL','CLX','CPX','CNL','ICL','ICX',
-                                  'RKL','TGL','ADL','SPR']:
+                                  'RKL','TGL','ADL','SPR', 'EMR']:
             return None
 
         cycles = metric.Event('cycles')
@@ -626,7 +626,7 @@ class Model:
                                  0),
                    "cycles / transaction"),
         ]
-        if self.shortname != 'SPR':
+        if self.shortname not in ['SPR', 'EMR']:
             elision_start = metric.Event('el\-start')
             metrics += [
                 metric.Metric('tsx_cycles_per_elision',
@@ -726,7 +726,7 @@ class Model:
                     'HSW', 'IVB', 'SNB'),
             'ADL/RPL': ('ADL/RPL', 'TGL', 'RKL', 'ICL', 'CNL', 'KBLR/CFL/CML',
                         'SKL/KBL', 'BDW', 'HSW', 'IVB', 'SNB'),
-            'SPR': ('SPR', 'ADL/RPL', 'TGL', 'RKL', 'ICX', 'ICL', 'CNL', 'CPX', 'CLX',
+            'SPR/EMR': ('SPR/EMR', 'ADL/RPL', 'TGL', 'RKL', 'ICX', 'ICL', 'CNL', 'CPX', 'CLX',
                     'KBLR/CFL/CML', 'SKX', 'SKL/KBL', 'BDX', 'BDW', 'HSX', 'HSW', 'IVT',
                     'IVB', 'JKT/SNB-EP', 'SNB'),
             "GRT": ("GRT"),
@@ -900,10 +900,10 @@ class Model:
                     mgroups.append(group)
                     if group not in self.metricgroups:
                         self.metricgroups[group] = f'Metrics for top-down breakdown at level {level}'
-                tma_perf_metric_l1_performance_cores = ['ICL', 'ICX', 'RKL', 'TGL', 'ADL/RPL', 'GRT', 'SPR']
+                tma_perf_metric_l1_performance_cores = ['ICL', 'ICX', 'RKL', 'TGL', 'ADL/RPL', 'GRT', 'SPR', 'EMR']
                 if level == 1 and tma_cpu in tma_perf_metric_l1_performance_cores:
                     mgroups.append('Default')
-                tma_perf_metric_l2_performance_cores = ['SPR']
+                tma_perf_metric_l2_performance_cores = ['SPR', 'EMR']
                 if level == 2 and tma_cpu in tma_perf_metric_l2_performance_cores:
                     mgroups.append('Default')
                 csv_groups = metric_group(metric_name)
@@ -981,7 +981,7 @@ class Model:
                 form = find_form()
                 if form and form != '#NA':
                     aux_name = field('Level1')
-                    assert aux_name.startswith('#') or aux_name == 'Num_CPUs'
+                    assert aux_name.startswith('#') or aux_name in ['Num_CPUs', 'Dependent_Loads_Weight']
                     aux[aux_name] = form
                     _verboseprint3(f'Adding aux {aux_name}: {form}')
 
@@ -1083,6 +1083,11 @@ class Model:
                             ('UNC_ARB_COH_TRK_REQUESTS.ALL', 'arb@event\=0x84\,umask\=0x1@'),
                             ('UNC_ARB_DAT_OCCUPANCY.RD:c1', 'UNC_ARB_DAT_OCCUPANCY.RD@cmask\=1@'),
                             ('UNC_ARB_TRK_REQUESTS.ALL', 'arb@event\=0x81\,umask\=0x1@'),
+                        ] + td_event_fixups,
+                        'EMR':[
+                            ('UNC_CHA_CLOCKTICKS:one_unit', 'uncore_cha_0@event\=0x1@'),
+                            ('UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD:c1',
+                             'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
                         ] + td_event_fixups,
                     }
 
@@ -1228,7 +1233,7 @@ class Model:
                         return expand_hhq(v[3:])
                     if v.startswith('##'):
                         return expand_hh(v[2:])
-                    if v.startswith('#') or v == 'Num_CPUs':
+                    if v.startswith('#') or v in ['Num_CPUs', 'Dependent_Loads_Weight']:
                         return resolve_aux(v)
                     return resolve_info(v)
 
@@ -1487,6 +1492,7 @@ class Model:
                     'RPL': alderlake_constraints,
                     'SPR': alderlake_constraints,
                     'MTL': alderlake_constraints,
+                    'EMR': alderlake_constraints,
                 }
                 if name in errata_constraints[self.shortname]:
                     j['MetricConstraint'] = errata_constraints[self.shortname][name]
@@ -1648,7 +1654,7 @@ class Model:
                 # UNC_IIO_BANDWIDTH_OUT events are broken on Linux pre-SPR so skip if they exist.
                 pmon_events = [PerfmonJsonEvent(self.shortname, pmu_prefix, x)
                                for x in json_data['Events']
-                               if self.shortname == 'SPR' or
+                               if self.shortname in ['SPR', 'EMR'] or
                                not x["EventName"].startswith("UNC_IIO_BANDWIDTH_OUT.")]
                 unit = None
                 if event_type in ['atom', 'core'] and 'atom' in self.files and 'core' in self.files:
@@ -1926,7 +1932,7 @@ class Mapfile:
                 files[shortname]['extra metrics'] = cpu_metrics_path
             else:
                 _verboseprint2(f'Didn\'t find {cpu_metrics_path}')
-                if shortname in ['BDX', 'CLX', 'HSX', 'ICX', 'SKX', 'SPR']:
+                if shortname in ['BDX', 'CLX', 'HSX', 'ICX', 'SKX', 'SPR', 'EMR']:
                     raise
 
             self.archs += [
