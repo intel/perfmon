@@ -274,7 +274,7 @@ class PerfmonJsonEvent:
             return f'OFFCORE_RESPONSE.{m.group(1)}.{m.group(2)}'
         return name
 
-    def __init__(self, shortname: str, unit: str, jd: Dict[str, str]):
+    def __init__(self, shortname: str, unit: str, jd: Dict[str, str], experimental: bool):
         """Constructor passed the dictionary of parsed json values."""
         def get(key: str) -> str:
             drop_keys = {'0', '0x0', '0x00', 'na', 'null', 'tbd'}
@@ -288,6 +288,7 @@ class PerfmonJsonEvent:
             result = re.sub('\?\?\?', '?', result)
             return result
 
+        self.experimental = experimental
         # Copy values we expect.
         self.event_name = PerfmonJsonEvent.fix_name(get('EventName'))
         self.any_thread = get('AnyThread')
@@ -474,6 +475,8 @@ class PerfmonJsonEvent:
         add_to_result('UMask', self.umask)
         add_to_result('Unit', self.unit)
         add_to_result('Counter', self.counter)
+        if self.experimental:
+            add_to_result("Experimental", '1')
         return result
 
 def rewrite_metrics_in_terms_of_others(metrics: list[Dict[str,str]]) -> list[Dict[str,str]]:
@@ -1646,7 +1649,8 @@ class Model:
             with open(self.files[event_type], 'r') as event_json:
                 json_data = json.load(event_json)
                 # UNC_IIO_BANDWIDTH_OUT events are broken on Linux pre-SPR so skip if they exist.
-                pmon_events = [PerfmonJsonEvent(self.shortname, pmu_prefix, x)
+                pmon_events = [PerfmonJsonEvent(self.shortname, pmu_prefix, x,
+                                                'experimental' in event_type)
                                for x in json_data['Events']
                                if self.shortname == 'SPR' or
                                not x["EventName"].startswith("UNC_IIO_BANDWIDTH_OUT.")]
