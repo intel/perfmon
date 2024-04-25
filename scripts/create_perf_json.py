@@ -643,7 +643,7 @@ class Model:
                    "cycles / transaction"),
         ]
         if self.shortname not in ['SPR', 'EMR']:
-            elision_start = metric.Event('el\-start')
+            elision_start = metric.Event(r'el\-start')
             metrics += [
                 metric.Metric('tsx_cycles_per_elision',
                               'Number of cycles within a transaction divided by the number of elisions.',
