@@ -1,5 +1,6 @@
 __pycache__/
 .idea
+bandit_scan_results.sarif
 scripts/inputs
 scripts/outputs
 scripts/*.bat
