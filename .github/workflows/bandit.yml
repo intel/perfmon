@@ -1,0 +1,50 @@
+name: Bandit Python Scans
+on:
+  push:
+  pull_request:
+  schedule:
+    # Tuesdays at 9AM PST. GitHub Actions run in UTC.
+    - cron: '0 16 * * 2'
+
+# Read only default permissions.
+permissions: read-all
+
+jobs:
+  bandit:
+    runs-on: ubuntu-latest
+    permissions:
+      # Needed to upload the results to code-scanning dashboard.
+      security-events: write
+
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Set up Python 3.x
+        uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # v5.1.0
+        with:
+          python-version: "3.x"
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Bandit
+        run: |
+          bandit -r -c .github/bandit.yml \
+            -f sarif -o bandit_scan_results.sarif \
+            scripts
+        # Bandit will exit 1 if it detects issues. Our goal is to triage issues with the GitHub
+        # code scanning dashboard. Always continue to the archive and dashboard upload steps.
+        continue-on-error: true
+
+      - name: Archive scan results
+        uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 # v4.3.3
+        with:
+          name: bandit_scan_results
+          path: bandit_scan_results.sarif
+          retention-days: 10
+
+      - name: Upload to code-scanning dashboard
+        uses: github/codeql-action/upload-sarif@4355270be187e1b672a7a1c7c7bae5afdc1ab94a # v3.24.10
+        with:
+          sarif_file: bandit_scan_results.sarif
