@@ -12,12 +12,15 @@
         "PERF_METRICS.BRANCH_MISPREDICTS":"topdown\\-br\\-mispredict",
         "PERF_METRICS.FETCH_LATENCY":"topdown\\-fetch\\-lat",
         "PERF_METRICS.MEMORY_BOUND":"topdown\\-mem\\-bound",
-        "TOPDOWN.SLOTS:perf_metrics":"slots",
-        "TOPDOWN.SLOTS:percore":"TOPDOWN.SLOTS",
+        "TOPDOWN.SLOTS:PERF_METRICS":"slots",
+        "TOPDOWN.SLOTS:PERCORE":"TOPDOWN.SLOTS",
+        "SLOTS":"slots",
         "SOCKET_COUNT":"#num_packages",
         "HYPERTHREADING_ON":"#SMT_on",
+        "SMT_ON":"#SMT_on",
         "CORES_PER_SOCKET":"#num_cores / #num_packages",
         "DURATIONTIMEINMILLISECONDS":"( duration_time * 1000 )",
+        "DURATION_TIME":"duration_time",
         "UNC_IIO_PAYLOAD_BYTES_IN.MEM_READ.PART0":"UNC_IIO_DATA_REQ_OF_CPU.MEM_READ.PART0",
         "UNC_IIO_PAYLOAD_BYTES_IN.MEM_READ.PART1":"UNC_IIO_DATA_REQ_OF_CPU.MEM_READ.PART1",
         "UNC_IIO_PAYLOAD_BYTES_IN.MEM_READ.PART2":"UNC_IIO_DATA_REQ_OF_CPU.MEM_READ.PART2",
@@ -26,11 +29,12 @@
         "MSR_EVENT:msr=0x611:type=FREERUN:scope=PACKAGE":"power@energy\\-pkg@",
         "CPU_CLK_UNHALTED.THREAD_P:SUP":"CPU_CLK_UNHALTED.THREAD_P:k",
         "CPU_CLK_UNHALTED.THREAD:SUP":"CPU_CLK_UNHALTED.THREAD:k",
-        "UNC_M_CLOCKTICKS:one_unit": "imc_0@event\\=0x0@",
-        "UNC_C_CLOCKTICKS:one_unit": "cbox_0@event\\=0x0@",
-        "UNC_CHA_CLOCKTICKS:one_unit": "cha_0@event\\=0x0@",
+        "UNC_M_CLOCKTICKS:ONE_UNIT": "imc_0@event\\=0x0@",
+        "UNC_C_CLOCKTICKS:ONE_UNIT": "cbox_0@event\\=0x0@",
+        "UNC_CHA_CLOCKTICKS:ONE_UNIT": "cha_0@event\\=0x0@",
         "FREERUN_PKG_ENERGY_STATUS":"power@energy\\-pkg@",
-        "FREERUN_DRAM_ENERGY_STATUS":"power@energy\\-ram@"
+        "FREERUN_DRAM_ENERGY_STATUS":"power@energy\\-ram@",
+        "NUM_CPUS":"#num_cpus_online"
     },
     "metric_source_events":{
         "CHAS_PER_SOCKET":"UNC_CHA([^\\s]*)",
@@ -40,13 +44,13 @@
         {
             "events": ["ICACHE_", "INT_MISC", "UOPS_", "IDQ", "OFFCORE_", 
                 "L1D_", "DTLB_", "AMX_", "ITLB_", "EXE_", "INST_", "ASSISTS",
-                "SW_", "RS", "DSB2MITE_"],
+                "SW_", "RS", "DSB2MITE_", "ARB_"],
             "unit":"cpu",
             "translations":{
-                "c":"cmask",
-                "u":"umask",
-                "i":"inv",
-                "e":"edge"
+                "C":"cmask",
+                "U":"umask",
+                "I":"inv",
+                "E":"edge"
             },
             "scale":1
         },
@@ -54,7 +58,7 @@
             "events": ["UNC_CHA_"],
             "unit":"cha",
             "translations":{
-                "filter1":"config1"
+                "FILTER1":"config1"
             },
             "scale":100000000
         },
@@ -62,8 +66,8 @@
             "events":["UNC_C_"],
             "unit":"cbox",
             "translations":{
-                "opc":"filter_opc",
-                "tid":"filter_tid"
+                "OPC":"filter_opc",
+                "TID":"filter_tid"
             },
             "scale":1
         }
