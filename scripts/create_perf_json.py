@@ -578,9 +578,10 @@ class Model:
             (['SLM'], [1, 6], [6]),
             (['KNL', 'KNM'], [6], [2, 3, 6]),
             (['GLM', 'SNR'], [1, 3, 6], [2, 3, 6, 10]),
+            (['SRF', 'GRR'], [1, 6], [6], [6]),
         ]
         result = []
-        for (cpu_matches, core_cstates, pkg_cstates) in cstates:
+        for (cpu_matches, core_cstates, pkg_cstates, *module_cstates) in cstates:
             if self.shortname in cpu_matches:
                 for x in core_cstates:
                     formula = metric.ParsePerfJson(f'cstate_core@c{x}\\-residency@ / TSC')
@@ -598,6 +599,16 @@ class Model:
                         'MetricGroup': 'Power',
                         'BriefDescription': f'C{x} residency percent per package',
                         'MetricName': f'C{x}_Pkg_Residency',
+                        'ScaleUnit': '100%'
+                    })
+                for x in module_cstates:
+                    x = x[0]
+                    formula = metric.ParsePerfJson(f'cstate_module@c{x}\\-residency@ / TSC')
+                    result.append({
+                        'MetricExpr': formula.ToPerfJson(),
+                        'MetricGroup': 'Power',
+                        'BriefDescription': f'C{x} residency percent per module',
+                        'MetricName': f'C{x}_Module_Residency',
                         'ScaleUnit': '100%'
                     })
                 break
@@ -744,6 +755,8 @@ class Model:
             tma_cpu = 'BDW'
         if self.shortname == 'ADLN':
             tma_cpu = 'GRT'
+        if self.shortname in ['SRF', 'GRR']:
+            tma_cpu = 'CMT'
         else:
             for key in ratio_column.keys():
                 if self.shortname in key:
@@ -1502,6 +1515,8 @@ class Model:
                     'SPR': alderlake_constraints,
                     'MTL': alderlake_constraints,
                     'EMR': alderlake_constraints,
+                    'SRF': alderlake_constraints,
+                    'GRR': alderlake_constraints,
                 }
                 if name in errata_constraints[self.shortname]:
                     j['MetricConstraint'] = errata_constraints[self.shortname][name]
@@ -1937,7 +1952,7 @@ class Mapfile:
 
             # Add metric files that will be used for each model.
             files[shortname]['tma metrics'] = Path(base_path, 'TMA_Metrics-full.csv')
-            if shortname == 'ADLN':
+            if shortname in ['ADLN', 'SRF', 'GRR'] :
                 files[shortname]['tma metrics'] = Path(base_path, 'E-core_TMA_Metrics.csv')
             if 'atom' in files[shortname]:
                 files[shortname]['e-core tma metrics'] = Path(base_path, 'E-core_TMA_Metrics.csv')
