@@ -562,7 +562,7 @@ def ParsePerfJson(orig: str) -> Expression:
     raise SyntaxError(f'Parsing expression:\n{orig}') from e
   _RewriteIfExpToSelect().visit(parsed)
   parsed = ast.fix_missing_locations(parsed)
-  return _Constify(eval(compile(parsed, orig, 'eval')))
+  return _Constify(eval(compile(parsed, orig, 'eval'))) #nosec B307
 
 
 def RewriteMetricsInTermsOfOthers(metrics: list[Tuple[str, Expression]]
