@@ -511,6 +511,7 @@ class Model:
         @param version: the version number associated with the event json.
         @param models: a set of model indentifier strings like "GenuineIntel-6-2E".
         @param files: a mapping from a type of file to the file's path.
+        @param retire_lat_dict: event default retire latency value.
         """
         self.shortname = shortname
         self.longname = longname.lower()
@@ -519,6 +520,7 @@ class Model:
         self.files = files
         self.metricgroups = {}
         self.unit_counters = {}
+        self.retire_lat_dict = self.load_retire_lat_db()
 
     def __lt__(self, other: 'Model') -> bool:
         """ Sort by models gloally by name."""
@@ -557,6 +559,19 @@ class Model:
             ret += end_bracket
         ret += f',{self.version.lower()},{self.longname},core'
         return ret
+
+    def load_retire_lat_db(self):
+        """
+        Load default retire latency value from JSON file and return a dict.
+        """
+        if 'retire_lat' not in self.files:
+            return None
+        retire_lat_dict = {}
+        with open(self.files['retire_lat'], 'r') as retire_lat_json:
+            json_data = json.load(retire_lat_json)
+            json_data = json_data['Data']
+            retire_lat_dict = {e:json_data[e][0] for e in json_data.keys()}
+        return retire_lat_dict
 
     def cstate_json(self):
         cstates = [
@@ -1624,6 +1639,14 @@ class Model:
                 self.unit_counters[unit] = {'Unit':unit, 'CountersNumFixed': '0', 'CountersNumGeneric': '0'}
                 self.unit_counters[unit][type] = v
 
+    def add_retire_lat(self, dict_event):
+        if not self.retire_lat_dict:
+            return
+        name = dict_event['EventName']
+        if name in self.retire_lat_dict and "MEAN" in self.retire_lat_dict[name]:
+            # Use MEAN only for now
+            dict_event['RetireLatencyMean'] = self.retire_lat_dict[name]["MEAN"]
+
     def to_perf_json(self, outdir: Path):
         # Map from a topic to its list of events as dictionaries.
         pmon_topic_events: Dict[str, list[Dict[str, str]]] = \
@@ -1672,6 +1695,7 @@ class Model:
                         dict_event['Unit'] = unit
                     if per_pkg:
                         dict_event['PerPkg'] = per_pkg
+                    self.add_retire_lat(dict_event)
                     pmon_topic_events[event.topic].append(dict_event)
                     dict_events[event.event_name] = dict_event
                     events[event.event_name] = event
@@ -1928,6 +1952,14 @@ class Mapfile:
                 _verboseprint2(f'Didn\'t find {cpu_metrics_path}')
                 if shortname in ['BDX', 'CLX', 'HSX', 'ICX', 'SKX', 'SPR']:
                     raise
+
+            retire_lat_path = Path(base_path, shortname, 'events',
+                                   f'{longname.lower()}_retire_latency.json')
+            if retire_lat_path.is_file():
+                _verboseprint2(f'Found {retire_lat_path}')
+                files[shortname]['retire_lat'] = retire_lat_path
+            else:
+                _verboseprint2(f'Didn\'t find {retire_lat_path}')
 
             self.archs += [
                 Model(shortname, longname, versions[shortname], models[shortname], files[shortname])
