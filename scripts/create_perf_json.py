@@ -176,6 +176,7 @@ def topic(event_name: str, unit: str) -> str:
             'cha': 'Uncore-Cache',
             'chacms': 'Uncore-Cache',
             'cbox': 'Uncore-Cache',
+            'cbox_0': 'Uncore-Cache',
             'ha': 'Uncore-Cache',
             'hac_cbo': 'Uncore-Cache',
             'b2cxl': 'Uncore-CXL',
@@ -342,7 +343,7 @@ class PerfmonJsonEvent:
             if self.unit in unit_fixups:
                 self.unit = unit_fixups[self.unit]
             elif self.unit == "NCU" and self.event_name == "UNC_CLOCK.SOCKET":
-                self.unit = "CLOCK"
+                self.unit = "cbox_0" if shortname in ['BDW', 'HSW', 'SKL'] else "CLOCK"
             elif self.event_name.startswith("UNC_P_POWER_STATE_OCCUPANCY"):
                 # Older uncore_pcu PMUs don't have a umask, fix to occ_sel.
                 assert self.unit == "PCU"
