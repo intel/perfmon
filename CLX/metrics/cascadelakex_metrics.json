@@ -657,7 +657,7 @@
     },
     {
       "MetricName": "pmem_memory_bandwidth_read",
-      "LegacyName": "metric_3DXP_memory bandwidth read (MB/sec)",
+      "LegacyName": "metric_PMEM_memory bandwidth read (MB/sec)",
       "Level": 1,
       "BriefDescription": "Intel(R) Optane(TM) Persistent Memory(PMEM) memory read bandwidth (MB/sec)",
       "UnitOfMeasure": "MB/sec",
@@ -674,7 +674,7 @@
     },
     {
       "MetricName": "pmem_memory_bandwidth_write",
-      "LegacyName": "metric_3DXP_memory bandwidth write (MB/sec)",
+      "LegacyName": "metric_PMEM_memory bandwidth write (MB/sec)",
       "Level": 1,
       "BriefDescription": "Intel(R) Optane(TM) Persistent Memory(PMEM) memory write bandwidth (MB/sec)",
       "UnitOfMeasure": "MB/sec",
@@ -691,7 +691,7 @@
     },
     {
       "MetricName": "pmem_memory_bandwidth_total",
-      "LegacyName": "metric_3DXP_memory bandwidth total (MB/sec)",
+      "LegacyName": "metric_PMEM_memory bandwidth total (MB/sec)",
       "Level": 1,
       "BriefDescription": "Intel(R) Optane(TM) Persistent Memory(PMEM) memory bandwidth (MB/sec)",
       "UnitOfMeasure": "MB/sec",
@@ -12321,7 +12321,7 @@
       "MetricName": "Info_System_PMM_Read_BW",
       "LegacyName": "metric_TMA_Info_System_PMM_Read_BW",
       "Level": 1,
-      "BriefDescription": "Average 3DXP Memory Bandwidth Use for reads [GB / sec]",
+      "BriefDescription": "Average PMEM Memory Bandwidth Use for reads [GB / sec]",
       "UnitOfMeasure": "",
       "Events": [
         {
@@ -12351,7 +12351,7 @@
       "MetricName": "Info_System_PMM_Write_BW",
       "LegacyName": "metric_TMA_Info_System_PMM_Write_BW",
       "Level": 1,
-      "BriefDescription": "Average 3DXP Memory Bandwidth Use for Writes [GB / sec]",
+      "BriefDescription": "Average PMEM Memory Bandwidth Use for Writes [GB / sec]",
       "UnitOfMeasure": "",
       "Events": [
         {
