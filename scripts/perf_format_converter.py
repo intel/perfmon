@@ -52,7 +52,7 @@ INPUT_DIR_PATH = Path("./inputs/")
 OUTPUT_DIR_PATH = Path("./outputs/")
 
 # Fields to always display event if empty
-PERSISTENT_FIELDS = ["MetricGroup", "BriefDescription", "Threshold"]
+PERSISTENT_FIELDS = ["MetricGroup", "BriefDescription"]
 
 # Operators
 OPERATORS = ["+", "-", "/", "*", "(", ")", "max(", "min(", "if", "<", ">", ",", "else"]
