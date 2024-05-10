@@ -233,7 +233,7 @@
     },
     {
         "BriefDescription": "This metric roughly estimates fraction of cycles with demand load accesses that hit the L1 cache. The short latency of the L1 data cache may be exposed in pointer-chasing memory access patterns as an example.",
-        "MetricExpr": "min( 2 * ( MEM_INST_RETIRED.ALL_LOADS_PS - MEM_LOAD_RETIRED.FB_HIT_PS - MEM_LOAD_RETIRED.L1_MISS_PS ) * 20 / 100 , max( CYCLE_ACTIVITY.CYCLES_MEM_ANY - CYCLE_ACTIVITY.CYCLES_L1D_MISS , 0 ) ) / tma_info_thread_clks",
+        "MetricExpr": "min( 2 * ( MEM_INST_RETIRED.ALL_LOADS - MEM_LOAD_RETIRED.FB_HIT - MEM_LOAD_RETIRED.L1_MISS ) * 20 / 100 , max( CYCLE_ACTIVITY.CYCLES_MEM_ANY - CYCLE_ACTIVITY.CYCLES_L1D_MISS , 0 ) ) / tma_info_thread_clks",
         "MetricGroup": "BvML;MemoryLat;TopdownL4;tma_L4_group;tma_l1_bound_group;Clocks_Estimated",
         "MetricName": "tma_l1_hit_latency",
         "ScaleUnit": "100%",
@@ -273,7 +273,7 @@
     },
     {
         "BriefDescription": "This metric estimates how often the CPU was stalled due to L2 cache accesses by loads.  Avoiding cache misses (i.e. L1 misses/L2 hits) can improve the latency and increase performance.",
-        "MetricExpr": "( ( MEM_LOAD_RETIRED.L2_HIT_PS * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) / ( ( MEM_LOAD_RETIRED.L2_HIT_PS * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) + L1D_PEND_MISS.FB_FULL_PERIODS ) ) * ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / tma_info_thread_clks )",
+        "MetricExpr": "( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) / ( ( MEM_LOAD_RETIRED.L2_HIT * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) ) ) + L1D_PEND_MISS.FB_FULL_PERIODS ) ) * ( ( CYCLE_ACTIVITY.STALLS_L1D_MISS - CYCLE_ACTIVITY.STALLS_L2_MISS ) / tma_info_thread_clks )",
         "MetricGroup": "BvML;CacheHits;MemoryBound;TmaL3mem;Stalls",
         "MetricName": "L2_Bound",
         "ScaleUnit": "100%",
@@ -289,7 +289,7 @@
     },
     {
         "BriefDescription": "This metric estimates fraction of cycles while the memory subsystem was handling synchronizations due to contested accesses. Contested accesses occur when data written by one Logical Processor are read by another Logical Processor on a different Physical Core. Examples of contested accesses include synchronizations such as locks; true data sharing such as modified locked variables; and false sharing.",
-        "MetricExpr": "( ( ( 32.5 * tma_info_system_core_frequency ) - ( 3.5 * tma_info_system_core_frequency ) ) * ( MEM_LOAD_L3_HIT_RETIRED.XSNP_HITM_PS ) + ( ( 27 * tma_info_system_core_frequency ) - ( 3.5 * tma_info_system_core_frequency ) ) * ( MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS ) ) * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) / 2 ) / tma_info_thread_clks",
+        "MetricExpr": "( ( ( 32.5 * tma_info_system_core_frequency ) - ( 3.5 * tma_info_system_core_frequency ) ) * ( MEM_LOAD_L3_HIT_RETIRED.XSNP_HITM ) + ( ( 27 * tma_info_system_core_frequency ) - ( 3.5 * tma_info_system_core_frequency ) ) * ( MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS ) ) * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) / 2 ) / tma_info_thread_clks",
         "MetricGroup": "BvMS;DataSharing;Offcore;Snoop;Clocks_Estimated",
         "MetricName": "Contested_Accesses",
         "ScaleUnit": "100%",
@@ -297,7 +297,7 @@
     },
     {
         "BriefDescription": "This metric estimates fraction of cycles while the memory subsystem was handling synchronizations due to data-sharing accesses. Data shared by multiple Logical Processors (even just read shared) may cause increased access latency due to cache coherency. Excessive data sharing can drastically harm multithreaded performance.",
-        "MetricExpr": "( ( 27 * tma_info_system_core_frequency ) - ( 3.5 * tma_info_system_core_frequency ) ) * ( MEM_LOAD_L3_HIT_RETIRED.XSNP_HIT_PS ) * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) / 2 ) / tma_info_thread_clks",
+        "MetricExpr": "( ( 27 * tma_info_system_core_frequency ) - ( 3.5 * tma_info_system_core_frequency ) ) * ( MEM_LOAD_L3_HIT_RETIRED.XSNP_HIT ) * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) / 2 ) / tma_info_thread_clks",
         "MetricGroup": "BvMS;Offcore;Snoop;Clocks_Estimated",
         "MetricName": "Data_Sharing",
         "ScaleUnit": "100%",
@@ -1175,7 +1175,7 @@
     },
     {
         "BriefDescription": "Actual Average Latency for L1 data-cache miss demand load operations (in core cycles)",
-        "MetricExpr": "L1D_PEND_MISS.PENDING / ( MEM_LOAD_RETIRED.L1_MISS_PS + MEM_LOAD_RETIRED.FB_HIT_PS )",
+        "MetricExpr": "L1D_PEND_MISS.PENDING / ( MEM_LOAD_RETIRED.L1_MISS + MEM_LOAD_RETIRED.FB_HIT )",
         "MetricGroup": "Mem;MemoryBound;MemoryLat;Clocks_Latency",
         "MetricName": "Info_Memory_Load_Miss_Real_Latency"
     },
