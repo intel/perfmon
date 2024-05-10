@@ -1,10 +1,12 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2023 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Metrics for 5th Generation Intel(R) Xeon(R) Processor Scalable Family",
-    "DatePublished": "11/09/2023",
-    "Version": "",
-    "Legend": ""
+    "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Metrics for 5th Generation Intel(R) Xeon(R) Processor Scalable Family0",
+    "DatePublished": "05/10/2024",
+    "Version": "0",
+    "Legend": "",
+    "TmaVersion": "4.8",
+    "TmaFlavor": "Full"
   },
   "Metrics": [
     {
@@ -31,9 +33,7 @@
       ],
       "Formula": "(a / b * c) / 1000000000",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM"
     },
     {
       "MetricName": "cpu_utilization",
@@ -54,9 +54,7 @@
       "Constants": [],
       "Formula": "100 * a / b",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM"
     },
     {
       "MetricName": "cpi",
@@ -77,9 +75,7 @@
       "Constants": [],
       "Formula": "a / b",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM"
     },
     {
       "MetricName": "loads_per_instr",
@@ -100,9 +96,7 @@
       "Constants": [],
       "Formula": "a / b",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM"
     },
     {
       "MetricName": "stores_per_instr",
@@ -123,9 +117,7 @@
       "Constants": [],
       "Formula": "a / b",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM"
     },
     {
       "MetricName": "l1d_mpi",
@@ -146,9 +138,7 @@
       "Constants": [],
       "Formula": "a / b",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM"
     },
     {
       "MetricName": "l1d_demand_data_read_hits_per_instr",
@@ -169,9 +159,7 @@
       "Constants": [],
       "Formula": "a / b",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM"
     },
     {
       "MetricName": "l1_i_code_read_misses_with_prefetches_per_instr",
@@ -192,9 +180,7 @@
       "Constants": [],
       "Formula": "a / b",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM"
     },
     {
       "MetricName": "l2_demand_data_read_hits_per_instr",
@@ -215,9 +201,7 @@
       "Constants": [],
       "Formula": "a / b",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM"
     },
     {
       "MetricName": "l2_mpi",
@@ -238,9 +222,7 @@
       "Constants": [],
       "Formula": "a / b",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM"
     },
     {
       "MetricName": "l2_demand_data_read_mpi",
@@ -261,9 +243,7 @@
       "Constants": [],
       "Formula": "a / b",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM"
     },
     {
       "MetricName": "l2_demand_code_mpi",
@@ -284,9 +264,7 @@
       "Constants": [],
       "Formula": "a / b",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM"
     },
     {
       "MetricName": "llc_data_read_mpi_demand_plus_prefetch",
@@ -315,9 +293,7 @@
       "Constants": [],
       "Formula": "(a + b + c) / d",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "SOCKET, SYSTEM"
     },
     {
       "MetricName": "llc_code_read_mpi_demand_plus_prefetch",
@@ -338,9 +314,7 @@
       "Constants": [],
       "Formula": "b / d",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "SOCKET, SYSTEM"
     },
     {
       "MetricName": "llc_demand_data_read_miss_latency",
@@ -374,9 +348,7 @@
       ],
       "Formula": "( 1000000000 * (a / b) / (c / (d * socket_count) ) ) * DURATIONTIMEINSECONDS",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM"
     },
     {
       "MetricName": "llc_demand_data_read_miss_latency_for_local_requests",
@@ -410,9 +382,7 @@
       ],
       "Formula": "( 1000000000 * (a / b) / (c / (d * socket_count) ) ) * DURATIONTIMEINSECONDS",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM"
     },
     {
       "MetricName": "llc_demand_data_read_miss_latency_for_remote_requests",
@@ -446,9 +416,41 @@
       ],
       "Formula": "( 1000000000 * (a / b) / (c / (d * socket_count) ) ) * DURATIONTIMEINSECONDS",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM"
+    },
+    {
+      "MetricName": "llc_demand_data_read_miss_to_pmem_latency",
+      "LegacyName": "metric_Average LLC demand data read miss to DCPMEM latency (in ns)",
+      "Level": 1,
+      "BriefDescription": "Average latency of a last level cache (LLC) demand data read miss (read memory access) addressed to Intel(R) Optane(TM) Persistent Memory(PMEM) in nano seconds",
+      "UnitOfMeasure": "ns",
+      "Events": [
+        {
+          "Name": "UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_PMM",
+          "Alias": "a"
+        },
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IA_MISS_DRD_PMM",
+          "Alias": "b"
+        },
+        {
+          "Name": "UNC_CHA_CLOCKTICKS",
+          "Alias": "c"
+        }
+      ],
+      "Constants": [
+        {
+          "Name": "CHAS_PER_SOCKET",
+          "Alias": "d"
+        },
+        {
+          "Name": "SOCKET_COUNT",
+          "Alias": "socket_count"
+        }
+      ],
+      "Formula": "( 1000000000 * (a / b) / (c / (d * socket_count) ) ) * DURATIONTIMEINSECONDS",
+      "Category": "",
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM"
     },
     {
       "MetricName": "llc_demand_data_read_miss_to_dram_latency",
@@ -482,9 +484,7 @@
       ],
       "Formula": "( 1000000000 * (a / b) / (c / (d * socket_count) ) ) * DURATIONTIMEINSECONDS",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM"
     },
     {
       "MetricName": "itlb_2nd_level_mpi",
@@ -505,9 +505,7 @@
       "Constants": [],
       "Formula": "a / b",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM"
     },
     {
       "MetricName": "itlb_2nd_level_large_page_mpi",
@@ -528,9 +526,7 @@
       "Constants": [],
       "Formula": "a / b",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM"
     },
     {
       "MetricName": "dtlb_2nd_level_load_mpi",
@@ -551,9 +547,7 @@
       "Constants": [],
       "Formula": "a / b",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM"
     },
     {
       "MetricName": "dtlb_2nd_level_2mb_large_page_load_mpi",
@@ -574,9 +568,7 @@
       "Constants": [],
       "Formula": "a / b",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM"
     },
     {
       "MetricName": "dtlb_2nd_level_store_mpi",
@@ -597,9 +589,7 @@
       "Constants": [],
       "Formula": "a / b",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM"
     },
     {
       "MetricName": "numa_reads_addressed_to_local_dram",
@@ -628,9 +618,7 @@
       "Constants": [],
       "Formula": "100 * (a + b) / (a + b + c + d)",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM"
     },
     {
       "MetricName": "numa_reads_addressed_to_remote_dram",
@@ -659,9 +647,7 @@
       "Constants": [],
       "Formula": "100 * (c + d) / (a + b + c + d)",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM"
     },
     {
       "MetricName": "uncore_frequency",
@@ -687,9 +673,7 @@
       ],
       "Formula": "(a / (b * socket_count) / 1000000000) / DURATIONTIMEINSECONDS",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM"
     },
     {
       "MetricName": "upi_data_transmit_bw",
@@ -706,9 +690,7 @@
       "Constants": [],
       "Formula": "(a * (64 / 9.0) / 1000000) / DURATIONTIMEINSECONDS",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "UPI, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "UPI, SOCKET, SYSTEM"
     },
     {
       "MetricName": "memory_bandwidth_read",
@@ -725,9 +707,7 @@
       "Constants": [],
       "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "CHANNEL, IMC, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CHANNEL, IMC, SOCKET, SYSTEM"
     },
     {
       "MetricName": "memory_bandwidth_write",
@@ -744,9 +724,7 @@
       "Constants": [],
       "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "CHANNEL, IMC, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CHANNEL, IMC, SOCKET, SYSTEM"
     },
     {
       "MetricName": "memory_bandwidth_total",
@@ -767,9 +745,7 @@
       "Constants": [],
       "Formula": "((a + b) * 64 / 1000000) / DURATIONTIMEINSECONDS",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "CHANNEL, IMC, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CHANNEL, IMC, SOCKET, SYSTEM"
     },
     {
       "MetricName": "memory_extra_write_bw_due_to_directory_updates",
@@ -794,9 +770,62 @@
       "Constants": [],
       "Formula": "((a + b + c) * 64 / 1000000) / DURATIONTIMEINSECONDS",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "SOCKET, SYSTEM"
+    },
+    {
+      "MetricName": "pmem_memory_bandwidth_read",
+      "LegacyName": "metric_DCPMEM_memory bandwidth read (MB/sec)",
+      "Level": 1,
+      "BriefDescription": "Intel(R) Optane(TM) Persistent Memory(PMEM) memory read bandwidth (MB/sec)",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_M_PMM_RPQ_INSERTS",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "ResolutionLevels": "CHANNEL, IMC, SOCKET, SYSTEM"
+    },
+    {
+      "MetricName": "pmem_memory_bandwidth_write",
+      "LegacyName": "metric_DCPMEM_memory bandwidth write (MB/sec)",
+      "Level": 1,
+      "BriefDescription": "Intel(R) Optane(TM) Persistent Memory(PMEM) memory write bandwidth (MB/sec)",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_M_PMM_WPQ_INSERTS",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "ResolutionLevels": "CHANNEL, IMC, SOCKET, SYSTEM"
+    },
+    {
+      "MetricName": "pmem_memory_bandwidth_total",
+      "LegacyName": "metric_DCPMEM_memory bandwidth total (MB/sec)",
+      "Level": 1,
+      "BriefDescription": "Intel(R) Optane(TM) Persistent Memory(PMEM) memory bandwidth (MB/sec)",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_M_PMM_RPQ_INSERTS",
+          "Alias": "a"
+        },
+        {
+          "Name": "UNC_M_PMM_WPQ_INSERTS",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "((a + b) * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "ResolutionLevels": "CHANNEL, IMC, SOCKET, SYSTEM"
     },
     {
       "MetricName": "io_bandwidth_read",
@@ -813,9 +842,7 @@
       "Constants": [],
       "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM"
     },
     {
       "MetricName": "io_bandwidth_write",
@@ -836,9 +863,78 @@
       "Constants": [],
       "Formula": "((a + b) * 64 / 1000000) / DURATIONTIMEINSECONDS",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM"
+    },
+    {
+      "MetricName": "io_percent_of_inbound_reads_that_miss_l3",
+      "LegacyName": "metric_IO % of inbound reads that miss L3",
+      "Level": 1,
+      "BriefDescription": "Percentage of inbound reads initiated by end device controllers that miss the L3 cache.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IO_MISS_PCIRDCUR",
+          "Alias": "a"
+        },
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IO_PCIRDCUR",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * a / b",
+      "Category": "",
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM"
+    },
+    {
+      "MetricName": "io_percent_of_inbound_partial_writes_that_miss_l3",
+      "LegacyName": "metric_IO % of inbound partial writes that miss L3",
+      "Level": 1,
+      "BriefDescription": "Percentage of inbound partial cacheline writes initiated by end device controllers that miss the L3 cache.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IO_ITOMCACHENEAR",
+          "Alias": "a"
+        },
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IO_MISS_ITOMCACHENEAR",
+          "Alias": "b"
+        },
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IO_RFO",
+          "Alias": "c"
+        },
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IO_MISS_RFO",
+          "Alias": "d"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ((b + d) / (a + c) )",
+      "Category": "",
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM"
+    },
+    {
+      "MetricName": "io_percent_of_inbound_full_writes_that_miss_l3",
+      "LegacyName": "metric_IO % of inbound full writes that miss L3",
+      "Level": 1,
+      "BriefDescription": "Percentage of inbound full cacheline writes initiated by end device controllers that miss the L3 cache.",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IO_ITOM",
+          "Alias": "a"
+        },
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IO_MISS_ITOM",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * (b / a)",
+      "Category": "",
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM"
     },
     {
       "MetricName": "percent_uops_delivered_from_decoded_icache",
@@ -867,9 +963,7 @@
       "Constants": [],
       "Formula": "100 * (a / (a + b + c + d) )",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM"
     },
     {
       "MetricName": "percent_uops_delivered_from_legacy_decode_pipeline",
@@ -898,9 +992,7 @@
       "Constants": [],
       "Formula": "100 * (b / (a + b + c + d) )",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM"
     },
     {
       "MetricName": "percent_uops_delivered_from_microcode_sequencer",
@@ -929,86 +1021,83 @@
       "Constants": [],
       "Formula": "100 * (c / (a + b + c + d) )",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM"
     },
     {
-      "MetricName": "core_initiated_local_socket_memory_read_bandwidth",
-      "LegacyName": "metric_core initiated local socket memory read bandwidth (MB/sec)",
+      "MetricName": "io_bandwidth_read_local",
+      "LegacyName": "metric_IO bandwidth read local (MB/sec)",
       "Level": 1,
-      "BriefDescription": "The estimated bandwidth of core initiated memory read requests to local socket in MB/second. Includes demand, L1 and L2 prefetches for data reads, code reads and read for ownership (RFO) that hit in local cluster and subnuma cluster memory (DRAM or  persistent memory), includes the estimates of  L3 hardware prefetches that went to Local cluster and subnuma Memory (DRAM or persistent memory).",
+      "BriefDescription": "Bandwidth of IO reads that are initiated by end device controllers that are requesting memory from the local CPU socket.",
       "UnitOfMeasure": "MB/sec",
       "Events": [
         {
-          "Name": "OCR.READS_TO_CORE.L3_MISS_LOCAL_SOCKET",
+          "Name": "UNC_CHA_TOR_INSERTS.IO_PCIRDCUR_LOCAL",
           "Alias": "a"
-        },
-        {
-          "Name": "OCR.HWPF_L3.L3_MISS_LOCAL",
-          "Alias": "b"
-        },
-        {
-          "Name": "OCR.READS_TO_CORE.REMOTE_CACHE.SNOOP_FWD",
-          "Alias": "c"
         }
       ],
       "Constants": [],
-      "Formula": "((a + (b * a / (a + c) ) ) * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM"
     },
     {
-      "MetricName": "core_initiated_remote_socket_memory_read_bandwidth",
-      "LegacyName": "metric_core initiated remote socket memory read bandwidth (MB/sec)",
+      "MetricName": "io_bandwidth_read_remote",
+      "LegacyName": "metric_IO bandwidth read remote (MB/sec)",
       "Level": 1,
-      "BriefDescription": "The estimated bandwidth of core initiated memory read requests to remote socket in MB/second. Includes demand, L1, L2 prefetches for all data read, code read and read for ownership (RFO) that hit remote DRAM and L3 Prefetches that might have gone to Remote DRAM, Remote NON_DRAM, or Remote cache.",
+      "BriefDescription": "Bandwidth of IO reads that are initiated by end device controllers that are requesting memory from a remote CPU socket.",
       "UnitOfMeasure": "MB/sec",
       "Events": [
         {
-          "Name": "OCR.READS_TO_CORE.REMOTE_MEMORY",
+          "Name": "UNC_CHA_TOR_INSERTS.IO_PCIRDCUR_REMOTE",
           "Alias": "a"
-        },
-        {
-          "Name": "OCR.HWPF_L3.REMOTE",
-          "Alias": "b"
-        },
-        {
-          "Name": "OCR.READS_TO_CORE.REMOTE_CACHE.SNOOP_FWD",
-          "Alias": "c"
         }
       ],
       "Constants": [],
-      "Formula": "((a + (b * a / (a + c) ) ) * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM"
     },
     {
-      "MetricName": "core_initiated_write_bandwidth",
-      "LegacyName": "metric_core initiated write bandwidth (MB/sec)",
+      "MetricName": "io_bandwidth_write_local",
+      "LegacyName": "metric_IO bandwidth write local (MB/sec)",
       "Level": 1,
-      "BriefDescription": "The bandwidth of core initiated writes in MB/second. Does not include writebacks due to read for ownerships (RFO).",
+      "BriefDescription": "Bandwidth of IO writes that are initiated by end device controllers that are writing memory to the local CPU socket.",
       "UnitOfMeasure": "MB/sec",
       "Events": [
         {
-          "Name": "OCR.MODIFIED_WRITE.ANY_RESPONSE",
+          "Name": "UNC_CHA_TOR_INSERTS.IO_ITOM_LOCAL",
           "Alias": "a"
         },
         {
-          "Name": "OCR.RFO_TO_CORE.L3_HIT_M",
+          "Name": "UNC_CHA_TOR_INSERTS.IO_ITOMCACHENEAR_LOCAL",
           "Alias": "b"
         }
       ],
       "Constants": [],
-      "Formula": "((a - b) * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Formula": "((a + b) * 64 / 1000000) / DURATIONTIMEINSECONDS",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM"
+    },
+    {
+      "MetricName": "io_bandwidth_write_remote",
+      "LegacyName": "metric_IO bandwidth write remote (MB/sec)",
+      "Level": 1,
+      "BriefDescription": "Bandwidth of IO writes that are initiated by end device controllers that are writing memory to a remote CPU socket.",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IO_ITOM_REMOTE",
+          "Alias": "a"
+        },
+        {
+          "Name": "UNC_CHA_TOR_INSERTS.IO_ITOMCACHENEAR_REMOTE",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "((a + b) * 64 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM"
     },
     {
       "MetricName": "llc_miss_local_memory_bandwidth_read",
@@ -1025,9 +1114,7 @@
       "Constants": [],
       "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM"
     },
     {
       "MetricName": "llc_miss_local_memory_bandwidth_write",
@@ -1044,9 +1131,7 @@
       "Constants": [],
       "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM"
     },
     {
       "MetricName": "llc_miss_remote_memory_bandwidth_read",
@@ -1063,28 +1148,7 @@
       "Constants": [],
       "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
-      "MetricGroup": ""
-    },
-    {
-      "MetricName": "upi_data_receive_bw",
-      "LegacyName": "metric_UPI Data receive BW (MB/sec) (only data)",
-      "Level": 1,
-      "BriefDescription": "Intel(R) Ultra Path Interconnect (UPI) data receive bandwidth (MB/sec)",
-      "UnitOfMeasure": "MB/sec",
-      "Events": [
-        {
-          "Name": "UNC_UPI_RxL_FLITS.ALL_DATA",
-          "Alias": "a"
-        }
-      ],
-      "Constants": [],
-      "Formula": "(a * (64 / 9.0) / 1000000) / DURATIONTIMEINSECONDS",
-      "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "UPI, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM"
     },
     {
       "MetricName": "llc_miss_remote_memory_bandwidth_write",
@@ -1101,9 +1165,58 @@
       "Constants": [],
       "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
       "Category": "",
-      "Threshold": "",
-      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CHA, SOCKET, SYSTEM"
+    },
+    {
+      "MetricName": "upi_data_receive_bw",
+      "LegacyName": "metric_UPI Data receive BW (MB/sec) (only data)",
+      "Level": 1,
+      "BriefDescription": "Intel(R) Ultra Path Interconnect (UPI) data receive bandwidth (MB/sec)",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_UPI_RxL_FLITS.ALL_DATA",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(a * (64 / 9.0) / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "ResolutionLevels": "UPI, SOCKET, SYSTEM"
+    },
+    {
+      "MetricName": "iio_bandwidth_read",
+      "LegacyName": "metric_IIO_bandwidth_read (MB/sec)",
+      "Level": 1,
+      "BriefDescription": "Bandwidth observed by the integrated I/O traffic controller (IIO) of IO reads that are initiated by end device controllers that are requesting memory from the CPU.",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_IIO_DATA_REQ_OF_CPU.MEM_READ.ALL_PARTS",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(a * 4 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "ResolutionLevels": "IIO, SOCKET, SYSTEM"
+    },
+    {
+      "MetricName": "iio_bandwidth_write",
+      "LegacyName": "metric_IIO_bandwidth_write (MB/sec)",
+      "Level": 1,
+      "BriefDescription": "Bandwidth observed by the integrated I/O traffic controller (IIO) of IO writes that are initiated by end device controllers that are writing memory to the CPU.",
+      "UnitOfMeasure": "MB/sec",
+      "Events": [
+        {
+          "Name": "UNC_IIO_DATA_REQ_OF_CPU.MEM_WRITE.ALL_PARTS",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [],
+      "Formula": "(a * 4 / 1000000) / DURATIONTIMEINSECONDS",
+      "Category": "",
+      "ResolutionLevels": "IIO, SOCKET, SYSTEM"
     }
   ]
 }
