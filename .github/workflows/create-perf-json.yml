@@ -20,23 +20,23 @@ jobs:
 
     steps:
     - name: Checkout perfmon
-      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4.1.4
 
     - name: Set up Python 3.x
-      uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5.0.0
+      uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # v5.1.0
       with:
         python-version: "3.x"
 
     - name: Run unittests
       working-directory: ./scripts/unittesting
-      run: python metric_test.py
+      run: python -m unittest metric_test.py test_create_perf_json.py
 
     - name: Create perf json files
       working-directory: ./scripts
       run: python create_perf_json.py -v
 
     - name: Archive perf json files
-      uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3 # v4.3.1
+      uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 # v4.3.3
       with:
         name: perf-json
         path: scripts/perf

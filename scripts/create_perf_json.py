@@ -1,3 +1,7 @@
+# Copyright (C) 2022 Intel Corporation
+# Copyright (C) 2022 Google LLC
+# SPDX-License-Identifier: BSD-3-Clause
+
 # REQUIREMENT: Install Python3 on your machine
 # USAGE: Run from command line with the following parameters -
 #
@@ -270,11 +274,12 @@ class PerfmonJsonEvent:
             return f'OFFCORE_RESPONSE.{m.group(1)}.{m.group(2)}'
         return name
 
-    def __init__(self, shortname: str, unit: str, jd: Dict[str, str]):
+    def __init__(self, shortname: str, unit: str, jd: Dict[str, str], experimental: bool):
         """Constructor passed the dictionary of parsed json values."""
         def get(key: str) -> str:
             drop_keys = {'0', '0x0', '0x00', 'na', 'null', 'tbd'}
             result = jd.get(key)
+            # For the Counter field, value '0' is reasonable
             if not result or result in drop_keys:
                 return None
             result = re.sub('\xae', '(R)', result.strip())
@@ -283,6 +288,7 @@ class PerfmonJsonEvent:
             result = re.sub('\?\?\?', '?', result)
             return result
 
+        self.experimental = experimental
         # Copy values we expect.
         self.event_name = PerfmonJsonEvent.fix_name(get('EventName'))
         self.any_thread = get('AnyThread')
@@ -304,6 +310,7 @@ class PerfmonJsonEvent:
         self.sample_after_value = get('SampleAfterValue')
         self.umask = get('UMask')
         self.unit = get('Unit')
+        self.counter = jd.get('Counter').strip()
         # Sanity check certain old perfmon keys or values that could
         # be used in perf json don't exist.
         assert 'Internal' not in jd
@@ -467,6 +474,9 @@ class PerfmonJsonEvent:
         add_to_result('SampleAfterValue', self.sample_after_value)
         add_to_result('UMask', self.umask)
         add_to_result('Unit', self.unit)
+        add_to_result('Counter', self.counter)
+        if self.experimental:
+            add_to_result("Experimental", '1')
         return result
 
 def rewrite_metrics_in_terms_of_others(metrics: list[Dict[str,str]]) -> list[Dict[str,str]]:
@@ -511,6 +521,7 @@ class Model:
         self.models = sorted(models)
         self.files = files
         self.metricgroups = {}
+        self.unit_counters = {}
 
     def __lt__(self, other: 'Model') -> bool:
         """ Sort by models gloally by name."""
@@ -646,8 +657,15 @@ class Model:
         ])
 
     @staticmethod
-    def extract_pebs_formula(formula):
-        MIN_MAX_PEBS = re.compile(r"([A-Za-z0-9\_\.@]+)\*(min|max)\(\s*(\$PEBS)\s*,((\s*([^\s\)])\s*)+)\)")
+    def extract_pebs_formula(formula: str) -> str:
+        """
+        Convert metric formulas using $PEBS.
+
+        Example:
+            Input:  MEM_INST_RETIRED.STLB_HIT_LOADS*min($PEBS, 7) / tma_info_thread_clks + tma_load_stlb_miss
+            Return: MEM_INST_RETIRED.STLB_HIT_LOADS * min(MEM_INST_RETIRED.STLB_HIT_LOADS:R, 7) / tma_info_thread_clks + tma_load_stlb_miss
+        """
+        MIN_MAX_PEBS = re.compile(r"([A-Za-z0-9_.@]+)\*(min|max)\( *(\$PEBS) *,([a-z0-9_ */+-]+)\)")
         NON_REL_OPS = r"(?<!##)(?<!##2)/|[\(\)]+|[\+\-,]|\*(?![\$])|(?<!##)\?| if not | if | else |min\(|max\(| and | or | in | not "
         REL_OPS = r"[<>]=?|=="
         STR_OPS = r"'[A-Z\-]+'"
@@ -659,11 +677,10 @@ class Model:
             for m in re.finditer(MIN_MAX_PEBS, formula):
                 main_event = m.group(1).strip()
                 min_max = m.group(2)
-                pebs = m.group(3)
                 alternative = m.group(4).strip()
 
                 mod = 'R' if '@' in main_event else ':R'
-                new_string = f' {main_event} * {min_max}({main_event}{mod}, {alternative}) '
+                new_string = f'{main_event} * {min_max}({main_event}{mod}, {alternative})'
                 new_formula = re.sub(m.re, new_string, new_formula, count=1)
 
         formula_list = re.split(OPS, new_formula)
@@ -674,6 +691,7 @@ class Model:
                 mod = 'R' if '@' in event_name else ':R'
                 new_element = f'( {event_name} * {event_name}{mod} )'
                 new_formula = new_formula.replace(element, new_element)
+
         return new_formula
 
     def extract_tma_metrics(self, csvfile: TextIO, pmu_prefix: str,
@@ -1582,6 +1600,32 @@ class Model:
 
         return jo
 
+    def count_counters(self, event_type, pmon_events):
+        """
+        Count number of counters in each PMU unit
+        """
+
+        for event in pmon_events:
+            if not event.counter or "FREERUN" in event.event_name:
+                continue
+            counters = event.counter.split(',')
+            if "fixed" in counters[0].lower():
+                type = "CountersNumFixed"
+                counters = event.counter.split(' ')
+                if not counters[-1].isnumeric():
+                    counters[0] = '0'
+            else:
+                type = "CountersNumGeneric"
+            if not event.unit:
+                unit = event_type
+            else:
+                unit = event.unit
+            v = int(counters[-1]) + 1
+            if unit in self.unit_counters:
+                self.unit_counters[unit][type] = str(max(int(self.unit_counters[unit][type]), v))
+            else:
+                self.unit_counters[unit] = {'Unit':unit, 'CountersNumFixed': '0', 'CountersNumGeneric': '0'}
+                self.unit_counters[unit][type] = v
 
     def to_perf_json(self, outdir: Path):
         # Map from a topic to its list of events as dictionaries.
@@ -1605,7 +1649,8 @@ class Model:
             with open(self.files[event_type], 'r') as event_json:
                 json_data = json.load(event_json)
                 # UNC_IIO_BANDWIDTH_OUT events are broken on Linux pre-SPR so skip if they exist.
-                pmon_events = [PerfmonJsonEvent(self.shortname, pmu_prefix, x)
+                pmon_events = [PerfmonJsonEvent(self.shortname, pmu_prefix, x,
+                                                'experimental' in event_type)
                                for x in json_data['Events']
                                if self.shortname == 'SPR' or
                                not x["EventName"].startswith("UNC_IIO_BANDWIDTH_OUT.")]
@@ -1634,6 +1679,7 @@ class Model:
                     pmon_topic_events[event.topic].append(dict_event)
                     dict_events[event.event_name] = dict_event
                     events[event.event_name] = event
+                self.count_counters(event_type, pmon_events)
 
         if 'uncore csv' in self.files:
             _verboseprint2(f'Rewriting events with {self.files["uncore csv"]}')
@@ -1730,6 +1776,12 @@ class Model:
                 json.dump(events_, perf_json, sort_keys=True, indent=4,
                           separators=(',', ': '))
                 perf_json.write('\n')
+        # Skip hybrid because event grouping does not support it well yet
+        if self.shortname not in ['ADL', 'ADLN', 'MTL']:
+            # Write units and counters data to counter.json file
+            output_counters = Path(outdir, 'counter.json')
+            with open(output_counters, 'w', encoding='ascii') as cnt_json:
+                json.dump(list(self.unit_counters.values()), cnt_json, indent=4)
 
         metrics = []
         for metric_csv_key, unit in [('tma metrics', 'cpu_core'),
