@@ -1432,7 +1432,7 @@
     },
     {
         "BriefDescription": "Total package Power in Watts",
-        "MetricExpr": "UNC_PKG_ENERGY_STATUS * ( 61 ) / ( tma_info_system_time * ( 1000000 ) )",
+        "MetricExpr": "power@energy\\-pkg@ * ( 61 ) / ( tma_info_system_time * ( 1000000 ) )",
         "MetricGroup": "Power;SoC;SystemMetric",
         "MetricName": "Info_System_Power"
     },
