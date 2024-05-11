@@ -89,7 +89,7 @@
         "MetricExpr": "TOPDOWN_BE_BOUND.ALLOC_RESTRICTIONS / tma_info_core_slots",
         "MetricGroup": "TopdownL3;tma_L3_group;tma_resource_bound_group",
         "MetricName": "tma_alloc_restriction",
-        "MetricThreshold": "tma_alloc_restriction > 0.1",
+        "MetricThreshold": "tma_alloc_restriction > 0.1 & (tma_resource_bound > 0.2 & tma_backend_bound_aux > 0.2)",
         "ScaleUnit": "100%"
     },
     {
@@ -130,7 +130,7 @@
         "MetricExpr": "(TOPDOWN_RETIRING.ALL - UOPS_RETIRED.MS) / tma_info_core_slots",
         "MetricGroup": "TopdownL2;tma_L2_group;tma_retiring_group",
         "MetricName": "tma_base",
-        "MetricThreshold": "tma_base > 0.6",
+        "MetricThreshold": "tma_base > 0.6 & tma_retiring > 0.75",
         "MetricgroupNoGroup": "TopdownL2",
         "ScaleUnit": "100%"
     },
@@ -139,7 +139,7 @@
         "MetricExpr": "TOPDOWN_FE_BOUND.BRANCH_DETECT / tma_info_core_slots",
         "MetricGroup": "TopdownL3;tma_L3_group;tma_fetch_latency_group",
         "MetricName": "tma_branch_detect",
-        "MetricThreshold": "tma_branch_detect > 0.05",
+        "MetricThreshold": "tma_branch_detect > 0.05 & (tma_fetch_latency > 0.15 & tma_frontend_bound > 0.2)",
         "PublicDescription": "Counts the number of issue slots  that were not delivered by the frontend due to BACLEARS, which occurs when the Branch Target Buffer (BTB) prediction or lack thereof, was corrected by a later branch predictor in the frontend. Includes BACLEARS due to all branch types including conditional and unconditional jumps, returns, and indirect branches.",
         "ScaleUnit": "100%"
     },
@@ -148,7 +148,7 @@
         "MetricExpr": "TOPDOWN_BAD_SPECULATION.MISPREDICT / tma_info_core_slots",
         "MetricGroup": "TopdownL2;tma_L2_group;tma_bad_speculation_group",
         "MetricName": "tma_branch_mispredicts",
-        "MetricThreshold": "tma_branch_mispredicts > 0.05",
+        "MetricThreshold": "tma_branch_mispredicts > 0.05 & tma_bad_speculation > 0.15",
         "MetricgroupNoGroup": "TopdownL2",
         "ScaleUnit": "100%"
     },
@@ -157,7 +157,7 @@
         "MetricExpr": "TOPDOWN_FE_BOUND.BRANCH_RESTEER / tma_info_core_slots",
         "MetricGroup": "TopdownL3;tma_L3_group;tma_fetch_latency_group",
         "MetricName": "tma_branch_resteer",
-        "MetricThreshold": "tma_branch_resteer > 0.05",
+        "MetricThreshold": "tma_branch_resteer > 0.05 & (tma_fetch_latency > 0.15 & tma_frontend_bound > 0.2)",
         "ScaleUnit": "100%"
     },
     {
@@ -165,7 +165,7 @@
         "MetricExpr": "TOPDOWN_FE_BOUND.CISC / tma_info_core_slots",
         "MetricGroup": "TopdownL3;tma_L3_group;tma_fetch_bandwidth_group",
         "MetricName": "tma_cisc",
-        "MetricThreshold": "tma_cisc > 0.05",
+        "MetricThreshold": "tma_cisc > 0.05 & (tma_fetch_bandwidth > 0.1 & tma_frontend_bound > 0.2)",
         "ScaleUnit": "100%"
     },
     {
@@ -173,7 +173,7 @@
         "MetricExpr": "max(0, tma_backend_bound - tma_memory_bound)",
         "MetricGroup": "TopdownL2;tma_L2_group;tma_backend_bound_group",
         "MetricName": "tma_core_bound",
-        "MetricThreshold": "tma_core_bound > 0.1",
+        "MetricThreshold": "tma_core_bound > 0.1 & tma_backend_bound > 0.1",
         "MetricgroupNoGroup": "TopdownL2",
         "ScaleUnit": "100%"
     },
@@ -182,7 +182,7 @@
         "MetricExpr": "TOPDOWN_FE_BOUND.DECODE / tma_info_core_slots",
         "MetricGroup": "TopdownL3;tma_L3_group;tma_fetch_bandwidth_group",
         "MetricName": "tma_decode",
-        "MetricThreshold": "tma_decode > 0.05",
+        "MetricThreshold": "tma_decode > 0.05 & (tma_fetch_bandwidth > 0.1 & tma_frontend_bound > 0.2)",
         "ScaleUnit": "100%"
     },
     {
@@ -190,7 +190,7 @@
         "MetricExpr": "tma_nuke * (MACHINE_CLEARS.DISAMBIGUATION / MACHINE_CLEARS.SLOW)",
         "MetricGroup": "TopdownL4;tma_L4_group;tma_nuke_group",
         "MetricName": "tma_disambiguation",
-        "MetricThreshold": "tma_disambiguation > 0.02",
+        "MetricThreshold": "tma_disambiguation > 0.02 & (tma_nuke > 0.05 & (tma_machine_clears > 0.05 & tma_bad_speculation > 0.15))",
         "ScaleUnit": "100%"
     },
     {
@@ -198,7 +198,7 @@
         "MetricExpr": "MEM_BOUND_STALLS.LOAD_DRAM_HIT / tma_info_core_clks - max((MEM_BOUND_STALLS.LOAD - LD_HEAD.L1_MISS_AT_RET) / tma_info_core_clks, 0) * MEM_BOUND_STALLS.LOAD_DRAM_HIT / MEM_BOUND_STALLS.LOAD",
         "MetricGroup": "TopdownL3;tma_L3_group;tma_memory_bound_group",
         "MetricName": "tma_dram_bound",
-        "MetricThreshold": "tma_dram_bound > 0.1",
+        "MetricThreshold": "tma_dram_bound > 0.1 & (tma_memory_bound > 0.2 & tma_backend_bound > 0.1)",
         "ScaleUnit": "100%"
     },
     {
@@ -206,7 +206,7 @@
         "MetricExpr": "TOPDOWN_BAD_SPECULATION.FASTNUKE / tma_info_core_slots",
         "MetricGroup": "TopdownL3;tma_L3_group;tma_machine_clears_group",
         "MetricName": "tma_fast_nuke",
-        "MetricThreshold": "tma_fast_nuke > 0.05",
+        "MetricThreshold": "tma_fast_nuke > 0.05 & (tma_machine_clears > 0.05 & tma_bad_speculation > 0.15)",
         "ScaleUnit": "100%"
     },
     {
@@ -214,7 +214,7 @@
         "MetricExpr": "TOPDOWN_FE_BOUND.FRONTEND_BANDWIDTH / tma_info_core_slots",
         "MetricGroup": "TopdownL2;tma_L2_group;tma_frontend_bound_group",
         "MetricName": "tma_fetch_bandwidth",
-        "MetricThreshold": "tma_fetch_bandwidth > 0.1",
+        "MetricThreshold": "tma_fetch_bandwidth > 0.1 & tma_frontend_bound > 0.2",
         "MetricgroupNoGroup": "TopdownL2",
         "ScaleUnit": "100%"
     },
@@ -223,7 +223,7 @@
         "MetricExpr": "TOPDOWN_FE_BOUND.FRONTEND_LATENCY / tma_info_core_slots",
         "MetricGroup": "TopdownL2;tma_L2_group;tma_frontend_bound_group",
         "MetricName": "tma_fetch_latency",
-        "MetricThreshold": "tma_fetch_latency > 0.15",
+        "MetricThreshold": "tma_fetch_latency > 0.15 & tma_frontend_bound > 0.2",
         "MetricgroupNoGroup": "TopdownL2",
         "ScaleUnit": "100%"
     },
@@ -232,7 +232,7 @@
         "MetricExpr": "tma_nuke * (MACHINE_CLEARS.FP_ASSIST / MACHINE_CLEARS.SLOW)",
         "MetricGroup": "TopdownL4;tma_L4_group;tma_nuke_group",
         "MetricName": "tma_fp_assist",
-        "MetricThreshold": "tma_fp_assist > 0.02",
+        "MetricThreshold": "tma_fp_assist > 0.02 & (tma_nuke > 0.05 & (tma_machine_clears > 0.05 & tma_bad_speculation > 0.15))",
         "ScaleUnit": "100%"
     },
     {
@@ -240,7 +240,7 @@
         "MetricExpr": "UOPS_RETIRED.FPDIV / tma_info_core_slots",
         "MetricGroup": "TopdownL3;tma_L3_group;tma_base_group",
         "MetricName": "tma_fpdiv_uops",
-        "MetricThreshold": "tma_fpdiv_uops > 0.2",
+        "MetricThreshold": "tma_fpdiv_uops > 0.2 & (tma_base > 0.6 & tma_retiring > 0.75)",
         "ScaleUnit": "100%"
     },
     {
@@ -258,7 +258,7 @@
         "MetricExpr": "TOPDOWN_FE_BOUND.ICACHE / tma_info_core_slots",
         "MetricGroup": "TopdownL3;tma_L3_group;tma_fetch_latency_group",
         "MetricName": "tma_icache_misses",
-        "MetricThreshold": "tma_icache_misses > 0.05",
+        "MetricThreshold": "tma_icache_misses > 0.05 & (tma_fetch_latency > 0.15 & tma_frontend_bound > 0.2)",
         "ScaleUnit": "100%"
     },
     {
@@ -443,7 +443,7 @@
         "MetricExpr": "TOPDOWN_FE_BOUND.ITLB / tma_info_core_slots",
         "MetricGroup": "TopdownL3;tma_L3_group;tma_fetch_latency_group",
         "MetricName": "tma_itlb_misses",
-        "MetricThreshold": "tma_itlb_misses > 0.05",
+        "MetricThreshold": "tma_itlb_misses > 0.05 & (tma_fetch_latency > 0.15 & tma_frontend_bound > 0.2)",
         "ScaleUnit": "100%"
     },
     {
@@ -451,7 +451,7 @@
         "MetricExpr": "LD_HEAD.L1_BOUND_AT_RET / tma_info_core_clks",
         "MetricGroup": "TopdownL3;tma_L3_group;tma_memory_bound_group",
         "MetricName": "tma_l1_bound",
-        "MetricThreshold": "tma_l1_bound > 0.1",
+        "MetricThreshold": "tma_l1_bound > 0.1 & (tma_memory_bound > 0.2 & tma_backend_bound > 0.1)",
         "ScaleUnit": "100%"
     },
     {
@@ -459,7 +459,7 @@
         "MetricExpr": "MEM_BOUND_STALLS.LOAD_L2_HIT / tma_info_core_clks - max((MEM_BOUND_STALLS.LOAD - LD_HEAD.L1_MISS_AT_RET) / tma_info_core_clks, 0) * MEM_BOUND_STALLS.LOAD_L2_HIT / MEM_BOUND_STALLS.LOAD",
         "MetricGroup": "TopdownL3;tma_L3_group;tma_memory_bound_group",
         "MetricName": "tma_l2_bound",
-        "MetricThreshold": "tma_l2_bound > 0.1",
+        "MetricThreshold": "tma_l2_bound > 0.1 & (tma_memory_bound > 0.2 & tma_backend_bound > 0.1)",
         "ScaleUnit": "100%"
     },
     {
@@ -467,7 +467,7 @@
         "MetricExpr": "MEM_BOUND_STALLS.LOAD_LLC_HIT / tma_info_core_clks - max((MEM_BOUND_STALLS.LOAD - LD_HEAD.L1_MISS_AT_RET) / tma_info_core_clks, 0) * MEM_BOUND_STALLS.LOAD_LLC_HIT / MEM_BOUND_STALLS.LOAD",
         "MetricGroup": "TopdownL3;tma_L3_group;tma_memory_bound_group",
         "MetricName": "tma_l3_bound",
-        "MetricThreshold": "tma_l3_bound > 0.1",
+        "MetricThreshold": "tma_l3_bound > 0.1 & (tma_memory_bound > 0.2 & tma_backend_bound > 0.1)",
         "ScaleUnit": "100%"
     },
     {
@@ -475,7 +475,7 @@
         "MetricExpr": "tma_mem_scheduler * MEM_SCHEDULER_BLOCK.LD_BUF / MEM_SCHEDULER_BLOCK.ALL",
         "MetricGroup": "TopdownL4;tma_L4_group;tma_mem_scheduler_group",
         "MetricName": "tma_ld_buffer",
-        "MetricThreshold": "tma_ld_buffer > 0.05",
+        "MetricThreshold": "tma_ld_buffer > 0.05 & (tma_mem_scheduler > 0.1 & (tma_resource_bound > 0.2 & tma_backend_bound_aux > 0.2))",
         "ScaleUnit": "100%"
     },
     {
@@ -483,7 +483,7 @@
         "MetricExpr": "TOPDOWN_BAD_SPECULATION.MACHINE_CLEARS / tma_info_core_slots",
         "MetricGroup": "TopdownL2;tma_L2_group;tma_bad_speculation_group",
         "MetricName": "tma_machine_clears",
-        "MetricThreshold": "tma_machine_clears > 0.05",
+        "MetricThreshold": "tma_machine_clears > 0.05 & tma_bad_speculation > 0.15",
         "MetricgroupNoGroup": "TopdownL2",
         "ScaleUnit": "100%"
     },
@@ -492,7 +492,7 @@
         "MetricExpr": "TOPDOWN_BE_BOUND.MEM_SCHEDULER / tma_info_core_slots",
         "MetricGroup": "TopdownL3;tma_L3_group;tma_resource_bound_group",
         "MetricName": "tma_mem_scheduler",
-        "MetricThreshold": "tma_mem_scheduler > 0.1",
+        "MetricThreshold": "tma_mem_scheduler > 0.1 & (tma_resource_bound > 0.2 & tma_backend_bound_aux > 0.2)",
         "ScaleUnit": "100%"
     },
     {
@@ -500,7 +500,7 @@
         "MetricExpr": "min(tma_backend_bound, LD_HEAD.ANY_AT_RET / tma_info_core_clks + tma_store_bound)",
         "MetricGroup": "TopdownL2;tma_L2_group;tma_backend_bound_group",
         "MetricName": "tma_memory_bound",
-        "MetricThreshold": "tma_memory_bound > 0.2",
+        "MetricThreshold": "tma_memory_bound > 0.2 & tma_backend_bound > 0.1",
         "MetricgroupNoGroup": "TopdownL2",
         "ScaleUnit": "100%"
     },
@@ -509,7 +509,7 @@
         "MetricExpr": "tma_nuke * (MACHINE_CLEARS.MEMORY_ORDERING / MACHINE_CLEARS.SLOW)",
         "MetricGroup": "TopdownL4;tma_L4_group;tma_nuke_group",
         "MetricName": "tma_memory_ordering",
-        "MetricThreshold": "tma_memory_ordering > 0.02",
+        "MetricThreshold": "tma_memory_ordering > 0.02 & (tma_nuke > 0.05 & (tma_machine_clears > 0.05 & tma_bad_speculation > 0.15))",
         "ScaleUnit": "100%"
     },
     {
@@ -517,7 +517,7 @@
         "MetricExpr": "UOPS_RETIRED.MS / tma_info_core_slots",
         "MetricGroup": "TopdownL2;tma_L2_group;tma_retiring_group",
         "MetricName": "tma_ms_uops",
-        "MetricThreshold": "tma_ms_uops > 0.05",
+        "MetricThreshold": "tma_ms_uops > 0.05 & tma_retiring > 0.75",
         "MetricgroupNoGroup": "TopdownL2",
         "PublicDescription": "Counts the number of uops that are from the complex flows issued by the micro-sequencer (MS).  This includes uops from flows due to complex instructions, faults, assists, and inserted flows.",
         "ScaleUnit": "100%"
@@ -527,7 +527,7 @@
         "MetricExpr": "TOPDOWN_BE_BOUND.NON_MEM_SCHEDULER / tma_info_core_slots",
         "MetricGroup": "TopdownL3;tma_L3_group;tma_resource_bound_group",
         "MetricName": "tma_non_mem_scheduler",
-        "MetricThreshold": "tma_non_mem_scheduler > 0.1",
+        "MetricThreshold": "tma_non_mem_scheduler > 0.1 & (tma_resource_bound > 0.2 & tma_backend_bound_aux > 0.2)",
         "ScaleUnit": "100%"
     },
     {
@@ -535,7 +535,7 @@
         "MetricExpr": "TOPDOWN_BAD_SPECULATION.NUKE / tma_info_core_slots",
         "MetricGroup": "TopdownL3;tma_L3_group;tma_machine_clears_group",
         "MetricName": "tma_nuke",
-        "MetricThreshold": "tma_nuke > 0.05",
+        "MetricThreshold": "tma_nuke > 0.05 & (tma_machine_clears > 0.05 & tma_bad_speculation > 0.15)",
         "ScaleUnit": "100%"
     },
     {
@@ -543,7 +543,7 @@
         "MetricExpr": "TOPDOWN_FE_BOUND.OTHER / tma_info_core_slots",
         "MetricGroup": "TopdownL3;tma_L3_group;tma_fetch_bandwidth_group",
         "MetricName": "tma_other_fb",
-        "MetricThreshold": "tma_other_fb > 0.05",
+        "MetricThreshold": "tma_other_fb > 0.05 & (tma_fetch_bandwidth > 0.1 & tma_frontend_bound > 0.2)",
         "ScaleUnit": "100%"
     },
     {
@@ -551,7 +551,7 @@
         "MetricExpr": "LD_HEAD.OTHER_AT_RET / tma_info_core_clks",
         "MetricGroup": "TopdownL4;tma_L4_group;tma_l1_bound_group",
         "MetricName": "tma_other_l1",
-        "MetricThreshold": "tma_other_l1 > 0.05",
+        "MetricThreshold": "tma_other_l1 > 0.05 & (tma_l1_bound > 0.1 & (tma_memory_bound > 0.2 & tma_backend_bound > 0.1))",
         "ScaleUnit": "100%"
     },
     {
@@ -559,7 +559,7 @@
         "MetricExpr": "max(0, tma_memory_bound - (tma_store_bound + tma_l1_bound + tma_l2_bound + tma_l3_bound + tma_dram_bound))",
         "MetricGroup": "TopdownL3;tma_L3_group;tma_memory_bound_group",
         "MetricName": "tma_other_load_store",
-        "MetricThreshold": "tma_other_load_store > 0.1",
+        "MetricThreshold": "tma_other_load_store > 0.1 & (tma_memory_bound > 0.2 & tma_backend_bound > 0.1)",
         "ScaleUnit": "100%"
     },
     {
@@ -567,7 +567,7 @@
         "MetricExpr": "(TOPDOWN_RETIRING.ALL - UOPS_RETIRED.MS - UOPS_RETIRED.FPDIV) / tma_info_core_slots",
         "MetricGroup": "TopdownL3;tma_L3_group;tma_base_group",
         "MetricName": "tma_other_ret",
-        "MetricThreshold": "tma_other_ret > 0.3",
+        "MetricThreshold": "tma_other_ret > 0.3 & (tma_base > 0.6 & tma_retiring > 0.75)",
         "ScaleUnit": "100%"
     },
     {
@@ -575,7 +575,7 @@
         "MetricExpr": "tma_nuke * (MACHINE_CLEARS.PAGE_FAULT / MACHINE_CLEARS.SLOW)",
         "MetricGroup": "TopdownL4;tma_L4_group;tma_nuke_group",
         "MetricName": "tma_page_fault",
-        "MetricThreshold": "tma_page_fault > 0.02",
+        "MetricThreshold": "tma_page_fault > 0.02 & (tma_nuke > 0.05 & (tma_machine_clears > 0.05 & tma_bad_speculation > 0.15))",
         "ScaleUnit": "100%"
     },
     {
@@ -583,7 +583,7 @@
         "MetricExpr": "TOPDOWN_FE_BOUND.PREDECODE / tma_info_core_slots",
         "MetricGroup": "TopdownL3;tma_L3_group;tma_fetch_bandwidth_group",
         "MetricName": "tma_predecode",
-        "MetricThreshold": "tma_predecode > 0.05",
+        "MetricThreshold": "tma_predecode > 0.05 & (tma_fetch_bandwidth > 0.1 & tma_frontend_bound > 0.2)",
         "ScaleUnit": "100%"
     },
     {
@@ -591,7 +591,7 @@
         "MetricExpr": "TOPDOWN_BE_BOUND.REGISTER / tma_info_core_slots",
         "MetricGroup": "TopdownL3;tma_L3_group;tma_resource_bound_group",
         "MetricName": "tma_register",
-        "MetricThreshold": "tma_register > 0.1",
+        "MetricThreshold": "tma_register > 0.1 & (tma_resource_bound > 0.2 & tma_backend_bound_aux > 0.2)",
         "ScaleUnit": "100%"
     },
     {
@@ -599,7 +599,7 @@
         "MetricExpr": "TOPDOWN_BE_BOUND.REORDER_BUFFER / tma_info_core_slots",
         "MetricGroup": "TopdownL3;tma_L3_group;tma_resource_bound_group",
         "MetricName": "tma_reorder_buffer",
-        "MetricThreshold": "tma_reorder_buffer > 0.1",
+        "MetricThreshold": "tma_reorder_buffer > 0.1 & (tma_resource_bound > 0.2 & tma_backend_bound_aux > 0.2)",
         "ScaleUnit": "100%"
     },
     {
@@ -607,7 +607,7 @@
         "MetricExpr": "tma_backend_bound",
         "MetricGroup": "TopdownL2;tma_L2_group;tma_backend_bound_aux_group",
         "MetricName": "tma_resource_bound",
-        "MetricThreshold": "tma_resource_bound > 0.2",
+        "MetricThreshold": "tma_resource_bound > 0.2 & tma_backend_bound_aux > 0.2",
         "MetricgroupNoGroup": "TopdownL2",
         "PublicDescription": "Counts the total number of issue slots  that were not consumed by the backend due to backend stalls.  Note that uops must be available for consumption in order for this event to count.  If a uop is not available (IQ is empty), this event will not count.",
         "ScaleUnit": "100%"
@@ -627,7 +627,7 @@
         "MetricExpr": "tma_mem_scheduler * MEM_SCHEDULER_BLOCK.RSV / MEM_SCHEDULER_BLOCK.ALL",
         "MetricGroup": "TopdownL4;tma_L4_group;tma_mem_scheduler_group",
         "MetricName": "tma_rsv",
-        "MetricThreshold": "tma_rsv > 0.05",
+        "MetricThreshold": "tma_rsv > 0.05 & (tma_mem_scheduler > 0.1 & (tma_resource_bound > 0.2 & tma_backend_bound_aux > 0.2))",
         "ScaleUnit": "100%"
     },
     {
@@ -635,7 +635,7 @@
         "MetricExpr": "TOPDOWN_BE_BOUND.SERIALIZATION / tma_info_core_slots",
         "MetricGroup": "TopdownL3;tma_L3_group;tma_resource_bound_group",
         "MetricName": "tma_serialization",
-        "MetricThreshold": "tma_serialization > 0.1",
+        "MetricThreshold": "tma_serialization > 0.1 & (tma_resource_bound > 0.2 & tma_backend_bound_aux > 0.2)",
         "ScaleUnit": "100%"
     },
     {
@@ -643,7 +643,7 @@
         "MetricExpr": "tma_nuke * (MACHINE_CLEARS.SMC / MACHINE_CLEARS.SLOW)",
         "MetricGroup": "TopdownL4;tma_L4_group;tma_nuke_group",
         "MetricName": "tma_smc",
-        "MetricThreshold": "tma_smc > 0.02",
+        "MetricThreshold": "tma_smc > 0.02 & (tma_nuke > 0.05 & (tma_machine_clears > 0.05 & tma_bad_speculation > 0.15))",
         "ScaleUnit": "100%"
     },
     {
@@ -651,7 +651,7 @@
         "MetricExpr": "tma_store_bound",
         "MetricGroup": "TopdownL4;tma_L4_group;tma_mem_scheduler_group",
         "MetricName": "tma_st_buffer",
-        "MetricThreshold": "tma_st_buffer > 0.05",
+        "MetricThreshold": "tma_st_buffer > 0.05 & (tma_mem_scheduler > 0.1 & (tma_resource_bound > 0.2 & tma_backend_bound_aux > 0.2))",
         "ScaleUnit": "100%"
     },
     {
@@ -659,7 +659,7 @@
         "MetricExpr": "LD_HEAD.DTLB_MISS_AT_RET / tma_info_core_clks",
         "MetricGroup": "TopdownL4;tma_L4_group;tma_l1_bound_group",
         "MetricName": "tma_stlb_hit",
-        "MetricThreshold": "tma_stlb_hit > 0.05",
+        "MetricThreshold": "tma_stlb_hit > 0.05 & (tma_l1_bound > 0.1 & (tma_memory_bound > 0.2 & tma_backend_bound > 0.1))",
         "ScaleUnit": "100%"
     },
     {
@@ -667,7 +667,7 @@
         "MetricExpr": "LD_HEAD.PGWALK_AT_RET / tma_info_core_clks",
         "MetricGroup": "TopdownL4;tma_L4_group;tma_l1_bound_group",
         "MetricName": "tma_stlb_miss",
-        "MetricThreshold": "tma_stlb_miss > 0.05",
+        "MetricThreshold": "tma_stlb_miss > 0.05 & (tma_l1_bound > 0.1 & (tma_memory_bound > 0.2 & tma_backend_bound > 0.1))",
         "ScaleUnit": "100%"
     },
     {
@@ -675,7 +675,7 @@
         "MetricExpr": "tma_mem_scheduler * (MEM_SCHEDULER_BLOCK.ST_BUF / MEM_SCHEDULER_BLOCK.ALL)",
         "MetricGroup": "TopdownL3;tma_L3_group;tma_memory_bound_group",
         "MetricName": "tma_store_bound",
-        "MetricThreshold": "tma_store_bound > 0.1",
+        "MetricThreshold": "tma_store_bound > 0.1 & (tma_memory_bound > 0.2 & tma_backend_bound > 0.1)",
         "ScaleUnit": "100%"
     },
     {
@@ -683,7 +683,7 @@
         "MetricExpr": "LD_HEAD.ST_ADDR_AT_RET / tma_info_core_clks",
         "MetricGroup": "TopdownL4;tma_L4_group;tma_l1_bound_group",
         "MetricName": "tma_store_fwd_blk",
-        "MetricThreshold": "tma_store_fwd_blk > 0.05",
+        "MetricThreshold": "tma_store_fwd_blk > 0.05 & (tma_l1_bound > 0.1 & (tma_memory_bound > 0.2 & tma_backend_bound > 0.1))",
         "ScaleUnit": "100%"
     }
 ]
