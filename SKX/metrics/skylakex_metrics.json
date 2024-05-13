@@ -2451,7 +2451,7 @@
         }
       ],
       "Formula": "100 * ( min( 2 * ( a - b - c ) * dependentloadsweight / 100 , max( e - f , 0 ) ) / ( g ) )",
-      "BaseFormula": " min( 2 * ( mem_inst_retired.all_loads_ps - mem_load_retired.fb_hit_ps - mem_load_retired.l1_miss_ps ) * 20 / 100 , max( cycle_activity.cycles_mem_any - cycle_activity.cycles_l1d_miss , 0 ) ) / tma_info_thread_clks",
+      "BaseFormula": " min( 2 * ( mem_inst_retired.all_loads - mem_load_retired.fb_hit - mem_load_retired.l1_miss ) * 20 / 100 , max( cycle_activity.cycles_mem_any - cycle_activity.cycles_l1d_miss , 0 ) ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -2739,7 +2739,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( ( a * ( 1 + ( b / c ) ) ) / ( ( a * ( 1 + ( b / c ) ) ) + d ) ) * ( ( e - f ) / ( g ) ) )",
-      "BaseFormula": " ( ( mem_load_retired.l2_hit_ps * ( 1 + ( mem_load_retired.fb_hit / mem_load_retired.l1_miss ) ) ) / ( ( mem_load_retired.l2_hit_ps * ( 1 + ( mem_load_retired.fb_hit / mem_load_retired.l1_miss ) ) ) + l1d_pend_miss.fb_full:c1 ) ) * ( ( cycle_activity.stalls_l1d_miss - cycle_activity.stalls_l2_miss ) / tma_info_thread_clks )",
+      "BaseFormula": " ( ( mem_load_retired.l2_hit * ( 1 + ( mem_load_retired.fb_hit / mem_load_retired.l1_miss ) ) ) / ( ( mem_load_retired.l2_hit * ( 1 + ( mem_load_retired.fb_hit / mem_load_retired.l1_miss ) ) ) + l1d_pend_miss.fb_full:c1 ) ) * ( ( cycle_activity.stalls_l1d_miss - cycle_activity.stalls_l2_miss ) / tma_info_thread_clks )",
       "Category": "TMA",
       "CountDomain": "Stalls",
       "Threshold": {
@@ -2864,7 +2864,7 @@
         }
       ],
       "Formula": "100 * ( ( ( ( 47.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( e * ( f / ( f + g ) ) ) + ( ( 47.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( h ) ) * ( 1 + ( i / j ) / 2 ) / ( a ) )",
-      "BaseFormula": " ( ( ( 47.5 * tma_info_system_core_frequency ) - ( 3.5 * tma_info_system_core_frequency ) ) * ( mem_load_l3_hit_retired.xsnp_hitm_ps * ( offcore_response.demand_data_rd.l3_hit.hitm_other_core / ( offcore_response.demand_data_rd.l3_hit.hitm_other_core + offcore_response.demand_data_rd.l3_hit.snoop_hit_with_fwd ) ) ) + ( ( 47.5 * tma_info_system_core_frequency ) - ( 3.5 * tma_info_system_core_frequency ) ) * ( mem_load_l3_hit_retired.xsnp_miss ) ) * ( 1 + ( mem_load_retired.fb_hit / mem_load_retired.l1_miss ) / 2 ) / tma_info_thread_clks",
+      "BaseFormula": " ( ( ( 47.5 * tma_info_system_core_frequency ) - ( 3.5 * tma_info_system_core_frequency ) ) * ( mem_load_l3_hit_retired.xsnp_hitm * ( offcore_response.demand_data_rd.l3_hit.hitm_other_core / ( offcore_response.demand_data_rd.l3_hit.hitm_other_core + offcore_response.demand_data_rd.l3_hit.snoop_hit_with_fwd ) ) ) + ( ( 47.5 * tma_info_system_core_frequency ) - ( 3.5 * tma_info_system_core_frequency ) ) * ( mem_load_l3_hit_retired.xsnp_miss ) ) * ( 1 + ( mem_load_retired.fb_hit / mem_load_retired.l1_miss ) / 2 ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -2945,7 +2945,7 @@
         }
       ],
       "Formula": "100 * ( ( ( 47.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( e + f * ( 1 - ( g / ( g + h ) ) ) ) * ( 1 + ( i / j ) / 2 ) / ( a ) )",
-      "BaseFormula": " ( ( 47.5 * tma_info_system_core_frequency ) - ( 3.5 * tma_info_system_core_frequency ) ) * ( mem_load_l3_hit_retired.xsnp_hit_ps + mem_load_l3_hit_retired.xsnp_hitm_ps * ( 1 - ( offcore_response.demand_data_rd.l3_hit.hitm_other_core / ( offcore_response.demand_data_rd.l3_hit.hitm_other_core + offcore_response.demand_data_rd.l3_hit.snoop_hit_with_fwd ) ) ) ) * ( 1 + ( mem_load_retired.fb_hit / mem_load_retired.l1_miss ) / 2 ) / tma_info_thread_clks",
+      "BaseFormula": " ( ( 47.5 * tma_info_system_core_frequency ) - ( 3.5 * tma_info_system_core_frequency ) ) * ( mem_load_l3_hit_retired.xsnp_hit + mem_load_l3_hit_retired.xsnp_hitm * ( 1 - ( offcore_response.demand_data_rd.l3_hit.hitm_other_core / ( offcore_response.demand_data_rd.l3_hit.hitm_other_core + offcore_response.demand_data_rd.l3_hit.snoop_hit_with_fwd ) ) ) ) * ( 1 + ( mem_load_retired.fb_hit / mem_load_retired.l1_miss ) / 2 ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -10341,7 +10341,7 @@
       ],
       "Constants": [],
       "Formula": "( a - b ) / c",
-      "BaseFormula": " ( br_inst_retired.conditional_ps - br_inst_retired.not_taken ) / br_inst_retired.all_branches",
+      "BaseFormula": " ( br_inst_retired.conditional - br_inst_retired.not_taken ) / br_inst_retired.all_branches",
       "Category": "TMA",
       "CountDomain": "Fraction",
       "Threshold": {
@@ -10415,7 +10415,7 @@
       ],
       "Constants": [],
       "Formula": "( a - ( b - c ) - 2 * d ) / e",
-      "BaseFormula": " ( br_inst_retired.near_taken - ( br_inst_retired.cond_ps - br_inst_retired.not_taken ) - 2 * br_inst_retired.near_call ) / br_inst_retired.all_branches",
+      "BaseFormula": " ( br_inst_retired.near_taken - ( br_inst_retired.cond - br_inst_retired.not_taken ) - 2 * br_inst_retired.near_call ) / br_inst_retired.all_branches",
       "Category": "TMA",
       "CountDomain": "Fraction",
       "Threshold": {
@@ -10448,7 +10448,7 @@
       ],
       "Constants": [],
       "Formula": "a / ( b + c )",
-      "BaseFormula": " l1d_pend_miss.pending / ( mem_load_retired.l1_miss_ps + mem_load_retired.fb_hit_ps )",
+      "BaseFormula": " l1d_pend_miss.pending / ( mem_load_retired.l1_miss + mem_load_retired.fb_hit )",
       "Category": "TMA",
       "CountDomain": "Clocks_Latency",
       "Threshold": {

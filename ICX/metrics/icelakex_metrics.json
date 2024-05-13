@@ -778,7 +778,7 @@
     },
     {
       "MetricName": "pmem_memory_bandwidth_read",
-      "LegacyName": "metric_PMEM_memory bandwidth read (MB/sec)",
+      "LegacyName": "metric_3DXP_memory bandwidth read (MB/sec)",
       "Level": 1,
       "BriefDescription": "Intel(R) Optane(TM) Persistent Memory(PMEM) memory read bandwidth (MB/sec)",
       "UnitOfMeasure": "MB/sec",
@@ -795,7 +795,7 @@
     },
     {
       "MetricName": "pmem_memory_bandwidth_write",
-      "LegacyName": "metric_PMEM_memory bandwidth write (MB/sec)",
+      "LegacyName": "metric_3DXP_memory bandwidth write (MB/sec)",
       "Level": 1,
       "BriefDescription": "Intel(R) Optane(TM) Persistent Memory(PMEM) memory write bandwidth (MB/sec)",
       "UnitOfMeasure": "MB/sec",
@@ -812,7 +812,7 @@
     },
     {
       "MetricName": "pmem_memory_bandwidth_total",
-      "LegacyName": "metric_PMEM_memory bandwidth total (MB/sec)",
+      "LegacyName": "metric_3DXP_memory bandwidth total (MB/sec)",
       "Level": 1,
       "BriefDescription": "Intel(R) Optane(TM) Persistent Memory(PMEM) memory bandwidth (MB/sec)",
       "UnitOfMeasure": "MB/sec",
@@ -2709,7 +2709,7 @@
         }
       ],
       "Formula": "100 * ( min( 2 * ( a - b - c ) * dependentloadsweight / 100 , max( e - f , 0 ) ) / ( g ) )",
-      "BaseFormula": " min( 2 * ( mem_inst_retired.all_loads_ps - mem_load_retired.fb_hit_ps - mem_load_retired.l1_miss_ps ) * 20 / 100 , max( cycle_activity.cycles_mem_any - cycle_activity.cycles_l1d_miss , 0 ) ) / tma_info_thread_clks",
+      "BaseFormula": " min( 2 * ( mem_inst_retired.all_loads - mem_load_retired.fb_hit - mem_load_retired.l1_miss ) * 20 / 100 , max( cycle_activity.cycles_mem_any - cycle_activity.cycles_l1d_miss , 0 ) ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -2985,7 +2985,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( ( a * ( 1 + ( b / c ) ) ) / ( ( a * ( 1 + ( b / c ) ) ) + d ) ) * ( ( e - f ) / ( g ) ) )",
-      "BaseFormula": " ( ( mem_load_retired.l2_hit_ps * ( 1 + ( mem_load_retired.fb_hit / mem_load_retired.l1_miss ) ) ) / ( ( mem_load_retired.l2_hit_ps * ( 1 + ( mem_load_retired.fb_hit / mem_load_retired.l1_miss ) ) ) + l1d_pend_miss.fb_full_periods ) ) * ( ( cycle_activity.stalls_l1d_miss - cycle_activity.stalls_l2_miss ) / tma_info_thread_clks )",
+      "BaseFormula": " ( ( mem_load_retired.l2_hit * ( 1 + ( mem_load_retired.fb_hit / mem_load_retired.l1_miss ) ) ) / ( ( mem_load_retired.l2_hit * ( 1 + ( mem_load_retired.fb_hit / mem_load_retired.l1_miss ) ) ) + l1d_pend_miss.fb_full_periods ) ) * ( ( cycle_activity.stalls_l1d_miss - cycle_activity.stalls_l2_miss ) / tma_info_thread_clks )",
       "Category": "TMA",
       "CountDomain": "Stalls",
       "Threshold": {
@@ -3110,7 +3110,7 @@
         }
       ],
       "Formula": "100 * ( ( ( ( 48 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( e * ( f / ( f + g ) ) ) + ( ( 47.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( h ) ) * ( 1 + ( i / j ) / 2 ) / ( a ) )",
-      "BaseFormula": " ( ( ( 48 * tma_info_system_core_frequency ) - ( 4 * tma_info_system_core_frequency ) ) * ( mem_load_l3_hit_retired.xsnp_hitm_ps * ( ocr.demand_data_rd.l3_hit.snoop_hitm / ( ocr.demand_data_rd.l3_hit.snoop_hitm + ocr.demand_data_rd.l3_hit.snoop_hit_with_fwd ) ) ) + ( ( 47.5 * tma_info_system_core_frequency ) - ( 4 * tma_info_system_core_frequency ) ) * ( mem_load_l3_hit_retired.xsnp_miss ) ) * ( 1 + ( mem_load_retired.fb_hit / mem_load_retired.l1_miss ) / 2 ) / tma_info_thread_clks",
+      "BaseFormula": " ( ( ( 48 * tma_info_system_core_frequency ) - ( 4 * tma_info_system_core_frequency ) ) * ( mem_load_l3_hit_retired.xsnp_hitm * ( ocr.demand_data_rd.l3_hit.snoop_hitm / ( ocr.demand_data_rd.l3_hit.snoop_hitm + ocr.demand_data_rd.l3_hit.snoop_hit_with_fwd ) ) ) + ( ( 47.5 * tma_info_system_core_frequency ) - ( 4 * tma_info_system_core_frequency ) ) * ( mem_load_l3_hit_retired.xsnp_miss ) ) * ( 1 + ( mem_load_retired.fb_hit / mem_load_retired.l1_miss ) / 2 ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -3191,7 +3191,7 @@
         }
       ],
       "Formula": "100 * ( ( ( 47.5 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4 * ( ( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( e + f * ( 1 - ( g / ( g + h ) ) ) ) * ( 1 + ( i / j ) / 2 ) / ( a ) )",
-      "BaseFormula": " ( ( 47.5 * tma_info_system_core_frequency ) - ( 4 * tma_info_system_core_frequency ) ) * ( mem_load_l3_hit_retired.xsnp_hit_ps + mem_load_l3_hit_retired.xsnp_hitm_ps * ( 1 - ( ocr.demand_data_rd.l3_hit.snoop_hitm / ( ocr.demand_data_rd.l3_hit.snoop_hitm + ocr.demand_data_rd.l3_hit.snoop_hit_with_fwd ) ) ) ) * ( 1 + ( mem_load_retired.fb_hit / mem_load_retired.l1_miss ) / 2 ) / tma_info_thread_clks",
+      "BaseFormula": " ( ( 47.5 * tma_info_system_core_frequency ) - ( 4 * tma_info_system_core_frequency ) ) * ( mem_load_l3_hit_retired.xsnp_hit + mem_load_l3_hit_retired.xsnp_hitm * ( 1 - ( ocr.demand_data_rd.l3_hit.snoop_hitm / ( ocr.demand_data_rd.l3_hit.snoop_hitm + ocr.demand_data_rd.l3_hit.snoop_hit_with_fwd ) ) ) ) * ( 1 + ( mem_load_retired.fb_hit / mem_load_retired.l1_miss ) / 2 ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -10948,7 +10948,7 @@
       ],
       "Constants": [],
       "Formula": "a / ( b + c )",
-      "BaseFormula": " l1d_pend_miss.pending / ( mem_load_retired.l1_miss_ps + mem_load_retired.fb_hit_ps )",
+      "BaseFormula": " l1d_pend_miss.pending / ( mem_load_retired.l1_miss + mem_load_retired.fb_hit )",
       "Category": "TMA",
       "CountDomain": "Clocks_Latency",
       "Threshold": {
@@ -12494,7 +12494,7 @@
       "MetricName": "Info_System_PMM_Read_BW",
       "LegacyName": "metric_TMA_Info_System_PMM_Read_BW",
       "Level": 1,
-      "BriefDescription": "Average PMEM Memory Bandwidth Use for reads [GB / sec]",
+      "BriefDescription": "Average 3DXP Memory Bandwidth Use for reads [GB / sec]",
       "UnitOfMeasure": "",
       "Events": [
         {
@@ -12524,7 +12524,7 @@
       "MetricName": "Info_System_PMM_Write_BW",
       "LegacyName": "metric_TMA_Info_System_PMM_Write_BW",
       "Level": 1,
-      "BriefDescription": "Average PMEM Memory Bandwidth Use for Writes [GB / sec]",
+      "BriefDescription": "Average 3DXP Memory Bandwidth Use for Writes [GB / sec]",
       "UnitOfMeasure": "",
       "Events": [
         {

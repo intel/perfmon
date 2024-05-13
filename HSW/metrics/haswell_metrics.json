@@ -1103,7 +1103,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a / b ) * ( min( c , d ) ) / ( c ) )",
-      "BaseFormula": " ( mem_uops_retired.lock_loads_ps / mem_uops_retired.all_stores_ps ) * ( min( cpu_clk_unhalted.thread , offcore_requests_outstanding.cycles_with_demand_rfo ) ) / tma_info_thread_clks",
+      "BaseFormula": " ( mem_uops_retired.lock_loads / mem_uops_retired.all_stores ) * ( min( cpu_clk_unhalted.thread , offcore_requests_outstanding.cycles_with_demand_rfo ) ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -1363,7 +1363,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a / ( a + ( 7 ) * b ) ) * c / ( d ) )",
-      "BaseFormula": " ( mem_load_uops_retired.l3_hit_ps / ( mem_load_uops_retired.l3_hit_ps + ( 7 ) * mem_load_uops_retired.l3_miss_ps ) ) * cycle_activity.stalls_l2_pending / tma_info_thread_clks",
+      "BaseFormula": " ( mem_load_uops_retired.l3_hit / ( mem_load_uops_retired.l3_hit + ( 7 ) * mem_load_uops_retired.l3_miss ) ) * cycle_activity.stalls_l2_pending / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Stalls",
       "Threshold": {
@@ -1431,7 +1431,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( ( 60 ) * ( a * ( 1 + b / ( ( c + d + e + a + f ) + g ) ) ) + ( 43 ) * ( f * ( 1 + b / ( ( c + d + e + a + f ) + g ) ) ) ) / ( h ) )",
-      "BaseFormula": " ( ( 60 ) * ( mem_load_uops_l3_hit_retired.xsnp_hitm_ps * ( 1 + mem_load_uops_retired.hit_lfb_ps / ( ( mem_load_uops_retired.l2_hit_ps + mem_load_uops_retired.l3_hit_ps + mem_load_uops_l3_hit_retired.xsnp_hit_ps + mem_load_uops_l3_hit_retired.xsnp_hitm_ps + mem_load_uops_l3_hit_retired.xsnp_miss_ps ) + mem_load_uops_retired.l3_miss_ps ) ) ) + ( 43 ) * ( mem_load_uops_l3_hit_retired.xsnp_miss_ps * ( 1 + mem_load_uops_retired.hit_lfb_ps / ( ( mem_load_uops_retired.l2_hit_ps + mem_load_uops_retired.l3_hit_ps + mem_load_uops_l3_hit_retired.xsnp_hit_ps + mem_load_uops_l3_hit_retired.xsnp_hitm_ps + mem_load_uops_l3_hit_retired.xsnp_miss_ps ) + mem_load_uops_retired.l3_miss_ps ) ) ) ) / tma_info_thread_clks",
+      "BaseFormula": " ( ( 60 ) * ( mem_load_uops_l3_hit_retired.xsnp_hitm * ( 1 + mem_load_uops_retired.hit_lfb / ( ( mem_load_uops_retired.l2_hit + mem_load_uops_retired.l3_hit + mem_load_uops_l3_hit_retired.xsnp_hit + mem_load_uops_l3_hit_retired.xsnp_hitm + mem_load_uops_l3_hit_retired.xsnp_miss ) + mem_load_uops_retired.l3_miss ) ) ) + ( 43 ) * ( mem_load_uops_l3_hit_retired.xsnp_miss * ( 1 + mem_load_uops_retired.hit_lfb / ( ( mem_load_uops_retired.l2_hit + mem_load_uops_retired.l3_hit + mem_load_uops_l3_hit_retired.xsnp_hit + mem_load_uops_l3_hit_retired.xsnp_hitm + mem_load_uops_l3_hit_retired.xsnp_miss ) + mem_load_uops_retired.l3_miss ) ) ) ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -1503,7 +1503,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( 43 ) * ( a * ( 1 + b / ( ( c + d + a + e + f ) + g ) ) ) / ( h ) )",
-      "BaseFormula": " ( 43 ) * ( mem_load_uops_l3_hit_retired.xsnp_hit_ps * ( 1 + mem_load_uops_retired.hit_lfb_ps / ( ( mem_load_uops_retired.l2_hit_ps + mem_load_uops_retired.l3_hit_ps + mem_load_uops_l3_hit_retired.xsnp_hit_ps + mem_load_uops_l3_hit_retired.xsnp_hitm_ps + mem_load_uops_l3_hit_retired.xsnp_miss_ps ) + mem_load_uops_retired.l3_miss_ps ) ) ) / tma_info_thread_clks",
+      "BaseFormula": " ( 43 ) * ( mem_load_uops_l3_hit_retired.xsnp_hit * ( 1 + mem_load_uops_retired.hit_lfb / ( ( mem_load_uops_retired.l2_hit + mem_load_uops_retired.l3_hit + mem_load_uops_l3_hit_retired.xsnp_hit + mem_load_uops_l3_hit_retired.xsnp_hitm + mem_load_uops_l3_hit_retired.xsnp_miss ) + mem_load_uops_retired.l3_miss ) ) ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -1575,7 +1575,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( 29 ) * ( a * ( 1 + b / ( ( c + a + d + e + f ) + g ) ) ) / ( h ) )",
-      "BaseFormula": " ( 29 ) * ( mem_load_uops_retired.l3_hit_ps * ( 1 + mem_load_uops_retired.hit_lfb_ps / ( ( mem_load_uops_retired.l2_hit_ps + mem_load_uops_retired.l3_hit_ps + mem_load_uops_l3_hit_retired.xsnp_hit_ps + mem_load_uops_l3_hit_retired.xsnp_hitm_ps + mem_load_uops_l3_hit_retired.xsnp_miss_ps ) + mem_load_uops_retired.l3_miss_ps ) ) ) / tma_info_thread_clks",
+      "BaseFormula": " ( 29 ) * ( mem_load_uops_retired.l3_hit * ( 1 + mem_load_uops_retired.hit_lfb / ( ( mem_load_uops_retired.l2_hit + mem_load_uops_retired.l3_hit + mem_load_uops_l3_hit_retired.xsnp_hit + mem_load_uops_l3_hit_retired.xsnp_hitm + mem_load_uops_l3_hit_retired.xsnp_miss ) + mem_load_uops_retired.l3_miss ) ) ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -1692,7 +1692,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( 1 - ( a / ( a + ( 7 ) * b ) ) ) * c / ( d ) )",
-      "BaseFormula": " ( 1 - ( mem_load_uops_retired.l3_hit_ps / ( mem_load_uops_retired.l3_hit_ps + ( 7 ) * mem_load_uops_retired.l3_miss_ps ) ) ) * cycle_activity.stalls_l2_pending / tma_info_thread_clks",
+      "BaseFormula": " ( 1 - ( mem_load_uops_retired.l3_hit / ( mem_load_uops_retired.l3_hit + ( 7 ) * mem_load_uops_retired.l3_miss ) ) ) * cycle_activity.stalls_l2_pending / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Stalls",
       "Threshold": {
@@ -1892,7 +1892,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( ( a * ( 9 ) * ( 1 - ( b / c ) ) ) + ( 1 - ( b / c ) ) * ( min( d , e ) ) ) / ( d ) )",
-      "BaseFormula": " ( ( l2_rqsts.rfo_hit * ( 9 ) * ( 1 - ( mem_uops_retired.lock_loads_ps / mem_uops_retired.all_stores_ps ) ) ) + ( 1 - ( mem_uops_retired.lock_loads_ps / mem_uops_retired.all_stores_ps ) ) * ( min( cpu_clk_unhalted.thread , offcore_requests_outstanding.cycles_with_demand_rfo ) ) ) / tma_info_thread_clks",
+      "BaseFormula": " ( ( l2_rqsts.rfo_hit * ( 9 ) * ( 1 - ( mem_uops_retired.lock_loads / mem_uops_retired.all_stores ) ) ) + ( 1 - ( mem_uops_retired.lock_loads / mem_uops_retired.all_stores ) ) * ( min( cpu_clk_unhalted.thread , offcore_requests_outstanding.cycles_with_demand_rfo ) ) ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -2001,7 +2001,7 @@
         }
       ],
       "Formula": "100 * ( 2 * a / ( ( b / 2 ) if smt_on else ( c ) ) )",
-      "BaseFormula": " 2 * mem_uops_retired.split_stores_ps / tma_info_core_core_clks",
+      "BaseFormula": " 2 * mem_uops_retired.split_stores / tma_info_core_core_clks",
       "Category": "TMA",
       "CountDomain": "Core_Utilization",
       "Threshold": {
@@ -3840,7 +3840,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " inst_retired.any / mem_uops_retired.all_loads_ps",
+      "BaseFormula": " inst_retired.any / mem_uops_retired.all_loads",
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
@@ -3875,7 +3875,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " inst_retired.any / mem_uops_retired.all_stores_ps",
+      "BaseFormula": " inst_retired.any / mem_uops_retired.all_stores",
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
@@ -4256,7 +4256,7 @@
       ],
       "Constants": [],
       "Formula": "a / ( b + c )",
-      "BaseFormula": " l1d_pend_miss.pending / ( mem_load_uops_retired.l1_miss + mem_load_uops_retired.hit_lfb_ps )",
+      "BaseFormula": " l1d_pend_miss.pending / ( mem_load_uops_retired.l1_miss + mem_load_uops_retired.hit_lfb )",
       "Category": "TMA",
       "CountDomain": "Clocks_Latency",
       "Threshold": {
@@ -4401,7 +4401,7 @@
       ],
       "Constants": [],
       "Formula": "1000 * a / b",
-      "BaseFormula": " 1000 * mem_load_uops_retired.l3_miss_ps / inst_retired.any",
+      "BaseFormula": " 1000 * mem_load_uops_retired.l3_miss / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -5110,7 +5110,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " inst_retired.any / br_inst_retired.far_branch_ps:user",
+      "BaseFormula": " inst_retired.any / br_inst_retired.far_branch:user",
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
