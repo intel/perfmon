@@ -34,7 +34,9 @@
         "UNC_CHA_CLOCKTICKS:ONE_UNIT": "cha_0@event\\=0x0@",
         "FREERUN_PKG_ENERGY_STATUS":"power@energy\\-pkg@",
         "FREERUN_DRAM_ENERGY_STATUS":"power@energy\\-ram@",
-        "NUM_CPUS":"#num_cpus_online"
+        "NUM_CPUS":"#num_cpus_online",
+        "UNC_PKG_ENERGY_STATUS":"power@energy\\-pkg@",
+        "UNC_DRAM_ENERGY_STATUS":"power@energy\\-ram@"
     },
     "metric_source_events":{
         "CHAS_PER_SOCKET":"UNC_CHA([^\\s]*)",

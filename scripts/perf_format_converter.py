@@ -189,7 +189,7 @@ class PerfFormatConverter:
                     metric_group=self.get_groups(metric),
                     metric_name=self.translate_metric_name(metric),
                     scale_unit=self.get_scale_unit(metric),
-                    threshold=self.get_threshold(metric))
+                    metric_threshold=self.get_threshold(metric))
                 metrics.append(new_metric)
         except KeyError as error:
             sys.exit("Error in input JSON format during convert_to_perf_metrics():" + str(error) + ". Exiting")
@@ -415,6 +415,11 @@ class PerfFormatConverter:
         if "CountDomain" in metric and metric["CountDomain"] != "":
             new_groups.append(metric["CountDomain"])
 
+        # Add Threshold issues
+        if "Threshold" in metric and metric["Threshold"]["ThresholdIssues"] != "":
+            threshold_issues = [f"tma_{issue.replace("$", "").replace("~", "").strip()}" for issue in metric["Threshold"]["ThresholdIssues"].split(",")]
+            new_groups.extend(threshold_issues)
+
         return ";".join(new_groups) if new_groups.count != 0 else ""
 
     def get_threshold(self, metric):
@@ -432,13 +437,13 @@ class Metric:
     """
 
     def __init__(self, brief_description, metric_expr,
-                 metric_group, metric_name, scale_unit, threshold):
+                 metric_group, metric_name, scale_unit, metric_threshold):
         self.BriefDescription = brief_description
         self.MetricExpr = metric_expr
         self.MetricGroup = metric_group
         self.MetricName = metric_name
         self.ScaleUnit = scale_unit
-        self.Threshold = threshold
+        self.MetricThreshold = metric_threshold
 
 
 if __name__ == "__main__":
