@@ -1266,7 +1266,7 @@
         "MetricExpr": "100 * ( 1 - tma_core_bound / tma_ports_utilization if tma_core_bound < tma_ports_utilization else 1 ) if tma_info_system_smt_2t_utilization > 0.5 else 0",
         "MetricGroup": "Cor;SMT;Metric",
         "MetricName": "tma_info_botlnk_l0_core_bound_likely",
-        "MetricThreshold": "tma_info_botlnk_core_bound_likely > 05"
+        "MetricThreshold": "tma_info_botlnk_core_bound_likely > 0.5"
     },
     {
         "BriefDescription": "Instructions Per Cycle (per Logical Processor)",
@@ -1279,14 +1279,14 @@
         "MetricExpr": "( tma_retiring * tma_info_thread_slots ) / INST_RETIRED.ANY",
         "MetricGroup": "Pipeline;Ret;Retire;Metric",
         "MetricName": "tma_info_thread_uoppi",
-        "MetricThreshold": "tma_info_thread_uoppi > 105"
+        "MetricThreshold": "tma_info_thread_uoppi > 1.05"
     },
     {
         "BriefDescription": "Uops per taken branch",
         "MetricExpr": "( tma_retiring * tma_info_thread_slots ) / BR_INST_RETIRED.NEAR_TAKEN",
         "MetricGroup": "Branches;Fed;FetchBW;Metric",
         "MetricName": "tma_info_thread_uptb",
-        "MetricThreshold": "tma_info_thread_uptb < 6 * 15"
+        "MetricThreshold": "tma_info_thread_uptb < 6 * 1.5"
     },
     {
         "BriefDescription": "Cycles Per Instruction (per Logical Processor)",
@@ -1482,7 +1482,7 @@
         "MetricExpr": "INST_RETIRED.REP_ITERATION / cpu@UOPS_RETIRED.SLOTS\\,cmask\\=0x1@",
         "MetricGroup": "MicroSeq;Pipeline;Ret;Metric",
         "MetricName": "tma_info_pipeline_strings_cycles",
-        "MetricThreshold": "tma_info_pipeline_strings_cycles > 01"
+        "MetricThreshold": "tma_info_pipeline_strings_cycles > 0.1"
     },
     {
         "BriefDescription": "Instructions per a microcode Assist invocation. See Assists tree node for details (lower number means higher occurrence rate)",
@@ -1520,7 +1520,7 @@
         "MetricExpr": "IDQ.DSB_UOPS / ( UOPS_ISSUED.ANY )",
         "MetricGroup": "DSB;Fed;FetchBW;Metric;tma_issueFB",
         "MetricName": "tma_info_frontend_dsb_coverage",
-        "MetricThreshold": "tma_info_frontend_dsb_coverage < 07 & ipc / 6 > 035"
+        "MetricThreshold": "tma_info_frontend_dsb_coverage < 0.7 & ipc / 6 > 0.35"
     },
     {
         "BriefDescription": "Average number of cycles the front-end was delayed due to an Unknown Branch detection. See Unknown_Branches node.",
@@ -1764,7 +1764,7 @@
         "MetricExpr": "( ITLB_MISSES.WALK_PENDING + DTLB_LOAD_MISSES.WALK_PENDING + DTLB_STORE_MISSES.WALK_PENDING ) / ( 4 * tma_info_core_core_clks )",
         "MetricGroup": "Mem;MemoryTLB;Core_Metric",
         "MetricName": "tma_info_memory_tlb_page_walks_utilization",
-        "MetricThreshold": "tma_info_memory_page_walks_utilization > 05"
+        "MetricThreshold": "tma_info_memory_page_walks_utilization > 0.5"
     },
     {
         "BriefDescription": "STLB (2nd level TLB) code speculative misses per kilo instruction (misses of any page-size that complete the page walk)",
@@ -1921,7 +1921,7 @@
         "MetricExpr": "CPU_CLK_UNHALTED.THREAD_P:k / CPU_CLK_UNHALTED.THREAD",
         "MetricGroup": "OS;Metric",
         "MetricName": "tma_info_system_kernel_utilization",
-        "MetricThreshold": "tma_info_system_kernel_utilization > 005"
+        "MetricThreshold": "tma_info_system_kernel_utilization > 0.05"
     },
     {
         "BriefDescription": "Cycles Per Instruction for the Operating System (OS) Kernel mode",
@@ -1935,7 +1935,7 @@
         "MetricExpr": "CPU_CLK_UNHALTED.C0_WAIT / tma_info_thread_clks",
         "MetricGroup": "C0Wait;Metric",
         "MetricName": "tma_info_system_c0_wait",
-        "MetricThreshold": "tma_info_system_c0_wait > 005"
+        "MetricThreshold": "tma_info_system_c0_wait > 0.05"
     },
     {
         "BriefDescription": "Average external Memory Bandwidth Use for reads and writes [GB / sec]",
@@ -2015,7 +2015,7 @@
         "MetricExpr": "CPU_CLK_UNHALTED.THREAD_P / CPU_CLK_UNHALTED.THREAD",
         "MetricGroup": "Summary;Clocks",
         "MetricName": "tma_info_system_mux",
-        "MetricThreshold": "tma_info_system_mux > 11 | tma_info_system_mux < 09"
+        "MetricThreshold": "tma_info_system_mux > 1.1 | tma_info_system_mux < 0.9"
     },
     {
         "BriefDescription": "Socket actual clocks when any core is active on that socket",
