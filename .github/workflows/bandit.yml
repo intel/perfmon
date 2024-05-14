@@ -45,6 +45,6 @@ jobs:
           retention-days: 10
 
       - name: Upload to code-scanning dashboard
-        uses: github/codeql-action/upload-sarif@d39d31e687223d841ef683f52467bd88e9b21c14 # v3.25.3
+        uses: github/codeql-action/upload-sarif@b7cec7526559c32f1616476ff32d17ba4c59b2d6 # v3.25.5
         with:
           sarif_file: bandit_scan_results.sarif
