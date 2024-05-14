@@ -379,7 +379,7 @@
     },
     {
         "BriefDescription": "This category represents fraction of slots where the processor's Frontend undersupplies its Backend. Frontend denotes the first part of the processor core responsible to fetch operations that are executed later on by the Backend part. Within the Frontend; a branch predictor predicts the next address to fetch; cache-lines are fetched from the memory subsystem; parsed into instructions; and lastly decoded into micro-operations (uops). Ideally the Frontend can issue Pipeline_Width uops every cycle to the Backend. Frontend Bound denotes unutilized issue-slots when there is no Backend stall; i.e. bubbles where Frontend delivered no uops while Backend could have accepted them. For example; stalls due to instruction-cache misses would be categorized under Frontend Bound.",
-        "MetricExpr": "topdown\\-fe\\-bound / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) - INT_MISC.UOP_DROPPING / slots",
+        "MetricExpr": "topdown\\-fe\\-bound / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) - INT_MISC.UOP_DROPPING / tma_info_thread_slots",
         "MetricGroup": "BvFB;BvIO;TmaL1;PGO;TopdownL1;tma_L1_group;Slots",
         "MetricName": "tma_frontend_bound",
         "ScaleUnit": "100%",
@@ -387,7 +387,7 @@
     },
     {
         "BriefDescription": "This metric represents fraction of slots the CPU was stalled due to Frontend latency issues.  For example; instruction-cache misses; iTLB misses or fetch stalls after a branch misprediction are categorized under Frontend Latency. In such cases; the Frontend eventually delivers no uops for some period.",
-        "MetricExpr": "( topdown\\-fetch\\-lat / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) - INT_MISC.UOP_DROPPING / slots )",
+        "MetricExpr": "( topdown\\-fetch\\-lat / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) - INT_MISC.UOP_DROPPING / tma_info_thread_slots )",
         "MetricGroup": "Frontend;TmaL2;TopdownL2;tma_L2_group;tma_frontend_bound_group;Slots",
         "MetricName": "tma_fetch_latency",
         "ScaleUnit": "100%",
@@ -1003,7 +1003,7 @@
     },
     {
         "BriefDescription": "This metric approximates arithmetic floating-point (FP) scalar uops fraction the CPU has retired. May overcount due to FMA double counting.",
-        "MetricExpr": "( FP_ARITH_INST_RETIRED.SCALAR + FP_ARITH_INST_RETIRED2.SCALAR ) / ( tma_retiring * slots )",
+        "MetricExpr": "( FP_ARITH_INST_RETIRED.SCALAR + FP_ARITH_INST_RETIRED2.SCALAR ) / ( tma_retiring * tma_info_thread_slots )",
         "MetricGroup": "Compute;Flops;TopdownL4;tma_L4_group;tma_fp_arith_group;Uops;tma_issue2P",
         "MetricName": "tma_fp_scalar",
         "ScaleUnit": "100%",
@@ -1011,7 +1011,7 @@
     },
     {
         "BriefDescription": "This metric approximates arithmetic floating-point (FP) vector uops fraction the CPU has retired aggregated across all vector widths. May overcount due to FMA double counting.",
-        "MetricExpr": "( FP_ARITH_INST_RETIRED.VECTOR + FP_ARITH_INST_RETIRED2.VECTOR ) / ( tma_retiring * slots )",
+        "MetricExpr": "( FP_ARITH_INST_RETIRED.VECTOR + FP_ARITH_INST_RETIRED2.VECTOR ) / ( tma_retiring * tma_info_thread_slots )",
         "MetricGroup": "Compute;Flops;TopdownL4;tma_L4_group;tma_fp_arith_group;Uops;tma_issue2P",
         "MetricName": "tma_fp_vector",
         "ScaleUnit": "100%",
@@ -1019,7 +1019,7 @@
     },
     {
         "BriefDescription": "This metric approximates arithmetic FP vector uops fraction the CPU has retired for 128-bit wide vectors. May overcount due to FMA double counting.",
-        "MetricExpr": "( FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.128B_PACKED_SINGLE + FP_ARITH_INST_RETIRED2.128B_PACKED_HALF ) / ( tma_retiring * slots )",
+        "MetricExpr": "( FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.128B_PACKED_SINGLE + FP_ARITH_INST_RETIRED2.128B_PACKED_HALF ) / ( tma_retiring * tma_info_thread_slots )",
         "MetricGroup": "Compute;Flops;TopdownL5;tma_L5_group;tma_fp_vector_group;Uops;tma_issue2P",
         "MetricName": "tma_fp_vector_128b",
         "ScaleUnit": "100%",
@@ -1027,7 +1027,7 @@
     },
     {
         "BriefDescription": "This metric approximates arithmetic FP vector uops fraction the CPU has retired for 256-bit wide vectors. May overcount due to FMA double counting.",
-        "MetricExpr": "( FP_ARITH_INST_RETIRED.256B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.256B_PACKED_SINGLE + FP_ARITH_INST_RETIRED2.256B_PACKED_HALF ) / ( tma_retiring * slots )",
+        "MetricExpr": "( FP_ARITH_INST_RETIRED.256B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.256B_PACKED_SINGLE + FP_ARITH_INST_RETIRED2.256B_PACKED_HALF ) / ( tma_retiring * tma_info_thread_slots )",
         "MetricGroup": "Compute;Flops;TopdownL5;tma_L5_group;tma_fp_vector_group;Uops;tma_issue2P",
         "MetricName": "tma_fp_vector_256b",
         "ScaleUnit": "100%",
@@ -1035,7 +1035,7 @@
     },
     {
         "BriefDescription": "This metric approximates arithmetic FP vector uops fraction the CPU has retired for 512-bit wide vectors. May overcount due to FMA double counting.",
-        "MetricExpr": "( FP_ARITH_INST_RETIRED.512B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.512B_PACKED_SINGLE + FP_ARITH_INST_RETIRED2.512B_PACKED_HALF ) / ( tma_retiring * slots )",
+        "MetricExpr": "( FP_ARITH_INST_RETIRED.512B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.512B_PACKED_SINGLE + FP_ARITH_INST_RETIRED2.512B_PACKED_HALF ) / ( tma_retiring * tma_info_thread_slots )",
         "MetricGroup": "Compute;Flops;TopdownL5;tma_L5_group;tma_fp_vector_group;Uops;tma_issue2P",
         "MetricName": "tma_fp_vector_512b",
         "ScaleUnit": "100%",
@@ -1051,7 +1051,7 @@
     },
     {
         "BriefDescription": "This metric represents 128-bit vector Integer ADD/SUB/SAD or VNNI (Vector Neural Network Instructions) uops fraction the CPU has retired.",
-        "MetricExpr": "( INT_VEC_RETIRED.ADD_128 + INT_VEC_RETIRED.VNNI_128 ) / ( tma_retiring * slots )",
+        "MetricExpr": "( INT_VEC_RETIRED.ADD_128 + INT_VEC_RETIRED.VNNI_128 ) / ( tma_retiring * tma_info_thread_slots )",
         "MetricGroup": "Compute;IntVector;Pipeline;TopdownL4;tma_L4_group;tma_int_operations_group;Uops;tma_issue2P",
         "MetricName": "tma_int_vector_128b",
         "ScaleUnit": "100%",
@@ -1059,7 +1059,7 @@
     },
     {
         "BriefDescription": "This metric represents 256-bit vector Integer ADD/SUB/SAD/MUL or VNNI (Vector Neural Network Instructions) uops fraction the CPU has retired.",
-        "MetricExpr": "( INT_VEC_RETIRED.ADD_256 + INT_VEC_RETIRED.MUL_256 + INT_VEC_RETIRED.VNNI_256 ) / ( tma_retiring * slots )",
+        "MetricExpr": "( INT_VEC_RETIRED.ADD_256 + INT_VEC_RETIRED.MUL_256 + INT_VEC_RETIRED.VNNI_256 ) / ( tma_retiring * tma_info_thread_slots )",
         "MetricGroup": "Compute;IntVector;Pipeline;TopdownL4;tma_L4_group;tma_int_operations_group;Uops;tma_issue2P",
         "MetricName": "tma_int_vector_256b",
         "ScaleUnit": "100%",
@@ -1067,7 +1067,7 @@
     },
     {
         "BriefDescription": "This metric represents fraction of slots where the CPU was retiring memory operations , uops for memory load or store accesses.",
-        "MetricExpr": "tma_light_operations * MEM_UOP_RETIRED.ANY / ( tma_retiring * slots )",
+        "MetricExpr": "tma_light_operations * MEM_UOP_RETIRED.ANY / ( tma_retiring * tma_info_thread_slots )",
         "MetricGroup": "Pipeline;TopdownL3;tma_L3_group;tma_light_operations_group;Slots",
         "MetricName": "tma_memory_operations",
         "ScaleUnit": "100%",
@@ -1075,7 +1075,7 @@
     },
     {
         "BriefDescription": "This metric represents fraction of slots where the CPU was retiring fused instructions , where one uop can represent multiple contiguous instructions. CMP+JCC or DEC+JCC are common examples of legacy fusions. {([MTL] Note new MOV+OP and Load+OP fusions appear under Other_Light_Ops in MTL!)}",
-        "MetricExpr": "tma_light_operations * INST_RETIRED.MACRO_FUSED / ( tma_retiring * slots )",
+        "MetricExpr": "tma_light_operations * INST_RETIRED.MACRO_FUSED / ( tma_retiring * tma_info_thread_slots )",
         "MetricGroup": "Branches;BvBO;Pipeline;TopdownL3;tma_L3_group;tma_light_operations_group;Slots",
         "MetricName": "tma_fused_instructions",
         "ScaleUnit": "100%",
@@ -1083,7 +1083,7 @@
     },
     {
         "BriefDescription": "This metric represents fraction of slots where the CPU was retiring branch instructions that were not fused. Non-conditional branches like direct JMP or CALL would count here. Can be used to examine fusible conditional jumps that were not fused.",
-        "MetricExpr": "tma_light_operations * ( BR_INST_RETIRED.ALL_BRANCHES - INST_RETIRED.MACRO_FUSED ) / ( tma_retiring * slots )",
+        "MetricExpr": "tma_light_operations * ( BR_INST_RETIRED.ALL_BRANCHES - INST_RETIRED.MACRO_FUSED ) / ( tma_retiring * tma_info_thread_slots )",
         "MetricGroup": "Branches;BvBO;Pipeline;TopdownL3;tma_L3_group;tma_light_operations_group;Slots",
         "MetricName": "tma_non_fused_branches",
         "ScaleUnit": "100%",
@@ -1099,7 +1099,7 @@
     },
     {
         "BriefDescription": "This metric represents fraction of slots where the CPU was retiring NOP (no op) instructions. Compilers often use NOPs for certain address alignments - e.g. start address of a function or loop body.",
-        "MetricExpr": "tma_light_operations * INST_RETIRED.NOP / ( tma_retiring * slots )",
+        "MetricExpr": "tma_light_operations * INST_RETIRED.NOP / ( tma_retiring * tma_info_thread_slots )",
         "MetricGroup": "BvBO;Pipeline;TopdownL4;tma_L4_group;tma_light_operations_group;Slots",
         "MetricName": "tma_nop_instructions",
         "ScaleUnit": "100%",
@@ -1107,7 +1107,7 @@
     },
     {
         "BriefDescription": "This metric represents fraction of slots where the CPU was retiring Shuffle operations of 256-bit vector size (FP or Integer). Shuffles may incur slow cross \"vector lane\" data transfers.",
-        "MetricExpr": "tma_light_operations * INT_VEC_RETIRED.SHUFFLES / ( tma_retiring * slots )",
+        "MetricExpr": "tma_light_operations * INT_VEC_RETIRED.SHUFFLES / ( tma_retiring * tma_info_thread_slots )",
         "MetricGroup": "HPC;Pipeline;TopdownL4;tma_L4_group;tma_int_operations_group;Slots",
         "MetricName": "tma_shuffles_256b",
         "ScaleUnit": "100%",
@@ -1131,7 +1131,7 @@
     },
     {
         "BriefDescription": "This metric represents fraction of slots the CPU was retiring uops fetched by the Microcode Sequencer (MS) unit.  The MS is used for CISC instructions not supported by the default decoders (like repeat move strings; or CPUID); or by microcode assists used to address some operation modes (like in Floating Point assists). These cases can often be avoided.",
-        "MetricExpr": "UOPS_RETIRED.MS / slots",
+        "MetricExpr": "UOPS_RETIRED.MS / tma_info_thread_slots",
         "MetricGroup": "MicroSeq;TopdownL3;tma_L3_group;tma_heavy_operations_group;Slots;tma_issueMC;tma_issueMS",
         "MetricName": "tma_microcode_sequencer",
         "ScaleUnit": "100%",
@@ -1139,7 +1139,7 @@
     },
     {
         "BriefDescription": "This metric estimates fraction of slots the CPU retired uops delivered by the Microcode_Sequencer as a result of Assists. Assists are long sequences of uops that are required in certain corner-cases for operations that cannot be handled natively by the execution pipeline. For example; when working with very small floating point values (so-called Denormals); the FP units are not set up to perform these operations natively. Instead; a sequence of instructions to perform the computation on the Denormals is injected into the pipeline. Since these microcode sequences might be dozens of uops long; Assists can be extremely deleterious to performance and they can be avoided in many cases.",
-        "MetricExpr": "( ( 99 *3 + 63 + 30 ) / 5 ) * ASSISTS.ANY / slots",
+        "MetricExpr": "( ( 99 *3 + 63 + 30 ) / 5 ) * ASSISTS.ANY / tma_info_thread_slots",
         "MetricGroup": "BvIO;TopdownL4;tma_L4_group;tma_microcode_sequencer_group;Slots_Estimated",
         "MetricName": "tma_assists",
         "ScaleUnit": "100%",
@@ -1147,7 +1147,7 @@
     },
     {
         "BriefDescription": "This metric roughly estimates fraction of slots the CPU retired uops as a result of handing Page Faults. A Page Fault may apply on first application access to a memory page. Note operating system handling of page faults accounts for the majority of its cost.",
-        "MetricExpr": "99 * ASSISTS.PAGE_FAULT / slots",
+        "MetricExpr": "99 * ASSISTS.PAGE_FAULT / tma_info_thread_slots",
         "MetricGroup": "TopdownL5;tma_L5_group;tma_assists_group;Slots_Estimated",
         "MetricName": "tma_page_faults",
         "ScaleUnit": "100%",
@@ -1155,7 +1155,7 @@
     },
     {
         "BriefDescription": "This metric roughly estimates fraction of slots the CPU retired uops as a result of handing Floating Point (FP) Assists. FP Assist may apply when working with very small floating point values (so-called Denormals).",
-        "MetricExpr": "30 * ASSISTS.FP / slots",
+        "MetricExpr": "30 * ASSISTS.FP / tma_info_thread_slots",
         "MetricGroup": "HPC;TopdownL5;tma_L5_group;tma_assists_group;Slots_Estimated",
         "MetricName": "tma_fp_assists",
         "ScaleUnit": "100%",
@@ -1163,7 +1163,7 @@
     },
     {
         "BriefDescription": "This metric estimates fraction of slots the CPU retired uops as a result of handing SSE to AVX* or AVX* to SSE transition Assists. ",
-        "MetricExpr": "63 * ASSISTS.SSE_AVX_MIX / slots",
+        "MetricExpr": "63 * ASSISTS.SSE_AVX_MIX / tma_info_thread_slots",
         "MetricGroup": "HPC;TopdownL5;tma_L5_group;tma_assists_group;Slots_Estimated",
         "MetricName": "tma_avx_assists",
         "ScaleUnit": "100%",
@@ -1249,14 +1249,14 @@
     },
     {
         "BriefDescription": "Total pipeline cost of instructions used for program control-flow - a subset of the Retiring category in TMA. Examples include function calls; loops and alignments. (A lower bound)",
-        "MetricExpr": "100 * ( ( BR_INST_RETIRED.ALL_BRANCHES + 2 * BR_INST_RETIRED.NEAR_CALL + INST_RETIRED.NOP ) / slots )",
+        "MetricExpr": "100 * ( ( BR_INST_RETIRED.ALL_BRANCHES + 2 * BR_INST_RETIRED.NEAR_CALL + INST_RETIRED.NOP ) / tma_info_thread_slots )",
         "MetricGroup": "BvBO;Ret;Scaled_Slots",
         "MetricName": "tma_info_bottleneck_branching_overhead",
         "MetricThreshold": "tma_info_bottleneck_branching_overhead > 5"
     },
     {
         "BriefDescription": "Total pipeline cost of \"useful operations\" - the portion of Retiring category not covered by Branching_Overhead nor Irregular_Overhead.",
-        "MetricExpr": "100 * ( tma_retiring - ( ( BR_INST_RETIRED.ALL_BRANCHES + 2 * BR_INST_RETIRED.NEAR_CALL + INST_RETIRED.NOP ) / slots ) - ( ( ( tma_microcode_sequencer / ( tma_few_uops_instructions + tma_microcode_sequencer ) ) * ( tma_assists / tma_microcode_sequencer ) ) * tma_heavy_operations ) )",
+        "MetricExpr": "100 * ( tma_retiring - ( ( BR_INST_RETIRED.ALL_BRANCHES + 2 * BR_INST_RETIRED.NEAR_CALL + INST_RETIRED.NOP ) / tma_info_thread_slots ) - ( ( ( tma_microcode_sequencer / ( tma_few_uops_instructions + tma_microcode_sequencer ) ) * ( tma_assists / tma_microcode_sequencer ) ) * tma_heavy_operations ) )",
         "MetricGroup": "BvUW;Ret;Scaled_Slots",
         "MetricName": "tma_info_bottleneck_useful_work",
         "MetricThreshold": "tma_info_bottleneck_useful_work > 20"
@@ -1276,14 +1276,14 @@
     },
     {
         "BriefDescription": "Uops Per Instruction",
-        "MetricExpr": "( tma_retiring * slots ) / INST_RETIRED.ANY",
+        "MetricExpr": "( tma_retiring * tma_info_thread_slots ) / INST_RETIRED.ANY",
         "MetricGroup": "Pipeline;Ret;Retire;Metric",
         "MetricName": "tma_info_thread_uoppi",
         "MetricThreshold": "tma_info_thread_uoppi > 105"
     },
     {
         "BriefDescription": "Uops per taken branch",
-        "MetricExpr": "( tma_retiring * slots ) / BR_INST_RETIRED.NEAR_TAKEN",
+        "MetricExpr": "( tma_retiring * tma_info_thread_slots ) / BR_INST_RETIRED.NEAR_TAKEN",
         "MetricGroup": "Branches;Fed;FetchBW;Metric",
         "MetricName": "tma_info_thread_uptb",
         "MetricThreshold": "tma_info_thread_uptb < 6 * 15"
@@ -1309,7 +1309,7 @@
     },
     {
         "BriefDescription": "Fraction of Physical Core issue-slots utilized by this Logical Processor",
-        "MetricExpr": "slots / ( TOPDOWN.SLOTS / 2 ) if #SMT_on else 1",
+        "MetricExpr": "tma_info_thread_slots / ( TOPDOWN.SLOTS / 2 ) if #SMT_on else 1",
         "MetricGroup": "SMT;TmaL1;TopdownL1;tma_L1_group;Metric",
         "MetricName": "tma_info_thread_slots_utilization"
     },
@@ -1473,7 +1473,7 @@
     },
     {
         "BriefDescription": "Average number of Uops retired in cycles where at least one uop has retired.",
-        "MetricExpr": "( tma_retiring * slots ) / cpu@UOPS_RETIRED.SLOTS\\,cmask\\=0x1@",
+        "MetricExpr": "( tma_retiring * tma_info_thread_slots ) / cpu@UOPS_RETIRED.SLOTS\\,cmask\\=0x1@",
         "MetricGroup": "Pipeline;Ret;Metric",
         "MetricName": "tma_info_pipeline_retire"
     },
@@ -1623,7 +1623,7 @@
     },
     {
         "BriefDescription": "Branch Misprediction Cost: Fraction of TMA slots wasted per non-speculative branch misprediction (retired JEClear)",
-        "MetricExpr": "tma_info_bottleneck_mispredictions * slots / BR_MISP_RETIRED.ALL_BRANCHES / 100",
+        "MetricExpr": "tma_info_bottleneck_mispredictions * tma_info_thread_slots / BR_MISP_RETIRED.ALL_BRANCHES / 100",
         "MetricGroup": "Bad;BrMispredicts;Core_Metric;tma_issueBM",
         "MetricName": "tma_info_bad_spec_branch_misprediction_cost"
     },
