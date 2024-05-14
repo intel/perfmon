@@ -428,7 +428,7 @@ class PerfFormatConverter:
                 return self.clean_metric_names(metric["Threshold"]["BaseFormula"])
 
     def clean_metric_names(self, formula):
-        return re.sub(r'\([^\(\)]+\)', "", formula).lower().replace("metric_","").replace(".", "")
+        return re.sub(r'\([^\(\)]+\)', "", formula).lower().replace("metric_","").replace("..", "")
 
 
 class Metric:
