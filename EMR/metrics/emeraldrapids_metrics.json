@@ -1322,8 +1322,8 @@
             "Value": "metric_TMA_Frontend_Bound(%)"
           }
         ],
-        "Formula": "a > 10 && b > 15",
-        "BaseFormula": "metric_TMA_..Fetch_Latency(%) > 10 && metric_TMA_Frontend_Bound(%) > 15",
+        "Formula": "a > 10 & b > 15",
+        "BaseFormula": "metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -1366,8 +1366,8 @@
             "Value": "metric_TMA_Frontend_Bound(%)"
           }
         ],
-        "Formula": "a > 5 && b > 10 && c > 15",
-        "BaseFormula": "metric_TMA_....ICache_Misses(%) > 5 && metric_TMA_..Fetch_Latency(%) > 10 && metric_TMA_Frontend_Bound(%) > 15",
+        "Formula": "a > 5 & b > 10 & c > 15",
+        "BaseFormula": "metric_TMA_....ICache_Misses(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -1410,8 +1410,8 @@
             "Value": "metric_TMA_Frontend_Bound(%)"
           }
         ],
-        "Formula": "a > 5 && b > 10 && c > 15",
-        "BaseFormula": "metric_TMA_....ITLB_Misses(%) > 5 && metric_TMA_..Fetch_Latency(%) > 10 && metric_TMA_Frontend_Bound(%) > 15",
+        "Formula": "a > 5 & b > 10 & c > 15",
+        "BaseFormula": "metric_TMA_....ITLB_Misses(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -1458,8 +1458,8 @@
             "Value": "metric_TMA_Frontend_Bound(%)"
           }
         ],
-        "Formula": "a > 5 && b > 10 && c > 15",
-        "BaseFormula": "metric_TMA_....Branch_Resteers(%) > 5 && metric_TMA_..Fetch_Latency(%) > 10 && metric_TMA_Frontend_Bound(%) > 15",
+        "Formula": "a > 5 & b > 10 & c > 15",
+        "BaseFormula": "metric_TMA_....Branch_Resteers(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15",
         "ThresholdIssues": "~overlap"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -1534,8 +1534,8 @@
             "Value": "metric_TMA_Frontend_Bound(%)"
           }
         ],
-        "Formula": "a > 5 && b > 5 && c > 10 && d > 15",
-        "BaseFormula": "metric_TMA_......Mispredicts_Resteers(%) > 5 && metric_TMA_....Branch_Resteers(%) > 5 && metric_TMA_..Fetch_Latency(%) > 10 && metric_TMA_Frontend_Bound(%) > 15",
+        "Formula": "a > 5 & b > 5 & c > 10 & d > 15",
+        "BaseFormula": "metric_TMA_......Mispredicts_Resteers(%) > 5 & metric_TMA_....Branch_Resteers(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15",
         "ThresholdIssues": "$issueBM"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -1610,8 +1610,8 @@
             "Value": "metric_TMA_Frontend_Bound(%)"
           }
         ],
-        "Formula": "a > 5 && b > 5 && c > 10 && d > 15",
-        "BaseFormula": "metric_TMA_......Clears_Resteers(%) > 5 && metric_TMA_....Branch_Resteers(%) > 5 && metric_TMA_..Fetch_Latency(%) > 10 && metric_TMA_Frontend_Bound(%) > 15",
+        "Formula": "a > 5 & b > 5 & c > 10 & d > 15",
+        "BaseFormula": "metric_TMA_......Clears_Resteers(%) > 5 & metric_TMA_....Branch_Resteers(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15",
         "ThresholdIssues": "$issueMC"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -1658,8 +1658,8 @@
             "Value": "metric_TMA_Frontend_Bound(%)"
           }
         ],
-        "Formula": "a > 5 && b > 5 && c > 10 && d > 15",
-        "BaseFormula": "metric_TMA_......Unknown_Branches(%) > 5 && metric_TMA_....Branch_Resteers(%) > 5 && metric_TMA_..Fetch_Latency(%) > 10 && metric_TMA_Frontend_Bound(%) > 15",
+        "Formula": "a > 5 & b > 5 & c > 10 & d > 15",
+        "BaseFormula": "metric_TMA_......Unknown_Branches(%) > 5 & metric_TMA_....Branch_Resteers(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -1710,8 +1710,8 @@
             "Value": "metric_TMA_Frontend_Bound(%)"
           }
         ],
-        "Formula": "a > 5 && b > 10 && c > 15",
-        "BaseFormula": "metric_TMA_....MS_Switches(%) > 5 && metric_TMA_..Fetch_Latency(%) > 10 && metric_TMA_Frontend_Bound(%) > 15",
+        "Formula": "a > 5 & b > 10 & c > 15",
+        "BaseFormula": "metric_TMA_....MS_Switches(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15",
         "ThresholdIssues": "$issueMC, $issueMS, $issueMV, $issueSO"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -1754,8 +1754,8 @@
             "Value": "metric_TMA_Frontend_Bound(%)"
           }
         ],
-        "Formula": "a > 5 && b > 10 && c > 15",
-        "BaseFormula": "metric_TMA_....LCP(%) > 5 && metric_TMA_..Fetch_Latency(%) > 10 && metric_TMA_Frontend_Bound(%) > 15",
+        "Formula": "a > 5 & b > 10 & c > 15",
+        "BaseFormula": "metric_TMA_....LCP(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15",
         "ThresholdIssues": "$issueFB"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -1798,8 +1798,8 @@
             "Value": "metric_TMA_Frontend_Bound(%)"
           }
         ],
-        "Formula": "a > 5 && b > 10 && c > 15",
-        "BaseFormula": "metric_TMA_....DSB_Switches(%) > 5 && metric_TMA_..Fetch_Latency(%) > 10 && metric_TMA_Frontend_Bound(%) > 15",
+        "Formula": "a > 5 & b > 10 & c > 15",
+        "BaseFormula": "metric_TMA_....DSB_Switches(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15",
         "ThresholdIssues": "$issueFB"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -1911,8 +1911,8 @@
             "Value": "metric_TMA_..Fetch_Bandwidth(%)"
           }
         ],
-        "Formula": "a > 10 && b > 20",
-        "BaseFormula": "metric_TMA_....MITE(%) > 10 && metric_TMA_..Fetch_Bandwidth(%) > 20",
+        "Formula": "a > 10 & b > 20",
+        "BaseFormula": "metric_TMA_....MITE(%) > 10 & metric_TMA_..Fetch_Bandwidth(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -1972,8 +1972,8 @@
             "Value": "metric_TMA_..Fetch_Bandwidth(%)"
           }
         ],
-        "Formula": "a > 10 && b > 10 && c > 20",
-        "BaseFormula": "metric_TMA_......Decoder0_Alone(%) > 10 && metric_TMA_....MITE(%) > 10 && metric_TMA_..Fetch_Bandwidth(%) > 20",
+        "Formula": "a > 10 & b > 10 & c > 20",
+        "BaseFormula": "metric_TMA_......Decoder0_Alone(%) > 10 & metric_TMA_....MITE(%) > 10 & metric_TMA_..Fetch_Bandwidth(%) > 20",
         "ThresholdIssues": "$issueD0"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2029,8 +2029,8 @@
             "Value": "metric_TMA_..Fetch_Bandwidth(%)"
           }
         ],
-        "Formula": "a > 15 && b > 20",
-        "BaseFormula": "metric_TMA_....DSB(%) > 15 && metric_TMA_..Fetch_Bandwidth(%) > 20",
+        "Formula": "a > 15 & b > 20",
+        "BaseFormula": "metric_TMA_....DSB(%) > 15 & metric_TMA_..Fetch_Bandwidth(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2132,8 +2132,8 @@
             "Value": "metric_TMA_Bad_Speculation(%)"
           }
         ],
-        "Formula": "a > 10 && b > 15",
-        "BaseFormula": "metric_TMA_..Branch_Mispredicts(%) > 10 && metric_TMA_Bad_Speculation(%) > 15",
+        "Formula": "a > 10 & b > 15",
+        "BaseFormula": "metric_TMA_..Branch_Mispredicts(%) > 10 & metric_TMA_Bad_Speculation(%) > 15",
         "ThresholdIssues": "$issueBM"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2200,8 +2200,8 @@
             "Value": "metric_TMA_Bad_Speculation(%)"
           }
         ],
-        "Formula": "a > 5 && b > 10 && c > 15",
-        "BaseFormula": "metric_TMA_....Other_Mispredicts(%) > 5 && metric_TMA_..Branch_Mispredicts(%) > 10 && metric_TMA_Bad_Speculation(%) > 15",
+        "Formula": "a > 5 & b > 10 & c > 15",
+        "BaseFormula": "metric_TMA_....Other_Mispredicts(%) > 5 & metric_TMA_..Branch_Mispredicts(%) > 10 & metric_TMA_Bad_Speculation(%) > 15",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2260,8 +2260,8 @@
             "Value": "metric_TMA_Bad_Speculation(%)"
           }
         ],
-        "Formula": "a > 10 && b > 15",
-        "BaseFormula": "metric_TMA_..Machine_Clears(%) > 10 && metric_TMA_Bad_Speculation(%) > 15",
+        "Formula": "a > 10 & b > 15",
+        "BaseFormula": "metric_TMA_..Machine_Clears(%) > 10 & metric_TMA_Bad_Speculation(%) > 15",
         "ThresholdIssues": "$issueMC, $issueSyncxn"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2332,8 +2332,8 @@
             "Value": "metric_TMA_Bad_Speculation(%)"
           }
         ],
-        "Formula": "a > 5 && b > 10 && c > 15",
-        "BaseFormula": "metric_TMA_....Other_Nukes(%) > 5 && metric_TMA_..Machine_Clears(%) > 10 && metric_TMA_Bad_Speculation(%) > 15",
+        "Formula": "a > 5 & b > 10 & c > 15",
+        "BaseFormula": "metric_TMA_....Other_Nukes(%) > 5 & metric_TMA_..Machine_Clears(%) > 10 & metric_TMA_Bad_Speculation(%) > 15",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2427,8 +2427,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 20 && b > 20",
-        "BaseFormula": "metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 20 & b > 20",
+        "BaseFormula": "metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2475,8 +2475,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 10 && b > 20 && c > 20",
-        "BaseFormula": "metric_TMA_....L1_Bound(%) > 10 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 10 & b > 20 & c > 20",
+        "BaseFormula": "metric_TMA_....L1_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": "$issueL1, $issueMC"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2535,8 +2535,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 10 && b > 10 && c > 20 && d > 20",
-        "BaseFormula": "metric_TMA_......DTLB_Load(%) > 10 && metric_TMA_....L1_Bound(%) > 10 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 10 & b > 10 & c > 20 & d > 20",
+        "BaseFormula": "metric_TMA_......DTLB_Load(%) > 10 & metric_TMA_....L1_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": "$issueTLB"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2599,8 +2599,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 5 && b > 10 && c > 10 && d > 20 && e > 20",
-        "BaseFormula": "metric_TMA_........Load_STLB_Hit(%) > 5 && metric_TMA_......DTLB_Load(%) > 10 && metric_TMA_....L1_Bound(%) > 10 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 5 & b > 10 & c > 10 & d > 20 & e > 20",
+        "BaseFormula": "metric_TMA_........Load_STLB_Hit(%) > 5 & metric_TMA_......DTLB_Load(%) > 10 & metric_TMA_....L1_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2651,8 +2651,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 5 && b > 10 && c > 10 && d > 20 && e > 20",
-        "BaseFormula": "metric_TMA_........Load_STLB_Miss(%) > 5 && metric_TMA_......DTLB_Load(%) > 10 && metric_TMA_....L1_Bound(%) > 10 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 5 & b > 10 & c > 10 & d > 20 & e > 20",
+        "BaseFormula": "metric_TMA_........Load_STLB_Miss(%) > 5 & metric_TMA_......DTLB_Load(%) > 10 & metric_TMA_....L1_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2699,8 +2699,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 10 && b > 10 && c > 20 && d > 20",
-        "BaseFormula": "metric_TMA_......Store_Fwd_Blk(%) > 10 && metric_TMA_....L1_Bound(%) > 10 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 10 & b > 10 & c > 20 & d > 20",
+        "BaseFormula": "metric_TMA_......Store_Fwd_Blk(%) > 10 & metric_TMA_....L1_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2768,8 +2768,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 10 && b > 10 && c > 20 && d > 20",
-        "BaseFormula": "metric_TMA_......L1_Hit_Latency(%) > 10 && metric_TMA_....L1_Bound(%) > 10 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 10 & b > 10 & c > 20 & d > 20",
+        "BaseFormula": "metric_TMA_......L1_Hit_Latency(%) > 10 & metric_TMA_....L1_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2832,8 +2832,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 20 && b > 10 && c > 20 && d > 20",
-        "BaseFormula": "metric_TMA_......Lock_Latency(%) > 20 && metric_TMA_....L1_Bound(%) > 10 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 20 & b > 10 & c > 20 & d > 20",
+        "BaseFormula": "metric_TMA_......Lock_Latency(%) > 20 & metric_TMA_....L1_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": "$issueRFO"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2888,8 +2888,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 20 && b > 10 && c > 20 && d > 20",
-        "BaseFormula": "metric_TMA_......Split_Loads(%) > 20 && metric_TMA_....L1_Bound(%) > 10 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 20 & b > 10 & c > 20 & d > 20",
+        "BaseFormula": "metric_TMA_......Split_Loads(%) > 20 & metric_TMA_....L1_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -2972,8 +2972,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 5 && b > 20 && c > 20",
-        "BaseFormula": "metric_TMA_....L2_Bound(%) > 5 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 5 & b > 20 & c > 20",
+        "BaseFormula": "metric_TMA_....L2_Bound(%) > 5 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3020,8 +3020,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 5 && b > 20 && c > 20",
-        "BaseFormula": "metric_TMA_....L3_Bound(%) > 5 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 5 & b > 20 & c > 20",
+        "BaseFormula": "metric_TMA_....L3_Bound(%) > 5 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3101,8 +3101,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 5 && b > 5 && c > 20 && d > 20",
-        "BaseFormula": "metric_TMA_......Contested_Accesses(%) > 5 && metric_TMA_....L3_Bound(%) > 5 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 5 & b > 5 & c > 20 & d > 20",
+        "BaseFormula": "metric_TMA_......Contested_Accesses(%) > 5 & metric_TMA_....L3_Bound(%) > 5 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": "$issueSyncxn"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3182,8 +3182,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 5 && b > 5 && c > 20 && d > 20",
-        "BaseFormula": "metric_TMA_......Data_Sharing(%) > 5 && metric_TMA_....L3_Bound(%) > 5 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 5 & b > 5 & c > 20 & d > 20",
+        "BaseFormula": "metric_TMA_......Data_Sharing(%) > 5 & metric_TMA_....L3_Bound(%) > 5 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": "$issueSyncxn"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3251,8 +3251,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 10 && b > 5 && c > 20 && d > 20",
-        "BaseFormula": "metric_TMA_......L3_Hit_Latency(%) > 10 && metric_TMA_....L3_Bound(%) > 5 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 10 & b > 5 & c > 20 & d > 20",
+        "BaseFormula": "metric_TMA_......L3_Hit_Latency(%) > 10 & metric_TMA_....L3_Bound(%) > 5 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": "$issueLat, ~overlap"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3303,8 +3303,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 30 && b > 5 && c > 20 && d > 20",
-        "BaseFormula": "metric_TMA_......SQ_Full(%) > 30 && metric_TMA_....L3_Bound(%) > 5 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 30 & b > 5 & c > 20 & d > 20",
+        "BaseFormula": "metric_TMA_......SQ_Full(%) > 30 & metric_TMA_....L3_Bound(%) > 5 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": "$issueBW"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3346,8 +3346,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 10 && b > 20 && c > 20",
-        "BaseFormula": "metric_TMA_....DRAM_Bound(%) > 10 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 10 & b > 20 & c > 20",
+        "BaseFormula": "metric_TMA_....DRAM_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3393,8 +3393,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 20 && b > 10 && c > 20 && d > 20",
-        "BaseFormula": "metric_TMA_......MEM_Bandwidth(%) > 20 && metric_TMA_....DRAM_Bound(%) > 10 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 20 & b > 10 & c > 20 & d > 20",
+        "BaseFormula": "metric_TMA_......MEM_Bandwidth(%) > 20 & metric_TMA_....DRAM_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": "$issueBW"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3445,8 +3445,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 10 && b > 20 && c > 10 && d > 20 && e > 20",
-        "BaseFormula": "metric_TMA_........MBA_Stalls(%) > 10 && metric_TMA_......MEM_Bandwidth(%) > 20 && metric_TMA_....DRAM_Bound(%) > 10 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 10 & b > 20 & c > 10 & d > 20 & e > 20",
+        "BaseFormula": "metric_TMA_........MBA_Stalls(%) > 10 & metric_TMA_......MEM_Bandwidth(%) > 20 & metric_TMA_....DRAM_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3496,8 +3496,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 10 && b > 10 && c > 20 && d > 20",
-        "BaseFormula": "metric_TMA_......MEM_Latency(%) > 10 && metric_TMA_....DRAM_Bound(%) > 10 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 10 & b > 10 & c > 20 & d > 20",
+        "BaseFormula": "metric_TMA_......MEM_Latency(%) > 10 & metric_TMA_....DRAM_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": "$issueLat"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3569,8 +3569,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 10 && b > 10 && c > 10 && d > 20 && e > 20",
-        "BaseFormula": "metric_TMA_........Local_MEM(%) > 10 && metric_TMA_......MEM_Latency(%) > 10 && metric_TMA_....DRAM_Bound(%) > 10 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 10 & b > 10 & c > 10 & d > 20 & e > 20",
+        "BaseFormula": "metric_TMA_........Local_MEM(%) > 10 & metric_TMA_......MEM_Latency(%) > 10 & metric_TMA_....DRAM_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3642,8 +3642,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 10 && b > 10 && c > 10 && d > 20 && e > 20",
-        "BaseFormula": "metric_TMA_........Remote_MEM(%) > 10 && metric_TMA_......MEM_Latency(%) > 10 && metric_TMA_....DRAM_Bound(%) > 10 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 10 & b > 10 & c > 10 & d > 20 & e > 20",
+        "BaseFormula": "metric_TMA_........Remote_MEM(%) > 10 & metric_TMA_......MEM_Latency(%) > 10 & metric_TMA_....DRAM_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3719,8 +3719,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 5 && b > 10 && c > 10 && d > 20 && e > 20",
-        "BaseFormula": "metric_TMA_........Remote_Cache(%) > 5 && metric_TMA_......MEM_Latency(%) > 10 && metric_TMA_....DRAM_Bound(%) > 10 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 5 & b > 10 & c > 10 & d > 20 & e > 20",
+        "BaseFormula": "metric_TMA_........Remote_Cache(%) > 5 & metric_TMA_......MEM_Latency(%) > 10 & metric_TMA_....DRAM_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": "$issueSyncxn"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3763,8 +3763,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 20 && b > 20 && c > 20",
-        "BaseFormula": "metric_TMA_....Store_Bound(%) > 20 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 20 & b > 20 & c > 20",
+        "BaseFormula": "metric_TMA_....Store_Bound(%) > 20 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3823,8 +3823,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 10 && b > 20 && c > 20 && d > 20",
-        "BaseFormula": "metric_TMA_......Store_Latency(%) > 10 && metric_TMA_....Store_Bound(%) > 20 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 10 & b > 20 & c > 20 & d > 20",
+        "BaseFormula": "metric_TMA_......Store_Latency(%) > 10 & metric_TMA_....Store_Bound(%) > 20 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": "$issueRFO, $issueSL, ~overlap"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3884,8 +3884,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 5 && b > 20 && c > 20 && d > 20",
-        "BaseFormula": "metric_TMA_......False_Sharing(%) > 5 && metric_TMA_....Store_Bound(%) > 20 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 5 & b > 20 & c > 20 & d > 20",
+        "BaseFormula": "metric_TMA_......False_Sharing(%) > 5 & metric_TMA_....Store_Bound(%) > 20 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": "$issueSyncxn"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3945,8 +3945,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 20 && b > 20 && c > 20 && d > 20",
-        "BaseFormula": "metric_TMA_......Split_Stores(%) > 20 && metric_TMA_....Store_Bound(%) > 20 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 20 & b > 20 & c > 20 & d > 20",
+        "BaseFormula": "metric_TMA_......Split_Stores(%) > 20 & metric_TMA_....Store_Bound(%) > 20 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": "$issueSpSt"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -3993,8 +3993,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 20 && b > 20 && c > 20 && d > 20",
-        "BaseFormula": "metric_TMA_......Streaming_Stores(%) > 20 && metric_TMA_....Store_Bound(%) > 20 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 20 & b > 20 & c > 20 & d > 20",
+        "BaseFormula": "metric_TMA_......Streaming_Stores(%) > 20 & metric_TMA_....Store_Bound(%) > 20 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": "$issueSmSt"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4058,8 +4058,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 5 && b > 20 && c > 20 && d > 20",
-        "BaseFormula": "metric_TMA_......DTLB_Store(%) > 5 && metric_TMA_....Store_Bound(%) > 20 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 5 & b > 20 & c > 20 & d > 20",
+        "BaseFormula": "metric_TMA_......DTLB_Store(%) > 5 & metric_TMA_....Store_Bound(%) > 20 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": "$issueTLB"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4127,8 +4127,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 5 && b > 5 && c > 20 && d > 20 && e > 20",
-        "BaseFormula": "metric_TMA_........Store_STLB_Hit(%) > 5 && metric_TMA_......DTLB_Store(%) > 5 && metric_TMA_....Store_Bound(%) > 20 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 5 & b > 5 & c > 20 & d > 20 & e > 20",
+        "BaseFormula": "metric_TMA_........Store_STLB_Hit(%) > 5 & metric_TMA_......DTLB_Store(%) > 5 & metric_TMA_....Store_Bound(%) > 20 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4192,8 +4192,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 5 && b > 5 && c > 20 && d > 20 && e > 20",
-        "BaseFormula": "metric_TMA_........Store_STLB_Miss(%) > 5 && metric_TMA_......DTLB_Store(%) > 5 && metric_TMA_....Store_Bound(%) > 20 && metric_TMA_..Memory_Bound(%) > 20 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 5 & b > 5 & c > 20 & d > 20 & e > 20",
+        "BaseFormula": "metric_TMA_........Store_STLB_Miss(%) > 5 & metric_TMA_......DTLB_Store(%) > 5 & metric_TMA_....Store_Bound(%) > 20 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4244,8 +4244,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 10 && b > 20",
-        "BaseFormula": "metric_TMA_..Core_Bound(%) > 10 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 10 & b > 20",
+        "BaseFormula": "metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4288,8 +4288,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 20 && b > 10 && c > 20",
-        "BaseFormula": "metric_TMA_....Divider(%) > 20 && metric_TMA_..Core_Bound(%) > 10 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 20 & b > 10 & c > 20",
+        "BaseFormula": "metric_TMA_....Divider(%) > 20 & metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4336,8 +4336,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 10 && b > 10 && c > 20",
-        "BaseFormula": "metric_TMA_....Serializing_Operation(%) > 10 && metric_TMA_..Core_Bound(%) > 10 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 10 & b > 10 & c > 20",
+        "BaseFormula": "metric_TMA_....Serializing_Operation(%) > 10 & metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": "$issueSO"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4384,8 +4384,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 5 && b > 10 && c > 10 && d > 20",
-        "BaseFormula": "metric_TMA_......Slow_Pause(%) > 5 && metric_TMA_....Serializing_Operation(%) > 10 && metric_TMA_..Core_Bound(%) > 10 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 5 & b > 10 & c > 10 & d > 20",
+        "BaseFormula": "metric_TMA_......Slow_Pause(%) > 5 & metric_TMA_....Serializing_Operation(%) > 10 & metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4432,8 +4432,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 5 && b > 10 && c > 10 && d > 20",
-        "BaseFormula": "metric_TMA_......C01_WAIT(%) > 5 && metric_TMA_....Serializing_Operation(%) > 10 && metric_TMA_..Core_Bound(%) > 10 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 5 & b > 10 & c > 10 & d > 20",
+        "BaseFormula": "metric_TMA_......C01_WAIT(%) > 5 & metric_TMA_....Serializing_Operation(%) > 10 & metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4480,8 +4480,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 5 && b > 10 && c > 10 && d > 20",
-        "BaseFormula": "metric_TMA_......C02_WAIT(%) > 5 && metric_TMA_....Serializing_Operation(%) > 10 && metric_TMA_..Core_Bound(%) > 10 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 5 & b > 10 & c > 10 & d > 20",
+        "BaseFormula": "metric_TMA_......C02_WAIT(%) > 5 & metric_TMA_....Serializing_Operation(%) > 10 & metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4528,8 +4528,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 5 && b > 10 && c > 10 && d > 20",
-        "BaseFormula": "metric_TMA_......Memory_Fence(%) > 5 && metric_TMA_....Serializing_Operation(%) > 10 && metric_TMA_..Core_Bound(%) > 10 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 5 & b > 10 & c > 10 & d > 20",
+        "BaseFormula": "metric_TMA_......Memory_Fence(%) > 5 & metric_TMA_....Serializing_Operation(%) > 10 & metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4585,8 +4585,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 50 && b > 10 && c > 20",
-        "BaseFormula": "metric_TMA_....AMX_Busy(%) > 50 && metric_TMA_..Core_Bound(%) > 10 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 50 & b > 10 & c > 20",
+        "BaseFormula": "metric_TMA_....AMX_Busy(%) > 50 & metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4673,8 +4673,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 15 && b > 10 && c > 20",
-        "BaseFormula": "metric_TMA_....Ports_Utilization(%) > 15 && metric_TMA_..Core_Bound(%) > 10 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 15 & b > 10 & c > 20",
+        "BaseFormula": "metric_TMA_....Ports_Utilization(%) > 15 & metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4737,8 +4737,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 20 && b > 15 && c > 10 && d > 20",
-        "BaseFormula": "metric_TMA_......Ports_Utilized_0(%) > 20 && metric_TMA_....Ports_Utilization(%) > 15 && metric_TMA_..Core_Bound(%) > 10 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 20 & b > 15 & c > 10 & d > 20",
+        "BaseFormula": "metric_TMA_......Ports_Utilized_0(%) > 20 & metric_TMA_....Ports_Utilization(%) > 15 & metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4821,8 +4821,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 20 && b > 15 && c > 10 && d > 20",
-        "BaseFormula": "metric_TMA_......Ports_Utilized_1(%) > 20 && metric_TMA_....Ports_Utilization(%) > 15 && metric_TMA_..Core_Bound(%) > 10 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 20 & b > 15 & c > 10 & d > 20",
+        "BaseFormula": "metric_TMA_......Ports_Utilized_1(%) > 20 & metric_TMA_....Ports_Utilization(%) > 15 & metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": "$issueL1"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4869,8 +4869,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 15 && b > 15 && c > 10 && d > 20",
-        "BaseFormula": "metric_TMA_......Ports_Utilized_2(%) > 15 && metric_TMA_....Ports_Utilization(%) > 15 && metric_TMA_..Core_Bound(%) > 10 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 15 & b > 15 & c > 10 & d > 20",
+        "BaseFormula": "metric_TMA_......Ports_Utilized_2(%) > 15 & metric_TMA_....Ports_Utilization(%) > 15 & metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": "$issue2P"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -4917,8 +4917,8 @@
             "Value": "metric_TMA_Backend_Bound(%)"
           }
         ],
-        "Formula": "a > 40 && b > 15 && c > 10 && d > 20",
-        "BaseFormula": "metric_TMA_......Ports_Utilized_3m(%) > 40 && metric_TMA_....Ports_Utilization(%) > 15 && metric_TMA_..Core_Bound(%) > 10 && metric_TMA_Backend_Bound(%) > 20",
+        "Formula": "a > 40 & b > 15 & c > 10 & d > 20",
+        "BaseFormula": "metric_TMA_......Ports_Utilized_3m(%) > 40 & metric_TMA_....Ports_Utilization(%) > 15 & metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -5398,8 +5398,8 @@
             "Value": "metric_TMA_..Light_Operations(%)"
           }
         ],
-        "Formula": "a > 20 && b > 60",
-        "BaseFormula": "metric_TMA_....FP_Arith(%) > 20 && metric_TMA_..Light_Operations(%) > 60",
+        "Formula": "a > 20 & b > 60",
+        "BaseFormula": "metric_TMA_....FP_Arith(%) > 20 & metric_TMA_..Light_Operations(%) > 60",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -5458,8 +5458,8 @@
             "Value": "metric_TMA_..Light_Operations(%)"
           }
         ],
-        "Formula": "a > 10 && b > 20 && c > 60",
-        "BaseFormula": "metric_TMA_......X87_Use(%) > 10 && metric_TMA_....FP_Arith(%) > 20 && metric_TMA_..Light_Operations(%) > 60",
+        "Formula": "a > 10 & b > 20 & c > 60",
+        "BaseFormula": "metric_TMA_......X87_Use(%) > 10 & metric_TMA_....FP_Arith(%) > 20 & metric_TMA_..Light_Operations(%) > 60",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -5522,8 +5522,8 @@
             "Value": "metric_TMA_..Light_Operations(%)"
           }
         ],
-        "Formula": "a > 10 && b > 20 && c > 60",
-        "BaseFormula": "metric_TMA_......FP_Scalar(%) > 10 && metric_TMA_....FP_Arith(%) > 20 && metric_TMA_..Light_Operations(%) > 60",
+        "Formula": "a > 10 & b > 20 & c > 60",
+        "BaseFormula": "metric_TMA_......FP_Scalar(%) > 10 & metric_TMA_....FP_Arith(%) > 20 & metric_TMA_..Light_Operations(%) > 60",
         "ThresholdIssues": "$issue2P"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -5586,8 +5586,8 @@
             "Value": "metric_TMA_..Light_Operations(%)"
           }
         ],
-        "Formula": "a > 10 && b > 20 && c > 60",
-        "BaseFormula": "metric_TMA_......FP_Vector(%) > 10 && metric_TMA_....FP_Arith(%) > 20 && metric_TMA_..Light_Operations(%) > 60",
+        "Formula": "a > 10 & b > 20 & c > 60",
+        "BaseFormula": "metric_TMA_......FP_Vector(%) > 10 & metric_TMA_....FP_Arith(%) > 20 & metric_TMA_..Light_Operations(%) > 60",
         "ThresholdIssues": "$issue2P"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -5658,8 +5658,8 @@
             "Value": "metric_TMA_..Light_Operations(%)"
           }
         ],
-        "Formula": "a > 10 && b > 10 && c > 20 && d > 60",
-        "BaseFormula": "metric_TMA_........FP_Vector_128b(%) > 10 && metric_TMA_......FP_Vector(%) > 10 && metric_TMA_....FP_Arith(%) > 20 && metric_TMA_..Light_Operations(%) > 60",
+        "Formula": "a > 10 & b > 10 & c > 20 & d > 60",
+        "BaseFormula": "metric_TMA_........FP_Vector_128b(%) > 10 & metric_TMA_......FP_Vector(%) > 10 & metric_TMA_....FP_Arith(%) > 20 & metric_TMA_..Light_Operations(%) > 60",
         "ThresholdIssues": "$issue2P"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -5730,8 +5730,8 @@
             "Value": "metric_TMA_..Light_Operations(%)"
           }
         ],
-        "Formula": "a > 10 && b > 10 && c > 20 && d > 60",
-        "BaseFormula": "metric_TMA_........FP_Vector_256b(%) > 10 && metric_TMA_......FP_Vector(%) > 10 && metric_TMA_....FP_Arith(%) > 20 && metric_TMA_..Light_Operations(%) > 60",
+        "Formula": "a > 10 & b > 10 & c > 20 & d > 60",
+        "BaseFormula": "metric_TMA_........FP_Vector_256b(%) > 10 & metric_TMA_......FP_Vector(%) > 10 & metric_TMA_....FP_Arith(%) > 20 & metric_TMA_..Light_Operations(%) > 60",
         "ThresholdIssues": "$issue2P"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -5802,8 +5802,8 @@
             "Value": "metric_TMA_..Light_Operations(%)"
           }
         ],
-        "Formula": "a > 10 && b > 10 && c > 20 && d > 60",
-        "BaseFormula": "metric_TMA_........FP_Vector_512b(%) > 10 && metric_TMA_......FP_Vector(%) > 10 && metric_TMA_....FP_Arith(%) > 20 && metric_TMA_..Light_Operations(%) > 60",
+        "Formula": "a > 10 & b > 10 & c > 20 & d > 60",
+        "BaseFormula": "metric_TMA_........FP_Vector_512b(%) > 10 & metric_TMA_......FP_Vector(%) > 10 & metric_TMA_....FP_Arith(%) > 20 & metric_TMA_..Light_Operations(%) > 60",
         "ThresholdIssues": "$issue2P"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -5874,8 +5874,8 @@
             "Value": "metric_TMA_..Light_Operations(%)"
           }
         ],
-        "Formula": "a > 10 && b > 60",
-        "BaseFormula": "metric_TMA_....Int_Operations(%) > 10 && metric_TMA_..Light_Operations(%) > 60",
+        "Formula": "a > 10 & b > 60",
+        "BaseFormula": "metric_TMA_....Int_Operations(%) > 10 & metric_TMA_..Light_Operations(%) > 60",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -5938,8 +5938,8 @@
             "Value": "metric_TMA_..Light_Operations(%)"
           }
         ],
-        "Formula": "a > 10 && b > 10 && c > 60",
-        "BaseFormula": "metric_TMA_......Int_Vector_128b(%) > 10 && metric_TMA_....Int_Operations(%) > 10 && metric_TMA_..Light_Operations(%) > 60",
+        "Formula": "a > 10 & b > 10 & c > 60",
+        "BaseFormula": "metric_TMA_......Int_Vector_128b(%) > 10 & metric_TMA_....Int_Operations(%) > 10 & metric_TMA_..Light_Operations(%) > 60",
         "ThresholdIssues": "$issue2P"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -6006,8 +6006,8 @@
             "Value": "metric_TMA_..Light_Operations(%)"
           }
         ],
-        "Formula": "a > 10 && b > 10 && c > 60",
-        "BaseFormula": "metric_TMA_......Int_Vector_256b(%) > 10 && metric_TMA_....Int_Operations(%) > 10 && metric_TMA_..Light_Operations(%) > 60",
+        "Formula": "a > 10 & b > 10 & c > 60",
+        "BaseFormula": "metric_TMA_......Int_Vector_256b(%) > 10 & metric_TMA_....Int_Operations(%) > 10 & metric_TMA_..Light_Operations(%) > 60",
         "ThresholdIssues": "$issue2P"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -6066,8 +6066,8 @@
             "Value": "metric_TMA_..Light_Operations(%)"
           }
         ],
-        "Formula": "a > 10 && b > 60",
-        "BaseFormula": "metric_TMA_....Memory_Operations(%) > 10 && metric_TMA_..Light_Operations(%) > 60",
+        "Formula": "a > 10 & b > 60",
+        "BaseFormula": "metric_TMA_....Memory_Operations(%) > 10 & metric_TMA_..Light_Operations(%) > 60",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -6126,8 +6126,8 @@
             "Value": "metric_TMA_..Light_Operations(%)"
           }
         ],
-        "Formula": "a > 10 && b > 60",
-        "BaseFormula": "metric_TMA_....Fused_Instructions(%) > 10 && metric_TMA_..Light_Operations(%) > 60",
+        "Formula": "a > 10 & b > 60",
+        "BaseFormula": "metric_TMA_....Fused_Instructions(%) > 10 & metric_TMA_..Light_Operations(%) > 60",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -6190,8 +6190,8 @@
             "Value": "metric_TMA_..Light_Operations(%)"
           }
         ],
-        "Formula": "a > 10 && b > 60",
-        "BaseFormula": "metric_TMA_....Non_Fused_Branches(%) > 10 && metric_TMA_..Light_Operations(%) > 60",
+        "Formula": "a > 10 & b > 60",
+        "BaseFormula": "metric_TMA_....Non_Fused_Branches(%) > 10 & metric_TMA_..Light_Operations(%) > 60",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -6302,8 +6302,8 @@
             "Value": "metric_TMA_..Light_Operations(%)"
           }
         ],
-        "Formula": "a > 30 && b > 60",
-        "BaseFormula": "metric_TMA_....Other_Light_Ops(%) > 30 && metric_TMA_..Light_Operations(%) > 60",
+        "Formula": "a > 30 & b > 60",
+        "BaseFormula": "metric_TMA_....Other_Light_Ops(%) > 30 & metric_TMA_..Light_Operations(%) > 60",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -6366,8 +6366,8 @@
             "Value": "metric_TMA_..Light_Operations(%)"
           }
         ],
-        "Formula": "a > 10 && b > 30 && c > 60",
-        "BaseFormula": "metric_TMA_......Nop_Instructions(%) > 10 && metric_TMA_....Other_Light_Ops(%) > 30 && metric_TMA_..Light_Operations(%) > 60",
+        "Formula": "a > 10 & b > 30 & c > 60",
+        "BaseFormula": "metric_TMA_......Nop_Instructions(%) > 10 & metric_TMA_....Other_Light_Ops(%) > 30 & metric_TMA_..Light_Operations(%) > 60",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -6430,8 +6430,8 @@
             "Value": "metric_TMA_..Light_Operations(%)"
           }
         ],
-        "Formula": "a > 10 && b > 30 && c > 60",
-        "BaseFormula": "metric_TMA_......Shuffles_256b(%) > 10 && metric_TMA_....Other_Light_Ops(%) > 30 && metric_TMA_..Light_Operations(%) > 60",
+        "Formula": "a > 10 & b > 30 & c > 60",
+        "BaseFormula": "metric_TMA_......Shuffles_256b(%) > 10 & metric_TMA_....Other_Light_Ops(%) > 30 & metric_TMA_..Light_Operations(%) > 60",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -6538,8 +6538,8 @@
             "Value": "metric_TMA_..Heavy_Operations(%)"
           }
         ],
-        "Formula": "a > 5 && b > 10",
-        "BaseFormula": "metric_TMA_....Few_Uops_Instructions(%) > 5 && metric_TMA_..Heavy_Operations(%) > 10",
+        "Formula": "a > 5 & b > 10",
+        "BaseFormula": "metric_TMA_....Few_Uops_Instructions(%) > 5 & metric_TMA_..Heavy_Operations(%) > 10",
         "ThresholdIssues": "$issueD0"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -6578,8 +6578,8 @@
             "Value": "metric_TMA_..Heavy_Operations(%)"
           }
         ],
-        "Formula": "a > 5 && b > 10",
-        "BaseFormula": "metric_TMA_....Microcode_Sequencer(%) > 5 && metric_TMA_..Heavy_Operations(%) > 10",
+        "Formula": "a > 5 & b > 10",
+        "BaseFormula": "metric_TMA_....Microcode_Sequencer(%) > 5 & metric_TMA_..Heavy_Operations(%) > 10",
         "ThresholdIssues": "$issueMC, $issueMS"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -6622,8 +6622,8 @@
             "Value": "metric_TMA_..Heavy_Operations(%)"
           }
         ],
-        "Formula": "a > 10 && b > 5 && c > 10",
-        "BaseFormula": "metric_TMA_......Assists(%) > 10 && metric_TMA_....Microcode_Sequencer(%) > 5 && metric_TMA_..Heavy_Operations(%) > 10",
+        "Formula": "a > 10 & b > 5 & c > 10",
+        "BaseFormula": "metric_TMA_......Assists(%) > 10 & metric_TMA_....Microcode_Sequencer(%) > 5 & metric_TMA_..Heavy_Operations(%) > 10",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -6778,8 +6778,8 @@
             "Value": "metric_TMA_..Heavy_Operations(%)"
           }
         ],
-        "Formula": "a > 10 && b > 5 && c > 10",
-        "BaseFormula": "metric_TMA_......CISC(%) > 10 && metric_TMA_....Microcode_Sequencer(%) > 5 && metric_TMA_..Heavy_Operations(%) > 10",
+        "Formula": "a > 10 & b > 5 & c > 10",
+        "BaseFormula": "metric_TMA_......CISC(%) > 10 & metric_TMA_....Microcode_Sequencer(%) > 5 & metric_TMA_..Heavy_Operations(%) > 10",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -10328,8 +10328,8 @@
             "Value": "IPC"
           }
         ],
-        "Formula": "a < 0.7 && b / 6 > 0.35",
-        "BaseFormula": "metric_TMA_Info_Frontend_DSB_Coverage < 0.7 && IPC / 6 > 0.35",
+        "Formula": "a < 0.7 & b / 6 > 0.35",
+        "BaseFormula": "metric_TMA_Info_Frontend_DSB_Coverage < 0.7 & IPC / 6 > 0.35",
         "ThresholdIssues": "$issueFB"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
