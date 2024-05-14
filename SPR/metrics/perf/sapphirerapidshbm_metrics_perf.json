@@ -975,7 +975,7 @@
         "MetricGroup": "BvUW;TmaL1;TopdownL1;tma_L1_group;Slots",
         "MetricName": "tma_retiring",
         "ScaleUnit": "100%",
-        "MetricThreshold": "tma_retiring > 70 || tma_heavy_operations > 10"
+        "MetricThreshold": "tma_retiring > 70 | tma_heavy_operations > 10"
     },
     {
         "BriefDescription": "This metric represents fraction of slots where the CPU was retiring light-weight operations , instructions that require no more than one uop (micro-operation). This correlates with total number of instructions used by the program. A uops-per-instruction (see UopPI metric) ratio of 1 or less should be expected for decently optimized code running on Intel Core/Xeon products. While this often indicates efficient X86 instructions were executed; high value does not necessarily mean better performance cannot be achieved. ([ICL+] Note this may undercount due to approximation using indirect events; [ADL+] .)",
@@ -2021,7 +2021,7 @@
         "MetricExpr": "CPU_CLK_UNHALTED.THREAD_P / CPU_CLK_UNHALTED.THREAD",
         "MetricGroup": "Summary;Clocks",
         "MetricName": "tma_info_system_mux",
-        "MetricThreshold": "tma_info_system_mux > 11 || tma_info_system_mux < 09"
+        "MetricThreshold": "tma_info_system_mux > 11 | tma_info_system_mux < 09"
     },
     {
         "BriefDescription": "Socket actual clocks when any core is active on that socket",

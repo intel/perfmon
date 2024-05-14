@@ -5405,8 +5405,8 @@
             "Value": "metric_TMA_..Heavy_Operations(%)"
           }
         ],
-        "Formula": "a > 70 || b > 10",
-        "BaseFormula": "metric_TMA_Retiring(%) > 70 || metric_TMA_..Heavy_Operations(%) > 10",
+        "Formula": "a > 70 | b > 10",
+        "BaseFormula": "metric_TMA_Retiring(%) > 70 | metric_TMA_..Heavy_Operations(%) > 10",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -13364,8 +13364,8 @@
             "Value": "metric_TMA_Info_System_MUX"
           }
         ],
-        "Formula": "a > 1.1 || a < 0.9",
-        "BaseFormula": "metric_TMA_Info_System_MUX > 1.1 || metric_TMA_Info_System_MUX < 0.9",
+        "Formula": "a > 1.1 | a < 0.9",
+        "BaseFormula": "metric_TMA_Info_System_MUX > 1.1 | metric_TMA_Info_System_MUX < 0.9",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
