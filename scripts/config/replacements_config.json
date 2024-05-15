@@ -49,10 +49,10 @@
                 "SW_", "RS", "DSB2MITE_", "ARB_"],
             "unit":"cpu",
             "translations":{
-                "C":"cmask",
-                "U":"umask",
-                "I":"inv",
-                "E":"edge"
+                "c":"cmask",
+                "u":"umask",
+                "i":"inv",
+                "e":"edge"
             },
             "scale":1
         },
@@ -60,7 +60,7 @@
             "events": ["UNC_CHA_"],
             "unit":"cha",
             "translations":{
-                "FILTER1":"config1"
+                "filter1":"config1"
             },
             "scale":100000000
         },
@@ -68,8 +68,8 @@
             "events":["UNC_C_"],
             "unit":"cbox",
             "translations":{
-                "OPC":"filter_opc",
-                "TID":"filter_tid"
+                "opc":"filter_opc",
+                "tid":"filter_tid"
             },
             "scale":1
         }

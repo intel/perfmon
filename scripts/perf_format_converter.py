@@ -308,7 +308,7 @@ class PerfFormatConverter:
         translation = event_info["unit"] + "@" + split[0]
         for option in split[1:]:
             if "=" in option:
-                split = option.split("=")
+                split = [s.lower() for s in option.split("=")]
                 if split[0] in event_info["translations"]:
                     if "x" in split[1] or "X" in split[1]:
                         translation += "\\," + event_info["translations"][split[0]] + "\\=" + split[1]
@@ -319,7 +319,7 @@ class PerfFormatConverter:
                 if split[0] in event_info["translations"]:
                     translation += "\\," + event_info["translations"][split[0]] + "\\=" + "0x" + split[1]
             else:
-                match = re.match(r"([a-zA-Z]+)([\d]+)", option)
+                match = re.match(r"([a-zA-Z]+)([\d]+)", option.lower())
                 if match:
                     if match[1] in event_info["translations"]:
                         translation += "\\,"+ event_info["translations"][match[1]] + "\\=" + "0x" + match[2]
