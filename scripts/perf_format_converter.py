@@ -268,7 +268,7 @@ class PerfFormatConverter:
         if metric["MetricName"] in self.metric_name_replacement_dict:
             return self.metric_name_replacement_dict[metric["MetricName"]]
         else:
-            if metric["Category"] == "TMA":
+            if "TMA" in metric["Category"]:
                 return "tma_" + metric["MetricName"].replace(" ", "_").lower()
             return metric["MetricName"]
 
