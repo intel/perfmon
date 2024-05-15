@@ -85,35 +85,35 @@
     },
     {
         "BriefDescription": "Ratio of number of data read requests missing last level core cache (includes demand w/ prefetches) to the total number of completed instructions",
-        "MetricExpr": "cha@UNC_CHA_TOR_INSERTS.IA_MISS@ / INST_RETIRED.ANY",
+        "MetricExpr": "cha@UNC_CHA_TOR_INSERTS.IA_MISS\\,config1\\=0x12d40433@ / INST_RETIRED.ANY",
         "MetricGroup": "",
         "MetricName": "llc_data_read_mpi_demand_plus_prefetch",
         "ScaleUnit": "1per_instr"
     },
     {
         "BriefDescription": "Ratio of number of code read requests missing last level core cache (includes demand w/ prefetches) to the total number of completed instructions",
-        "MetricExpr": "cha@UNC_CHA_TOR_INSERTS.IA_MISS@ / INST_RETIRED.ANY",
+        "MetricExpr": "cha@UNC_CHA_TOR_INSERTS.IA_MISS\\,config1\\=0x12cc0233@ / INST_RETIRED.ANY",
         "MetricGroup": "",
         "MetricName": "llc_code_read_mpi_demand_plus_prefetch",
         "ScaleUnit": "1per_instr"
     },
     {
         "BriefDescription": "Average latency of a last level cache (LLC) demand and prefetch data read miss (read memory access) in nano seconds",
-        "MetricExpr": "( 1000000000 * ( cha@UNC_CHA_TOR_OCCUPANCY.IA_MISS@ / cha@UNC_CHA_TOR_INSERTS.IA_MISS@ ) / ( UNC_CHA_CLOCKTICKS / ( #num_cores / #num_packages * #num_packages ) ) ) * duration_time",
+        "MetricExpr": "( 1000000000 * ( cha@UNC_CHA_TOR_OCCUPANCY.IA_MISS\\,config1\\=0x40433@ / cha@UNC_CHA_TOR_INSERTS.IA_MISS\\,config1\\=0x40433@ ) / ( UNC_CHA_CLOCKTICKS / ( #num_cores / #num_packages * #num_packages ) ) ) * duration_time",
         "MetricGroup": "",
         "MetricName": "llc_data_read_demand_plus_prefetch_miss_latency",
         "ScaleUnit": "1ns"
     },
     {
         "BriefDescription": "Average latency of a last level cache (LLC) demand and prefetch data read miss (read memory access) addressed to local memory in nano seconds",
-        "MetricExpr": "( 1000000000 * ( cha@UNC_CHA_TOR_OCCUPANCY.IA_MISS@ / cha@UNC_CHA_TOR_INSERTS.IA_MISS@ ) / ( UNC_CHA_CLOCKTICKS / ( #num_cores / #num_packages * #num_packages ) ) ) * duration_time",
+        "MetricExpr": "( 1000000000 * ( cha@UNC_CHA_TOR_OCCUPANCY.IA_MISS\\,config1\\=0x40432@ / cha@UNC_CHA_TOR_INSERTS.IA_MISS\\,config1\\=0x40432@ ) / ( UNC_CHA_CLOCKTICKS / ( #num_cores / #num_packages * #num_packages ) ) ) * duration_time",
         "MetricGroup": "",
         "MetricName": "llc_data_read_demand_plus_prefetch_miss_latency_for_local_requests",
         "ScaleUnit": "1ns"
     },
     {
         "BriefDescription": "Average latency of a last level cache (LLC) demand and prefetch data read miss (read memory access) addressed to remote memory in nano seconds",
-        "MetricExpr": "( 1000000000 * ( cha@UNC_CHA_TOR_OCCUPANCY.IA_MISS@ / cha@UNC_CHA_TOR_INSERTS.IA_MISS@ ) / ( UNC_CHA_CLOCKTICKS / ( #num_cores / #num_packages * #num_packages ) ) ) * duration_time",
+        "MetricExpr": "( 1000000000 * ( cha@UNC_CHA_TOR_OCCUPANCY.IA_MISS\\,config1\\=0x40431@ / cha@UNC_CHA_TOR_INSERTS.IA_MISS\\,config1\\=0x40431@ ) / ( UNC_CHA_CLOCKTICKS / ( #num_cores / #num_packages * #num_packages ) ) ) * duration_time",
         "MetricGroup": "",
         "MetricName": "llc_data_read_demand_plus_prefetch_miss_latency_for_remote_requests",
         "ScaleUnit": "1ns"
@@ -155,14 +155,14 @@
     },
     {
         "BriefDescription": "Memory read that miss the last level cache (LLC) addressed to local DRAM as a percentage of total memory read accesses, does not include LLC prefetches.",
-        "MetricExpr": "cha@UNC_CHA_TOR_INSERTS.IA_MISS@ / ( cha@UNC_CHA_TOR_INSERTS.IA_MISS@ + cha@UNC_CHA_TOR_INSERTS.IA_MISS@ )",
+        "MetricExpr": "cha@UNC_CHA_TOR_INSERTS.IA_MISS\\,config1\\=0x40432@ / ( cha@UNC_CHA_TOR_INSERTS.IA_MISS\\,config1\\=0x40432@ + cha@UNC_CHA_TOR_INSERTS.IA_MISS\\,config1\\=0x40431@ )",
         "MetricGroup": "",
         "MetricName": "numa_reads_addressed_to_local_dram",
         "ScaleUnit": "100%"
     },
     {
         "BriefDescription": "Memory reads that miss the last level cache (LLC) addressed to remote DRAM as a percentage of total memory read accesses, does not include LLC prefetches.",
-        "MetricExpr": "cha@UNC_CHA_TOR_INSERTS.IA_MISS@ / ( cha@UNC_CHA_TOR_INSERTS.IA_MISS@ + cha@UNC_CHA_TOR_INSERTS.IA_MISS@ )",
+        "MetricExpr": "cha@UNC_CHA_TOR_INSERTS.IA_MISS\\,config1\\=0x40431@ / ( cha@UNC_CHA_TOR_INSERTS.IA_MISS\\,config1\\=0x40432@ + cha@UNC_CHA_TOR_INSERTS.IA_MISS\\,config1\\=0x40431@ )",
         "MetricGroup": "",
         "MetricName": "numa_reads_addressed_to_remote_dram",
         "ScaleUnit": "100%"
