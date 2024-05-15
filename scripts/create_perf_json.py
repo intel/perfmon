@@ -1603,6 +1603,13 @@ class Model:
                     dups = [m for m in jo if m['MetricName'] == em['MetricName']]
                     if dups:
                         _verboseprint3(f'Not replacing:\n\t{dups[0]["MetricExpr"]}\nwith:\n\t{em["MetricExpr"]}')
+                        if self.shortname == 'EMR' and em['MetricName'] in ['tma_dram_bound',
+                                                'tma_info_bottleneck_cache_memory_bandwidth',
+                                                'tma_info_bottleneck_cache_memory_latency',
+                                                'tma_info_bottleneck_memory_data_tlbs',
+                                                'tma_info_bottleneck_memory_synchronization']:
+                            dups[0]['MetricExpr'] = em['MetricExpr']
+                            _verboseprint2(f"Replace {dups[0]['MetricName']} formula with formula from JSON\n")
                         continue
                     save_form(em['MetricName'], em['MetricGroup'], em['MetricExpr'],
                               em['BriefDescription'], None, em.get('ScaleUnit'),
