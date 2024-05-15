@@ -32,6 +32,8 @@ OUTPUT_DIR_PATH = Path("./outputs/")
 # Fields to always display event if empty
 PERSISTENT_FIELDS = ["MetricGroup", "BriefDescription"]
 
+# Operators
+OPERATORS = ["+", "-", "/", "*", "(", ")", "max(", "min(", "if", "<", ">", ",", "else"]
 
 def main():
     # Get file pointers from args
@@ -114,6 +116,21 @@ def pad(string):
     return " " + string.strip() + " "
 
 
+def isNum(string):
+    """
+    Takes an inputted string and outputs if the string is a num.
+    eg. 1.0, 1e9, 29
+
+    @param path: string to check
+    @returns: if string is a num
+    """
+    if string.isdigit():
+        return True
+    if string.replace('.', '', 1).isdigit():
+        return True
+    if string.replace('e', '', 1).isdigit() and not string.startswith("e") and not string.endswith("e"):
+        return True
+
 class PerfFormatConverter:
     """
     Perf Format Converter class. Used to convert the json files. Contains all
@@ -169,9 +186,10 @@ class PerfFormatConverter:
                 new_metric = Metric(
                     brief_description=metric["BriefDescription"],
                     metric_expr=self.get_expression(metric),
-                    metric_group=self.fix_groups(metric),
+                    metric_group=self.get_groups(metric),
                     metric_name=self.translate_metric_name(metric),
-                    scale_unit=self.get_scale_unit(metric))
+                    scale_unit=self.get_scale_unit(metric),
+                    metric_threshold=self.get_threshold(metric))
                 metrics.append(new_metric)
         except KeyError as error:
             sys.exit("Error in input JSON format during convert_to_perf_metrics():" + str(error) + ". Exiting")
@@ -186,37 +204,60 @@ class PerfFormatConverter:
         @param metric: metric data as a dictionary
         @returns: string containing un-aliased expression
         """
-        try:
-            # Get formula and events for conversion
-            base_formula = metric["Formula"].replace("DURATIONTIMEINSECONDS", "duration_time")
-            if base_formula.startswith("100 *") and metric["UnitOfMeasure"] == "percent":
-                base_formula = base_formula.replace("100 *", "");
-            events = metric["Events"]
-            constants = metric["Constants"]
+        # TMA metric
+        if "TMA" in metric["Category"]:
+            if "BaseFormula" in metric and metric["BaseFormula"] != "":
+                expression_list = [a.strip() for a in metric["BaseFormula"].split(" ")]
+                for i, term in enumerate(expression_list):
+                    if term not in OPERATORS and not isNum(term):
+                        # Term is not an operator or a numeric value
+                        if "tma_" not in term:
+                            # Translate any event names
+                            expression_list[i] = self.translate_metric_event(term.upper())
+                
+                # Combine into formula
+                expression = " ".join(expression_list).strip()
 
-            # Replace event/const aliases with names
-            expression = base_formula.lower()
-            for event in events:
-                reg = r"((?<=[\s+\-*\/\(\)])|(?<=^))({})((?=[\s+\-*\/\(\)])|(?=$))".format(event["Alias"].lower())
-                expression = re.sub(reg,
-                                    pad(self.translate_metric_event(event["Name"])),
-                                    expression)
-            for const in constants:
-                reg = r"((?<=[\s+\-*\/\(\)])|(?<=^))({})((?=[\s+\-*\/\(\)])|(?=$))".format(const["Alias"].lower())
-                expression = re.sub(reg,
-                                    pad(self.translate_metric_constant(const["Name"], metric)),
-                                    expression)
+                # Add slots to metrics that have topdown events but not slots
+                if "topdown" in expression and "slots" not in expression:
+                        expression = "( " + expression + " ) + ( 0 * slots )"
+                
+                return expression
+            else:
+                print("Error: TMA metric without base formula found")
+        # Non TMA metric
+        else:
+            try:
+                # Get formula and events for conversion
+                base_formula = metric["Formula"].replace("DURATIONTIMEINSECONDS", "duration_time")
+                if base_formula.startswith("100 *") and metric["UnitOfMeasure"] == "percent":
+                    base_formula = base_formula.replace("100 *", "")
+                events = metric["Events"]
+                constants = metric["Constants"]
 
-            # Add slots to metrics that have topdown events but not slots
-            if any(event["Name"] for event in events if "PERF_METRICS" in event["Name"]):
-                if not any(event["Name"] for event in events if "SLOTS" in event["Name"]):
-                    expression = "( " + expression + " ) + ( 0 * slots )"
+                # Replace event/const aliases with names
+                expression = base_formula.lower()
+                for event in events:
+                    reg = r"((?<=[\s+\-*\/\(\)])|(?<=^))({})((?=[\s+\-*\/\(\)])|(?=$))".format(event["Alias"].lower())
+                    expression = re.sub(reg,
+                                        pad(self.translate_metric_event(event["Name"])),
+                                        expression)
+                for const in constants:
+                    reg = r"((?<=[\s+\-*\/\(\)])|(?<=^))({})((?=[\s+\-*\/\(\)])|(?=$))".format(const["Alias"].lower())
+                    expression = re.sub(reg,
+                                        pad(self.translate_metric_constant(const["Name"], metric)),
+                                        expression)
 
-        except KeyError as error:
-            sys.exit("Error in input JSON format during get_expressions(): " + str(error) + ". Exiting")
+                # Add slots to metrics that have topdown events but not slots
+                if any(event["Name"] for event in events if "PERF_METRICS" in event["Name"]):
+                    if not any(event["Name"] for event in events if "SLOTS" in event["Name"]):
+                        expression = "( " + expression + " ) + ( 0 * slots )"
 
-        # Remove any extra spaces in expression
-        return re.sub(r"[\s]{2,}", " ", expression.strip())
+            except KeyError as error:
+                sys.exit("Error in input JSON format during get_expressions(): " + str(error) + ". Exiting")
+
+            # Remove any extra spaces in expression
+            return re.sub(r"[\s]{2,}", " ", expression.strip())
 
     def translate_metric_name(self, metric):
         """
@@ -269,19 +310,19 @@ class PerfFormatConverter:
             if "=" in option:
                 split = option.split("=")
                 if split[0] in event_info["translations"]:
-                    if "x" in split[1]:
-                        translation += "\\\\," + event_info["translations"][split[0]] + "\\\\=" + split[1]
+                    if "x" in split[1] or "X" in split[1]:
+                        translation += "\\," + event_info["translations"][split[0]] + "\\=" + split[1]
                     else:
-                        translation += "\\\\," + event_info["translations"][split[0]] + "\\\\=" + (int(split[1]) * event_info["scale"])
+                        translation += "\\," + event_info["translations"][split[0]] + "\\=" + (int(split[1]) * event_info["scale"])
             elif "0x" in option:
                 split = option.split("0x")
                 if split[0] in event_info["translations"]:
-                    translation += "\\\\," + event_info["translations"][split[0]] + "\\\\=" + "0x" + split[1]
+                    translation += "\\," + event_info["translations"][split[0]] + "\\=" + "0x" + split[1]
             else:
                 match = re.match(r"([a-zA-Z]+)([\d]+)", option)
                 if match:
                     if match[1] in event_info["translations"]:
-                        translation += "\\\\,"+ event_info["translations"][match[1]] + "\\\\=" + "0x" + match[2]
+                        translation += "\\,"+ event_info["translations"][match[1]] + "\\=" + "0x" + match[2]
 
         return translation + "@"
 
@@ -344,7 +385,7 @@ class PerfFormatConverter:
         else:
             return None
 
-    def fix_groups(self, metric):
+    def get_groups(self, metric):
         """
         Converts a metrics group field delimited by commas to a new list
         delimited by semi-colons
@@ -352,7 +393,9 @@ class PerfFormatConverter:
         @param metric: metric json object
         @returns: new string list of groups delimited by semi-colons
         """
-
+        if "MetricGroup" not in metric:
+            return ""
+        
         # Get current groups
         groups = metric["MetricGroup"]
         if groups.isspace() or groups == "":
@@ -361,15 +404,31 @@ class PerfFormatConverter:
             #new_groups = [g.strip() for g in groups.split(";") if not g.isspace() and g != ""]
             new_groups = [g.strip() for g in re.split(";|,", groups) if not g.isspace() and g != ""]
 
-
         # Add level and parent groups
-        if metric["Category"] == "TMA":
+        if metric["Category"] == "TMA" and ("Info" not in metric["MetricName"] or "TmaL1" in metric["MetricGroup"]):
             new_groups.append("TopdownL" + str(metric["Level"]))
             new_groups.append("tma_L" + str(metric["Level"]) + "_group")
             if "ParentCategory" in metric:
                 new_groups.append("tma_" + metric["ParentCategory"].lower().replace(" ", "_") + "_group")
+        
+        # Add count domain
+        if "CountDomain" in metric and metric["CountDomain"] != "":
+            new_groups.append(metric["CountDomain"])
+
+        # Add Threshold issues
+        if "Threshold" in metric and metric["Threshold"]["ThresholdIssues"] != "":
+            threshold_issues = [f"tma_{issue.replace("$", "").replace("~", "").strip()}" for issue in metric["Threshold"]["ThresholdIssues"].split(",")]
+            new_groups.extend(threshold_issues)
 
         return ";".join(new_groups) if new_groups.count != 0 else ""
+
+    def get_threshold(self, metric):
+        if "Threshold" in metric:
+            if "BaseFormula" in metric["Threshold"]:
+                return self.clean_metric_names(metric["Threshold"]["BaseFormula"])
+
+    def clean_metric_names(self, formula):
+        return re.sub(r'\([^\(\)]+\)', "", formula).lower().replace("metric_","").replace(".", "")
 
 
 class Metric:
@@ -378,12 +437,13 @@ class Metric:
     """
 
     def __init__(self, brief_description, metric_expr,
-                 metric_group, metric_name, scale_unit):
+                 metric_group, metric_name, scale_unit, metric_threshold):
         self.BriefDescription = brief_description
         self.MetricExpr = metric_expr
         self.MetricGroup = metric_group
         self.MetricName = metric_name
         self.ScaleUnit = scale_unit
+        self.MetricThreshold = metric_threshold
 
 
 if __name__ == "__main__":

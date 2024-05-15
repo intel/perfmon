@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel Atom(R) Processors based on SnowRidge microarchitecture - V1.22",
-    "DatePublished": "03/08/2024",
-    "Version": "1.22",
+    "Info": "Performance Monitoring Events for Intel Atom(R) Processors based on SnowRidge microarchitecture - V1.23",
+    "DatePublished": "04/24/2024",
+    "Version": "1.23",
     "Legend": ""
   },
   "Events": [
