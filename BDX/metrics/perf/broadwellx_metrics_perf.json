@@ -85,35 +85,35 @@
     },
     {
         "BriefDescription": "Ratio of number of data read requests missing last level core cache (includes demand w/ prefetches) to the total number of completed instructions",
-        "MetricExpr": "( cbox@UNC_C_TOR_INSERTS.MISS_OPCODE@ + cbox@UNC_C_TOR_INSERTS.MISS_OPCODE@ ) / INST_RETIRED.ANY",
+        "MetricExpr": "( cbox@UNC_C_TOR_INSERTS.MISS_OPCODE\\,filter_opc\\=0x182@ + cbox@UNC_C_TOR_INSERTS.MISS_OPCODE\\,filter_opc\\=0x192@ ) / INST_RETIRED.ANY",
         "MetricGroup": "",
         "MetricName": "llc_data_read_mpi_demand_plus_prefetch",
         "ScaleUnit": "1per_instr"
     },
     {
         "BriefDescription": "Ratio of number of code read requests missing last level core cache (includes demand w/ prefetches) to the total number of completed instructions",
-        "MetricExpr": "( cbox@UNC_C_TOR_INSERTS.MISS_OPCODE@ + cbox@UNC_C_TOR_INSERTS.MISS_OPCODE@ ) / INST_RETIRED.ANY",
+        "MetricExpr": "( cbox@UNC_C_TOR_INSERTS.MISS_OPCODE\\,filter_opc\\=0x181@ + cbox@UNC_C_TOR_INSERTS.MISS_OPCODE\\,filter_opc\\=0x191@ ) / INST_RETIRED.ANY",
         "MetricGroup": "",
         "MetricName": "llc_code_read_mpi_demand_plus_prefetch",
         "ScaleUnit": "1per_instr"
     },
     {
         "BriefDescription": "Average latency of a last level cache (LLC) demand and prefetch data read miss (read memory access) in nano seconds",
-        "MetricExpr": "( 1000000000 * ( cbox@UNC_C_TOR_OCCUPANCY.MISS_OPCODE@ / cbox@UNC_C_TOR_INSERTS.MISS_OPCODE@ ) / ( UNC_C_CLOCKTICKS / ( #num_cores / #num_packages * #num_packages ) ) ) * duration_time",
+        "MetricExpr": "( 1000000000 * ( cbox@UNC_C_TOR_OCCUPANCY.MISS_OPCODE\\,filter_opc\\=0x182@ / cbox@UNC_C_TOR_INSERTS.MISS_OPCODE\\,filter_opc\\=0x182@ ) / ( UNC_C_CLOCKTICKS / ( #num_cores / #num_packages * #num_packages ) ) ) * duration_time",
         "MetricGroup": "",
         "MetricName": "llc_data_read_demand_plus_prefetch_miss_latency",
         "ScaleUnit": "1ns"
     },
     {
         "BriefDescription": "Average latency of a last level cache (LLC) demand and prefetch data read miss (read memory access) addressed to local memory in nano seconds",
-        "MetricExpr": "( 1000000000 * ( cbox@UNC_C_TOR_OCCUPANCY.MISS_LOCAL_OPCODE@ / cbox@UNC_C_TOR_INSERTS.MISS_LOCAL_OPCODE@ ) / ( UNC_C_CLOCKTICKS / ( #num_cores / #num_packages * #num_packages ) ) ) * duration_time",
+        "MetricExpr": "( 1000000000 * ( cbox@UNC_C_TOR_OCCUPANCY.MISS_LOCAL_OPCODE\\,filter_opc\\=0x182@ / cbox@UNC_C_TOR_INSERTS.MISS_LOCAL_OPCODE\\,filter_opc\\=0x182@ ) / ( UNC_C_CLOCKTICKS / ( #num_cores / #num_packages * #num_packages ) ) ) * duration_time",
         "MetricGroup": "",
         "MetricName": "llc_data_read_demand_plus_prefetch_miss_latency_for_local_requests",
         "ScaleUnit": "1ns"
     },
     {
         "BriefDescription": "Average latency of a last level cache (LLC) demand and prefetch data read miss (read memory access) addressed to remote memory in nano seconds",
-        "MetricExpr": "( 1000000000 * ( cbox@UNC_C_TOR_OCCUPANCY.MISS_REMOTE_OPCODE@ / cbox@UNC_C_TOR_INSERTS.MISS_REMOTE_OPCODE@ ) / ( UNC_C_CLOCKTICKS / ( #num_cores / #num_packages * #num_packages ) ) ) * duration_time",
+        "MetricExpr": "( 1000000000 * ( cbox@UNC_C_TOR_OCCUPANCY.MISS_REMOTE_OPCODE\\,filter_opc\\=0x182@ / cbox@UNC_C_TOR_INSERTS.MISS_REMOTE_OPCODE\\,filter_opc\\=0x182@ ) / ( UNC_C_CLOCKTICKS / ( #num_cores / #num_packages * #num_packages ) ) ) * duration_time",
         "MetricGroup": "",
         "MetricName": "llc_data_read_demand_plus_prefetch_miss_latency_for_remote_requests",
         "ScaleUnit": "1ns"
@@ -148,14 +148,14 @@
     },
     {
         "BriefDescription": "Memory read that miss the last level cache (LLC) addressed to local DRAM as a percentage of total memory read accesses, does not include LLC prefetches.",
-        "MetricExpr": "cbox@UNC_C_TOR_INSERTS.MISS_LOCAL_OPCODE@ / ( cbox@UNC_C_TOR_INSERTS.MISS_LOCAL_OPCODE@ + cbox@UNC_C_TOR_INSERTS.MISS_REMOTE_OPCODE@ )",
+        "MetricExpr": "cbox@UNC_C_TOR_INSERTS.MISS_LOCAL_OPCODE\\,filter_opc\\=0x182@ / ( cbox@UNC_C_TOR_INSERTS.MISS_LOCAL_OPCODE\\,filter_opc\\=0x182@ + cbox@UNC_C_TOR_INSERTS.MISS_REMOTE_OPCODE\\,filter_opc\\=0x182@ )",
         "MetricGroup": "",
         "MetricName": "numa_reads_addressed_to_local_dram",
         "ScaleUnit": "100%"
     },
     {
         "BriefDescription": "Memory reads that miss the last level cache (LLC) addressed to remote DRAM as a percentage of total memory read accesses, does not include LLC prefetches.",
-        "MetricExpr": "cbox@UNC_C_TOR_INSERTS.MISS_REMOTE_OPCODE@ / ( cbox@UNC_C_TOR_INSERTS.MISS_LOCAL_OPCODE@ + cbox@UNC_C_TOR_INSERTS.MISS_REMOTE_OPCODE@ )",
+        "MetricExpr": "cbox@UNC_C_TOR_INSERTS.MISS_REMOTE_OPCODE\\,filter_opc\\=0x182@ / ( cbox@UNC_C_TOR_INSERTS.MISS_LOCAL_OPCODE\\,filter_opc\\=0x182@ + cbox@UNC_C_TOR_INSERTS.MISS_REMOTE_OPCODE\\,filter_opc\\=0x182@ )",
         "MetricGroup": "",
         "MetricName": "numa_reads_addressed_to_remote_dram",
         "ScaleUnit": "100%"
@@ -197,14 +197,14 @@
     },
     {
         "BriefDescription": "Bandwidth of IO reads that are initiated by end device controllers that are requesting memory from the CPU.",
-        "MetricExpr": "( cbox@UNC_C_TOR_INSERTS.OPCODE@ * 64 / 1000000) / duration_time",
+        "MetricExpr": "( cbox@UNC_C_TOR_INSERTS.OPCODE\\,filter_opc\\=0x19e@ * 64 / 1000000) / duration_time",
         "MetricGroup": "",
         "MetricName": "io_bandwidth_read",
         "ScaleUnit": "1MB/s"
     },
     {
         "BriefDescription": "Bandwidth of IO writes that are initiated by end device controllers that are writing memory to the CPU.",
-        "MetricExpr": "(( cbox@UNC_C_TOR_INSERTS.OPCODE@ + cbox@UNC_C_TOR_INSERTS.OPCODE@ ) * 64 / 1000000) / duration_time",
+        "MetricExpr": "(( cbox@UNC_C_TOR_INSERTS.OPCODE\\,filter_opc\\=0x1c8\\,filter_tid\\=0x3e@ + cbox@UNC_C_TOR_INSERTS.OPCODE\\,filter_opc\\=0x180\\,filter_tid\\=0x3e@ ) * 64 / 1000000) / duration_time",
         "MetricGroup": "",
         "MetricName": "io_bandwidth_write",
         "ScaleUnit": "1MB/s"
@@ -1209,13 +1209,13 @@
     },
     {
         "BriefDescription": "Average latency of data read request to external memory (in nanoseconds). Accounts for demand loads and L1/L2 prefetches. ([RKL+]memory-controller only)",
-        "MetricExpr": "( 1000000000 ) * ( cbox@UNC_C_TOR_OCCUPANCY.MISS_OPCODE\\,filter_opc\\=0X182@ / cbox@UNC_C_TOR_INSERTS.MISS_OPCODE\\,filter_opc\\=0X182@ ) / ( tma_info_system_socket_clks / tma_info_system_time )",
+        "MetricExpr": "( 1000000000 ) * ( cbox@UNC_C_TOR_OCCUPANCY.MISS_OPCODE\\,filter_opc\\=0x182@ / cbox@UNC_C_TOR_INSERTS.MISS_OPCODE\\,filter_opc\\=0x182@ ) / ( tma_info_system_socket_clks / tma_info_system_time )",
         "MetricGroup": "Mem;MemoryLat;SoC;NanoSeconds",
         "MetricName": "tma_info_system_mem_read_latency"
     },
     {
         "BriefDescription": "Average number of parallel data read requests to external memory. Accounts for demand loads and L1/L2 prefetches",
-        "MetricExpr": "cbox@UNC_C_TOR_OCCUPANCY.MISS_OPCODE\\,filter_opc\\=0X182@ / cbox@UNC_C_TOR_OCCUPANCY.MISS_OPCODE\\,filter_opc\\=0X182@",
+        "MetricExpr": "cbox@UNC_C_TOR_OCCUPANCY.MISS_OPCODE\\,filter_opc\\=0x182@ / cbox@UNC_C_TOR_OCCUPANCY.MISS_OPCODE\\,filter_opc\\=0x182@",
         "MetricGroup": "Mem;MemoryBW;SoC;SystemMetric",
         "MetricName": "tma_info_system_mem_parallel_reads"
     },
