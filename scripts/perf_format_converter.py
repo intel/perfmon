@@ -268,7 +268,7 @@ class PerfFormatConverter:
         if metric["MetricName"] in self.metric_name_replacement_dict:
             return self.metric_name_replacement_dict[metric["MetricName"]]
         else:
-            if metric["Category"] == "TMA":
+            if "TMA" in metric["Category"]:
                 return "tma_" + metric["MetricName"].replace(" ", "_").lower()
             return metric["MetricName"]
 
@@ -308,7 +308,7 @@ class PerfFormatConverter:
         translation = event_info["unit"] + "@" + split[0]
         for option in split[1:]:
             if "=" in option:
-                split = option.split("=")
+                split = [s.lower() for s in option.split("=")]
                 if split[0] in event_info["translations"]:
                     if "x" in split[1] or "X" in split[1]:
                         translation += "\\," + event_info["translations"][split[0]] + "\\=" + split[1]
@@ -319,7 +319,7 @@ class PerfFormatConverter:
                 if split[0] in event_info["translations"]:
                     translation += "\\," + event_info["translations"][split[0]] + "\\=" + "0x" + split[1]
             else:
-                match = re.match(r"([a-zA-Z]+)([\d]+)", option)
+                match = re.match(r"([a-zA-Z]+)([\d]+)", option.lower())
                 if match:
                     if match[1] in event_info["translations"]:
                         translation += "\\,"+ event_info["translations"][match[1]] + "\\=" + "0x" + match[2]
@@ -428,7 +428,7 @@ class PerfFormatConverter:
                 return self.clean_metric_names(metric["Threshold"]["BaseFormula"])
 
     def clean_metric_names(self, formula):
-        return re.sub(r'\([^\(\)]+\)', "", formula).lower().replace("metric_","").replace(".", "")
+        return re.sub(r'\([^\(\)]+\)', "", formula).lower().replace("metric_","").replace("..", "")
 
 
 class Metric:
