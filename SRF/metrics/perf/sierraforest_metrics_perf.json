@@ -507,7 +507,7 @@
     },
     {
         "BriefDescription": "Instructions per Far Branch ( Far Branches apply upon transition from application to operating system, handling interrupts, exceptions) [lower number means higher occurrence rate]",
-        "MetricExpr": "INST_RETIRED.ANY / cpu@BR_INST_RETIRED.FAR_BRANCH@",
+        "MetricExpr": "INST_RETIRED.ANY / BR_INST_RETIRED.FAR_BRANCH:u",
         "MetricGroup": "",
         "MetricName": "tma_info_br_inst_mix_ipfarbranch"
     },
