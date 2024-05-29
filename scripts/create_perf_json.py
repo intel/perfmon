@@ -736,6 +736,7 @@ class Model:
             "GRT": ("GRT",),
             "MTL": ('MTL', 'ADL/RPL', 'TGL', 'RKL', 'ICL', 'CNL', 'KBLR/CFL/CML',
                     'SKL/KBL', 'BDW', 'HSW', 'IVB', 'SNB'),
+            "CMT": ("CMT","GRT"),
         }
         tma_cpu = None
         if self.shortname == 'BDW-DE':
