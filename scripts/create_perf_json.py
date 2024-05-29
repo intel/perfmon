@@ -733,7 +733,7 @@ class Model:
             'SPR': ('SPR', 'ADL/RPL', 'TGL', 'RKL', 'ICX', 'ICL', 'CNL', 'CPX', 'CLX',
                     'KBLR/CFL/CML', 'SKX', 'SKL/KBL', 'BDX', 'BDW', 'HSX', 'HSW', 'IVT',
                     'IVB', 'JKT/SNB-EP', 'SNB'),
-            "GRT": ("GRT"),
+            "GRT": ("GRT",),
             "MTL": ('MTL', 'ADL/RPL', 'TGL', 'RKL', 'ICL', 'CNL', 'KBLR/CFL/CML',
                     'SKL/KBL', 'BDW', 'HSW', 'IVB', 'SNB'),
         }

@@ -1,4 +1,4 @@
-TMA,Version,3.6,,,,,,,,
+﻿TMA,Version,3.60,,,,,,,,
 .,,,,,,,,,,
 Key,Level1,Level2,Level3,CMT,GRT,Locate-with,Count Domain,Metric Description,Metric Group,Threshold
 FE,Frontend_Bound,,,TOPDOWN_FE_BOUND.ALL_P / #SLOTS,TOPDOWN_FE_BOUND.ALL / #SLOTS,,Slots,Counts the number of issue slots that were not consumed by the backend due to frontend stalls.,,>0.20
@@ -89,10 +89,11 @@ Info.System,Turbo_Utilization,,,#CLKS / CPU_CLK_UNHALTED.REF_TSC,#CLKS / CPU_CLK
 Info.System,Kernel_Utilization,,,CPU_CLK_UNHALTED.CORE_P:sup / #CLKS,CPU_CLK_UNHALTED.CORE_P:sup / #CLKS,,,Fraction of cycles spent in Kernel mode,,
 Info.System,CPU_Utilization,,,CPU_CLK_UNHALTED.REF_TSC / TSC,CPU_CLK_UNHALTED.REF_TSC / TSC,,,Average CPU Utilization,,
 Info.System,MUX,,,#CLKS_P / #CLKS,#CLKS_P / #CLKS,,,PerfMon Event Multiplexing accuracy indicator,,( > 1.1 | < 0.9 )
-Info.System,GFLOPs,,,FP_FLOPS_RETIRED.ALL / ( ( DurationTimeInMilliSeconds / 1000 ) * 1000000000 ),#NA,,,"Giga Floating Point Operations Per Second. Aggregate across all supported options of: FP precisions, scalar and vector instructions, vector-width",Flops,
+Info.System,GFLOPs,,,FP_FLOPS_RETIRED.ALL / ( #DurationTimeInSeconds * 1000000000 ),#NA,,,"Giga Floating Point Operations Per Second. Aggregate across all supported options of: FP precisions, scalar and vector instructions, vector-width",Flops,
 .,,,,,,,,,,
 Aux,#CLKS,,,CPU_CLK_UNHALTED.CORE,CPU_CLK_UNHALTED.CORE,,Cycles,,,
 Aux,#CLKS_P,,,CPU_CLK_UNHALTED.CORE_P,CPU_CLK_UNHALTED.CORE_P,,Cycles,,,
 Aux,#SLOTS,,,#Pipeline_Width * #CLKS,#Pipeline_Width * #CLKS,,Cycles,,,
 Aux,#Pipeline_Width,,,6,5,,Constant,pipeline allocation width,,
+Aux,#DurationTimeInSeconds,,,,DurationTimeInMilliSeconds / 1000,,Count,,,
 Aux,DurationTimeInMilliSeconds,,,,,,SystemParameter,The duration time in milliseconds of the profile,,
