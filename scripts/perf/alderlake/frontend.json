@@ -324,6 +324,17 @@
         "Unit": "cpu_core"
     },
     {
+        "BriefDescription": "ICACHE_DATA.STALL_PERIODS",
+        "Counter": "0,1,2,3",
+        "CounterMask": "1",
+        "EdgeDetect": "1",
+        "EventCode": "0x80",
+        "EventName": "ICACHE_DATA.STALL_PERIODS",
+        "SampleAfterValue": "500009",
+        "UMask": "0x4",
+        "Unit": "cpu_core"
+    },
+    {
         "BriefDescription": "Cycles where a code fetch is stalled due to L1 instruction cache tag miss.",
         "Counter": "0,1,2,3",
         "EventCode": "0x83",

@@ -15,7 +15,7 @@
         "CountersNumGeneric": "2"
     },
     {
-        "Unit": "CLOCK",
+        "Unit": "cbox_0",
         "CountersNumFixed": 1,
         "CountersNumGeneric": "0"
     }
