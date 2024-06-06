@@ -1161,6 +1161,10 @@ class Model:
                                 form = re.sub(rf'([^@]){name}([^a-zA-Z0-9_])',
                                               rf'\1{pmu_prefix}@{name}@\2',
                                               form, re.IGNORECASE)
+                                form = re.sub(rf'([^@]){name}$',
+                                              rf'\1{pmu_prefix}@{name}@',
+                                              form, re.IGNORECASE)
+
 
                     changed = True
                     while changed:
