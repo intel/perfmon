@@ -1301,7 +1301,7 @@
     },
     {
         "BriefDescription": "Fraction of Physical Core issue-slots utilized by this Logical Processor",
-        "MetricExpr": "tma_into_thread_slots / ( TOPDOWN.SLOTS / 2 ) if #SMT_on else 1",
+        "MetricExpr": "tma_info_thread_slots / ( TOPDOWN.SLOTS / 2 ) if #SMT_on else 1",
         "MetricGroup": "SMT;TmaL1;TopdownL1;tma_L1_group;Metric",
         "MetricName": "tma_info_thread_slots_utilization"
     },

@@ -9300,7 +9300,7 @@
         }
       ],
       "Formula": "( a ) / ( b / 2 ) if smt_on else 1",
-      "BaseFormula": " tma_into_thread_slots / ( topdown.slots:percore / 2 ) if smt_on else 1",
+      "BaseFormula": "tma_info_thread_slots / ( topdown.slots:percore / 2 ) if smt_on else 1",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
