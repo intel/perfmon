@@ -592,6 +592,14 @@
         "SampleAfterValue": "1000003"
     },
     {
+        "BriefDescription": "Counts the number of uops issued by the front end every cycle.",
+        "Counter": "0,1,2,3,4,5",
+        "EventCode": "0x0e",
+        "EventName": "UOPS_ISSUED.ANY",
+        "PublicDescription": "Counts the number of uops issued by the front end every cycle. When 4-uops are requested and only 2-uops are delivered, the event counts 2.  Uops_issued correlates to the number of ROB entries.  If uop takes 2 ROB slots it counts as 2 uops_issued.",
+        "SampleAfterValue": "200003"
+    },
+    {
         "BriefDescription": "Counts the total number of uops retired.",
         "Counter": "0,1,2,3,4,5",
         "EventCode": "0xc2",
