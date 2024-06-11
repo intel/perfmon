@@ -899,7 +899,7 @@
     },
     {
         "BriefDescription": "This metric roughly estimates the fraction of cycles where the Data TLB (DTLB) was missed by load accesses",
-        "MetricExpr": "MEM_INST_RETIRED.STLB_HIT_LOADS * min(MEM_INST_RETIRED.STLB_HIT_LOADS:R, 7) / tma_info_thread_clks + tma_load_stlb_miss",
+        "MetricExpr": "cpu_core@MEM_INST_RETIRED.STLB_HIT_LOADS@ * min(cpu_core@MEM_INST_RETIRED.STLB_HIT_LOADS@R, 7) / tma_info_thread_clks + tma_load_stlb_miss",
         "MetricGroup": "BvMT;MemoryTLB;TopdownL4;tma_L4_group;tma_issueTLB;tma_l1_bound_group",
         "MetricName": "tma_dtlb_load",
         "MetricThreshold": "tma_dtlb_load > 0.1 & (tma_l1_bound > 0.1 & (tma_memory_bound > 0.2 & tma_backend_bound > 0.2))",
@@ -909,7 +909,7 @@
     },
     {
         "BriefDescription": "This metric roughly estimates the fraction of cycles spent handling first-level data TLB store misses",
-        "MetricExpr": "MEM_INST_RETIRED.STLB_HIT_STORES * min(MEM_INST_RETIRED.STLB_HIT_STORES:R, 7) / tma_info_thread_clks + tma_store_stlb_miss",
+        "MetricExpr": "cpu_core@MEM_INST_RETIRED.STLB_HIT_STORES@ * min(cpu_core@MEM_INST_RETIRED.STLB_HIT_STORES@R, 7) / tma_info_thread_clks + tma_store_stlb_miss",
         "MetricGroup": "BvMT;MemoryTLB;TopdownL4;tma_L4_group;tma_issueTLB;tma_store_bound_group",
         "MetricName": "tma_dtlb_store",
         "MetricThreshold": "tma_dtlb_store > 0.05 & (tma_store_bound > 0.2 & (tma_memory_bound > 0.2 & tma_backend_bound > 0.2))",
@@ -1861,14 +1861,14 @@
     },
     {
         "BriefDescription": "Cycles Per Instruction for the Operating System (OS) Kernel mode",
-        "MetricExpr": "CPU_CLK_UNHALTED.THREAD_P:k / cpu_core@INST_RETIRED.ANY_P@k",
+        "MetricExpr": "cpu_core@CPU_CLK_UNHALTED.THREAD_P@k / cpu_core@INST_RETIRED.ANY_P@k",
         "MetricGroup": "OS",
         "MetricName": "tma_info_system_kernel_cpi",
         "Unit": "cpu_core"
     },
     {
         "BriefDescription": "Fraction of cycles spent in the Operating System (OS) Kernel mode",
-        "MetricExpr": "CPU_CLK_UNHALTED.THREAD_P:k / cpu_core@CPU_CLK_UNHALTED.THREAD@",
+        "MetricExpr": "cpu_core@CPU_CLK_UNHALTED.THREAD_P@k / cpu_core@CPU_CLK_UNHALTED.THREAD@",
         "MetricGroup": "OS",
         "MetricName": "tma_info_system_kernel_utilization",
         "MetricThreshold": "tma_info_system_kernel_utilization > 0.05",
@@ -2044,7 +2044,7 @@
     },
     {
         "BriefDescription": "This metric estimates fraction of cycles with demand load accesses that hit the L3 cache under unloaded scenarios (possibly L3 latency limited)",
-        "MetricExpr": "MEM_LOAD_RETIRED.L3_HIT * min(MEM_LOAD_RETIRED.L3_HIT:R, 9 * tma_info_system_core_frequency) * (1 + cpu_core@MEM_LOAD_RETIRED.FB_HIT@ / cpu_core@MEM_LOAD_RETIRED.L1_MISS@ / 2) / tma_info_thread_clks",
+        "MetricExpr": "cpu_core@MEM_LOAD_RETIRED.L3_HIT@ * min(cpu_core@MEM_LOAD_RETIRED.L3_HIT@R, 9 * tma_info_system_core_frequency) * (1 + cpu_core@MEM_LOAD_RETIRED.FB_HIT@ / cpu_core@MEM_LOAD_RETIRED.L1_MISS@ / 2) / tma_info_thread_clks",
         "MetricGroup": "BvML;MemoryLat;TopdownL4;tma_L4_group;tma_issueLat;tma_l3_bound_group",
         "MetricName": "tma_l3_hit_latency",
         "MetricThreshold": "tma_l3_hit_latency > 0.1 & (tma_l3_bound > 0.05 & (tma_memory_bound > 0.2 & tma_backend_bound > 0.2))",
@@ -2103,7 +2103,7 @@
     },
     {
         "BriefDescription": "This metric represents fraction of cycles the CPU spent handling cache misses due to lock operations",
-        "MetricExpr": "MEM_INST_RETIRED.LOCK_LOADS * MEM_INST_RETIRED.LOCK_LOADS:R / tma_info_thread_clks",
+        "MetricExpr": "cpu_core@MEM_INST_RETIRED.LOCK_LOADS@ * cpu_core@MEM_INST_RETIRED.LOCK_LOADS@R / tma_info_thread_clks",
         "MetricGroup": "Offcore;TopdownL4;tma_L4_group;tma_issueRFO;tma_l1_bound_group",
         "MetricName": "tma_lock_latency",
         "MetricThreshold": "tma_lock_latency > 0.2 & (tma_l1_bound > 0.1 & (tma_memory_bound > 0.2 & tma_backend_bound > 0.2))",
@@ -2416,7 +2416,7 @@
     },
     {
         "BriefDescription": "This metric estimates fraction of cycles handling memory load split accesses - load that cross 64-byte cache line boundary",
-        "MetricExpr": "MEM_INST_RETIRED.SPLIT_LOADS * min(MEM_INST_RETIRED.SPLIT_LOADS:R, tma_info_memory_load_miss_real_latency) / tma_info_thread_clks",
+        "MetricExpr": "cpu_core@MEM_INST_RETIRED.SPLIT_LOADS@ * min(cpu_core@MEM_INST_RETIRED.SPLIT_LOADS@R, tma_info_memory_load_miss_real_latency) / tma_info_thread_clks",
         "MetricGroup": "TopdownL4;tma_L4_group;tma_l1_bound_group",
         "MetricName": "tma_split_loads",
         "MetricThreshold": "tma_split_loads > 0.2 & (tma_l1_bound > 0.1 & (tma_memory_bound > 0.2 & tma_backend_bound > 0.2))",
@@ -2426,7 +2426,7 @@
     },
     {
         "BriefDescription": "This metric represents rate of split store accesses",
-        "MetricExpr": "MEM_INST_RETIRED.SPLIT_STORES * min(MEM_INST_RETIRED.SPLIT_STORES:R, 1) / tma_info_thread_clks",
+        "MetricExpr": "cpu_core@MEM_INST_RETIRED.SPLIT_STORES@ * min(cpu_core@MEM_INST_RETIRED.SPLIT_STORES@R, 1) / tma_info_thread_clks",
         "MetricGroup": "TopdownL4;tma_L4_group;tma_issueSpSt;tma_store_bound_group",
         "MetricName": "tma_split_stores",
         "MetricThreshold": "tma_split_stores > 0.2 & (tma_store_bound > 0.2 & (tma_memory_bound > 0.2 & tma_backend_bound > 0.2))",
