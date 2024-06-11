@@ -1420,7 +1420,9 @@ class Model:
                     # Metrics that would fit were the NMI watchdog disabled.
                     'tma_dtlb_load': nmi,
                     'tma_fb_full': nmi,
+                    'tma_few_uops_instructions': nmi,
                     'tma_load_stlb_hit': nmi,
+                    'tma_microcode_sequencer': nmi,
                     'tma_remote_cache': nmi,
                     'tma_split_loads': nmi,
                     'tma_store_latency': nmi,
