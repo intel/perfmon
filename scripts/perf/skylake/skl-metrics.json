@@ -291,6 +291,7 @@
     },
     {
         "BriefDescription": "This metric represents fraction of slots where the CPU was retiring instructions that that are decoder into two or up to ([SNB+] four; [ADL+] five) uops",
+        "MetricConstraint": "NO_GROUP_EVENTS_NMI",
         "MetricExpr": "tma_heavy_operations - tma_microcode_sequencer",
         "MetricGroup": "TopdownL3;tma_L3_group;tma_heavy_operations_group;tma_issueD0",
         "MetricName": "tma_few_uops_instructions",
@@ -1260,6 +1261,7 @@
     },
     {
         "BriefDescription": "This metric represents fraction of slots the CPU was retiring uops fetched by the Microcode Sequencer (MS) unit",
+        "MetricConstraint": "NO_GROUP_EVENTS_NMI",
         "MetricExpr": "UOPS_RETIRED.RETIRE_SLOTS / UOPS_ISSUED.ANY * IDQ.MS_UOPS / tma_info_thread_slots",
         "MetricGroup": "MicroSeq;TopdownL3;tma_L3_group;tma_heavy_operations_group;tma_issueMC;tma_issueMS",
         "MetricName": "tma_microcode_sequencer",
