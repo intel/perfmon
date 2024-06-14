@@ -284,10 +284,10 @@ class PerfmonJsonEvent:
             # For the Counter field, value '0' is reasonable
             if not result or result in drop_keys:
                 return None
-            result = re.sub('\xae', '(R)', result.strip())
-            result = re.sub('\u2122', '(TM)', result)
-            result = re.sub('\uFEFF', '', result)
-            result = re.sub('\?\?\?', '?', result)
+            result = re.sub(r'\xae', '(R)', result.strip())
+            result = re.sub(r'\u2122', '(TM)', result)
+            result = re.sub(r'\uFEFF', '', result)
+            result = re.sub(r'\?\?\?', '?', result)
             return result
 
         self.experimental = experimental
@@ -611,9 +611,9 @@ class Model:
             return None
 
         cycles = metric.Event('cycles')
-        cycles_in_tx = metric.Event('cycles\-t')
-        transaction_start = metric.Event('tx\-start')
-        cycles_in_tx_cp = metric.Event('cycles\-ct')
+        cycles_in_tx = metric.Event(r'cycles\-t')
+        transaction_start = metric.Event(r'tx\-start')
+        cycles_in_tx_cp = metric.Event(r'cycles\-ct')
         metrics = [
             metric.Metric('tsx_transactional_cycles',
                    'Percentage of cycles within a transaction region.',
@@ -632,7 +632,7 @@ class Model:
                    "cycles / transaction"),
         ]
         if self.shortname != 'SPR':
-            elision_start = metric.Event('el\-start')
+            elision_start = metric.Event(r'el\-start')
             metrics += [
                 metric.Metric('tsx_cycles_per_elision',
                               'Number of cycles within a transaction divided by the number of elisions.',
@@ -1007,88 +1007,88 @@ class Model:
 
                 def fixup(form: str) -> str:
                     td_event_fixups = [
-                        ('PERF_METRICS.BACKEND_BOUND', 'topdown\-be\-bound'),
-                        ('PERF_METRICS.BAD_SPECULATION', 'topdown\-bad\-spec'),
-                        ('PERF_METRICS.BRANCH_MISPREDICTS', 'topdown\-br\-mispredict'),
-                        ('PERF_METRICS.FETCH_LATENCY', 'topdown\-fetch\-lat'),
-                        ('PERF_METRICS.FRONTEND_BOUND', 'topdown\-fe\-bound'),
-                        ('PERF_METRICS.HEAVY_OPERATIONS', 'topdown\-heavy\-ops'),
-                        ('PERF_METRICS.MEMORY_BOUND', 'topdown\-mem\-bound'),
-                        ('PERF_METRICS.RETIRING', 'topdown\-retiring'),
+                        ('PERF_METRICS.BACKEND_BOUND', r'topdown\-be\-bound'),
+                        ('PERF_METRICS.BAD_SPECULATION', r'topdown\-bad\-spec'),
+                        ('PERF_METRICS.BRANCH_MISPREDICTS', r'topdown\-br\-mispredict'),
+                        ('PERF_METRICS.FETCH_LATENCY', r'topdown\-fetch\-lat'),
+                        ('PERF_METRICS.FRONTEND_BOUND', r'topdown\-fe\-bound'),
+                        ('PERF_METRICS.HEAVY_OPERATIONS', r'topdown\-heavy\-ops'),
+                        ('PERF_METRICS.MEMORY_BOUND', r'topdown\-mem\-bound'),
+                        ('PERF_METRICS.RETIRING', r'topdown\-retiring'),
                         ('TOPDOWN.SLOTS:perf_metrics', 'TOPDOWN.SLOTS'),
                         ('TOPDOWN.SLOTS:percore', 'TOPDOWN.SLOTS'),
                     ]
                     hsx_uncore_fixups = [
                         ('UNC_C_TOR_OCCUPANCY.MISS_OPCODE:opc=0x182:c1',
-                         'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182\,thresh\=1@'),
+                         r'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182\,thresh\=1@'),
                         ('UNC_C_TOR_OCCUPANCY.MISS_OPCODE:opc=0x182',
-                         'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182@'),
+                         r'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182@'),
                         ('UNC_C_TOR_INSERTS.MISS_OPCODE:opc=0x182',
-                         'UNC_C_TOR_INSERTS.MISS_OPCODE@filter_opc\=0x182@'),
-                        ('UNC_C_CLOCKTICKS:one_unit', 'cbox_0@event\=0x0@'),
+                         r'UNC_C_TOR_INSERTS.MISS_OPCODE@filter_opc\=0x182@'),
+                        ('UNC_C_CLOCKTICKS:one_unit', r'cbox_0@event\=0x0@'),
                     ]
                     arch_fixups = {
                         'ADL': td_event_fixups + [
-                            ('UNC_ARB_DAT_OCCUPANCY.RD:c1', 'UNC_ARB_DAT_OCCUPANCY.RD@cmask\=1@'),
+                            ('UNC_ARB_DAT_OCCUPANCY.RD:c1', r'UNC_ARB_DAT_OCCUPANCY.RD@cmask\=1@'),
                         ],
                         'BDW-DE': hsx_uncore_fixups,
                         'BDX': hsx_uncore_fixups,
                         'CLX': [
-                            ('UNC_M_CLOCKTICKS:one_unit', 'imc_0@event\=0x0@'),
-                            ('UNC_CHA_CLOCKTICKS:one_unit', 'cha_0@event\=0x0@'),
+                            ('UNC_M_CLOCKTICKS:one_unit', r'imc_0@event\=0x0@'),
+                            ('UNC_CHA_CLOCKTICKS:one_unit', r'cha_0@event\=0x0@'),
                             ('UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD:c1',
-                             'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
+                             r'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
                         ],
                         'HSX': hsx_uncore_fixups,
                         'ICL': td_event_fixups,
                         'ICX': [
-                            ('UNC_CHA_CLOCKTICKS:one_unit', 'cha_0@event\=0x0@'),
+                            ('UNC_CHA_CLOCKTICKS:one_unit', r'cha_0@event\=0x0@'),
                             ('UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD:c1',
-                             'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
+                             r'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
                         ] + td_event_fixups,
                         'IVT': [
                             ('"UNC_C_TOR_OCCUPANCY.MISS_OPCODE/Match=0x182"',
-                             'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182@'),
+                             r'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182@'),
                             ('"UNC_C_TOR_OCCUPANCY.MISS_OPCODE/Match=0x182:c1"',
-                             'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182\,thresh\=1@'),
+                             r'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182\,thresh\=1@'),
                             ('"UNC_C_TOR_INSERTS.MISS_OPCODE/Match=0x182"',
-                             'UNC_C_TOR_INSERTS.MISS_OPCODE@filter_opc\=0x182@'),
-                            ('UNC_C_CLOCKTICKS:one_unit', 'cbox_0@event\=0x0@'),
+                             r'UNC_C_TOR_INSERTS.MISS_OPCODE@filter_opc\=0x182@'),
+                            ('UNC_C_CLOCKTICKS:one_unit', r'cbox_0@event\=0x0@'),
                         ],
                         'JKT': [
                             ('"UNC_C_TOR_OCCUPANCY.MISS_OPCODE/Match=0x182"',
-                             'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182@'),
+                             r'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182@'),
                             ('"UNC_C_TOR_INSERTS.MISS_OPCODE/Match=0x182"',
-                             'UNC_C_TOR_INSERTS.MISS_OPCODE@filter_opc\=0x182@'),
+                             r'UNC_C_TOR_INSERTS.MISS_OPCODE@filter_opc\=0x182@'),
                             ('"UNC_C_TOR_OCCUPANCY.MISS_OPCODE/Match=0x182:c1"',
-                             'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182\,thresh\=1@'),
-                            ('UNC_C_CLOCKTICKS:one_unit', 'cbox_0@event\=0x0@'),
+                             r'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182\,thresh\=1@'),
+                            ('UNC_C_CLOCKTICKS:one_unit', r'cbox_0@event\=0x0@'),
                         ],
                         'MTL': td_event_fixups + [
-                            ('UNC_ARB_DAT_OCCUPANCY.RD:c1', 'UNC_ARB_DAT_OCCUPANCY.RD@cmask\=1@'),
+                            ('UNC_ARB_DAT_OCCUPANCY.RD:c1', r'UNC_ARB_DAT_OCCUPANCY.RD@cmask\=1@'),
                         ],
                         'RKL': td_event_fixups + [
-                            ('UNC_ARB_DAT_OCCUPANCY.RD:c1', 'UNC_ARB_DAT_OCCUPANCY.RD@cmask\=1@'),
+                            ('UNC_ARB_DAT_OCCUPANCY.RD:c1', r'UNC_ARB_DAT_OCCUPANCY.RD@cmask\=1@'),
                         ],
                         'SKL': [
                             ('UNC_ARB_TRK_OCCUPANCY.DATA_READ:c1',
-                             'UNC_ARB_TRK_OCCUPANCY.DATA_READ@cmask\=1@'),
+                             r'UNC_ARB_TRK_OCCUPANCY.DATA_READ@cmask\=1@'),
                         ],
                         'SKX': [
-                            ('UNC_M_CLOCKTICKS:one_unit', 'imc_0@event\=0x0@'),
-                            ('UNC_CHA_CLOCKTICKS:one_unit', 'cha_0@event\=0x0@'),
+                            ('UNC_M_CLOCKTICKS:one_unit', r'imc_0@event\=0x0@'),
+                            ('UNC_CHA_CLOCKTICKS:one_unit', r'cha_0@event\=0x0@'),
                             ('UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD:c1',
-                             'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
+                             r'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
                         ],
                         'SPR': [
-                            ('UNC_CHA_CLOCKTICKS:one_unit', 'uncore_cha_0@event\=0x1@'),
+                            ('UNC_CHA_CLOCKTICKS:one_unit', r'uncore_cha_0@event\=0x1@'),
                             ('UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD:c1',
-                             'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
+                             r'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
                         ] + td_event_fixups,
                         'TGL': [
-                            ('UNC_ARB_COH_TRK_REQUESTS.ALL', 'arb@event\=0x84\,umask\=0x1@'),
-                            ('UNC_ARB_DAT_OCCUPANCY.RD:c1', 'UNC_ARB_DAT_OCCUPANCY.RD@cmask\=1@'),
-                            ('UNC_ARB_TRK_REQUESTS.ALL', 'arb@event\=0x81\,umask\=0x1@'),
+                            ('UNC_ARB_COH_TRK_REQUESTS.ALL', r'arb@event\=0x84\,umask\=0x1@'),
+                            ('UNC_ARB_DAT_OCCUPANCY.RD:c1', r'UNC_ARB_DAT_OCCUPANCY.RD@cmask\=1@'),
+                            ('UNC_ARB_TRK_REQUESTS.ALL', r'arb@event\=0x81\,umask\=0x1@'),
                         ] + td_event_fixups,
                     }
 
@@ -1097,7 +1097,7 @@ class Model:
                             for i in range(0, len(r)):
                                 if r[i] in ['-', '=', ',']:
                                     assert i == 0 or r[i - 1] == '\\', r
-                            if pmu_prefix != 'cpu' and r.startswith('topdown\-'):
+                            if pmu_prefix != 'cpu' and r.startswith(r'topdown\-'):
                                 r = rf'{pmu_prefix}@{r}@'
 
                             form = form.replace(j, r)
@@ -1264,9 +1264,9 @@ class Model:
                         group += ';tma_L2_group'
                 _verboseprint3(f'Checking metric {name}: {form}')
                 for v, _ in re.findall(r'(([A-Z_a-z0-9.]|\\-)+)', form):
-                    if v.isdigit() or re.match('\d+\.\d+', v) is not None or \
+                    if v.isdigit() or re.match(r'\d+\.\d+', v) is not None or \
                        re.match('0x[a-fA-F0-9]+', v) is not None or \
-                       re.match('\d+e\d+', v) is not None:
+                       re.match(r'\d+e\d+', v) is not None:
                         continue
                     if v in ['if', 'then', 'else', 'min', 'max', 'core_wide',
                              'SMT_on', 'duration_time', 'cmask', 'umask',
@@ -1525,7 +1525,7 @@ class Model:
                 jo.append(j)
 
             form = resolve_all(form, expand_metrics=False)
-            needs_slots = 'topdown\-' in form and 'tma_info_thread_slots' not in form
+            needs_slots = r'topdown\-' in form and 'tma_info_thread_slots' not in form
             if needs_slots:
                 # topdown events must always be grouped with a
                 # TOPDOWN.SLOTS event. Detect when this is missing in a
