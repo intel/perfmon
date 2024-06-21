@@ -707,6 +707,289 @@ class Model:
 
         return new_formula
 
+    def save_form(self, name, group, form, desc, locate, scale_unit, threshold,
+                          issues, events, infoname, aux, pmu_prefix, jo,
+                           issue_to_metrics ):
+                if self.shortname == 'BDW-DE':
+                    if name in ['tma_false_sharing']:
+                        # Uncore events missing for BDW-DE, so drop.
+                        _verboseprint3(f'Dropping metric {name}')
+                        return
+
+                # Make 'TmaL1' group names more consistent with the 'tma_'
+                # prefix and '_group' suffix.
+                if group:
+                    if 'TmaL1' in group and 'tma_L1_group' not in group:
+                        group += ';tma_L1_group'
+                    if 'TmaL2' in group and 'tma_L2_group' not in group:
+                        group += ';tma_L2_group'
+                _verboseprint3(f'Checking metric {name}: {form}')
+                for v, _ in re.findall(r'(([A-Z_a-z0-9.]|\\-)+)', form):
+                    if v.isdigit() or re.match('\d+\.\d+', v) is not None or \
+                       re.match('0x[a-fA-F0-9]+', v) is not None or \
+                       re.match('\d+e\d+', v) is not None:
+                        continue
+                    if v in ['if', 'then', 'else', 'min', 'max', 'core_wide',
+                             'SMT_on', 'duration_time', 'cmask', 'umask',
+                             'u', 'k', 'cpu', 'cpu_atom', 'cpu_core', 'edge',
+                             'inv', 'TSC', 'filter_opc', 'cha_0', 'event',
+                             'imc_0', 'uncore_cha_0', 'cbox_0', 'arb', 'cbox',
+                             'num_packages', 'num_cores', 'SYSTEM_TSC_FREQ',
+                             'filter_tid', 'TSC', 'cha', 'config1',
+                             'source_count', 'slots', 'thresh', 'has_pmem',
+                             'num_dies', 'num_cpus_online', 'PEBS', 'power',
+                             'energy\-pkg']:
+                        continue
+                    if v.startswith('tma_') or v.startswith('topdown\\-'):
+                        continue
+                    assert v in events or v.upper() in events or v in infoname or v in aux, \
+                        f'Expected {v} to be an event in "{name}": "{form}" on {self.shortname}'
+
+                assert f'{pmu_prefix}@UNC' not in form, form
+                if group:
+                    group = ';'.join(sorted(set(group.split(';'))))
+                # Check for duplicate metrics. Note, done after
+                # verifying the events.
+                parsed_threshold = None
+                dups = [m for m in jo if m['MetricName'] == name]
+                if len(dups) > 0:
+                    assert len(dups) == 1
+                    m = dups[0]
+                    if form != m['MetricExpr']:
+                        _verboseprint2(f'duplicate metric {name} forms differ'
+                                       f'\n\tnew: {form}'
+                                       f'\n\texisting: {m["MetricExpr"]}')
+                    if not locate and ' Sample with: ' not in desc:
+                        if 'PublicDescription' in m:
+                            d = m['PublicDescription']
+                        else:
+                            d = m['BriefDescription']
+                        if ' Sample with: ' in d:
+                            locate = re.sub(r'.* Sample with: (.*)', r'\1', d)
+                    if not threshold:
+                        parsed_threshold = m.get('MetricThreshold')
+                    group = m['MetricGroup']
+                    jo.remove(m)
+
+                desc = desc.strip()
+                def append_to_desc(s: str):
+                    nonlocal desc
+                    if desc[-1] != '.':
+                        desc += '.'
+                    desc = f'{desc} {s}'
+
+                if locate:
+                    append_to_desc(f'Sample with: {locate}')
+
+                if issues:
+                    related = set()
+                    for issue in issues:
+                        related.update(issue_to_metrics[issue])
+                    related.remove(name)
+                    append_to_desc(f'Related metrics: {", ".join(sorted(related))}')
+
+                try:
+                    if "$PEBS" in form:
+                        form = self.extract_pebs_formula(form)
+                    j = {
+                        'MetricName': name,
+                        'MetricExpr': metric.ParsePerfJson(form).Simplify().ToPerfJson(),
+                    }
+                except SyntaxError as e:
+                    raise SyntaxError(f'Parsing metric {name} for {self.longname}') from e
+
+                if group and len(group) > 0:
+                    j['MetricGroup'] = group
+                if '.' in desc:
+                    sdesc = re.sub(r'(?<!i\.e)\. .*', '', desc)
+                    j['BriefDescription'] = sdesc
+                    if desc != sdesc:
+                        j['PublicDescription'] = desc
+                else:
+                    j['BriefDescription'] = desc
+
+                # Don't group events as there can never be sufficient counters.
+                no_group = 'NO_GROUP_EVENTS'
+                # Inform perf not to group metrics if the NMI watchdog
+                # is enabled.
+                nmi = 'NO_GROUP_EVENTS_NMI'
+                # Inform perf not to group events if SMT is enabled. This is for
+                # the erratas SNB: BJ122, IVB: BV98, HSW: HSD29, as well as when
+                # EBS_Mode causes additional events to be required.
+                smt = 'NO_GROUP_EVENTS_SMT'
+
+                sandybridge_constraints = {
+                    # Metrics with more events than counters.
+                    'tma_branch_mispredicts': no_group,
+                    'tma_contested_accesses': no_group,
+                    'tma_core_bound': no_group,
+                    'tma_data_sharing': no_group,
+                    'tma_fb_full': no_group,
+                    'tma_l3_hit_latency': no_group,
+                    'tma_local_dram': no_group,
+                    'tma_lock_latency': no_group,
+                    'tma_machine_clears': no_group,
+                    'tma_memory_bound': no_group,
+                    'tma_ports_utilization': no_group,
+                    'tma_remote_cache': no_group,
+                    'tma_remote_dram': no_group,
+                    'tma_split_loads': no_group,
+                    'tma_store_latency': no_group,
+                    'tma_info_memory_load_miss_real_latency': no_group,
+                    'tma_info_memory_mlp': no_group,
+                    # Metrics that would fit were the NMI watchdog disabled.
+                    'tma_alu_op_utilization': nmi,
+                    'tma_backend_bound': nmi,
+                    'tma_cisc': nmi,
+                    'tma_load_op_utilization': nmi,
+                    # SMT errata workarounds.
+                    'tma_dram_bound': smt,
+                    'tma_l3_bound': smt,
+                }
+                skylake_constraints = {
+                    # Metrics with more events than counters.
+                    'tma_branch_mispredicts': no_group,
+                    'tma_contested_accesses': no_group,
+                    'tma_core_bound': no_group,
+                    'tma_data_sharing': no_group,
+                    'tma_dram_bound': no_group,
+                    'tma_false_sharing': no_group,
+                    'tma_fp_arith': no_group,
+                    'tma_fp_vector': no_group,
+                    'tma_l2_bound': no_group,
+                    'tma_machine_clears': no_group,
+                    'tma_memory_bound': no_group,
+                    'tma_pmm_bound': no_group,
+                    'tma_info_botlnk_l0_core_bound_likely': no_group,
+                    'tma_info_botlnk_l2_dsb_misses': no_group,
+                    'tma_info_bottleneck_big_code': no_group,
+                    'tma_info_bottleneck_instruction_fetch_bw': no_group,
+                    'tma_info_bottleneck_memory_bandwidth': no_group,
+                    'tma_info_bottleneck_memory_data_tlbs': no_group,
+                    'tma_info_bottleneck_memory_latency': no_group,
+                    'tma_info_bottleneck_mispredictions': no_group,
+                    'tma_info_branches_jump': no_group,
+                    'tma_info_core_flopc': no_group,
+                    'tma_info_fp_arith_utilization': no_group,
+                    'tma_info_inst_mix_iparith': no_group,
+                    'tma_info_inst_mix_ipflop': no_group,
+                    'tma_info_system_gflops': no_group,
+                    # Metrics that would fit were the NMI watchdog disabled.
+                    'tma_dtlb_load': nmi,
+                    'tma_fb_full': nmi,
+                    'tma_few_uops_instructions': nmi,
+                    'tma_load_stlb_hit': nmi,
+                    'tma_microcode_sequencer': nmi,
+                    'tma_remote_cache': nmi,
+                    'tma_split_loads': nmi,
+                    'tma_store_latency': nmi,
+                    'tma_info_memory_tlb_page_walks_utilization': nmi,
+                }
+                icelake_constraints = {
+                    # Metrics with more events than counters.
+                    'tma_contested_accesses': no_group,
+                    'tma_data_sharing': no_group,
+                    'tma_dram_bound': no_group,
+                    'tma_l2_bound': no_group,
+                    'tma_lock_latency': no_group,
+                    'tma_memory_operations': no_group,
+                    'tma_other_light_ops': no_group,
+                    'tma_info_bad_spec_branch_misprediction_cost': no_group,
+                    'tma_info_botlnk_l0_core_bound_likely': no_group,
+                    'tma_info_botlnk_l2_dsb_misses': no_group,
+                    'tma_info_botlnk_l2_dsb_misses': no_group,
+                    'tma_info_botlnk_l2_ic_misses': no_group,
+                    'tma_info_bottleneck_big_code': no_group,
+                    'tma_info_bottleneck_instruction_fetch_bw': no_group,
+                    'tma_info_bottleneck_memory_bandwidth': no_group,
+                    'tma_info_bottleneck_memory_data_tlbs': no_group,
+                    'tma_info_bottleneck_memory_latency': no_group,
+                    'tma_info_bottleneck_mispredictions': no_group,
+                    # Metrics that would fit were the NMI watchdog disabled.
+                    'tma_l3_bound': nmi,
+                    'tma_4k_aliasing': nmi,
+                    'tma_split_stores': nmi,
+                    'tma_store_fwd_blk': nmi,
+                }
+                # Alderlake/sapphirerapids add topdown l2 events
+                # meaning fewer events and triggering NMI issues.
+                alderlake_constraints = {
+                    # Metrics with more events than counters.
+                    'tma_info_system_mem_read_latency': no_group,
+                    'tma_info_system_mem_request_latency': no_group,
+                    # Metrics that would fit were the NMI watchdog disabled.
+                    'tma_ports_utilized_2': nmi,
+                    'tma_ports_utilized_3m': nmi,
+                    'tma_memory_fence': nmi,
+                    'tma_slow_pause': nmi,
+                }
+                errata_constraints = {
+                    # 4 programmable, 3 fixed counters per HT
+                    'JKT': sandybridge_constraints,
+                    'SNB': sandybridge_constraints,
+                    'IVB': sandybridge_constraints,
+                    'IVT': sandybridge_constraints,
+                    'HSW': sandybridge_constraints,
+                    'HSX': sandybridge_constraints,
+                    'BDW': sandybridge_constraints,
+                    'BDX': sandybridge_constraints,
+                    'BDW-DE': sandybridge_constraints,
+                    # 4 programmable, 3 fixed counters per HT
+                    'SKL': skylake_constraints,
+                    'KBL': skylake_constraints,
+                    'SKX': skylake_constraints,
+                    'KBLR': skylake_constraints,
+                    'CFL': skylake_constraints,
+                    'CML': skylake_constraints,
+                    'CLX': skylake_constraints,
+                    'CPX': skylake_constraints,
+                    'CNL': skylake_constraints,
+                    # 8 programmable, 5 fixed counters per HT
+                    'ICL': icelake_constraints,
+                    'ICX': icelake_constraints,
+                    'RKL': icelake_constraints,
+                    'TGL': icelake_constraints,
+                    # As above but l2 topdown counters
+                    'ADL': alderlake_constraints,
+                    'ADLN': alderlake_constraints,
+                    'RPL': alderlake_constraints,
+                    'SPR': alderlake_constraints,
+                    'MTL': alderlake_constraints,
+                    'EMR': alderlake_constraints,
+                    'SRF': alderlake_constraints,
+                    'GRR': alderlake_constraints,
+                }
+                if name in errata_constraints[self.shortname]:
+                    j['MetricConstraint'] = errata_constraints[self.shortname][name]
+
+                if group:
+                    if 'TopdownL1' in group:
+                        if 'Default' in group:
+                            j['MetricgroupNoGroup'] = 'TopdownL1;Default'
+                            j['DefaultMetricgroupName'] = 'TopdownL1'
+                        else:
+                            j['MetricgroupNoGroup'] = 'TopdownL1'
+                    elif 'TopdownL2' in group:
+                        if 'Default' in group:
+                            j['MetricgroupNoGroup'] = 'TopdownL2;Default'
+                            j['DefaultMetricgroupName'] = 'TopdownL2'
+                        else:
+                            j['MetricgroupNoGroup'] = 'TopdownL2'
+
+                if pmu_prefix != 'cpu':
+                    j['Unit'] = pmu_prefix
+
+                if scale_unit:
+                    j['ScaleUnit'] = scale_unit
+
+                if parsed_threshold:
+                    j['MetricThreshold'] = parsed_threshold
+                elif threshold:
+                    j['MetricThreshold'] = metric.ParsePerfJson(threshold).Simplify().ToPerfJson()
+
+                jo.append(j)
+
+
     def extract_tma_metrics(self, csvfile: TextIO, pmu_prefix: str,
                             events: Dict[str, PerfmonJsonEvent]):
         """Process a TMA metrics spreadsheet generating perf metrics."""
@@ -1267,286 +1550,6 @@ class Model:
                 form = fixup(form)
                 return form
 
-            def save_form(name, group, form, desc, locate, scale_unit, threshold,
-                          issues):
-                if self.shortname == 'BDW-DE':
-                    if name in ['tma_false_sharing']:
-                        # Uncore events missing for BDW-DE, so drop.
-                        _verboseprint3(f'Dropping metric {name}')
-                        return
-
-                # Make 'TmaL1' group names more consistent with the 'tma_'
-                # prefix and '_group' suffix.
-                if group:
-                    if 'TmaL1' in group and 'tma_L1_group' not in group:
-                        group += ';tma_L1_group'
-                    if 'TmaL2' in group and 'tma_L2_group' not in group:
-                        group += ';tma_L2_group'
-                _verboseprint3(f'Checking metric {name}: {form}')
-                for v, _ in re.findall(r'(([A-Z_a-z0-9.]|\\-)+)', form):
-                    if v.isdigit() or re.match(r'\d+\.\d+', v) is not None or \
-                       re.match('0x[a-fA-F0-9]+', v) is not None or \
-                       re.match(r'\d+e\d+', v) is not None:
-                        continue
-                    if v in ['if', 'then', 'else', 'min', 'max', 'core_wide',
-                             'SMT_on', 'duration_time', 'cmask', 'umask',
-                             'u', 'k', 'cpu', 'cpu_atom', 'cpu_core', 'edge',
-                             'inv', 'TSC', 'filter_opc', 'cha_0', 'event',
-                             'imc_0', 'uncore_cha_0', 'cbox_0', 'arb', 'cbox',
-                             'num_packages', 'num_cores', 'SYSTEM_TSC_FREQ',
-                             'filter_tid', 'TSC', 'cha', 'config1',
-                             'source_count', 'slots', 'thresh', 'has_pmem',
-                             'num_dies', 'num_cpus_online', 'PEBS', 'power',
-                             'energy\-pkg']:
-                        continue
-                    if v.startswith('tma_') or v.startswith('topdown\\-'):
-                        continue
-                    assert v in events or v.upper() in events or v in infoname or v in aux, \
-                        f'Expected {v} to be an event in "{name}": "{form}" on {self.shortname}'
-
-                assert f'{pmu_prefix}@UNC' not in form, form
-                if group:
-                    group = ';'.join(sorted(set(group.split(';'))))
-                # Check for duplicate metrics. Note, done after
-                # verifying the events.
-                parsed_threshold = None
-                dups = [m for m in jo if m['MetricName'] == name]
-                if len(dups) > 0:
-                    assert len(dups) == 1
-                    m = dups[0]
-                    if form != m['MetricExpr']:
-                        _verboseprint2(f'duplicate metric {name} forms differ'
-                                       f'\n\tnew: {form}'
-                                       f'\n\texisting: {m["MetricExpr"]}')
-                    if not locate and ' Sample with: ' not in desc:
-                        if 'PublicDescription' in m:
-                            d = m['PublicDescription']
-                        else:
-                            d = m['BriefDescription']
-                        if ' Sample with: ' in d:
-                            locate = re.sub(r'.* Sample with: (.*)', r'\1', d)
-                    if not threshold:
-                        parsed_threshold = m.get('MetricThreshold')
-                    group = m['MetricGroup']
-                    jo.remove(m)
-
-                desc = desc.strip()
-                def append_to_desc(s: str):
-                    nonlocal desc
-                    if desc[-1] != '.':
-                        desc += '.'
-                    desc = f'{desc} {s}'
-
-                if locate:
-                    append_to_desc(f'Sample with: {locate}')
-
-                if issues:
-                    related = set()
-                    for issue in issues:
-                        related.update(issue_to_metrics[issue])
-                    related.remove(name)
-                    append_to_desc(f'Related metrics: {", ".join(sorted(related))}')
-
-                try:
-                    if "$PEBS" in form:
-                        form = self.extract_pebs_formula(form)
-                    j = {
-                        'MetricName': name,
-                        'MetricExpr': metric.ParsePerfJson(form).Simplify().ToPerfJson(),
-                    }
-                except SyntaxError as e:
-                    raise SyntaxError(f'Parsing metric {name} for {self.longname}') from e
-
-                if group and len(group) > 0:
-                    j['MetricGroup'] = group
-                if '.' in desc:
-                    sdesc = re.sub(r'(?<!i\.e)\. .*', '', desc)
-                    j['BriefDescription'] = sdesc
-                    if desc != sdesc:
-                        j['PublicDescription'] = desc
-                else:
-                    j['BriefDescription'] = desc
-
-                # Don't group events as there can never be sufficient counters.
-                no_group = 'NO_GROUP_EVENTS'
-                # Inform perf not to group metrics if the NMI watchdog
-                # is enabled.
-                nmi = 'NO_GROUP_EVENTS_NMI'
-                # Inform perf not to group events if SMT is enabled. This is for
-                # the erratas SNB: BJ122, IVB: BV98, HSW: HSD29, as well as when
-                # EBS_Mode causes additional events to be required.
-                smt = 'NO_GROUP_EVENTS_SMT'
-
-                sandybridge_constraints = {
-                    # Metrics with more events than counters.
-                    'tma_branch_mispredicts': no_group,
-                    'tma_contested_accesses': no_group,
-                    'tma_core_bound': no_group,
-                    'tma_data_sharing': no_group,
-                    'tma_fb_full': no_group,
-                    'tma_l3_hit_latency': no_group,
-                    'tma_local_dram': no_group,
-                    'tma_lock_latency': no_group,
-                    'tma_machine_clears': no_group,
-                    'tma_memory_bound': no_group,
-                    'tma_ports_utilization': no_group,
-                    'tma_remote_cache': no_group,
-                    'tma_remote_dram': no_group,
-                    'tma_split_loads': no_group,
-                    'tma_store_latency': no_group,
-                    'tma_info_memory_load_miss_real_latency': no_group,
-                    'tma_info_memory_mlp': no_group,
-                    # Metrics that would fit were the NMI watchdog disabled.
-                    'tma_alu_op_utilization': nmi,
-                    'tma_backend_bound': nmi,
-                    'tma_cisc': nmi,
-                    'tma_load_op_utilization': nmi,
-                    # SMT errata workarounds.
-                    'tma_dram_bound': smt,
-                    'tma_l3_bound': smt,
-                }
-                skylake_constraints = {
-                    # Metrics with more events than counters.
-                    'tma_branch_mispredicts': no_group,
-                    'tma_contested_accesses': no_group,
-                    'tma_core_bound': no_group,
-                    'tma_data_sharing': no_group,
-                    'tma_dram_bound': no_group,
-                    'tma_false_sharing': no_group,
-                    'tma_fp_arith': no_group,
-                    'tma_fp_vector': no_group,
-                    'tma_l2_bound': no_group,
-                    'tma_machine_clears': no_group,
-                    'tma_memory_bound': no_group,
-                    'tma_pmm_bound': no_group,
-                    'tma_info_botlnk_l0_core_bound_likely': no_group,
-                    'tma_info_botlnk_l2_dsb_misses': no_group,
-                    'tma_info_bottleneck_big_code': no_group,
-                    'tma_info_bottleneck_instruction_fetch_bw': no_group,
-                    'tma_info_bottleneck_memory_bandwidth': no_group,
-                    'tma_info_bottleneck_memory_data_tlbs': no_group,
-                    'tma_info_bottleneck_memory_latency': no_group,
-                    'tma_info_bottleneck_mispredictions': no_group,
-                    'tma_info_branches_jump': no_group,
-                    'tma_info_core_flopc': no_group,
-                    'tma_info_fp_arith_utilization': no_group,
-                    'tma_info_inst_mix_iparith': no_group,
-                    'tma_info_inst_mix_ipflop': no_group,
-                    'tma_info_system_gflops': no_group,
-                    # Metrics that would fit were the NMI watchdog disabled.
-                    'tma_dtlb_load': nmi,
-                    'tma_fb_full': nmi,
-                    'tma_few_uops_instructions': nmi,
-                    'tma_load_stlb_hit': nmi,
-                    'tma_microcode_sequencer': nmi,
-                    'tma_remote_cache': nmi,
-                    'tma_split_loads': nmi,
-                    'tma_store_latency': nmi,
-                    'tma_info_memory_tlb_page_walks_utilization': nmi,
-                }
-                icelake_constraints = {
-                    # Metrics with more events than counters.
-                    'tma_contested_accesses': no_group,
-                    'tma_data_sharing': no_group,
-                    'tma_dram_bound': no_group,
-                    'tma_l2_bound': no_group,
-                    'tma_lock_latency': no_group,
-                    'tma_memory_operations': no_group,
-                    'tma_other_light_ops': no_group,
-                    'tma_info_bad_spec_branch_misprediction_cost': no_group,
-                    'tma_info_botlnk_l0_core_bound_likely': no_group,
-                    'tma_info_botlnk_l2_dsb_misses': no_group,
-                    'tma_info_botlnk_l2_dsb_misses': no_group,
-                    'tma_info_botlnk_l2_ic_misses': no_group,
-                    'tma_info_bottleneck_big_code': no_group,
-                    'tma_info_bottleneck_instruction_fetch_bw': no_group,
-                    'tma_info_bottleneck_memory_bandwidth': no_group,
-                    'tma_info_bottleneck_memory_data_tlbs': no_group,
-                    'tma_info_bottleneck_memory_latency': no_group,
-                    'tma_info_bottleneck_mispredictions': no_group,
-                    # Metrics that would fit were the NMI watchdog disabled.
-                    'tma_l3_bound': nmi,
-                    'tma_4k_aliasing': nmi,
-                    'tma_split_stores': nmi,
-                    'tma_store_fwd_blk': nmi,
-                }
-                # Alderlake/sapphirerapids add topdown l2 events
-                # meaning fewer events and triggering NMI issues.
-                alderlake_constraints = {
-                    # Metrics with more events than counters.
-                    'tma_info_system_mem_read_latency': no_group,
-                    'tma_info_system_mem_request_latency': no_group,
-                    # Metrics that would fit were the NMI watchdog disabled.
-                    'tma_ports_utilized_2': nmi,
-                    'tma_ports_utilized_3m': nmi,
-                    'tma_memory_fence': nmi,
-                    'tma_slow_pause': nmi,
-                }
-                errata_constraints = {
-                    # 4 programmable, 3 fixed counters per HT
-                    'JKT': sandybridge_constraints,
-                    'SNB': sandybridge_constraints,
-                    'IVB': sandybridge_constraints,
-                    'IVT': sandybridge_constraints,
-                    'HSW': sandybridge_constraints,
-                    'HSX': sandybridge_constraints,
-                    'BDW': sandybridge_constraints,
-                    'BDX': sandybridge_constraints,
-                    'BDW-DE': sandybridge_constraints,
-                    # 4 programmable, 3 fixed counters per HT
-                    'SKL': skylake_constraints,
-                    'KBL': skylake_constraints,
-                    'SKX': skylake_constraints,
-                    'KBLR': skylake_constraints,
-                    'CFL': skylake_constraints,
-                    'CML': skylake_constraints,
-                    'CLX': skylake_constraints,
-                    'CPX': skylake_constraints,
-                    'CNL': skylake_constraints,
-                    # 8 programmable, 5 fixed counters per HT
-                    'ICL': icelake_constraints,
-                    'ICX': icelake_constraints,
-                    'RKL': icelake_constraints,
-                    'TGL': icelake_constraints,
-                    # As above but l2 topdown counters
-                    'ADL': alderlake_constraints,
-                    'ADLN': alderlake_constraints,
-                    'RPL': alderlake_constraints,
-                    'SPR': alderlake_constraints,
-                    'MTL': alderlake_constraints,
-                    'EMR': alderlake_constraints,
-                    'SRF': alderlake_constraints,
-                    'GRR': alderlake_constraints,
-                }
-                if name in errata_constraints[self.shortname]:
-                    j['MetricConstraint'] = errata_constraints[self.shortname][name]
-
-                if group:
-                    if 'TopdownL1' in group:
-                        if 'Default' in group:
-                            j['MetricgroupNoGroup'] = 'TopdownL1;Default'
-                            j['DefaultMetricgroupName'] = 'TopdownL1'
-                        else:
-                            j['MetricgroupNoGroup'] = 'TopdownL1'
-                    elif 'TopdownL2' in group:
-                        if 'Default' in group:
-                            j['MetricgroupNoGroup'] = 'TopdownL2;Default'
-                            j['DefaultMetricgroupName'] = 'TopdownL2'
-                        else:
-                            j['MetricgroupNoGroup'] = 'TopdownL2'
-
-                if pmu_prefix != 'cpu':
-                    j['Unit'] = pmu_prefix
-
-                if scale_unit:
-                    j['ScaleUnit'] = scale_unit
-
-                if parsed_threshold:
-                    j['MetricThreshold'] = parsed_threshold
-                elif threshold:
-                    j['MetricThreshold'] = metric.ParsePerfJson(threshold).Simplify().ToPerfJson()
-
-                jo.append(j)
 
             form = resolve_all(form, expand_metrics=False)
             needs_slots = r'topdown\-' in form and 'tma_info_thread_slots' not in form
@@ -1581,16 +1584,19 @@ class Model:
                 threshold = threshold.replace('& 1', '')
                 thresholds[i.name] = threshold
                 _verboseprint2(f'{i.name} -> {threshold}')
-            save_form(i.name, i.groups, form, i.desc, i.locate, i.scale_unit,
-                      threshold, i.issues)
+            self.save_form(i.name, i.groups, form, i.desc, i.locate, i.scale_unit,
+                      threshold, i.issues, events, infoname, aux, pmu_prefix, jo,
+                      issue_to_metrics )
 
         if 'Socket_CLKS' in infoname:
             form = 'Socket_CLKS / #num_dies / duration_time / 1000000000'
             form = resolve_all(form, expand_metrics=False)
             if form:
                 formula = metric.ParsePerfJson(form)
-                save_form('UNCORE_FREQ', 'SoC', formula.ToPerfJson(),
-                          'Uncore frequency per die [GHZ]', None, None, None, [])
+                self.save_form('UNCORE_FREQ', 'SoC', formula.ToPerfJson(),
+                          'Uncore frequency per die [GHZ]', None, None, None, [],
+                           events, infoname, aux, pmu_prefix, jo,
+                           issue_to_metrics)
 
         if 'extra metrics' in self.files:
             with open(self.files['extra metrics'], 'r') as extra_json:
@@ -1628,9 +1634,10 @@ class Model:
                             dups[0]['MetricExpr'] = em['MetricExpr']
                             _verboseprint2(f"Replace {dups[0]['MetricName']} formula with formula from JSON\n")
                         continue
-                    save_form(em['MetricName'], em['MetricGroup'], em['MetricExpr'],
+                    self.save_form(em['MetricName'], em['MetricGroup'], em['MetricExpr'],
                               em['BriefDescription'], None, em.get('ScaleUnit'),
-                              em.get('MetricThreshold'), [])
+                              em.get('MetricThreshold'), [], events, infoname,
+                              aux, pmu_prefix, jo, issue_to_metrics)
 
         return jo
 
