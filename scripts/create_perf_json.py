@@ -1661,18 +1661,7 @@ class Model:
                 self.unit_counters[unit] = {'Unit':unit, 'CountersNumFixed': '0', 'CountersNumGeneric': '0'}
                 self.unit_counters[unit][type] = v
 
-    def to_perf_json(self, outdir: Path):
-        # Map from a topic to its list of events as dictionaries.
-        pmon_topic_events: Dict[str, list[Dict[str, str]]] = \
-            collections.defaultdict(list)
-        # Maps an event's name for this model to its
-        # PerfmonJsonEvent. These events aren't mutated in the code
-        # below.
-        events: Dict[str, PerfmonJsonEvent] = {}
-        # Map from an event's name for this model to a dictionary
-        # representing the perf json event. The dictionary events may
-        # be modified by the uncore CSV file.
-        dict_events: Dict[str, Dict[str, str]] = {}
+    def map_event_to_topics(self, pmon_topic_events: Dict, dict_events: Dict, events: Dict):
         for event_type in ['atom', 'core', 'uncore', 'uncore experimental']:
             if event_type not in self.files:
                 continue
@@ -1715,94 +1704,115 @@ class Model:
                     events[event.event_name] = event
                 self.count_counters(event_type, pmon_events)
 
-        if 'uncore csv' in self.files:
-            _verboseprint2(f'Rewriting events with {self.files["uncore csv"]}')
-            with open(self.files['uncore csv'], 'r') as uncore_csv:
-                csvfile = csv.reader(uncore_csv)
-                for l in csvfile:
-                    while len(l) < 7:
-                        l.append('')
-                    name, newname, desc, filter, scale, formula, comment = l
+    def uncore_csv(self, pmon_topic_events:Dict, dict_events: Dict, events: Dict):
+        # Handle uncore csv in config/
+        _verboseprint2(f'Rewriting events with {self.files["uncore csv"]}')
+        with open(self.files['uncore csv'], 'r') as uncore_csv:
+            csvfile = csv.reader(uncore_csv)
+            for l in csvfile:
+                while len(l) < 7:
+                    l.append('')
+                name, newname, desc, filter, scale, formula, comment = l
 
-                    umask = None
-                    if ":" in name:
-                        name, umask = name.split(":")
-                        umask = umask[1:]
+                umask = None
+                if ":" in name:
+                    name, umask = name.split(":")
+                    umask = umask[1:]
 
-                    if name not in events or events[name].is_deprecated():
-                        temp_name = None
-                        if '_H_' in name:
-                            temp_name = name.replace('_C_', '_CHA_')
-                        elif '_C_' in name:
-                            temp_name = name.replace('_H_', '_CHA_')
-                        if temp_name and temp_name in events:
-                            name = temp_name
+                if name not in events or events[name].is_deprecated():
+                    temp_name = None
+                    if '_H_' in name:
+                        temp_name = name.replace('_C_', '_CHA_')
+                    elif '_C_' in name:
+                        temp_name = name.replace('_H_', '_CHA_')
+                    if temp_name and temp_name in events:
+                        name = temp_name
 
-                    if name not in events:
-                        continue
+                if name not in events:
+                    continue
 
-                    if newname:
-                        topic = events[name].topic
-                        old_event = dict_events[name]
-                        new_event = old_event.copy()
-                        new_event['EventName'] = newname
-                        dict_events[newname] = new_event
-                        pmon_topic_events[topic].append(new_event)
-                        if desc:
-                            desc += f'. Derived from {name.lower()}'
-                        name = newname
-
+                if newname:
+                    topic = events[name].topic
+                    old_event = dict_events[name]
+                    new_event = old_event.copy()
+                    new_event['EventName'] = newname
+                    dict_events[newname] = new_event
+                    pmon_topic_events[topic].append(new_event)
                     if desc:
-                        dict_events[name]['BriefDescription'] = desc
+                        desc += f'. Derived from {name.lower()}'
+                    name = newname
 
+                if desc:
+                    dict_events[name]['BriefDescription'] = desc
+
+                if filter:
+                    if filter == 'Filter1':
+                        filter = f'config1={hex(int(events[name].filter_value, 16) << 32)}'
+                    for (before, after) in [
+                        ("State=", ",filter_state="),
+                        ("Match=", ",filter_opc="),
+                        (":opc=", ",filter_opc="),
+                        (":nc=", ",filter_nc="),
+                        (":tid=", ",filter_tid="),
+                        (":state=", ",filter_state="),
+                        (":filter1=", ",config1="),
+                        ("fc, chnl", "")
+                    ]:
+                        filter = filter.replace(before, after)
+                    m = re.match(r':u[0-9xa-f]+', filter)
+                    if m:
+                        umask = f'0x{int(m.group(0)[2:], 16):x}'
+                        filter = filter.replace(m.group(0), '')
+                    if filter.startswith(','):
+                        filter = filter[1:]
+                    if filter.endswith(','):
+                        filter = filter[:-1]
                     if filter:
-                        if filter == 'Filter1':
-                            filter = f'config1={hex(int(events[name].filter_value, 16) << 32)}'
-                        for (before, after) in [
-                            ("State=", ",filter_state="),
-                            ("Match=", ",filter_opc="),
-                            (":opc=", ",filter_opc="),
-                            (":nc=", ",filter_nc="),
-                            (":tid=", ",filter_tid="),
-                            (":state=", ",filter_state="),
-                            (":filter1=", ",config1="),
-                            ("fc, chnl", "")
-                        ]:
-                            filter = filter.replace(before, after)
-                        m = re.match(r':u[0-9xa-f]+', filter)
-                        if m:
-                            umask = f'0x{int(m.group(0)[2:], 16):x}'
-                            filter = filter.replace(m.group(0), '')
-                        if filter.startswith(','):
-                            filter = filter[1:]
-                        if filter.endswith(','):
-                            filter = filter[:-1]
-                        if filter:
-                            dict_events[name]['Filter'] = filter
+                        dict_events[name]['Filter'] = filter
 
-                    if umask:
-                        dict_events[name]['UMask'] = umask
+                if umask:
+                    dict_events[name]['UMask'] = umask
 
+                if scale:
+                    if '(' in scale:
+                        scale = scale.replace('(', '').replace(')', '')
+                    else:
+                        scale += 'Bytes'
+                    dict_events[name]['ScaleUnit'] = scale
+
+                if formula:
                     if scale:
-                        if '(' in scale:
-                            scale = scale.replace('(', '').replace(')', '')
-                        else:
-                            scale += 'Bytes'
-                        dict_events[name]['ScaleUnit'] = scale
+                        _verboseprint(f'Warning for {name} - scale applies to event and metric')
+                    # Don't apply % for Latency Metrics
+                    if "/" in formula and "LATENCY" not in name:
+                        formula = re.sub(r"X/", rf"{name}/", formula)
+                        formula = f'({formula.replace("/", " / ")}) * 100'
+                        metric_name = re.sub(r'UNC_[A-Z]_', '', name).lower()
+                    else:
+                        metric_name = name
+                    dict_events[name]["MetricName"] = metric_name
+                    dict_events[name]['MetricExpr'] = formula
 
-                    if formula:
-                        if scale:
-                            _verboseprint(f'Warning for {name} - scale applies to event and metric')
-                        # Don't apply % for Latency Metrics
-                        if "/" in formula and "LATENCY" not in name:
-                            formula = re.sub(r"X/", rf"{name}/", formula)
-                            formula = f'({formula.replace("/", " / ")}) * 100'
-                            metric_name = re.sub(r'UNC_[A-Z]_', '', name).lower()
-                        else:
-                            metric_name = name
-                        dict_events[name]["MetricName"] = metric_name
-                        dict_events[name]['MetricExpr'] = formula
 
+    def to_perf_json(self, outdir: Path):
+        # Map from a topic to its list of events as dictionaries.
+        pmon_topic_events: Dict[str, list[Dict[str, str]]] = \
+            collections.defaultdict(list)
+        # Maps an event's name for this model to its
+        # PerfmonJsonEvent. These events aren't mutated in the code
+        # below.
+        events: Dict[str, PerfmonJsonEvent] = {}
+        # Map from an event's name for this model to a dictionary
+        # representing the perf json event. The dictionary events may
+        # be modified by the uncore CSV file.
+        dict_events: Dict[str, Dict[str, str]] = {}
+
+        self.map_event_to_topics(pmon_topic_events=pmon_topic_events, dict_events=dict_events, events=events)
+
+        if 'uncore csv' in self.files:
+            self.uncore_csv(pmon_topic_events=pmon_topic_events, dict_events=dict_events, events=events)
+
+        # Write event JSON files for each topic
         for topic, events_ in pmon_topic_events.items():
             events_ = sorted(events_, key=lambda event: event['EventName'])
             output_path = Path(outdir, f'{topic.lower().replace(" ", "-")}.json')
@@ -1810,6 +1820,8 @@ class Model:
                 json.dump(events_, perf_json, sort_keys=True, indent=4,
                           separators=(',', ': '))
                 perf_json.write('\n')
+
+        # Write units and counters data to counter.json file
         # Skip hybrid because event grouping does not support it well yet
         if self.shortname not in ['ADL', 'ADLN', 'ARL', 'LNL', 'MTL']:
             # Write units and counters data to counter.json file
@@ -1817,6 +1829,7 @@ class Model:
             with open(output_counters, 'w', encoding='ascii') as cnt_json:
                 json.dump(list(self.unit_counters.values()), cnt_json, indent=4)
 
+        # Generate metric JSON file
         metrics = []
         for metric_csv_key, unit in [('tma metrics', 'cpu_core'),
                                      ('e-core tma metrics', 'cpu_atom')]:
@@ -1848,6 +1861,7 @@ class Model:
                           separators=(',', ': '))
                 perf_metric_json.write('\n')
 
+        # Generate metricgroup JSON file
         if self.metricgroups:
             with open(Path(outdir, 'metricgroups.json'), 'w', encoding='ascii') as metricgroups_json:
                 json.dump(self.metricgroups, metricgroups_json, sort_keys=True, indent=4,
