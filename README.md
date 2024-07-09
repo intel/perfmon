@@ -74,37 +74,39 @@ The perf script in /scripts will take the metrics.json file and convert that gen
 
 1. How to build with perf
 
-	1.1 Create working directory
-    
-    `mkdir perfmon-metrics`
-    
-    `cd perfmon-metrics`
-    
-	1.2 Clone the metric repository into the working directory
-    
+    1.1 Create working directory
+
+    ```
+    mkdir perfmon-metrics
+    cd perfmon-metrics
+    ```
+
+    1.2 Clone the metric repository into the working directory
+
     `git clone https://github.com/intel/perfmon.git`
-    
+
     1.3 Clone a copy of linux source code
-    
+
     `git clone https://github.com/torvalds/linux.git`
-    
+
     1.4 Copy the ICX metric file in the linux perf codebase
-    
+
     `cp ICX/metrics/perf/icx_metrics_perf.json <linux kernel source root dir>/tools/perf/pmu-events/arch/x86/icelakex/`
-    
-	1.5 Build linux perf (Note: You will need to install dependencies)
-    
-    `cd <linux kernel source root directory>/tools/perf`
-    
-	`make`
+
+    1.5 Build linux perf (Note: You will need to install dependencies)
+
+    ```
+    cd <linux kernel source root directory>/tools/perf
+    make
+    ```
 
 2. Local copy of perf will now be built with the new metrics for Icelake systems
 
-	`./perf stat -M <metric_name> -a -- <app>`
+    `./perf stat -M <metric_name> -a -- <app>`
 
 2. Examples
 
-	`./perf stat -M cpu_utilization_percent -a -- ./mlc`
+    `./perf stat -M cpu_utilization_percent -a -- ./mlc`
 
 
 #### Known Issues
