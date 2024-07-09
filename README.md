@@ -120,13 +120,13 @@ In this repository there are three, related, metrics file types.
 
 | Files | Description and Additional Information |
 | ---| --- |
-| `TMA_Metrics.xlsx`<br/>`Atom_TMA.xlsx`<br/>`E-core_TMA_Metrics.xlsx`| Official TMA releases. Performance architect maintained metrics for Top-down analysis methodology. <br />- [Ahmad Yasin, "A Top-Down method for performance analysis and counters architecture", ISPASS 2014](https://doi.org/10.1109/ISPASS.2014.6844459)<br />- [Intel&copy; VTune&trade; Top-down Microarchitecture Analysis Method](https://www.intel.com/content/www/us/en/docs/vtune-profiler/cookbook/2024-0/top-down-microarchitecture-analysis-method.html) |
+| `TMA_Metrics.xlsx`<br/>`Atom_TMA.xlsx`<br/>`E-core_TMA_Metrics.xlsx`| Official TMA releases. Performance architect maintained metrics for Top-down analysis methodology. <br />- [Ahmad Yasin, "A Top-Down method for performance analysis and counters architecture", ISPASS 2014](https://doi.org/10.1109/ISPASS.2014.6844459)<br />- [Intel&reg; VTune&trade; Top-down Microarchitecture Analysis Method](https://www.intel.com/content/www/us/en/docs/vtune-profiler/cookbook/2024-0/top-down-microarchitecture-analysis-method.html) |
 | `TMA_Metrics.csv`<br/>`TMA_Metrics-full.csv`<br/>`E-core_TMA_Metrics.csv`<br/>`Atom_TMA.csv`| CSV formatted metrics from the above `.xlsx` spreadsheets. |
 | `{platform}/metrics` | JSON formatted metrics intended for performance monitoring tools. Full description in the previous documentation section. |
 
 # Performance Monitoring Events
 
-This package contains performance monitoring event lists for Intel processors, as well as a mapping file
+This package contains performance monitoring event lists for Intel&reg; processors, as well as a mapping file
 to help match event lists to processor Family/Model/Stepping codes.
 
 Event lists are available in JSON (.json) format.
@@ -163,7 +163,7 @@ Other files in this package are ALL RIGHTS RESERVED.
 Below is a list of the fields/headers in the event files and a description of how SW tools should
 interpret these values. A particular event list from this package may not contain all the fields described
 below. For more detailed information of the Performance monitoring unit please refer to chapters 18 and 19
-of Intel (R) 64 and IA-32 Architectures Software Developer's Manual Volume 3B: System Programming Guide, Part 2.
+of Intel&reg; 64 and IA-32 Architectures Software Developer's Manual Volume 3B: System Programming Guide, Part 2.
 
 https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html
 
@@ -199,7 +199,7 @@ behavior remains unaffected. [^counterhtoff_footnote]
 published in event files. Downstream tools should reference `Counter` whether Intel&reg; HT Technology is enabled or
 disabled.
 
-[^counterhtoff_footnote]: See **NOTE** in the Intel SDM section, "Architectural Performance Monitoring Version 3".
+[^counterhtoff_footnote]: See **NOTE** in the Intel&reg; SDM section, "Architectural Performance Monitoring Version 3".
 
 ### PEBScounters
 This field is only relevant to PEBS events. It lists the counters where the event can be sampled when it is programmed as a PEBS event.
@@ -268,7 +268,7 @@ generated precisely upon completion of the instruction or operation that causes 
 | 32 | Precise distribution is supported on fixed counter 0 for this event. |
 | 0,1 | Precise distribution is supported on programmable counters 0 and 1 for this event. |
 
-[^pdist_footnote]: Excerpt from Intel SDM section, "PDist: Precise Distribution".
+[^pdist_footnote]: Excerpt from Intel&reg; SDM section, "PDist: Precise Distribution".
 
 ### Precise
 The core event attribute `Precise` indicates if an event can collect a precise eventing instruction
@@ -286,7 +286,7 @@ The Reduced Skid mechanism mitigates the "skid" problem by providing an early in
 the counter is about to overflow, allowing the machine to more precisely trap on the instruction
 that actually caused the counter overflow thus greatly reducing skid. [^reduced_skid_footnote]
 
-[^reduced_skid_footnote]: Excerpt from Intel SDM section, "Reduced Skid PEBS".
+[^reduced_skid_footnote]: Excerpt from Intel&reg; SDM section, "Reduced Skid PEBS".
 
 ### PRECISE_STORE
 A '1' in this field means the event uses the Precise Store feature and Bit 3 and bit 63 in IA32_PEBS_ENABLE MSR must be set
@@ -333,8 +333,8 @@ Please use SNR core event files. The EHL events folder is populated with a copy 
 
 ## For additional information
 * Event documentation https://perfmon-events.intel.com/
-* Intel&copy; Platform Analysis Technology https://www.intel.com/content/www/us/en/developer/topic-technology/platform-analysis-technology/overview.html
-* Monitoring Integrated Memory Controller Requests in the 2nd, 3rd, 4th, 5th, 6th generation Intel&copy; Core&trade; processors https://www.intel.com/content/www/us/en/developer/articles/technical/monitoring-integrated-memory-controller-requests-in-the-2nd-3rd-and-4th-generation-intel.html
+* Intel&reg; Platform Analysis Technology https://www.intel.com/content/www/us/en/developer/topic-technology/platform-analysis-technology/overview.html
+* Monitoring Integrated Memory Controller Requests in the 2nd, 3rd, 4th, 5th, 6th generation Intel&reg; Core&trade; processors https://www.intel.com/content/www/us/en/developer/articles/technical/monitoring-integrated-memory-controller-requests-in-the-2nd-3rd-and-4th-generation-intel.html
 
 # How to Contribute
 ## Metrics
