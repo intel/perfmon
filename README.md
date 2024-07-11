@@ -74,37 +74,39 @@ The perf script in /scripts will take the metrics.json file and convert that gen
 
 1. How to build with perf
 
-	1.1 Create working directory
-    
-    `mkdir perfmon-metrics`
-    
-    `cd perfmon-metrics`
-    
-	1.2 Clone the metric repository into the working directory
-    
+    1.1 Create working directory
+
+    ```
+    mkdir perfmon-metrics
+    cd perfmon-metrics
+    ```
+
+    1.2 Clone the metric repository into the working directory
+
     `git clone https://github.com/intel/perfmon.git`
-    
+
     1.3 Clone a copy of linux source code
-    
+
     `git clone https://github.com/torvalds/linux.git`
-    
+
     1.4 Copy the ICX metric file in the linux perf codebase
-    
+
     `cp ICX/metrics/perf/icx_metrics_perf.json <linux kernel source root dir>/tools/perf/pmu-events/arch/x86/icelakex/`
-    
-	1.5 Build linux perf (Note: You will need to install dependencies)
-    
-    `cd <linux kernel source root directory>/tools/perf`
-    
-	`make`
+
+    1.5 Build linux perf (Note: You will need to install dependencies)
+
+    ```
+    cd <linux kernel source root directory>/tools/perf
+    make
+    ```
 
 2. Local copy of perf will now be built with the new metrics for Icelake systems
 
-	`./perf stat -M <metric_name> -a -- <app>`
+    `./perf stat -M <metric_name> -a -- <app>`
 
 2. Examples
 
-	`./perf stat -M cpu_utilization_percent -a -- ./mlc`
+    `./perf stat -M cpu_utilization_percent -a -- ./mlc`
 
 
 #### Known Issues
@@ -120,13 +122,15 @@ In this repository there are three, related, metrics file types.
 
 | Files | Description and Additional Information |
 | ---| --- |
-| `TMA_Metrics.xlsx`<br/>`Atom_TMA.xlsx`<br/>`E-core_TMA_Metrics.xlsx`| Official TMA releases. Performance architect maintained metrics for Top-down analysis methodology. <br />- [Ahmad Yasin, "A Top-Down method for performance analysis and counters architecture", ISPASS 2014](https://doi.org/10.1109/ISPASS.2014.6844459)<br />- [Intel&copy; VTune&trade; Top-down Microarchitecture Analysis Method](https://www.intel.com/content/www/us/en/docs/vtune-profiler/cookbook/2024-0/top-down-microarchitecture-analysis-method.html) |
+| `TMA_Metrics.xlsx`<br/>`Atom_TMA.xlsx`<br/>`E-core_TMA_Metrics.xlsx`| Official TMA releases. Performance architect maintained metrics for Top-down analysis methodology. <br />- [Ahmad Yasin, "A Top-Down method for performance analysis and counters architecture", ISPASS 2014](https://doi.org/10.1109/ISPASS.2014.6844459)<br />- [Intel&reg; VTune&trade; Top-down Microarchitecture Analysis Method](https://www.intel.com/content/www/us/en/docs/vtune-profiler/cookbook/2024-0/top-down-microarchitecture-analysis-method.html) [^vtune_footnote] |
 | `TMA_Metrics.csv`<br/>`TMA_Metrics-full.csv`<br/>`E-core_TMA_Metrics.csv`<br/>`Atom_TMA.csv`| CSV formatted metrics from the above `.xlsx` spreadsheets. |
 | `{platform}/metrics` | JSON formatted metrics intended for performance monitoring tools. Full description in the previous documentation section. |
 
+[^vtune_footnote]: Intel, the Intel logo and VTune are trademarks of Intel Corporation or its subsidiaries.
+
 # Performance Monitoring Events
 
-This package contains performance monitoring event lists for Intel processors, as well as a mapping file
+This package contains performance monitoring event lists for Intel&reg; processors, as well as a mapping file
 to help match event lists to processor Family/Model/Stepping codes.
 
 Event lists are available in JSON (.json) format.
@@ -163,7 +167,7 @@ Other files in this package are ALL RIGHTS RESERVED.
 Below is a list of the fields/headers in the event files and a description of how SW tools should
 interpret these values. A particular event list from this package may not contain all the fields described
 below. For more detailed information of the Performance monitoring unit please refer to chapters 18 and 19
-of Intel (R) 64 and IA-32 Architectures Software Developer's Manual Volume 3B: System Programming Guide, Part 2.
+of Intel&reg; 64 and IA-32 Architectures Software Developer's Manual Volume 3B: System Programming Guide, Part 2.
 
 https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html
 
@@ -190,10 +194,16 @@ In some cases, this field will contain a more detailed description of what is co
 This field lists the fixed (`PERF_FIXED_CTRX`) or programmable (`IA32_PMCX`) counters that can be used to count the event.
 
 ### CounterHTOff
-This field lists the counters where this event can be sampled when Intel (R) Hyper-Threading Technology (Intel (R) HT Technology) is
-disabled. When Intel (R) HT Technology is disabled, some processor cores gain access to the programmable counters of the second
+This field lists the counters where this event can be sampled when Intel&reg; Hyper-Threading Technology (Intel&reg; HT Technology) is
+disabled. When Intel&reg; HT Technology is disabled, some processor cores gain access to the programmable counters of the second
 thread, making a total of eight programmable counters available. The additional counters will be numbered 4,5,6,7. Fixed counter
-behavior remains unaffected.
+behavior remains unaffected. [^counterhtoff_footnote]
+
+:warning: Starting with ICL, ICX, and subsequent platforms, `CounterHTOff` is not applicable and is accordingly not
+published in event files. Downstream tools should reference `Counter` whether Intel&reg; HT Technology is enabled or
+disabled.
+
+[^counterhtoff_footnote]: See **NOTE** in the Intel&reg; SDM section, "Architectural Performance Monitoring Version 3".
 
 ### PEBScounters
 This field is only relevant to PEBS events. It lists the counters where the event can be sampled when it is programmed as a PEBS event.
@@ -262,7 +272,7 @@ generated precisely upon completion of the instruction or operation that causes 
 | 32 | Precise distribution is supported on fixed counter 0 for this event. |
 | 0,1 | Precise distribution is supported on programmable counters 0 and 1 for this event. |
 
-[^pdist_footnote]: Excerpt from Intel SDM section, "PDist: Precise Distribution".
+[^pdist_footnote]: Excerpt from Intel&reg; SDM section, "PDist: Precise Distribution".
 
 ### Precise
 The core event attribute `Precise` indicates if an event can collect a precise eventing instruction
@@ -280,7 +290,7 @@ The Reduced Skid mechanism mitigates the "skid" problem by providing an early in
 the counter is about to overflow, allowing the machine to more precisely trap on the instruction
 that actually caused the counter overflow thus greatly reducing skid. [^reduced_skid_footnote]
 
-[^reduced_skid_footnote]: Excerpt from Intel SDM section, "Reduced Skid PEBS".
+[^reduced_skid_footnote]: Excerpt from Intel&reg; SDM section, "Reduced Skid PEBS".
 
 ### PRECISE_STORE
 A '1' in this field means the event uses the Precise Store feature and Bit 3 and bit 63 in IA32_PEBS_ENABLE MSR must be set
@@ -327,8 +337,8 @@ Please use SNR core event files. The EHL events folder is populated with a copy 
 
 ## For additional information
 * Event documentation https://perfmon-events.intel.com/
-* Intel&copy; Platform Analysis Technology https://www.intel.com/content/www/us/en/developer/topic-technology/platform-analysis-technology/overview.html
-* Monitoring Integrated Memory Controller Requests in the 2nd, 3rd, 4th, 5th, 6th generation Intel&copy; Core&trade; processors https://www.intel.com/content/www/us/en/developer/articles/technical/monitoring-integrated-memory-controller-requests-in-the-2nd-3rd-and-4th-generation-intel.html
+* Intel&reg; Platform Analysis Technology https://www.intel.com/content/www/us/en/developer/topic-technology/platform-analysis-technology/overview.html
+* Monitoring Integrated Memory Controller Requests in the 2nd, 3rd, 4th, 5th, 6th generation Intel&reg; Core&trade; processors https://www.intel.com/content/www/us/en/developer/articles/technical/monitoring-integrated-memory-controller-requests-in-the-2nd-3rd-and-4th-generation-intel.html
 
 # How to Contribute
 ## Metrics
