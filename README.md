@@ -122,9 +122,11 @@ In this repository there are three, related, metrics file types.
 
 | Files | Description and Additional Information |
 | ---| --- |
-| `TMA_Metrics.xlsx`<br/>`Atom_TMA.xlsx`<br/>`E-core_TMA_Metrics.xlsx`| Official TMA releases. Performance architect maintained metrics for Top-down analysis methodology. <br />- [Ahmad Yasin, "A Top-Down method for performance analysis and counters architecture", ISPASS 2014](https://doi.org/10.1109/ISPASS.2014.6844459)<br />- [Intel&reg; VTune&trade; Top-down Microarchitecture Analysis Method](https://www.intel.com/content/www/us/en/docs/vtune-profiler/cookbook/2024-0/top-down-microarchitecture-analysis-method.html) |
+| `TMA_Metrics.xlsx`<br/>`Atom_TMA.xlsx`<br/>`E-core_TMA_Metrics.xlsx`| Official TMA releases. Performance architect maintained metrics for Top-down analysis methodology. <br />- [Ahmad Yasin, "A Top-Down method for performance analysis and counters architecture", ISPASS 2014](https://doi.org/10.1109/ISPASS.2014.6844459)<br />- [Intel&reg; VTune&trade; Top-down Microarchitecture Analysis Method](https://www.intel.com/content/www/us/en/docs/vtune-profiler/cookbook/2024-0/top-down-microarchitecture-analysis-method.html) [^vtune_footnote] |
 | `TMA_Metrics.csv`<br/>`TMA_Metrics-full.csv`<br/>`E-core_TMA_Metrics.csv`<br/>`Atom_TMA.csv`| CSV formatted metrics from the above `.xlsx` spreadsheets. |
 | `{platform}/metrics` | JSON formatted metrics intended for performance monitoring tools. Full description in the previous documentation section. |
+
+[^vtune_footnote]: Intel, the Intel logo and VTune are trademarks of Intel Corporation or its subsidiaries.
 
 # Performance Monitoring Events
 
