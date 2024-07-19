@@ -989,6 +989,47 @@ class Model:
 
                 jo.append(j)
 
+    def extract_metric_json(self, ignore, events, infoname, aux, pmu_prefix, jo, issue_to_metrics):
+            with open(self.files['extra metrics'], 'r') as extra_json:
+                broken_metrics = {
+                    'ICX': {
+                        # Missing event: UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFDRD
+                        'llc_data_read_mpi_demand_plus_prefetch',
+                        # Missing event: UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_DRAM
+                        'llc_demand_data_read_miss_to_dram_latency',
+                        # Missing event: UNC_CHA_TOR_INSERTS.IO_HIT_RDCUR
+                        'io_bandwidth_read',
+                    },
+                    'SPR': {
+                        # Missing ')'
+                        'tma_int_operations'
+                    }
+                }
+                skip = broken_metrics.get(self.shortname)
+                if not skip:
+                    skip = {}
+                for em in json.load(extra_json):
+                    if em['MetricName'] in skip:
+                        continue
+                    if em['MetricName'] in ignore:
+                        _verboseprint2(f"Skipping {em['MetricName']}")
+                        continue
+                    dups = [m for m in jo if m['MetricName'] == em['MetricName']]
+                    if dups:
+                        _verboseprint3(f'Not replacing:\n\t{dups[0]["MetricExpr"]}\nwith:\n\t{em["MetricExpr"]}')
+                        if self.shortname == 'EMR' and em['MetricName'] in ['tma_dram_bound',
+                                                'tma_info_bottleneck_cache_memory_bandwidth',
+                                                'tma_info_bottleneck_cache_memory_latency',
+                                                'tma_info_bottleneck_memory_data_tlbs',
+                                                'tma_info_bottleneck_memory_synchronization']:
+                            dups[0]['MetricExpr'] = em['MetricExpr']
+                            _verboseprint2(f"Replace {dups[0]['MetricName']} formula with formula from JSON\n")
+                        continue
+                    self.save_form(em['MetricName'], em['MetricGroup'], em['MetricExpr'],
+                              em['BriefDescription'], None, em.get('ScaleUnit'),
+                              em.get('MetricThreshold'), [], events, infoname,
+                              aux, pmu_prefix, jo, issue_to_metrics)
+
 
     def extract_tma_metrics(self, csvfile: TextIO, pmu_prefix: str,
                             events: Dict[str, PerfmonJsonEvent]):
@@ -1599,45 +1640,7 @@ class Model:
                            issue_to_metrics)
 
         if 'extra metrics' in self.files:
-            with open(self.files['extra metrics'], 'r') as extra_json:
-                broken_metrics = {
-                    'ICX': {
-                        # Missing event: UNC_CHA_TOR_INSERTS.IA_MISS_LLCPREFDRD
-                        'llc_data_read_mpi_demand_plus_prefetch',
-                        # Missing event: UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_DRAM
-                        'llc_demand_data_read_miss_to_dram_latency',
-                        # Missing event: UNC_CHA_TOR_INSERTS.IO_HIT_RDCUR
-                        'io_bandwidth_read',
-                    },
-                    'SPR': {
-                        # Missing ')'
-                        'tma_int_operations'
-                    }
-                }
-                skip = broken_metrics.get(self.shortname)
-                if not skip:
-                    skip = {}
-                for em in json.load(extra_json):
-                    if em['MetricName'] in skip:
-                        continue
-                    if em['MetricName'] in ignore:
-                        _verboseprint2(f"Skipping {em['MetricName']}")
-                        continue
-                    dups = [m for m in jo if m['MetricName'] == em['MetricName']]
-                    if dups:
-                        _verboseprint3(f'Not replacing:\n\t{dups[0]["MetricExpr"]}\nwith:\n\t{em["MetricExpr"]}')
-                        if self.shortname == 'EMR' and em['MetricName'] in ['tma_dram_bound',
-                                                'tma_info_bottleneck_cache_memory_bandwidth',
-                                                'tma_info_bottleneck_cache_memory_latency',
-                                                'tma_info_bottleneck_memory_data_tlbs',
-                                                'tma_info_bottleneck_memory_synchronization']:
-                            dups[0]['MetricExpr'] = em['MetricExpr']
-                            _verboseprint2(f"Replace {dups[0]['MetricName']} formula with formula from JSON\n")
-                        continue
-                    self.save_form(em['MetricName'], em['MetricGroup'], em['MetricExpr'],
-                              em['BriefDescription'], None, em.get('ScaleUnit'),
-                              em.get('MetricThreshold'), [], events, infoname,
-                              aux, pmu_prefix, jo, issue_to_metrics)
+            self.extract_metric_json(ignore, events, infoname, aux, pmu_prefix, jo, issue_to_metrics)
 
         return jo
 
