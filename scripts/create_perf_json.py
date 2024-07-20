@@ -236,7 +236,7 @@ def freerunning_counter_type_and_index(shortname: str,
                                        counter: str):
     type = None
     index = None
-    if shortname in ['ADL', 'ADLN', 'TGL', 'MTL']:
+    if shortname in ['ADL', 'ADLN', 'ARL', 'TGL', 'MTL']:
         if pmu.startswith('imc_free_running'):
             index = 0
             if 'TOTAL' in event_name:
@@ -1780,7 +1780,7 @@ class Model:
                           separators=(',', ': '))
                 perf_json.write('\n')
         # Skip hybrid because event grouping does not support it well yet
-        if self.shortname not in ['ADL', 'ADLN', 'MTL']:
+        if self.shortname not in ['ADL', 'ADLN', 'ARL', 'LNL', 'MTL']:
             # Write units and counters data to counter.json file
             output_counters = Path(outdir, 'counter.json')
             with open(output_counters, 'w', encoding='ascii') as cnt_json:
