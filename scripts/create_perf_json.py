@@ -572,7 +572,7 @@ class Model:
             (['KBL'], [3, 6, 7], [2, 3, 6, 7]),
             (['CNL'], [1, 3, 6, 7], [2, 3, 6, 7, 8, 9, 10]),
             (['ICL', 'TGL', 'RKL'], [6, 7], [2, 3, 6, 7, 8, 9, 10]),
-            (['ICX', 'SPR', 'EMR'], [1, 6], [2, 6]),
+            (['ICX', 'SPR', 'EMR', 'GNR'], [1, 6], [2, 6]), # cstate support of GNR is not added in perf yet, need to check if we should add it here.
             (['ADL', 'GRT', 'ADLN'], [1, 6, 7], [2, 3, 6, 7, 8, 9, 10]),
             (['MTL'], [1, 6, 7], [2, 3, 6, 7, 8, 9, 10]),
             (['SLM'], [1, 6], [6]),
@@ -709,7 +709,7 @@ class Model:
 
     def save_form(self, name, group, form, desc, locate, scale_unit, threshold,
                           issues, events, infoname, aux, pmu_prefix, jo,
-                           issue_to_metrics ):
+                           issue_to_metrics, from_json):
                 if self.shortname == 'BDW-DE':
                     if name in ['tma_false_sharing']:
                         # Uncore events missing for BDW-DE, so drop.
@@ -958,6 +958,7 @@ class Model:
                     'EMR': alderlake_constraints,
                     'SRF': alderlake_constraints,
                     'GRR': alderlake_constraints,
+                    'GNR': alderlake_constraints,
                 }
                 if name in errata_constraints[self.shortname]:
                     j['MetricConstraint'] = errata_constraints[self.shortname][name]
@@ -982,6 +983,8 @@ class Model:
                 if scale_unit:
                     j['ScaleUnit'] = scale_unit
 
+                if not parsed_threshold and from_json:
+                    parsed_threshold = threshold
                 if parsed_threshold:
                     j['MetricThreshold'] = parsed_threshold
                 elif threshold:
@@ -989,7 +992,8 @@ class Model:
 
                 jo.append(j)
 
-    def extract_metric_json(self, ignore, events, infoname, aux, pmu_prefix, jo, issue_to_metrics):
+    def extract_metric_json(self, events, pmu_prefix, ignore, jo, infoname, aux,issue_to_metrics):
+            print(self.files['extra metrics'])
             with open(self.files['extra metrics'], 'r') as extra_json:
                 broken_metrics = {
                     'ICX': {
@@ -1028,11 +1032,12 @@ class Model:
                     self.save_form(em['MetricName'], em['MetricGroup'], em['MetricExpr'],
                               em['BriefDescription'], None, em.get('ScaleUnit'),
                               em.get('MetricThreshold'), [], events, infoname,
-                              aux, pmu_prefix, jo, issue_to_metrics)
+                              aux, pmu_prefix, jo, issue_to_metrics, True)
 
 
     def extract_tma_metrics(self, csvfile: TextIO, pmu_prefix: str,
-                            events: Dict[str, PerfmonJsonEvent]):
+                            events: Dict[str, PerfmonJsonEvent],
+                            use_csv: bool):
         """Process a TMA metrics spreadsheet generating perf metrics."""
 
         # metrics redundant with perf or unusable
@@ -1041,6 +1046,14 @@ class Model:
             'tma_info_system_power': 'Power',
             'tma_info_system_time': 'Time',
         }
+
+        # For P-Core, we want to use metric json file without loading csv file
+        if not use_csv and pmu_prefix == 'cpu':
+            if 'extra metrics' not in self.files:
+                return []
+            jout = []
+            self.extract_metric_json(events, pmu_prefix, ignore, jo=jout, infoname=[], aux=[], issue_to_metrics=[])
+            return jout
 
         ratio_column = {
             "IVT": ("IVT", "IVB", "JKT/SNB-EP", "SNB"),
@@ -1627,7 +1640,7 @@ class Model:
                 _verboseprint2(f'{i.name} -> {threshold}')
             self.save_form(i.name, i.groups, form, i.desc, i.locate, i.scale_unit,
                       threshold, i.issues, events, infoname, aux, pmu_prefix, jo,
-                      issue_to_metrics )
+                      issue_to_metrics, False)
 
         if 'Socket_CLKS' in infoname:
             form = 'Socket_CLKS / #num_dies / duration_time / 1000000000'
@@ -1637,10 +1650,10 @@ class Model:
                 self.save_form('UNCORE_FREQ', 'SoC', formula.ToPerfJson(),
                           'Uncore frequency per die [GHZ]', None, None, None, [],
                            events, infoname, aux, pmu_prefix, jo,
-                           issue_to_metrics)
+                           issue_to_metrics, False)
 
         if 'extra metrics' in self.files:
-            self.extract_metric_json(ignore, events, infoname, aux, pmu_prefix, jo, issue_to_metrics)
+            self.extract_metric_json(events, pmu_prefix, ignore, jo, infoname, aux,issue_to_metrics)
 
         return jo
 
@@ -1804,7 +1817,7 @@ class Model:
                     dict_events[name]['MetricExpr'] = formula
 
 
-    def to_perf_json(self, outdir: Path):
+    def to_perf_json(self, outdir: Path, use_csv):
         # Map from a topic to its list of events as dictionaries.
         pmon_topic_events: Dict[str, list[Dict[str, str]]] = \
             collections.defaultdict(list)
@@ -1847,7 +1860,7 @@ class Model:
                 continue
             pmu_prefix = unit if 'atom' in self.files else 'cpu'
             with open(self.files[metric_csv_key], 'r') as metric_csv:
-                csv_metrics = self.extract_tma_metrics(metric_csv, pmu_prefix, events)
+                csv_metrics = self.extract_tma_metrics(metric_csv, pmu_prefix, events, use_csv)
                 csv_metrics = sorted(csv_metrics,
                                      key=lambda m: (m['Unit'] if 'Unit' in m else 'cpu',
                                                     m['MetricName'])
@@ -2000,7 +2013,7 @@ class Mapfile:
     def __str__(self):
         return ''.join(str(model) for model in self.archs)
 
-    def to_perf_json(self, outdir: Path):
+    def to_perf_json(self, outdir: Path, use_csv: bool):
         """
         Create a perf style mapfile.csv.
         """
@@ -2014,7 +2027,7 @@ class Mapfile:
             modeldir = Path(outdir, model.longname)
             _verboseprint(f'Creating event json for {model.shortname} in {modeldir}')
             modeldir.mkdir(exist_ok=True)
-            model.to_perf_json(modeldir)
+            model.to_perf_json(modeldir, use_csv)
 
 
 def main():
@@ -2033,6 +2046,12 @@ def main():
                     default=0,
                     dest='verbose',
                     help='Additional output when running.')
+    ap.add_argument('--csv',
+                    '-c',
+                    default=False,
+                    action="store_true",
+                    help='Only use JSON file for metric conversion is set to False.')
+
     args = ap.parse_args()
 
     global _verbose
@@ -2043,7 +2062,7 @@ def main():
         raise IOError(f'Output directory argument {outdir} exists but is not a directory.')
     outdir.mkdir(exist_ok=True)
 
-    Mapfile(basepath).to_perf_json(outdir)
+    Mapfile(basepath).to_perf_json(outdir, args.csv)
 
 if __name__ == '__main__':
     main()
