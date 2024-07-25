@@ -30,6 +30,7 @@
         "MSR_EVENT:msr=0x619:type=FREERUN:scope=PACKAGE":"power@energy\\-ram@",
         "CPU_CLK_UNHALTED.THREAD_P:SUP":"CPU_CLK_UNHALTED.THREAD_P:k",
         "CPU_CLK_UNHALTED.THREAD:SUP":"CPU_CLK_UNHALTED.THREAD:k",
+        "CPU_CLK_UNHALTED.CORE_P:SUP":"CPU_CLK_UNHALTED.CORE_P:k",
         "UNC_M_CLOCKTICKS:ONE_UNIT": "imc_0@event\\=0x0@",
         "UNC_C_CLOCKTICKS:ONE_UNIT": "cbox_0@event\\=0x0@",
         "UNC_CHA_CLOCKTICKS:ONE_UNIT": "cha_0@event\\=0x0@",
