@@ -132,6 +132,12 @@ def isNum(string):
         return True
     if string.replace('e', '', 1).isdigit() and not string.startswith("e") and not string.endswith("e"):
         return True
+    return False
+
+def fixPercentages(string):
+    splits = string.split(" ")
+    fixed = [str(float(split) / 100) if isNum(split) else split for split in splits]
+    return " ".join(fixed)
 
 class PerfFormatConverter:
     """
@@ -288,6 +294,9 @@ class PerfFormatConverter:
             for issue in issues:
                 related_metrics.extend(self.issue_dict[issue])
             
+            # Filter out self from list
+            related_metrics = [m for m in related_metrics if m != self.translate_metric_name(metric)]
+
             description += f" Related metrics: {", ".join(related_metrics)}"
         
         # Add "Sample with:" blurb
@@ -463,7 +472,7 @@ class PerfFormatConverter:
     def get_threshold(self, metric):
         if "Threshold" in metric:
             if "BaseFormula" in metric["Threshold"]:
-                return self.clean_metric_names(metric["Threshold"]["BaseFormula"])
+                return fixPercentages(self.clean_metric_names(metric["Threshold"]["BaseFormula"]))
 
     def clean_metric_names(self, formula):
         return re.sub(r'\([^\(\)]+\)', "", formula).lower().replace("metric_","").replace("..", "")
