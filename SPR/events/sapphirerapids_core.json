@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 4th Generation Intel(R) Xeon(R) Processor Scalable Family based on Sapphire Rapids microarchitecture - V1.23",
-    "DatePublished": "05/09/2024",
-    "Version": "1.23",
+    "Info": "Performance Monitoring Events for 4th Generation Intel(R) Xeon(R) Processor Scalable Family based on Sapphire Rapids microarchitecture - V1.24",
+    "DatePublished": "07/18/2024",
+    "Version": "1.24",
     "Legend": ""
   },
   "Events": [
@@ -6875,8 +6875,8 @@
       "EventCode": "0xc9",
       "UMask": "0x80",
       "EventName": "RTM_RETIRED.ABORTED_EVENTS",
-      "BriefDescription": "Number of times an RTM execution aborted due to none of the previous 4 categories (e.g. interrupt)",
-      "PublicDescription": "Counts the number of times an RTM execution aborted due to none of the previous 4 categories (e.g. interrupt).",
+      "BriefDescription": "Number of times an RTM execution aborted due to none of the previous 3 categories (e.g. interrupt)",
+      "PublicDescription": "Counts the number of times an RTM execution aborted due to none of the previous 3 categories (e.g. interrupt).",
       "Counter": "0,1,2,3,4,5,6,7",
       "PEBScounters": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "100003",

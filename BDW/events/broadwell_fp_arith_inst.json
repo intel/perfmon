@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 5th Generation Intel(R) Core(TM) Processor - V29",
-    "DatePublished": "01/09/2024",
-    "Version": "29",
+    "Info": "Performance Monitoring Events for 5th Generation Intel(R) Core(TM) Processor - V30",
+    "DatePublished": "07/16/2024",
+    "Version": "30",
     "Legend": ""
   },
   "Events": [

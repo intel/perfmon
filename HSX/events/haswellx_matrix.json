@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2022 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) processor E5 v3 family based on the Haswell-E microarchitecture - V26",
-    "DatePublished": "08/05/2022",
-    "Version": "26",
+    "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) processor E5 v3 family based on the Haswell-E microarchitecture - V29",
+    "DatePublished": "07/16/2024",
+    "Version": "29",
     "Legend": ""
   },
   "Events": [
