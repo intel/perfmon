@@ -64,7 +64,9 @@ def convert_file(file_path):
         # Deserialize input DB Json to dictionary
         format_converter.deserialize_input()
         print("Processing file: <" + str(file_path.name) + ">")
-        
+
+        format_converter.populate_issue_dict()
+
         # Convert the dictionary to list of Perf format metric objects
         format_converter.convert_to_perf_metrics()
 
@@ -130,6 +132,12 @@ def isNum(string):
         return True
     if string.replace('e', '', 1).isdigit() and not string.startswith("e") and not string.endswith("e"):
         return True
+    return False
+
+def fixPercentages(string):
+    splits = string.split(" ")
+    fixed = [str(float(split) / 100) if isNum(split) else split for split in splits]
+    return " ".join(fixed)
 
 class PerfFormatConverter:
     """
@@ -140,6 +148,7 @@ class PerfFormatConverter:
     def __init__(self, input_fp):
         self.input_fp = input_fp
         self.input_data = None
+        self.issue_dict = {}
         self.metric_name_replacement_dict = None
         self.metric_assoc_replacement_dict = None
         self.metric_source_event_dict = None
@@ -171,7 +180,22 @@ class PerfFormatConverter:
         """
         Loads in the metric in db format into a dictionary to be transformed.
         """
-        self.input_data = json.load(self.input_fp)
+        self.input_data = json.load(self.input_fp)    
+
+    def populate_issue_dict(self):
+        """
+        Populates a dictionary containing all metrics that have certain issues. Used to add a 
+        "Related metrics:" blurb to descriptions.
+        """
+        for metric in self.input_data["Metrics"]:
+            # Add Threshold issues
+            if "Threshold" in metric and "ThresholdIssues" in metric["Threshold"] and metric["Threshold"]["ThresholdIssues"] != "":
+                issues = metric["Threshold"]["ThresholdIssues"].split(",")
+                for issue in issues:
+                    if issue not in self.issue_dict:
+                        self.issue_dict[issue] = [self.translate_metric_name(metric)]
+                    else:
+                        self.issue_dict[issue].append(self.translate_metric_name(metric))
 
     def convert_to_perf_metrics(self):
         """
@@ -184,7 +208,7 @@ class PerfFormatConverter:
             for metric in self.input_data["Metrics"]:
                 # Add new metric object for each metric dictionary
                 new_metric = Metric(
-                    brief_description=metric["BriefDescription"],
+                    brief_description=self.get_description(metric),
                     metric_expr=self.get_expression(metric),
                     metric_group=self.get_groups(metric),
                     metric_name=self.translate_metric_name(metric),
@@ -258,6 +282,29 @@ class PerfFormatConverter:
 
             # Remove any extra spaces in expression
             return re.sub(r"[\s]{2,}", " ", expression.strip())
+
+    def get_description(self, metric):
+        # Start with base description
+        description = metric["BriefDescription"]
+
+        # Add "Related metrics:" blurb
+        related_metrics = []
+        if "Threshold" in metric and "ThresholdIssues" in metric["Threshold"] and metric["Threshold"]["ThresholdIssues"] != "":
+            issues = metric["Threshold"]["ThresholdIssues"].split(",")
+            for issue in issues:
+                related_metrics.extend(self.issue_dict[issue])
+            
+            # Filter out self from list
+            related_metrics = [m for m in related_metrics if m != self.translate_metric_name(metric)]
+
+            description += f" Related metrics: {", ".join(related_metrics)}"
+        
+        # Add "Sample with:" blurb
+        if "LocateWith" in metric and metric["LocateWith"] != "":
+            events = metric["LocateWith"].split(";")
+            description += f" Sample with: {", ".join(events)}"
+
+        return description
 
     def translate_metric_name(self, metric):
         """
@@ -416,7 +463,7 @@ class PerfFormatConverter:
             new_groups.append(metric["CountDomain"])
 
         # Add Threshold issues
-        if "Threshold" in metric and metric["Threshold"]["ThresholdIssues"] != "":
+        if "Threshold" in metric and "ThresholdIssues" in metric["Threshold"] and metric["Threshold"]["ThresholdIssues"] != "":
             threshold_issues = [f"tma_{issue.replace("$", "").replace("~", "").strip()}" for issue in metric["Threshold"]["ThresholdIssues"].split(",")]
             new_groups.extend(threshold_issues)
 
@@ -425,7 +472,7 @@ class PerfFormatConverter:
     def get_threshold(self, metric):
         if "Threshold" in metric:
             if "BaseFormula" in metric["Threshold"]:
-                return self.clean_metric_names(metric["Threshold"]["BaseFormula"])
+                return fixPercentages(self.clean_metric_names(metric["Threshold"]["BaseFormula"]))
 
     def clean_metric_names(self, formula):
         return re.sub(r'\([^\(\)]+\)', "", formula).lower().replace("metric_","").replace("..", "")
