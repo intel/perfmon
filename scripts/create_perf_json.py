@@ -392,7 +392,7 @@ class PerfmonJsonEvent:
             if any(x for x in remove_filter_start if low_filter.startswith(x)):
                 self.filter = None
             elif self.filter == 'Filter1':
-                self.filter = f'config1={self.filter_value}'
+                self.filter = f'config1={hex(int(self.filter_value, 16) << 32)}'
 
         # Set up brief and longer public descriptions.
         self.brief_description = get('BriefDescription')
@@ -1757,7 +1757,7 @@ class Model:
 
                     if filter:
                         if filter == 'Filter1':
-                            filter = f'config1={events[name].filter_value}'
+                            filter = f'config1={hex(int(events[name].filter_value, 16) << 32)}'
                         for (before, after) in [
                             ("State=", ",filter_state="),
                             ("Match=", ",filter_opc="),
