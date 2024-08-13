@@ -707,6 +707,22 @@ class Model:
 
         return new_formula
 
+    @staticmethod
+    def simplify_form(form):
+        changed = True
+        while changed:
+            changed = False
+            m = re.search(r'\(\s*([0-9.]+) \* ([A-Za-z_]+)\s*\) - \(\s*([0-9.]+) \* ([A-Za-z_]+)\s*\)', form)
+            if m and m.group(2) == m.group(4):
+                changed = True
+                form = form.replace(m.group(0), f'{(float(m.group(1)) - float(m.group(3))):g} * {m.group(2)}')
+            else:
+                m = re.search(r'([0-9.]+) \* \s*([0-9.]+)' , form)
+                if m:
+                    changed = True
+                    form = form.replace(m.group(0), str(float(m.group(1)) * float(m.group(2))))
+        return form
+
     def save_form(self, name, group, form, desc, locate, scale_unit, threshold,
                           issues, events, infoname, aux, pmu_prefix, jo,
                            issue_to_metrics, from_json):
@@ -1018,6 +1034,8 @@ class Model:
                     if em['MetricName'] in ignore:
                         _verboseprint2(f"Skipping {em['MetricName']}")
                         continue
+
+                    # Need to keep this check while still supporting p-core csv using this function
                     dups = [m for m in jo if m['MetricName'] == em['MetricName']]
                     if dups:
                         _verboseprint3(f'Not replacing:\n\t{dups[0]["MetricExpr"]}\nwith:\n\t{em["MetricExpr"]}')
@@ -1029,9 +1047,16 @@ class Model:
                             dups[0]['MetricExpr'] = em['MetricExpr']
                             _verboseprint2(f"Replace {dups[0]['MetricName']} formula with formula from JSON\n")
                         continue
-                    self.save_form(em['MetricName'], em['MetricGroup'], em['MetricExpr'],
+
+                    form = self.simplify_form(em['MetricExpr'])
+
+                    threshold = em.get('MetricThreshold')
+                    if threshold:
+                        threshold = self.simplify_form(threshold)
+
+                    self.save_form(em['MetricName'], em['MetricGroup'], form,
                               em['BriefDescription'], None, em.get('ScaleUnit'),
-                              em.get('MetricThreshold'), [], events, infoname,
+                              threshold, [], events, infoname,
                               aux, pmu_prefix, jo, issue_to_metrics, True)
 
 
@@ -1517,16 +1542,8 @@ class Model:
                                               rf'\1{pmu_prefix}@{name}@\2',
                                               form, re.IGNORECASE)
 
-                    changed = True
-                    while changed:
-                        changed = False
-                        m = re.search(r'\(([0-9.]+) \* ([A-Za-z_]+)\) - \(([0-9.]+) \* ([A-Za-z_]+)\)', form)
-                        if m and m.group(2) == m.group(4):
-                            changed = True
-                            form = form.replace(m.group(0), f'{(float(m.group(1)) - float(m.group(3))):g} * {m.group(2)}')
-
+                    form = self.simplify_form(form)
                     return form
-
 
                 def bracket(expr):
                     if any([x in expr for x in ['/', '*', '+', '-', 'if']]):
