@@ -1,0 +1,36 @@
+# This workflow will setup Python, run unittests, and execute verify_mapfile.py.
+
+name: Verify mapfile.csv
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-mapfile:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ${{ github.workspace }}/scripts/ci/verify_mapfile
+
+    steps:
+    - name: Checkout perfmon
+      uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+
+    - name: Set up Python 3.x
+      uses: actions/setup-python@39cd14951b08e74b54015e9e001cdefcf80e669f # v5.1.1
+      with:
+        python-version: "3.x"
+
+    - name: Install Python packages
+      run: pip install -r requirements.txt
+
+    - name: Run verify_mapfile self tests
+      run: python -m unittest
+
+    - name: Validate mapfile.csv
+      run: python verify_mapfile.py
