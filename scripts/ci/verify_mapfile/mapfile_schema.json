@@ -32,7 +32,7 @@
             },
             "Core Role Name" : {
                 "type": "string",
-                "pattern": "^(Core|Atom)?$"
+                "pattern": "^(Core|Atom|LowPower_Atom)?$"
             }
         },
         "required" : [
