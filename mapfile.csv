@@ -180,29 +180,29 @@ GenuineIntel-6-BF,V1.27,/ADL/events/alderlake_uncore_experimental.json,uncore ex
 GenuineIntel-6-BE,V1.27,/ADL/events/alderlake_gracemont_core.json,core,,,
 GenuineIntel-6-BE,V1.27,/ADL/events/alderlake_uncore.json,uncore,,,
 GenuineIntel-6-BE,V1.27,/ADL/events/alderlake_uncore_experimental.json,uncore experimental,,,
-GenuineIntel-6-AA,V1.10,/MTL/events/meteorlake_crestmont_core.json,hybridcore,0x20,0x000002,Atom
-GenuineIntel-6-AA,V1.10,/MTL/events/meteorlake_redwoodcove_core.json,hybridcore,0x40,0x000002,Core
-GenuineIntel-6-AA,V1.10,/MTL/events/meteorlake_uncore.json,uncore,,,
-GenuineIntel-6-AA,V1.10,/MTL/events/meteorlake_uncore_experimental.json,uncore experimental,,,
-GenuineIntel-6-AC,V1.10,/MTL/events/meteorlake_crestmont_core.json,hybridcore,0x20,0x000002,Atom
-GenuineIntel-6-AC,V1.10,/MTL/events/meteorlake_redwoodcove_core.json,hybridcore,0x40,0x000002,Core
-GenuineIntel-6-AC,V1.10,/MTL/events/meteorlake_uncore.json,uncore,,,
-GenuineIntel-6-AC,V1.10,/MTL/events/meteorlake_uncore_experimental.json,uncore experimental,,,
-GenuineIntel-6-AD,V1.02,/GNR/events/graniterapids_core.json,core,,,
-GenuineIntel-6-AD,V1.02,/GNR/events/graniterapids_uncore.json,uncore,,,
-GenuineIntel-6-AD,V1.02,/GNR/events/graniterapids_uncore_experimental.json,uncore experimental,,,
+GenuineIntel-6-AA,V1.11,/MTL/events/meteorlake_crestmont_core.json,hybridcore,0x20,0x000002,Atom
+GenuineIntel-6-AA,V1.11,/MTL/events/meteorlake_redwoodcove_core.json,hybridcore,0x40,0x000002,Core
+GenuineIntel-6-AA,V1.11,/MTL/events/meteorlake_uncore.json,uncore,,,
+GenuineIntel-6-AA,V1.11,/MTL/events/meteorlake_uncore_experimental.json,uncore experimental,,,
+GenuineIntel-6-AC,V1.11,/MTL/events/meteorlake_crestmont_core.json,hybridcore,0x20,0x000002,Atom
+GenuineIntel-6-AC,V1.11,/MTL/events/meteorlake_redwoodcove_core.json,hybridcore,0x40,0x000002,Core
+GenuineIntel-6-AC,V1.11,/MTL/events/meteorlake_uncore.json,uncore,,,
+GenuineIntel-6-AC,V1.11,/MTL/events/meteorlake_uncore_experimental.json,uncore experimental,,,
+GenuineIntel-6-AD,V1.03,/GNR/events/graniterapids_core.json,core,,,
+GenuineIntel-6-AD,V1.03,/GNR/events/graniterapids_uncore.json,uncore,,,
+GenuineIntel-6-AD,V1.03,/GNR/events/graniterapids_uncore_experimental.json,uncore experimental,,,
 GenuineIntel-6-AD,V0,/GNR/metrics/graniterapids_metrics.json,metrics,,,
-GenuineIntel-6-AE,V1.02,/GNR/events/graniterapids_core.json,core,,,
-GenuineIntel-6-AE,V1.02,/GNR/events/graniterapids_uncore.json,uncore,,,
-GenuineIntel-6-AE,V1.02,/GNR/events/graniterapids_uncore_experimental.json,uncore experimental,,,
+GenuineIntel-6-AE,V1.03,/GNR/events/graniterapids_core.json,core,,,
+GenuineIntel-6-AE,V1.03,/GNR/events/graniterapids_uncore.json,uncore,,,
+GenuineIntel-6-AE,V1.03,/GNR/events/graniterapids_uncore_experimental.json,uncore experimental,,,
 GenuineIntel-6-AE,V0,/GNR/metrics/graniterapids_metrics.json,metrics,,,
-GenuineIntel-6-AF,V1.04,/SRF/events/sierraforest_core.json,core,,,
-GenuineIntel-6-AF,V1.04,/SRF/events/sierraforest_uncore.json,uncore,,,
-GenuineIntel-6-AF,V1.04,/SRF/events/sierraforest_uncore_experimental.json,uncore experimental,,,
+GenuineIntel-6-AF,V1.05,/SRF/events/sierraforest_core.json,core,,,
+GenuineIntel-6-AF,V1.05,/SRF/events/sierraforest_uncore.json,uncore,,,
+GenuineIntel-6-AF,V1.05,/SRF/events/sierraforest_uncore_experimental.json,uncore experimental,,,
 GenuineIntel-6-AF,V0,/SRF/metrics/sierraforest_metrics.json,metrics,,,
-GenuineIntel-6-B6,V1.03,/GRR/events/grandridge_core.json,core,,,
-GenuineIntel-6-B6,V1.03,/GRR/events/grandridge_uncore.json,uncore,,,
-GenuineIntel-6-B6,V1.03,/GRR/events/grandridge_uncore_experimental.json,uncore experimental,,,
+GenuineIntel-6-B6,V1.04,/GRR/events/grandridge_core.json,core,,,
+GenuineIntel-6-B6,V1.04,/GRR/events/grandridge_uncore.json,uncore,,,
+GenuineIntel-6-B6,V1.04,/GRR/events/grandridge_uncore_experimental.json,uncore experimental,,,
 GenuineIntel-6-B6,V0,/GRR/metrics/grandridge_metrics.json,metrics,,,
 GenuineIntel-6-BD,V1.06,/LNL/events/lunarlake_skymont_core.json,hybridcore,0x20,0x000003,Atom
 GenuineIntel-6-BD,V1.06,/LNL/events/lunarlake_lioncove_core.json,hybridcore,0x40,0x000003,Core
