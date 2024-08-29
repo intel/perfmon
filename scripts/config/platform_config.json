@@ -1,0 +1,106 @@
+[
+    {
+        "Name":"Haswell Client",
+        "ShortName":"HSW",
+        "FileName":"Haswell",
+        "CoreType":"P-core",
+        "IsHybrid":false,
+        "HasDefaults":false
+    },
+    {
+        "Name":"Haswell Server",
+        "ShortName":"HSX",
+        "FileName":"HaswellX",
+        "CoreType":"P-core",
+        "IsHybrid":false,
+        "HasDefaults":false
+    },
+    {
+        "Name":"Broadwell Client",
+        "ShortName":"BDW",
+        "FileName":"Broadwell",
+        "CoreType":"P-core",
+        "IsHybrid":false,
+        "HasDefaults":false
+    },
+    {
+        "Name":"Broadwell Server",
+        "ShortName":"BDX",
+        "FileName":"BroadwellX",
+        "CoreType":"P-core",
+        "IsHybrid":false,
+        "HasDefaults":false
+    },
+    {
+        "Name":"Skylake Client",
+        "ShortName":"SKL",
+        "FileName":"Skylake",
+        "CoreType":"P-core",
+        "IsHybrid":false,
+        "HasDefaults":false
+    },
+    {
+        "Name":"Skylake Server",
+        "ShortName":"SKX",
+        "FileName":"SkylakeX",
+        "CoreType":"P-core",
+        "IsHybrid":false,
+        "HasDefaults":false
+    },
+    {
+        "Name":"Cascade Lake Server",
+        "ShortName":"CLX",
+        "FileName":"CascadelakeX",
+        "CoreType":"P-core",
+        "IsHybrid":false,
+        "HasDefaults":false
+    },
+    {
+        "Name":"Icelake Client",
+        "ShortName":"ICL",
+        "FileName":"Icelake",
+        "CoreType":"P-core",
+        "IsHybrid":false,
+        "HasDefaults":true
+    },
+    {
+        "Name":"Icelake Server",
+        "ShortName":"ICX",
+        "FileName":"IcelakeX",
+        "CoreType":"P-core",
+        "IsHybrid":false,
+        "HasDefaults":true
+    },
+    {
+        "Name":"Rocket Lake Client",
+        "ShortName":"RKL",
+        "FileName":"Rocketlake",
+        "CoreType":"P-core",
+        "IsHybrid":false,
+        "HasDefaults":true
+    },
+    {
+        "Name":"Sapphire Rapids Server",
+        "ShortName":"SPR",
+        "FileName":"Sapphirerapids",
+        "CoreType":"P-core",
+        "IsHybrid":false,
+        "HasDefaults":true
+    },
+    {
+        "Name":"Sapphire Rapids HBM",
+        "ShortName":"SPR-HBM",
+        "FileName":"SapphirerapidsHBM",
+        "CoreType":"P-core",
+        "IsHybrid":false,
+        "HasDefaults":true
+    },
+    {
+        "Name":"Sapphire Rapids HBM Only",
+        "ShortName":"SPR-HBMO",
+        "FileName":"Sapphirerapids-HBMOnly",
+        "CoreType":"P-core",
+        "IsHybrid":false,
+        "HasDefaults":true
+    }
+]
