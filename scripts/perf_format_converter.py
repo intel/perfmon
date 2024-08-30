@@ -46,7 +46,7 @@ def main():
         convert_file(arg_input_file)
     else:
         # If no input file, convert all files in input dir
-        glob = Path(FILE_PATH, INPUT_DIR_PATH).glob("*")
+        glob = Path(FILE_PATH, INPUT_DIR_PATH).glob("*.json")
         for file in glob:
             convert_file(file)
 
@@ -170,14 +170,21 @@ class PerfFormatConverter:
         Loads dictionaries to be used for metric name replacements
         and metric association (events and constants) replacements.
         """
+        try:
+            full_config_path = Path(FILE_PATH, REPLACEMENT_CONFIG_PATH)
+            with open(full_config_path) as replacement_config_fp:
+                config_dict = json.load(replacement_config_fp)
+        except Exception as e:
+            print(f"[ERROR] - Could not open and read config file: {str(e)}. Quitting...")
+            sys.exit()
 
-        full_config_path = Path(FILE_PATH, REPLACEMENT_CONFIG_PATH)
-        with open(full_config_path) as replacement_config_fp:
-            config_dict = json.load(replacement_config_fp)
-
-        full_platform_path = Path(FILE_PATH, PLATFORM_CONFIG_PATH)
-        with open(full_platform_path) as platform_config_fp:
-            self.platforms = json.load(platform_config_fp)
+        try:
+            full_platform_path = Path(FILE_PATH, PLATFORM_CONFIG_PATH)
+            with open(full_platform_path) as platform_config_fp:
+                self.platforms = json.load(platform_config_fp)
+        except Exception as e:
+            print(f"[ERROR] - Could not open and read platform config file: {str(e)}.  Quitting...")
+            sys.exit()
 
         try:
             self.metric_name_replacement_dict = config_dict["metric_name_replacements"]
@@ -185,8 +192,8 @@ class PerfFormatConverter:
             self.metric_source_event_dict = config_dict["metric_source_events"]
             self.scale_unit_replacement_dict = config_dict["scale_unit_replacements"]
             self.association_option_replacement_dict = config_dict["association_option_replacements"]
-        except KeyError as error:
-            sys.exit("Error in config JSON format " + str(error) + ". Exiting")
+        except KeyError as e:
+            sys.exit(f"[ERROR] - Error in config JSON format {str(e)}. Exiting")
 
     def get_platform(self, file_name):
         """
@@ -215,6 +222,7 @@ class PerfFormatConverter:
             if "Threshold" in metric and "ThresholdIssues" in metric["Threshold"] and metric["Threshold"]["ThresholdIssues"] != "":
                 issues = metric["Threshold"]["ThresholdIssues"].split(",")
                 for issue in issues:
+                    issue = issue.strip()
                     if issue == "#NA":
                         continue
                     elif issue not in self.issue_dict:
@@ -324,10 +332,6 @@ class PerfFormatConverter:
         # Start with base description
         description = metric["BriefDescription"].strip()
 
-        # Make sure description is more than one sentence
-        if description.count(".") <= 1:
-            return None
-
         # Add "Sample with:" blurb
         if "LocateWith" in metric and metric["LocateWith"] != "":
             events = metric["LocateWith"].split(";")
@@ -340,13 +344,17 @@ class PerfFormatConverter:
         if "Threshold" in metric and "ThresholdIssues" in metric["Threshold"] and metric["Threshold"]["ThresholdIssues"] != "":
             issues = metric["Threshold"]["ThresholdIssues"].split(",")
             for issue in issues:
-                related_metrics.extend(self.issue_dict[issue])
+                related_metrics.extend(self.issue_dict[issue.strip()])
             
             # Filter out self from list
-            related_metrics = [m for m in related_metrics if m != self.translate_metric_name(metric)]
+            related_metrics = set([m for m in related_metrics if m != self.translate_metric_name(metric)])
             
             if len(related_metrics) >= 1:
                 description += f" Related metrics: {", ".join(related_metrics)}" + "."
+        
+        # Make sure description is more than one sentence
+        if description.count(".") < 1:
+            return None
         
         return description
     

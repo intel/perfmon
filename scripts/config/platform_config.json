@@ -102,5 +102,21 @@
         "CoreType":"P-core",
         "IsHybrid":false,
         "HasDefaults":true
+    },
+    {
+        "Name":"Sierra Forest Server",
+        "ShortName":"SRF",
+        "FileName":"SierraForest",
+        "CoreType":"E-core",
+        "IsHybrid":false,
+        "HasDefaults":false
+    },
+    {
+        "Name":"Grand Ridge Micro Server",
+        "ShortName":"GRR",
+        "FileName":"GrandRidge",
+        "CoreType":"E-core",
+        "IsHybrid":false,
+        "HasDefaults":false
     }
 ]
