@@ -68,8 +68,8 @@ def convert_file(file_path):
             return
 
         # Deserialize input DB Json to dictionary
-        format_converter.deserialize_input()
         print(f"Processing file: <{str(file_path.name)}>")
+        format_converter.deserialize_input()
 
         format_converter.populate_issue_dict()
 
@@ -331,13 +331,17 @@ class PerfFormatConverter:
         """
         # Start with base description
         description = metric["BriefDescription"].strip()
-
+        if not description.endswith("."):
+            description += ". "
+        else:
+            description += " "
+    
         # Add "Sample with:" blurb
         if "LocateWith" in metric and metric["LocateWith"] != "":
             events = metric["LocateWith"].split(";")
             events = [event.strip() for event in events if event.strip() != "#NA"]
             if len(events) >= 1:
-                description += f" Sample with: {", ".join(events)}" + "."
+                description += f"Sample with: {", ".join(events)}" + ". "
 
         # Add "Related metrics:" blurb
         related_metrics = []
@@ -350,13 +354,13 @@ class PerfFormatConverter:
             related_metrics = set([m for m in related_metrics if m != self.translate_metric_name(metric)])
             
             if len(related_metrics) >= 1:
-                description += f" Related metrics: {", ".join(related_metrics)}" + "."
+                description += f"Related metrics: {", ".join(related_metrics)}" + ". "
         
         # Make sure description is more than one sentence
-        if description.count(".") < 1:
+        elif description.count(". ") == 1 and description.endswith(". "):
             return None
         
-        return description
+        return description.strip()
     
     def get_brief_description(self, metric):
         """
@@ -366,14 +370,23 @@ class PerfFormatConverter:
         @returns: string containing the shortened description
         """
          # Start with base description
-        description = metric["BriefDescription"]
+        description = metric["BriefDescription"] + " "
+
+        # Sanitize 
+        if "i.e." in description:   # Special case if i.e. in description
+            description = description.replace("i.e.", "ie:")
 
         # Get only first sentence
-        if "." in description:
-            return description.split(".")[0] + "."
+        if description.count(". ") > 1:
+            description = description.split(". ")[0] + ". "
+        elif description.count(". ") == 1 and description.strip().endswith("."):
+            description = description.strip()
+        elif description.count(". ") == 1 and not description.strip().endswith("."):
+            description = description.split(". ")[0] + ". "
         else:
-            return description
+            description =  description.strip() + "."
 
+        return description.replace("ie:", "i.e.").strip()
 
     def translate_metric_name(self, metric):
         """

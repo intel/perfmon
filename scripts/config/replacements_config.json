@@ -38,7 +38,9 @@
         "FREERUN_DRAM_ENERGY_STATUS":"power@energy\\-ram@",
         "NUM_CPUS":"#num_cpus_online",
         "UNC_PKG_ENERGY_STATUS":"power@energy\\-pkg@",
-        "UNC_DRAM_ENERGY_STATUS":"power@energy\\-ram@"
+        "UNC_DRAM_ENERGY_STATUS":"power@energy\\-ram@",
+        "INST_RETIRED.ANY_P:SUP":"INST_RETIRED.ANY_P:k",
+        "BR_INST_RETIRED.FAR_BRANCH:USER":"BR_INST_RETIRED.FAR_BRANCH:u"
     },
     "metric_source_events":{
         "CHAS_PER_SOCKET":"UNC_CHA([^\\s]*)",
@@ -62,7 +64,8 @@
             "events": ["UNC_CHA_"],
             "unit":"cha",
             "translations":{
-                "filter1":"config1"
+                "filter1":"config1",
+                "c":"thresh"
             },
             "scale":100000000
         },
