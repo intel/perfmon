@@ -723,7 +723,7 @@ class Model:
                     form = form.replace(m.group(0), str(float(m.group(1)) * float(m.group(2))))
         return form
 
-    def save_form(self, name, group, form, desc, locate, scale_unit, threshold,
+    def save_form(self, name, group, form, desc, pdesc, locate, scale_unit, threshold,
                           issues, events, infoname, aux, pmu_prefix, jo,
                            issue_to_metrics, from_json):
                 if self.shortname == 'BDW-DE':
@@ -787,23 +787,6 @@ class Model:
                     group = m['MetricGroup']
                     jo.remove(m)
 
-                desc = desc.strip()
-                def append_to_desc(s: str):
-                    nonlocal desc
-                    if desc[-1] != '.':
-                        desc += '.'
-                    desc = f'{desc} {s}'
-
-                if locate:
-                    append_to_desc(f'Sample with: {locate}')
-
-                if issues:
-                    related = set()
-                    for issue in issues:
-                        related.update(issue_to_metrics[issue])
-                    related.remove(name)
-                    append_to_desc(f'Related metrics: {", ".join(sorted(related))}')
-
                 try:
                     if "$PEBS" in form:
                         form = self.extract_pebs_formula(form)
@@ -814,15 +797,39 @@ class Model:
                 except SyntaxError as e:
                     raise SyntaxError(f'Parsing metric {name} for {self.longname}') from e
 
-                if group and len(group) > 0:
-                    j['MetricGroup'] = group
-                if '.' in desc:
-                    sdesc = re.sub(r'(?<!i\.e)\. .*', '', desc)
-                    j['BriefDescription'] = sdesc
-                    if desc != sdesc:
-                        j['PublicDescription'] = desc
+                if not from_json:
+                    desc = desc.strip()
+                    def append_to_desc(s: str):
+                        nonlocal desc
+                        if desc[-1] != '.':
+                            desc += '.'
+                        desc = f'{desc} {s}'
+
+                    if locate:
+                        append_to_desc(f'Sample with: {locate}')
+
+                    if issues:
+                        related = set()
+                        for issue in issues:
+                            related.update(issue_to_metrics[issue])
+                        related.remove(name)
+                        append_to_desc(f'Related metrics: {", ".join(sorted(related))}')
+
+                    if '.' in desc:
+                        sdesc = re.sub(r'(?<!i\.e)\. .*', '', desc)
+                        j['BriefDescription'] = sdesc
+                        if desc != sdesc:
+                            j['PublicDescription'] = desc
+                    else:
+                        j['BriefDescription'] = desc
+
                 else:
                     j['BriefDescription'] = desc
+                    if pdesc and pdesc != desc:
+                        j['PublicDescription'] = pdesc
+
+                if group and len(group) > 0:
+                    j['MetricGroup'] = group
 
                 # Don't group events as there can never be sufficient counters.
                 no_group = 'NO_GROUP_EVENTS'
@@ -1055,9 +1062,9 @@ class Model:
                         threshold = self.simplify_form(threshold)
 
                     self.save_form(em['MetricName'], em['MetricGroup'], form,
-                              em['BriefDescription'], None, em.get('ScaleUnit'),
-                              threshold, [], events, infoname,
-                              aux, pmu_prefix, jo, issue_to_metrics, True)
+                              em['BriefDescription'], em.get('PublicDescription'),
+                              None, em.get('ScaleUnit'), threshold, [], events,
+                              infoname, aux, pmu_prefix, jo, issue_to_metrics, True)
 
 
     def extract_tma_metrics(self, csvfile: TextIO, pmu_prefix: str,
@@ -1655,7 +1662,7 @@ class Model:
                 threshold = threshold.replace('& 1', '')
                 thresholds[i.name] = threshold
                 _verboseprint2(f'{i.name} -> {threshold}')
-            self.save_form(i.name, i.groups, form, i.desc, i.locate, i.scale_unit,
+            self.save_form(i.name, i.groups, form, i.desc, None, i.locate, i.scale_unit,
                       threshold, i.issues, events, infoname, aux, pmu_prefix, jo,
                       issue_to_metrics, False)
 
@@ -1665,7 +1672,7 @@ class Model:
             if form:
                 formula = metric.ParsePerfJson(form)
                 self.save_form('UNCORE_FREQ', 'SoC', formula.ToPerfJson(),
-                          'Uncore frequency per die [GHZ]', None, None, None, [],
+                          'Uncore frequency per die [GHZ]', None, None, None, None, [],
                            events, infoname, aux, pmu_prefix, jo,
                            issue_to_metrics, False)
 
