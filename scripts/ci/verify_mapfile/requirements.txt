@@ -1,1 +1,1 @@
-jsonschema
+jsonschema==4.23.0
