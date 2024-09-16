@@ -5,7 +5,7 @@
         "FileName":"Haswell",
         "CoreType":"P-core",
         "IsHybrid":false,
-        "HasDefaults":false
+        "DefaultLevel":0
     },
     {
         "Name":"Haswell Server",
@@ -13,7 +13,7 @@
         "FileName":"HaswellX",
         "CoreType":"P-core",
         "IsHybrid":false,
-        "HasDefaults":false
+        "DefaultLevel":0
     },
     {
         "Name":"Broadwell Client",
@@ -21,7 +21,7 @@
         "FileName":"Broadwell",
         "CoreType":"P-core",
         "IsHybrid":false,
-        "HasDefaults":false
+        "DefaultLevel":0
     },
     {
         "Name":"Broadwell Server",
@@ -29,7 +29,7 @@
         "FileName":"BroadwellX",
         "CoreType":"P-core",
         "IsHybrid":false,
-        "HasDefaults":false
+        "DefaultLevel":0
     },
     {
         "Name":"Skylake Client",
@@ -37,7 +37,7 @@
         "FileName":"Skylake",
         "CoreType":"P-core",
         "IsHybrid":false,
-        "HasDefaults":false
+        "DefaultLevel":0
     },
     {
         "Name":"Skylake Server",
@@ -45,7 +45,7 @@
         "FileName":"SkylakeX",
         "CoreType":"P-core",
         "IsHybrid":false,
-        "HasDefaults":false
+        "DefaultLevel":0
     },
     {
         "Name":"Cascade Lake Server",
@@ -53,7 +53,7 @@
         "FileName":"CascadelakeX",
         "CoreType":"P-core",
         "IsHybrid":false,
-        "HasDefaults":false
+        "DefaultLevel":0
     },
     {
         "Name":"Icelake Client",
@@ -61,7 +61,7 @@
         "FileName":"Icelake",
         "CoreType":"P-core",
         "IsHybrid":false,
-        "HasDefaults":true
+        "DefaultLevel":1
     },
     {
         "Name":"Icelake Server",
@@ -69,7 +69,7 @@
         "FileName":"IcelakeX",
         "CoreType":"P-core",
         "IsHybrid":false,
-        "HasDefaults":true
+        "DefaultLevel":1
     },
     {
         "Name":"Rocket Lake Client",
@@ -77,7 +77,7 @@
         "FileName":"Rocketlake",
         "CoreType":"P-core",
         "IsHybrid":false,
-        "HasDefaults":true
+        "DefaultLevel":1
     },
     {
         "Name":"Sapphire Rapids Server",
@@ -85,7 +85,7 @@
         "FileName":"Sapphirerapids",
         "CoreType":"P-core",
         "IsHybrid":false,
-        "HasDefaults":true
+        "DefaultLevel":2
     },
     {
         "Name":"Sapphire Rapids HBM",
@@ -93,7 +93,7 @@
         "FileName":"SapphirerapidsHBM",
         "CoreType":"P-core",
         "IsHybrid":false,
-        "HasDefaults":true
+        "DefaultLevel":2
     },
     {
         "Name":"Sapphire Rapids HBM Only",
@@ -101,7 +101,7 @@
         "FileName":"Sapphirerapids-HBMOnly",
         "CoreType":"P-core",
         "IsHybrid":false,
-        "HasDefaults":true
+        "DefaultLevel":2
     },
     {
         "Name":"Sierra Forest Server",
@@ -109,7 +109,7 @@
         "FileName":"SierraForest",
         "CoreType":"E-core",
         "IsHybrid":false,
-        "HasDefaults":false
+        "DefaultLevel":0
     },
     {
         "Name":"Grand Ridge Micro Server",
@@ -117,6 +117,6 @@
         "FileName":"GrandRidge",
         "CoreType":"E-core",
         "IsHybrid":false,
-        "HasDefaults":false
+        "DefaultLevel":0
     }
 ]

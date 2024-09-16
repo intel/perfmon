@@ -357,7 +357,7 @@ class PerfFormatConverter:
                 description += f"Related metrics: {", ".join(related_metrics)}" + ". "
         
         # Make sure description is more than one sentence
-        elif description.count(". ") == 1 and description.endswith(". "):
+        elif description.count(". ") == 1 and description.strip().endswith("."):
             return None
         
         return description.strip()
@@ -548,9 +548,8 @@ class PerfFormatConverter:
                 new_groups.append("tma_" + metric["ParentCategory"].lower().replace(" ", "_") + "_group")
         
         # Add default group for levels 1 & 2
-        if platform["HasDefaults"]:
-            if metric["Level"] <= 2:
-                new_groups.append("Default")
+        if metric["Level"] <= platform["DefaultLevel"] and "info" not in metric["MetricName"].lower():
+            new_groups.append("Default")
 
         # Add count domain
         if "CountDomain" in metric and metric["CountDomain"] != "":
@@ -596,8 +595,8 @@ class Metric:
         self.DefaultMetricgroupName = None
 
     def apply_extra_properties(self, platform):
-        if platform["HasDefaults"]:
-            if self.MetricGroup:
+        if platform["DefaultLevel"] > 0:
+            if self.MetricGroup and "info" not in self.MetricName:
                 if "TopdownL1" in self.MetricGroup:
                     if "Default" in self.MetricGroup:
                         self.MetricGroupnoGroup = "TopdownL1;Default"
