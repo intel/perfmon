@@ -184,6 +184,8 @@ def verify_family_model_maps_to_event_files(perfmon_repo_path: Path):
         # ADL-N is an E-Core only product. Refer to Table 1 in
         # https://cdrdv2.intel.com/v1/dl/getContent/759603
         'GenuineIntel-6-BE': ['alderlake_goldencove_core.json'],
+        # ARL model 0xC6 does not reference CMT event content.
+        'GenuineIntel-6-C6': ['arrowlake_crestmont_core.json'],
     }
 
     logger.info('Checking mapfile.csv for missing event files.')
