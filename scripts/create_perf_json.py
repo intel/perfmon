@@ -172,7 +172,7 @@ def topic(event_name: str, unit: str) -> str:
     @param event_name: Name of event like UNC_M2M_BYPASS_M2M_Egress.NOT_TAKEN.
     @param unit: The PMU responsible for the event or None for CPU events.
     """
-    if unit and unit not in ['cpu', 'cpu_atom', 'cpu_core']:
+    if unit and unit not in ['cpu', 'cpu_atom', 'cpu_core', 'cpu_lowpower']:
         unit_to_topic = {
             'cha': 'Uncore-Cache',
             'chacms': 'Uncore-Cache',
@@ -1642,13 +1642,15 @@ class Model:
         # representing the perf json event. The dictionary events may
         # be modified by the uncore CSV file.
         dict_events: Dict[str, Dict[str, str]] = {}
-        for event_type in ['atom', 'core', 'uncore', 'uncore experimental']:
+        for event_type in ['atom', 'core', 'lowpower', 'uncore', 'uncore experimental']:
             if event_type not in self.files:
                 continue
             _verboseprint2(f'Generating {event_type} events from {self.files[event_type]}')
             pmu_prefix = None
-            if event_type in ['atom', 'core']:
-                pmu_prefix = f'cpu_{event_type}' if 'atom' in self.files else 'cpu'
+            if event_type in ['atom', 'core', 'lowpower']:
+                pmu_prefix = 'cpu'
+                if 'atom' in self.files or 'lowpower' in self.files:
+                    pmu_prefix = f'cpu_{event_type}'
             with open(self.files[event_type], 'r') as event_json:
                 json_data = json.load(event_json)
                 # UNC_IIO_BANDWIDTH_OUT events are broken on Linux pre-SPR so skip if they exist.
@@ -1658,8 +1660,11 @@ class Model:
                                if self.shortname == 'SPR' or
                                not x["EventName"].startswith("UNC_IIO_BANDWIDTH_OUT.")]
                 unit = None
-                if event_type in ['atom', 'core'] and 'atom' in self.files and 'core' in self.files:
-                    unit = f'cpu_{event_type}'
+                if event_type in ['atom', 'core', 'lowpower']:
+                    # If the platform is a hybrid there will be a combination of atom,
+                    # lowpower (LowPower_Atom), or core files.
+                    if ('atom' in self.files or 'lowpower' in self.files) and 'core' in self.files:
+                        unit = f'cpu_{event_type}'
                 per_pkg = '1' if event_type in ['uncore', 'uncore experimental'] else None
                 duplicates: Set[str] = set()
                 for event in pmon_events:
@@ -1890,8 +1895,16 @@ class Mapfile:
 
                 if event_type == 'hybridcore':
                     # We want a core and an atom file, so change
-                    # event_type for hybrid models.
-                    event_type = 'core' if core_role_name == 'Core' else 'atom'
+                    # event_type for hybrid models. Mapfile.csv core
+                    # roles are Core, Atom, or LowPower_Atom.
+                    core_role_mapfile_to_linux_mapping = {
+                        'Core': 'core',
+                        'Atom': 'atom',
+                        'LowPower_Atom': 'lowpower',
+                    }
+                    if core_role_name not in core_role_mapfile_to_linux_mapping:
+                        raise ValueError(f'Unexpected core role {core_role_name}')
+                    event_type = core_role_mapfile_to_linux_mapping[core_role_name]
 
                 if shortname == 'KNM':
                     # The files for KNL and KNM are the same as are

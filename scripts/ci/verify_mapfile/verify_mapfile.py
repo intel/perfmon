@@ -254,22 +254,25 @@ def verify_mapfile_duplicate_types(perfmon_repo_path: Path):
         # Filter for any rows with a matching model.
         mapfile_rows = [x for x in mapfile_data if x['Family-model'] == model]
 
-        # Create a dict key based on EventType and Core Type. Otherwise, for hybrid platforms
-        # there would be overlapping entries for 'hybridcore'. Combinations of 'hybridcore'
-        # and core type should be unique.
-        event_and_core_types = {}
+        # Create a dict key based on EventType. For hybrid platforms also include Core Type
+        # and Native Model ID otherwise there would be overlapping entries for 'hybridcore'.
+        unique_entry_check = {}
         for row in mapfile_rows:
             event_type = row['EventType']
             core_type = row['Core Type']
-            key = f'{event_type}_{core_type}'
+            native_model_id = row['Native Model ID']
+
+            key = f'{event_type}'
+            if event_type == 'hybridcore':
+                key = f'{event_type}_{core_type}_{native_model_id}'
 
             # This row already existed if the key is present.
-            if key in event_and_core_types:
-                msg = (f'Family-model {model} includes duplicate entry for EventType={event_type} and '
-                       f'Core Type={core_type}.')
+            if key in unique_entry_check:
+                msg = (f'Family-model {model} includes duplicate entry for EventType {event_type}. '
+                       f'Mapfile row {row}.')
                 raise RuntimeError(msg)
 
-            event_and_core_types[key] = 1
+            unique_entry_check[key] = 1
 
 
 def verify_mapfile_model_event_versions(perfmon_repo_path: Path):
