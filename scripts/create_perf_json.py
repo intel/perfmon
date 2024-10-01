@@ -1015,7 +1015,7 @@ class Model:
 
                 jo.append(j)
 
-    def extract_metric_json(self, events, pmu_prefix, ignore, jo, infoname, aux,issue_to_metrics):
+    def extract_metric_json(self, events, pmu_prefix, ignore, jo, infoname, aux, issue_to_metrics):
             print(self.files['extra metrics'])
             with open(self.files['extra metrics'], 'r') as extra_json:
                 broken_metrics = {
@@ -1064,7 +1064,7 @@ class Model:
                     self.save_form(em['MetricName'], em['MetricGroup'], form,
                               em['BriefDescription'], em.get('PublicDescription'),
                               None, em.get('ScaleUnit'), threshold, [], events,
-                              infoname, aux, pmu_prefix, jo, issue_to_metrics, True)
+                              infoname, aux, pmu_prefix, jo, issue_to_metrics, from_json=True)
 
 
     def extract_tma_metrics(self, csvfile: TextIO, pmu_prefix: str,
@@ -1664,7 +1664,7 @@ class Model:
                 _verboseprint2(f'{i.name} -> {threshold}')
             self.save_form(i.name, i.groups, form, i.desc, None, i.locate, i.scale_unit,
                       threshold, i.issues, events, infoname, aux, pmu_prefix, jo,
-                      issue_to_metrics, False)
+                      issue_to_metrics, from_json=False)
 
         if 'Socket_CLKS' in infoname:
             form = 'Socket_CLKS / #num_dies / duration_time / 1000000000'
@@ -1674,7 +1674,7 @@ class Model:
                 self.save_form('UNCORE_FREQ', 'SoC', formula.ToPerfJson(),
                           'Uncore frequency per die [GHZ]', None, None, None, None, [],
                            events, infoname, aux, pmu_prefix, jo,
-                           issue_to_metrics, False)
+                           issue_to_metrics, from_json=False)
 
         if 'extra metrics' in self.files:
             self.extract_metric_json(events, pmu_prefix, ignore, jo, infoname, aux,issue_to_metrics)
