@@ -1,4 +1,7 @@
 __pycache__/
+*.pyc
+*.coverage
+htmlcov/
 .idea
 scripts/inputs
 scripts/outputs
