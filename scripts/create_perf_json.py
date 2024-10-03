@@ -741,9 +741,9 @@ class Model:
                         group += ';tma_L2_group'
                 _verboseprint3(f'Checking metric {name}: {form}')
                 for v, _ in re.findall(r'(([A-Z_a-z0-9.]|\\-)+)', form):
-                    if v.isdigit() or re.match('\d+\.\d+', v) is not None or \
-                       re.match('0x[a-fA-F0-9]+', v) is not None or \
-                       re.match('\d+e\d+', v) is not None:
+                    if v.isdigit() or re.match(r'\d+\.\d+', v) is not None or \
+                       re.match(r'0x[a-fA-F0-9]+', v) is not None or \
+                       re.match(r'\d+e\d+', v) is not None:
                         continue
                     if v in ['if', 'then', 'else', 'min', 'max', 'core_wide',
                              'SMT_on', 'duration_time', 'cmask', 'umask',
@@ -1473,9 +1473,9 @@ class Model:
                             ('UNC_ARB_TRK_REQUESTS.ALL', r'arb@event\=0x81\,umask\=0x1@'),
                         ] + td_event_fixups,
                         'EMR':[
-                            ('UNC_CHA_CLOCKTICKS:one_unit', 'uncore_cha_0@event\=0x1@'),
+                            ('UNC_CHA_CLOCKTICKS:one_unit', r'uncore_cha_0@event\=0x1@'),
                             ('UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD:c1',
-                             'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
+                             r'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
                         ] + td_event_fixups,
                     }
 
@@ -2092,7 +2092,8 @@ def main():
                     '-c',
                     default=False,
                     action="store_true",
-                    help='Only use JSON file for metric conversion is set to False.')
+                    help='Use TMA csv file as primary input file if set to True. \
+                          When set to False, only use JSON metric files as input.')
 
     args = ap.parse_args()
 
