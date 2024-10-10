@@ -63,6 +63,7 @@ def convert_file(file_path):
         
         # Get the platform of the file
         platform = format_converter.get_platform(file_path.name)
+        #print(f"{platform["Name"]} - {platform["Core"]} Core")
         if not platform:
             print(f"[ERROR] - Could not determine platform for file: <{str(file_path.name)}> Skipping...")
             return
@@ -202,8 +203,13 @@ class PerfFormatConverter:
         @returns: dictionary containing the platform info or None if not found
         """
         for platform in self.platforms:
-            if platform["FileName"].lower() + "_" in file_name:
-                return platform
+            if platform["FileName"].lower() in file_name:
+                if platform["IsHybrid"]:    # Hybrid platform. Get correct core
+                    for platform in self.platforms:
+                        if platform["FileName"].lower() in file_name and platform["Core"].lower() in file_name:
+                            return platform
+                else:   # Non Hybrid platform. Return platform
+                    return platform 
         return None
 
     def deserialize_input(self):
@@ -246,7 +252,7 @@ class PerfFormatConverter:
                 new_metric = Metric(
                     public_description=self.get_public_description(metric),
                     brief_description=self.get_brief_description(metric),
-                    metric_expr=self.get_expression(metric),
+                    metric_expr=self.get_expression(metric, platform),
                     metric_group=self.get_groups(metric, platform),
                     metric_name=self.translate_metric_name(metric),
                     scale_unit=self.get_scale_unit(metric),
@@ -258,7 +264,7 @@ class PerfFormatConverter:
             return None
         return metrics
 
-    def get_expression(self, metric):
+    def get_expression(self, metric, platform):
         """
         Converts the aliased formulas and events/constants into
         un-aliased expressions.
@@ -275,7 +281,7 @@ class PerfFormatConverter:
                         # Term is not an operator or a numeric value
                         if "tma_" not in term:
                             # Translate any event names
-                            expression_list[i] = self.translate_metric_event(term.upper())
+                            expression_list[i] = self.translate_metric_event(term.upper(), platform)
                 
                 # Combine into formula
                 expression = " ".join(expression_list).strip()
@@ -302,7 +308,7 @@ class PerfFormatConverter:
                 for event in events:
                     reg = r"((?<=[\s+\-*\/\(\)])|(?<=^))({})((?=[\s+\-*\/\(\)])|(?=$))".format(event["Alias"].lower())
                     expression = re.sub(reg,
-                                        pad(self.translate_metric_event(event["Name"])),
+                                        pad(self.translate_metric_event(event["Name"], platform)),
                                         expression)
                 for const in constants:
                     reg = r"((?<=[\s+\-*\/\(\)])|(?<=^))({})((?=[\s+\-*\/\(\)])|(?=$))".format(const["Alias"].lower())
@@ -401,7 +407,7 @@ class PerfFormatConverter:
                 return "tma_" + metric["MetricName"].replace(" ", "_").lower()
             return metric["MetricName"]
 
-    def translate_metric_event(self, event_name):
+    def translate_metric_event(self, event_name, platform):
         """
         Replaces the event name with a replacement found in the metric
         association replacements json file. (An "association" is either an event
@@ -410,11 +416,23 @@ class PerfFormatConverter:
         @param event_name: string containing event name
         @returns: string containing un-aliased expression
         """
-        # Check if association has replacement
+        # Check if association has 1:1 replacement
         for replacement in self.metric_assoc_replacement_dict:
             if re.match(replacement, event_name):
                 return self.metric_assoc_replacement_dict[replacement]
+        
+        # Check for retire latency option
+        if ":RETIRE_LATENCY" in event_name:
+            split = event_name.split(":")
+            if platform["IsHybrid"]:
+                if platform["CoreType"] == "P-core":
+                    return f"cpu_core@{split[0]}@R"
+                elif platform["CoreType"] == "E-core":
+                    return f"cpu_atom@{split[0]}@R"
+            else:
+                return split[0] + ":R"
 
+        # Check for other event option
         if ":" in event_name and "TOPDOWN" not in event_name:
             for row in self.association_option_replacement_dict:
                 for event in row["events"]:
@@ -422,6 +440,7 @@ class PerfFormatConverter:
                         split = event_name.split(":")
                         return self.translate_event_options(split, row)
             print("[ERROR] - Event with no option translations: " + event_name)
+    
         return event_name
 
 

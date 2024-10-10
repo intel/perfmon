@@ -3,6 +3,7 @@
         "Name":"Haswell Client",
         "ShortName":"HSW",
         "FileName":"Haswell",
+        "Core":"Haswell",
         "CoreType":"P-core",
         "IsHybrid":false,
         "DefaultLevel":0
@@ -11,6 +12,7 @@
         "Name":"Haswell Server",
         "ShortName":"HSX",
         "FileName":"HaswellX",
+        "Core":"Haswell",
         "CoreType":"P-core",
         "IsHybrid":false,
         "DefaultLevel":0
@@ -19,6 +21,7 @@
         "Name":"Broadwell Client",
         "ShortName":"BDW",
         "FileName":"Broadwell",
+        "Core":"Broadwell",
         "CoreType":"P-core",
         "IsHybrid":false,
         "DefaultLevel":0
@@ -27,6 +30,7 @@
         "Name":"Broadwell Server",
         "ShortName":"BDX",
         "FileName":"BroadwellX",
+        "Core":"Broadwell",
         "CoreType":"P-core",
         "IsHybrid":false,
         "DefaultLevel":0
@@ -35,6 +39,7 @@
         "Name":"Skylake Client",
         "ShortName":"SKL",
         "FileName":"Skylake",
+        "Core":"Skylake",
         "CoreType":"P-core",
         "IsHybrid":false,
         "DefaultLevel":0
@@ -43,6 +48,7 @@
         "Name":"Skylake Server",
         "ShortName":"SKX",
         "FileName":"SkylakeX",
+        "Core":"Skylake",
         "CoreType":"P-core",
         "IsHybrid":false,
         "DefaultLevel":0
@@ -51,6 +57,7 @@
         "Name":"Cascade Lake Server",
         "ShortName":"CLX",
         "FileName":"CascadelakeX",
+        "Core":"Skylake",
         "CoreType":"P-core",
         "IsHybrid":false,
         "DefaultLevel":0
@@ -59,6 +66,7 @@
         "Name":"Icelake Client",
         "ShortName":"ICL",
         "FileName":"Icelake",
+        "Core":"SunnyCove",
         "CoreType":"P-core",
         "IsHybrid":false,
         "DefaultLevel":1
@@ -67,6 +75,7 @@
         "Name":"Icelake Server",
         "ShortName":"ICX",
         "FileName":"IcelakeX",
+        "Core":"SunnyCove",
         "CoreType":"P-core",
         "IsHybrid":false,
         "DefaultLevel":1
@@ -75,6 +84,7 @@
         "Name":"Rocket Lake Client",
         "ShortName":"RKL",
         "FileName":"Rocketlake",
+        "Core":"SunnyCove",
         "CoreType":"P-core",
         "IsHybrid":false,
         "DefaultLevel":1
@@ -83,6 +93,7 @@
         "Name":"Sapphire Rapids Server",
         "ShortName":"SPR",
         "FileName":"Sapphirerapids",
+        "Core":"GoldenCove",
         "CoreType":"P-core",
         "IsHybrid":false,
         "DefaultLevel":2
@@ -91,6 +102,7 @@
         "Name":"Sapphire Rapids HBM",
         "ShortName":"SPR-HBM",
         "FileName":"SapphirerapidsHBM",
+        "Core":"GoldenCove",
         "CoreType":"P-core",
         "IsHybrid":false,
         "DefaultLevel":2
@@ -99,6 +111,16 @@
         "Name":"Sapphire Rapids HBM Only",
         "ShortName":"SPR-HBMO",
         "FileName":"Sapphirerapids-HBMOnly",
+        "Core":"GoldenCove",
+        "CoreType":"P-core",
+        "IsHybrid":false,
+        "DefaultLevel":2
+    },
+    {
+        "Name":"Granite Rapids Server",
+        "ShortName":"GNR",
+        "FileName":"GraniteRapids",
+        "Core":"RedwoodCove",
         "CoreType":"P-core",
         "IsHybrid":false,
         "DefaultLevel":2
@@ -107,6 +129,7 @@
         "Name":"Sierra Forest Server",
         "ShortName":"SRF",
         "FileName":"SierraForest",
+        "Core":"Crestmont",
         "CoreType":"E-core",
         "IsHybrid":false,
         "DefaultLevel":0
@@ -115,8 +138,27 @@
         "Name":"Grand Ridge Micro Server",
         "ShortName":"GRR",
         "FileName":"GrandRidge",
+        "Core":"Crestmont",
         "CoreType":"E-core",
         "IsHybrid":false,
+        "DefaultLevel":2
+    },
+    {
+        "Name":"Alder Lake",
+        "ShortName":"ADL",
+        "FileName":"Alderlake",
+        "Core":"GoldenCove",
+        "CoreType":"P-core",
+        "IsHybrid":true,
+        "DefaultLevel":2
+    },
+    {
+        "Name":"Alder Lake",
+        "ShortName":"ADL",
+        "FileName":"Alderlake",
+        "Core":"Gracemont",
+        "CoreType":"E-core",
+        "IsHybrid":true,
         "DefaultLevel":0
     }
 ]
