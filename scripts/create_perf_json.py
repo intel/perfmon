@@ -2088,7 +2088,7 @@ def main():
                     default=0,
                     dest='verbose',
                     help='Additional output when running.')
-    ap.add_argument('--csv',
+    ap.add_argument('--tma-csv',
                     '-c',
                     default=False,
                     action="store_true",
@@ -2105,7 +2105,7 @@ def main():
         raise IOError(f'Output directory argument {outdir} exists but is not a directory.')
     outdir.mkdir(exist_ok=True)
 
-    Mapfile(basepath).to_perf_json(outdir, args.csv)
+    Mapfile(basepath).to_perf_json(outdir, args.tma_csv)
 
 if __name__ == '__main__':
     main()
