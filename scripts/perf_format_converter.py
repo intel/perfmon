@@ -422,7 +422,7 @@ class PerfFormatConverter:
                 return self.metric_assoc_replacement_dict[replacement]
         
         # Check for retire latency option
-        if ":RETIRE_LATENCY" in event_name:
+        if ":retire_latency" in event_name.lower():
             split = event_name.split(":")
             if platform["IsHybrid"]:
                 if platform["CoreType"] == "P-core":
