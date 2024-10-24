@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 10th Generation Intel(R) Core(TM) Processor - V1.22",
-    "DatePublished": "04/04/2024",
-    "Version": "1.22",
+    "Info": "Performance Monitoring Events for 10th Generation Intel(R) Core(TM) Processor - V1.24",
+    "DatePublished": "10/10/2024",
+    "Version": "1.24",
     "Legend": ""
   },
   "Events": [
@@ -38,8 +38,8 @@
       "EventCode": "0x00",
       "UMask": "0x01",
       "EventName": "UNC_CLOCK.SOCKET",
-      "BriefDescription": "UNC_CLOCK.SOCKET",
-      "PublicDescription": "UNC_CLOCK.SOCKET",
+      "BriefDescription": "This 48-bit fixed counter counts the UCLK cycles.",
+      "PublicDescription": "This 48-bit fixed counter counts the UCLK cycles.",
       "Counter": "FIXED",
       "CounterMask": "0",
       "Invert": "0",
