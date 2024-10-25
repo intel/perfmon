@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 11th Generation Intel(R) Core(TM) Processor - V1.03",
-    "DatePublished": "04/08/2024",
-    "Version": "1.03",
+    "Info": "Performance Monitoring Events for 11th Generation Intel(R) Core(TM) Processor - V1.04",
+    "DatePublished": "10/10/2024",
+    "Version": "1.04",
     "Legend": ""
   },
   "Events": [
@@ -38,8 +38,8 @@
       "EventCode": "0x00",
       "UMask": "0x01",
       "EventName": "UNC_CLOCK.SOCKET",
-      "BriefDescription": "UNC_CLOCK.SOCKET",
-      "PublicDescription": "UNC_CLOCK.SOCKET",
+      "BriefDescription": "This 48-bit fixed counter counts the UCLK cycles.",
+      "PublicDescription": "This 48-bit fixed counter counts the UCLK cycles.",
       "Counter": "FIXED",
       "CounterMask": "0",
       "Invert": "0",

@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Grand Ridge Base Transceiver Station Family - V1.04",
-    "DatePublished": "08/09/2024",
-    "Version": "1.04",
+    "Info": "Performance Monitoring Events for Intel(R) Grand Ridge Base Transceiver Station Family - V1.05",
+    "DatePublished": "10/10/2024",
+    "Version": "1.05",
     "Legend": ""
   },
   "Events": [
@@ -627,7 +627,7 @@
       "FCMask": "0x00",
       "UMaskExt": "0x00C827FF",
       "EventName": "UNC_CHA_TOR_INSERTS.IA_DRD_OPT",
-      "BriefDescription": "Data read opt from local IA that miss the cache",
+      "BriefDescription": "Data read opt from local IA",
       "PublicDescription": "TOR Inserts : DRd_Opts issued by iA Cores",
       "Counter": "0,1,2,3",
       "ELLC": "0",
@@ -681,7 +681,7 @@
       "FCMask": "0x00",
       "UMaskExt": "0x00C80FFF",
       "EventName": "UNC_CHA_TOR_INSERTS.IA_CRD",
-      "BriefDescription": "Code read from local IA that miss the cache",
+      "BriefDescription": "Code read from local IA",
       "PublicDescription": "TOR Inserts : CRDs issued by iA Cores",
       "Counter": "0,1,2,3",
       "ELLC": "0",
@@ -2589,7 +2589,7 @@
       "FCMask": "0x00",
       "UMaskExt": "0x00000000",
       "EventName": "UNC_M_CLOCKTICKS",
-      "BriefDescription": "Number of DRAM DCLK clock cycles while the event is enabled",
+      "BriefDescription": "Number of DRAM DCLK clock cycles while the event is enabled.  DCLK is 1/4 of DRAM data rate.",
       "PublicDescription": "DRAM Clockticks",
       "Counter": "0,1,2,3",
       "ELLC": "0",
