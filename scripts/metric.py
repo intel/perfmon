@@ -54,6 +54,12 @@ class Expression:
   def __gt__(self, other: Union[int, float, 'Expression']) -> 'Operator':
     return Operator('>', self, other)
 
+  def __le__(self, other: Union[int, float, 'Expression']) -> 'Operator':
+    return _Constify(other).__gt__(self)
+
+  def __ge__(self, other: Union[int, float, 'Expression']) -> 'Operator':
+    return _Constify(other).__lt__(self)
+
   def __add__(self, other: Union[int, float, 'Expression']) -> 'Operator':
     return Operator('+', self, other)
 
