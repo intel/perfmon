@@ -1961,7 +1961,7 @@ class Mapfile:
         _verboseprint2('Parsed models:\n' + str(self))
 
     def __str__(self):
-        return ''.join(str(model) for model in self.archs)
+        return '\n'.join(str(model) for model in self.archs)
 
     def to_perf_json(self, outdir: Path):
         """
