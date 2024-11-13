@@ -90,6 +90,15 @@
         "DefaultLevel":1
     },
     {
+        "Name":"Tiger Lake Client",
+        "ShortName":"TGL",
+        "FileName":"TigerLake",
+        "Core":"WillowCove",
+        "CoreType":"P-core",
+        "IsHybrid":false,
+        "DefaultLevel":1
+    },
+    {
         "Name":"Sapphire Rapids Server",
         "ShortName":"SPR",
         "FileName":"Sapphirerapids",
@@ -121,6 +130,15 @@
         "ShortName":"GNR",
         "FileName":"GraniteRapids",
         "Core":"RedwoodCove",
+        "CoreType":"P-core",
+        "IsHybrid":false,
+        "DefaultLevel":2
+    },
+    {
+        "Name":"Emerald Rapids Server",
+        "ShortName":"EMR",
+        "FileName":"EmeraldRapids",
+        "Core":"RaptorCove",
         "CoreType":"P-core",
         "IsHybrid":false,
         "DefaultLevel":2
@@ -160,5 +178,59 @@
         "CoreType":"E-core",
         "IsHybrid":true,
         "DefaultLevel":0
+    },
+    {
+        "Name":"Arrow Lake",
+        "ShortName":"ARL",
+        "FileName":"Arrowlake",
+        "Core":"LionCove",
+        "CoreType":"P-core",
+        "IsHybrid":true,
+        "DefaultLevel":2
+    },
+    {
+        "Name":"Arrow Lake",
+        "ShortName":"ARL",
+        "FileName":"Arrowlake",
+        "Core":"SkyMont",
+        "CoreType":"E-core",
+        "IsHybrid":true,
+        "DefaultLevel":2
+    },
+    {
+        "Name":"Lunar Lake",
+        "ShortName":"LNL",
+        "FileName":"Lunarlake",
+        "Core":"LionCove",
+        "CoreType":"P-core",
+        "IsHybrid":true,
+        "DefaultLevel":2
+    },
+    {
+        "Name":"Lunar Lake",
+        "ShortName":"LNL",
+        "FileName":"Lunarlake",
+        "Core":"SkyMont",
+        "CoreType":"E-core",
+        "IsHybrid":true,
+        "DefaultLevel":2
+    },
+    {
+        "Name":"Meteor Lake",
+        "ShortName":"MTL",
+        "FileName":"Meteorlake",
+        "Core":"RedwoodCove",
+        "CoreType":"P-core",
+        "IsHybrid":true,
+        "DefaultLevel":2
+    },
+    {
+        "Name":"Meteor Lake",
+        "ShortName":"MTL",
+        "FileName":"Meteorlake",
+        "Core":"Crestmont",
+        "CoreType":"E-core",
+        "IsHybrid":true,
+        "DefaultLevel":2
     }
 ]

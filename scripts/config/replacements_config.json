@@ -51,7 +51,7 @@
         {
             "events": ["ICACHE_", "INT_MISC", "UOPS_", "IDQ", "OFFCORE_", 
                 "L1D_", "DTLB_", "AMX_", "ITLB_", "EXE_", "INST_", "ASSISTS",
-                "SW_", "RS", "DSB2MITE_", "ARB_"],
+                "SW_", "RS", "DSB2MITE_", "ARB_", "LSD"],
             "unit":"cpu",
             "translations":{
                 "c":"cmask",

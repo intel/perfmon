@@ -357,7 +357,7 @@ class PerfFormatConverter:
                 related_metrics.extend(self.issue_dict[issue.strip()])
             
             # Filter out self from list
-            related_metrics = set([m for m in related_metrics if m != self.translate_metric_name(metric)])
+            related_metrics = sorted(set([m for m in related_metrics if m != self.translate_metric_name(metric)]))
             
             if len(related_metrics) >= 1:
                 description += f"Related metrics: {", ".join(related_metrics)}" + ". "
