@@ -38,7 +38,10 @@
         "FREERUN_DRAM_ENERGY_STATUS":"power@energy\\-ram@",
         "NUM_CPUS":"#num_cpus_online",
         "UNC_PKG_ENERGY_STATUS":"power@energy\\-pkg@",
-        "UNC_DRAM_ENERGY_STATUS":"power@energy\\-ram@"
+        "UNC_DRAM_ENERGY_STATUS":"power@energy\\-ram@",
+        "INST_RETIRED.ANY_P:SUP":"INST_RETIRED.ANY_P:k",
+        "BR_INST_RETIRED.FAR_BRANCH:USER":"BR_INST_RETIRED.FAR_BRANCH:u",
+        "OCR.DEMAND_RFO.L3_MISS:OCR_MSR_VAL=0X103B800002":"cpu@OCR.DEMAND_RFO.L3_MISS\\,offcore_rsp\\=0x103b800002@"
     },
     "metric_source_events":{
         "CHAS_PER_SOCKET":"UNC_CHA([^\\s]*)",
@@ -48,7 +51,7 @@
         {
             "events": ["ICACHE_", "INT_MISC", "UOPS_", "IDQ", "OFFCORE_", 
                 "L1D_", "DTLB_", "AMX_", "ITLB_", "EXE_", "INST_", "ASSISTS",
-                "SW_", "RS", "DSB2MITE_", "ARB_"],
+                "SW_", "RS", "DSB2MITE_", "ARB_", "LSD"],
             "unit":"cpu",
             "translations":{
                 "c":"cmask",
@@ -62,7 +65,8 @@
             "events": ["UNC_CHA_"],
             "unit":"cha",
             "translations":{
-                "filter1":"config1"
+                "filter1":"config1",
+                "c":"thresh"
             },
             "scale":100000000
         },
