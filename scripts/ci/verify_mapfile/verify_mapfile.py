@@ -83,7 +83,7 @@ def verify_mapfile_paths(perfmon_repo_path: Path):
 
 def verify_event_file_versions(perfmon_repo_path: Path):
     """Verify mapfile Version column matches event file Header."""
-    version_re = re.compile(r'^[vV](\d{1,2}|\d\.\d\d)$')
+    version_re = re.compile(r'^[vV](\d{1,2}|\d\.\d{1,2})$')
 
     logger.info('Checking mapfile.csv version matches event file version.')
 

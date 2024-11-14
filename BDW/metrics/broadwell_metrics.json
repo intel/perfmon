@@ -2,10 +2,10 @@
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for 5th Generation Intel(R) Core(TM) Processor0",
-    "DatePublished": "05/14/2024",
-    "Version": "0",
+    "DatePublished": "11/12/2024",
+    "Version": "1.0",
     "Legend": "",
-    "TmaVersion": "4.8",
+    "TmaVersion": "5.01",
     "TmaFlavor": "Full"
   },
   "Metrics": [
@@ -40,22 +40,15 @@
         }
       ],
       "Formula": "100 * ( a / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) )",
-      "BaseFormula": "idq_uops_not_delivered.core / tma_info_thread_slots",
+      "BaseFormula": " idq_uops_not_delivered.core / tma_info_thread_slots",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_Frontend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 15",
-        "BaseFormula": "metric_TMA_Frontend_Bound(%) > 15",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_Frontend_Bound(%) > 15"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BvFB;BvIO;TmaL1;PGO"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BvFB;BvIO;TmaL1;PGO",
+      "LocateWith": " #NA "
     },
     {
       "MetricName": "Fetch_Latency",
@@ -89,26 +82,15 @@
         }
       ],
       "Formula": "100 * ( ( 4 ) * a / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) )",
-      "BaseFormula": "( 4 ) * idq_uops_not_delivered.cycles_0_uops_deliv.core / tma_info_thread_slots",
+      "BaseFormula": " ( 4 ) * idq_uops_not_delivered.cycles_0_uops_deliv.core / tma_info_thread_slots",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_..Fetch_Latency(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_Frontend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 10 & b > 15",
-        "BaseFormula": "metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Frontend;TmaL2"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Frontend;TmaL2",
+      "LocateWith": " RS_EVENTS.EMPTY_END "
     },
     {
       "MetricName": "ICache_Misses",
@@ -133,26 +115,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_....ICache_Misses(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_..Fetch_Latency(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_Frontend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 5 & b > 10 & c > 15",
-        "BaseFormula": "metric_TMA_....ICache_Misses(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_....ICache_Misses(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BigFootprint;BvBC;FetchLat;IcMiss"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BigFootprint;BvBC;FetchLat;IcMiss",
+      "LocateWith": " #NA "
     },
     {
       "MetricName": "ITLB_Misses",
@@ -185,26 +152,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_....ITLB_Misses(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_..Fetch_Latency(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_Frontend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 5 & b > 10 & c > 15",
-        "BaseFormula": "metric_TMA_....ITLB_Misses(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_....ITLB_Misses(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BigFootprint;BvBC;FetchLat;MemoryTLB"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BigFootprint;BvBC;FetchLat;MemoryTLB",
+      "LocateWith": " ITLB_MISSES.WALK_COMPLETED "
     },
     {
       "MetricName": "Branch_Resteers",
@@ -237,26 +189,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_....Branch_Resteers(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_..Fetch_Latency(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_Frontend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 5 & b > 10 & c > 15",
-        "BaseFormula": "metric_TMA_....Branch_Resteers(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15",
-        "ThresholdIssues": "~overlap"
+        "Formula": "metric_TMA_....Branch_Resteers(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "FetchLat"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "FetchLat",
+      "LocateWith": "BR_MISP_RETIRED.ALL_BRANCHES"
     },
     {
       "MetricName": "Mispredicts_Resteers",
@@ -289,30 +226,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......Mispredicts_Resteers(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....Branch_Resteers(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Fetch_Latency(%)"
-          },
-          {
-            "Alias": "d",
-            "Value": "metric_TMA_Frontend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 5 & b > 5 & c > 10 & d > 15",
-        "BaseFormula": "metric_TMA_......Mispredicts_Resteers(%) > 5 & metric_TMA_....Branch_Resteers(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15",
-        "ThresholdIssues": "$issueBM"
+        "Formula": "metric_TMA_......Mispredicts_Resteers(%) > 5 & metric_TMA_....Branch_Resteers(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BadSpec;BrMispredicts;BvMP"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BadSpec;BrMispredicts;BvMP",
+      "LocateWith": " #NA "
     },
     {
       "MetricName": "Clears_Resteers",
@@ -345,30 +263,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......Clears_Resteers(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....Branch_Resteers(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Fetch_Latency(%)"
-          },
-          {
-            "Alias": "d",
-            "Value": "metric_TMA_Frontend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 5 & b > 5 & c > 10 & d > 15",
-        "BaseFormula": "metric_TMA_......Clears_Resteers(%) > 5 & metric_TMA_....Branch_Resteers(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15",
-        "ThresholdIssues": "$issueMC"
+        "Formula": "metric_TMA_......Clears_Resteers(%) > 5 & metric_TMA_....Branch_Resteers(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BadSpec;MachineClears"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BadSpec;MachineClears",
+      "LocateWith": " #NA "
     },
     {
       "MetricName": "Unknown_Branches",
@@ -401,30 +300,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......Unknown_Branches(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....Branch_Resteers(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Fetch_Latency(%)"
-          },
-          {
-            "Alias": "d",
-            "Value": "metric_TMA_Frontend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 5 & b > 5 & c > 10 & d > 15",
-        "BaseFormula": "metric_TMA_......Unknown_Branches(%) > 5 & metric_TMA_....Branch_Resteers(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_......Unknown_Branches(%) > 5 & metric_TMA_....Branch_Resteers(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BigFootprint;BvBC;FetchLat"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BigFootprint;BvBC;FetchLat",
+      "LocateWith": " BACLEARS.ANY "
     },
     {
       "MetricName": "MS_Switches",
@@ -449,26 +329,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_....MS_Switches(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_..Fetch_Latency(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_Frontend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 5 & b > 10 & c > 15",
-        "BaseFormula": "metric_TMA_....MS_Switches(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15",
-        "ThresholdIssues": "$issueMC, $issueMS, $issueMV, $issueSO"
+        "Formula": "metric_TMA_....MS_Switches(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "FetchLat;MicroSeq"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "FetchLat;MicroSeq",
+      "LocateWith": " IDQ.MS_SWITCHES"
     },
     {
       "MetricName": "LCP",
@@ -493,26 +358,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_....LCP(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_..Fetch_Latency(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_Frontend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 5 & b > 10 & c > 15",
-        "BaseFormula": "metric_TMA_....LCP(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15",
-        "ThresholdIssues": "$issueFB"
+        "Formula": "metric_TMA_....LCP(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "FetchLat"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "FetchLat",
+      "LocateWith": ""
     },
     {
       "MetricName": "DSB_Switches",
@@ -537,26 +387,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_....DSB_Switches(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_..Fetch_Latency(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_Frontend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 5 & b > 10 & c > 15",
-        "BaseFormula": "metric_TMA_....DSB_Switches(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15",
-        "ThresholdIssues": "$issueFB"
+        "Formula": "metric_TMA_....DSB_Switches(%) > 5 & metric_TMA_..Fetch_Latency(%) > 10 & metric_TMA_Frontend_Bound(%) > 15"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "DSBmiss;FetchLat"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "DSBmiss;FetchLat",
+      "LocateWith": " #NA "
     },
     {
       "MetricName": "Fetch_Bandwidth",
@@ -598,18 +433,11 @@
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_..Fetch_Bandwidth(%)"
-          }
-        ],
-        "Formula": "a > 20",
-        "BaseFormula": "metric_TMA_..Fetch_Bandwidth(%) > 20",
-        "ThresholdIssues": "$issueFB"
+        "Formula": "metric_TMA_..Fetch_Bandwidth(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "FetchBW;Frontend;TmaL2"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "FetchBW;Frontend;TmaL2",
+      "LocateWith": " #NA "
     },
     {
       "MetricName": "MITE",
@@ -651,22 +479,11 @@
       "Category": "TMA",
       "CountDomain": "Slots_Estimated",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_....MITE(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_..Fetch_Bandwidth(%)"
-          }
-        ],
-        "Formula": "a > 10 & b > 20",
-        "BaseFormula": "metric_TMA_....MITE(%) > 10 & metric_TMA_..Fetch_Bandwidth(%) > 20",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_....MITE(%) > 10 & metric_TMA_..Fetch_Bandwidth(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "DSBmiss;FetchBW"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "DSBmiss;FetchBW",
+      "LocateWith": " #NA "
     },
     {
       "MetricName": "DSB",
@@ -708,22 +525,11 @@
       "Category": "TMA",
       "CountDomain": "Slots_Estimated",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_....DSB(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_..Fetch_Bandwidth(%)"
-          }
-        ],
-        "Formula": "a > 15 & b > 20",
-        "BaseFormula": "metric_TMA_....DSB(%) > 15 & metric_TMA_..Fetch_Bandwidth(%) > 20",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_....DSB(%) > 15 & metric_TMA_..Fetch_Bandwidth(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "DSB;FetchBW"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "DSB;FetchBW",
+      "LocateWith": ""
     },
     {
       "MetricName": "Bad_Speculation",
@@ -768,22 +574,15 @@
         }
       ],
       "Formula": "100 * ( ( a - ( b ) + ( 4 ) * ( ( c / 2 ) if smt_on else d ) ) / ( ( 4 ) * ( ( e / 2 ) if smt_on else ( f ) ) ) )",
-      "BaseFormula": "( uops_issued.any - ( uops_retired.retire_tma_info_thread_slots ) + ( 4 ) * ( ( int_misc.recovery_cycles_any / 2 ) if smt_on else int_misc.recovery_cycles ) ) / tma_info_thread_slots",
+      "BaseFormula": " ( uops_issued.any - ( uops_retired.retire_slots ) + ( 4 ) * ( ( int_misc.recovery_cycles_any / 2 ) if smt_on else int_misc.recovery_cycles ) ) / tma_info_thread_slots",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_Bad_Speculation(%)"
-          }
-        ],
-        "Formula": "a > 15",
-        "BaseFormula": "metric_TMA_Bad_Speculation(%) > 15",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_Bad_Speculation(%) > 15"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "TmaL1"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "TmaL1",
+      "LocateWith": "#NA"
     },
     {
       "MetricName": "Branch_Mispredicts",
@@ -841,22 +640,11 @@
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_..Branch_Mispredicts(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_Bad_Speculation(%)"
-          }
-        ],
-        "Formula": "a > 10 & b > 15",
-        "BaseFormula": "metric_TMA_..Branch_Mispredicts(%) > 10 & metric_TMA_Bad_Speculation(%) > 15",
-        "ThresholdIssues": "$issueBM"
+        "Formula": "metric_TMA_..Branch_Mispredicts(%) > 10 & metric_TMA_Bad_Speculation(%) > 15"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BadSpec;BrMispredicts;BvMP;TmaL2"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BadSpec;BrMispredicts;BvMP;TmaL2",
+      "LocateWith": " BR_MISP_RETIRED.ALL_BRANCHES "
     },
     {
       "MetricName": "Machine_Clears",
@@ -914,22 +702,11 @@
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_..Machine_Clears(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_Bad_Speculation(%)"
-          }
-        ],
-        "Formula": "a > 10 & b > 15",
-        "BaseFormula": "metric_TMA_..Machine_Clears(%) > 10 & metric_TMA_Bad_Speculation(%) > 15",
-        "ThresholdIssues": "$issueMC, $issueSyncxn"
+        "Formula": "metric_TMA_..Machine_Clears(%) > 10 & metric_TMA_Bad_Speculation(%) > 15"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BadSpec;BvMS;MachineClears;TmaL2"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BadSpec;BvMS;MachineClears;TmaL2",
+      "LocateWith": "MACHINE_CLEARS.COUNT"
     },
     {
       "MetricName": "Backend_Bound",
@@ -982,18 +759,11 @@
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 20",
-        "BaseFormula": "metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BvOB;TmaL1"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BvOB;TmaL1",
+      "LocateWith": " #NA "
     },
     {
       "MetricName": "Memory_Bound",
@@ -1083,29 +853,18 @@
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_..Memory_Bound(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 20 & b > 20",
-        "BaseFormula": "metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Backend;TmaL2"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Backend;TmaL2",
+      "LocateWith": "#NA"
     },
     {
       "MetricName": "L1_Bound",
       "LegacyName": "metric_TMA_....L1_Bound(%)",
       "ParentCategory": "Memory_Bound",
       "Level": 3,
-      "BriefDescription": "This metric estimates how often the CPU was stalled without loads missing the L1 data cache.  The L1 data cache typically has the shortest latency.  However; in certain cases like loads blocked on older stores; a load might suffer due to high latency even though it is being satisfied by the L1. Another example is loads who miss in the TLB. These cases are characterized by execution unit stalls; while some non-completed demand load lives in the machine without having that demand load missing the L1 cache.",
+      "BriefDescription": "This metric estimates how often the CPU was stalled without loads missing the L1 Data (L1D) cache.  The L1D cache typically has the shortest latency.  However; in certain cases like loads blocked on older stores; a load might suffer due to high latency even though it is being satisfied by the L1D. Another example is loads who miss in the TLB. These cases are characterized by execution unit stalls; while some non-completed demand load lives in the machine without having that demand load missing the L1 cache.",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -1127,26 +886,11 @@
       "Category": "TMA",
       "CountDomain": "Stalls",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_....L1_Bound(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_..Memory_Bound(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 10 & b > 20 & c > 20",
-        "BaseFormula": "metric_TMA_....L1_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": "$issueL1, $issueMC"
+        "Formula": "metric_TMA_....L1_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "CacheHits;MemoryBound;TmaL3mem"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "CacheHits;MemoryBound;TmaL3mem",
+      "LocateWith": " MEM_LOAD_UOPS_RETIRED.L1_HIT "
     },
     {
       "MetricName": "DTLB_Load",
@@ -1179,30 +923,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......DTLB_Load(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....L1_Bound(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Memory_Bound(%)"
-          },
-          {
-            "Alias": "d",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 10 & b > 10 & c > 20 & d > 20",
-        "BaseFormula": "metric_TMA_......DTLB_Load(%) > 10 & metric_TMA_....L1_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": "$issueTLB"
+        "Formula": "metric_TMA_......DTLB_Load(%) > 10 & metric_TMA_....L1_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BvMT;MemoryTLB"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BvMT;MemoryTLB",
+      "LocateWith": " MEM_UOPS_RETIRED.STLB_MISS_LOADS "
     },
     {
       "MetricName": "Store_Fwd_Blk",
@@ -1227,30 +952,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......Store_Fwd_Blk(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....L1_Bound(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Memory_Bound(%)"
-          },
-          {
-            "Alias": "d",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 10 & b > 10 & c > 20 & d > 20",
-        "BaseFormula": "metric_TMA_......Store_Fwd_Blk(%) > 10 & metric_TMA_....L1_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_......Store_Fwd_Blk(%) > 10 & metric_TMA_....L1_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "",
+      "LocateWith": ""
     },
     {
       "MetricName": "Lock_Latency",
@@ -1279,34 +985,15 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a / b ) * ( min( c , d ) ) / ( c ) )",
-      "BaseFormula": "( mem_uops_retired.lock_loads / mem_uops_retired.all_stores ) * ( min( cpu_clk_unhalted.thread , offcore_requests_outstanding.cycles_with_demand_rfo ) ) / tma_info_thread_clks",
+      "BaseFormula": " ( mem_uops_retired.lock_loads / mem_uops_retired.all_stores ) * ( min( cpu_clk_unhalted.thread , offcore_requests_outstanding.cycles_with_demand_rfo ) ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......Lock_Latency(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....L1_Bound(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Memory_Bound(%)"
-          },
-          {
-            "Alias": "d",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 20 & b > 10 & c > 20 & d > 20",
-        "BaseFormula": "metric_TMA_......Lock_Latency(%) > 20 & metric_TMA_....L1_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": "$issueRFO"
+        "Formula": "metric_TMA_......Lock_Latency(%) > 20 & metric_TMA_....L1_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Offcore"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "LockCont;Offcore",
+      "LocateWith": " MEM_UOPS_RETIRED.LOCK_LOADS "
     },
     {
       "MetricName": "Split_Loads",
@@ -1343,30 +1030,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks_Calculated",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......Split_Loads(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....L1_Bound(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Memory_Bound(%)"
-          },
-          {
-            "Alias": "d",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 20 & b > 10 & c > 20 & d > 20",
-        "BaseFormula": "metric_TMA_......Split_Loads(%) > 20 & metric_TMA_....L1_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_......Split_Loads(%) > 30"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "",
+      "LocateWith": " MEM_UOPS_RETIRED.SPLIT_LOADS "
     },
     {
       "MetricName": "4K_Aliasing",
@@ -1391,30 +1059,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......4K_Aliasing(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....L1_Bound(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Memory_Bound(%)"
-          },
-          {
-            "Alias": "d",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 20 & b > 10 & c > 20 & d > 20",
-        "BaseFormula": "metric_TMA_......4K_Aliasing(%) > 20 & metric_TMA_....L1_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_......4K_Aliasing(%) > 20 & metric_TMA_....L1_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "",
+      "LocateWith": ""
     },
     {
       "MetricName": "FB_Full",
@@ -1451,18 +1100,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks_Calculated",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......FB_Full(%)"
-          }
-        ],
-        "Formula": "a > 30",
-        "BaseFormula": "metric_TMA_......FB_Full(%) > 30",
-        "ThresholdIssues": "$issueBW, $issueSL, $issueSmSt"
+        "Formula": "metric_TMA_......FB_Full(%) > 30"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BvMS;MemoryBW"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BvMB;MemoryBW",
+      "LocateWith": ""
     },
     {
       "MetricName": "L2_Bound",
@@ -1491,26 +1133,11 @@
       "Category": "TMA",
       "CountDomain": "Stalls",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_....L2_Bound(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_..Memory_Bound(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 5 & b > 20 & c > 20",
-        "BaseFormula": "metric_TMA_....L2_Bound(%) > 5 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_....L2_Bound(%) > 5 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BvML;CacheHits;MemoryBound;TmaL3mem"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BvML;CacheHits;MemoryBound;TmaL3mem",
+      "LocateWith": " MEM_LOAD_UOPS_RETIRED.L2_HIT "
     },
     {
       "MetricName": "L3_Bound",
@@ -1539,30 +1166,15 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a / ( a + ( 7 ) * b ) ) * c / ( d ) )",
-      "BaseFormula": "( mem_load_uops_retired.l3_hit / ( mem_load_uops_retired.l3_hit + ( 7 ) * mem_load_uops_retired.l3_miss ) ) * cycle_activity.stalls_l2_miss / tma_info_thread_clks",
+      "BaseFormula": " ( mem_load_uops_retired.l3_hit / ( mem_load_uops_retired.l3_hit + ( 7 ) * mem_load_uops_retired.l3_miss ) ) * cycle_activity.stalls_l2_miss / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Stalls",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_....L3_Bound(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_..Memory_Bound(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 5 & b > 20 & c > 20",
-        "BaseFormula": "metric_TMA_....L3_Bound(%) > 5 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_....L3_Bound(%) > 5 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "CacheHits;MemoryBound;TmaL3mem"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "CacheHits;MemoryBound;TmaL3mem",
+      "LocateWith": " MEM_LOAD_UOPS_RETIRED.L3_HIT "
     },
     {
       "MetricName": "Contested_Accesses",
@@ -1607,34 +1219,15 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( ( 60 ) * ( a * ( 1 + b / ( ( c + d + e + a + f ) + g ) ) ) + ( 43 ) * ( f * ( 1 + b / ( ( c + d + e + a + f ) + g ) ) ) ) / ( h ) )",
-      "BaseFormula": "( ( 60 ) * ( mem_load_uops_l3_hit_retired.xsnp_hitm * ( 1 + mem_load_uops_retired.hit_lfb / ( ( mem_load_uops_retired.l2_hit + mem_load_uops_retired.l3_hit + mem_load_uops_l3_hit_retired.xsnp_hit + mem_load_uops_l3_hit_retired.xsnp_hitm + mem_load_uops_l3_hit_retired.xsnp_miss ) + mem_load_uops_retired.l3_miss ) ) ) + ( 43 ) * ( mem_load_uops_l3_hit_retired.xsnp_miss * ( 1 + mem_load_uops_retired.hit_lfb / ( ( mem_load_uops_retired.l2_hit + mem_load_uops_retired.l3_hit + mem_load_uops_l3_hit_retired.xsnp_hit + mem_load_uops_l3_hit_retired.xsnp_hitm + mem_load_uops_l3_hit_retired.xsnp_miss ) + mem_load_uops_retired.l3_miss ) ) ) ) / tma_info_thread_clks",
+      "BaseFormula": " ( ( 60 ) * ( mem_load_uops_l3_hit_retired.xsnp_hitm * ( 1 + mem_load_uops_retired.hit_lfb / ( ( mem_load_uops_retired.l2_hit + mem_load_uops_retired.l3_hit + mem_load_uops_l3_hit_retired.xsnp_hit + mem_load_uops_l3_hit_retired.xsnp_hitm + mem_load_uops_l3_hit_retired.xsnp_miss ) + mem_load_uops_retired.l3_miss ) ) ) + ( 43 ) * ( mem_load_uops_l3_hit_retired.xsnp_miss * ( 1 + mem_load_uops_retired.hit_lfb / ( ( mem_load_uops_retired.l2_hit + mem_load_uops_retired.l3_hit + mem_load_uops_l3_hit_retired.xsnp_hit + mem_load_uops_l3_hit_retired.xsnp_hitm + mem_load_uops_l3_hit_retired.xsnp_miss ) + mem_load_uops_retired.l3_miss ) ) ) ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......Contested_Accesses(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....L3_Bound(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Memory_Bound(%)"
-          },
-          {
-            "Alias": "d",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 5 & b > 5 & c > 20 & d > 20",
-        "BaseFormula": "metric_TMA_......Contested_Accesses(%) > 5 & metric_TMA_....L3_Bound(%) > 5 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": "$issueSyncxn"
+        "Formula": "metric_TMA_......Contested_Accesses(%) > 5 & metric_TMA_....L3_Bound(%) > 5 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BvMS;DataSharing;Offcore;Snoop"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BvMS;DataSharing;LockCont;Offcore;Snoop",
+      "LocateWith": " MEM_LOAD_UOPS_L3_HIT_RETIRED.XSNP_HITM;MEM_LOAD_UOPS_L3_HIT_RETIRED.XSNP_MISS "
     },
     {
       "MetricName": "Data_Sharing",
@@ -1679,34 +1272,15 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( 43 ) * ( a * ( 1 + b / ( ( c + d + a + e + f ) + g ) ) ) / ( h ) )",
-      "BaseFormula": "( 43 ) * ( mem_load_uops_l3_hit_retired.xsnp_hit * ( 1 + mem_load_uops_retired.hit_lfb / ( ( mem_load_uops_retired.l2_hit + mem_load_uops_retired.l3_hit + mem_load_uops_l3_hit_retired.xsnp_hit + mem_load_uops_l3_hit_retired.xsnp_hitm + mem_load_uops_l3_hit_retired.xsnp_miss ) + mem_load_uops_retired.l3_miss ) ) ) / tma_info_thread_clks",
+      "BaseFormula": " ( 43 ) * ( mem_load_uops_l3_hit_retired.xsnp_hit * ( 1 + mem_load_uops_retired.hit_lfb / ( ( mem_load_uops_retired.l2_hit + mem_load_uops_retired.l3_hit + mem_load_uops_l3_hit_retired.xsnp_hit + mem_load_uops_l3_hit_retired.xsnp_hitm + mem_load_uops_l3_hit_retired.xsnp_miss ) + mem_load_uops_retired.l3_miss ) ) ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......Data_Sharing(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....L3_Bound(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Memory_Bound(%)"
-          },
-          {
-            "Alias": "d",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 5 & b > 5 & c > 20 & d > 20",
-        "BaseFormula": "metric_TMA_......Data_Sharing(%) > 5 & metric_TMA_....L3_Bound(%) > 5 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": "$issueSyncxn"
+        "Formula": "metric_TMA_......Data_Sharing(%) > 5 & metric_TMA_....L3_Bound(%) > 5 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BvMS;Offcore;Snoop"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BvMS;Offcore;Snoop",
+      "LocateWith": " MEM_LOAD_UOPS_L3_HIT_RETIRED.XSNP_HIT "
     },
     {
       "MetricName": "L3_Hit_Latency",
@@ -1751,34 +1325,15 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( 29 ) * ( a * ( 1 + b / ( ( c + a + d + e + f ) + g ) ) ) / ( h ) )",
-      "BaseFormula": "( 29 ) * ( mem_load_uops_retired.l3_hit * ( 1 + mem_load_uops_retired.hit_lfb / ( ( mem_load_uops_retired.l2_hit + mem_load_uops_retired.l3_hit + mem_load_uops_l3_hit_retired.xsnp_hit + mem_load_uops_l3_hit_retired.xsnp_hitm + mem_load_uops_l3_hit_retired.xsnp_miss ) + mem_load_uops_retired.l3_miss ) ) ) / tma_info_thread_clks",
+      "BaseFormula": " ( 29 ) * ( mem_load_uops_retired.l3_hit * ( 1 + mem_load_uops_retired.hit_lfb / ( ( mem_load_uops_retired.l2_hit + mem_load_uops_retired.l3_hit + mem_load_uops_l3_hit_retired.xsnp_hit + mem_load_uops_l3_hit_retired.xsnp_hitm + mem_load_uops_l3_hit_retired.xsnp_miss ) + mem_load_uops_retired.l3_miss ) ) ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......L3_Hit_Latency(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....L3_Bound(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Memory_Bound(%)"
-          },
-          {
-            "Alias": "d",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 10 & b > 5 & c > 20 & d > 20",
-        "BaseFormula": "metric_TMA_......L3_Hit_Latency(%) > 10 & metric_TMA_....L3_Bound(%) > 5 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": "$issueLat, ~overlap"
+        "Formula": "metric_TMA_......L3_Hit_Latency(%) > 10 & metric_TMA_....L3_Bound(%) > 5 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BvML;MemoryLat"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BvML;MemoryLat",
+      "LocateWith": " MEM_LOAD_UOPS_RETIRED.L3_HIT "
     },
     {
       "MetricName": "SQ_Full",
@@ -1816,30 +1371,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......SQ_Full(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....L3_Bound(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Memory_Bound(%)"
-          },
-          {
-            "Alias": "d",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 30 & b > 5 & c > 20 & d > 20",
-        "BaseFormula": "metric_TMA_......SQ_Full(%) > 30 & metric_TMA_....L3_Bound(%) > 5 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": "$issueBW"
+        "Formula": "metric_TMA_......SQ_Full(%) > 30 & metric_TMA_....L3_Bound(%) > 5 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BvMS;MemoryBW;Offcore"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BvMB;MemoryBW;Offcore",
+      "LocateWith": ""
     },
     {
       "MetricName": "DRAM_Bound",
@@ -1868,30 +1404,15 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( 1 - ( a / ( a + ( 7 ) * b ) ) ) * c / ( d ) )",
-      "BaseFormula": "( 1 - ( mem_load_uops_retired.l3_hit / ( mem_load_uops_retired.l3_hit + ( 7 ) * mem_load_uops_retired.l3_miss ) ) ) * cycle_activity.stalls_l2_miss / tma_info_thread_clks",
+      "BaseFormula": " ( 1 - ( mem_load_uops_retired.l3_hit / ( mem_load_uops_retired.l3_hit + ( 7 ) * mem_load_uops_retired.l3_miss ) ) ) * cycle_activity.stalls_l2_miss / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Stalls",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_....DRAM_Bound(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_..Memory_Bound(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 10 & b > 20 & c > 20",
-        "BaseFormula": "metric_TMA_....DRAM_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_....DRAM_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "MemoryBound;TmaL3mem"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "MemoryBound;TmaL3mem",
+      "LocateWith": " MEM_LOAD_UOPS_RETIRED.L3_MISS "
     },
     {
       "MetricName": "MEM_Bandwidth",
@@ -1916,30 +1437,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......MEM_Bandwidth(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....DRAM_Bound(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Memory_Bound(%)"
-          },
-          {
-            "Alias": "d",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 20 & b > 10 & c > 20 & d > 20",
-        "BaseFormula": "metric_TMA_......MEM_Bandwidth(%) > 20 & metric_TMA_....DRAM_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": "$issueBW"
+        "Formula": "metric_TMA_......MEM_Bandwidth(%) > 20 & metric_TMA_....DRAM_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BvMS;MemoryBW;Offcore"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BvMB;MemoryBW;Offcore",
+      "LocateWith": ""
     },
     {
       "MetricName": "MEM_Latency",
@@ -1968,30 +1470,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......MEM_Latency(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....DRAM_Bound(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Memory_Bound(%)"
-          },
-          {
-            "Alias": "d",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 10 & b > 10 & c > 20 & d > 20",
-        "BaseFormula": "metric_TMA_......MEM_Latency(%) > 10 & metric_TMA_....DRAM_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": "$issueLat"
+        "Formula": "metric_TMA_......MEM_Latency(%) > 10 & metric_TMA_....DRAM_Bound(%) > 10 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BvML;MemoryLat;Offcore"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BvML;MemoryLat;Offcore",
+      "LocateWith": ""
     },
     {
       "MetricName": "Store_Bound",
@@ -2016,26 +1499,11 @@
       "Category": "TMA",
       "CountDomain": "Stalls",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_....Store_Bound(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_..Memory_Bound(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 20 & b > 20 & c > 20",
-        "BaseFormula": "metric_TMA_....Store_Bound(%) > 20 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_....Store_Bound(%) > 20 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "MemoryBound;TmaL3mem"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "MemoryBound;TmaL3mem",
+      "LocateWith": " MEM_UOPS_RETIRED.ALL_STORES "
     },
     {
       "MetricName": "Store_Latency",
@@ -2068,34 +1536,15 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( ( a * ( 9 ) * ( 1 - ( b / c ) ) ) + ( 1 - ( b / c ) ) * ( min( d , e ) ) ) / ( d ) )",
-      "BaseFormula": "( ( l2_rqsts.rfo_hit * ( 9 ) * ( 1 - ( mem_uops_retired.lock_loads / mem_uops_retired.all_stores ) ) ) + ( 1 - ( mem_uops_retired.lock_loads / mem_uops_retired.all_stores ) ) * ( min( cpu_clk_unhalted.thread , offcore_requests_outstanding.cycles_with_demand_rfo ) ) ) / tma_info_thread_clks",
+      "BaseFormula": " ( ( l2_rqsts.rfo_hit * ( 9 ) * ( 1 - ( mem_uops_retired.lock_loads / mem_uops_retired.all_stores ) ) ) + ( 1 - ( mem_uops_retired.lock_loads / mem_uops_retired.all_stores ) ) * ( min( cpu_clk_unhalted.thread , offcore_requests_outstanding.cycles_with_demand_rfo ) ) ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......Store_Latency(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....Store_Bound(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Memory_Bound(%)"
-          },
-          {
-            "Alias": "d",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 10 & b > 20 & c > 20 & d > 20",
-        "BaseFormula": "metric_TMA_......Store_Latency(%) > 10 & metric_TMA_....Store_Bound(%) > 20 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": "$issueRFO, $issueSL, ~overlap"
+        "Formula": "metric_TMA_......Store_Latency(%) > 10 & metric_TMA_....Store_Bound(%) > 20 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BvML;MemoryLat;Offcore"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BvML;LockCont;MemoryLat;Offcore",
+      "LocateWith": ""
     },
     {
       "MetricName": "False_Sharing",
@@ -2120,30 +1569,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......False_Sharing(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....Store_Bound(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Memory_Bound(%)"
-          },
-          {
-            "Alias": "d",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 5 & b > 20 & c > 20 & d > 20",
-        "BaseFormula": "metric_TMA_......False_Sharing(%) > 5 & metric_TMA_....Store_Bound(%) > 20 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": "$issueSyncxn"
+        "Formula": "metric_TMA_......False_Sharing(%) > 5 & metric_TMA_....Store_Bound(%) > 20 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BvMS;DataSharing;Offcore;Snoop"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BvMS;DataSharing;LockCont;Offcore;Snoop",
+      "LocateWith": " MEM_LOAD_UOPS_L3_HIT_RETIRED.XSNP_HITM;OFFCORE_RESPONSE.DEMAND_RFO.L3_HIT.SNOOP_HITM "
     },
     {
       "MetricName": "Split_Stores",
@@ -2177,34 +1607,15 @@
         }
       ],
       "Formula": "100 * ( 2 * a / ( ( b / 2 ) if smt_on else ( c ) ) )",
-      "BaseFormula": "2 * mem_uops_retired.split_stores / tma_info_core_core_clks",
+      "BaseFormula": " 2 * mem_uops_retired.split_stores / tma_info_core_core_clks",
       "Category": "TMA",
       "CountDomain": "Core_Utilization",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......Split_Stores(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....Store_Bound(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Memory_Bound(%)"
-          },
-          {
-            "Alias": "d",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 20 & b > 20 & c > 20 & d > 20",
-        "BaseFormula": "metric_TMA_......Split_Stores(%) > 20 & metric_TMA_....Store_Bound(%) > 20 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": "$issueSpSt"
+        "Formula": "metric_TMA_......Split_Stores(%) > 20 & metric_TMA_....Store_Bound(%) > 20 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "",
+      "LocateWith": " MEM_UOPS_RETIRED.SPLIT_STORES "
     },
     {
       "MetricName": "DTLB_Store",
@@ -2237,30 +1648,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......DTLB_Store(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....Store_Bound(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Memory_Bound(%)"
-          },
-          {
-            "Alias": "d",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 5 & b > 20 & c > 20 & d > 20",
-        "BaseFormula": "metric_TMA_......DTLB_Store(%) > 5 & metric_TMA_....Store_Bound(%) > 20 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": "$issueTLB"
+        "Formula": "metric_TMA_......DTLB_Store(%) > 5 & metric_TMA_....Store_Bound(%) > 20 & metric_TMA_..Memory_Bound(%) > 20 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BvMT;MemoryTLB"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BvMT;MemoryTLB",
+      "LocateWith": " MEM_UOPS_RETIRED.STLB_MISS_STORES "
     },
     {
       "MetricName": "Core_Bound",
@@ -2350,22 +1742,11 @@
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_..Core_Bound(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 10 & b > 20",
-        "BaseFormula": "metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Backend;TmaL2;Compute"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Backend;TmaL2;Compute",
+      "LocateWith": ""
     },
     {
       "MetricName": "Divider",
@@ -2403,26 +1784,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_....Divider(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_..Core_Bound(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 20 & b > 10 & c > 20",
-        "BaseFormula": "metric_TMA_....Divider(%) > 20 & metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_....Divider(%) > 20 & metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BvCB"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BvCB",
+      "LocateWith": " ARITH.FPU_DIV_ACTIVE "
     },
     {
       "MetricName": "Ports_Utilization",
@@ -2492,26 +1858,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_....Ports_Utilization(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_..Core_Bound(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 15 & b > 10 & c > 20",
-        "BaseFormula": "metric_TMA_....Ports_Utilization(%) > 15 & metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_....Ports_Utilization(%) > 15 & metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "PortsUtil"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "PortsUtil",
+      "LocateWith": ""
     },
     {
       "MetricName": "Ports_Utilized_0",
@@ -2561,30 +1912,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......Ports_Utilized_0(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....Ports_Utilization(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Core_Bound(%)"
-          },
-          {
-            "Alias": "d",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 20 & b > 15 & c > 10 & d > 20",
-        "BaseFormula": "metric_TMA_......Ports_Utilized_0(%) > 20 & metric_TMA_....Ports_Utilization(%) > 15 & metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_......Ports_Utilized_0(%) > 20 & metric_TMA_....Ports_Utilization(%) > 15 & metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "PortsUtil"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "PortsUtil",
+      "LocateWith": ""
     },
     {
       "MetricName": "Ports_Utilized_1",
@@ -2634,30 +1966,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......Ports_Utilized_1(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....Ports_Utilization(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Core_Bound(%)"
-          },
-          {
-            "Alias": "d",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 20 & b > 15 & c > 10 & d > 20",
-        "BaseFormula": "metric_TMA_......Ports_Utilized_1(%) > 20 & metric_TMA_....Ports_Utilization(%) > 15 & metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": "$issueL1"
+        "Formula": "metric_TMA_......Ports_Utilized_1(%) > 20 & metric_TMA_....Ports_Utilization(%) > 15 & metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "PortsUtil"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "PortsUtil",
+      "LocateWith": " #NA "
     },
     {
       "MetricName": "Ports_Utilized_2",
@@ -2707,30 +2020,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......Ports_Utilized_2(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....Ports_Utilization(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Core_Bound(%)"
-          },
-          {
-            "Alias": "d",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 15 & b > 15 & c > 10 & d > 20",
-        "BaseFormula": "metric_TMA_......Ports_Utilized_2(%) > 15 & metric_TMA_....Ports_Utilization(%) > 15 & metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": "$issue2P"
+        "Formula": "metric_TMA_......Ports_Utilized_2(%) > 15 & metric_TMA_....Ports_Utilization(%) > 15 & metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "PortsUtil"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "PortsUtil",
+      "LocateWith": " #NA "
     },
     {
       "MetricName": "Ports_Utilized_3m",
@@ -2772,30 +2066,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......Ports_Utilized_3m(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....Ports_Utilization(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Core_Bound(%)"
-          },
-          {
-            "Alias": "d",
-            "Value": "metric_TMA_Backend_Bound(%)"
-          }
-        ],
-        "Formula": "a > 40 & b > 15 & c > 10 & d > 20",
-        "BaseFormula": "metric_TMA_......Ports_Utilized_3m(%) > 40 & metric_TMA_....Ports_Utilization(%) > 15 & metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_......Ports_Utilized_3m(%) > 40 & metric_TMA_....Ports_Utilization(%) > 15 & metric_TMA_..Core_Bound(%) > 10 & metric_TMA_Backend_Bound(%) > 20"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BvCB;PortsUtil"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BvCB;PortsUtil",
+      "LocateWith": " #NA "
     },
     {
       "MetricName": "ALU_Op_Utilization",
@@ -2845,18 +2120,11 @@
       "Category": "TMA",
       "CountDomain": "Core_Execution",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_........ALU_Op_Utilization(%)"
-          }
-        ],
-        "Formula": "a > 40",
-        "BaseFormula": "metric_TMA_........ALU_Op_Utilization(%) > 40",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_........ALU_Op_Utilization(%) > 40"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "",
+      "LocateWith": ""
     },
     {
       "MetricName": "Port_0",
@@ -2894,18 +2162,11 @@
       "Category": "TMA",
       "CountDomain": "Core_Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_..........Port_0(%)"
-          }
-        ],
-        "Formula": "a > 60",
-        "BaseFormula": "metric_TMA_..........Port_0(%) > 60",
-        "ThresholdIssues": "$issue2P"
+        "Formula": "metric_TMA_..........Port_0(%) > 60"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Compute"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Compute",
+      "LocateWith": " UOPS_DISPATCHED_PORT.PORT_0 "
     },
     {
       "MetricName": "Port_1",
@@ -2943,18 +2204,11 @@
       "Category": "TMA",
       "CountDomain": "Core_Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_..........Port_1(%)"
-          }
-        ],
-        "Formula": "a > 60",
-        "BaseFormula": "metric_TMA_..........Port_1(%) > 60",
-        "ThresholdIssues": "$issue2P"
+        "Formula": "metric_TMA_..........Port_1(%) > 60"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "",
+      "LocateWith": " UOPS_DISPATCHED_PORT.PORT_1 "
     },
     {
       "MetricName": "Port_5",
@@ -2992,18 +2246,11 @@
       "Category": "TMA",
       "CountDomain": "Core_Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_..........Port_5(%)"
-          }
-        ],
-        "Formula": "a > 60",
-        "BaseFormula": "metric_TMA_..........Port_5(%) > 60",
-        "ThresholdIssues": "$issue2P"
+        "Formula": "metric_TMA_..........Port_5(%) > 60"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "",
+      "LocateWith": " UOPS_DISPATCHED_PORT.PORT_5 "
     },
     {
       "MetricName": "Port_6",
@@ -3041,18 +2288,11 @@
       "Category": "TMA",
       "CountDomain": "Core_Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_..........Port_6(%)"
-          }
-        ],
-        "Formula": "a > 60",
-        "BaseFormula": "metric_TMA_..........Port_6(%) > 60",
-        "ThresholdIssues": "$issue2P"
+        "Formula": "metric_TMA_..........Port_6(%) > 60"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "",
+      "LocateWith": " UOPS_DISPATCHED_PORT.PORT_1 "
     },
     {
       "MetricName": "Load_Op_Utilization",
@@ -3102,18 +2342,11 @@
       "Category": "TMA",
       "CountDomain": "Core_Execution",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_........Load_Op_Utilization(%)"
-          }
-        ],
-        "Formula": "a > 60",
-        "BaseFormula": "metric_TMA_........Load_Op_Utilization(%) > 60",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_........Load_Op_Utilization(%) > 60"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "",
+      "LocateWith": " #NA "
     },
     {
       "MetricName": "Port_2",
@@ -3151,18 +2384,11 @@
       "Category": "TMA",
       "CountDomain": "Core_Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_..........Port_2(%)"
-          }
-        ],
-        "Formula": "a > 60",
-        "BaseFormula": "metric_TMA_..........Port_2(%) > 60",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_..........Port_2(%) > 60"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "",
+      "LocateWith": " UOPS_DISPATCHED_PORT.PORT_2 "
     },
     {
       "MetricName": "Port_3",
@@ -3200,18 +2426,11 @@
       "Category": "TMA",
       "CountDomain": "Core_Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_..........Port_3(%)"
-          }
-        ],
-        "Formula": "a > 60",
-        "BaseFormula": "metric_TMA_..........Port_3(%) > 60",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_..........Port_3(%) > 60"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "",
+      "LocateWith": " UOPS_DISPATCHED_PORT.PORT_3 "
     },
     {
       "MetricName": "Store_Op_Utilization",
@@ -3249,18 +2468,11 @@
       "Category": "TMA",
       "CountDomain": "Core_Execution",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_........Store_Op_Utilization(%)"
-          }
-        ],
-        "Formula": "a > 60",
-        "BaseFormula": "metric_TMA_........Store_Op_Utilization(%) > 60",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_........Store_Op_Utilization(%) > 60"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "",
+      "LocateWith": " #NA "
     },
     {
       "MetricName": "Port_4",
@@ -3298,18 +2510,11 @@
       "Category": "TMA",
       "CountDomain": "Core_Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_..........Port_4(%)"
-          }
-        ],
-        "Formula": "a > 60",
-        "BaseFormula": "metric_TMA_..........Port_4(%) > 60",
-        "ThresholdIssues": "$issueSpSt"
+        "Formula": "metric_TMA_..........Port_4(%) > 60"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "",
+      "LocateWith": " UOPS_DISPATCHED_PORT.PORT_4 "
     },
     {
       "MetricName": "Port_7",
@@ -3347,18 +2552,11 @@
       "Category": "TMA",
       "CountDomain": "Core_Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_..........Port_7(%)"
-          }
-        ],
-        "Formula": "a > 60",
-        "BaseFormula": "metric_TMA_..........Port_7(%) > 60",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_..........Port_7(%) > 60"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "",
+      "LocateWith": " UOPS_DISPATCHED_PORT.PORT_7 "
     },
     {
       "MetricName": "Retiring",
@@ -3391,26 +2589,15 @@
         }
       ],
       "Formula": "100 * ( ( a ) / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) )",
-      "BaseFormula": "( uops_retired.retire_tma_info_thread_slots ) / tma_info_thread_slots",
+      "BaseFormula": " ( uops_retired.retire_slots ) / tma_info_thread_slots",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_Retiring(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_..Heavy_Operations(%)"
-          }
-        ],
-        "Formula": "a > 70 | b > 10",
-        "BaseFormula": "metric_TMA_Retiring(%) > 70 | metric_TMA_..Heavy_Operations(%) > 10",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_Retiring(%) > 70 | metric_TMA_..Heavy_Operations(%) > 10"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BvUW;TmaL1"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BvUW;TmaL1",
+      "LocateWith": " UOPS_RETIRED.RETIRE_SLOTS "
     },
     {
       "MetricName": "Light_Operations",
@@ -3456,18 +2643,11 @@
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_..Light_Operations(%)"
-          }
-        ],
-        "Formula": "a > 60",
-        "BaseFormula": "metric_TMA_..Light_Operations(%) > 60",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_..Light_Operations(%) > 60"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Retire;TmaL2"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Retire;TmaL2",
+      "LocateWith": "INST_RETIRED.PREC_DIST"
     },
     {
       "MetricName": "FP_Arith",
@@ -3504,22 +2684,11 @@
       "Category": "TMA",
       "CountDomain": "Uops",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_....FP_Arith(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_..Light_Operations(%)"
-          }
-        ],
-        "Formula": "a > 20 & b > 60",
-        "BaseFormula": "metric_TMA_....FP_Arith(%) > 20 & metric_TMA_..Light_Operations(%) > 60",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_....FP_Arith(%) > 20 & metric_TMA_..Light_Operations(%) > 60"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "HPC"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "HPC",
+      "LocateWith": ""
     },
     {
       "MetricName": "X87_Use",
@@ -3548,26 +2717,11 @@
       "Category": "TMA",
       "CountDomain": "Uops",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......X87_Use(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....FP_Arith(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Light_Operations(%)"
-          }
-        ],
-        "Formula": "a > 10 & b > 20 & c > 60",
-        "BaseFormula": "metric_TMA_......X87_Use(%) > 10 & metric_TMA_....FP_Arith(%) > 20 & metric_TMA_..Light_Operations(%) > 60",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_......X87_Use(%) > 10 & metric_TMA_....FP_Arith(%) > 20 & metric_TMA_..Light_Operations(%) > 60"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Compute"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Compute",
+      "LocateWith": ""
     },
     {
       "MetricName": "FP_Scalar",
@@ -3592,26 +2746,11 @@
       "Category": "TMA",
       "CountDomain": "Uops",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......FP_Scalar(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....FP_Arith(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Light_Operations(%)"
-          }
-        ],
-        "Formula": "a > 10 & b > 20 & c > 60",
-        "BaseFormula": "metric_TMA_......FP_Scalar(%) > 10 & metric_TMA_....FP_Arith(%) > 20 & metric_TMA_..Light_Operations(%) > 60",
-        "ThresholdIssues": "$issue2P"
+        "Formula": "metric_TMA_......FP_Scalar(%) > 10 & metric_TMA_....FP_Arith(%) > 20 & metric_TMA_..Light_Operations(%) > 60"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Compute;Flops"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Compute;Flops",
+      "LocateWith": ""
     },
     {
       "MetricName": "FP_Vector",
@@ -3636,33 +2775,18 @@
       "Category": "TMA",
       "CountDomain": "Uops",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......FP_Vector(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....FP_Arith(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Light_Operations(%)"
-          }
-        ],
-        "Formula": "a > 10 & b > 20 & c > 60",
-        "BaseFormula": "metric_TMA_......FP_Vector(%) > 10 & metric_TMA_....FP_Arith(%) > 20 & metric_TMA_..Light_Operations(%) > 60",
-        "ThresholdIssues": "$issue2P"
+        "Formula": "metric_TMA_......FP_Vector(%) > 10 & metric_TMA_....FP_Arith(%) > 20 & metric_TMA_..Light_Operations(%) > 60"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Compute;Flops"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Compute;Flops",
+      "LocateWith": ""
     },
     {
       "MetricName": "FP_Vector_128b",
       "LegacyName": "metric_TMA_........FP_Vector_128b(%)",
       "ParentCategory": "FP_Vector",
       "Level": 5,
-      "BriefDescription": "This metric approximates arithmetic FP vector uops fraction the CPU has retired for 128-bit wide vectors. May overcount due to FMA double counting.",
+      "BriefDescription": "This metric approximates arithmetic FP vector uops fraction the CPU has retired for 128-bit wide vectors. May overcount due to FMA double counting prior to LNL.",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -3684,37 +2808,18 @@
       "Category": "TMA",
       "CountDomain": "Uops",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_........FP_Vector_128b(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_......FP_Vector(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_....FP_Arith(%)"
-          },
-          {
-            "Alias": "d",
-            "Value": "metric_TMA_..Light_Operations(%)"
-          }
-        ],
-        "Formula": "a > 10 & b > 10 & c > 20 & d > 60",
-        "BaseFormula": "metric_TMA_........FP_Vector_128b(%) > 10 & metric_TMA_......FP_Vector(%) > 10 & metric_TMA_....FP_Arith(%) > 20 & metric_TMA_..Light_Operations(%) > 60",
-        "ThresholdIssues": "$issue2P"
+        "Formula": "metric_TMA_........FP_Vector_128b(%) > 10 & metric_TMA_......FP_Vector(%) > 10 & metric_TMA_....FP_Arith(%) > 20 & metric_TMA_..Light_Operations(%) > 60"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Compute;Flops"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Compute;Flops",
+      "LocateWith": ""
     },
     {
       "MetricName": "FP_Vector_256b",
       "LegacyName": "metric_TMA_........FP_Vector_256b(%)",
       "ParentCategory": "FP_Vector",
       "Level": 5,
-      "BriefDescription": "This metric approximates arithmetic FP vector uops fraction the CPU has retired for 256-bit wide vectors. May overcount due to FMA double counting.",
+      "BriefDescription": "This metric approximates arithmetic FP vector uops fraction the CPU has retired for 256-bit wide vectors. May overcount due to FMA double counting prior to LNL.",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -3736,37 +2841,18 @@
       "Category": "TMA",
       "CountDomain": "Uops",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_........FP_Vector_256b(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_......FP_Vector(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_....FP_Arith(%)"
-          },
-          {
-            "Alias": "d",
-            "Value": "metric_TMA_..Light_Operations(%)"
-          }
-        ],
-        "Formula": "a > 10 & b > 10 & c > 20 & d > 60",
-        "BaseFormula": "metric_TMA_........FP_Vector_256b(%) > 10 & metric_TMA_......FP_Vector(%) > 10 & metric_TMA_....FP_Arith(%) > 20 & metric_TMA_..Light_Operations(%) > 60",
-        "ThresholdIssues": "$issue2P"
+        "Formula": "metric_TMA_........FP_Vector_256b(%) > 10 & metric_TMA_......FP_Vector(%) > 10 & metric_TMA_....FP_Arith(%) > 20 & metric_TMA_..Light_Operations(%) > 60"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Compute;Flops"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Compute;Flops",
+      "LocateWith": ""
     },
     {
       "MetricName": "Heavy_Operations",
       "LegacyName": "metric_TMA_..Heavy_Operations(%)",
       "ParentCategory": "Retiring",
       "Level": 2,
-      "BriefDescription": "This metric represents fraction of slots where the CPU was retiring heavy-weight operations , instructions that require two or more uops or micro-coded sequences. This highly-correlates with the uop length of these instructions/sequences. ([ICL+] Note this may overcount due to approximation using indirect events; [ADL+] .)",
+      "BriefDescription": "This metric represents fraction of slots where the CPU was retiring heavy-weight operations , instructions that require two or more uops or micro-coded sequences. This highly-correlates with the uop length of these instructions/sequences.([ICL+] Note this may overcount due to approximation using indirect events; [ADL+])",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -3805,18 +2891,11 @@
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_..Heavy_Operations(%)"
-          }
-        ],
-        "Formula": "a > 10",
-        "BaseFormula": "metric_TMA_..Heavy_Operations(%) > 10",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_..Heavy_Operations(%) > 10"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Retire;TmaL2"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Retire;TmaL2",
+      "LocateWith": " #NA "
     },
     {
       "MetricName": "Microcode_Sequencer",
@@ -3858,26 +2937,15 @@
         }
       ],
       "Formula": "100 * ( ( ( a ) / b ) * c / ( ( 4 ) * ( ( d / 2 ) if smt_on else ( e ) ) ) )",
-      "BaseFormula": "( ( uops_retired.retire_tma_info_thread_slots ) / uops_issued.any ) * idq.ms_uops / tma_info_thread_slots",
+      "BaseFormula": " ( ( uops_retired.retire_slots ) / uops_issued.any ) * idq.ms_uops / tma_info_thread_slots",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_....Microcode_Sequencer(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_..Heavy_Operations(%)"
-          }
-        ],
-        "Formula": "a > 5 & b > 10",
-        "BaseFormula": "metric_TMA_....Microcode_Sequencer(%) > 5 & metric_TMA_..Heavy_Operations(%) > 10",
-        "ThresholdIssues": "$issueMC, $issueMS"
+        "Formula": "metric_TMA_....Microcode_Sequencer(%) > 5 & metric_TMA_..Heavy_Operations(%) > 10"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "MicroSeq"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "MicroSeq",
+      "LocateWith": " IDQ.MS_UOPS "
     },
     {
       "MetricName": "Assists",
@@ -3911,30 +2979,15 @@
         }
       ],
       "Formula": "100 * ( ( 66 ) * a / ( ( 4 ) * ( ( b / 2 ) if smt_on else ( c ) ) ) )",
-      "BaseFormula": "( 66 ) * other_assists.any_wb_assist / tma_info_thread_slots",
+      "BaseFormula": " ( 66 ) * other_assists.any_wb_assist / tma_info_thread_slots",
       "Category": "TMA",
       "CountDomain": "Slots_Estimated",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......Assists(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....Microcode_Sequencer(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Heavy_Operations(%)"
-          }
-        ],
-        "Formula": "a > 10 & b > 5 & c > 10",
-        "BaseFormula": "metric_TMA_......Assists(%) > 10 & metric_TMA_....Microcode_Sequencer(%) > 5 & metric_TMA_..Heavy_Operations(%) > 10",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_......Assists(%) > 10 & metric_TMA_....Microcode_Sequencer(%) > 5 & metric_TMA_..Heavy_Operations(%) > 10"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "BvIO"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "BvIO",
+      "LocateWith": " OTHER_ASSISTS.ANY_WB_ASSIST "
     },
     {
       "MetricName": "CISC",
@@ -3984,26 +3037,11 @@
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_......CISC(%)"
-          },
-          {
-            "Alias": "b",
-            "Value": "metric_TMA_....Microcode_Sequencer(%)"
-          },
-          {
-            "Alias": "c",
-            "Value": "metric_TMA_..Heavy_Operations(%)"
-          }
-        ],
-        "Formula": "a > 10 & b > 5 & c > 10",
-        "BaseFormula": "metric_TMA_......CISC(%) > 10 & metric_TMA_....Microcode_Sequencer(%) > 5 & metric_TMA_..Heavy_Operations(%) > 10",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_......CISC(%) > 10 & metric_TMA_....Microcode_Sequencer(%) > 5 & metric_TMA_..Heavy_Operations(%) > 10"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "",
+      "LocateWith": " #NA"
     },
     {
       "MetricName": "Info_Thread_IPC",
@@ -4026,13 +3064,9 @@
       "BaseFormula": " inst_retired.any / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Ret;Summary"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Ret;Summary",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Thread_UopPI",
@@ -4056,18 +3090,11 @@
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_Info_Thread_UopPI"
-          }
-        ],
-        "Formula": "a > 1.05",
-        "BaseFormula": "metric_TMA_Info_Thread_UopPI > 1.05",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_Info_Thread_UopPI > 1.05"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Pipeline;Ret;Retire"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Pipeline;Ret;Retire",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Thread_UpTB",
@@ -4091,18 +3118,11 @@
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_Info_Thread_UpTB"
-          }
-        ],
-        "Formula": "a < 4 * 1.5",
-        "BaseFormula": "metric_TMA_Info_Thread_UpTB < 4 * 1.5",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_Info_Thread_UpTB < 4 * 1.5"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Branches;Fed;FetchBW"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Branches;Fed;FetchBW",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Thread_CPI",
@@ -4125,13 +3145,9 @@
       "BaseFormula": " 1 / tma_info_thread_ipc",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Pipeline;Mem"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Pipeline;Mem",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Thread_CLKS",
@@ -4150,13 +3166,9 @@
       "BaseFormula": " cpu_clk_unhalted.thread",
       "Category": "TMA",
       "CountDomain": "Count",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Pipeline"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Pipeline",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Thread_SLOTS",
@@ -4188,13 +3200,9 @@
       "BaseFormula": " ( 4 ) * tma_info_core_core_clks",
       "Category": "TMA",
       "CountDomain": "Count",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "TmaL1"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "TmaL1",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Thread_Execute_per_Issue",
@@ -4217,13 +3225,9 @@
       "BaseFormula": " uops_executed.thread / uops_issued.any",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Cor;Pipeline"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Cor;Pipeline",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Core_CoreIPC",
@@ -4259,13 +3263,9 @@
       "BaseFormula": " inst_retired.any / tma_info_core_core_clks",
       "Category": "TMA",
       "CountDomain": "Core_Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Ret;SMT;TmaL1"
+      "MetricGroup": "Ret;SMT;TmaL1",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Core_FLOPc",
@@ -4313,13 +3313,9 @@
       "BaseFormula": " ( fp_arith_inst_retired.scalar + 2 * fp_arith_inst_retired.128b_packed_double + 4 * fp_arith_inst_retired.4_flops + 8 * fp_arith_inst_retired.256b_packed_single ) / tma_info_core_core_clks",
       "Category": "TMA",
       "CountDomain": "Core_Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Ret;Flops"
+      "MetricGroup": "Ret;Flops",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Core_FP_Arith_Utilization",
@@ -4359,13 +3355,9 @@
       "BaseFormula": " ( ( fp_arith_inst_retired.scalar ) + ( fp_arith_inst_retired.vector ) ) / ( 2 * tma_info_core_core_clks )",
       "Category": "TMA",
       "CountDomain": "Core_Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Cor;Flops;HPC"
+      "MetricGroup": "Cor;Flops;HPC",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Core_ILP",
@@ -4388,13 +3380,9 @@
       "BaseFormula": " uops_executed.thread / uops_executed.thread:c1",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Backend;Cor;Pipeline;PortsUtil"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Backend;Cor;Pipeline;PortsUtil",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Core_CORE_CLKS",
@@ -4426,13 +3414,9 @@
       "BaseFormula": " ( cpu_clk_unhalted.thread_any / 2 ) if smt_on else tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Count",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "SMT"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "SMT",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Inst_Mix_IpLoad",
@@ -4456,18 +3440,11 @@
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_Info_Inst_Mix_IpLoad"
-          }
-        ],
-        "Formula": "a < 3",
-        "BaseFormula": "metric_TMA_Info_Inst_Mix_IpLoad < 3",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_Info_Inst_Mix_IpLoad < 3"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "InsType"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "InsType",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Inst_Mix_IpStore",
@@ -4491,18 +3468,11 @@
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_Info_Inst_Mix_IpStore"
-          }
-        ],
-        "Formula": "a < 8",
-        "BaseFormula": "metric_TMA_Info_Inst_Mix_IpStore < 8",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_Info_Inst_Mix_IpStore < 8"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "InsType"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "InsType",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Inst_Mix_IpBranch",
@@ -4526,18 +3496,11 @@
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_Info_Inst_Mix_IpBranch"
-          }
-        ],
-        "Formula": "a < 8",
-        "BaseFormula": "metric_TMA_Info_Inst_Mix_IpBranch < 8",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_Info_Inst_Mix_IpBranch < 8"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Branches;Fed;InsType"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Branches;Fed;InsType",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Inst_Mix_IpCall",
@@ -4561,18 +3524,11 @@
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_Info_Inst_Mix_IpCall"
-          }
-        ],
-        "Formula": "a < 200",
-        "BaseFormula": "metric_TMA_Info_Inst_Mix_IpCall < 200",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_Info_Inst_Mix_IpCall < 200"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Branches;Fed;PGO"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Branches;Fed;PGO",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Inst_Mix_IpTB",
@@ -4596,18 +3552,11 @@
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_Info_Inst_Mix_IpTB"
-          }
-        ],
-        "Formula": "a < 4 * 2 + 1",
-        "BaseFormula": "metric_TMA_Info_Inst_Mix_IpTB < 4 * 2 + 1",
-        "ThresholdIssues": "$issueFB"
+        "Formula": "metric_TMA_Info_Inst_Mix_IpTB < 4 * 2 + 1"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Branches;Fed;FetchBW;Frontend;PGO"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Branches;Fed;FetchBW;Frontend;PGO",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Inst_Mix_BpTkBranch",
@@ -4630,13 +3579,9 @@
       "BaseFormula": " br_inst_retired.all_branches / br_inst_retired.near_taken",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Branches;Fed;PGO"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Branches;Fed;PGO",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Inst_Mix_IpFLOP",
@@ -4672,18 +3617,11 @@
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_Info_Inst_Mix_IpFLOP"
-          }
-        ],
-        "Formula": "a < 10",
-        "BaseFormula": "metric_TMA_Info_Inst_Mix_IpFLOP < 10",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_Info_Inst_Mix_IpFLOP < 10"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Flops;InsType"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Flops;InsType",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Inst_Mix_IpArith",
@@ -4711,18 +3649,11 @@
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_Info_Inst_Mix_IpArith"
-          }
-        ],
-        "Formula": "a < 10",
-        "BaseFormula": "metric_TMA_Info_Inst_Mix_IpArith < 10",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_Info_Inst_Mix_IpArith < 10"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Flops;InsType"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Flops;InsType",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Inst_Mix_IpArith_Scalar_SP",
@@ -4746,18 +3677,11 @@
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_Info_Inst_Mix_IpArith_Scalar_SP"
-          }
-        ],
-        "Formula": "a < 10",
-        "BaseFormula": "metric_TMA_Info_Inst_Mix_IpArith_Scalar_SP < 10",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_Info_Inst_Mix_IpArith_Scalar_SP < 10"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Flops;FpScalar;InsType"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Flops;FpScalar;InsType",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Inst_Mix_IpArith_Scalar_DP",
@@ -4781,18 +3705,11 @@
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_Info_Inst_Mix_IpArith_Scalar_DP"
-          }
-        ],
-        "Formula": "a < 10",
-        "BaseFormula": "metric_TMA_Info_Inst_Mix_IpArith_Scalar_DP < 10",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_Info_Inst_Mix_IpArith_Scalar_DP < 10"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Flops;FpScalar;InsType"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Flops;FpScalar;InsType",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Inst_Mix_IpArith_AVX128",
@@ -4820,18 +3737,11 @@
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_Info_Inst_Mix_IpArith_AVX128"
-          }
-        ],
-        "Formula": "a < 10",
-        "BaseFormula": "metric_TMA_Info_Inst_Mix_IpArith_AVX128 < 10",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_Info_Inst_Mix_IpArith_AVX128 < 10"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Flops;FpVector;InsType"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Flops;FpVector;InsType",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Inst_Mix_IpArith_AVX256",
@@ -4859,18 +3769,11 @@
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_Info_Inst_Mix_IpArith_AVX256"
-          }
-        ],
-        "Formula": "a < 10",
-        "BaseFormula": "metric_TMA_Info_Inst_Mix_IpArith_AVX256 < 10",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_Info_Inst_Mix_IpArith_AVX256 < 10"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Flops;FpVector;InsType"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Flops;FpVector;InsType",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Inst_Mix_Instructions",
@@ -4889,13 +3792,9 @@
       "BaseFormula": " inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Count",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Summary;TmaL1"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Summary;TmaL1",
+      "LocateWith": "INST_RETIRED.PREC_DIST"
     },
     {
       "MetricName": "Info_Pipeline_Retire",
@@ -4918,13 +3817,9 @@
       "BaseFormula": " ( uops_retired.retire_slots ) / uops_retired.retire_slots:c1",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Pipeline;Ret"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Pipeline;Ret",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Pipeline_Execute",
@@ -4960,13 +3855,9 @@
       "BaseFormula": " uops_executed.thread / ( ( uops_executed.core:c1 / 2 ) if smt_on else uops_executed.cycles_ge_1_uop_exec )",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Cor;Pipeline;PortsUtil;SMT"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Cor;Pipeline;PortsUtil;SMT",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Frontend_DSB_Coverage",
@@ -4998,22 +3889,36 @@
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_Info_Frontend_DSB_Coverage"
-          },
-          {
-            "Alias": "b",
-            "Value": "IPC"
-          }
-        ],
-        "Formula": "a < 0.7 & b / 4 > 0.35",
-        "BaseFormula": "metric_TMA_Info_Frontend_DSB_Coverage < 0.7 & IPC / 4 > 0.35",
-        "ThresholdIssues": "$issueFB"
+        "Formula": "metric_TMA_Info_Frontend_DSB_Coverage < 0.7 & IPC / 4 > 0.35"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "DSB;Fed;FetchBW"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "DSB;Fed;FetchBW",
+      "LocateWith": ""
+    },
+    {
+      "MetricName": "Info_Frontend_TBpC",
+      "LegacyName": "metric_TMA_Info_Frontend_TBpC",
+      "Level": 1,
+      "BriefDescription": "Taken Branches retired Per Cycle",
+      "UnitOfMeasure": "",
+      "Events": [
+        {
+          "Name": "BR_INST_RETIRED.NEAR_TAKEN",
+          "Alias": "a"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "a / ( b )",
+      "BaseFormula": " br_inst_retired.near_taken / tma_info_thread_clks",
+      "Category": "TMA",
+      "CountDomain": "Metric",
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Branches;FetchBW",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Frontend_IpUnknown_Branch",
@@ -5036,13 +3941,9 @@
       "BaseFormula": " tma_info_inst_mix_instructions / baclears.any",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Fed"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Fed",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Bad_Spec_IpMispredict",
@@ -5066,18 +3967,11 @@
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_Info_Bad_Spec_IpMispredict"
-          }
-        ],
-        "Formula": "a < 200",
-        "BaseFormula": "metric_TMA_Info_Bad_Spec_IpMispredict < 200",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_Info_Bad_Spec_IpMispredict < 200"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Bad;BadSpec;BrMispredicts"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Bad;BadSpec;BrMispredicts",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Bad_Spec_IpMisp_Indirect",
@@ -5109,18 +4003,11 @@
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_Info_Bad_Spec_IpMisp_Indirect"
-          }
-        ],
-        "Formula": "a < 1000",
-        "BaseFormula": "metric_TMA_Info_Bad_Spec_IpMisp_Indirect < 1000",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_Info_Bad_Spec_IpMisp_Indirect < 1000"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Bad;BrMispredicts"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Bad;BrMispredicts",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Memory_Load_Miss_Real_Latency",
@@ -5144,16 +4031,12 @@
       ],
       "Constants": [],
       "Formula": "a / ( b + c )",
-      "BaseFormula": "l1d_pend_miss.pending / ( mem_load_uops_retired.l1_miss + mem_load_uops_retired.hit_lfb )",
+      "BaseFormula": " l1d_pend_miss.pending / ( mem_load_uops_retired.l1_miss + mem_load_uops_retired.hit_lfb )",
       "Category": "TMA",
       "CountDomain": "Clocks_Latency",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Mem;MemoryBound;MemoryLat"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Mem;MemoryBound;MemoryLat",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Memory_MLP",
@@ -5176,13 +4059,9 @@
       "BaseFormula": " l1d_pend_miss.pending / l1d_pend_miss.pending_cycles",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Mem;MemoryBound;MemoryBW"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Mem;MemoryBound;MemoryBW",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Memory_L1MPKI",
@@ -5205,13 +4084,9 @@
       "BaseFormula": " 1000 * mem_load_uops_retired.l1_miss / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "CacheHits;Mem"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "CacheHits;Mem",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Memory_L2MPKI",
@@ -5234,13 +4109,9 @@
       "BaseFormula": " 1000 * mem_load_uops_retired.l2_miss / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Mem;Backend;CacheHits"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Mem;Backend;CacheHits",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Memory_L2MPKI_All",
@@ -5263,13 +4134,9 @@
       "BaseFormula": " 1000 * l2_rqsts.miss / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "CacheHits;Mem;Offcore"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "CacheHits;Mem;Offcore",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Memory_L2MPKI_Load",
@@ -5292,13 +4159,9 @@
       "BaseFormula": " 1000 * l2_rqsts.demand_data_rd_miss / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "CacheHits;Mem"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "CacheHits;Mem",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Memory_L2MPKI_RFO",
@@ -5321,13 +4184,9 @@
       "BaseFormula": " 1000 * offcore_requests.demand_rfo / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "CacheMisses;Offcore"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "CacheMisses;Offcore",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Memory_L2HPKI_All",
@@ -5354,13 +4213,9 @@
       "BaseFormula": " 1000 * ( l2_rqsts.references - l2_rqsts.miss ) / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "CacheHits;Mem"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "CacheHits;Mem",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Memory_L2HPKI_Load",
@@ -5383,13 +4238,9 @@
       "BaseFormula": " 1000 * l2_rqsts.demand_data_rd_hit / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "CacheHits;Mem"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "CacheHits;Mem",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Memory_L3MPKI",
@@ -5409,16 +4260,12 @@
       ],
       "Constants": [],
       "Formula": "1000 * a / b",
-      "BaseFormula": "1000 * mem_load_uops_retired.l3_miss / inst_retired.any",
+      "BaseFormula": " 1000 * mem_load_uops_retired.l3_miss / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Mem"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Mem",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Memory_L1D_Cache_Fill_BW",
@@ -5442,13 +4289,9 @@
       "BaseFormula": " 64 * l1d.replacement / ( 1000000000 ) / tma_info_system_time",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Mem;MemoryBW"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Mem;MemoryBW",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Memory_L2_Cache_Fill_BW",
@@ -5472,13 +4315,9 @@
       "BaseFormula": " 64 * l2_lines_in.all / ( 1000000000 ) / tma_info_system_time",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Mem;MemoryBW"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Mem;MemoryBW",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Memory_L3_Cache_Fill_BW",
@@ -5502,13 +4341,9 @@
       "BaseFormula": " 64 * longest_lat_cache.miss / ( 1000000000 ) / tma_info_system_time",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Mem;MemoryBW"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Mem;MemoryBW",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Memory_TLB_Page_Walks_Utilization",
@@ -5565,18 +4400,11 @@
       "Category": "TMA",
       "CountDomain": "Core_Metric",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_Info_Memory_Page_Walks_Utilization"
-          }
-        ],
-        "Formula": "a > 0.5",
-        "BaseFormula": "metric_TMA_Info_Memory_Page_Walks_Utilization > 0.5",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_Info_Memory_Page_Walks_Utilization > 0.5"
       },
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Mem;MemoryTLB"
+      "MetricGroup": "Mem;MemoryTLB",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Memory_Core_L1D_Cache_Fill_BW_2T",
@@ -5600,13 +4428,9 @@
       "BaseFormula": " tma_info_memory_l1d_cache_fill_bw",
       "Category": "TMA",
       "CountDomain": "Core_Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Mem;MemoryBW"
+      "MetricGroup": "Mem;MemoryBW",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Memory_Core_L2_Cache_Fill_BW_2T",
@@ -5630,13 +4454,9 @@
       "BaseFormula": " tma_info_memory_l2_cache_fill_bw",
       "Category": "TMA",
       "CountDomain": "Core_Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Mem;MemoryBW"
+      "MetricGroup": "Mem;MemoryBW",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Memory_Core_L3_Cache_Fill_BW_2T",
@@ -5660,13 +4480,9 @@
       "BaseFormula": " tma_info_memory_l3_cache_fill_bw",
       "Category": "TMA",
       "CountDomain": "Core_Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Mem;MemoryBW"
+      "MetricGroup": "Mem;MemoryBW",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Memory_Latency_Load_L2_Miss_Latency",
@@ -5689,13 +4505,9 @@
       "BaseFormula": " offcore_requests_outstanding.demand_data_rd / offcore_requests.demand_data_rd",
       "Category": "TMA",
       "CountDomain": "Clocks_Latency",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Memory_Lat;Offcore"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "LockCont;Memory_Lat;Offcore",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Memory_Latency_Load_L2_MLP",
@@ -5718,13 +4530,9 @@
       "BaseFormula": " offcore_requests_outstanding.demand_data_rd / offcore_requests_outstanding.cycles_with_demand_data_rd",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Memory_BW;Offcore"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Memory_BW;Offcore",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_Memory_Latency_Data_L2_MLP",
@@ -5747,13 +4555,9 @@
       "BaseFormula": " offcore_requests_outstanding.all_data_rd / offcore_requests_outstanding.cycles_with_data_rd",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Memory_BW;Offcore"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Memory_BW;Offcore",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_System_CPU_Utilization",
@@ -5781,13 +4585,9 @@
       "BaseFormula": " tma_info_system_cpus_utilized / num_cpus",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "HPC;Summary"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "HPC;Summary",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_System_CPUs_Utilized",
@@ -5811,13 +4611,9 @@
       "BaseFormula": " cpu_clk_unhalted.ref_tsc / tsc",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Summary"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Summary",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_System_Core_Frequency",
@@ -5848,14 +4644,10 @@
       "Formula": "( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) )",
       "BaseFormula": " tma_info_system_turbo_utilization * tsc / ( 1000000000 ) / tma_info_system_time",
       "Category": "TMA",
-      "CountDomain": "SystemMetric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
+      "CountDomain": "System_Metric",
       "ResolutionLevels": "SYSTEM",
-      "MetricGroup": "Summary;Power"
+      "MetricGroup": "Summary;Power",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_System_GFLOPs",
@@ -5891,13 +4683,9 @@
       "BaseFormula": " ( ( fp_arith_inst_retired.scalar + 2 * fp_arith_inst_retired.128b_packed_double + 4 * fp_arith_inst_retired.4_flops + 8 * fp_arith_inst_retired.256b_packed_single ) / ( 1000000000 ) ) / tma_info_system_time",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Cor;Flops;HPC"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Cor;Flops;HPC",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_System_Turbo_Utilization",
@@ -5920,13 +4708,9 @@
       "BaseFormula": " tma_info_thread_clks / cpu_clk_unhalted.ref_tsc",
       "Category": "TMA",
       "CountDomain": "Core_Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Power"
+      "MetricGroup": "Power",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_System_SMT_2T_Utilization",
@@ -5958,13 +4742,9 @@
       "BaseFormula": " 1 - cpu_clk_unhalted.one_thread_active / ( cpu_clk_unhalted.ref_xclk_any / 2 ) if smt_on else 0",
       "Category": "TMA",
       "CountDomain": "Core_Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
-      "MetricGroup": "SMT"
+      "MetricGroup": "SMT",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_System_Kernel_Utilization",
@@ -5988,18 +4768,11 @@
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_Info_System_Kernel_Utilization"
-          }
-        ],
-        "Formula": "a > 0.05",
-        "BaseFormula": "metric_TMA_Info_System_Kernel_Utilization > 0.05",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_Info_System_Kernel_Utilization > 0.05"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "OS"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "OS",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_System_Kernel_CPI",
@@ -6022,13 +4795,9 @@
       "BaseFormula": " cpu_clk_unhalted.thread_p:sup / inst_retired.any_p:sup",
       "Category": "TMA",
       "CountDomain": "Metric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "OS"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "OS",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_System_DRAM_BW_Use",
@@ -6056,13 +4825,9 @@
       "BaseFormula": " 64 * ( unc_arb_trk_requests.all + unc_arb_coh_trk_requests.all ) / ( 1000000 ) / tma_info_system_time / 1000",
       "Category": "TMA",
       "CountDomain": "GB/sec",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": "$issueBW"
-      },
       "ResolutionLevels": "ARB",
-      "MetricGroup": "HPC;MemOffcore;MemoryBW;SoC"
+      "MetricGroup": "HPC;MemOffcore;MemoryBW;SoC",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_System_Power",
@@ -6085,14 +4850,34 @@
       "Formula": "a * ( 61 ) / ( ( ( durationtimeinmilliseconds / 1000 ) ) * ( 1000000 ) )",
       "BaseFormula": " unc_pkg_energy_status * ( 61 ) / ( tma_info_system_time * ( 1000000 ) )",
       "Category": "TMA",
-      "CountDomain": "SystemMetric",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
+      "CountDomain": "System_Metric",
       "ResolutionLevels": "PKG",
-      "MetricGroup": "Power;SoC"
+      "MetricGroup": "Power;SoC",
+      "LocateWith": ""
+    },
+    {
+      "MetricName": "Info_System_Time",
+      "LegacyName": "metric_TMA_Info_System_Time",
+      "Level": 1,
+      "BriefDescription": "Run duration time in seconds",
+      "UnitOfMeasure": "",
+      "Events": [],
+      "Constants": [
+        {
+          "Name": "DURATIONTIMEINMILLISECONDS",
+          "Alias": "durationtimeinmilliseconds"
+        }
+      ],
+      "Formula": "( durationtimeinmilliseconds / 1000 )",
+      "BaseFormula": " duration_time",
+      "Category": "TMA",
+      "CountDomain": "Seconds",
+      "Threshold": {
+        "Formula": "metric_TMA_Info_System_Time < 1"
+      },
+      "ResolutionLevels": "SOCKET, SYSTEM",
+      "MetricGroup": "Summary",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_System_MUX",
@@ -6116,18 +4901,11 @@
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_Info_System_MUX"
-          }
-        ],
-        "Formula": "a > 1.1 | a < 0.9",
-        "BaseFormula": "metric_TMA_Info_System_MUX > 1.1 | metric_TMA_Info_System_MUX < 0.9",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_Info_System_MUX > 1.1 | metric_TMA_Info_System_MUX < 0.9"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Summary"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Summary",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_System_Socket_CLKS",
@@ -6146,13 +4924,9 @@
       "BaseFormula": " unc_clock.socket",
       "Category": "TMA",
       "CountDomain": "Count",
-      "Threshold": {
-        "Formula": "",
-        "BaseFormula": "",
-        "ThresholdIssues": ""
-      },
       "ResolutionLevels": "CLOCK",
-      "MetricGroup": "SoC"
+      "MetricGroup": "SoC",
+      "LocateWith": ""
     },
     {
       "MetricName": "Info_System_IpFarBranch",
@@ -6176,18 +4950,11 @@
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
-        "ThresholdMetrics": [
-          {
-            "Alias": "a",
-            "Value": "metric_TMA_Info_System_IpFarBranch"
-          }
-        ],
-        "Formula": "a < 1000000",
-        "BaseFormula": "metric_TMA_Info_System_IpFarBranch < 1000000",
-        "ThresholdIssues": ""
+        "Formula": "metric_TMA_Info_System_IpFarBranch < 1000000"
       },
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": "Branches;OS"
+      "ResolutionLevels": "CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Branches;OS",
+      "LocateWith": ""
     }
   ]
 }
