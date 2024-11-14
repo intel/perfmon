@@ -1742,12 +1742,6 @@
         "MetricName": "tma_info_system_c0_wait"
     },
     {
-        "BriefDescription": "Average external Memory Bandwidth Use for reads and writes [GB / sec].",
-        "MetricExpr": "64 * ( UNC_HAC_ARB_TRK_REQUESTS.ALL + UNC_HAC_ARB_COH_TRK_REQUESTS.ALL ) / ( 1000000000 ) / tma_info_system_time",
-        "MetricGroup": "HPC;MemOffcore;MemoryBW;SoC;GB/sec",
-        "MetricName": "tma_info_system_dram_bw_use"
-    },
-    {
         "BriefDescription": "Average number of parallel data read requests to external memory.",
         "MetricExpr": "UNC_ARB_DAT_OCCUPANCY.RD / cpu@UNC_ARB_DAT_OCCUPANCY.RD\\,cmask\\=0x1@",
         "MetricGroup": "Mem;MemoryBW;SoC;System_Metric",

@@ -199,13 +199,6 @@
         "PublicDescription": "Ratio of number of completed page walks (for all page sizes) caused by demand data stores to the total number of completed instructions. This implies it missed in the DTLB and further levels of TLB."
     },
     {
-        "BriefDescription": "Memory write bandwidth (MB/sec) caused by directory updates.",
-        "MetricExpr": "(( UNC_CHA_DIR_UPDATE.HA + UNC_CHA_DIR_UPDATE.TOR + UNC_B2CMI_DIRECTORY_UPDATE.ANY ) * 64 / 1000000) / duration_time",
-        "MetricGroup": "",
-        "MetricName": "memory_extra_write_bw_due_to_directory_updates",
-        "ScaleUnit": "1MB/s"
-    },
-    {
         "BriefDescription": "Bandwidth of IO reads that are initiated by end device controllers that are requesting memory from the CPU.",
         "MetricExpr": "( UNC_CHA_TOR_INSERTS.IO_PCIRDCUR * 64 / 1000000) / duration_time",
         "MetricGroup": "",

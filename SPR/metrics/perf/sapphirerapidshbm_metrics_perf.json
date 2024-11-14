@@ -2146,12 +2146,6 @@
         "PublicDescription": "Average latency of data read request to external DRAM memory [in nanoseconds]. Accounts for demand loads and L1/L2 data-read prefetches."
     },
     {
-        "BriefDescription": "Fraction of Uncore cycles where requests got rejected due to duplicate address already in IRQ ingress queue in the cache homing agent.",
-        "MetricExpr": "UNC_CHA_RXC_IRQ1_REJECT.PA_MATCH / UNC_CHA_CLOCKTICKS",
-        "MetricGroup": "LockCont;MemOffcore;SoC;Server;System_Metric",
-        "MetricName": "tma_info_system_mem_irq_duplicate_address"
-    },
-    {
         "BriefDescription": "Average IO (network or disk) Bandwidth Use for Reads [GB / sec].",
         "MetricExpr": "UNC_CHA_TOR_INSERTS.IO_PCIRDCUR * 64 / ( 1000000000 ) / tma_info_system_time",
         "MetricGroup": "IoBW;MemOffcore;SoC;Server;GB/sec",

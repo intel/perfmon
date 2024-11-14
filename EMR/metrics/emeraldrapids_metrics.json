@@ -12062,34 +12062,6 @@
       "LocateWith": ""
     },
     {
-      "MetricName": "Info_System_MEM_IRQ_Duplicate_Address",
-      "LegacyName": "metric_TMA_Info_System_MEM_IRQ_Duplicate_Address",
-      "Level": 1,
-      "BriefDescription": "Fraction of Uncore cycles where requests got rejected due to duplicate address already in IRQ ingress queue in the cache homing agent",
-      "UnitOfMeasure": "",
-      "Events": [
-        {
-          "Name": "UNC_CHA_RxC_IRQ1_REJECT.PA_MATCH",
-          "Alias": "a"
-        },
-        {
-          "Name": "UNC_CHA_CLOCKTICKS",
-          "Alias": "b"
-        }
-      ],
-      "Constants": [],
-      "Formula": "a / b",
-      "BaseFormula": " unc_cha_rxc_irq1_reject.pa_match / unc_cha_clockticks",
-      "Category": "TMA",
-      "CountDomain": "System_Metric",
-      "Threshold": {
-        "Formula": "metric_TMA_Info_System_MEM_IRQ_Duplicate_Address > 0.1"
-      },
-      "ResolutionLevels": "CHA, SOCKET, SYSTEM",
-      "MetricGroup": "LockCont;MemOffcore;SoC;Server",
-      "LocateWith": ""
-    },
-    {
       "MetricName": "Info_System_IO_Read_BW",
       "LegacyName": "metric_TMA_Info_System_IO_Read_BW",
       "Level": 1,

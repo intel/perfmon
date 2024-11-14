@@ -688,31 +688,6 @@
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM"
     },
     {
-      "MetricName": "memory_extra_write_bw_due_to_directory_updates",
-      "LegacyName": "metric_memory extra write b/w due to directory updates (MB/sec)",
-      "Level": 1,
-      "BriefDescription": "Memory write bandwidth (MB/sec) caused by directory updates.",
-      "UnitOfMeasure": "MB/sec",
-      "Events": [
-        {
-          "Name": "UNC_CHA_DIR_UPDATE.HA",
-          "Alias": "a"
-        },
-        {
-          "Name": "UNC_CHA_DIR_UPDATE.TOR",
-          "Alias": "b"
-        },
-        {
-          "Name": "UNC_B2CMI_DIRECTORY_UPDATE.ANY",
-          "Alias": "c"
-        }
-      ],
-      "Constants": [],
-      "Formula": "((a + b + c) * 64 / 1000000) / DURATIONTIMEINSECONDS",
-      "Category": "BW, MC",
-      "ResolutionLevels": "SOCKET, SYSTEM"
-    },
-    {
       "MetricName": "io_bandwidth_read",
       "LegacyName": "metric_IO_bandwidth_disk_or_network_writes (MB/sec)",
       "Level": 1,

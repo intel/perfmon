@@ -11567,36 +11567,6 @@
       "LocateWith": ""
     },
     {
-      "MetricName": "Info_System_DRAM_BW_Use",
-      "LegacyName": "metric_TMA_Info_System_DRAM_BW_Use",
-      "Level": 1,
-      "BriefDescription": "Average external Memory Bandwidth Use for reads and writes [GB / sec]",
-      "UnitOfMeasure": "",
-      "Events": [
-        {
-          "Name": "UNC_HAC_ARB_TRK_REQUESTS.ALL",
-          "Alias": "a"
-        },
-        {
-          "Name": "UNC_HAC_ARB_COH_TRK_REQUESTS.ALL",
-          "Alias": "b"
-        }
-      ],
-      "Constants": [
-        {
-          "Name": "DURATIONTIMEINMILLISECONDS",
-          "Alias": "durationtimeinmilliseconds"
-        }
-      ],
-      "Formula": "64 * ( a + b ) / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) )",
-      "BaseFormula": " 64 * ( unc_hac_arb_trk_requests.all + unc_hac_arb_coh_trk_requests.all ) / ( 1000000000 ) / tma_info_system_time",
-      "Category": "TMA",
-      "CountDomain": "GB/sec",
-      "ResolutionLevels": "HAC",
-      "MetricGroup": "HPC;MemOffcore;MemoryBW;SoC",
-      "LocateWith": ""
-    },
-    {
       "MetricName": "Info_System_MEM_Parallel_Reads",
       "LegacyName": "metric_TMA_Info_System_MEM_Parallel_Reads",
       "Level": 1,

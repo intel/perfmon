@@ -1554,20 +1554,6 @@
         "MetricName": "tma_info_system_dram_bw_use"
     },
     {
-        "BriefDescription": "Average latency of data read request to external memory (in nanoseconds).",
-        "MetricExpr": "( UNC_ARB_TRK_OCCUPANCY.RD + UNC_ARB_DAT_OCCUPANCY.RD ) / UNC_ARB_TRK_REQUESTS.RD",
-        "MetricGroup": "Mem;MemoryLat;SoC;NanoSeconds",
-        "MetricName": "tma_info_system_mem_read_latency",
-        "PublicDescription": "Average latency of data read request to external memory (in nanoseconds). Accounts for demand loads and L1/L2 prefetches. ([RKL+]memory-controller only)."
-    },
-    {
-        "BriefDescription": "Average number of parallel data read requests to external memory.",
-        "MetricExpr": "UNC_ARB_DAT_OCCUPANCY.RD / cpu@UNC_ARB_DAT_OCCUPANCY.RD\\,cmask\\=0x1@",
-        "MetricGroup": "Mem;MemoryBW;SoC;System_Metric",
-        "MetricName": "tma_info_system_mem_parallel_reads",
-        "PublicDescription": "Average number of parallel data read requests to external memory. Accounts for demand loads and L1/L2 prefetches."
-    },
-    {
         "BriefDescription": "Total package Power in Watts.",
         "MetricExpr": "power@energy\\-pkg@ * ( 61 ) / ( tma_info_system_time * ( 1000000 ) )",
         "MetricGroup": "Power;SoC;System_Metric",

@@ -9768,60 +9768,6 @@
       "LocateWith": ""
     },
     {
-      "MetricName": "Info_System_MEM_Read_Latency",
-      "LegacyName": "metric_TMA_Info_System_MEM_Read_Latency",
-      "Level": 1,
-      "BriefDescription": "Average latency of data read request to external memory (in nanoseconds). Accounts for demand loads and L1/L2 prefetches. ([RKL+]memory-controller only)",
-      "UnitOfMeasure": "",
-      "Events": [
-        {
-          "Name": "UNC_ARB_TRK_OCCUPANCY.RD",
-          "Alias": "a"
-        },
-        {
-          "Name": "UNC_ARB_DAT_OCCUPANCY.RD",
-          "Alias": "b"
-        },
-        {
-          "Name": "UNC_ARB_TRK_REQUESTS.RD",
-          "Alias": "c"
-        }
-      ],
-      "Constants": [],
-      "Formula": "( a + b ) / c",
-      "BaseFormula": " ( unc_arb_trk_occupancy.rd + unc_arb_dat_occupancy.rd ) / unc_arb_trk_requests.rd",
-      "Category": "TMA",
-      "CountDomain": "NanoSeconds",
-      "ResolutionLevels": "ARB",
-      "MetricGroup": "Mem;MemoryLat;SoC",
-      "LocateWith": ""
-    },
-    {
-      "MetricName": "Info_System_MEM_Parallel_Reads",
-      "LegacyName": "metric_TMA_Info_System_MEM_Parallel_Reads",
-      "Level": 1,
-      "BriefDescription": "Average number of parallel data read requests to external memory. Accounts for demand loads and L1/L2 prefetches",
-      "UnitOfMeasure": "",
-      "Events": [
-        {
-          "Name": "UNC_ARB_DAT_OCCUPANCY.RD",
-          "Alias": "a"
-        },
-        {
-          "Name": "UNC_ARB_DAT_OCCUPANCY.RD:c1",
-          "Alias": "b"
-        }
-      ],
-      "Constants": [],
-      "Formula": "a / b",
-      "BaseFormula": " unc_arb_dat_occupancy.rd / unc_arb_dat_occupancy.rd:c1",
-      "Category": "TMA",
-      "CountDomain": "System_Metric",
-      "ResolutionLevels": "ARB",
-      "MetricGroup": "Mem;MemoryBW;SoC",
-      "LocateWith": ""
-    },
-    {
       "MetricName": "Info_System_Power",
       "LegacyName": "metric_TMA_Info_System_Power",
       "Level": 1,
