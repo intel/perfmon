@@ -2282,7 +2282,7 @@
     },
     {
         "BriefDescription": "Cross-socket Ultra Path Interconnect (UPI) data transmit bandwidth for data only [MB / sec]",
-        "MetricExpr": "UNC_UPI_TXL_FLITS.ALL_DATA * 64 / 9 / 1000000",
+        "MetricExpr": "UNC_UPI_TxL_FLITS.ALL_DATA * 64 / 9 / 1000000",
         "MetricGroup": "SoC;Server;MB/sec",
         "MetricName": "tma_info_system_upi_data_transmit_bw"
     },
