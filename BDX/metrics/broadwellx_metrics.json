@@ -2,7 +2,7 @@
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for Intel(R) Xeon(R) Processor E5 v4 Family Based on the Broadwell Microarchitecture0",
-    "DatePublished": "11/05/2024",
+    "DatePublished": "11/15/2024",
     "Version": "1.0",
     "Legend": "",
     "TmaVersion": "5.01",
@@ -6184,6 +6184,11 @@
       "BaseFormula": " br_inst_retired.near_taken / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Metric",
+      "Threshold": {
+        "Formula": "",
+        "BaseFormula": "",
+        "ThresholdIssues": ""
+      },
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
       "MetricGroup": "Branches;FetchBW",
       "LocateWith": ""
@@ -6503,6 +6508,11 @@
       "BaseFormula": " 1000 * offcore_requests.demand_rfo / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
+      "Threshold": {
+        "Formula": "",
+        "BaseFormula": "",
+        "ThresholdIssues": ""
+      },
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
       "MetricGroup": "CacheMisses;Offcore",
       "LocateWith": ""
@@ -7417,7 +7427,15 @@
       "Category": "TMA",
       "CountDomain": "Seconds",
       "Threshold": {
-        "Formula": "metric_TMA_Info_System_Time < 1"
+        "ThresholdMetrics": [
+          {
+            "Alias": "a",
+            "Value": "metric_TMA_Info_System_Time"
+          }
+        ],
+        "Formula": "a < 1",
+        "BaseFormula": "metric_TMA_Info_System_Time < 1",
+        "ThresholdIssues": ""
       },
       "ResolutionLevels": "SOCKET, SYSTEM",
       "MetricGroup": "Summary",

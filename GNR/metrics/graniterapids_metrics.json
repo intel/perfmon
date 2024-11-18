@@ -2,7 +2,7 @@
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for Intel(R) Xeon(R) 6 Processor with P-cores0",
-    "DatePublished": "11/08/2024",
+    "DatePublished": "11/15/2024",
     "Version": "1.0",
     "Legend": "",
     "TmaVersion": "5.01",
@@ -11629,6 +11629,11 @@
       "BaseFormula": " uops_executed.thread / ( ( uops_executed.core_cycles_ge_1 / 2 ) if smt_on else uops_executed.thread:c1 )",
       "Category": "TMA",
       "CountDomain": "Metric",
+      "Threshold": {
+        "Formula": "",
+        "BaseFormula": "",
+        "ThresholdIssues": ""
+      },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "Cor;Pipeline;PortsUtil;SMT",
       "LocateWith": ""
