@@ -306,9 +306,9 @@ class PerfFormatConverter:
                 # Replace event/const aliases with names
                 expression = base_formula.lower()
                 for event in events:
-                    reg = r"((?<=[\s+\-*\/\(\)])|(?<=^))({})((?=[\s+\-*\/\(\)])|(?=$))".format(event["Alias"].lower())
+                    reg = r"((?<=[\s+\-*\/\(\)])|(?<=^))({})((?=[\s+\-*\/\(\)\[])|(?=$))".format(event["Alias"].lower())
                     expression = re.sub(reg,
-                                        pad(self.translate_metric_event(event["Name"], platform)),
+                                        self.translate_metric_event(event["Name"], platform),
                                         expression)
                 for const in constants:
                     reg = r"((?<=[\s+\-*\/\(\)])|(?<=^))({})((?=[\s+\-*\/\(\)])|(?=$))".format(const["Alias"].lower())
@@ -384,13 +384,17 @@ class PerfFormatConverter:
 
         # Get only first sentence
         if description.count(". ") > 1:
-            description = description.split(". ")[0] + ". "
+            description = description.split(". ")[0]
         elif description.count(". ") == 1 and description.strip().endswith("."):
             description = description.strip()
         elif description.count(". ") == 1 and not description.strip().endswith("."):
-            description = description.split(". ")[0] + ". "
+            description = description.split(". ")[0]
         else:
-            description =  description.strip() + "."
+            description = description.strip()
+
+        # Remove ending period
+        if description.endswith("."):
+            description = description[0:-1]
 
         return description.replace("ie:", "i.e.").strip()
 
@@ -441,7 +445,7 @@ class PerfFormatConverter:
                         return self.translate_event_options(split, row)
             print("[ERROR] - Event with no option translations: " + event_name)
     
-        return event_name
+        return event_name.replace("RXL", "RxL")
 
 
     def translate_event_options(self, split, event_info):
@@ -589,7 +593,9 @@ class PerfFormatConverter:
                     return fixPercentages(self.clean_metric_names(threshold))
                 else:
                     return self.clean_metric_names(threshold)
-                
+            elif "Formula" in metric["Threshold"]:
+                threshold = metric["Threshold"]["Formula"].replace("&&", "&").replace("||", "|")
+                return self.clean_metric_names(threshold)
 
     def clean_metric_names(self, formula):
         return re.sub(r'\([^\(\)]+\)', "", formula).lower().replace("metric_","").replace("..", "")
