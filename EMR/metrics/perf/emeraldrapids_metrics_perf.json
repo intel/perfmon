@@ -1212,7 +1212,7 @@
         "MetricName": "tma_retiring",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_retiring > 0.7 | tma_heavy_operations > 0.1",
-        "PublicDescription": "This category represents fraction of slots utilized by useful work i.e. issued uops that eventually get retired. Ideally; all pipeline slots would be attributed to the Retiring category.  Retiring of 100% would indicate the maximum Pipeline_Width throughput was achieved.  Maximizing Retiring typically increases the Instructions-per-cycle (see IPC metric). Note that a high Retiring value does not necessary mean there is no room for more performance.  For example; Heavy-operations or Microcode Assists are categorized under Retiring. They often indicate suboptimal performance and can often be optimized or avoided. Sample with: UOPS_RETIRED.SLOTS.",
+        "PublicDescription": "This category represents fraction of slots utilized by useful work i.e. issued uops that eventually get retired. Ideally; all pipeline slots would be attributed to the Retiring category.  Retiring of 100% would indicate the maximum Pipeline_Width throughput was achieved.  Maximizing Retiring typically increases the Instructions-per-cycle (see tma_info_thread_ipc metric). Note that a high Retiring value does not necessary mean there is no room for more performance.  For example; Heavy-operations or Microcode Assists are categorized under Retiring. They often indicate suboptimal performance and can often be optimized or avoided. Sample with: UOPS_RETIRED.SLOTS.",
         "DefaultMetricgroupName": "TopdownL1",
         "MetricGroupnoGroup": "TopdownL1;Default"
     },
@@ -1491,7 +1491,7 @@
     },
     {
         "BriefDescription": "Fraction of Physical Core issue-slots utilized by this Logical Processor",
-        "MetricExpr": "tma_info_thread_slots / ( TOPDOWN.SLOTS / 2 ) if #SMT_on else 1",
+        "MetricExpr": "tma_info_thread_slots / ( slots / 2 ) if #SMT_on else 1",
         "MetricGroup": "SMT;TmaL1;TopdownL1;tma_L1_group;Metric",
         "MetricName": "tma_info_thread_slots_utilization"
     },
@@ -1714,7 +1714,7 @@
         "MetricExpr": "IDQ.DSB_UOPS / ( UOPS_ISSUED.ANY )",
         "MetricGroup": "DSB;Fed;FetchBW;Metric;tma_issueFB",
         "MetricName": "tma_info_frontend_dsb_coverage",
-        "MetricThreshold": "tma_info_frontend_dsb_coverage < 0.7 & ipc / 6 > 0.35",
+        "MetricThreshold": "tma_info_frontend_dsb_coverage < 0.7 & tma_info_thread_ipc / 6 > 0.35",
         "PublicDescription": "Fraction of Uops delivered by the DSB (aka Decoded ICache; or Uop Cache). Related metrics: tma_dsb_switches, tma_fetch_bandwidth, tma_info_botlnk_l2_dsb_bandwidth, tma_info_botlnk_l2_dsb_misses, tma_info_inst_mix_iptb, tma_lcp."
     },
     {

@@ -6655,7 +6655,7 @@
       "MetricName": "Retiring",
       "LegacyName": "metric_TMA_Retiring(%)",
       "Level": 1,
-      "BriefDescription": "This category represents fraction of slots utilized by useful work i.e. issued uops that eventually get retired. Ideally; all pipeline slots would be attributed to the Retiring category.  Retiring of 100% would indicate the maximum Pipeline_Width throughput was achieved.  Maximizing Retiring typically increases the Instructions-per-cycle (see IPC metric). Note that a high Retiring value does not necessary mean there is no room for more performance.  For example; Heavy-operations or Microcode Assists are categorized under Retiring. They often indicate suboptimal performance and can often be optimized or avoided. ",
+      "BriefDescription": "This category represents fraction of slots utilized by useful work i.e. issued uops that eventually get retired. Ideally; all pipeline slots would be attributed to the Retiring category.  Retiring of 100% would indicate the maximum Pipeline_Width throughput was achieved.  Maximizing Retiring typically increases the Instructions-per-cycle (see tma_info_thread_ipc metric). Note that a high Retiring value does not necessary mean there is no room for more performance.  For example; Heavy-operations or Microcode Assists are categorized under Retiring. They often indicate suboptimal performance and can often be optimized or avoided. ",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -9332,7 +9332,7 @@
           }
         ],
         "Formula": "a < 0.7 & b / 8 > 0.35",
-        "BaseFormula": "metric_TMA_Info_Frontend_DSB_Coverage < 0.7 & IPC / 8 > 0.35",
+        "BaseFormula": "metric_TMA_Info_Frontend_DSB_Coverage < 0.7 & tma_info_thread_ipc / 8 > 0.35",
         "ThresholdIssues": "$issueFB"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
