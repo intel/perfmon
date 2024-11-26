@@ -9328,7 +9328,7 @@
           },
           {
             "Alias": "b",
-            "Value": "IPC"
+            "Value": "tma_info_thread_ipc"
           }
         ],
         "Formula": "a < 0.7 & b / 8 > 0.35",
