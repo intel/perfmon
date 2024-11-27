@@ -20,7 +20,7 @@
     },
     {
         "BriefDescription": "Total pipeline cost of instruction fetch bandwidth related bottlenecks (when the front-end could not sustain operations delivery to the back-end)",
-        "MetricExpr": "100 * ( tma_frontend_bound - ( 1 - ( 10 * tma_microcode_sequencer * tma_other_mispredicts / tma_branch_mispredicts ) ) * tma_fetch_latency * tma_mispredicts_resteers / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) - ( ( ( tma_microcode_sequencer / ( tma_few_uops_instructions + tma_microcode_sequencer ) ) * ( tma_assists / tma_microcode_sequencer ) ) * ( tma_fetch_latency * ( tma_ms_switches + tma_branch_resteers * ( tma_clears_resteers + ( 10 * tma_microcode_sequencer * tma_other_mispredicts / tma_branch_mispredicts ) * tma_mispredicts_resteers ) / ( tma_mispredicts_resteers + tma_clears_resteers + tma_unknown_branches ) ) / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) + tma_fetch_bandwidth * tma_ms / ( tma_mite + tma_dsb + tma_lsd + tma_ms ) ) ) ) - tma_big_code",
+        "MetricExpr": "100 * ( tma_frontend_bound - ( 1 - ( 10 * tma_microcode_sequencer * tma_other_mispredicts / tma_branch_mispredicts ) ) * tma_fetch_latency * tma_mispredicts_resteers / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) - ( ( ( tma_microcode_sequencer / ( tma_few_uops_instructions + tma_microcode_sequencer ) ) * ( tma_assists / tma_microcode_sequencer ) ) * ( tma_fetch_latency * ( tma_ms_switches + tma_branch_resteers * ( tma_clears_resteers + ( 10 * tma_microcode_sequencer * tma_other_mispredicts / tma_branch_mispredicts ) * tma_mispredicts_resteers ) / ( tma_mispredicts_resteers + tma_clears_resteers + tma_unknown_branches ) ) / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) + tma_fetch_bandwidth * tma_ms / ( tma_mite + tma_dsb + tma_lsd + tma_ms ) ) ) ) - tma_bottleneck_big_code",
         "MetricGroup": "BvFB;Fed;FetchBW;Frontend;TopdownL1;tma_L1_group;Default;Scaled_Slots",
         "MetricName": "tma_bottleneck_instruction_fetch_bw",
         "MetricThreshold": "tma_bottleneck_instruction_fetch_bw > 20",
@@ -89,7 +89,7 @@
     },
     {
         "BriefDescription": "Total pipeline cost of remaining bottlenecks in the back-end",
-        "MetricExpr": "100 - ( tma_big_code + tma_instruction_fetch_bw + tma_mispredictions + tma_cache_memory_bandwidth + tma_cache_memory_latency + tma_memory_data_tlbs + tma_memory_synchronization + tma_compute_bound_est + tma_irregular_overhead + tma_branching_overhead + tma_useful_work )",
+        "MetricExpr": "100 - ( tma_bottleneck_big_code + tma_bottleneck_instruction_fetch_bw + tma_bottleneck_mispredictions + tma_bottleneck_cache_memory_bandwidth + ma_bottleneck_cache_memory_latency + tma_bottleneck_memory_data_tlbs + tma_bottleneck_memory_synchronization + tma_bottleneck_compute_bound_est + tma_bottleneck_irregular_overhead + tma_bottleneck_branching_overhead + tma_bottleneck_useful_work )",
         "MetricGroup": "BvOB;Cor;Offcore;TopdownL1;tma_L1_group;Default;Scaled_Slots",
         "MetricName": "tma_bottleneck_other_bottlenecks",
         "MetricThreshold": "tma_bottleneck_other_bottlenecks > 20",
@@ -1409,7 +1409,7 @@
     },
     {
         "BriefDescription": "Branch Misprediction Cost: Cycles representing fraction of TMA slots wasted per non-speculative branch misprediction (retired JEClear)",
-        "MetricExpr": "tma_mispredictions * tma_info_thread_slots / ( 5 ) / BR_MISP_RETIRED.ALL_BRANCHES / 100",
+        "MetricExpr": "tma_bottleneck_mispredictions * tma_info_thread_slots / ( 5 ) / BR_MISP_RETIRED.ALL_BRANCHES / 100",
         "MetricGroup": "Bad;BrMispredicts;Core_Metric;tma_issueBM",
         "MetricName": "tma_info_bad_spec_branch_misprediction_cost",
         "PublicDescription": "Branch Misprediction Cost: Cycles representing fraction of TMA slots wasted per non-speculative branch misprediction (retired JEClear). Related metrics: tma_bottleneck_mispredictions, tma_branch_mispredicts, tma_mispredicts_resteers."

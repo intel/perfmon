@@ -20,7 +20,7 @@
     },
     {
         "BriefDescription": "Total pipeline cost of instruction fetch bandwidth related bottlenecks (when the front-end could not sustain operations delivery to the back-end)",
-        "MetricExpr": "100 * ( tma_frontend_bound - ( 1 - ( 10 * tma_microcode_sequencer * tma_other_mispredicts / tma_branch_mispredicts ) ) * tma_fetch_latency * tma_mispredicts_resteers / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) - ( ( 1 - INST_RETIRED.REP_ITERATION / cpu@UOPS_RETIRED.MS\\,cmask\\=0x1@ ) * ( tma_fetch_latency * ( tma_ms_switches + tma_branch_resteers * ( tma_clears_resteers + tma_mispredicts_resteers * tma_other_mispredicts / tma_branch_mispredicts ) / ( tma_mispredicts_resteers + tma_clears_resteers + tma_unknown_branches ) ) / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) + tma_fetch_bandwidth * tma_ms / ( tma_mite + tma_dsb + tma_lsd + tma_ms ) ) ) ) - tma_big_code",
+        "MetricExpr": "100 * ( tma_frontend_bound - ( 1 - ( 10 * tma_microcode_sequencer * tma_other_mispredicts / tma_branch_mispredicts ) ) * tma_fetch_latency * tma_mispredicts_resteers / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) - ( ( 1 - INST_RETIRED.REP_ITERATION / cpu@UOPS_RETIRED.MS\\,cmask\\=0x1@ ) * ( tma_fetch_latency * ( tma_ms_switches + tma_branch_resteers * ( tma_clears_resteers + tma_mispredicts_resteers * tma_other_mispredicts / tma_branch_mispredicts ) / ( tma_mispredicts_resteers + tma_clears_resteers + tma_unknown_branches ) ) / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) + tma_fetch_bandwidth * tma_ms / ( tma_mite + tma_dsb + tma_lsd + tma_ms ) ) ) ) - tma_bottleneck_big_code",
         "MetricGroup": "BvFB;Fed;FetchBW;Frontend;TopdownL1;tma_L1_group;Default;Scaled_Slots",
         "MetricName": "tma_bottleneck_instruction_fetch_bw",
         "MetricThreshold": "tma_bottleneck_instruction_fetch_bw > 20",
@@ -1440,7 +1440,7 @@
     },
     {
         "BriefDescription": "Branch Misprediction Cost: Cycles representing fraction of TMA slots wasted per non-speculative branch misprediction (retired JEClear)",
-        "MetricExpr": "tma_mispredictions * tma_info_thread_slots / ( 8 ) / BR_MISP_RETIRED.ALL_BRANCHES / 100",
+        "MetricExpr": "tma_bottleneck_mispredictions * tma_info_thread_slots / ( 8 ) / BR_MISP_RETIRED.ALL_BRANCHES / 100",
         "MetricGroup": "Bad;BrMispredicts;Core_Metric;tma_issueBM",
         "MetricName": "tma_info_bad_spec_branch_misprediction_cost",
         "PublicDescription": "Branch Misprediction Cost: Cycles representing fraction of TMA slots wasted per non-speculative branch misprediction (retired JEClear). Related metrics: tma_bottleneck_mispredictions, tma_branch_mispredicts, tma_mispredicts_resteers."
