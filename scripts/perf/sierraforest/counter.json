@@ -52,7 +52,7 @@
     {
         "Unit": "PCU",
         "CountersNumFixed": "0",
-        "CountersNumGeneric": 4
+        "CountersNumGeneric": "4"
     },
     {
         "Unit": "CHACMS",
