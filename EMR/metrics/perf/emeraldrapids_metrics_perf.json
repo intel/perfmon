@@ -326,7 +326,7 @@
     },
     {
         "BriefDescription": "Total pipeline cost of instruction fetch bandwidth related bottlenecks (when the front-end could not sustain operations delivery to the back-end)",
-        "MetricExpr": "100 * ( tma_frontend_bound - ( 1 - ( 10 * tma_microcode_sequencer * tma_other_mispredicts / tma_branch_mispredicts ) ) * tma_fetch_latency * tma_mispredicts_resteers / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) - ( ( 1 - INST_RETIRED.REP_ITERATION / cpu@UOPS_RETIRED.MS\\,cmask\\=0x1@ ) * ( tma_fetch_latency * ( tma_ms_switches + tma_branch_resteers * ( tma_clears_resteers + tma_mispredicts_resteers * tma_other_mispredicts / tma_branch_mispredicts ) / ( tma_mispredicts_resteers + tma_clears_resteers + tma_unknown_branches ) ) / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) + tma_fetch_bandwidth * tma_ms / ( tma_mite + tma_dsb + tma_ms ) ) ) ) - tma_big_code",
+        "MetricExpr": "100 * ( tma_frontend_bound - ( 1 - ( 10 * tma_microcode_sequencer * tma_other_mispredicts / tma_branch_mispredicts ) ) * tma_fetch_latency * tma_mispredicts_resteers / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) - ( ( 1 - INST_RETIRED.REP_ITERATION / cpu@UOPS_RETIRED.MS\\,cmask\\=0x1@ ) * ( tma_fetch_latency * ( tma_ms_switches + tma_branch_resteers * ( tma_clears_resteers + tma_mispredicts_resteers * tma_other_mispredicts / tma_branch_mispredicts ) / ( tma_mispredicts_resteers + tma_clears_resteers + tma_unknown_branches ) ) / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) + tma_fetch_bandwidth * tma_ms / ( tma_mite + tma_dsb + tma_ms ) ) ) ) - tma_bottleneck_big_code",
         "MetricGroup": "BvFB;Fed;FetchBW;Frontend;TopdownL1;tma_L1_group;Default;Scaled_Slots",
         "MetricName": "tma_bottleneck_instruction_fetch_bw",
         "MetricThreshold": "tma_bottleneck_instruction_fetch_bw > 20",
@@ -395,7 +395,7 @@
     },
     {
         "BriefDescription": "Total pipeline cost of remaining bottlenecks in the back-end",
-        "MetricExpr": "100 - ( tma_big_code + tma_instruction_fetch_bw + tma_mispredictions + tma_cache_memory_bandwidth + tma_cache_memory_latency + tma_memory_data_tlbs + tma_memory_synchronization + tma_compute_bound_est + tma_irregular_overhead + tma_branching_overhead + tma_useful_work )",
+        "MetricExpr": "100 - ( tma_bottleneck_big_code + tma_bottleneck_instruction_fetch_bw + tma_bottleneck_mispredictions + tma_bottleneck_cache_memory_bandwidth + tma_bottleneck_cache_memory_latency + tma_bottleneck_memory_data_tlbs + tma_bottleneck_memory_synchronization + tma_bottleneck_compute_bound_est + tma_bottleneck_irregular_overhead + tma_bottleneck_branching_overhead + tma_bottleneck_useful_work )",
         "MetricGroup": "BvOB;Cor;Offcore;TopdownL1;tma_L1_group;Default;Scaled_Slots",
         "MetricName": "tma_bottleneck_other_bottlenecks",
         "MetricThreshold": "tma_bottleneck_other_bottlenecks > 20",
@@ -1448,7 +1448,7 @@
         "MetricExpr": "100 * ( 1 - tma_core_bound / tma_ports_utilization if tma_core_bound < tma_ports_utilization else 1 ) if tma_info_system_smt_2t_utilization > 0.5 else 0",
         "MetricGroup": "Cor;SMT;Metric",
         "MetricName": "tma_info_botlnk_l0_core_bound_likely",
-        "MetricThreshold": "tma_info_botlnk_core_bound_likely > 0.5"
+        "MetricThreshold": "tma_info_botlnk_l0_core_bound_likely > 0.5"
     },
     {
         "BriefDescription": "Instructions Per Cycle (per Logical Processor)",
@@ -1491,7 +1491,7 @@
     },
     {
         "BriefDescription": "Fraction of Physical Core issue-slots utilized by this Logical Processor",
-        "MetricExpr": "tma_info_thread_slots / ( TOPDOWN.SLOTS / 2 ) if #SMT_on else 1",
+        "MetricExpr": "tma_info_thread_slots / ( slots / 2 ) if #SMT_on else 1",
         "MetricGroup": "SMT;TmaL1;TopdownL1;tma_L1_group;Metric",
         "MetricName": "tma_info_thread_slots_utilization"
     },
@@ -1714,7 +1714,7 @@
         "MetricExpr": "IDQ.DSB_UOPS / ( UOPS_ISSUED.ANY )",
         "MetricGroup": "DSB;Fed;FetchBW;Metric;tma_issueFB",
         "MetricName": "tma_info_frontend_dsb_coverage",
-        "MetricThreshold": "tma_info_frontend_dsb_coverage < 0.7 & ipc / 6 > 0.35",
+        "MetricThreshold": "tma_info_frontend_dsb_coverage < 0.7 & tma_info_thread_ipc / 6 > 0.35",
         "PublicDescription": "Fraction of Uops delivered by the DSB (aka Decoded ICache; or Uop Cache). Related metrics: tma_dsb_switches, tma_fetch_bandwidth, tma_info_botlnk_l2_dsb_bandwidth, tma_info_botlnk_l2_dsb_misses, tma_info_inst_mix_iptb, tma_lcp."
     },
     {
@@ -1772,7 +1772,7 @@
         "MetricExpr": "100 * ( tma_fetch_latency * tma_dsb_switches / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) + tma_fetch_bandwidth * tma_mite / ( tma_mite + tma_dsb + tma_ms ) )",
         "MetricGroup": "DSBmiss;Fed;Scaled_Slots;tma_issueFB",
         "MetricName": "tma_info_botlnk_l2_dsb_misses",
-        "MetricThreshold": "tma_info_botlnk_dsb_misses > 10",
+        "MetricThreshold": "tma_info_botlnk_l2_dsb_misses > 10",
         "PublicDescription": "Total pipeline cost of DSB (uop cache) misses - subset of the Instruction_Fetch_BW Bottleneck. Related metrics: tma_dsb_switches, tma_fetch_bandwidth, tma_info_botlnk_l2_dsb_bandwidth, tma_info_frontend_dsb_coverage, tma_info_inst_mix_iptb, tma_lcp."
     },
     {
@@ -1780,7 +1780,7 @@
         "MetricExpr": "100 * ( tma_frontend_bound * ( tma_fetch_bandwidth / ( tma_fetch_latency + tma_fetch_bandwidth ) ) * ( tma_dsb / ( tma_mite + tma_dsb + tma_ms ) ) )",
         "MetricGroup": "DSB;Fed;FetchBW;Scaled_Slots;tma_issueFB",
         "MetricName": "tma_info_botlnk_l2_dsb_bandwidth",
-        "MetricThreshold": "tma_info_botlnk_dsb_bandwidth > 10",
+        "MetricThreshold": "tma_info_botlnk_l2_dsb_bandwidth > 10",
         "PublicDescription": "Total pipeline cost of DSB (uop cache) hits - subset of the Instruction_Fetch_BW Bottleneck. Related metrics: tma_dsb_switches, tma_fetch_bandwidth, tma_info_botlnk_l2_dsb_misses, tma_info_frontend_dsb_coverage, tma_info_inst_mix_iptb, tma_lcp."
     },
     {
@@ -1788,7 +1788,7 @@
         "MetricExpr": "100 * ( tma_fetch_latency * tma_icache_misses / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) )",
         "MetricGroup": "Fed;FetchLat;IcMiss;Scaled_Slots;tma_issueFL",
         "MetricName": "tma_info_botlnk_l2_ic_misses",
-        "MetricThreshold": "tma_info_botlnk_ic_misses > 5",
+        "MetricThreshold": "tma_info_botlnk_l2_ic_misses > 5",
         "PublicDescription": "Total pipeline cost of Instruction Cache misses - subset of the Big_Code Bottleneck."
     },
     {
@@ -1828,7 +1828,7 @@
     },
     {
         "BriefDescription": "Branch Misprediction Cost: Cycles representing fraction of TMA slots wasted per non-speculative branch misprediction (retired JEClear)",
-        "MetricExpr": "tma_mispredictions * tma_info_thread_slots / ( 6 ) / BR_MISP_RETIRED.ALL_BRANCHES / 100",
+        "MetricExpr": "tma_bottleneck_mispredictions * tma_info_thread_slots / ( 6 ) / BR_MISP_RETIRED.ALL_BRANCHES / 100",
         "MetricGroup": "Bad;BrMispredicts;Core_Metric;tma_issueBM",
         "MetricName": "tma_info_bad_spec_branch_misprediction_cost",
         "PublicDescription": "Branch Misprediction Cost: Cycles representing fraction of TMA slots wasted per non-speculative branch misprediction (retired JEClear). Related metrics: tma_bottleneck_mispredictions, tma_branch_mispredicts, tma_mispredicts_resteers."
@@ -1971,7 +1971,7 @@
         "MetricExpr": "( ITLB_MISSES.WALK_PENDING + DTLB_LOAD_MISSES.WALK_PENDING + DTLB_STORE_MISSES.WALK_PENDING ) / ( 4 * tma_info_core_core_clks )",
         "MetricGroup": "Mem;MemoryTLB;Core_Metric",
         "MetricName": "tma_info_memory_tlb_page_walks_utilization",
-        "MetricThreshold": "tma_info_memory_page_walks_utilization > 0.5"
+        "MetricThreshold": "tma_info_memory_tlb_page_walks_utilization > 0.5"
     },
     {
         "BriefDescription": "STLB (2nd level TLB) code speculative misses per kilo instruction (misses of any page-size that complete the page walk)",
@@ -2032,7 +2032,7 @@
         "MetricExpr": "L2_LINES_OUT.USELESS_HWPF / ( L2_LINES_OUT.SILENT + L2_LINES_OUT.NON_SILENT )",
         "MetricGroup": "Prefetches;Metric",
         "MetricName": "tma_info_memory_prefetches_useless_hwpf",
-        "MetricThreshold": "tma_info_memory_useless_hwpf > 0.15"
+        "MetricThreshold": "tma_info_memory_prefetches_useless_hwpf > 0.15"
     },
     {
         "BriefDescription": "Average Latency for L2 cache miss demand Loads",
@@ -2196,7 +2196,7 @@
     },
     {
         "BriefDescription": "Cross-socket Ultra Path Interconnect (UPI) data transmit bandwidth for data only [MB / sec]",
-        "MetricExpr": "UNC_UPI_TXL_FLITS.ALL_DATA * 64 / 9 / 1000000",
+        "MetricExpr": "UNC_UPI_TxL_FLITS.ALL_DATA * 64 / 9 / 1000000",
         "MetricGroup": "SoC;Server;MB/sec",
         "MetricName": "tma_info_system_upi_data_transmit_bw"
     },

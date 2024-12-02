@@ -2,7 +2,7 @@
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for Intel(R) Xeon(R) processor E5 v3 family based on the Haswell-E microarchitecture0",
-    "DatePublished": "11/05/2024",
+    "DatePublished": "12/02/2024",
     "Version": "1.0",
     "Legend": "",
     "TmaVersion": "5.01",
@@ -5249,11 +5249,11 @@
           },
           {
             "Alias": "b",
-            "Value": "IPC"
+            "Value": "metric_TMA_Info_Thread_IPC"
           }
         ],
         "Formula": "a < 0.7 & b / 4 > 0.35",
-        "BaseFormula": "metric_TMA_Info_Frontend_DSB_Coverage < 0.7 & IPC / 4 > 0.35",
+        "BaseFormula": "metric_TMA_Info_Frontend_DSB_Coverage < 0.7 & metric_TMA_Info_Thread_IPC / 4 > 0.35",
         "ThresholdIssues": "$issueFB"
       },
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
@@ -5723,11 +5723,11 @@
         "ThresholdMetrics": [
           {
             "Alias": "a",
-            "Value": "metric_TMA_Info_Memory_Page_Walks_Utilization"
+            "Value": "metric_TMA_Info_Memory_TLB_Page_Walks_Utilization"
           }
         ],
         "Formula": "a > 0.5",
-        "BaseFormula": "metric_TMA_Info_Memory_Page_Walks_Utilization > 0.5",
+        "BaseFormula": "metric_TMA_Info_Memory_TLB_Page_Walks_Utilization > 0.5",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
@@ -6345,7 +6345,15 @@
       "Category": "TMA",
       "CountDomain": "Seconds",
       "Threshold": {
-        "Formula": "metric_TMA_Info_System_Time < 1"
+        "ThresholdMetrics": [
+          {
+            "Alias": "a",
+            "Value": "metric_TMA_Info_System_Time"
+          }
+        ],
+        "Formula": "a < 1",
+        "BaseFormula": "metric_TMA_Info_System_Time < 1",
+        "ThresholdIssues": ""
       },
       "ResolutionLevels": "SOCKET, SYSTEM",
       "MetricGroup": "Summary",

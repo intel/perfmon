@@ -814,7 +814,7 @@
         "MetricExpr": "IDQ.DSB_UOPS / ( ( IDQ.DSB_UOPS + LSD.UOPS + IDQ.MITE_UOPS + IDQ.MS_UOPS ) )",
         "MetricGroup": "DSB;Fed;FetchBW;Metric;tma_issueFB",
         "MetricName": "tma_info_frontend_dsb_coverage",
-        "MetricThreshold": "tma_info_frontend_dsb_coverage < 0.7 & ipc / 4 > 0.35",
+        "MetricThreshold": "tma_info_frontend_dsb_coverage < 0.7 & tma_info_thread_ipc / 4 > 0.35",
         "PublicDescription": "Fraction of Uops delivered by the DSB (aka Decoded ICache; or Uop Cache). Related metrics: tma_dsb_switches, tma_fetch_bandwidth, tma_info_inst_mix_iptb, tma_lcp."
     },
     {
@@ -927,7 +927,7 @@
         "MetricExpr": "( cpu@ITLB_MISSES.WALK_DURATION\\,cmask\\=0x1@ + cpu@DTLB_LOAD_MISSES.WALK_DURATION\\,cmask\\=0x1@ + cpu@DTLB_STORE_MISSES.WALK_DURATION\\,cmask\\=0x1@ + 7 * ( DTLB_STORE_MISSES.WALK_COMPLETED + DTLB_LOAD_MISSES.WALK_COMPLETED + ITLB_MISSES.WALK_COMPLETED ) ) / tma_info_core_core_clks",
         "MetricGroup": "Mem;MemoryTLB;Core_Metric",
         "MetricName": "tma_info_memory_tlb_page_walks_utilization",
-        "MetricThreshold": "tma_info_memory_page_walks_utilization > 0.5"
+        "MetricThreshold": "tma_info_memory_tlb_page_walks_utilization > 0.5"
     },
     {
         "BriefDescription": "Average per-core data fill bandwidth to the L1 data cache [GB / sec]",

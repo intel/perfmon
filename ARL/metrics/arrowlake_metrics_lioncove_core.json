@@ -2,7 +2,7 @@
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for Intel(R) Core(TM) processors based on Arrow Lake performance hybrid architecture0",
-    "DatePublished": "11/15/2024",
+    "DatePublished": "12/02/2024",
     "Version": "1.0",
     "Legend": "",
     "TmaVersion": "5.01",
@@ -319,7 +319,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a / ( a + b + c + d ) ) - ( 1 - ( 10 * ( e / ( f ) ) * ( max( ( g / ( a + b + c + d ) ) * ( 1 - h / ( i - j ) ) , 0.0001 ) ) / ( g / ( a + b + c + d ) ) ) ) * ( k / ( a + b + c + d ) ) * ( ( ( g / ( a + b + c + d ) ) / ( b / ( a + b + c + d ) ) ) * l / ( m ) ) / ( ( n / ( m ) ) + ( o / ( m ) ) + ( l / ( m ) + ( p / ( m ) ) ) + ( ( 3 ) * q / ( m ) ) + ( r / ( m ) ) + ( s / ( m ) ) ) - ( ( 1 - t / u ) * ( ( k / ( a + b + c + d ) ) * ( ( ( 3 ) * q / ( m ) ) + ( l / ( m ) + ( p / ( m ) ) ) * ( ( ( 1 - ( ( g / ( a + b + c + d ) ) / ( b / ( a + b + c + d ) ) ) ) * l / ( m ) ) + ( ( ( g / ( a + b + c + d ) ) / ( b / ( a + b + c + d ) ) ) * l / ( m ) ) * ( max( ( g / ( a + b + c + d ) ) * ( 1 - h / ( i - j ) ) , 0.0001 ) ) / ( g / ( a + b + c + d ) ) ) / ( ( ( ( g / ( a + b + c + d ) ) / ( b / ( a + b + c + d ) ) ) * l / ( m ) ) + ( ( 1 - ( ( g / ( a + b + c + d ) ) / ( b / ( a + b + c + d ) ) ) ) * l / ( m ) ) + ( p / ( m ) ) ) ) / ( ( n / ( m ) ) + ( o / ( m ) ) + ( l / ( m ) + ( p / ( m ) ) ) + ( ( 3 ) * q / ( m ) ) + ( r / ( m ) ) + ( s / ( m ) ) ) + ( max( 0 , ( a / ( a + b + c + d ) ) - ( k / ( a + b + c + d ) ) ) ) * ( v / ( m ) ) / ( ( ( w / ( m ) + x / ( y + x ) * ( z - a_a ) ) / ( m ) ) + ( ( a_b + y / ( y + x ) * ( z - a_a ) ) / ( m ) ) + ( a_c / ( m ) ) + ( v / ( m ) ) ) ) ) ) - ( 100 * ( k / ( a + b + c + d ) ) * ( ( o / ( m ) ) + ( n / ( m ) ) + ( p / ( m ) ) ) / ( ( n / ( m ) ) + ( o / ( m ) ) + ( l / ( m ) + ( p / ( m ) ) ) + ( ( 3 ) * q / ( m ) ) + ( r / ( m ) ) + ( s / ( m ) ) ) )",
-      "BaseFormula": " 100 * ( tma_frontend_bound - ( 1 - ( 10 * tma_microcode_sequencer * tma_other_mispredicts / tma_branch_mispredicts ) ) * tma_fetch_latency * tma_mispredicts_resteers / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) - ( ( 1 - inst_retired.rep_iteration / uops_retired.ms:c1 ) * ( tma_fetch_latency * ( tma_ms_switches + tma_branch_resteers * ( tma_clears_resteers + tma_mispredicts_resteers * tma_other_mispredicts / tma_branch_mispredicts ) / ( tma_mispredicts_resteers + tma_clears_resteers + tma_unknown_branches ) ) / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) + tma_fetch_bandwidth * tma_ms / ( tma_mite + tma_dsb + tma_lsd + tma_ms ) ) ) ) - tma_big_code",
+      "BaseFormula": " 100 * ( tma_frontend_bound - ( 1 - ( 10 * tma_microcode_sequencer * tma_other_mispredicts / tma_branch_mispredicts ) ) * tma_fetch_latency * tma_mispredicts_resteers / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) - ( ( 1 - inst_retired.rep_iteration / uops_retired.ms:c1 ) * ( tma_fetch_latency * ( tma_ms_switches + tma_branch_resteers * ( tma_clears_resteers + tma_mispredicts_resteers * tma_other_mispredicts / tma_branch_mispredicts ) / ( tma_mispredicts_resteers + tma_clears_resteers + tma_unknown_branches ) ) / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) + tma_fetch_bandwidth * tma_ms / ( tma_mite + tma_dsb + tma_lsd + tma_ms ) ) ) ) - tma_bottleneck_big_code",
       "Category": "TMA",
       "CountDomain": "Scaled_Slots",
       "Threshold": {
@@ -8234,11 +8234,11 @@
           },
           {
             "Alias": "b",
-            "Value": "IPC"
+            "Value": "metric_TMA_Info_Thread_IPC"
           }
         ],
         "Formula": "a < 0.7 & b / 8 > 0.35",
-        "BaseFormula": "metric_TMA_Info_Frontend_DSB_Coverage < 0.7 & IPC / 8 > 0.35",
+        "BaseFormula": "metric_TMA_Info_Frontend_DSB_Coverage < 0.7 & metric_TMA_Info_Thread_IPC / 8 > 0.35",
         "ThresholdIssues": "$issueFB"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -8706,11 +8706,11 @@
         "ThresholdMetrics": [
           {
             "Alias": "a",
-            "Value": "metric_TMA_Info_Botlnk_DSB_Misses"
+            "Value": "metric_TMA_Info_Botlnk_L2_DSB_Misses"
           }
         ],
         "Formula": "a > 10",
-        "BaseFormula": "metric_TMA_Info_Botlnk_DSB_Misses > 10",
+        "BaseFormula": "metric_TMA_Info_Botlnk_L2_DSB_Misses > 10",
         "ThresholdIssues": "$issueFB"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -8790,11 +8790,11 @@
         "ThresholdMetrics": [
           {
             "Alias": "a",
-            "Value": "metric_TMA_Info_Botlnk_DSB_Bandwidth"
+            "Value": "metric_TMA_Info_Botlnk_L2_DSB_Bandwidth"
           }
         ],
         "Formula": "a > 10",
-        "BaseFormula": "metric_TMA_Info_Botlnk_DSB_Bandwidth > 10",
+        "BaseFormula": "metric_TMA_Info_Botlnk_L2_DSB_Bandwidth > 10",
         "ThresholdIssues": "$issueFB"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -8870,11 +8870,11 @@
         "ThresholdMetrics": [
           {
             "Alias": "a",
-            "Value": "metric_TMA_Info_Botlnk_IC_Misses"
+            "Value": "metric_TMA_Info_Botlnk_L2_IC_Misses"
           }
         ],
         "Formula": "a > 5",
-        "BaseFormula": "metric_TMA_Info_Botlnk_IC_Misses > 5",
+        "BaseFormula": "metric_TMA_Info_Botlnk_L2_IC_Misses > 5",
         "ThresholdIssues": "$issueFL"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -9171,7 +9171,7 @@
       ],
       "Constants": [],
       "Formula": "( 100 * ( 1 - ( 10 * ( a / ( b ) ) * ( max( ( c / ( d + e + f + g ) ) * ( 1 - h / ( i - j ) ) , 0.0001 ) ) / ( c / ( d + e + f + g ) ) ) ) * ( ( c / ( d + e + f + g ) ) + ( k / ( d + e + f + g ) ) * ( ( ( c / ( d + e + f + g ) ) / ( e / ( d + e + f + g ) ) ) * l / ( m ) ) / ( ( n / ( m ) ) + ( o / ( m ) ) + ( l / ( m ) + ( p / ( m ) ) ) + ( ( 3 ) * q / ( m ) ) + ( r / ( m ) ) + ( s / ( m ) ) ) ) ) * ( b ) / ( 8 ) / h / 100",
-      "BaseFormula": " tma_mispredictions * tma_info_thread_slots / ( 8 ) / br_misp_retired.all_branches / 100",
+      "BaseFormula": " tma_bottleneck_mispredictions * tma_info_thread_slots / ( 8 ) / br_misp_retired.all_branches / 100",
       "Category": "TMA",
       "CountDomain": "Core_Metric",
       "Threshold": {
@@ -9966,11 +9966,11 @@
         "ThresholdMetrics": [
           {
             "Alias": "a",
-            "Value": "metric_TMA_Info_Memory_Page_Walks_Utilization"
+            "Value": "metric_TMA_Info_Memory_TLB_Page_Walks_Utilization"
           }
         ],
         "Formula": "a > 0.5",
-        "BaseFormula": "metric_TMA_Info_Memory_Page_Walks_Utilization > 0.5",
+        "BaseFormula": "metric_TMA_Info_Memory_TLB_Page_Walks_Utilization > 0.5",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
@@ -10096,11 +10096,11 @@
         "ThresholdMetrics": [
           {
             "Alias": "a",
-            "Value": "metric_TMA_Info_Memory_Load_STLB_Miss_Ret"
+            "Value": "metric_TMA_Info_Memory_TLB_Load_STLB_Miss_Ret"
           }
         ],
         "Formula": "a > 0.05",
-        "BaseFormula": "metric_TMA_Info_Memory_Load_STLB_Miss_Ret > 0.05",
+        "BaseFormula": "metric_TMA_Info_Memory_TLB_Load_STLB_Miss_Ret > 0.05",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -10136,11 +10136,11 @@
         "ThresholdMetrics": [
           {
             "Alias": "a",
-            "Value": "metric_TMA_Info_Memory_Store_STLB_Miss_Ret"
+            "Value": "metric_TMA_Info_Memory_TLB_Store_STLB_Miss_Ret"
           }
         ],
         "Formula": "a > 0.05",
-        "BaseFormula": "metric_TMA_Info_Memory_Store_STLB_Miss_Ret > 0.05",
+        "BaseFormula": "metric_TMA_Info_Memory_TLB_Store_STLB_Miss_Ret > 0.05",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -10176,11 +10176,11 @@
         "ThresholdMetrics": [
           {
             "Alias": "a",
-            "Value": "metric_TMA_Info_Memory_Useless_HWPF"
+            "Value": "metric_TMA_Info_Memory_Prefetches_Useless_HWPF"
           }
         ],
         "Formula": "a > 0.15",
-        "BaseFormula": "metric_TMA_Info_Memory_Useless_HWPF > 0.15",
+        "BaseFormula": "metric_TMA_Info_Memory_Prefetches_Useless_HWPF > 0.15",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
