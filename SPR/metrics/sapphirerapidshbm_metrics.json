@@ -2,8 +2,8 @@
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for 4th Generation Intel(R) Xeon(R) Processor Scalable Family based on Sapphire Rapids microarchitecture0",
-    "DatePublished": "11/20/2024",
-    "Version": "0",
+    "DatePublished": "12/02/2024",
+    "Version": "1.0",
     "Legend": "",
     "TmaVersion": "5.01",
     "TmaFlavor": "Full"
@@ -1599,72 +1599,64 @@
           "Alias": "a"
         },
         {
-          "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_NO_FWD",
+          "Name": "L1D_PEND_MISS.FB_FULL",
           "Alias": "a_a"
         },
         {
-          "Name": "MEM_LOAD_RETIRED.L3_HIT",
+          "Name": "DTLB_LOAD_MISSES.STLB_HIT:c1",
           "Alias": "a_b"
         },
         {
-          "Name": "L1D_PEND_MISS.FB_FULL",
+          "Name": "DTLB_LOAD_MISSES.WALK_ACTIVE",
           "Alias": "a_c"
         },
         {
-          "Name": "DTLB_LOAD_MISSES.STLB_HIT:c1",
+          "Name": "CYCLE_ACTIVITY.CYCLES_MEM_ANY",
           "Alias": "a_d"
         },
         {
-          "Name": "DTLB_LOAD_MISSES.WALK_ACTIVE",
+          "Name": "MEMORY_ACTIVITY.CYCLES_L1D_MISS",
           "Alias": "a_e"
         },
         {
-          "Name": "CYCLE_ACTIVITY.CYCLES_MEM_ANY",
+          "Name": "LD_BLOCKS.STORE_FORWARD",
           "Alias": "a_f"
         },
         {
-          "Name": "MEMORY_ACTIVITY.CYCLES_L1D_MISS",
+          "Name": "MEM_INST_RETIRED.ALL_LOADS",
           "Alias": "a_g"
         },
         {
-          "Name": "LD_BLOCKS.STORE_FORWARD",
-          "Alias": "a_h"
-        },
-        {
-          "Name": "MEM_INST_RETIRED.ALL_LOADS",
+          "Name": "MEM_INST_RETIRED.LOCK_LOADS",
           "Alias": "a_i"
         },
         {
-          "Name": "MEM_INST_RETIRED.LOCK_LOADS",
-          "Alias": "a_k"
-        },
-        {
           "Name": "L2_RQSTS.ALL_RFO",
-          "Alias": "a_l"
+          "Alias": "a_j"
         },
         {
           "Name": "MEM_INST_RETIRED.ALL_STORES",
-          "Alias": "a_m"
+          "Alias": "a_k"
         },
         {
           "Name": "L2_RQSTS.RFO_HIT",
-          "Alias": "a_n"
+          "Alias": "a_l"
         },
         {
           "Name": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO",
-          "Alias": "a_o"
+          "Alias": "a_m"
         },
         {
           "Name": "L1D_PEND_MISS.PENDING",
-          "Alias": "a_p"
+          "Alias": "a_n"
         },
         {
           "Name": "MEM_LOAD_COMPLETED.L1_MISS_ANY",
-          "Alias": "a_q"
+          "Alias": "a_o"
         },
         {
           "Name": "LD_BLOCKS.NO_SR",
-          "Alias": "a_r"
+          "Alias": "a_p"
         },
         {
           "Name": "PERF_METRICS.FRONTEND_BOUND",
@@ -1691,71 +1683,71 @@
           "Alias": "g"
         },
         {
-          "Name": "OCR.DEMAND_DATA_RD.PMM",
+          "Name": "MEMORY_ACTIVITY.STALLS_L2_MISS",
           "Alias": "h"
         },
         {
-          "Name": "OCR.READS_TO_CORE.L3_MISS",
+          "Name": "EXE_ACTIVITY.BOUND_ON_LOADS",
           "Alias": "i"
         },
         {
-          "Name": "EXE_ACTIVITY.BOUND_ON_LOADS",
+          "Name": "MEMORY_ACTIVITY.STALLS_L1D_MISS",
           "Alias": "j"
         },
         {
-          "Name": "MEMORY_ACTIVITY.STALLS_L1D_MISS",
+          "Name": "EXE_ACTIVITY.BOUND_ON_STORES",
           "Alias": "k"
         },
         {
-          "Name": "MEMORY_ACTIVITY.STALLS_L2_MISS",
+          "Name": "OFFCORE_REQUESTS_OUTSTANDING.ALL_DATA_RD:c4",
           "Alias": "l"
         },
         {
-          "Name": "EXE_ACTIVITY.BOUND_ON_STORES",
+          "Name": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DATA_RD",
           "Alias": "m"
         },
         {
-          "Name": "OFFCORE_REQUESTS_OUTSTANDING.ALL_DATA_RD:c4",
+          "Name": "XQ.FULL_CYCLES",
           "Alias": "n"
         },
         {
-          "Name": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DATA_RD",
+          "Name": "L1D_PEND_MISS.L2_STALLS",
           "Alias": "o"
         },
         {
-          "Name": "XQ.FULL_CYCLES",
+          "Name": "CPU_CLK_UNHALTED.REF_TSC",
           "Alias": "p"
         },
         {
-          "Name": "L1D_PEND_MISS.L2_STALLS",
-          "Alias": "q"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.REF_TSC",
-          "Alias": "r"
-        },
-        {
           "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_FWD",
-          "Alias": "u"
+          "Alias": "s"
         },
         {
           "Name": "OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HITM",
-          "Alias": "v"
+          "Alias": "t"
         },
         {
           "Name": "OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HIT_WITH_FWD",
-          "Alias": "w"
+          "Alias": "u"
         },
         {
           "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS",
-          "Alias": "x"
+          "Alias": "v"
         },
         {
           "Name": "MEM_LOAD_RETIRED.FB_HIT",
-          "Alias": "y"
+          "Alias": "w"
         },
         {
           "Name": "MEM_LOAD_RETIRED.L1_MISS",
+          "Alias": "x"
+        },
+        {
+          "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_NO_FWD",
+          "Alias": "y"
+        },
+        {
+          "Name": "MEM_LOAD_RETIRED.L3_HIT",
           "Alias": "z"
         }
       ],
@@ -1770,10 +1762,10 @@
         },
         {
           "Name": "SYSTEM_TSC_FREQ",
-          "Alias": "s"
+          "Alias": "q"
         }
       ],
-      "Formula": "( 100 * ( ( ( a / ( b + c + d + e ) ) * ( ( ( f / ( g ) ) - ( ( f / ( g ) ) * h / i ) ) / ( ( max( ( j - k ) / ( g ) , 0 ) ) + ( ( k - l ) / ( g ) ) + ( ( l - f ) / ( g ) ) + ( ( f / ( g ) ) * h / i ) + ( ( f / ( g ) ) - ( ( f / ( g ) ) * h / i ) ) + ( m / ( g ) ) ) ) * ( ( ( min( g , n ) ) / ( g ) ) / ( ( ( min( g , n ) ) / ( g ) ) + ( ( min( g , o ) ) / ( g ) - ( ( min( g , n ) ) / ( g ) ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( f / ( g ) ) * h / i ) / ( ( max( ( j - k ) / ( g ) , 0 ) ) + ( ( k - l ) / ( g ) ) + ( ( l - f ) / ( g ) ) + ( ( f / ( g ) ) * h / i ) + ( ( f / ( g ) ) - ( ( f / ( g ) ) * h / i ) ) + ( m / ( g ) ) ) ) * ( ( min( g , n ) ) / ( g ) ) / ( ( ( min( g , n ) ) / ( g ) ) + ( ( min( g , o ) ) / ( g ) - ( ( min( g , n ) ) / ( g ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( ( l - f ) / ( g ) ) / ( ( max( ( j - k ) / ( g ) , 0 ) ) + ( ( k - l ) / ( g ) ) + ( ( l - f ) / ( g ) ) + ( ( f / ( g ) ) * h / i ) + ( ( f / ( g ) ) - ( ( f / ( g ) ) * h / i ) ) + ( m / ( g ) ) ) ) * ( ( ( p + q ) / ( g ) ) / ( ( ( ( ( 81 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( u * ( v / ( v + w ) ) ) + ( ( 79 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( x ) ) * ( 1 + ( y / z ) / 2 ) / ( g ) ) + ( ( ( 79 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_a + u * ( 1 - ( v / ( v + w ) ) ) ) * ( 1 + ( y / z ) / 2 ) / ( g ) ) + ( ( ( 37 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_b * ( 1 + ( y / z ) / 2 ) ) / ( g ) ) + ( ( p + q ) / ( g ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( max( ( j - k ) / ( g ) , 0 ) ) / ( ( max( ( j - k ) / ( g ) , 0 ) ) + ( ( k - l ) / ( g ) ) + ( ( l - f ) / ( g ) ) + ( ( f / ( g ) ) * h / i ) + ( ( f / ( g ) ) - ( ( f / ( g ) ) * h / i ) ) + ( m / ( g ) ) ) ) * ( ( a_c / ( g ) ) / ( ( min( ( 7 ) * a_d + a_e , max( a_f - a_g , 0 ) ) / ( g ) ) + ( 13 * a_h / ( g ) ) + ( min( 2 * ( a_i - y - z ) * dependentloadsweight / 100 , max( a_f - a_g , 0 ) ) / ( g ) ) + ( ( 16 * max( 0 , a_k - a_l ) + ( a_k / a_m ) * ( ( 10 ) * a_n + ( min( g , a_o ) ) ) ) / ( g ) ) + ( ( a_p / a_q ) * a_r / ( g ) ) + ( a_c / ( g ) ) ) ) ) ) )",
+      "Formula": "( 100 * ( ( ( a / ( b + c + d + e ) ) * ( ( ( f / ( g ) ) - ( ( h - f ) / ( g ) ) ) / ( ( max( ( i - j ) / ( g ) , 0 ) ) + ( ( j - h ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( f / ( g ) ) - ( ( h - f ) / ( g ) ) ) + ( k / ( g ) ) ) ) * ( ( ( min( g , l ) ) / ( g ) ) / ( ( ( min( g , l ) ) / ( g ) ) + ( ( min( g , m ) ) / ( g ) - ( ( min( g , l ) ) / ( g ) ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( h - f ) / ( g ) ) / ( ( max( ( i - j ) / ( g ) , 0 ) ) + ( ( j - h ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( f / ( g ) ) - ( ( h - f ) / ( g ) ) ) + ( k / ( g ) ) ) ) * ( ( min( g , l ) ) / ( g ) ) / ( ( ( min( g , l ) ) / ( g ) ) + ( ( min( g , m ) ) / ( g ) - ( ( min( g , l ) ) / ( g ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( ( h - f ) / ( g ) ) / ( ( max( ( i - j ) / ( g ) , 0 ) ) + ( ( j - h ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( f / ( g ) ) - ( ( h - f ) / ( g ) ) ) + ( k / ( g ) ) ) ) * ( ( ( n + o ) / ( g ) ) / ( ( ( ( ( 81 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( s * ( t / ( t + u ) ) ) + ( ( 79 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( v ) ) * ( 1 + ( w / x ) / 2 ) / ( g ) ) + ( ( ( 79 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( y + s * ( 1 - ( t / ( t + u ) ) ) ) * ( 1 + ( w / x ) / 2 ) / ( g ) ) + ( ( ( 37 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( z * ( 1 + ( w / x ) / 2 ) ) / ( g ) ) + ( ( n + o ) / ( g ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( max( ( i - j ) / ( g ) , 0 ) ) / ( ( max( ( i - j ) / ( g ) , 0 ) ) + ( ( j - h ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( f / ( g ) ) - ( ( h - f ) / ( g ) ) ) + ( k / ( g ) ) ) ) * ( ( a_a / ( g ) ) / ( ( min( ( 7 ) * a_b + a_c , max( a_d - a_e , 0 ) ) / ( g ) ) + ( 13 * a_f / ( g ) ) + ( min( 2 * ( a_g - w - x ) * dependentloadsweight / 100 , max( a_d - a_e , 0 ) ) / ( g ) ) + ( ( 16 * max( 0 , a_i - a_j ) + ( a_i / a_k ) * ( ( 10 ) * a_l + ( min( g , a_m ) ) ) ) / ( g ) ) + ( ( a_n / a_o ) * a_p / ( g ) ) + ( a_a / ( g ) ) ) ) ) ) )",
       "BaseFormula": " ( 100 * ( ( tma_memory_bound * ( tma_dram_bound / ( tma_l1_bound + tma_l2_bound + tma_l3_bound + tma_hbm_bound + tma_dram_bound + tma_store_bound ) ) * ( tma_mem_bandwidth / ( tma_mem_bandwidth + tma_mem_latency ) ) ) + ( tma_memory_bound * tma_hbm_bound / ( tma_l1_bound + tma_l2_bound + tma_l3_bound + tma_hbm_bound + tma_dram_bound + tma_store_bound ) ) * tma_mem_bandwidth / ( tma_mem_bandwidth + tma_mem_latency ) + ( tma_memory_bound * ( tma_l3_bound / ( tma_l1_bound + tma_l2_bound + tma_l3_bound + tma_hbm_bound + tma_dram_bound + tma_store_bound ) ) * ( tma_sq_full / ( tma_contested_accesses + tma_data_sharing + tma_l3_hit_latency + tma_sq_full ) ) ) + ( tma_memory_bound * ( tma_l1_bound / ( tma_l1_bound + tma_l2_bound + tma_l3_bound + tma_hbm_bound + tma_dram_bound + tma_store_bound ) ) * ( tma_fb_full / ( tma_dtlb_load + tma_store_fwd_blk + tma_l1_latency_dependency + tma_lock_latency + tma_split_loads + tma_fb_full ) ) ) ) )",
       "Category": "TMA",
       "CountDomain": "Scaled_Slots",
@@ -1804,104 +1796,96 @@
           "Alias": "a"
         },
         {
-          "Name": "XQ.FULL_CYCLES",
+          "Name": "MEM_INST_RETIRED.ALL_LOADS",
           "Alias": "a_a"
         },
         {
-          "Name": "L1D_PEND_MISS.L2_STALLS",
-          "Alias": "a_b"
-        },
-        {
-          "Name": "MEM_INST_RETIRED.ALL_LOADS",
+          "Name": "CYCLE_ACTIVITY.CYCLES_MEM_ANY",
           "Alias": "a_c"
         },
         {
-          "Name": "CYCLE_ACTIVITY.CYCLES_MEM_ANY",
-          "Alias": "a_e"
-        },
-        {
           "Name": "MEMORY_ACTIVITY.CYCLES_L1D_MISS",
-          "Alias": "a_f"
+          "Alias": "a_d"
         },
         {
           "Name": "DTLB_LOAD_MISSES.STLB_HIT:c1",
-          "Alias": "a_g"
+          "Alias": "a_e"
         },
         {
           "Name": "DTLB_LOAD_MISSES.WALK_ACTIVE",
-          "Alias": "a_h"
+          "Alias": "a_f"
         },
         {
           "Name": "LD_BLOCKS.STORE_FORWARD",
-          "Alias": "a_i"
+          "Alias": "a_g"
         },
         {
           "Name": "MEM_INST_RETIRED.LOCK_LOADS",
-          "Alias": "a_j"
+          "Alias": "a_h"
         },
         {
           "Name": "L2_RQSTS.ALL_RFO",
-          "Alias": "a_k"
+          "Alias": "a_i"
         },
         {
           "Name": "MEM_INST_RETIRED.ALL_STORES",
-          "Alias": "a_l"
+          "Alias": "a_j"
         },
         {
           "Name": "L2_RQSTS.RFO_HIT",
-          "Alias": "a_m"
+          "Alias": "a_k"
         },
         {
           "Name": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO",
-          "Alias": "a_n"
+          "Alias": "a_l"
         },
         {
           "Name": "L1D_PEND_MISS.PENDING",
-          "Alias": "a_o"
+          "Alias": "a_m"
         },
         {
           "Name": "MEM_LOAD_COMPLETED.L1_MISS_ANY",
-          "Alias": "a_p"
+          "Alias": "a_n"
         },
         {
           "Name": "LD_BLOCKS.NO_SR",
-          "Alias": "a_q"
+          "Alias": "a_o"
         },
         {
           "Name": "L1D_PEND_MISS.FB_FULL",
-          "Alias": "a_r"
+          "Alias": "a_p"
         },
         {
           "Name": "MEM_INST_RETIRED.SPLIT_STORES",
-          "Alias": "a_s"
+          "Alias": "a_q"
         },
         {
           "Name": "CPU_CLK_UNHALTED.DISTRIBUTED",
-          "Alias": "a_t"
+          "Alias": "a_r"
         },
         {
           "Name": "MEM_STORE_RETIRED.L2_HIT",
-          "Alias": "a_u"
+          "Alias": "a_s"
         },
         {
           "Name": "OCR.DEMAND_RFO.L3_MISS:ocr_msr_val=0x103b800002",
-          "Alias": "a_v"
+          "Alias": "a_t"
         },
         {
           "Name": "OCR.DEMAND_RFO.L3_HIT.SNOOP_HITM",
-          "Alias": "a_w"
+          "Alias": "a_u"
         },
         {
           "Name": "OCR.STREAMING_WR.ANY_RESPONSE",
-          "Alias": "a_x"
+          "Alias": "a_v"
         },
         {
           "Name": "DTLB_STORE_MISSES.STLB_HIT:c1",
-          "Alias": "a_y"
+          "Alias": "a_w"
         },
         {
           "Name": "DTLB_STORE_MISSES.WALK_ACTIVE",
-          "Alias": "a_z"
+          "Alias": "a_x"
         },
         {
           "Name": "PERF_METRICS.FRONTEND_BOUND",
@@ -1928,71 +1912,71 @@
           "Alias": "g"
         },
         {
-          "Name": "OCR.DEMAND_DATA_RD.PMM",
+          "Name": "MEMORY_ACTIVITY.STALLS_L2_MISS",
           "Alias": "h"
         },
         {
-          "Name": "OCR.READS_TO_CORE.L3_MISS",
+          "Name": "EXE_ACTIVITY.BOUND_ON_LOADS",
           "Alias": "i"
         },
         {
-          "Name": "EXE_ACTIVITY.BOUND_ON_LOADS",
+          "Name": "MEMORY_ACTIVITY.STALLS_L1D_MISS",
           "Alias": "j"
         },
         {
-          "Name": "MEMORY_ACTIVITY.STALLS_L1D_MISS",
+          "Name": "EXE_ACTIVITY.BOUND_ON_STORES",
           "Alias": "k"
         },
         {
-          "Name": "MEMORY_ACTIVITY.STALLS_L2_MISS",
+          "Name": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DATA_RD",
           "Alias": "l"
         },
         {
-          "Name": "EXE_ACTIVITY.BOUND_ON_STORES",
+          "Name": "OFFCORE_REQUESTS_OUTSTANDING.ALL_DATA_RD:c4",
           "Alias": "m"
         },
         {
-          "Name": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DATA_RD",
+          "Name": "CPU_CLK_UNHALTED.REF_TSC",
           "Alias": "n"
         },
         {
-          "Name": "OFFCORE_REQUESTS_OUTSTANDING.ALL_DATA_RD:c4",
-          "Alias": "o"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.REF_TSC",
-          "Alias": "p"
-        },
-        {
           "Name": "MEM_LOAD_RETIRED.L3_HIT",
-          "Alias": "s"
+          "Alias": "q"
         },
         {
           "Name": "MEM_LOAD_RETIRED.FB_HIT",
-          "Alias": "t"
+          "Alias": "r"
         },
         {
           "Name": "MEM_LOAD_RETIRED.L1_MISS",
-          "Alias": "u"
+          "Alias": "s"
         },
         {
           "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_FWD",
-          "Alias": "v"
+          "Alias": "t"
         },
         {
           "Name": "OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HITM",
-          "Alias": "w"
+          "Alias": "u"
         },
         {
           "Name": "OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HIT_WITH_FWD",
-          "Alias": "x"
+          "Alias": "v"
         },
         {
           "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS",
-          "Alias": "y"
+          "Alias": "w"
         },
         {
           "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_NO_FWD",
+          "Alias": "x"
+        },
+        {
+          "Name": "XQ.FULL_CYCLES",
+          "Alias": "y"
+        },
+        {
+          "Name": "L1D_PEND_MISS.L2_STALLS",
           "Alias": "z"
         }
       ],
@@ -2007,7 +1991,7 @@
         },
         {
           "Name": "SYSTEM_TSC_FREQ",
-          "Alias": "q"
+          "Alias": "o"
         },
         {
           "Name": "HYPERTHREADING_ON",
@@ -2018,7 +2002,7 @@
           "Alias": "threads"
         }
       ],
-      "Formula": "100 * ( ( ( a / ( b + c + d + e ) ) * ( ( ( f / ( g ) ) - ( ( f / ( g ) ) * h / i ) ) / ( ( max( ( j - k ) / ( g ) , 0 ) ) + ( ( k - l ) / ( g ) ) + ( ( l - f ) / ( g ) ) + ( ( f / ( g ) ) * h / i ) + ( ( f / ( g ) ) - ( ( f / ( g ) ) * h / i ) ) + ( m / ( g ) ) ) ) * ( ( ( min( g , n ) ) / ( g ) - ( ( min( g , o ) ) / ( g ) ) ) / ( ( ( min( g , o ) ) / ( g ) ) + ( ( min( g , n ) ) / ( g ) - ( ( min( g , o ) ) / ( g ) ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( f / ( g ) ) * h / i ) / ( ( max( ( j - k ) / ( g ) , 0 ) ) + ( ( k - l ) / ( g ) ) + ( ( l - f ) / ( g ) ) + ( ( f / ( g ) ) * h / i ) + ( ( f / ( g ) ) - ( ( f / ( g ) ) * h / i ) ) + ( m / ( g ) ) ) ) * ( ( min( g , n ) ) / ( g ) - ( ( min( g , o ) ) / ( g ) ) ) / ( ( ( min( g , o ) ) / ( g ) ) + ( ( min( g , n ) ) / ( g ) - ( ( min( g , o ) ) / ( g ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( ( l - f ) / ( g ) ) / ( ( max( ( j - k ) / ( g ) , 0 ) ) + ( ( k - l ) / ( g ) ) + ( ( l - f ) / ( g ) ) + ( ( f / ( g ) ) * h / i ) + ( ( f / ( g ) ) - ( ( f / ( g ) ) * h / i ) ) + ( m / ( g ) ) ) ) * ( ( ( ( 37 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( s * ( 1 + ( t / u ) / 2 ) ) / ( g ) ) / ( ( ( ( ( 81 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( v * ( w / ( w + x ) ) ) + ( ( 79 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( y ) ) * ( 1 + ( t / u ) / 2 ) / ( g ) ) + ( ( ( 79 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( z + v * ( 1 - ( w / ( w + x ) ) ) ) * ( 1 + ( t / u ) / 2 ) / ( g ) ) + ( ( ( 37 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( s * ( 1 + ( t / u ) / 2 ) ) / ( g ) ) + ( ( a_a + a_b ) / ( g ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( k - l ) / ( g ) ) / ( ( max( ( j - k ) / ( g ) , 0 ) ) + ( ( k - l ) / ( g ) ) + ( ( l - f ) / ( g ) ) + ( ( f / ( g ) ) * h / i ) + ( ( f / ( g ) ) - ( ( f / ( g ) ) * h / i ) ) + ( m / ( g ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( max( ( j - k ) / ( g ) , 0 ) ) / ( ( max( ( j - k ) / ( g ) , 0 ) ) + ( ( k - l ) / ( g ) ) + ( ( l - f ) / ( g ) ) + ( ( f / ( g ) ) * h / i ) + ( ( f / ( g ) ) - ( ( f / ( g ) ) * h / i ) ) + ( m / ( g ) ) ) ) * ( ( min( 2 * ( a_c - t - u ) * dependentloadsweight / 100 , max( a_e - a_f , 0 ) ) / ( g ) ) / ( ( min( ( 7 ) * a_g + a_h , max( a_e - a_f , 0 ) ) / ( g ) ) + ( 13 * a_i / ( g ) ) + ( min( 2 * ( a_c - t - u ) * dependentloadsweight / 100 , max( a_e - a_f , 0 ) ) / ( g ) ) + ( ( 16 * max( 0 , a_j - a_k ) + ( a_j / a_l ) * ( ( 10 ) * a_m + ( min( g , a_n ) ) ) ) / ( g ) ) + ( ( a_o / a_p ) * a_q / ( g ) ) + ( a_r / ( g ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( max( ( j - k ) / ( g ) , 0 ) ) / ( ( max( ( j - k ) / ( g ) , 0 ) ) + ( ( k - l ) / ( g ) ) + ( ( l - f ) / ( g ) ) + ( ( f / ( g ) ) * h / i ) + ( ( f / ( g ) ) - ( ( f / ( g ) ) * h / i ) ) + ( m / ( g ) ) ) ) * ( ( ( 16 * max( 0 , a_j - a_k ) + ( a_j / a_l ) * ( ( 10 ) * a_m + ( min( g , a_n ) ) ) ) / ( g ) ) / ( ( min( ( 7 ) * a_g + a_h , max( a_e - a_f , 0 ) ) / ( g ) ) + ( 13 * a_i / ( g ) ) + ( min( 2 * ( a_c - t - u ) * dependentloadsweight / 100 , max( a_e - a_f , 0 ) ) / ( g ) ) + ( ( 16 * max( 0 , a_j - a_k ) + ( a_j / a_l ) * ( ( 10 ) * a_m + ( min( g , a_n ) ) ) ) / ( g ) ) + ( ( a_o / a_p ) * a_q / ( g ) ) + ( a_r / ( g ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( max( ( j - k ) / ( g ) , 0 ) ) / ( ( max( ( j - k ) / ( g ) , 0 ) ) + ( ( k - l ) / ( g ) ) + ( ( l - f ) / ( g ) ) + ( ( f / ( g ) ) * h / i ) + ( ( f / ( g ) ) - ( ( f / ( g ) ) * h / i ) ) + ( m / ( g ) ) ) ) * ( ( ( a_o / a_p ) * a_q / ( g ) ) / ( ( min( ( 7 ) * a_g + a_h , max( a_e - a_f , 0 ) ) / ( g ) ) + ( 13 * a_i / ( g ) ) + ( min( 2 * ( a_c - t - u ) * dependentloadsweight / 100 , max( a_e - a_f , 0 ) ) / ( g ) ) + ( ( 16 * max( 0 , a_j - a_k ) + ( a_j / a_l ) * ( ( 10 ) * a_m + ( min( g , a_n ) ) ) ) / ( g ) ) + ( ( a_o / a_p ) * a_q / ( g ) ) + ( a_r / ( g ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( m / ( g ) ) / ( ( max( ( j - k ) / ( g ) , 0 ) ) + ( ( k - l ) / ( g ) ) + ( ( l - f ) / ( g ) ) + ( ( f / ( g ) ) * h / i ) + ( ( f / ( g ) ) - ( ( f / ( g ) ) * h / i ) ) + ( m / ( g ) ) ) ) * ( ( a_s / ( a_t if smt_on else ( g ) ) ) / ( ( ( ( a_u * ( 10 ) * ( 1 - ( a_j / a_l ) ) ) + ( 1 - ( a_j / a_l ) ) * ( min( g , a_n ) ) ) / ( g ) ) + ( ( ( 170 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_v + ( 81 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_w ) / ( g ) ) + ( a_s / ( a_t if smt_on else ( g ) ) ) + ( 9 * a_x / ( g ) ) + ( ( ( 7 ) * a_y + a_z ) / ( a_t if smt_on else ( g ) ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( m / ( g ) ) / ( ( max( ( j - k ) / ( g ) , 0 ) ) + ( ( k - l ) / ( g ) ) + ( ( l - f ) / ( g ) ) + ( ( f / ( g ) ) * h / i ) + ( ( f / ( g ) ) - ( ( f / ( g ) ) * h / i ) ) + ( m / ( g ) ) ) ) * ( ( ( ( a_u * ( 10 ) * ( 1 - ( a_j / a_l ) ) ) + ( 1 - ( a_j / a_l ) ) * ( min( g , a_n ) ) ) / ( g ) ) / ( ( ( ( a_u * ( 10 ) * ( 1 - ( a_j / a_l ) ) ) + ( 1 - ( a_j / a_l ) ) * ( min( g , a_n ) ) ) / ( g ) ) + ( ( ( 170 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_v + ( 81 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_w ) / ( g ) ) + ( a_s / ( a_t if smt_on else ( g ) ) ) + ( 9 * a_x / ( g ) ) + ( ( ( 7 ) * a_y + a_z ) / ( a_t if smt_on else ( g ) ) ) ) ) ) )",
+      "Formula": "100 * ( ( ( a / ( b + c + d + e ) ) * ( ( ( f / ( g ) ) - ( ( h - f ) / ( g ) ) ) / ( ( max( ( i - j ) / ( g ) , 0 ) ) + ( ( j - h ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( f / ( g ) ) - ( ( h - f ) / ( g ) ) ) + ( k / ( g ) ) ) ) * ( ( ( min( g , l ) ) / ( g ) - ( ( min( g , m ) ) / ( g ) ) ) / ( ( ( min( g , m ) ) / ( g ) ) + ( ( min( g , l ) ) / ( g ) - ( ( min( g , m ) ) / ( g ) ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( h - f ) / ( g ) ) / ( ( max( ( i - j ) / ( g ) , 0 ) ) + ( ( j - h ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( f / ( g ) ) - ( ( h - f ) / ( g ) ) ) + ( k / ( g ) ) ) ) * ( ( min( g , l ) ) / ( g ) - ( ( min( g , m ) ) / ( g ) ) ) / ( ( ( min( g , m ) ) / ( g ) ) + ( ( min( g , l ) ) / ( g ) - ( ( min( g , m ) ) / ( g ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( ( h - f ) / ( g ) ) / ( ( max( ( i - j ) / ( g ) , 0 ) ) + ( ( j - h ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( f / ( g ) ) - ( ( h - f ) / ( g ) ) ) + ( k / ( g ) ) ) ) * ( ( ( ( 37 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( q * ( 1 + ( r / s ) / 2 ) ) / ( g ) ) / ( ( ( ( ( 81 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( t * ( u / ( u + v ) ) ) + ( ( 79 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( w ) ) * ( 1 + ( r / s ) / 2 ) / ( g ) ) + ( ( ( 79 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( x + t * ( 1 - ( u / ( u + v ) ) ) ) * ( 1 + ( r / s ) / 2 ) / ( g ) ) + ( ( ( 37 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( q * ( 1 + ( r / s ) / 2 ) ) / ( g ) ) + ( ( y + z ) / ( g ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( j - h ) / ( g ) ) / ( ( max( ( i - j ) / ( g ) , 0 ) ) + ( ( j - h ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( f / ( g ) ) - ( ( h - f ) / ( g ) ) ) + ( k / ( g ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( max( ( i - j ) / ( g ) , 0 ) ) / ( ( max( ( i - j ) / ( g ) , 0 ) ) + ( ( j - h ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( f / ( g ) ) - ( ( h - f ) / ( g ) ) ) + ( k / ( g ) ) ) ) * ( ( min( 2 * ( a_a - r - s ) * dependentloadsweight / 100 , max( a_c - a_d , 0 ) ) / ( g ) ) / ( ( min( ( 7 ) * a_e + a_f , max( a_c - a_d , 0 ) ) / ( g ) ) + ( 13 * a_g / ( g ) ) + ( min( 2 * ( a_a - r - s ) * dependentloadsweight / 100 , max( a_c - a_d , 0 ) ) / ( g ) ) + ( ( 16 * max( 0 , a_h - a_i ) + ( a_h / a_j ) * ( ( 10 ) * a_k + ( min( g , a_l ) ) ) ) / ( g ) ) + ( ( a_m / a_n ) * a_o / ( g ) ) + ( a_p / ( g ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( max( ( i - j ) / ( g ) , 0 ) ) / ( ( max( ( i - j ) / ( g ) , 0 ) ) + ( ( j - h ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( f / ( g ) ) - ( ( h - f ) / ( g ) ) ) + ( k / ( g ) ) ) ) * ( ( ( 16 * max( 0 , a_h - a_i ) + ( a_h / a_j ) * ( ( 10 ) * a_k + ( min( g , a_l ) ) ) ) / ( g ) ) / ( ( min( ( 7 ) * a_e + a_f , max( a_c - a_d , 0 ) ) / ( g ) ) + ( 13 * a_g / ( g ) ) + ( min( 2 * ( a_a - r - s ) * dependentloadsweight / 100 , max( a_c - a_d , 0 ) ) / ( g ) ) + ( ( 16 * max( 0 , a_h - a_i ) + ( a_h / a_j ) * ( ( 10 ) * a_k + ( min( g , a_l ) ) ) ) / ( g ) ) + ( ( a_m / a_n ) * a_o / ( g ) ) + ( a_p / ( g ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( max( ( i - j ) / ( g ) , 0 ) ) / ( ( max( ( i - j ) / ( g ) , 0 ) ) + ( ( j - h ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( f / ( g ) ) - ( ( h - f ) / ( g ) ) ) + ( k / ( g ) ) ) ) * ( ( ( a_m / a_n ) * a_o / ( g ) ) / ( ( min( ( 7 ) * a_e + a_f , max( a_c - a_d , 0 ) ) / ( g ) ) + ( 13 * a_g / ( g ) ) + ( min( 2 * ( a_a - r - s ) * dependentloadsweight / 100 , max( a_c - a_d , 0 ) ) / ( g ) ) + ( ( 16 * max( 0 , a_h - a_i ) + ( a_h / a_j ) * ( ( 10 ) * a_k + ( min( g , a_l ) ) ) ) / ( g ) ) + ( ( a_m / a_n ) * a_o / ( g ) ) + ( a_p / ( g ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( k / ( g ) ) / ( ( max( ( i - j ) / ( g ) , 0 ) ) + ( ( j - h ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( f / ( g ) ) - ( ( h - f ) / ( g ) ) ) + ( k / ( g ) ) ) ) * ( ( a_q / ( a_r if smt_on else ( g ) ) ) / ( ( ( ( a_s * ( 10 ) * ( 1 - ( a_h / a_j ) ) ) + ( 1 - ( a_h / a_j ) ) * ( min( g , a_l ) ) ) / ( g ) ) + ( ( ( 170 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_t + ( 81 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_u ) / ( g ) ) + ( a_q / ( a_r if smt_on else ( g ) ) ) + ( 9 * a_v / ( g ) ) + ( ( ( 7 ) * a_w + a_x ) / ( a_r if smt_on else ( g ) ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( k / ( g ) ) / ( ( max( ( i - j ) / ( g ) , 0 ) ) + ( ( j - h ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( f / ( g ) ) - ( ( h - f ) / ( g ) ) ) + ( k / ( g ) ) ) ) * ( ( ( ( a_s * ( 10 ) * ( 1 - ( a_h / a_j ) ) ) + ( 1 - ( a_h / a_j ) ) * ( min( g , a_l ) ) ) / ( g ) ) / ( ( ( ( a_s * ( 10 ) * ( 1 - ( a_h / a_j ) ) ) + ( 1 - ( a_h / a_j ) ) * ( min( g , a_l ) ) ) / ( g ) ) + ( ( ( 170 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_t + ( 81 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_u ) / ( g ) ) + ( a_q / ( a_r if smt_on else ( g ) ) ) + ( 9 * a_v / ( g ) ) + ( ( ( 7 ) * a_w + a_x ) / ( a_r if smt_on else ( g ) ) ) ) ) ) )",
       "BaseFormula": " 100 * ( ( tma_memory_bound * ( tma_dram_bound / ( tma_l1_bound + tma_l2_bound + tma_l3_bound + tma_hbm_bound + tma_dram_bound + tma_store_bound ) ) * ( tma_mem_latency / ( tma_mem_bandwidth + tma_mem_latency ) ) ) + ( tma_memory_bound * tma_hbm_bound / ( tma_l1_bound + tma_l2_bound + tma_l3_bound + tma_hbm_bound + tma_dram_bound + tma_store_bound ) ) * tma_mem_latency / ( tma_mem_bandwidth + tma_mem_latency ) + ( tma_memory_bound * ( tma_l3_bound / ( tma_l1_bound + tma_l2_bound + tma_l3_bound + tma_hbm_bound + tma_dram_bound + tma_store_bound ) ) * ( tma_l3_hit_latency / ( tma_contested_accesses + tma_data_sharing + tma_l3_hit_latency + tma_sq_full ) ) ) + ( tma_memory_bound * tma_l2_bound / ( tma_l1_bound + tma_l2_bound + tma_l3_bound + tma_hbm_bound + tma_dram_bound + tma_store_bound ) ) + ( tma_memory_bound * ( tma_l1_bound / ( tma_l1_bound + tma_l2_bound + tma_l3_bound + tma_hbm_bound + tma_dram_bound + tma_store_bound ) ) * ( tma_l1_latency_dependency / ( tma_dtlb_load + tma_store_fwd_blk + tma_l1_latency_dependency + tma_lock_latency + tma_split_loads + tma_fb_full ) ) ) + ( tma_memory_bound * ( tma_l1_bound / ( tma_l1_bound + tma_l2_bound + tma_l3_bound + tma_hbm_bound + tma_dram_bound + tma_store_bound ) ) * ( tma_lock_latency / ( tma_dtlb_load + tma_store_fwd_blk + tma_l1_latency_dependency + tma_lock_latency + tma_split_loads + tma_fb_full ) ) ) + ( tma_memory_bound * ( tma_l1_bound / ( tma_l1_bound + tma_l2_bound + tma_l3_bound + tma_hbm_bound + tma_dram_bound + tma_store_bound ) ) * ( tma_split_loads / ( tma_dtlb_load + tma_store_fwd_blk + tma_l1_latency_dependency + tma_lock_latency + tma_split_loads + tma_fb_full ) ) ) + ( tma_memory_bound * ( tma_store_bound / ( tma_l1_bound + tma_l2_bound + tma_l3_bound + tma_hbm_bound + tma_dram_bound + tma_store_bound ) ) * ( tma_split_stores / ( tma_store_latency + tma_false_sharing + tma_split_stores + tma_streaming_stores + tma_dtlb_store ) ) ) + ( tma_memory_bound * ( tma_store_bound / ( tma_l1_bound + tma_l2_bound + tma_l3_bound + tma_hbm_bound + tma_dram_bound + tma_store_bound ) ) * ( tma_store_latency / ( tma_store_latency + tma_false_sharing + tma_split_stores + tma_streaming_stores + tma_dtlb_store ) ) ) )",
       "Category": "TMA",
       "CountDomain": "Scaled_Slots",
@@ -2049,60 +2033,52 @@
           "Alias": "a"
         },
         {
-          "Name": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO",
+          "Name": "MEM_LOAD_COMPLETED.L1_MISS_ANY",
           "Alias": "a_a"
         },
         {
-          "Name": "L1D_PEND_MISS.PENDING",
+          "Name": "LD_BLOCKS.NO_SR",
           "Alias": "a_b"
         },
         {
-          "Name": "MEM_LOAD_COMPLETED.L1_MISS_ANY",
+          "Name": "L1D_PEND_MISS.FB_FULL",
           "Alias": "a_c"
         },
         {
-          "Name": "LD_BLOCKS.NO_SR",
+          "Name": "DTLB_STORE_MISSES.STLB_HIT:c1",
           "Alias": "a_d"
         },
         {
-          "Name": "L1D_PEND_MISS.FB_FULL",
+          "Name": "DTLB_STORE_MISSES.WALK_ACTIVE",
           "Alias": "a_e"
         },
         {
-          "Name": "DTLB_STORE_MISSES.STLB_HIT:c1",
+          "Name": "CPU_CLK_UNHALTED.DISTRIBUTED",
           "Alias": "a_f"
         },
         {
-          "Name": "DTLB_STORE_MISSES.WALK_ACTIVE",
+          "Name": "MEM_STORE_RETIRED.L2_HIT",
           "Alias": "a_g"
         },
         {
-          "Name": "CPU_CLK_UNHALTED.DISTRIBUTED",
+          "Name": "CPU_CLK_UNHALTED.REF_TSC",
           "Alias": "a_h"
         },
         {
-          "Name": "MEM_STORE_RETIRED.L2_HIT",
-          "Alias": "a_i"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.REF_TSC",
-          "Alias": "a_j"
-        },
-        {
           "Name": "OCR.DEMAND_RFO.L3_MISS:ocr_msr_val=0x103b800002",
-          "Alias": "a_m"
+          "Alias": "a_k"
         },
         {
           "Name": "OCR.DEMAND_RFO.L3_HIT.SNOOP_HITM",
-          "Alias": "a_n"
+          "Alias": "a_l"
         },
         {
           "Name": "MEM_INST_RETIRED.SPLIT_STORES",
-          "Alias": "a_o"
+          "Alias": "a_m"
         },
         {
           "Name": "OCR.STREAMING_WR.ANY_RESPONSE",
-          "Alias": "a_p"
+          "Alias": "a_n"
         },
         {
           "Name": "PERF_METRICS.FRONTEND_BOUND",
@@ -2141,70 +2117,70 @@
           "Alias": "j"
         },
         {
-          "Name": "OCR.DEMAND_DATA_RD.PMM",
+          "Name": "EXE_ACTIVITY.BOUND_ON_STORES",
           "Alias": "k"
         },
         {
-          "Name": "OCR.READS_TO_CORE.L3_MISS",
+          "Name": "DTLB_LOAD_MISSES.STLB_HIT:c1",
           "Alias": "l"
         },
         {
-          "Name": "EXE_ACTIVITY.BOUND_ON_STORES",
+          "Name": "DTLB_LOAD_MISSES.WALK_ACTIVE",
           "Alias": "m"
         },
         {
-          "Name": "DTLB_LOAD_MISSES.STLB_HIT:c1",
+          "Name": "CYCLE_ACTIVITY.CYCLES_MEM_ANY",
           "Alias": "n"
         },
         {
-          "Name": "DTLB_LOAD_MISSES.WALK_ACTIVE",
+          "Name": "MEMORY_ACTIVITY.CYCLES_L1D_MISS",
           "Alias": "o"
         },
         {
-          "Name": "CYCLE_ACTIVITY.CYCLES_MEM_ANY",
+          "Name": "LD_BLOCKS.STORE_FORWARD",
           "Alias": "p"
         },
         {
-          "Name": "MEMORY_ACTIVITY.CYCLES_L1D_MISS",
+          "Name": "MEM_INST_RETIRED.ALL_LOADS",
           "Alias": "q"
         },
         {
-          "Name": "LD_BLOCKS.STORE_FORWARD",
+          "Name": "MEM_LOAD_RETIRED.FB_HIT",
           "Alias": "r"
         },
         {
-          "Name": "MEM_INST_RETIRED.ALL_LOADS",
+          "Name": "MEM_LOAD_RETIRED.L1_MISS",
           "Alias": "s"
         },
         {
-          "Name": "MEM_LOAD_RETIRED.FB_HIT",
-          "Alias": "t"
-        },
-        {
-          "Name": "MEM_LOAD_RETIRED.L1_MISS",
+          "Name": "MEM_INST_RETIRED.LOCK_LOADS",
           "Alias": "u"
         },
         {
-          "Name": "MEM_INST_RETIRED.LOCK_LOADS",
-          "Alias": "w"
-        },
-        {
           "Name": "L2_RQSTS.ALL_RFO",
-          "Alias": "x"
+          "Alias": "v"
         },
         {
           "Name": "MEM_INST_RETIRED.ALL_STORES",
-          "Alias": "y"
+          "Alias": "w"
         },
         {
           "Name": "L2_RQSTS.RFO_HIT",
+          "Alias": "x"
+        },
+        {
+          "Name": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO",
+          "Alias": "y"
+        },
+        {
+          "Name": "L1D_PEND_MISS.PENDING",
           "Alias": "z"
         }
       ],
       "Constants": [
         {
           "Name": "SYSTEM_TSC_FREQ",
-          "Alias": "a_k"
+          "Alias": "a_i"
         },
         {
           "Name": "20",
@@ -2223,7 +2199,7 @@
           "Alias": "threads"
         }
       ],
-      "Formula": "100 * ( ( a / ( b + c + d + e ) ) * ( ( max( ( f - g ) / ( h ) , 0 ) ) / max( ( a / ( b + c + d + e ) ) , ( ( max( ( f - g ) / ( h ) , 0 ) ) + ( ( g - i ) / ( h ) ) + ( ( i - j ) / ( h ) ) + ( ( j / ( h ) ) * k / l ) + ( ( j / ( h ) ) - ( ( j / ( h ) ) * k / l ) ) + ( m / ( h ) ) ) ) ) * ( ( min( ( 7 ) * n + o , max( p - q , 0 ) ) / ( h ) ) / max( ( max( ( f - g ) / ( h ) , 0 ) ) , ( ( min( ( 7 ) * n + o , max( p - q , 0 ) ) / ( h ) ) + ( 13 * r / ( h ) ) + ( min( 2 * ( s - t - u ) * dependentloadsweight / 100 , max( p - q , 0 ) ) / ( h ) ) + ( ( 16 * max( 0 , w - x ) + ( w / y ) * ( ( 10 ) * z + ( min( h , a_a ) ) ) ) / ( h ) ) + ( ( a_b / a_c ) * a_d / ( h ) ) + ( a_e / ( h ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( m / ( h ) ) / ( ( max( ( f - g ) / ( h ) , 0 ) ) + ( ( g - i ) / ( h ) ) + ( ( i - j ) / ( h ) ) + ( ( j / ( h ) ) * k / l ) + ( ( j / ( h ) ) - ( ( j / ( h ) ) * k / l ) ) + ( m / ( h ) ) ) ) * ( ( ( ( 7 ) * a_f + a_g ) / ( a_h if smt_on else ( h ) ) ) / ( ( ( ( a_i * ( 10 ) * ( 1 - ( w / y ) ) ) + ( 1 - ( w / y ) ) * ( min( h , a_a ) ) ) / ( h ) ) + ( ( ( 170 * ( ( ( h ) / a_j ) * a_k / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_m + ( 81 * ( ( ( h ) / a_j ) * a_k / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_n ) / ( h ) ) + ( a_o / ( a_h if smt_on else ( h ) ) ) + ( 9 * a_p / ( h ) ) + ( ( ( 7 ) * a_f + a_g ) / ( a_h if smt_on else ( h ) ) ) ) ) ) )",
+      "Formula": "100 * ( ( a / ( b + c + d + e ) ) * ( ( max( ( f - g ) / ( h ) , 0 ) ) / max( ( a / ( b + c + d + e ) ) , ( ( max( ( f - g ) / ( h ) , 0 ) ) + ( ( g - i ) / ( h ) ) + ( ( i - j ) / ( h ) ) + ( ( i - j ) / ( h ) ) + ( ( j / ( h ) ) - ( ( i - j ) / ( h ) ) ) + ( k / ( h ) ) ) ) ) * ( ( min( ( 7 ) * l + m , max( n - o , 0 ) ) / ( h ) ) / max( ( max( ( f - g ) / ( h ) , 0 ) ) , ( ( min( ( 7 ) * l + m , max( n - o , 0 ) ) / ( h ) ) + ( 13 * p / ( h ) ) + ( min( 2 * ( q - r - s ) * dependentloadsweight / 100 , max( n - o , 0 ) ) / ( h ) ) + ( ( 16 * max( 0 , u - v ) + ( u / w ) * ( ( 10 ) * x + ( min( h , y ) ) ) ) / ( h ) ) + ( ( z / a_a ) * a_b / ( h ) ) + ( a_c / ( h ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( k / ( h ) ) / ( ( max( ( f - g ) / ( h ) , 0 ) ) + ( ( g - i ) / ( h ) ) + ( ( i - j ) / ( h ) ) + ( ( i - j ) / ( h ) ) + ( ( j / ( h ) ) - ( ( i - j ) / ( h ) ) ) + ( k / ( h ) ) ) ) * ( ( ( ( 7 ) * a_d + a_e ) / ( a_f if smt_on else ( h ) ) ) / ( ( ( ( a_g * ( 10 ) * ( 1 - ( u / w ) ) ) + ( 1 - ( u / w ) ) * ( min( h , y ) ) ) / ( h ) ) + ( ( ( 170 * ( ( ( h ) / a_h ) * a_i / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_k + ( 81 * ( ( ( h ) / a_h ) * a_i / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_l ) / ( h ) ) + ( a_m / ( a_f if smt_on else ( h ) ) ) + ( 9 * a_n / ( h ) ) + ( ( ( 7 ) * a_d + a_e ) / ( a_f if smt_on else ( h ) ) ) ) ) ) )",
       "BaseFormula": " 100 * ( tma_memory_bound * ( tma_l1_bound / max( tma_memory_bound , ( tma_l1_bound + tma_l2_bound + tma_l3_bound + tma_hbm_bound + tma_dram_bound + tma_store_bound ) ) ) * ( tma_dtlb_load / max( tma_l1_bound , ( tma_dtlb_load + tma_store_fwd_blk + tma_l1_latency_dependency + tma_lock_latency + tma_split_loads + tma_fb_full ) ) ) + ( tma_memory_bound * ( tma_store_bound / ( tma_l1_bound + tma_l2_bound + tma_l3_bound + tma_hbm_bound + tma_dram_bound + tma_store_bound ) ) * ( tma_dtlb_store / ( tma_store_latency + tma_false_sharing + tma_split_stores + tma_streaming_stores + tma_dtlb_store ) ) ) )",
       "Category": "TMA",
       "CountDomain": "Scaled_Slots",
@@ -2254,92 +2230,84 @@
           "Alias": "a"
         },
         {
-          "Name": "OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HIT_WITH_FWD",
+          "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_NO_FWD",
           "Alias": "a_a"
         },
         {
-          "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS",
+          "Name": "MEM_LOAD_RETIRED.L3_HIT",
           "Alias": "a_b"
         },
         {
-          "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_NO_FWD",
+          "Name": "XQ.FULL_CYCLES",
           "Alias": "a_c"
         },
         {
-          "Name": "MEM_LOAD_RETIRED.L3_HIT",
+          "Name": "L1D_PEND_MISS.L2_STALLS",
           "Alias": "a_d"
         },
         {
-          "Name": "XQ.FULL_CYCLES",
+          "Name": "OCR.DEMAND_RFO.L3_MISS:ocr_msr_val=0x103b800002",
           "Alias": "a_e"
         },
         {
-          "Name": "L1D_PEND_MISS.L2_STALLS",
+          "Name": "OCR.DEMAND_RFO.L3_HIT.SNOOP_HITM",
           "Alias": "a_f"
         },
         {
-          "Name": "OCR.DEMAND_RFO.L3_MISS:ocr_msr_val=0x103b800002",
+          "Name": "MEM_STORE_RETIRED.L2_HIT",
           "Alias": "a_g"
         },
         {
-          "Name": "OCR.DEMAND_RFO.L3_HIT.SNOOP_HITM",
+          "Name": "MEM_INST_RETIRED.LOCK_LOADS",
           "Alias": "a_h"
         },
         {
-          "Name": "MEM_STORE_RETIRED.L2_HIT",
+          "Name": "MEM_INST_RETIRED.ALL_STORES",
           "Alias": "a_i"
         },
         {
-          "Name": "MEM_INST_RETIRED.LOCK_LOADS",
+          "Name": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO",
           "Alias": "a_j"
         },
         {
-          "Name": "MEM_INST_RETIRED.ALL_STORES",
+          "Name": "MEM_INST_RETIRED.SPLIT_STORES",
           "Alias": "a_k"
         },
         {
-          "Name": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO",
+          "Name": "CPU_CLK_UNHALTED.DISTRIBUTED",
           "Alias": "a_l"
         },
         {
-          "Name": "MEM_INST_RETIRED.SPLIT_STORES",
+          "Name": "OCR.STREAMING_WR.ANY_RESPONSE",
           "Alias": "a_m"
         },
         {
-          "Name": "CPU_CLK_UNHALTED.DISTRIBUTED",
+          "Name": "DTLB_STORE_MISSES.STLB_HIT:c1",
           "Alias": "a_n"
         },
         {
-          "Name": "OCR.STREAMING_WR.ANY_RESPONSE",
+          "Name": "DTLB_STORE_MISSES.WALK_ACTIVE",
           "Alias": "a_o"
         },
         {
-          "Name": "DTLB_STORE_MISSES.STLB_HIT:c1",
+          "Name": "INT_MISC.UOP_DROPPING",
           "Alias": "a_p"
         },
         {
-          "Name": "DTLB_STORE_MISSES.WALK_ACTIVE",
+          "Name": "TOPDOWN.SLOTS:perf_metrics",
           "Alias": "a_q"
         },
         {
-          "Name": "INT_MISC.UOP_DROPPING",
+          "Name": "PERF_METRICS.BRANCH_MISPREDICTS",
           "Alias": "a_r"
         },
         {
-          "Name": "TOPDOWN.SLOTS:perf_metrics",
+          "Name": "MACHINE_CLEARS.MEMORY_ORDERING",
           "Alias": "a_s"
         },
         {
-          "Name": "PERF_METRICS.BRANCH_MISPREDICTS",
-          "Alias": "a_t"
-        },
-        {
-          "Name": "MACHINE_CLEARS.MEMORY_ORDERING",
-          "Alias": "a_u"
-        },
-        {
           "Name": "MACHINE_CLEARS.COUNT",
-          "Alias": "a_v"
+          "Alias": "a_t"
         },
         {
           "Name": "PERF_METRICS.FRONTEND_BOUND",
@@ -2366,71 +2334,71 @@
           "Alias": "g"
         },
         {
-          "Name": "OCR.DEMAND_DATA_RD.PMM",
+          "Name": "MEMORY_ACTIVITY.STALLS_L2_MISS",
           "Alias": "h"
         },
         {
-          "Name": "OCR.READS_TO_CORE.L3_MISS",
+          "Name": "EXE_ACTIVITY.BOUND_ON_LOADS",
           "Alias": "i"
         },
         {
-          "Name": "EXE_ACTIVITY.BOUND_ON_LOADS",
+          "Name": "MEMORY_ACTIVITY.STALLS_L1D_MISS",
           "Alias": "j"
         },
         {
-          "Name": "MEMORY_ACTIVITY.STALLS_L1D_MISS",
+          "Name": "EXE_ACTIVITY.BOUND_ON_STORES",
           "Alias": "k"
         },
         {
-          "Name": "MEMORY_ACTIVITY.STALLS_L2_MISS",
+          "Name": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DATA_RD",
           "Alias": "l"
         },
         {
-          "Name": "EXE_ACTIVITY.BOUND_ON_STORES",
+          "Name": "OFFCORE_REQUESTS_OUTSTANDING.ALL_DATA_RD:c4",
           "Alias": "m"
         },
         {
-          "Name": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DATA_RD",
+          "Name": "CPU_CLK_UNHALTED.REF_TSC",
           "Alias": "n"
         },
         {
-          "Name": "OFFCORE_REQUESTS_OUTSTANDING.ALL_DATA_RD:c4",
-          "Alias": "o"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.REF_TSC",
-          "Alias": "p"
-        },
-        {
           "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM",
-          "Alias": "s"
+          "Alias": "q"
         },
         {
           "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD",
-          "Alias": "t"
+          "Alias": "r"
         },
         {
           "Name": "MEM_LOAD_RETIRED.FB_HIT",
-          "Alias": "u"
+          "Alias": "s"
         },
         {
           "Name": "MEM_LOAD_RETIRED.L1_MISS",
-          "Alias": "v"
+          "Alias": "t"
         },
         {
           "Name": "MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM",
-          "Alias": "w"
+          "Alias": "u"
         },
         {
           "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM",
-          "Alias": "x"
+          "Alias": "v"
         },
         {
           "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_FWD",
-          "Alias": "y"
+          "Alias": "w"
         },
         {
           "Name": "OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HITM",
+          "Alias": "x"
+        },
+        {
+          "Name": "OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HIT_WITH_FWD",
+          "Alias": "y"
+        },
+        {
+          "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS",
           "Alias": "z"
         }
       ],
@@ -2441,7 +2409,7 @@
         },
         {
           "Name": "SYSTEM_TSC_FREQ",
-          "Alias": "q"
+          "Alias": "o"
         },
         {
           "Name": "HYPERTHREADING_ON",
@@ -2452,7 +2420,7 @@
           "Alias": "threads"
         }
       ],
-      "Formula": "100 * ( ( a / ( b + c + d + e ) ) * ( ( ( ( f / ( g ) ) - ( ( f / ( g ) ) * h / i ) ) / ( ( max( ( j - k ) / ( g ) , 0 ) ) + ( ( k - l ) / ( g ) ) + ( ( l - f ) / ( g ) ) + ( ( f / ( g ) ) * h / i ) + ( ( f / ( g ) ) - ( ( f / ( g ) ) * h / i ) ) + ( m / ( g ) ) ) ) * ( ( ( min( g , n ) ) / ( g ) - ( ( min( g , o ) ) / ( g ) ) ) / ( ( ( min( g , o ) ) / ( g ) ) + ( ( min( g , n ) ) / ( g ) - ( ( min( g , o ) ) / ( g ) ) ) ) ) * ( ( ( ( 170 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * s + ( ( 170 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * t ) * ( 1 + ( u / v ) / 2 ) / ( g ) ) / ( ( ( ( 109 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * w * ( 1 + ( u / v ) / 2 ) / ( g ) ) + ( ( ( 190 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * x * ( 1 + ( u / v ) / 2 ) / ( g ) ) + ( ( ( ( 170 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * s + ( ( 170 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * t ) * ( 1 + ( u / v ) / 2 ) / ( g ) ) ) + ( ( ( l - f ) / ( g ) ) / ( ( max( ( j - k ) / ( g ) , 0 ) ) + ( ( k - l ) / ( g ) ) + ( ( l - f ) / ( g ) ) + ( ( f / ( g ) ) * h / i ) + ( ( f / ( g ) ) - ( ( f / ( g ) ) * h / i ) ) + ( m / ( g ) ) ) ) * ( ( ( ( ( 81 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( y * ( z / ( z + a_a ) ) ) + ( ( 79 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_b ) ) * ( 1 + ( u / v ) / 2 ) / ( g ) ) + ( ( ( 79 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_c + y * ( 1 - ( z / ( z + a_a ) ) ) ) * ( 1 + ( u / v ) / 2 ) / ( g ) ) ) / ( ( ( ( ( 81 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( y * ( z / ( z + a_a ) ) ) + ( ( 79 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_b ) ) * ( 1 + ( u / v ) / 2 ) / ( g ) ) + ( ( ( 79 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_c + y * ( 1 - ( z / ( z + a_a ) ) ) ) * ( 1 + ( u / v ) / 2 ) / ( g ) ) + ( ( ( 37 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_d * ( 1 + ( u / v ) / 2 ) ) / ( g ) ) + ( ( a_e + a_f ) / ( g ) ) ) + ( ( m / ( g ) ) / ( ( max( ( j - k ) / ( g ) , 0 ) ) + ( ( k - l ) / ( g ) ) + ( ( l - f ) / ( g ) ) + ( ( f / ( g ) ) * h / i ) + ( ( f / ( g ) ) - ( ( f / ( g ) ) * h / i ) ) + ( m / ( g ) ) ) ) * ( ( ( 170 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_g + ( 81 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_h ) / ( g ) ) / ( ( ( ( ( a_i * ( 10 ) * ( 1 - ( a_j / a_k ) ) ) + ( 1 - ( a_j / a_k ) ) * ( min( g , a_l ) ) ) / ( g ) ) + ( ( ( 170 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_g + ( 81 * ( ( ( g ) / p ) * q / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_h ) / ( g ) ) + ( a_m / ( a_n if smt_on else ( g ) ) ) + ( 9 * a_o / ( g ) ) + ( ( ( 7 ) * a_p + a_q ) / ( a_n if smt_on else ( g ) ) ) ) - ( ( ( a_i * ( 10 ) * ( 1 - ( a_j / a_k ) ) ) + ( 1 - ( a_j / a_k ) ) * ( min( g , a_l ) ) ) / ( g ) ) ) ) + ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - a_r / ( a_s ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( a_t / ( b + c + d + e ) ) ) ) * ( 1 - ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - a_r / ( a_s ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( a_t / ( b + c + d + e ) ) ) ) * ( 1 - a_u / a_v ) , 0.0001 ) ) / ( ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - a_r / ( a_s ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( a_t / ( b + c + d + e ) ) ) ) * ( 1 - a_u / a_v ) , 0.0001 ) ) ) ) )",
+      "Formula": "100 * ( ( a / ( b + c + d + e ) ) * ( ( ( ( f / ( g ) ) - ( ( h - f ) / ( g ) ) ) / ( ( max( ( i - j ) / ( g ) , 0 ) ) + ( ( j - h ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( f / ( g ) ) - ( ( h - f ) / ( g ) ) ) + ( k / ( g ) ) ) ) * ( ( ( min( g , l ) ) / ( g ) - ( ( min( g , m ) ) / ( g ) ) ) / ( ( ( min( g , m ) ) / ( g ) ) + ( ( min( g , l ) ) / ( g ) - ( ( min( g , m ) ) / ( g ) ) ) ) ) * ( ( ( ( 170 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * q + ( ( 170 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * r ) * ( 1 + ( s / t ) / 2 ) / ( g ) ) / ( ( ( ( 109 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * u * ( 1 + ( s / t ) / 2 ) / ( g ) ) + ( ( ( 190 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * v * ( 1 + ( s / t ) / 2 ) / ( g ) ) + ( ( ( ( 170 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * q + ( ( 170 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * r ) * ( 1 + ( s / t ) / 2 ) / ( g ) ) ) + ( ( ( h - f ) / ( g ) ) / ( ( max( ( i - j ) / ( g ) , 0 ) ) + ( ( j - h ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( f / ( g ) ) - ( ( h - f ) / ( g ) ) ) + ( k / ( g ) ) ) ) * ( ( ( ( ( 81 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( w * ( x / ( x + y ) ) ) + ( ( 79 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( z ) ) * ( 1 + ( s / t ) / 2 ) / ( g ) ) + ( ( ( 79 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_a + w * ( 1 - ( x / ( x + y ) ) ) ) * ( 1 + ( s / t ) / 2 ) / ( g ) ) ) / ( ( ( ( ( 81 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( w * ( x / ( x + y ) ) ) + ( ( 79 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( z ) ) * ( 1 + ( s / t ) / 2 ) / ( g ) ) + ( ( ( 79 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_a + w * ( 1 - ( x / ( x + y ) ) ) ) * ( 1 + ( s / t ) / 2 ) / ( g ) ) + ( ( ( 37 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_b * ( 1 + ( s / t ) / 2 ) ) / ( g ) ) + ( ( a_c + a_d ) / ( g ) ) ) + ( ( k / ( g ) ) / ( ( max( ( i - j ) / ( g ) , 0 ) ) + ( ( j - h ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( h - f ) / ( g ) ) + ( ( f / ( g ) ) - ( ( h - f ) / ( g ) ) ) + ( k / ( g ) ) ) ) * ( ( ( 170 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_e + ( 81 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_f ) / ( g ) ) / ( ( ( ( ( a_g * ( 10 ) * ( 1 - ( a_h / a_i ) ) ) + ( 1 - ( a_h / a_i ) ) * ( min( g , a_j ) ) ) / ( g ) ) + ( ( ( 170 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_e + ( 81 * ( ( ( g ) / n ) * o / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * a_f ) / ( g ) ) + ( a_k / ( a_l if smt_on else ( g ) ) ) + ( 9 * a_m / ( g ) ) + ( ( ( 7 ) * a_n + a_o ) / ( a_l if smt_on else ( g ) ) ) ) - ( ( ( a_g * ( 10 ) * ( 1 - ( a_h / a_i ) ) ) + ( 1 - ( a_h / a_i ) ) * ( min( g , a_j ) ) ) / ( g ) ) ) ) + ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - a_p / ( a_q ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( a_r / ( b + c + d + e ) ) ) ) * ( 1 - ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - a_p / ( a_q ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( a_r / ( b + c + d + e ) ) ) ) * ( 1 - a_s / a_t ) , 0.0001 ) ) / ( ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - a_p / ( a_q ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( a_r / ( b + c + d + e ) ) ) ) * ( 1 - a_s / a_t ) , 0.0001 ) ) ) ) )",
       "BaseFormula": " 100 * ( tma_memory_bound * ( ( tma_dram_bound / ( tma_l1_bound + tma_l2_bound + tma_l3_bound + tma_hbm_bound + tma_dram_bound + tma_store_bound ) ) * ( tma_mem_latency / ( tma_mem_bandwidth + tma_mem_latency ) ) * tma_remote_cache / ( tma_local_mem + tma_remote_mem + tma_remote_cache ) + ( tma_l3_bound / ( tma_l1_bound + tma_l2_bound + tma_l3_bound + tma_hbm_bound + tma_dram_bound + tma_store_bound ) ) * ( tma_contested_accesses + tma_data_sharing ) / ( tma_contested_accesses + tma_data_sharing + tma_l3_hit_latency + tma_sq_full ) + ( tma_store_bound / ( tma_l1_bound + tma_l2_bound + tma_l3_bound + tma_hbm_bound + tma_dram_bound + tma_store_bound ) ) * tma_false_sharing / ( ( tma_store_latency + tma_false_sharing + tma_split_stores + tma_streaming_stores + tma_dtlb_store ) - tma_store_latency ) ) + tma_machine_clears * ( 1 - tma_other_nukes / ( tma_other_nukes ) ) )",
       "Category": "TMA",
       "CountDomain": "Scaled_Slots",
@@ -2833,75 +2801,75 @@
           "Alias": "a_f"
         },
         {
-          "Name": "OCR.DEMAND_DATA_RD.PMM",
+          "Name": "MEMORY_ACTIVITY.STALLS_L2_MISS",
           "Alias": "a_g"
         },
         {
-          "Name": "OCR.READS_TO_CORE.L3_MISS",
+          "Name": "EXE_ACTIVITY.BOUND_ON_LOADS",
           "Alias": "a_h"
         },
         {
-          "Name": "EXE_ACTIVITY.BOUND_ON_LOADS",
+          "Name": "MEMORY_ACTIVITY.STALLS_L1D_MISS",
           "Alias": "a_i"
         },
         {
-          "Name": "MEMORY_ACTIVITY.STALLS_L1D_MISS",
+          "Name": "EXE_ACTIVITY.BOUND_ON_STORES",
           "Alias": "a_j"
         },
         {
-          "Name": "MEMORY_ACTIVITY.STALLS_L2_MISS",
+          "Name": "OFFCORE_REQUESTS_OUTSTANDING.ALL_DATA_RD:c4",
           "Alias": "a_k"
         },
         {
-          "Name": "EXE_ACTIVITY.BOUND_ON_STORES",
+          "Name": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DATA_RD",
           "Alias": "a_l"
         },
         {
-          "Name": "OFFCORE_REQUESTS_OUTSTANDING.ALL_DATA_RD:c4",
+          "Name": "XQ.FULL_CYCLES",
           "Alias": "a_m"
         },
         {
-          "Name": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DATA_RD",
+          "Name": "L1D_PEND_MISS.L2_STALLS",
           "Alias": "a_n"
         },
         {
-          "Name": "XQ.FULL_CYCLES",
+          "Name": "CPU_CLK_UNHALTED.REF_TSC",
           "Alias": "a_o"
         },
         {
-          "Name": "L1D_PEND_MISS.L2_STALLS",
-          "Alias": "a_p"
-        },
-        {
-          "Name": "CPU_CLK_UNHALTED.REF_TSC",
-          "Alias": "a_q"
-        },
-        {
           "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_FWD",
-          "Alias": "a_t"
+          "Alias": "a_r"
         },
         {
           "Name": "OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HITM",
-          "Alias": "a_u"
+          "Alias": "a_s"
         },
         {
           "Name": "OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HIT_WITH_FWD",
-          "Alias": "a_v"
+          "Alias": "a_t"
         },
         {
           "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS",
-          "Alias": "a_w"
+          "Alias": "a_u"
         },
         {
           "Name": "MEM_LOAD_RETIRED.FB_HIT",
-          "Alias": "a_x"
+          "Alias": "a_v"
         },
         {
           "Name": "MEM_LOAD_RETIRED.L1_MISS",
-          "Alias": "a_y"
+          "Alias": "a_w"
         },
         {
           "Name": "MEM_LOAD_L3_HIT_RETIRED.XSNP_NO_FWD",
+          "Alias": "a_x"
+        },
+        {
+          "Name": "MEM_LOAD_RETIRED.L3_HIT",
+          "Alias": "a_y"
+        },
+        {
+          "Name": "L1D_PEND_MISS.FB_FULL",
           "Alias": "a_z"
         },
         {
@@ -2909,103 +2877,103 @@
           "Alias": "b"
         },
         {
-          "Name": "MEM_LOAD_RETIRED.L3_HIT",
+          "Name": "DTLB_LOAD_MISSES.STLB_HIT:c1",
           "Alias": "b_a"
         },
         {
-          "Name": "L1D_PEND_MISS.FB_FULL",
+          "Name": "DTLB_LOAD_MISSES.WALK_ACTIVE",
           "Alias": "b_b"
         },
         {
-          "Name": "DTLB_LOAD_MISSES.STLB_HIT:c1",
+          "Name": "CYCLE_ACTIVITY.CYCLES_MEM_ANY",
           "Alias": "b_c"
         },
         {
-          "Name": "DTLB_LOAD_MISSES.WALK_ACTIVE",
+          "Name": "MEMORY_ACTIVITY.CYCLES_L1D_MISS",
           "Alias": "b_d"
         },
         {
-          "Name": "CYCLE_ACTIVITY.CYCLES_MEM_ANY",
+          "Name": "LD_BLOCKS.STORE_FORWARD",
           "Alias": "b_e"
         },
         {
-          "Name": "MEMORY_ACTIVITY.CYCLES_L1D_MISS",
+          "Name": "MEM_INST_RETIRED.ALL_LOADS",
           "Alias": "b_f"
         },
         {
-          "Name": "LD_BLOCKS.STORE_FORWARD",
-          "Alias": "b_g"
-        },
-        {
-          "Name": "MEM_INST_RETIRED.ALL_LOADS",
+          "Name": "MEM_INST_RETIRED.LOCK_LOADS",
           "Alias": "b_h"
         },
         {
-          "Name": "MEM_INST_RETIRED.LOCK_LOADS",
-          "Alias": "b_j"
-        },
-        {
           "Name": "L2_RQSTS.ALL_RFO",
-          "Alias": "b_k"
+          "Alias": "b_i"
         },
         {
           "Name": "MEM_INST_RETIRED.ALL_STORES",
-          "Alias": "b_l"
+          "Alias": "b_j"
         },
         {
           "Name": "L2_RQSTS.RFO_HIT",
-          "Alias": "b_m"
+          "Alias": "b_k"
         },
         {
           "Name": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO",
-          "Alias": "b_n"
+          "Alias": "b_l"
         },
         {
           "Name": "L1D_PEND_MISS.PENDING",
-          "Alias": "b_o"
+          "Alias": "b_m"
         },
         {
           "Name": "MEM_LOAD_COMPLETED.L1_MISS_ANY",
-          "Alias": "b_p"
+          "Alias": "b_n"
         },
         {
           "Name": "LD_BLOCKS.NO_SR",
-          "Alias": "b_q"
+          "Alias": "b_o"
         },
         {
           "Name": "MEM_INST_RETIRED.SPLIT_STORES",
-          "Alias": "b_r"
+          "Alias": "b_p"
         },
         {
           "Name": "MEM_STORE_RETIRED.L2_HIT",
-          "Alias": "b_s"
+          "Alias": "b_q"
         },
         {
           "Name": "OCR.DEMAND_RFO.L3_MISS:ocr_msr_val=0x103b800002",
-          "Alias": "b_t"
+          "Alias": "b_r"
         },
         {
           "Name": "OCR.DEMAND_RFO.L3_HIT.SNOOP_HITM",
-          "Alias": "b_u"
+          "Alias": "b_s"
         },
         {
           "Name": "OCR.STREAMING_WR.ANY_RESPONSE",
-          "Alias": "b_v"
+          "Alias": "b_t"
         },
         {
           "Name": "DTLB_STORE_MISSES.STLB_HIT:c1",
-          "Alias": "b_w"
+          "Alias": "b_u"
         },
         {
           "Name": "DTLB_STORE_MISSES.WALK_ACTIVE",
-          "Alias": "b_x"
+          "Alias": "b_v"
         },
         {
           "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_HITM",
-          "Alias": "b_y"
+          "Alias": "b_w"
         },
         {
           "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_FWD",
+          "Alias": "b_x"
+        },
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM",
+          "Alias": "b_y"
+        },
+        {
+          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM",
           "Alias": "b_z"
         },
         {
@@ -3013,80 +2981,72 @@
           "Alias": "c"
         },
         {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM",
+          "Name": "MACHINE_CLEARS.MEMORY_ORDERING",
           "Alias": "c_a"
         },
         {
-          "Name": "MEM_LOAD_L3_MISS_RETIRED.REMOTE_DRAM",
+          "Name": "ARITH.DIV_ACTIVE",
           "Alias": "c_b"
         },
         {
-          "Name": "MACHINE_CLEARS.MEMORY_ORDERING",
+          "Name": "RESOURCE_STALLS.SCOREBOARD",
           "Alias": "c_c"
         },
         {
-          "Name": "ARITH.DIV_ACTIVE",
+          "Name": "CPU_CLK_UNHALTED.C02",
           "Alias": "c_d"
         },
         {
-          "Name": "RESOURCE_STALLS.SCOREBOARD",
+          "Name": "EXE.AMX_BUSY",
           "Alias": "c_e"
         },
         {
-          "Name": "CPU_CLK_UNHALTED.C02",
+          "Name": "EXE_ACTIVITY.EXE_BOUND_0_PORTS",
           "Alias": "c_f"
         },
         {
-          "Name": "EXE.AMX_BUSY",
+          "Name": "RS.EMPTY_RESOURCE",
           "Alias": "c_g"
         },
         {
-          "Name": "EXE_ACTIVITY.EXE_BOUND_0_PORTS",
+          "Name": "CYCLE_ACTIVITY.STALLS_TOTAL",
           "Alias": "c_h"
         },
         {
-          "Name": "RS.EMPTY_RESOURCE",
+          "Name": "EXE_ACTIVITY.1_PORTS_UTIL",
           "Alias": "c_i"
         },
         {
-          "Name": "CYCLE_ACTIVITY.STALLS_TOTAL",
+          "Name": "EXE_ACTIVITY.2_3_PORTS_UTIL",
           "Alias": "c_j"
         },
         {
-          "Name": "EXE_ACTIVITY.1_PORTS_UTIL",
+          "Name": "UOPS_EXECUTED.CYCLES_GE_3",
           "Alias": "c_k"
         },
         {
-          "Name": "EXE_ACTIVITY.2_3_PORTS_UTIL",
+          "Name": "EXE_ACTIVITY.2_PORTS_UTIL",
           "Alias": "c_l"
         },
         {
-          "Name": "UOPS_EXECUTED.CYCLES_GE_3",
+          "Name": "PERF_METRICS.HEAVY_OPERATIONS",
           "Alias": "c_m"
         },
         {
-          "Name": "EXE_ACTIVITY.2_PORTS_UTIL",
+          "Name": "ASSISTS.ANY",
           "Alias": "c_n"
         },
         {
-          "Name": "PERF_METRICS.HEAVY_OPERATIONS",
+          "Name": "BR_INST_RETIRED.ALL_BRANCHES",
           "Alias": "c_o"
         },
         {
-          "Name": "ASSISTS.ANY",
+          "Name": "BR_INST_RETIRED.NEAR_CALL",
           "Alias": "c_p"
         },
         {
-          "Name": "BR_INST_RETIRED.ALL_BRANCHES",
-          "Alias": "c_q"
-        },
-        {
-          "Name": "BR_INST_RETIRED.NEAR_CALL",
-          "Alias": "c_r"
-        },
-        {
           "Name": "INST_RETIRED.NOP",
-          "Alias": "c_s"
+          "Alias": "c_q"
         },
         {
           "Name": "PERF_METRICS.RETIRING",
@@ -3184,7 +3144,7 @@
       "Constants": [
         {
           "Name": "SYSTEM_TSC_FREQ",
-          "Alias": "a_r"
+          "Alias": "a_p"
         },
         {
           "Name": "20",
@@ -3203,8 +3163,8 @@
           "Alias": "threads"
         }
       ],
-      "Formula": "100 - ( ( 100 * ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( h / ( i ) ) + ( j / ( i ) ) + ( k / ( i ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( ( 3 ) * m / ( n / o ) / ( i ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) + ( 100 * ( ( b / ( b + c + d + e ) - f / ( g ) ) - ( 1 - ( 10 * ( r / ( g ) ) * ( max( ( s / ( b + c + d + e ) ) * ( 1 - t / ( u - v ) ) , 0.0001 ) ) / ( s / ( b + c + d + e ) ) ) ) * ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( ( 3 ) * m / ( n / o ) / ( i ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) - ( ( 1 - w / x ) * ( ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( ( 3 ) * m / ( n / o ) / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) * ( ( ( 1 - ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) ) * l / ( i ) ) + ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) * ( max( ( s / ( b + c + d + e ) ) * ( 1 - t / ( u - v ) ) , 0.0001 ) ) / ( s / ( b + c + d + e ) ) ) / ( ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) + ( ( 1 - ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) ) * l / ( i ) ) + ( k / ( i ) ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( ( 3 ) * m / ( n / o ) / ( i ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) + ( max( 0 , ( b / ( b + c + d + e ) - f / ( g ) ) - ( ( a / ( b + c + d + e ) - f / ( g ) ) ) ) ) * ( max( y , x / ( n / o ) ) / ( z if smt_on else ( i ) ) / 2 ) / ( ( ( a_a - a_b ) / ( z if smt_on else ( i ) ) / 2 ) + ( ( a_c - a_d ) / ( z if smt_on else ( i ) ) / 2 ) + ( max( y , x / ( n / o ) ) / ( z if smt_on else ( i ) ) / 2 ) ) ) ) ) - ( 100 * ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( h / ( i ) ) + ( j / ( i ) ) + ( k / ( i ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( ( 3 ) * m / ( n / o ) / ( i ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) ) + ( 100 * ( 1 - ( 10 * ( r / ( g ) ) * ( max( ( s / ( b + c + d + e ) ) * ( 1 - t / ( u - v ) ) , 0.0001 ) ) / ( s / ( b + c + d + e ) ) ) ) * ( ( s / ( b + c + d + e ) ) + ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( ( 3 ) * m / ( n / o ) / ( i ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) ) + ( ( 100 * ( ( ( a_e / ( b + c + d + e ) ) * ( ( ( a_f / ( i ) ) - ( ( a_f / ( i ) ) * a_g / a_h ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) * a_g / a_h ) + ( ( a_f / ( i ) ) - ( ( a_f / ( i ) ) * a_g / a_h ) ) + ( a_l / ( i ) ) ) ) * ( ( ( min( i , a_m ) ) / ( i ) ) / ( ( ( min( i , a_m ) ) / ( i ) ) + ( ( min( i , a_n ) ) / ( i ) - ( ( min( i , a_m ) ) / ( i ) ) ) ) ) ) + ( ( a_e / ( b + c + d + e ) ) * ( ( a_f / ( i ) ) * a_g / a_h ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) * a_g / a_h ) + ( ( a_f / ( i ) ) - ( ( a_f / ( i ) ) * a_g / a_h ) ) + ( a_l / ( i ) ) ) ) * ( ( min( i , a_m ) ) / ( i ) ) / ( ( ( min( i , a_m ) ) / ( i ) ) + ( ( min( i , a_n ) ) / ( i ) - ( ( min( i , a_m ) ) / ( i ) ) ) ) + ( ( a_e / ( b + c + d + e ) ) * ( ( ( a_k - a_f ) / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) * a_g / a_h ) + ( ( a_f / ( i ) ) - ( ( a_f / ( i ) ) * a_g / a_h ) ) + ( a_l / ( i ) ) ) ) * ( ( ( a_o + a_p ) / ( i ) ) / ( ( ( ( ( 81 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_t * ( a_u / ( a_u + a_v ) ) ) + ( ( 79 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_w ) ) * ( 1 + ( a_x / a_y ) / 2 ) / ( i ) ) + ( ( ( 79 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_z + a_t * ( 1 - ( a_u / ( a_u + a_v ) ) ) ) * ( 1 + ( a_x / a_y ) / 2 ) / ( i ) ) + ( ( ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( b_a * ( 1 + ( a_x / a_y ) / 2 ) ) / ( i ) ) + ( ( a_o + a_p ) / ( i ) ) ) ) ) + ( ( a_e / ( b + c + d + e ) ) * ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) * a_g / a_h ) + ( ( a_f / ( i ) ) - ( ( a_f / ( i ) ) * a_g / a_h ) ) + ( a_l / ( i ) ) ) ) * ( ( b_b / ( i ) ) / ( ( min( ( 7 ) * b_c + b_d , max( b_e - b_f , 0 ) ) / ( i ) ) + ( 13 * b_g / ( i ) ) + ( min( 2 * ( b_h - a_x - a_y ) * dependentloadsweight / 100 , max( b_e - b_f , 0 ) ) / ( i ) ) + ( ( 16 * max( 0 , b_j - b_k ) + ( b_j / b_l ) * ( ( 10 ) * b_m + ( min( i , b_n ) ) ) ) / ( i ) ) + ( ( b_o / b_p ) * b_q / ( i ) ) + ( b_b / ( i ) ) ) ) ) ) ) ) + ( 100 * ( ( ( a_e / ( b + c + d + e ) ) * ( ( ( a_f / ( i ) ) - ( ( a_f / ( i ) ) * a_g / a_h ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) * a_g / a_h ) + ( ( a_f / ( i ) ) - ( ( a_f / ( i ) ) * a_g / a_h ) ) + ( a_l / ( i ) ) ) ) * ( ( ( min( i , a_n ) ) / ( i ) - ( ( min( i , a_m ) ) / ( i ) ) ) / ( ( ( min( i , a_m ) ) / ( i ) ) + ( ( min( i , a_n ) ) / ( i ) - ( ( min( i , a_m ) ) / ( i ) ) ) ) ) ) + ( ( a_e / ( b + c + d + e ) ) * ( ( a_f / ( i ) ) * a_g / a_h ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) * a_g / a_h ) + ( ( a_f / ( i ) ) - ( ( a_f / ( i ) ) * a_g / a_h ) ) + ( a_l / ( i ) ) ) ) * ( ( min( i , a_n ) ) / ( i ) - ( ( min( i , a_m ) ) / ( i ) ) ) / ( ( ( min( i , a_m ) ) / ( i ) ) + ( ( min( i , a_n ) ) / ( i ) - ( ( min( i , a_m ) ) / ( i ) ) ) ) + ( ( a_e / ( b + c + d + e ) ) * ( ( ( a_k - a_f ) / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) * a_g / a_h ) + ( ( a_f / ( i ) ) - ( ( a_f / ( i ) ) * a_g / a_h ) ) + ( a_l / ( i ) ) ) ) * ( ( ( ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( b_a * ( 1 + ( a_x / a_y ) / 2 ) ) / ( i ) ) / ( ( ( ( ( 81 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_t * ( a_u / ( a_u + a_v ) ) ) + ( ( 79 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_w ) ) * ( 1 + ( a_x / a_y ) / 2 ) / ( i ) ) + ( ( ( 79 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_z + a_t * ( 1 - ( a_u / ( a_u + a_v ) ) ) ) * ( 1 + ( a_x / a_y ) / 2 ) / ( i ) ) + ( ( ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( b_a * ( 1 + ( a_x / a_y ) / 2 ) ) / ( i ) ) + ( ( a_o + a_p ) / ( i ) ) ) ) ) + ( ( a_e / ( b + c + d + e ) ) * ( ( a_j - a_k ) / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) * a_g / a_h ) + ( ( a_f / ( i ) ) - ( ( a_f / ( i ) ) * a_g / a_h ) ) + ( a_l / ( i ) ) ) ) + ( ( a_e / ( b + c + d + e ) ) * ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) * a_g / a_h ) + ( ( a_f / ( i ) ) - ( ( a_f / ( i ) ) * a_g / a_h ) ) + ( a_l / ( i ) ) ) ) * ( ( min( 2 * ( b_h - a_x - a_y ) * dependentloadsweight / 100 , max( b_e - b_f , 0 ) ) / ( i ) ) / ( ( min( ( 7 ) * b_c + b_d , max( b_e - b_f , 0 ) ) / ( i ) ) + ( 13 * b_g / ( i ) ) + ( min( 2 * ( b_h - a_x - a_y ) * dependentloadsweight / 100 , max( b_e - b_f , 0 ) ) / ( i ) ) + ( ( 16 * max( 0 , b_j - b_k ) + ( b_j / b_l ) * ( ( 10 ) * b_m + ( min( i , b_n ) ) ) ) / ( i ) ) + ( ( b_o / b_p ) * b_q / ( i ) ) + ( b_b / ( i ) ) ) ) ) + ( ( a_e / ( b + c + d + e ) ) * ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) * a_g / a_h ) + ( ( a_f / ( i ) ) - ( ( a_f / ( i ) ) * a_g / a_h ) ) + ( a_l / ( i ) ) ) ) * ( ( ( 16 * max( 0 , b_j - b_k ) + ( b_j / b_l ) * ( ( 10 ) * b_m + ( min( i , b_n ) ) ) ) / ( i ) ) / ( ( min( ( 7 ) * b_c + b_d , max( b_e - b_f , 0 ) ) / ( i ) ) + ( 13 * b_g / ( i ) ) + ( min( 2 * ( b_h - a_x - a_y ) * dependentloadsweight / 100 , max( b_e - b_f , 0 ) ) / ( i ) ) + ( ( 16 * max( 0 , b_j - b_k ) + ( b_j / b_l ) * ( ( 10 ) * b_m + ( min( i , b_n ) ) ) ) / ( i ) ) + ( ( b_o / b_p ) * b_q / ( i ) ) + ( b_b / ( i ) ) ) ) ) + ( ( a_e / ( b + c + d + e ) ) * ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) * a_g / a_h ) + ( ( a_f / ( i ) ) - ( ( a_f / ( i ) ) * a_g / a_h ) ) + ( a_l / ( i ) ) ) ) * ( ( ( b_o / b_p ) * b_q / ( i ) ) / ( ( min( ( 7 ) * b_c + b_d , max( b_e - b_f , 0 ) ) / ( i ) ) + ( 13 * b_g / ( i ) ) + ( min( 2 * ( b_h - a_x - a_y ) * dependentloadsweight / 100 , max( b_e - b_f , 0 ) ) / ( i ) ) + ( ( 16 * max( 0 , b_j - b_k ) + ( b_j / b_l ) * ( ( 10 ) * b_m + ( min( i , b_n ) ) ) ) / ( i ) ) + ( ( b_o / b_p ) * b_q / ( i ) ) + ( b_b / ( i ) ) ) ) ) + ( ( a_e / ( b + c + d + e ) ) * ( ( a_l / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) * a_g / a_h ) + ( ( a_f / ( i ) ) - ( ( a_f / ( i ) ) * a_g / a_h ) ) + ( a_l / ( i ) ) ) ) * ( ( b_r / ( z if smt_on else ( i ) ) ) / ( ( ( ( b_s * ( 10 ) * ( 1 - ( b_j / b_l ) ) ) + ( 1 - ( b_j / b_l ) ) * ( min( i , b_n ) ) ) / ( i ) ) + ( ( ( 170 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_t + ( 81 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_u ) / ( i ) ) + ( b_r / ( z if smt_on else ( i ) ) ) + ( 9 * b_v / ( i ) ) + ( ( ( 7 ) * b_w + b_x ) / ( z if smt_on else ( i ) ) ) ) ) ) + ( ( a_e / ( b + c + d + e ) ) * ( ( a_l / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) * a_g / a_h ) + ( ( a_f / ( i ) ) - ( ( a_f / ( i ) ) * a_g / a_h ) ) + ( a_l / ( i ) ) ) ) * ( ( ( ( b_s * ( 10 ) * ( 1 - ( b_j / b_l ) ) ) + ( 1 - ( b_j / b_l ) ) * ( min( i , b_n ) ) ) / ( i ) ) / ( ( ( ( b_s * ( 10 ) * ( 1 - ( b_j / b_l ) ) ) + ( 1 - ( b_j / b_l ) ) * ( min( i , b_n ) ) ) / ( i ) ) + ( ( ( 170 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_t + ( 81 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_u ) / ( i ) ) + ( b_r / ( z if smt_on else ( i ) ) ) + ( 9 * b_v / ( i ) ) + ( ( ( 7 ) * b_w + b_x ) / ( z if smt_on else ( i ) ) ) ) ) ) ) ) + ( 100 * ( ( a_e / ( b + c + d + e ) ) * ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) / max( ( a_e / ( b + c + d + e ) ) , ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) * a_g / a_h ) + ( ( a_f / ( i ) ) - ( ( a_f / ( i ) ) * a_g / a_h ) ) + ( a_l / ( i ) ) ) ) ) * ( ( min( ( 7 ) * b_c + b_d , max( b_e - b_f , 0 ) ) / ( i ) ) / max( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) , ( ( min( ( 7 ) * b_c + b_d , max( b_e - b_f , 0 ) ) / ( i ) ) + ( 13 * b_g / ( i ) ) + ( min( 2 * ( b_h - a_x - a_y ) * dependentloadsweight / 100 , max( b_e - b_f , 0 ) ) / ( i ) ) + ( ( 16 * max( 0 , b_j - b_k ) + ( b_j / b_l ) * ( ( 10 ) * b_m + ( min( i , b_n ) ) ) ) / ( i ) ) + ( ( b_o / b_p ) * b_q / ( i ) ) + ( b_b / ( i ) ) ) ) ) + ( ( a_e / ( b + c + d + e ) ) * ( ( a_l / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) * a_g / a_h ) + ( ( a_f / ( i ) ) - ( ( a_f / ( i ) ) * a_g / a_h ) ) + ( a_l / ( i ) ) ) ) * ( ( ( ( 7 ) * b_w + b_x ) / ( z if smt_on else ( i ) ) ) / ( ( ( ( b_s * ( 10 ) * ( 1 - ( b_j / b_l ) ) ) + ( 1 - ( b_j / b_l ) ) * ( min( i , b_n ) ) ) / ( i ) ) + ( ( ( 170 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_t + ( 81 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_u ) / ( i ) ) + ( b_r / ( z if smt_on else ( i ) ) ) + ( 9 * b_v / ( i ) ) + ( ( ( 7 ) * b_w + b_x ) / ( z if smt_on else ( i ) ) ) ) ) ) ) ) + ( 100 * ( ( a_e / ( b + c + d + e ) ) * ( ( ( ( a_f / ( i ) ) - ( ( a_f / ( i ) ) * a_g / a_h ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) * a_g / a_h ) + ( ( a_f / ( i ) ) - ( ( a_f / ( i ) ) * a_g / a_h ) ) + ( a_l / ( i ) ) ) ) * ( ( ( min( i , a_n ) ) / ( i ) - ( ( min( i , a_m ) ) / ( i ) ) ) / ( ( ( min( i , a_m ) ) / ( i ) ) + ( ( min( i , a_n ) ) / ( i ) - ( ( min( i , a_m ) ) / ( i ) ) ) ) ) * ( ( ( ( 170 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * b_y + ( ( 170 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * b_z ) * ( 1 + ( a_x / a_y ) / 2 ) / ( i ) ) / ( ( ( ( 109 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * c_a * ( 1 + ( a_x / a_y ) / 2 ) / ( i ) ) + ( ( ( 190 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * c_b * ( 1 + ( a_x / a_y ) / 2 ) / ( i ) ) + ( ( ( ( 170 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * b_y + ( ( 170 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * b_z ) * ( 1 + ( a_x / a_y ) / 2 ) / ( i ) ) ) + ( ( ( a_k - a_f ) / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) * a_g / a_h ) + ( ( a_f / ( i ) ) - ( ( a_f / ( i ) ) * a_g / a_h ) ) + ( a_l / ( i ) ) ) ) * ( ( ( ( ( 81 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_t * ( a_u / ( a_u + a_v ) ) ) + ( ( 79 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_w ) ) * ( 1 + ( a_x / a_y ) / 2 ) / ( i ) ) + ( ( ( 79 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_z + a_t * ( 1 - ( a_u / ( a_u + a_v ) ) ) ) * ( 1 + ( a_x / a_y ) / 2 ) / ( i ) ) ) / ( ( ( ( ( 81 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_t * ( a_u / ( a_u + a_v ) ) ) + ( ( 79 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_w ) ) * ( 1 + ( a_x / a_y ) / 2 ) / ( i ) ) + ( ( ( 79 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_z + a_t * ( 1 - ( a_u / ( a_u + a_v ) ) ) ) * ( 1 + ( a_x / a_y ) / 2 ) / ( i ) ) + ( ( ( 37 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( b_a * ( 1 + ( a_x / a_y ) / 2 ) ) / ( i ) ) + ( ( a_o + a_p ) / ( i ) ) ) + ( ( a_l / ( i ) ) / ( ( max( ( a_i - a_j ) / ( i ) , 0 ) ) + ( ( a_j - a_k ) / ( i ) ) + ( ( a_k - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) * a_g / a_h ) + ( ( a_f / ( i ) ) - ( ( a_f / ( i ) ) * a_g / a_h ) ) + ( a_l / ( i ) ) ) ) * ( ( ( 170 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_t + ( 81 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_u ) / ( i ) ) / ( ( ( ( ( b_s * ( 10 ) * ( 1 - ( b_j / b_l ) ) ) + ( 1 - ( b_j / b_l ) ) * ( min( i , b_n ) ) ) / ( i ) ) + ( ( ( 170 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_t + ( 81 * ( ( ( i ) / a_q ) * a_r / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_u ) / ( i ) ) + ( b_r / ( z if smt_on else ( i ) ) ) + ( 9 * b_v / ( i ) ) + ( ( ( 7 ) * b_w + b_x ) / ( z if smt_on else ( i ) ) ) ) - ( ( ( b_s * ( 10 ) * ( 1 - ( b_j / b_l ) ) ) + ( 1 - ( b_j / b_l ) ) * ( min( i , b_n ) ) ) / ( i ) ) ) ) + ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( 1 - ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( 1 - c_c / v ) , 0.0001 ) ) / ( ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( 1 - c_c / v ) , 0.0001 ) ) ) ) ) ) + ( 100 * ( ( ( max( 0 , ( e / ( b + c + d + e ) ) - ( a_e / ( b + c + d + e ) ) ) ) * ( c_d / ( i ) ) / ( ( c_d / ( i ) ) + ( c_e / ( i ) + ( c_f / ( i ) ) ) + ( c_g / ( z if smt_on else ( i ) ) ) + ( ( ( ( c_h + max( c_i - c_e , 0 ) ) / ( i ) * ( c_j - a_i ) / ( i ) ) * ( i ) + ( c_k + ( d / ( b + c + d + e ) ) * c_l ) ) / ( i ) if ( c_d < ( c_j - a_i ) ) else ( c_k + ( d / ( b + c + d + e ) ) * c_l ) / ( i ) ) ) ) + ( ( max( 0 , ( e / ( b + c + d + e ) ) - ( a_e / ( b + c + d + e ) ) ) ) * ( c_g / ( z if smt_on else ( i ) ) ) / ( ( c_d / ( i ) ) + ( c_e / ( i ) + ( c_f / ( i ) ) ) + ( c_g / ( z if smt_on else ( i ) ) ) + ( ( ( ( c_h + max( c_i - c_e , 0 ) ) / ( i ) * ( c_j - a_i ) / ( i ) ) * ( i ) + ( c_k + ( d / ( b + c + d + e ) ) * c_l ) ) / ( i ) if ( c_d < ( c_j - a_i ) ) else ( c_k + ( d / ( b + c + d + e ) ) * c_l ) / ( i ) ) ) ) + ( ( max( 0 , ( e / ( b + c + d + e ) ) - ( a_e / ( b + c + d + e ) ) ) ) * ( ( ( ( ( c_h + max( c_i - c_e , 0 ) ) / ( i ) * ( c_j - a_i ) / ( i ) ) * ( i ) + ( c_k + ( d / ( b + c + d + e ) ) * c_l ) ) / ( i ) if ( c_d < ( c_j - a_i ) ) else ( c_k + ( d / ( b + c + d + e ) ) * c_l ) / ( i ) ) / ( ( c_d / ( i ) ) + ( c_e / ( i ) + ( c_f / ( i ) ) ) + ( c_g / ( z if smt_on else ( i ) ) ) + ( ( ( ( c_h + max( c_i - c_e , 0 ) ) / ( i ) * ( c_j - a_i ) / ( i ) ) * ( i ) + ( c_k + ( d / ( b + c + d + e ) ) * c_l ) ) / ( i ) if ( c_d < ( c_j - a_i ) ) else ( c_k + ( d / ( b + c + d + e ) ) * c_l ) / ( i ) ) ) ) * ( ( c_m / ( i ) ) / ( ( ( c_h + max( c_i - c_e , 0 ) ) / ( i ) * ( c_j - a_i ) / ( i ) ) + ( c_k / ( i ) ) + ( c_n / ( i ) ) + ( c_m / ( i ) ) ) ) ) ) ) + ( 100 * ( ( ( 1 - w / x ) * ( ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( ( 3 ) * m / ( n / o ) / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) * ( ( ( 1 - ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) ) * l / ( i ) ) + ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) * ( max( ( s / ( b + c + d + e ) ) * ( 1 - t / ( u - v ) ) , 0.0001 ) ) / ( s / ( b + c + d + e ) ) ) / ( ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) + ( ( 1 - ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) ) * l / ( i ) ) + ( k / ( i ) ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( ( 3 ) * m / ( n / o ) / ( i ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) + ( max( 0 , ( b / ( b + c + d + e ) - f / ( g ) ) - ( ( a / ( b + c + d + e ) - f / ( g ) ) ) ) ) * ( max( y , x / ( n / o ) ) / ( z if smt_on else ( i ) ) / 2 ) / ( ( ( a_a - a_b ) / ( z if smt_on else ( i ) ) / 2 ) + ( ( a_c - a_d ) / ( z if smt_on else ( i ) ) / 2 ) + ( max( y , x / ( n / o ) ) / ( z if smt_on else ( i ) ) / 2 ) ) ) ) + ( 10 * ( r / ( g ) ) * ( max( ( s / ( b + c + d + e ) ) * ( 1 - t / ( u - v ) ) , 0.0001 ) ) / ( s / ( b + c + d + e ) ) ) * ( s / ( b + c + d + e ) ) + ( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( 1 - c_c / v ) , 0.0001 ) ) / ( ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( 1 - c_c / v ) , 0.0001 ) ) ) ) + ( ( max( 0 , ( e / ( b + c + d + e ) ) - ( a_e / ( b + c + d + e ) ) ) ) * ( ( c_e / ( i ) + ( c_f / ( i ) ) ) + c_i / ( i ) * ( ( c_h + max( c_i - c_e , 0 ) ) / ( i ) * ( c_j - a_i ) / ( i ) ) ) / ( ( c_d / ( i ) ) + ( c_e / ( i ) + ( c_f / ( i ) ) ) + ( c_g / ( z if smt_on else ( i ) ) ) + ( ( ( ( c_h + max( c_i - c_e , 0 ) ) / ( i ) * ( c_j - a_i ) / ( i ) ) * ( i ) + ( c_k + ( d / ( b + c + d + e ) ) * c_l ) ) / ( i ) if ( c_d < ( c_j - a_i ) ) else ( c_k + ( d / ( b + c + d + e ) ) * c_l ) / ( i ) ) ) ) + ( ( ( ( r / ( g ) ) / ( ( max( 0 , ( c_o / ( b + c + d + e ) ) - ( r / ( g ) ) ) ) + ( r / ( g ) ) ) ) * ( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * c_p / ( g ) ) / ( r / ( g ) ) ) ) * ( c_o / ( b + c + d + e ) ) ) ) ) + ( 100 * ( ( c_q + 2 * c_r + c_s ) / ( g ) ) ) + ( 100 * ( ( d / ( b + c + d + e ) ) - ( ( c_q + 2 * c_r + c_s ) / ( g ) ) - ( ( ( ( r / ( g ) ) / ( ( max( 0 , ( c_o / ( b + c + d + e ) ) - ( r / ( g ) ) ) ) + ( r / ( g ) ) ) ) * ( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * c_p / ( g ) ) / ( r / ( g ) ) ) ) * ( c_o / ( b + c + d + e ) ) ) ) ) )",
-      "BaseFormula": " 100 - ( tma_bottleneck_big_code + tma_bottleneck_instruction_fetch_bw + tma_bottleneck_mispredictions + tma_bottleneck_cache_memory_bandwidth + ma_bottleneck_cache_memory_latency + tma_bottleneck_memory_data_tlbs + tma_bottleneck_memory_synchronization + tma_bottleneck_compute_bound_est + tma_bottleneck_irregular_overhead + tma_bottleneck_branching_overhead + tma_bottleneck_useful_work )",
+      "Formula": "100 - ( ( 100 * ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( h / ( i ) ) + ( j / ( i ) ) + ( k / ( i ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( ( 3 ) * m / ( n / o ) / ( i ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) + ( 100 * ( ( b / ( b + c + d + e ) - f / ( g ) ) - ( 1 - ( 10 * ( r / ( g ) ) * ( max( ( s / ( b + c + d + e ) ) * ( 1 - t / ( u - v ) ) , 0.0001 ) ) / ( s / ( b + c + d + e ) ) ) ) * ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( ( 3 ) * m / ( n / o ) / ( i ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) - ( ( 1 - w / x ) * ( ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( ( 3 ) * m / ( n / o ) / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) * ( ( ( 1 - ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) ) * l / ( i ) ) + ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) * ( max( ( s / ( b + c + d + e ) ) * ( 1 - t / ( u - v ) ) , 0.0001 ) ) / ( s / ( b + c + d + e ) ) ) / ( ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) + ( ( 1 - ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) ) * l / ( i ) ) + ( k / ( i ) ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( ( 3 ) * m / ( n / o ) / ( i ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) + ( max( 0 , ( b / ( b + c + d + e ) - f / ( g ) ) - ( ( a / ( b + c + d + e ) - f / ( g ) ) ) ) ) * ( max( y , x / ( n / o ) ) / ( z if smt_on else ( i ) ) / 2 ) / ( ( ( a_a - a_b ) / ( z if smt_on else ( i ) ) / 2 ) + ( ( a_c - a_d ) / ( z if smt_on else ( i ) ) / 2 ) + ( max( y , x / ( n / o ) ) / ( z if smt_on else ( i ) ) / 2 ) ) ) ) ) - ( 100 * ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( h / ( i ) ) + ( j / ( i ) ) + ( k / ( i ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( ( 3 ) * m / ( n / o ) / ( i ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) ) + ( 100 * ( 1 - ( 10 * ( r / ( g ) ) * ( max( ( s / ( b + c + d + e ) ) * ( 1 - t / ( u - v ) ) , 0.0001 ) ) / ( s / ( b + c + d + e ) ) ) ) * ( ( s / ( b + c + d + e ) ) + ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( ( 3 ) * m / ( n / o ) / ( i ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) ) ) + ( ( 100 * ( ( ( a_e / ( b + c + d + e ) ) * ( ( ( a_f / ( i ) ) - ( ( a_g - a_f ) / ( i ) ) ) / ( ( max( ( a_h - a_i ) / ( i ) , 0 ) ) + ( ( a_i - a_g ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) - ( ( a_g - a_f ) / ( i ) ) ) + ( a_j / ( i ) ) ) ) * ( ( ( min( i , a_k ) ) / ( i ) ) / ( ( ( min( i , a_k ) ) / ( i ) ) + ( ( min( i , a_l ) ) / ( i ) - ( ( min( i , a_k ) ) / ( i ) ) ) ) ) ) + ( ( a_e / ( b + c + d + e ) ) * ( ( a_g - a_f ) / ( i ) ) / ( ( max( ( a_h - a_i ) / ( i ) , 0 ) ) + ( ( a_i - a_g ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) - ( ( a_g - a_f ) / ( i ) ) ) + ( a_j / ( i ) ) ) ) * ( ( min( i , a_k ) ) / ( i ) ) / ( ( ( min( i , a_k ) ) / ( i ) ) + ( ( min( i , a_l ) ) / ( i ) - ( ( min( i , a_k ) ) / ( i ) ) ) ) + ( ( a_e / ( b + c + d + e ) ) * ( ( ( a_g - a_f ) / ( i ) ) / ( ( max( ( a_h - a_i ) / ( i ) , 0 ) ) + ( ( a_i - a_g ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) - ( ( a_g - a_f ) / ( i ) ) ) + ( a_j / ( i ) ) ) ) * ( ( ( a_m + a_n ) / ( i ) ) / ( ( ( ( ( 81 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_r * ( a_s / ( a_s + a_t ) ) ) + ( ( 79 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_u ) ) * ( 1 + ( a_v / a_w ) / 2 ) / ( i ) ) + ( ( ( 79 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_x + a_r * ( 1 - ( a_s / ( a_s + a_t ) ) ) ) * ( 1 + ( a_v / a_w ) / 2 ) / ( i ) ) + ( ( ( 37 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_y * ( 1 + ( a_v / a_w ) / 2 ) ) / ( i ) ) + ( ( a_m + a_n ) / ( i ) ) ) ) ) + ( ( a_e / ( b + c + d + e ) ) * ( ( max( ( a_h - a_i ) / ( i ) , 0 ) ) / ( ( max( ( a_h - a_i ) / ( i ) , 0 ) ) + ( ( a_i - a_g ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) - ( ( a_g - a_f ) / ( i ) ) ) + ( a_j / ( i ) ) ) ) * ( ( a_z / ( i ) ) / ( ( min( ( 7 ) * b_a + b_b , max( b_c - b_d , 0 ) ) / ( i ) ) + ( 13 * b_e / ( i ) ) + ( min( 2 * ( b_f - a_v - a_w ) * dependentloadsweight / 100 , max( b_c - b_d , 0 ) ) / ( i ) ) + ( ( 16 * max( 0 , b_h - b_i ) + ( b_h / b_j ) * ( ( 10 ) * b_k + ( min( i , b_l ) ) ) ) / ( i ) ) + ( ( b_m / b_n ) * b_o / ( i ) ) + ( a_z / ( i ) ) ) ) ) ) ) ) + ( 100 * ( ( ( a_e / ( b + c + d + e ) ) * ( ( ( a_f / ( i ) ) - ( ( a_g - a_f ) / ( i ) ) ) / ( ( max( ( a_h - a_i ) / ( i ) , 0 ) ) + ( ( a_i - a_g ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) - ( ( a_g - a_f ) / ( i ) ) ) + ( a_j / ( i ) ) ) ) * ( ( ( min( i , a_l ) ) / ( i ) - ( ( min( i , a_k ) ) / ( i ) ) ) / ( ( ( min( i , a_k ) ) / ( i ) ) + ( ( min( i , a_l ) ) / ( i ) - ( ( min( i , a_k ) ) / ( i ) ) ) ) ) ) + ( ( a_e / ( b + c + d + e ) ) * ( ( a_g - a_f ) / ( i ) ) / ( ( max( ( a_h - a_i ) / ( i ) , 0 ) ) + ( ( a_i - a_g ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) - ( ( a_g - a_f ) / ( i ) ) ) + ( a_j / ( i ) ) ) ) * ( ( min( i , a_l ) ) / ( i ) - ( ( min( i , a_k ) ) / ( i ) ) ) / ( ( ( min( i , a_k ) ) / ( i ) ) + ( ( min( i , a_l ) ) / ( i ) - ( ( min( i , a_k ) ) / ( i ) ) ) ) + ( ( a_e / ( b + c + d + e ) ) * ( ( ( a_g - a_f ) / ( i ) ) / ( ( max( ( a_h - a_i ) / ( i ) , 0 ) ) + ( ( a_i - a_g ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) - ( ( a_g - a_f ) / ( i ) ) ) + ( a_j / ( i ) ) ) ) * ( ( ( ( 37 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_y * ( 1 + ( a_v / a_w ) / 2 ) ) / ( i ) ) / ( ( ( ( ( 81 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_r * ( a_s / ( a_s + a_t ) ) ) + ( ( 79 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_u ) ) * ( 1 + ( a_v / a_w ) / 2 ) / ( i ) ) + ( ( ( 79 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_x + a_r * ( 1 - ( a_s / ( a_s + a_t ) ) ) ) * ( 1 + ( a_v / a_w ) / 2 ) / ( i ) ) + ( ( ( 37 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_y * ( 1 + ( a_v / a_w ) / 2 ) ) / ( i ) ) + ( ( a_m + a_n ) / ( i ) ) ) ) ) + ( ( a_e / ( b + c + d + e ) ) * ( ( a_i - a_g ) / ( i ) ) / ( ( max( ( a_h - a_i ) / ( i ) , 0 ) ) + ( ( a_i - a_g ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) - ( ( a_g - a_f ) / ( i ) ) ) + ( a_j / ( i ) ) ) ) + ( ( a_e / ( b + c + d + e ) ) * ( ( max( ( a_h - a_i ) / ( i ) , 0 ) ) / ( ( max( ( a_h - a_i ) / ( i ) , 0 ) ) + ( ( a_i - a_g ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) - ( ( a_g - a_f ) / ( i ) ) ) + ( a_j / ( i ) ) ) ) * ( ( min( 2 * ( b_f - a_v - a_w ) * dependentloadsweight / 100 , max( b_c - b_d , 0 ) ) / ( i ) ) / ( ( min( ( 7 ) * b_a + b_b , max( b_c - b_d , 0 ) ) / ( i ) ) + ( 13 * b_e / ( i ) ) + ( min( 2 * ( b_f - a_v - a_w ) * dependentloadsweight / 100 , max( b_c - b_d , 0 ) ) / ( i ) ) + ( ( 16 * max( 0 , b_h - b_i ) + ( b_h / b_j ) * ( ( 10 ) * b_k + ( min( i , b_l ) ) ) ) / ( i ) ) + ( ( b_m / b_n ) * b_o / ( i ) ) + ( a_z / ( i ) ) ) ) ) + ( ( a_e / ( b + c + d + e ) ) * ( ( max( ( a_h - a_i ) / ( i ) , 0 ) ) / ( ( max( ( a_h - a_i ) / ( i ) , 0 ) ) + ( ( a_i - a_g ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) - ( ( a_g - a_f ) / ( i ) ) ) + ( a_j / ( i ) ) ) ) * ( ( ( 16 * max( 0 , b_h - b_i ) + ( b_h / b_j ) * ( ( 10 ) * b_k + ( min( i , b_l ) ) ) ) / ( i ) ) / ( ( min( ( 7 ) * b_a + b_b , max( b_c - b_d , 0 ) ) / ( i ) ) + ( 13 * b_e / ( i ) ) + ( min( 2 * ( b_f - a_v - a_w ) * dependentloadsweight / 100 , max( b_c - b_d , 0 ) ) / ( i ) ) + ( ( 16 * max( 0 , b_h - b_i ) + ( b_h / b_j ) * ( ( 10 ) * b_k + ( min( i , b_l ) ) ) ) / ( i ) ) + ( ( b_m / b_n ) * b_o / ( i ) ) + ( a_z / ( i ) ) ) ) ) + ( ( a_e / ( b + c + d + e ) ) * ( ( max( ( a_h - a_i ) / ( i ) , 0 ) ) / ( ( max( ( a_h - a_i ) / ( i ) , 0 ) ) + ( ( a_i - a_g ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) - ( ( a_g - a_f ) / ( i ) ) ) + ( a_j / ( i ) ) ) ) * ( ( ( b_m / b_n ) * b_o / ( i ) ) / ( ( min( ( 7 ) * b_a + b_b , max( b_c - b_d , 0 ) ) / ( i ) ) + ( 13 * b_e / ( i ) ) + ( min( 2 * ( b_f - a_v - a_w ) * dependentloadsweight / 100 , max( b_c - b_d , 0 ) ) / ( i ) ) + ( ( 16 * max( 0 , b_h - b_i ) + ( b_h / b_j ) * ( ( 10 ) * b_k + ( min( i , b_l ) ) ) ) / ( i ) ) + ( ( b_m / b_n ) * b_o / ( i ) ) + ( a_z / ( i ) ) ) ) ) + ( ( a_e / ( b + c + d + e ) ) * ( ( a_j / ( i ) ) / ( ( max( ( a_h - a_i ) / ( i ) , 0 ) ) + ( ( a_i - a_g ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) - ( ( a_g - a_f ) / ( i ) ) ) + ( a_j / ( i ) ) ) ) * ( ( b_p / ( z if smt_on else ( i ) ) ) / ( ( ( ( b_q * ( 10 ) * ( 1 - ( b_h / b_j ) ) ) + ( 1 - ( b_h / b_j ) ) * ( min( i , b_l ) ) ) / ( i ) ) + ( ( ( 170 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_r + ( 81 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_s ) / ( i ) ) + ( b_p / ( z if smt_on else ( i ) ) ) + ( 9 * b_t / ( i ) ) + ( ( ( 7 ) * b_u + b_v ) / ( z if smt_on else ( i ) ) ) ) ) ) + ( ( a_e / ( b + c + d + e ) ) * ( ( a_j / ( i ) ) / ( ( max( ( a_h - a_i ) / ( i ) , 0 ) ) + ( ( a_i - a_g ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) - ( ( a_g - a_f ) / ( i ) ) ) + ( a_j / ( i ) ) ) ) * ( ( ( ( b_q * ( 10 ) * ( 1 - ( b_h / b_j ) ) ) + ( 1 - ( b_h / b_j ) ) * ( min( i , b_l ) ) ) / ( i ) ) / ( ( ( ( b_q * ( 10 ) * ( 1 - ( b_h / b_j ) ) ) + ( 1 - ( b_h / b_j ) ) * ( min( i , b_l ) ) ) / ( i ) ) + ( ( ( 170 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_r + ( 81 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_s ) / ( i ) ) + ( b_p / ( z if smt_on else ( i ) ) ) + ( 9 * b_t / ( i ) ) + ( ( ( 7 ) * b_u + b_v ) / ( z if smt_on else ( i ) ) ) ) ) ) ) ) + ( 100 * ( ( a_e / ( b + c + d + e ) ) * ( ( max( ( a_h - a_i ) / ( i ) , 0 ) ) / max( ( a_e / ( b + c + d + e ) ) , ( ( max( ( a_h - a_i ) / ( i ) , 0 ) ) + ( ( a_i - a_g ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) - ( ( a_g - a_f ) / ( i ) ) ) + ( a_j / ( i ) ) ) ) ) * ( ( min( ( 7 ) * b_a + b_b , max( b_c - b_d , 0 ) ) / ( i ) ) / max( ( max( ( a_h - a_i ) / ( i ) , 0 ) ) , ( ( min( ( 7 ) * b_a + b_b , max( b_c - b_d , 0 ) ) / ( i ) ) + ( 13 * b_e / ( i ) ) + ( min( 2 * ( b_f - a_v - a_w ) * dependentloadsweight / 100 , max( b_c - b_d , 0 ) ) / ( i ) ) + ( ( 16 * max( 0 , b_h - b_i ) + ( b_h / b_j ) * ( ( 10 ) * b_k + ( min( i , b_l ) ) ) ) / ( i ) ) + ( ( b_m / b_n ) * b_o / ( i ) ) + ( a_z / ( i ) ) ) ) ) + ( ( a_e / ( b + c + d + e ) ) * ( ( a_j / ( i ) ) / ( ( max( ( a_h - a_i ) / ( i ) , 0 ) ) + ( ( a_i - a_g ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) - ( ( a_g - a_f ) / ( i ) ) ) + ( a_j / ( i ) ) ) ) * ( ( ( ( 7 ) * b_u + b_v ) / ( z if smt_on else ( i ) ) ) / ( ( ( ( b_q * ( 10 ) * ( 1 - ( b_h / b_j ) ) ) + ( 1 - ( b_h / b_j ) ) * ( min( i , b_l ) ) ) / ( i ) ) + ( ( ( 170 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_r + ( 81 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_s ) / ( i ) ) + ( b_p / ( z if smt_on else ( i ) ) ) + ( 9 * b_t / ( i ) ) + ( ( ( 7 ) * b_u + b_v ) / ( z if smt_on else ( i ) ) ) ) ) ) ) ) + ( 100 * ( ( a_e / ( b + c + d + e ) ) * ( ( ( ( a_f / ( i ) ) - ( ( a_g - a_f ) / ( i ) ) ) / ( ( max( ( a_h - a_i ) / ( i ) , 0 ) ) + ( ( a_i - a_g ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) - ( ( a_g - a_f ) / ( i ) ) ) + ( a_j / ( i ) ) ) ) * ( ( ( min( i , a_l ) ) / ( i ) - ( ( min( i , a_k ) ) / ( i ) ) ) / ( ( ( min( i , a_k ) ) / ( i ) ) + ( ( min( i , a_l ) ) / ( i ) - ( ( min( i , a_k ) ) / ( i ) ) ) ) ) * ( ( ( ( 170 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * b_w + ( ( 170 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * b_x ) * ( 1 + ( a_v / a_w ) / 2 ) / ( i ) ) / ( ( ( ( 109 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * b_y * ( 1 + ( a_v / a_w ) / 2 ) / ( i ) ) + ( ( ( 190 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * b_z * ( 1 + ( a_v / a_w ) / 2 ) / ( i ) ) + ( ( ( ( 170 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * b_w + ( ( 170 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 37 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * b_x ) * ( 1 + ( a_v / a_w ) / 2 ) / ( i ) ) ) + ( ( ( a_g - a_f ) / ( i ) ) / ( ( max( ( a_h - a_i ) / ( i ) , 0 ) ) + ( ( a_i - a_g ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) - ( ( a_g - a_f ) / ( i ) ) ) + ( a_j / ( i ) ) ) ) * ( ( ( ( ( 81 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_r * ( a_s / ( a_s + a_t ) ) ) + ( ( 79 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_u ) ) * ( 1 + ( a_v / a_w ) / 2 ) / ( i ) ) + ( ( ( 79 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_x + a_r * ( 1 - ( a_s / ( a_s + a_t ) ) ) ) * ( 1 + ( a_v / a_w ) / 2 ) / ( i ) ) ) / ( ( ( ( ( 81 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_r * ( a_s / ( a_s + a_t ) ) ) + ( ( 79 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_u ) ) * ( 1 + ( a_v / a_w ) / 2 ) / ( i ) ) + ( ( ( 79 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_x + a_r * ( 1 - ( a_s / ( a_s + a_t ) ) ) ) * ( 1 + ( a_v / a_w ) / 2 ) / ( i ) ) + ( ( ( 37 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 4.4 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) * ( a_y * ( 1 + ( a_v / a_w ) / 2 ) ) / ( i ) ) + ( ( a_m + a_n ) / ( i ) ) ) + ( ( a_j / ( i ) ) / ( ( max( ( a_h - a_i ) / ( i ) , 0 ) ) + ( ( a_i - a_g ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_g - a_f ) / ( i ) ) + ( ( a_f / ( i ) ) - ( ( a_g - a_f ) / ( i ) ) ) + ( a_j / ( i ) ) ) ) * ( ( ( 170 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_r + ( 81 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_s ) / ( i ) ) / ( ( ( ( ( b_q * ( 10 ) * ( 1 - ( b_h / b_j ) ) ) + ( 1 - ( b_h / b_j ) ) * ( min( i , b_l ) ) ) / ( i ) ) + ( ( ( 170 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_r + ( 81 * ( ( ( i ) / a_o ) * a_p / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) * b_s ) / ( i ) ) + ( b_p / ( z if smt_on else ( i ) ) ) + ( 9 * b_t / ( i ) ) + ( ( ( 7 ) * b_u + b_v ) / ( z if smt_on else ( i ) ) ) ) - ( ( ( b_q * ( 10 ) * ( 1 - ( b_h / b_j ) ) ) + ( 1 - ( b_h / b_j ) ) * ( min( i , b_l ) ) ) / ( i ) ) ) ) + ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( 1 - ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( 1 - c_a / v ) , 0.0001 ) ) / ( ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( 1 - c_a / v ) , 0.0001 ) ) ) ) ) ) + ( 100 * ( ( ( max( 0 , ( e / ( b + c + d + e ) ) - ( a_e / ( b + c + d + e ) ) ) ) * ( c_b / ( i ) ) / ( ( c_b / ( i ) ) + ( c_c / ( i ) + ( c_d / ( i ) ) ) + ( c_e / ( z if smt_on else ( i ) ) ) + ( ( ( ( c_f + max( c_g - c_c , 0 ) ) / ( i ) * ( c_h - a_h ) / ( i ) ) * ( i ) + ( c_i + ( d / ( b + c + d + e ) ) * c_j ) ) / ( i ) if ( c_b < ( c_h - a_h ) ) else ( c_i + ( d / ( b + c + d + e ) ) * c_j ) / ( i ) ) ) ) + ( ( max( 0 , ( e / ( b + c + d + e ) ) - ( a_e / ( b + c + d + e ) ) ) ) * ( c_e / ( z if smt_on else ( i ) ) ) / ( ( c_b / ( i ) ) + ( c_c / ( i ) + ( c_d / ( i ) ) ) + ( c_e / ( z if smt_on else ( i ) ) ) + ( ( ( ( c_f + max( c_g - c_c , 0 ) ) / ( i ) * ( c_h - a_h ) / ( i ) ) * ( i ) + ( c_i + ( d / ( b + c + d + e ) ) * c_j ) ) / ( i ) if ( c_b < ( c_h - a_h ) ) else ( c_i + ( d / ( b + c + d + e ) ) * c_j ) / ( i ) ) ) ) + ( ( max( 0 , ( e / ( b + c + d + e ) ) - ( a_e / ( b + c + d + e ) ) ) ) * ( ( ( ( ( c_f + max( c_g - c_c , 0 ) ) / ( i ) * ( c_h - a_h ) / ( i ) ) * ( i ) + ( c_i + ( d / ( b + c + d + e ) ) * c_j ) ) / ( i ) if ( c_b < ( c_h - a_h ) ) else ( c_i + ( d / ( b + c + d + e ) ) * c_j ) / ( i ) ) / ( ( c_b / ( i ) ) + ( c_c / ( i ) + ( c_d / ( i ) ) ) + ( c_e / ( z if smt_on else ( i ) ) ) + ( ( ( ( c_f + max( c_g - c_c , 0 ) ) / ( i ) * ( c_h - a_h ) / ( i ) ) * ( i ) + ( c_i + ( d / ( b + c + d + e ) ) * c_j ) ) / ( i ) if ( c_b < ( c_h - a_h ) ) else ( c_i + ( d / ( b + c + d + e ) ) * c_j ) / ( i ) ) ) ) * ( ( c_k / ( i ) ) / ( ( ( c_f + max( c_g - c_c , 0 ) ) / ( i ) * ( c_h - a_h ) / ( i ) ) + ( c_i / ( i ) ) + ( c_l / ( i ) ) + ( c_k / ( i ) ) ) ) ) ) ) + ( 100 * ( ( ( 1 - w / x ) * ( ( ( a / ( b + c + d + e ) - f / ( g ) ) ) * ( ( ( 3 ) * m / ( n / o ) / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) * ( ( ( 1 - ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) ) * l / ( i ) ) + ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) * ( max( ( s / ( b + c + d + e ) ) * ( 1 - t / ( u - v ) ) , 0.0001 ) ) / ( s / ( b + c + d + e ) ) ) / ( ( ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) * l / ( i ) ) + ( ( 1 - ( ( s / ( b + c + d + e ) ) / ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) ) ) * l / ( i ) ) + ( k / ( i ) ) ) ) / ( ( j / ( i ) ) + ( h / ( i ) ) + ( l / ( i ) + ( k / ( i ) ) ) + ( ( 3 ) * m / ( n / o ) / ( i ) ) + ( p / ( i ) ) + ( q / ( i ) ) ) + ( max( 0 , ( b / ( b + c + d + e ) - f / ( g ) ) - ( ( a / ( b + c + d + e ) - f / ( g ) ) ) ) ) * ( max( y , x / ( n / o ) ) / ( z if smt_on else ( i ) ) / 2 ) / ( ( ( a_a - a_b ) / ( z if smt_on else ( i ) ) / 2 ) + ( ( a_c - a_d ) / ( z if smt_on else ( i ) ) / 2 ) + ( max( y , x / ( n / o ) ) / ( z if smt_on else ( i ) ) / 2 ) ) ) ) + ( 10 * ( r / ( g ) ) * ( max( ( s / ( b + c + d + e ) ) * ( 1 - t / ( u - v ) ) , 0.0001 ) ) / ( s / ( b + c + d + e ) ) ) * ( s / ( b + c + d + e ) ) + ( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( 1 - c_a / v ) , 0.0001 ) ) / ( ( max( ( max( 0 , ( max( 1 - ( ( b / ( b + c + d + e ) - f / ( g ) ) + ( e / ( b + c + d + e ) ) + ( d / ( b + c + d + e ) ) ) , 0 ) ) - ( s / ( b + c + d + e ) ) ) ) * ( 1 - c_a / v ) , 0.0001 ) ) ) ) + ( ( max( 0 , ( e / ( b + c + d + e ) ) - ( a_e / ( b + c + d + e ) ) ) ) * ( ( c_c / ( i ) + ( c_d / ( i ) ) ) + c_g / ( i ) * ( ( c_f + max( c_g - c_c , 0 ) ) / ( i ) * ( c_h - a_h ) / ( i ) ) ) / ( ( c_b / ( i ) ) + ( c_c / ( i ) + ( c_d / ( i ) ) ) + ( c_e / ( z if smt_on else ( i ) ) ) + ( ( ( ( c_f + max( c_g - c_c , 0 ) ) / ( i ) * ( c_h - a_h ) / ( i ) ) * ( i ) + ( c_i + ( d / ( b + c + d + e ) ) * c_j ) ) / ( i ) if ( c_b < ( c_h - a_h ) ) else ( c_i + ( d / ( b + c + d + e ) ) * c_j ) / ( i ) ) ) ) + ( ( ( ( r / ( g ) ) / ( ( max( 0 , ( c_m / ( b + c + d + e ) ) - ( r / ( g ) ) ) ) + ( r / ( g ) ) ) ) * ( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * c_n / ( g ) ) / ( r / ( g ) ) ) ) * ( c_m / ( b + c + d + e ) ) ) ) ) + ( 100 * ( ( c_o + 2 * c_p + c_q ) / ( g ) ) ) + ( 100 * ( ( d / ( b + c + d + e ) ) - ( ( c_o + 2 * c_p + c_q ) / ( g ) ) - ( ( ( ( r / ( g ) ) / ( ( max( 0 , ( c_m / ( b + c + d + e ) ) - ( r / ( g ) ) ) ) + ( r / ( g ) ) ) ) * ( ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * c_n / ( g ) ) / ( r / ( g ) ) ) ) * ( c_m / ( b + c + d + e ) ) ) ) ) )",
+      "BaseFormula": " 100 - ( tma_bottleneck_big_code + tma_bottleneck_instruction_fetch_bw + tma_bottleneck_mispredictions + tma_bottleneck_cache_memory_bandwidth + tma_bottleneck_cache_memory_latency + tma_bottleneck_memory_data_tlbs + tma_bottleneck_memory_synchronization + tma_bottleneck_compute_bound_est + tma_bottleneck_irregular_overhead + tma_bottleneck_branching_overhead + tma_bottleneck_useful_work )",
       "Category": "TMA",
       "CountDomain": "Scaled_Slots",
       "Threshold": {
@@ -6193,16 +6153,12 @@
           "Alias": "b"
         },
         {
-          "Name": "OCR.DEMAND_DATA_RD.PMM",
+          "Name": "MEMORY_ACTIVITY.STALLS_L2_MISS",
           "Alias": "c"
-        },
-        {
-          "Name": "OCR.READS_TO_CORE.L3_MISS",
-          "Alias": "d"
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( ( a / ( b ) ) - ( ( a / ( b ) ) * c / d ) )",
+      "Formula": "100 * ( ( a / ( b ) ) - ( ( c - a ) / ( b ) ) )",
       "BaseFormula": " ( memory_activity.stalls_l3_miss / tma_info_thread_clks ) - tma_hbm_bound",
       "Category": "TMA",
       "CountDomain": "Stalls",
@@ -10165,11 +10121,11 @@
         "ThresholdMetrics": [
           {
             "Alias": "a",
-            "Value": "metric_TMA_Info_Botlnk_Core_Bound_Likely"
+            "Value": "metric_TMA_Info_Botlnk_L0_Core_Bound_Likely"
           }
         ],
         "Formula": "a > 0.5",
-        "BaseFormula": "metric_TMA_Info_Botlnk_Core_Bound_Likely > 0.5",
+        "BaseFormula": "metric_TMA_Info_Botlnk_L0_Core_Bound_Likely > 0.5",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -11675,11 +11631,11 @@
           },
           {
             "Alias": "b",
-            "Value": "tma_info_thread_ipc"
+            "Value": "metric_TMA_Info_Thread_IPC"
           }
         ],
         "Formula": "a < 0.7 & b / 6 > 0.35",
-        "BaseFormula": "metric_TMA_Info_Frontend_DSB_Coverage < 0.7 & tma_info_thread_ipc / 6 > 0.35",
+        "BaseFormula": "metric_TMA_Info_Frontend_DSB_Coverage < 0.7 & metric_TMA_Info_Thread_IPC / 6 > 0.35",
         "ThresholdIssues": "$issueFB"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -12054,11 +12010,11 @@
         "ThresholdMetrics": [
           {
             "Alias": "a",
-            "Value": "metric_TMA_Info_Botlnk_DSB_Misses"
+            "Value": "metric_TMA_Info_Botlnk_L2_DSB_Misses"
           }
         ],
         "Formula": "a > 10",
-        "BaseFormula": "metric_TMA_Info_Botlnk_DSB_Misses > 10",
+        "BaseFormula": "metric_TMA_Info_Botlnk_L2_DSB_Misses > 10",
         "ThresholdIssues": "$issueFB"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -12159,11 +12115,11 @@
         "ThresholdMetrics": [
           {
             "Alias": "a",
-            "Value": "metric_TMA_Info_Botlnk_DSB_Bandwidth"
+            "Value": "metric_TMA_Info_Botlnk_L2_DSB_Bandwidth"
           }
         ],
         "Formula": "a > 10",
-        "BaseFormula": "metric_TMA_Info_Botlnk_DSB_Bandwidth > 10",
+        "BaseFormula": "metric_TMA_Info_Botlnk_L2_DSB_Bandwidth > 10",
         "ThresholdIssues": "$issueFB"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -12255,11 +12211,11 @@
         "ThresholdMetrics": [
           {
             "Alias": "a",
-            "Value": "metric_TMA_Info_Botlnk_IC_Misses"
+            "Value": "metric_TMA_Info_Botlnk_L2_IC_Misses"
           }
         ],
         "Formula": "a > 5",
-        "BaseFormula": "metric_TMA_Info_Botlnk_IC_Misses > 5",
+        "BaseFormula": "metric_TMA_Info_Botlnk_L2_IC_Misses > 5",
         "ThresholdIssues": "$issueFL"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -13302,11 +13258,11 @@
         "ThresholdMetrics": [
           {
             "Alias": "a",
-            "Value": "metric_TMA_Info_Memory_Page_Walks_Utilization"
+            "Value": "metric_TMA_Info_Memory_TLB_Page_Walks_Utilization"
           }
         ],
         "Formula": "a > 0.5",
-        "BaseFormula": "metric_TMA_Info_Memory_Page_Walks_Utilization > 0.5",
+        "BaseFormula": "metric_TMA_Info_Memory_TLB_Page_Walks_Utilization > 0.5",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "CORE, SOCKET, SYSTEM",
@@ -13616,11 +13572,11 @@
         "ThresholdMetrics": [
           {
             "Alias": "a",
-            "Value": "metric_TMA_Info_Memory_Useless_HWPF"
+            "Value": "metric_TMA_Info_Memory_Prefetches_Useless_HWPF"
           }
         ],
         "Formula": "a > 0.15",
-        "BaseFormula": "metric_TMA_Info_Memory_Useless_HWPF > 0.15",
+        "BaseFormula": "metric_TMA_Info_Memory_Prefetches_Useless_HWPF > 0.15",
         "ThresholdIssues": ""
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",

@@ -1018,7 +1018,7 @@
         "MetricExpr": "( ITLB_MISSES.WALK_DURATION + DTLB_LOAD_MISSES.WALK_DURATION + DTLB_STORE_MISSES.WALK_DURATION ) / tma_info_core_core_clks",
         "MetricGroup": "Mem;MemoryTLB;Core_Metric",
         "MetricName": "tma_info_memory_tlb_page_walks_utilization",
-        "MetricThreshold": "tma_info_memory_page_walks_utilization > 0.5"
+        "MetricThreshold": "tma_info_memory_tlb_page_walks_utilization > 0.5"
     },
     {
         "BriefDescription": "Average per-core data fill bandwidth to the L1 data cache [GB / sec]",

@@ -89,7 +89,7 @@
     },
     {
         "BriefDescription": "Total pipeline cost of remaining bottlenecks in the back-end",
-        "MetricExpr": "100 - ( tma_bottleneck_big_code + tma_bottleneck_instruction_fetch_bw + tma_bottleneck_mispredictions + tma_bottleneck_cache_memory_bandwidth + ma_bottleneck_cache_memory_latency + tma_bottleneck_memory_data_tlbs + tma_bottleneck_memory_synchronization + tma_bottleneck_compute_bound_est + tma_bottleneck_irregular_overhead + tma_bottleneck_branching_overhead + tma_bottleneck_useful_work )",
+        "MetricExpr": "100 - ( tma_bottleneck_big_code + tma_bottleneck_instruction_fetch_bw + tma_bottleneck_mispredictions + tma_bottleneck_cache_memory_bandwidth + tma_bottleneck_cache_memory_latency + tma_bottleneck_memory_data_tlbs + tma_bottleneck_memory_synchronization + tma_bottleneck_compute_bound_est + tma_bottleneck_irregular_overhead + tma_bottleneck_branching_overhead + tma_bottleneck_useful_work )",
         "MetricGroup": "BvOB;Cor;Offcore;TopdownL1;tma_L1_group;Default;Scaled_Slots",
         "MetricName": "tma_bottleneck_other_bottlenecks",
         "MetricThreshold": "tma_bottleneck_other_bottlenecks > 20",
@@ -141,7 +141,7 @@
     {
         "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to instruction cache misses",
         "MetricExpr": "ICACHE_DATA.STALLS / tma_info_thread_clks",
-        "MetricGroup": "BigFootprint;BvBC;FetchLat;IcMiss;TopdownL3;tma_L3_group;Clocks",
+        "MetricGroup": "BigFootprint;BvBC;FetchLat;IcMiss;TopdownL3;tma_L3_group;tma_fetch_latency_group;Clocks",
         "MetricName": "tma_icache_misses",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_icache_misses > 0.05 & tma_fetch_latency > 0.1 & tma_frontend_bound > 0.15",
@@ -207,7 +207,7 @@
     {
         "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to Branch Resteers",
         "MetricExpr": "INT_MISC.CLEAR_RESTEER_CYCLES / tma_info_thread_clks + tma_unknown_branches",
-        "MetricGroup": "FetchLat;TopdownL3;tma_L3_group;Clocks;tma_overlap",
+        "MetricGroup": "FetchLat;TopdownL3;tma_L3_group;tma_fetch_latency_group;Clocks;tma_overlap",
         "MetricName": "tma_branch_resteers",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_branch_resteers > 0.05 & tma_fetch_latency > 0.1 & tma_frontend_bound > 0.15",
@@ -243,7 +243,7 @@
     {
         "BriefDescription": "This metric estimates the fraction of cycles when the CPU was stalled due to switches of uop delivery to the Microcode Sequencer (MS)",
         "MetricExpr": "( 3 ) * cpu@UOPS_RETIRED.MS\\,cmask\\=0x1\\,edge\\=0x1@ / ( UOPS_RETIRED.SLOTS / UOPS_ISSUED.ANY ) / tma_info_thread_clks",
-        "MetricGroup": "FetchLat;MicroSeq;TopdownL3;tma_L3_group;Clocks_Estimated;tma_issueMC;tma_issueMS;tma_issueMV;tma_issueSO",
+        "MetricGroup": "FetchLat;MicroSeq;TopdownL3;tma_L3_group;tma_fetch_latency_group;Clocks_Estimated;tma_issueMC;tma_issueMS;tma_issueMV;tma_issueSO",
         "MetricName": "tma_ms_switches",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_ms_switches > 0.05 & tma_fetch_latency > 0.1 & tma_frontend_bound > 0.15",
@@ -261,7 +261,7 @@
     {
         "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to switches from DSB to MITE pipelines",
         "MetricExpr": "DSB2MITE_SWITCHES.PENALTY_CYCLES / tma_info_thread_clks",
-        "MetricGroup": "DSBmiss;FetchLat;TopdownL3;tma_L3_group;Clocks;tma_issueFB",
+        "MetricGroup": "DSBmiss;FetchLat;TopdownL3;tma_L3_group;tma_fetch_latency_group;Clocks;tma_issueFB",
         "MetricName": "tma_dsb_switches",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_dsb_switches > 0.05 & tma_fetch_latency > 0.1 & tma_frontend_bound > 0.15",
@@ -281,7 +281,7 @@
     {
         "BriefDescription": "This metric represents Core fraction of cycles in which CPU was likely limited due to the MITE pipeline (the legacy decode pipeline)",
         "MetricExpr": "( IDQ.MITE_CYCLES_ANY - IDQ.MITE_CYCLES_OK ) / tma_info_core_core_clks / 2",
-        "MetricGroup": "DSBmiss;FetchBW;TopdownL3;tma_L3_group;Slots_Estimated",
+        "MetricGroup": "DSBmiss;FetchBW;TopdownL3;tma_L3_group;tma_fetch_bandwidth_group;Slots_Estimated",
         "MetricName": "tma_mite",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_mite > 0.1 & tma_fetch_bandwidth > 0.2",
@@ -299,7 +299,7 @@
     {
         "BriefDescription": "This metric represents Core fraction of cycles in which CPU was likely limited due to DSB (decoded uop cache) fetch pipeline",
         "MetricExpr": "( IDQ.DSB_CYCLES_ANY - IDQ.DSB_CYCLES_OK ) / tma_info_core_core_clks / 2",
-        "MetricGroup": "DSB;FetchBW;TopdownL3;tma_L3_group;Slots_Estimated",
+        "MetricGroup": "DSB;FetchBW;TopdownL3;tma_L3_group;tma_fetch_bandwidth_group;Slots_Estimated",
         "MetricName": "tma_dsb",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_dsb > 0.15 & tma_fetch_bandwidth > 0.2",
@@ -387,7 +387,7 @@
     {
         "BriefDescription": "This metric estimates fraction of slots the CPU was stalled due to other cases of misprediction (non-retired x86 branches or other types)",
         "MetricExpr": "max( tma_branch_mispredicts * ( 1 - BR_MISP_RETIRED.ALL_BRANCHES / ( INT_MISC.CLEARS_COUNT - MACHINE_CLEARS.COUNT ) ) , 0.0001 )",
-        "MetricGroup": "BvIO;BrMispredicts;TopdownL3;tma_L3_group;Slots",
+        "MetricGroup": "BvIO;BrMispredicts;TopdownL3;tma_L3_group;tma_branch_mispredicts_group;Slots",
         "MetricName": "tma_other_mispredicts",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_other_mispredicts > 0.05 & tma_branch_mispredicts > 0.1 & tma_bad_speculation > 0.15"
@@ -406,7 +406,7 @@
     {
         "BriefDescription": "This metric represents fraction of slots the CPU has wasted due to Nukes (Machine Clears) not related to memory ordering",
         "MetricExpr": "max( tma_machine_clears * ( 1 - MACHINE_CLEARS.MEMORY_ORDERING / MACHINE_CLEARS.COUNT ) , 0.0001 )",
-        "MetricGroup": "BvIO;Machine_Clears;TopdownL3;tma_L3_group;Slots",
+        "MetricGroup": "BvIO;Machine_Clears;TopdownL3;tma_L3_group;tma_machine_clears_group;Slots",
         "MetricName": "tma_other_nukes",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_other_nukes > 0.05 & tma_machine_clears > 0.1 & tma_bad_speculation > 0.15"
@@ -425,7 +425,7 @@
     {
         "BriefDescription": "This metric represents fraction of slots the Memory subsystem within the Backend was a bottleneck",
         "MetricExpr": "( topdown\\-mem\\-bound / ( topdown\\-fe\\-bound + topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound ) ) + ( 0 * slots )",
-        "MetricGroup": "Backend;TmaL2;TopdownL2;tma_L2_group;Default;Slots",
+        "MetricGroup": "Backend;TmaL2;TopdownL2;tma_L2_group;tma_backend_bound_group;Default;Slots",
         "MetricName": "tma_memory_bound",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_memory_bound > 0.2 & tma_backend_bound > 0.2",
@@ -445,7 +445,7 @@
     {
         "BriefDescription": "This metric roughly estimates the fraction of cycles where the Data TLB (DTLB) was missed by load accesses",
         "MetricExpr": "( min( ( MEM_INST_RETIRED.STLB_HIT_LOADS * cpu_core@MEM_INST_RETIRED.STLB_HIT_LOADS@R ) , MEM_INST_RETIRED.STLB_HIT_LOADS * ( 7 ) ) if ( cpu_core@MEM_INST_RETIRED.STLB_HIT_LOADS@R >= 0 ) else ( MEM_INST_RETIRED.STLB_HIT_LOADS * ( 7 ) ) ) / tma_info_thread_clks + tma_load_stlb_miss",
-        "MetricGroup": "BvMT;MemoryTLB;TopdownL4;tma_L4_group;Clocks_Estimated;tma_issueTLB",
+        "MetricGroup": "BvMT;MemoryTLB;TopdownL4;tma_L4_group;tma_l1_bound_group;Clocks_Estimated;tma_issueTLB",
         "MetricName": "tma_dtlb_load",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_dtlb_load > 0.1 & tma_l1_bound > 0.1 & tma_memory_bound > 0.2 & tma_backend_bound > 0.2",
@@ -521,7 +521,7 @@
     {
         "BriefDescription": "This metric estimates fraction of cycles handling memory load split accesses - load that cross 64-byte cache line boundary",
         "MetricExpr": "( min( ( MEM_INST_RETIRED.SPLIT_LOADS * cpu_core@MEM_INST_RETIRED.SPLIT_LOADS@R ) , MEM_INST_RETIRED.SPLIT_LOADS * tma_info_memory_load_miss_real_latency ) if ( cpu_core@MEM_INST_RETIRED.SPLIT_LOADS@R >= 0 ) else ( MEM_INST_RETIRED.SPLIT_LOADS * tma_info_memory_load_miss_real_latency ) ) / tma_info_thread_clks",
-        "MetricGroup": "TopdownL4;tma_L4_group;Clocks_Calculated",
+        "MetricGroup": "TopdownL4;tma_L4_group;tma_l1_bound_group;Clocks_Calculated",
         "MetricName": "tma_split_loads",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_split_loads > 0.3",
@@ -566,7 +566,7 @@
     {
         "BriefDescription": "This metric estimates fraction of cycles while the memory subsystem was handling synchronizations due to contested accesses",
         "MetricExpr": "( ( min( ( MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS * cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS@R ) , MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS * ( 27 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) if ( cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS@R >= 0 ) else ( MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS * ( 27 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) ) + ( min( ( MEM_LOAD_L3_HIT_RETIRED.XSNP_FWD * cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_FWD@R ) , MEM_LOAD_L3_HIT_RETIRED.XSNP_FWD * ( 28 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) if ( cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_FWD@R >= 0 ) else ( MEM_LOAD_L3_HIT_RETIRED.XSNP_FWD * ( 28 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) ) * ( OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HITM / ( OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HITM + OCR.DEMAND_DATA_RD.L3_HIT.SNOOP_HIT_WITH_FWD ) ) ) * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) / 2 ) / tma_info_thread_clks",
-        "MetricGroup": "BvMS;DataSharing;LockCont;Offcore;Snoop;TopdownL4;tma_L4_group;Clocks_Estimated;tma_issueSyncxn",
+        "MetricGroup": "BvMS;DataSharing;LockCont;Offcore;Snoop;TopdownL4;tma_L4_group;tma_l3_bound_group;Clocks_Estimated;tma_issueSyncxn",
         "MetricName": "tma_contested_accesses",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_contested_accesses > 0.05 & tma_l3_bound > 0.05 & tma_memory_bound > 0.2 & tma_backend_bound > 0.2",
@@ -584,7 +584,7 @@
     {
         "BriefDescription": "This metric estimates fraction of cycles with demand load accesses that hit the L3 cache under unloaded scenarios (possibly L3 latency limited)",
         "MetricExpr": "( min( ( MEM_LOAD_RETIRED.L3_HIT * cpu_core@MEM_LOAD_RETIRED.L3_HIT@R ) , MEM_LOAD_RETIRED.L3_HIT * ( 12 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) if ( cpu_core@MEM_LOAD_RETIRED.L3_HIT@R >= 0 ) else ( MEM_LOAD_RETIRED.L3_HIT * ( 12 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) ) * ( 1 + ( MEM_LOAD_RETIRED.FB_HIT / MEM_LOAD_RETIRED.L1_MISS ) / 2 ) / tma_info_thread_clks",
-        "MetricGroup": "BvML;MemoryLat;TopdownL4;tma_L4_group;Clocks_Estimated;tma_issueLat;tma_overlap",
+        "MetricGroup": "BvML;MemoryLat;TopdownL4;tma_L4_group;tma_l3_bound_group;Clocks_Estimated;tma_issueLat;tma_overlap",
         "MetricName": "tma_l3_hit_latency",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_l3_hit_latency > 0.1 & tma_l3_bound > 0.05 & tma_memory_bound > 0.2 & tma_backend_bound > 0.2",
@@ -638,7 +638,7 @@
     {
         "BriefDescription": "This metric estimates fraction of cycles the CPU spent handling L1D store misses",
         "MetricExpr": "( ( MEM_STORE_RETIRED.L2_HIT * ( 10 ) * ( 1 - ( MEM_INST_RETIRED.LOCK_LOADS / MEM_INST_RETIRED.ALL_STORES ) ) ) + ( 1 - ( MEM_INST_RETIRED.LOCK_LOADS / MEM_INST_RETIRED.ALL_STORES ) ) * ( min( CPU_CLK_UNHALTED.THREAD , OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO ) ) ) / tma_info_thread_clks",
-        "MetricGroup": "BvML;LockCont;MemoryLat;Offcore;TopdownL4;tma_L4_group;Clocks_Estimated;tma_issueRFO;tma_issueSL;tma_overlap",
+        "MetricGroup": "BvML;LockCont;MemoryLat;Offcore;TopdownL4;tma_L4_group;tma_store_bound_group;Clocks_Estimated;tma_issueRFO;tma_issueSL;tma_overlap",
         "MetricName": "tma_store_latency",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_store_latency > 0.1 & tma_store_bound > 0.2 & tma_memory_bound > 0.2 & tma_backend_bound > 0.2",
@@ -656,7 +656,7 @@
     {
         "BriefDescription": "This metric represents rate of split store accesses",
         "MetricExpr": "( min( ( MEM_INST_RETIRED.SPLIT_STORES * cpu_core@MEM_INST_RETIRED.SPLIT_STORES@R ) , MEM_INST_RETIRED.SPLIT_STORES * 1 ) if ( cpu_core@MEM_INST_RETIRED.SPLIT_STORES@R >= 0 ) else ( MEM_INST_RETIRED.SPLIT_STORES * 1 ) ) / tma_info_thread_clks",
-        "MetricGroup": "TopdownL4;tma_L4_group;Core_Utilization;tma_issueSpSt",
+        "MetricGroup": "TopdownL4;tma_L4_group;tma_store_bound_group;Core_Utilization;tma_issueSpSt",
         "MetricName": "tma_split_stores",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_split_stores > 0.2 & tma_store_bound > 0.2 & tma_memory_bound > 0.2 & tma_backend_bound > 0.2",
@@ -674,7 +674,7 @@
     {
         "BriefDescription": "This metric roughly estimates the fraction of cycles spent handling first-level data TLB store misses",
         "MetricExpr": "( min( ( MEM_INST_RETIRED.STLB_HIT_STORES * cpu_core@MEM_INST_RETIRED.STLB_HIT_STORES@R ) , MEM_INST_RETIRED.STLB_HIT_STORES * ( 7 ) ) if ( cpu_core@MEM_INST_RETIRED.STLB_HIT_STORES@R >= 0 ) else ( MEM_INST_RETIRED.STLB_HIT_STORES * ( 7 ) ) ) / tma_info_thread_clks + tma_store_stlb_miss",
-        "MetricGroup": "BvMT;MemoryTLB;TopdownL4;tma_L4_group;Clocks_Estimated;tma_issueTLB",
+        "MetricGroup": "BvMT;MemoryTLB;TopdownL4;tma_L4_group;tma_store_bound_group;Clocks_Estimated;tma_issueTLB",
         "MetricName": "tma_dtlb_store",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_dtlb_store > 0.05 & tma_store_bound > 0.2 & tma_memory_bound > 0.2 & tma_backend_bound > 0.2",
@@ -734,7 +734,7 @@
     {
         "BriefDescription": "This metric represents fraction of cycles where the Divider unit was active",
         "MetricExpr": "ARITH.DIV_ACTIVE / tma_info_thread_clks",
-        "MetricGroup": "BvCB;TopdownL3;tma_L3_group;Clocks",
+        "MetricGroup": "BvCB;TopdownL3;tma_L3_group;tma_core_bound_group;Clocks",
         "MetricName": "tma_divider",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_divider > 0.2 & tma_core_bound > 0.1 & tma_backend_bound > 0.2",
@@ -768,7 +768,7 @@
     {
         "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to PAUSE Instructions",
         "MetricExpr": "CPU_CLK_UNHALTED.PAUSE / tma_info_thread_clks",
-        "MetricGroup": "TopdownL4;tma_L4_group;Clocks",
+        "MetricGroup": "TopdownL4;tma_L4_group;tma_serializing_operation_group;Clocks",
         "MetricName": "tma_slow_pause",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_slow_pause > 0.05 & tma_serializing_operation > 0.1 & tma_core_bound > 0.1 & tma_backend_bound > 0.2",
@@ -785,7 +785,7 @@
     {
         "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due staying in C0.2 power-performance optimized state (Slower wakeup time; Larger power savings)",
         "MetricExpr": "CPU_CLK_UNHALTED.C02 / tma_info_thread_clks",
-        "MetricGroup": "C0Wait;TopdownL4;tma_L4_group;Clocks",
+        "MetricGroup": "C0Wait;TopdownL4;tma_L4_group;tma_serializing_operation_group;Clocks",
         "MetricName": "tma_c02_wait",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_c02_wait > 0.05 & tma_serializing_operation > 0.1 & tma_core_bound > 0.1 & tma_backend_bound > 0.2"
@@ -801,7 +801,7 @@
     {
         "BriefDescription": "This metric estimates fraction of cycles the CPU performance was potentially limited due to Core computation issues (non divider-related)",
         "MetricExpr": "( tma_ports_utilized_0 * tma_info_thread_clks + ( EXE_ACTIVITY.1_PORTS_UTIL + tma_retiring * EXE_ACTIVITY.2_3_PORTS_UTIL ) ) / tma_info_thread_clks if ( ARITH.DIV_ACTIVE < ( CYCLE_ACTIVITY.STALLS_TOTAL - EXE_ACTIVITY.BOUND_ON_LOADS ) ) else ( EXE_ACTIVITY.1_PORTS_UTIL + tma_retiring * EXE_ACTIVITY.2_3_PORTS_UTIL ) / tma_info_thread_clks",
-        "MetricGroup": "PortsUtil;TopdownL3;tma_L3_group;Clocks",
+        "MetricGroup": "PortsUtil;TopdownL3;tma_L3_group;tma_core_bound_group;Clocks",
         "MetricName": "tma_ports_utilization",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_ports_utilization > 0.15 & tma_core_bound > 0.1 & tma_backend_bound > 0.2",
@@ -819,7 +819,7 @@
     {
         "BriefDescription": "This metric estimates penalty in terms of percentage of([SKL+] injected blend uops out of all Uops Issued , the Count Domain; [ADL+] cycles)",
         "MetricExpr": "160 * ASSISTS.SSE_AVX_MIX / tma_info_thread_clks",
-        "MetricGroup": "TopdownL5;tma_L5_group;Clocks;tma_issueMV",
+        "MetricGroup": "TopdownL5;tma_L5_group;tma_ports_utilized_0_group;Clocks;tma_issueMV",
         "MetricName": "tma_mixing_vectors",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_mixing_vectors > 0.05",
@@ -855,7 +855,7 @@
     {
         "BriefDescription": "This metric represents Core fraction of cycles CPU dispatched uops on execution ports for ALU operations",
         "MetricExpr": "( UOPS_DISPATCHED.PORT_0 + UOPS_DISPATCHED.PORT_1 + UOPS_DISPATCHED.PORT_5_11 + UOPS_DISPATCHED.PORT_6 ) / ( 5 * tma_info_core_core_clks )",
-        "MetricGroup": "TopdownL5;tma_L5_group;Core_Execution",
+        "MetricGroup": "TopdownL5;tma_L5_group;tma_ports_utilized_3m_group;Core_Execution",
         "MetricName": "tma_alu_op_utilization",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_alu_op_utilization > 0.4"
@@ -890,7 +890,7 @@
     {
         "BriefDescription": "This metric represents Core fraction of cycles CPU dispatched uops on execution port for Load operations",
         "MetricExpr": "UOPS_DISPATCHED.PORT_2_3_10 / ( 3 * tma_info_core_core_clks )",
-        "MetricGroup": "TopdownL5;tma_L5_group;Core_Execution",
+        "MetricGroup": "TopdownL5;tma_L5_group;tma_ports_utilized_3m_group;Core_Execution",
         "MetricName": "tma_load_op_utilization",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_load_op_utilization > 0.6",
@@ -930,7 +930,7 @@
     {
         "BriefDescription": "This metric represents overall arithmetic floating-point (FP) operations fraction the CPU has executed (retired)",
         "MetricExpr": "tma_x87_use + tma_fp_scalar + tma_fp_vector",
-        "MetricGroup": "HPC;TopdownL3;tma_L3_group;Uops",
+        "MetricGroup": "HPC;TopdownL3;tma_L3_group;tma_light_operations_group;Uops",
         "MetricName": "tma_fp_arith",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_fp_arith > 0.2 & tma_light_operations > 0.6",
@@ -966,7 +966,7 @@
     {
         "BriefDescription": "This metric approximates arithmetic FP vector uops fraction the CPU has retired for 128-bit wide vectors",
         "MetricExpr": "( FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE + FP_ARITH_INST_RETIRED.128B_PACKED_SINGLE ) / ( tma_retiring * tma_info_thread_slots )",
-        "MetricGroup": "Compute;Flops;TopdownL5;tma_L5_group;Uops;tma_issue2P",
+        "MetricGroup": "Compute;Flops;TopdownL5;tma_L5_group;tma_fp_vector_group;Uops;tma_issue2P",
         "MetricName": "tma_fp_vector_128b",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_fp_vector_128b > 0.1 & tma_fp_vector > 0.1 & tma_fp_arith > 0.2 & tma_light_operations > 0.6",
@@ -984,7 +984,7 @@
     {
         "BriefDescription": "This metric represents overall Integer (Int) select operations fraction the CPU has executed (retired)",
         "MetricExpr": "tma_int_vector_128b + tma_int_vector_256b",
-        "MetricGroup": "Pipeline;TopdownL3;tma_L3_group;Uops",
+        "MetricGroup": "Pipeline;TopdownL3;tma_L3_group;tma_light_operations_group;Uops",
         "MetricName": "tma_int_operations",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_int_operations > 0.1 & tma_light_operations > 0.6",
@@ -1019,7 +1019,7 @@
     {
         "BriefDescription": "This metric represents fraction of slots where the CPU was retiring fused instructions , where one uop can represent multiple contiguous instructions",
         "MetricExpr": "tma_light_operations * INST_RETIRED.MACRO_FUSED / ( tma_retiring * tma_info_thread_slots )",
-        "MetricGroup": "Branches;BvBO;Pipeline;TopdownL3;tma_L3_group;Slots",
+        "MetricGroup": "Branches;BvBO;Pipeline;TopdownL3;tma_L3_group;tma_light_operations_group;Slots",
         "MetricName": "tma_fused_instructions",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_fused_instructions > 0.1 & tma_light_operations > 0.6",
@@ -1037,7 +1037,7 @@
     {
         "BriefDescription": "This metric represents the remaining light uops fraction the CPU has executed - remaining means not covered by other sibling nodes",
         "MetricExpr": "max( 0 , tma_light_operations - ( tma_fp_arith + tma_int_operations + tma_memory_operations + tma_fused_instructions + tma_non_fused_branches ) )",
-        "MetricGroup": "Pipeline;TopdownL3;tma_L3_group;Slots",
+        "MetricGroup": "Pipeline;TopdownL3;tma_L3_group;tma_light_operations_group;Slots",
         "MetricName": "tma_other_light_ops",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_other_light_ops > 0.3 & tma_light_operations > 0.6",
@@ -1075,7 +1075,7 @@
     {
         "BriefDescription": "This metric represents fraction of slots where the CPU was retiring instructions that that are decoder into two or more uops",
         "MetricExpr": "max( 0 , tma_heavy_operations - tma_microcode_sequencer )",
-        "MetricGroup": "TopdownL3;tma_L3_group;Slots;tma_issueD0",
+        "MetricGroup": "TopdownL3;tma_L3_group;tma_heavy_operations_group;Slots;tma_issueD0",
         "MetricName": "tma_few_uops_instructions",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_few_uops_instructions > 0.05 & tma_heavy_operations > 0.1",
@@ -1093,7 +1093,7 @@
     {
         "BriefDescription": "This metric estimates fraction of slots the CPU retired uops delivered by the Microcode_Sequencer as a result of Assists",
         "MetricExpr": "( ( 99 *3 + 63 + 30 ) / 5 ) * ASSISTS.ANY / tma_info_thread_slots",
-        "MetricGroup": "BvIO;TopdownL4;tma_L4_group;Slots_Estimated",
+        "MetricGroup": "BvIO;TopdownL4;tma_L4_group;tma_microcode_sequencer_group;Slots_Estimated",
         "MetricName": "tma_assists",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_assists > 0.1 & tma_microcode_sequencer > 0.05 & tma_heavy_operations > 0.1",
@@ -1128,7 +1128,7 @@
     {
         "BriefDescription": "This metric estimates fraction of cycles the CPU retired uops originated from CISC (complex instruction set computer) instruction",
         "MetricExpr": "max( 0 , tma_microcode_sequencer - tma_assists )",
-        "MetricGroup": "TopdownL4;tma_L4_group;Slots",
+        "MetricGroup": "TopdownL4;tma_L4_group;tma_microcode_sequencer_group;Slots",
         "MetricName": "tma_cisc",
         "ScaleUnit": "100%",
         "MetricThreshold": "tma_cisc > 0.1 & tma_microcode_sequencer > 0.05 & tma_heavy_operations > 0.1",
@@ -1139,7 +1139,7 @@
         "MetricExpr": "100 * ( 1 - tma_core_bound / tma_ports_utilization if tma_core_bound < tma_ports_utilization else 1 ) if tma_info_system_smt_2t_utilization > 0.5 else 0",
         "MetricGroup": "Cor;SMT;Metric",
         "MetricName": "tma_info_botlnk_l0_core_bound_likely",
-        "MetricThreshold": "tma_info_botlnk_core_bound_likely > 0.5"
+        "MetricThreshold": "tma_info_botlnk_l0_core_bound_likely > 0.5"
     },
     {
         "BriefDescription": "Instructions Per Cycle (per Logical Processor)",
@@ -1479,7 +1479,7 @@
         "MetricExpr": "100 * ( tma_fetch_latency * tma_dsb_switches / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) + tma_fetch_bandwidth * tma_mite / ( tma_mite + tma_dsb + tma_lsd + tma_ms ) )",
         "MetricGroup": "DSBmiss;Fed;Scaled_Slots;tma_issueFB",
         "MetricName": "tma_info_botlnk_l2_dsb_misses",
-        "MetricThreshold": "tma_info_botlnk_dsb_misses > 10",
+        "MetricThreshold": "tma_info_botlnk_l2_dsb_misses > 10",
         "PublicDescription": "Total pipeline cost of DSB (uop cache) misses - subset of the Instruction_Fetch_BW Bottleneck. Related metrics: tma_dsb_switches, tma_fetch_bandwidth, tma_info_botlnk_l2_dsb_bandwidth, tma_info_frontend_dsb_coverage, tma_info_inst_mix_iptb, tma_lcp."
     },
     {
@@ -1487,7 +1487,7 @@
         "MetricExpr": "100 * ( tma_frontend_bound * ( tma_fetch_bandwidth / ( tma_fetch_latency + tma_fetch_bandwidth ) ) * ( tma_dsb / ( tma_mite + tma_dsb + tma_lsd + tma_ms ) ) )",
         "MetricGroup": "DSB;Fed;FetchBW;Scaled_Slots;tma_issueFB",
         "MetricName": "tma_info_botlnk_l2_dsb_bandwidth",
-        "MetricThreshold": "tma_info_botlnk_dsb_bandwidth > 10",
+        "MetricThreshold": "tma_info_botlnk_l2_dsb_bandwidth > 10",
         "PublicDescription": "Total pipeline cost of DSB (uop cache) hits - subset of the Instruction_Fetch_BW Bottleneck. Related metrics: tma_dsb_switches, tma_fetch_bandwidth, tma_info_botlnk_l2_dsb_misses, tma_info_frontend_dsb_coverage, tma_info_inst_mix_iptb, tma_lcp."
     },
     {
@@ -1495,7 +1495,7 @@
         "MetricExpr": "100 * ( tma_fetch_latency * tma_icache_misses / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) )",
         "MetricGroup": "Fed;FetchLat;IcMiss;Scaled_Slots;tma_issueFL",
         "MetricName": "tma_info_botlnk_l2_ic_misses",
-        "MetricThreshold": "tma_info_botlnk_ic_misses > 5",
+        "MetricThreshold": "tma_info_botlnk_l2_ic_misses > 5",
         "PublicDescription": "Total pipeline cost of Instruction Cache misses - subset of the Big_Code Bottleneck."
     },
     {
@@ -1678,7 +1678,7 @@
         "MetricExpr": "( ITLB_MISSES.WALK_PENDING + DTLB_LOAD_MISSES.WALK_PENDING + DTLB_STORE_MISSES.WALK_PENDING ) / ( 4 * tma_info_core_core_clks )",
         "MetricGroup": "Mem;MemoryTLB;Core_Metric",
         "MetricName": "tma_info_memory_tlb_page_walks_utilization",
-        "MetricThreshold": "tma_info_memory_page_walks_utilization > 0.5"
+        "MetricThreshold": "tma_info_memory_tlb_page_walks_utilization > 0.5"
     },
     {
         "BriefDescription": "STLB (2nd level TLB) code speculative misses per kilo instruction (misses of any page-size that complete the page walk)",
@@ -1703,14 +1703,14 @@
         "MetricExpr": "( MEM_INST_RETIRED.STLB_MISS_LOADS * cpu_core@MEM_INST_RETIRED.STLB_MISS_LOADS@R ) / tma_info_thread_clks",
         "MetricGroup": "Mem;MemoryTLB;Clocks_Retired",
         "MetricName": "tma_info_memory_tlb_load_stlb_miss_ret",
-        "MetricThreshold": "tma_info_memory_load_stlb_miss_ret > 0.05"
+        "MetricThreshold": "tma_info_memory_tlb_load_stlb_miss_ret > 0.05"
     },
     {
         "BriefDescription": "This metric represents fraction of cycles the CPU retirement was stalled likely due to STLB misses by demand stores",
         "MetricExpr": "( MEM_INST_RETIRED.STLB_MISS_STORES * cpu_core@MEM_INST_RETIRED.STLB_MISS_STORES@R ) / tma_info_thread_clks",
         "MetricGroup": "Mem;MemoryTLB;Clocks_Retired",
         "MetricName": "tma_info_memory_tlb_store_stlb_miss_ret",
-        "MetricThreshold": "tma_info_memory_store_stlb_miss_ret > 0.05"
+        "MetricThreshold": "tma_info_memory_tlb_store_stlb_miss_ret > 0.05"
     },
     {
         "BriefDescription": "Average per-core data fill bandwidth to the L1 data cache [GB / sec]",
@@ -1741,7 +1741,7 @@
         "MetricExpr": "L2_LINES_OUT.USELESS_HWPF / ( L2_LINES_OUT.SILENT + L2_LINES_OUT.NON_SILENT )",
         "MetricGroup": "Prefetches;Metric",
         "MetricName": "tma_info_memory_prefetches_useless_hwpf",
-        "MetricThreshold": "tma_info_memory_useless_hwpf > 0.15"
+        "MetricThreshold": "tma_info_memory_prefetches_useless_hwpf > 0.15"
     },
     {
         "BriefDescription": "Average Latency for L2 cache miss demand Loads",
