@@ -290,7 +290,7 @@ class PerfFormatConverter:
                 if "topdown" in expression and "slots" not in expression:
                         expression = "( " + expression + " ) + ( 0 * slots )"
                 
-                return expression
+                return expression.replace("TXL", "TxL")
             else:
                 print("Error: TMA metric without base formula found")
         # Non TMA metric
@@ -325,7 +325,7 @@ class PerfFormatConverter:
                 sys.exit("Error in input JSON format during get_expressions(): " + str(error) + ". Exiting")
 
             # Remove any extra spaces in expression
-            return re.sub(r"[\s]{2,}", " ", expression.strip())
+            return re.sub(r"[\s]{2,}", " ", expression.strip()).replace("TXL", "TxL")
 
     def get_public_description(self, metric):
         """

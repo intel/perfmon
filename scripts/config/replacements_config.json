@@ -13,7 +13,7 @@
         "PERF_METRICS.FETCH_LATENCY":"topdown\\-fetch\\-lat",
         "PERF_METRICS.MEMORY_BOUND":"topdown\\-mem\\-bound",
         "TOPDOWN.SLOTS:PERF_METRICS":"slots",
-        "TOPDOWN.SLOTS:PERCORE":"TOPDOWN.SLOTS",
+        "TOPDOWN.SLOTS:PERCORE":"slots",
         "SLOTS":"slots",
         "SOCKET_COUNT":"#num_packages",
         "HYPERTHREADING_ON":"#SMT_on",
@@ -41,7 +41,8 @@
         "UNC_DRAM_ENERGY_STATUS":"power@energy\\-ram@",
         "INST_RETIRED.ANY_P:SUP":"INST_RETIRED.ANY_P:k",
         "BR_INST_RETIRED.FAR_BRANCH:USER":"BR_INST_RETIRED.FAR_BRANCH:u",
-        "OCR.DEMAND_RFO.L3_MISS:OCR_MSR_VAL=0X103B800002":"cpu@OCR.DEMAND_RFO.L3_MISS\\,offcore_rsp\\=0x103b800002@"
+        "OCR.DEMAND_RFO.L3_MISS:OCR_MSR_VAL=0X103B800002":"cpu@OCR.DEMAND_RFO.L3_MISS\\,offcore_rsp\\=0x103b800002@",
+        "UNC_ARB_TRK_OCCUPANCY.DATA_READ:c1":"UNC_ARB_TRK_OCCUPANCY.DATA_READ@cmask\\=0x1@"
     },
     "metric_source_events":{
         "CHAS_PER_SOCKET":"UNC_CHA([^\\s]*)",
