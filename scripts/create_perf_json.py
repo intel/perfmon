@@ -327,6 +327,13 @@ class PerfmonJsonEvent:
         if self.umask:
             self.umask = self.umask.split(",")[0]
             umask_ext = get('UMaskExt')
+
+            # Unset UMaskExt if PortMask or FCMask are set. For future platforms
+            # PortMask and FCMask won't be present and only UMaskExt will be available.
+            if umask_ext and int(umask_ext, 16):
+                if (self.port_mask and int(self.port_mask, 16)) or (self.fc_mask and int(self.fc_mask, 16)):
+                    umask_ext = None
+
             if umask_ext:
                 self.umask = umask_ext + self.umask[2:]
             self.umask = f'0x{int(self.umask, 16):x}'
