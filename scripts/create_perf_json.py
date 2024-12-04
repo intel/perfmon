@@ -731,7 +731,7 @@ class Model:
                      'num_packages', 'num_cores', 'SYSTEM_TSC_FREQ',
                      'filter_tid', 'TSC', 'cha', 'config1',
                      'source_count', 'slots', 'thresh', 'has_pmem',
-                     'num_dies', 'num_cpus_online', 'PEBS', 'R',
+                     'num_dies', 'num_cpus_online', 'PEBS', 'pcu_0', 'R',
                      'offcore_rsp']:
                 continue
             if v.startswith('tma_') or v.startswith('topdown\\-'):
