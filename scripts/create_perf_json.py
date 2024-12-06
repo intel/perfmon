@@ -1583,36 +1583,22 @@ class Model:
     def extract_extra_metrics(self, pmu_prefix: str, events: Dict[str, PerfmonJsonEvent],
                               saved_formulas: list[Dict[str, str]]):
         if 'extra metrics' in self.files:
-            with open(self.files['extra metrics'], 'r') as extra_json:
-                ignore = {
-                    'tma_info_system_mux': 'MUX',
-                    'tma_info_system_power': 'Power',
-                    'tma_info_system_time': 'Time',
-                }
-                broken_metrics = {
-                    'EMR': {
-                        # Missing event: UNC_UPI_TXL_FLITS.ALL_DATA
-                        'tma_info_system_upi_data_transmit_bw',
-                    },
-                }
-                skip = broken_metrics.get(self.shortname)
-                if not skip:
-                    skip = {}
-                for em in json.load(extra_json):
-                    if em['MetricName'] in skip:
-                        continue
-                    if em['MetricName'] in ignore:
-                        _verboseprint2(f"Skipping {em['MetricName']}")
-                        continue
-                    dups = [m for m in saved_formulas if m['MetricName'] == em['MetricName']]
-                    if dups:
-                        _verboseprint3(f'Not replacing:\n\t{dups[0]["MetricExpr"]}\nwith:\n\t{em["MetricExpr"]}')
-                        continue
-                    self.save_form(em['MetricName'], em['MetricGroup'], em['MetricExpr'],
-                                   em['BriefDescription'], None, em.get('ScaleUnit'),
-                                   em.get('MetricThreshold'), [], pmu_prefix, events,
-                                   infoname={}, aux={}, issue_to_metrics={},
-                                   saved_formulas=saved_formulas)
+            for file in self.files['extra metrics']:
+                _verboseprint2(f'Extracting metrics from {file}')
+                with open(file, 'r') as extra_json:
+                    for em in json.load(extra_json):
+                        dups = [m for m in saved_formulas if m['MetricName'] == em['MetricName']]
+                        if dups:
+                            _verboseprint3(f'Replacing:\n\t{dups[0]["MetricExpr"]}\nwith:\n\t{em["MetricExpr"]}')
+
+                        desc = em['PublicDescription'] if 'PublicDescription' in em else em['BriefDescription']
+                        if desc[-1:] == '.':
+                            desc = desc[:-1]
+                        self.save_form(em['MetricName'], em['MetricGroup'], em['MetricExpr'],
+                                       desc, None, em.get('ScaleUnit'),
+                                       em.get('MetricThreshold'), [], pmu_prefix, events,
+                                       infoname={}, aux={}, issue_to_metrics={},
+                                       saved_formulas=saved_formulas)
 
         if any(m['MetricName'] == 'tma_info_system_socket_clks' for m in saved_formulas):
             form = 'tma_info_system_socket_clks / #num_dies / duration_time / 1000000000'
@@ -1968,9 +1954,9 @@ class Mapfile:
             if 'atom' in files[shortname]:
                 files[shortname]['e-core tma metrics'] = Path(base_path, 'E-core_TMA_Metrics.csv')
 
-            cpu_metrics_path = Path(base_path, shortname, 'metrics', 'perf',
-                                    f'{longname.lower()}_metrics_perf.json')
-            if cpu_metrics_path.is_file():
+            cpu_metrics_dir = Path(base_path, shortname, 'metrics', 'perf')
+            cpu_metrics_path = sorted(cpu_metrics_dir.glob(f'{longname.lower()}_metrics_*perf.json'))
+            if len(cpu_metrics_path) > 0:
                 _verboseprint2(f'Found {cpu_metrics_path}')
                 files[shortname]['extra metrics'] = cpu_metrics_path
             else:
