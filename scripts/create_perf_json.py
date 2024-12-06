@@ -327,7 +327,6 @@ class PerfmonJsonEvent:
         if self.umask:
             self.umask = self.umask.split(",")[0]
             umask_ext = get('UMaskExt')
-
             # Unset UMaskExt if PortMask or FCMask are set. For future platforms
             # PortMask and FCMask won't be present and only UMaskExt will be available.
             if umask_ext and int(umask_ext, 16):
@@ -1013,7 +1012,7 @@ class Model:
                             saved_formulas: list[Dict[str, str]]):
         """Process a TMA metrics spreadsheet generating perf metrics."""
 
-        ratio_column = {
+        ratio_column4 = {
             "IVT": ("IVT", "IVB", "JKT/SNB-EP", "SNB"),
             "IVB": ("IVB", "SNB", ),
             "HSW": ("HSW", "IVB", "SNB", ),
@@ -1045,6 +1044,36 @@ class Model:
                     'SKL/KBL', 'BDW', 'HSW', 'IVB', 'SNB'),
             "CMT": ("CMT","GRT"),
         }
+        ratio_column = {
+            'LNL/ARL': 'LNL/ARL;MTL;ADL/RPL;TGL;RKL;ICL;KBLR/CFL/CML;SKL/KBL;BDW;HSW;IVB;SNB'.split(';'),
+            'GNR': 'GNR;MTL;SPR-HBM;SPR/EMR;ADL/RPL;TGL;RKL;ICX;ICL;CPX;CLX;KBLR/CFL/CML;SKX;SKL/KBL;BDX;BDW;HSX;HSW;IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
+            'MTL': 'MTL;ADL/RPL;TGL;RKL;ICL;KBLR/CFL/CML;SKL/KBL;BDW;HSW;IVB;SNB'.split(';'),
+            'SPR/EMR': 'SPR/EMR;ADL/RPL;TGL;RKL;ICX;ICL;CPX;CLX;KBLR/CFL/CML;SKX;SKL/KBL;BDX;BDW;HSX;HSW;IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
+            'ADL/RPL': 'ADL/RPL;TGL;RKL;ICL;KBLR/CFL/CML;SKL/KBL;BDW;HSW;IVB;SNB'.split(';'),
+            'TGL': 'TGL;RKL;ICL;KBLR/CFL/CML;SKL/KBL;BDW;HSW;IVB;SNB'.split(';'),
+            'RKL': 'RKL;ICL;KBLR/CFL/CML;SKL/KBL;BDW;HSW;IVB;SNB'.split(';'),
+            'ICX': 'ICX;ICL;CPX;CLX;KBLR/CFL/CML;SKX;SKL/KBL;BDX;BDW;HSX;HSW;IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
+            'ICL': 'ICL;KBLR/CFL/CML;SKL/KBL;BDW;HSW;IVB;SNB'.split(';'),
+            'CPX': 'CPX;CLX;KBLR/CFL/CML;SKX;SKL/KBL;BDX;BDW;HSX;HSW;IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
+            'CLX': 'CLX;KBLR/CFL/CML;SKX;SKL/KBL;BDX;BDW;HSX;HSW;IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
+            'KBLR/CFL/CML': 'KBLR/CFL/CML;SKL/KBL;BDW;HSW;IVB;SNB'.split(';'),
+            'SKX': 'SKX;SKL/KBL;BDX;BDW;HSX;HSW;IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
+            'SKL/KBL': 'SKL/KBL;BDW;HSW;IVB;SNB'.split(';'),
+            'BDX': 'BDX;BDW;HSX;HSW;IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
+            'BDW': 'BDW;HSW;IVB;SNB'.split(';'),
+            'HSX': 'HSX;HSW;IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
+            'HSW': 'HSW;IVB;SNB'.split(';'),
+            'IVT': 'IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
+            'IVB': 'IVB;SNB'.split(';'),
+            'JKT/SNB-EP': 'JKT/SNB-EP;SNB'.split(';'),
+            'SNB': 'SNB'.split(';'),
+            "GRT": ["GRT",],
+            "CMT": ["CMT", "GRT"],
+            'LNL-SKT': ['LNL-SKT', 'CMT', 'GRT'],
+            'ARL-SKT': ['ARL-SKT', 'LNL-SKT', 'CMT', 'GRT'],
+        }
+        if csvfile.readline().startswith('TMA,Version,4.7-full'):
+            ratio_column = ratio_column4
         tma_cpu = None
         if self.shortname == 'BDW-DE':
             tma_cpu = 'BDW'
@@ -1052,7 +1081,7 @@ class Model:
             tma_cpu = 'GRT'
         else:
             for key in ratio_column.keys():
-                if self.shortname in key:
+                if self.shortname in key.split('/'):
                     tma_cpu = key
                     break
         if not tma_cpu:
@@ -1106,14 +1135,19 @@ class Model:
                 if tma_cpu not in col_heading:
                     if tma_cpu == 'ADL/RPL' and 'GRT' in col_heading:
                         tma_cpu = 'GRT'
-                    if tma_cpu == 'MTL' and 'CMT' in col_heading:
+                    elif tma_cpu == 'MTL' and 'CMT' in col_heading:
                         tma_cpu = 'CMT'
+                    elif self.shortname == 'LNL' and 'LNL-SKT' in col_heading:
+                        tma_cpu = 'LNL-SKT'
+                    elif self.shortname == 'ARL' and 'ARL-SKT' in col_heading:
+                        tma_cpu = 'ARL-SKT'
                 _verboseprint3(f'Columns: {col_heading}. Levels: {levels}')
             elif not found_key:
                 continue
 
             def field(x: str) -> str:
                 """Given the name of a column, return the value in the current line of it."""
+                assert x in col_heading, f"Expected {x} in {col_heading}"
                 return l[col_heading[x]].strip()
 
             def find_form() -> Optional[str]:
@@ -1249,7 +1283,8 @@ class Model:
                 ))
                 infoname[metric_name] = form
                 tma_metric_names[metric_name] = tma_metric_name
-            elif l[0].startswith('Info'):
+                _verboseprint3(f'Found topdown formula {tma_metric_name} on CPU {self.shortname} -> {form}')
+            elif l[0].startswith('Info') or l[0].startswith('Bottleneck'):
                 metric_name = field('Level1')
                 form = find_form()
                 if metric_name == 'CORE_CLKS':
@@ -1289,11 +1324,12 @@ class Model:
                     ))
                     infoname[metric_name] = form
                     tma_metric_names[metric_name] = tma_metric_name
+                    _verboseprint3(f'Found info formula {tma_metric_name} on CPU {self.shortname} -> {form}')
             elif l[0].startswith('Aux'):
                 form = find_form()
                 if form and form != '#NA':
                     aux_name = field('Level1')
-                    assert aux_name.startswith('#') or aux_name == 'Num_CPUs'
+                    assert aux_name.startswith('#') or aux_name == 'Num_CPUs' or aux_name == 'Dependent_Loads_Weight'
                     aux[aux_name] = form
                     _verboseprint3(f'Adding aux {aux_name}: {form}')
 
