@@ -1693,8 +1693,8 @@ class Model:
                     if per_pkg:
                         dict_event['PerPkg'] = per_pkg
                     pmon_topic_events[event.topic].append(dict_event)
-                    dict_events[event.event_name] = dict_event
-                    events[event.event_name] = event
+                    dict_events[event.event_name.upper()] = dict_event
+                    events[event.event_name.upper()] = event
                 self.count_counters(event_type, pmon_events)
 
         if 'uncore csv' in self.files:
@@ -1728,7 +1728,7 @@ class Model:
                         old_event = dict_events[name]
                         new_event = old_event.copy()
                         new_event['EventName'] = newname
-                        dict_events[newname] = new_event
+                        dict_events[newname.upper()] = new_event
                         pmon_topic_events[topic].append(new_event)
                         if desc:
                             desc += f'. Derived from {name.lower()}'
