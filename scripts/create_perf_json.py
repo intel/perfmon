@@ -711,11 +711,18 @@ class Model:
                   infoname : Dict[str, str], aux : Dict[str, str],
                   issue_to_metrics: Dict[str, Set[str]],
                   saved_formulas: list[Dict[str, str]]):
-        if self.shortname == 'BDW-DE':
-            if name in ['tma_false_sharing']:
-                # Uncore events missing for BDW-DE, so drop.
-                _verboseprint3(f'Dropping metric {name}')
-                return
+
+        missing_events = {
+            'ARL': ['L1D.REPLACEMENT', 'UNC_ARB_TRK_REQUESTS.ALL'],
+            'BDW-DE': ['OFFCORE_RESPONSE.DEMAND_RFO.L3_HIT.SNOOP_HITM'],
+            'GNR': ['UNC_CHA_RxC_IRQ1_REJECT.PA_MATCH'],
+            'LNL': ['UNC_ARB_TRK_REQUESTS.ALL', 'UNC_CLOCK.SOCKET'],
+        }
+        if self.shortname in missing_events:
+            for e in missing_events[self.shortname]:
+                if e in form and e not in events:
+                    _verboseprint3(f'Dropping {self.shortname} metric {name} due to missing event {e}')
+                    return
 
         # Make 'TmaL1' group names more consistent with the 'tma_'
         # prefix and '_group' suffix.
@@ -739,7 +746,7 @@ class Model:
                      'filter_tid', 'TSC', 'cha', 'config1',
                      'source_count', 'slots', 'thresh', 'has_pmem',
                      'num_dies', 'num_cpus_online', 'PEBS', 'pcu_0', 'R',
-                     'offcore_rsp']:
+                     'offcore_rsp', 'power', 'energy\\-pkg', 'energy\\-ram']:
                 continue
             if v.startswith('tma_') or v.startswith('topdown\\-'):
                 continue
@@ -769,7 +776,8 @@ class Model:
                     locate = re.sub(r'.* Sample with: (.*)', r'\1', d)
             if not threshold:
                 parsed_threshold = m.get('MetricThreshold')
-            group = m['MetricGroup']
+            if 'MetricGroup' in m:
+                group = m['MetricGroup']
             saved_formulas.remove(m)
 
         desc = desc.strip()
@@ -960,6 +968,8 @@ class Model:
             'GRR': alderlake_constraints,
             'GNR': alderlake_constraints,
             'SRF': alderlake_constraints,
+            'ARL': alderlake_constraints,
+            'LNL': alderlake_constraints,
         }
         if name in errata_constraints[self.shortname]:
             formula['MetricConstraint'] = errata_constraints[self.shortname][name]
@@ -987,7 +997,7 @@ class Model:
         if parsed_threshold:
             formula['MetricThreshold'] = parsed_threshold
         elif threshold:
-            formula['MetricThreshold'] = metric.ParsePerfJson(threshold).Simplify().ToPerfJson()
+            formula['MetricThreshold'] = threshold
 
         saved_formulas.append(formula)
 
