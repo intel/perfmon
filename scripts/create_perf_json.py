@@ -1323,9 +1323,22 @@ class Model:
                          r'UNC_C_TOR_INSERTS.MISS_OPCODE@filter_opc\=0x182@'),
                         ('UNC_C_CLOCKTICKS:one_unit', r'cbox_0@event\=0x0@'),
                     ]
+                    power_uncore_fixups = [
+                        ('UNC_PKG_ENERGY_STATUS', 'power@energy\-pkg@'),
+                        ('FREERUN_PKG_ENERGY_STATUS', 'power@energy\-pkg@'),
+                        ('FREERUN_DRAM_ENERGY_STATUS', 'power@energy\-ram@'),
+                    ]
                     arch_fixups = {
                         'ADL': td_event_fixups + [
                             ('UNC_ARB_DAT_OCCUPANCY.RD:c1', r'UNC_ARB_DAT_OCCUPANCY.RD@cmask\=1@'),
+                        ],
+                        'ARL': td_event_fixups + [
+                            ('IDQ.MITE_UOPS:c8:i1:eq1',
+                             r'cpu@IDQ.MITE_UOPS\,cmask\=0x8\,inv\=0x1@'),
+                            ('IDQ.DSB_UOPS:c8:i1:eq1',
+                             r'cpu@IDQ.DSB_UOPS\,cmask\=0x8\,inv\=0x1@'),
+                            ('LSD.UOPS:c8:i1:eq1',
+                             r'cpu@LSD.UOPS\,cmask\=0x8\,inv\=0x1@'),
                         ],
                         'BDW-DE': hsx_uncore_fixups,
                         'BDX': hsx_uncore_fixups,
@@ -1335,9 +1348,25 @@ class Model:
                             ('UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD:c1',
                              r'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
                         ],
+                        'EMR': [
+                            ('OCR.DEMAND_RFO.L3_MISS:ocr_msr_val=0x103b800002',
+                             'OCR.DEMAND_RFO.L3_MISS@offcore_rsp\\=0x103b800002@'),
+                            ('UNC_CHA_CLOCKTICKS:one_unit', r'uncore_cha_0@event\=0x1@'),
+                            ('UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD:c1',
+                             r'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
+                        ] + td_event_fixups,
+                        'GNR': [
+                            ('OCR.DEMAND_RFO.L3_MISS:ocr_msr_val=0x103b800002',
+                             'OCR.DEMAND_RFO.L3_MISS@offcore_rsp\\=0x103b800002@'),
+                            ('UNC_CHA_CLOCKTICKS:one_unit', r'uncore_cha_0@event\=0x1@'),
+                            ('UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD:c1',
+                             r'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
+                        ] + td_event_fixups,
                         'HSX': hsx_uncore_fixups,
                         'ICL': td_event_fixups,
                         'ICX': [
+                            ('OCR.DEMAND_RFO.L3_MISS:ocr_msr_val=0x103b800002',
+                             'OCR.DEMAND_RFO.L3_MISS@offcore_rsp\\=0x103b800002@'),
                             ('UNC_CHA_CLOCKTICKS:one_unit', r'cha_0@event\=0x0@'),
                             ('UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD:c1',
                              r'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
@@ -1360,6 +1389,15 @@ class Model:
                              r'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182\,thresh\=1@'),
                             ('UNC_C_CLOCKTICKS:one_unit', r'cbox_0@event\=0x0@'),
                         ],
+                        'LNL': td_event_fixups + [
+                            ('UNC_ARB_DAT_OCCUPANCY.RD:c1', r'UNC_ARB_DAT_OCCUPANCY.RD@cmask\=1@'),
+                            ('IDQ.MITE_UOPS:c8:i1:eq1',
+                             r'cpu_core@IDQ.MITE_UOPS\,cmask\=0x8\,inv\=0x1@'),
+                            ('IDQ.DSB_UOPS:c8:i1:eq1',
+                             r'cpu_core@IDQ.DSB_UOPS\,cmask\=0x8\,inv\=0x1@'),
+                            ('LSD.UOPS:c8:i1:eq1',
+                             r'cpu_core@LSD.UOPS\,cmask\=0x8\,inv\=0x1@'),
+                        ],
                         'MTL': td_event_fixups + [
                             ('UNC_ARB_DAT_OCCUPANCY.RD:c1', r'UNC_ARB_DAT_OCCUPANCY.RD@cmask\=1@'),
                         ],
@@ -1376,27 +1414,31 @@ class Model:
                             ('UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD:c1',
                              r'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
                         ],
+                        'SNB' :[
+                            ('MEM_LOAD_UOPS_RETIRED.LLC_MISS', 'MEM_LOAD_UOPS_MISC_RETIRED.LLC_MISS'),
+                        ],
                         'SPR': [
                             ('UNC_CHA_CLOCKTICKS:one_unit', r'uncore_cha_0@event\=0x1@'),
                             ('UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD:c1',
                              r'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
+                            ('OCR.DEMAND_RFO.L3_MISS:ocr_msr_val=0x103b800002',
+                             'OCR.DEMAND_RFO.L3_MISS@offcore_rsp\\=0x103b800002@'),
                         ] + td_event_fixups,
                         'TGL': [
-                            ('UNC_ARB_COH_TRK_REQUESTS.ALL', r'arb@event\=0x84\,umask\=0x1@'),
                             ('UNC_ARB_DAT_OCCUPANCY.RD:c1', r'UNC_ARB_DAT_OCCUPANCY.RD@cmask\=1@'),
-                            ('UNC_ARB_TRK_REQUESTS.ALL', r'arb@event\=0x81\,umask\=0x1@'),
                         ] + td_event_fixups,
                     }
 
-                    if self.shortname in arch_fixups:
-                        for j, r in arch_fixups[self.shortname]:
-                            for i in range(0, len(r)):
-                                if r[i] in ['-', '=', ',']:
-                                    assert i == 0 or r[i - 1] == '\\', r
-                            if pmu_prefix != 'cpu' and r.startswith(r'topdown\-'):
-                                r = rf'{pmu_prefix}@{r}@'
+                    fixups = arch_fixups[self.shortname]  if self.shortname in arch_fixups else []
+                    fixups = fixups + power_uncore_fixups
+                    for j, r in fixups:
+                        for i in range(0, len(r)):
+                            if r[i] in ['-', '=', ',']:
+                                assert i == 0 or r[i - 1] == '\\', r
+                        if pmu_prefix != 'cpu' and r.startswith(r'topdown\-'):
+                            r = rf'{pmu_prefix}@{r}@'
 
-                            form = form.replace(j, r)
+                        form = form.replace(j, r)
 
                     form = form.replace('_PS', '')
                     form = re.sub(r':USER', ':u', form, re.IGNORECASE)
