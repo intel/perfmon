@@ -2001,7 +2001,10 @@ class Mapfile:
             modeldir = Path(outdir, model.longname)
             _verboseprint(f'Creating event json for {model.shortname} in {modeldir}')
             modeldir.mkdir(exist_ok=True)
-            model.to_perf_json(modeldir)
+            try:
+                model.to_perf_json(modeldir)
+            except Exception as e:
+                raise RuntimeError(f'Failure in model \'{model}\'') from e
 
 
 def main():
