@@ -1007,13 +1007,6 @@ class Model:
                             saved_formulas: list[Dict[str, str]]):
         """Process a TMA metrics spreadsheet generating perf metrics."""
 
-        # metrics redundant with perf or unusable
-        ignore = {
-            'tma_info_system_mux': 'MUX',
-            'tma_info_system_power': 'Power',
-            'tma_info_system_time': 'Time',
-        }
-
         ratio_column = {
             "IVT": ("IVT", "IVB", "JKT/SNB-EP", "SNB"),
             "IVB": ("IVB", "SNB", ),
@@ -1299,10 +1292,6 @@ class Model:
                     _verboseprint3(f'Adding aux {aux_name}: {form}')
 
         for i in info:
-            if i.name in ignore:
-                _verboseprint2(f'Skipping {i.name}')
-                continue
-
             form = i.form
             if form is None or form == '#NA' or form == 'N/A':
                 _verboseprint2(f'No formula for {i.name} on {tma_cpu}')
@@ -1553,10 +1542,6 @@ class Model:
                 def resolve_info(v: str) -> str:
                     if expand_metrics and v in infoname:
                         return bracket(fixup(infoname[v]))
-                    if v in ignore:
-                        # If metric will be ignored in the output it must
-                        # be expanded.
-                        return bracket(fixup(infoname[ignore[v]]))
                     if v in infoname:
                         form = infoname[v]
                         if form == '#NA':
@@ -1607,7 +1592,11 @@ class Model:
 
             threshold = None
             if i.threshold:
-                threshold = f'{i.name} {i.threshold}'
+                # Handle MUX specially:
+                if i.threshold == '( > 1.1 | < 0.9 )':
+                    threshold = f'{i.name} > 1.1 | {i.name} < 0.9'
+                else:
+                    threshold = f'{i.name} {i.threshold}'
                 _verboseprint2(f'{i.name}/{i.form} -> {threshold}')
                 t = []
                 if '|' in threshold:
