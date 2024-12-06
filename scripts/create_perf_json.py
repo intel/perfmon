@@ -23,7 +23,7 @@ import json
 import metric
 from pathlib import Path
 import re
-from typing import DefaultDict, Dict, Optional, Set, TextIO, Tuple
+from typing import cast, DefaultDict, Dict, Optional, Set, TextIO, Tuple
 
 _verbose = 0
 def _verboseprintX(level:int, *args, **kwargs):
@@ -675,34 +675,40 @@ class Model:
             Input:  MEM_INST_RETIRED.STLB_HIT_LOADS*min($PEBS, 7) / tma_info_thread_clks + tma_load_stlb_miss
             Return: MEM_INST_RETIRED.STLB_HIT_LOADS * min(MEM_INST_RETIRED.STLB_HIT_LOADS:R, 7) / tma_info_thread_clks + tma_load_stlb_miss
         """
-        MIN_MAX_PEBS = re.compile(r"([A-Za-z0-9_.@]+)\*(min|max)\( *(\$PEBS) *,([a-z0-9_ */+-]+)\)")
-        NON_REL_OPS = r"(?<!##)(?<!##2)/|[\(\)]+|[\+\-,]|\*(?![\$])|(?<!##)\?| if not | if | else |min\(|max\(| and | or | in | not "
-        REL_OPS = r"[<>]=?|=="
-        STR_OPS = r"'[A-Z\-]+'"
-        OPS = NON_REL_OPS + "|" + REL_OPS + "|" + STR_OPS
+        py = re.sub(r'\$PEBS', 'PEBS', formula)
+        expr = metric.ParsePerfJson(py)
 
-        new_formula = formula
-        # catch X*min/max($PEBS,Y)
-        if MIN_MAX_PEBS.search(formula):
-            for m in re.finditer(MIN_MAX_PEBS, formula):
-                main_event = m.group(1).strip()
-                min_max = m.group(2)
-                alternative = m.group(4).strip()
-
-                mod = 'R' if '@' in main_event else ':R'
-                new_string = f'{main_event} * {min_max}({main_event}{mod}, {alternative})'
-                new_formula = re.sub(m.re, new_string, new_formula, count=1)
-
-        formula_list = re.split(OPS, new_formula)
-        for element in formula_list:
-            element = element.strip()
-            if '$PEBS' in element:
-                event_name = element.split('*')[0]
-                mod = 'R' if '@' in event_name else ':R'
-                new_element = f'( {event_name} * {event_name}{mod} )'
-                new_formula = new_formula.replace(element, new_element)
-
-        return new_formula
+        def RewritePebsExpr(expr: metric.Expression):
+            def MakeTpebs(event: str) -> str:
+                return f'{event}R' if event.endswith('@') else f'{event}:R'
+            if isinstance(expr, metric.Operator):
+                op = cast(metric.Operator, expr)
+                if op.operator == '*':
+                    if isinstance(op.lhs, metric.Event) and isinstance(op.rhs, metric.Event):
+                        lhs_event = cast(metric.Event, op.lhs)
+                        rhs_event = cast(metric.Event, op.rhs)
+                        if rhs_event.name == 'PEBS':
+                            rhs_event.name = MakeTpebs(lhs_event.name)
+                        return expr
+                    if isinstance(op.lhs, metric.Event) and isinstance(op.rhs, metric.Function):
+                        lhs_event = cast(metric.Event, op.lhs)
+                        fn = cast(metric.Function, op.rhs)
+                        if isinstance(fn.lhs, metric.Event) and (fn.fn == 'min' or fn.fn == 'max'):
+                            rhs_lhs_event = cast(metric.Event, fn.lhs)
+                            if rhs_lhs_event.name == 'PEBS':
+                                rhs_lhs_event.name = MakeTpebs(lhs_event.name)
+                            else:
+                                RewritePebsExpr(op.rhs)
+                            return expr
+                RewritePebsExpr(op.lhs)
+                RewritePebsExpr(op.rhs)
+            if isinstance(expr, metric.Function):
+                fn = cast(metric.Function, expr)
+                RewritePebsExpr(fn.lhs)
+                RewritePebsExpr(fn.rhs)
+            return expr
+            # TODO: possibly rewrite Select and other special operators.
+        return RewritePebsExpr(expr).ToPerfJson()
 
 
     def save_form(self, name: str, group: str, form: str, desc: str, locate: str,
