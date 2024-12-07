@@ -11,7 +11,6 @@ sys.path.append(str(_script_dir.parent))
 
 from create_perf_json import Model
 
-
 class TestModel(unittest.TestCase):
 
     def test_extract_pebs_formula(self):
@@ -19,11 +18,11 @@ class TestModel(unittest.TestCase):
         tests = [
             (
                 'EVENT.A*$PEBS',
-                '( EVENT.A * EVENT.A:R )',
+                'EVENT.A * EVENT.A:R',
             ),
             (
                 'EVENT.A + cpu_core@EVENT.B@*$PEBS',
-                'EVENT.A + ( cpu_core@EVENT.B@ * cpu_core@EVENT.B@R )',
+                'EVENT.A + cpu_core@EVENT.B@ * cpu_core@EVENT.B@R',
             ),
         ]
 
@@ -44,11 +43,11 @@ class TestModel(unittest.TestCase):
             ),
             (
                 'EVENT.A*min($PEBS, 9 * test_info) * (1 + (cpu_core@EVENT.B@ / cpu_core@EVENT.C@) / 2) / test_info_2',
-                'EVENT.A * min(EVENT.A:R, 9 * test_info) * (1 + (cpu_core@EVENT.B@ / cpu_core@EVENT.C@) / 2) / test_info_2',
+                'EVENT.A * min(EVENT.A:R, 9 * test_info) * (1 + cpu_core@EVENT.B@ / cpu_core@EVENT.C@ / 2) / test_info_2',
             ),
             (
                 '(cpu_core@EVENT.A@*min($PEBS, 24 * test_info) + cpu_core@EVENT.B@*min($PEBS, 24 - test_info) * (1 - (cpu_core@EVENT.C@ / (cpu_core@EVENT.D@ + cpu_core@EVENT.E@)))) * 5',
-                '(cpu_core@EVENT.A@ * min(cpu_core@EVENT.A@R, 24 * test_info) + cpu_core@EVENT.B@ * min(cpu_core@EVENT.B@R, 24 - test_info) * (1 - (cpu_core@EVENT.C@ / (cpu_core@EVENT.D@ + cpu_core@EVENT.E@)))) * 5',
+                '(cpu_core@EVENT.A@ * min(cpu_core@EVENT.A@R, 24 * test_info) + cpu_core@EVENT.B@ * min(cpu_core@EVENT.B@R, 24 - test_info) * (1 - cpu_core@EVENT.C@ / (cpu_core@EVENT.D@ + cpu_core@EVENT.E@))) * 5',
             )
         ]
 

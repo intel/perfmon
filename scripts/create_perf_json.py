@@ -23,7 +23,7 @@ import json
 import metric
 from pathlib import Path
 import re
-from typing import DefaultDict, Dict, Optional, Set, TextIO, Tuple
+from typing import cast, DefaultDict, Dict, Optional, Set, TextIO, Tuple
 
 _verbose = 0
 def _verboseprintX(level:int, *args, **kwargs):
@@ -327,7 +327,6 @@ class PerfmonJsonEvent:
         if self.umask:
             self.umask = self.umask.split(",")[0]
             umask_ext = get('UMaskExt')
-
             # Unset UMaskExt if PortMask or FCMask are set. For future platforms
             # PortMask and FCMask won't be present and only UMaskExt will be available.
             if umask_ext and int(umask_ext, 16):
@@ -581,7 +580,7 @@ class Model:
             (['ICL', 'TGL', 'RKL'], [6, 7], [2, 3, 6, 7, 8, 9, 10]),
             (['ICX', 'SPR', 'EMR', 'GNR'], [1, 6], [2, 6]),
             (['ADL', 'GRT', 'ADLN', 'GRR', 'SRF'], [1, 6, 7], [2, 3, 6, 8, 10]),
-            (['MTL'], [1, 6, 7], [2, 3, 6, 7, 8, 9, 10]),
+            (['MTL', 'LNL', 'ARL'], [1, 6, 7], [2, 3, 6, 7, 8, 9, 10]),
             (['SLM'], [1, 6], [6]),
             (['KNL', 'KNM'], [6], [2, 3, 6]),
             (['GLM', 'SNR'], [1, 3, 6], [2, 3, 6, 10]),
@@ -675,34 +674,40 @@ class Model:
             Input:  MEM_INST_RETIRED.STLB_HIT_LOADS*min($PEBS, 7) / tma_info_thread_clks + tma_load_stlb_miss
             Return: MEM_INST_RETIRED.STLB_HIT_LOADS * min(MEM_INST_RETIRED.STLB_HIT_LOADS:R, 7) / tma_info_thread_clks + tma_load_stlb_miss
         """
-        MIN_MAX_PEBS = re.compile(r"([A-Za-z0-9_.@]+)\*(min|max)\( *(\$PEBS) *,([a-z0-9_ */+-]+)\)")
-        NON_REL_OPS = r"(?<!##)(?<!##2)/|[\(\)]+|[\+\-,]|\*(?![\$])|(?<!##)\?| if not | if | else |min\(|max\(| and | or | in | not "
-        REL_OPS = r"[<>]=?|=="
-        STR_OPS = r"'[A-Z\-]+'"
-        OPS = NON_REL_OPS + "|" + REL_OPS + "|" + STR_OPS
+        py = re.sub(r'\$PEBS', 'PEBS', formula)
+        expr = metric.ParsePerfJson(py)
 
-        new_formula = formula
-        # catch X*min/max($PEBS,Y)
-        if MIN_MAX_PEBS.search(formula):
-            for m in re.finditer(MIN_MAX_PEBS, formula):
-                main_event = m.group(1).strip()
-                min_max = m.group(2)
-                alternative = m.group(4).strip()
-
-                mod = 'R' if '@' in main_event else ':R'
-                new_string = f'{main_event} * {min_max}({main_event}{mod}, {alternative})'
-                new_formula = re.sub(m.re, new_string, new_formula, count=1)
-
-        formula_list = re.split(OPS, new_formula)
-        for element in formula_list:
-            element = element.strip()
-            if '$PEBS' in element:
-                event_name = element.split('*')[0]
-                mod = 'R' if '@' in event_name else ':R'
-                new_element = f'( {event_name} * {event_name}{mod} )'
-                new_formula = new_formula.replace(element, new_element)
-
-        return new_formula
+        def RewritePebsExpr(expr: metric.Expression):
+            def MakeTpebs(event: str) -> str:
+                return f'{event}R' if event.endswith('@') else f'{event}:R'
+            if isinstance(expr, metric.Operator):
+                op = cast(metric.Operator, expr)
+                if op.operator == '*':
+                    if isinstance(op.lhs, metric.Event) and isinstance(op.rhs, metric.Event):
+                        lhs_event = cast(metric.Event, op.lhs)
+                        rhs_event = cast(metric.Event, op.rhs)
+                        if rhs_event.name == 'PEBS':
+                            rhs_event.name = MakeTpebs(lhs_event.name)
+                        return expr
+                    if isinstance(op.lhs, metric.Event) and isinstance(op.rhs, metric.Function):
+                        lhs_event = cast(metric.Event, op.lhs)
+                        fn = cast(metric.Function, op.rhs)
+                        if isinstance(fn.lhs, metric.Event) and (fn.fn == 'min' or fn.fn == 'max'):
+                            rhs_lhs_event = cast(metric.Event, fn.lhs)
+                            if rhs_lhs_event.name == 'PEBS':
+                                rhs_lhs_event.name = MakeTpebs(lhs_event.name)
+                            else:
+                                RewritePebsExpr(op.rhs)
+                            return expr
+                RewritePebsExpr(op.lhs)
+                RewritePebsExpr(op.rhs)
+            if isinstance(expr, metric.Function):
+                fn = cast(metric.Function, expr)
+                RewritePebsExpr(fn.lhs)
+                RewritePebsExpr(fn.rhs)
+            return expr
+            # TODO: possibly rewrite Select and other special operators.
+        return RewritePebsExpr(expr).ToPerfJson()
 
 
     def save_form(self, name: str, group: str, form: str, desc: str, locate: str,
@@ -711,11 +716,18 @@ class Model:
                   infoname : Dict[str, str], aux : Dict[str, str],
                   issue_to_metrics: Dict[str, Set[str]],
                   saved_formulas: list[Dict[str, str]]):
-        if self.shortname == 'BDW-DE':
-            if name in ['tma_false_sharing']:
-                # Uncore events missing for BDW-DE, so drop.
-                _verboseprint3(f'Dropping metric {name}')
-                return
+
+        missing_events = {
+            'ARL': ['L1D.REPLACEMENT', 'UNC_ARB_TRK_REQUESTS.ALL'],
+            'BDW-DE': ['OFFCORE_RESPONSE.DEMAND_RFO.L3_HIT.SNOOP_HITM'],
+            'GNR': ['UNC_CHA_RxC_IRQ1_REJECT.PA_MATCH'],
+            'LNL': ['UNC_ARB_TRK_REQUESTS.ALL', 'UNC_CLOCK.SOCKET'],
+        }
+        if self.shortname in missing_events:
+            for e in missing_events[self.shortname]:
+                if e in form and e not in events:
+                    _verboseprint3(f'Dropping {self.shortname} metric {name} due to missing event {e}')
+                    return
 
         # Make 'TmaL1' group names more consistent with the 'tma_'
         # prefix and '_group' suffix.
@@ -739,7 +751,7 @@ class Model:
                      'filter_tid', 'TSC', 'cha', 'config1',
                      'source_count', 'slots', 'thresh', 'has_pmem',
                      'num_dies', 'num_cpus_online', 'PEBS', 'pcu_0', 'R',
-                     'offcore_rsp']:
+                     'offcore_rsp', 'power', 'energy\\-pkg', 'energy\\-ram']:
                 continue
             if v.startswith('tma_') or v.startswith('topdown\\-'):
                 continue
@@ -769,7 +781,8 @@ class Model:
                     locate = re.sub(r'.* Sample with: (.*)', r'\1', d)
             if not threshold:
                 parsed_threshold = m.get('MetricThreshold')
-            group = m['MetricGroup']
+            if 'MetricGroup' in m:
+                group = m['MetricGroup']
             saved_formulas.remove(m)
 
         desc = desc.strip()
@@ -960,6 +973,8 @@ class Model:
             'GRR': alderlake_constraints,
             'GNR': alderlake_constraints,
             'SRF': alderlake_constraints,
+            'ARL': alderlake_constraints,
+            'LNL': alderlake_constraints,
         }
         if name in errata_constraints[self.shortname]:
             formula['MetricConstraint'] = errata_constraints[self.shortname][name]
@@ -987,7 +1002,7 @@ class Model:
         if parsed_threshold:
             formula['MetricThreshold'] = parsed_threshold
         elif threshold:
-            formula['MetricThreshold'] = metric.ParsePerfJson(threshold).Simplify().ToPerfJson()
+            formula['MetricThreshold'] = threshold
 
         saved_formulas.append(formula)
 
@@ -997,14 +1012,7 @@ class Model:
                             saved_formulas: list[Dict[str, str]]):
         """Process a TMA metrics spreadsheet generating perf metrics."""
 
-        # metrics redundant with perf or unusable
-        ignore = {
-            'tma_info_system_mux': 'MUX',
-            'tma_info_system_power': 'Power',
-            'tma_info_system_time': 'Time',
-        }
-
-        ratio_column = {
+        ratio_column4 = {
             "IVT": ("IVT", "IVB", "JKT/SNB-EP", "SNB"),
             "IVB": ("IVB", "SNB", ),
             "HSW": ("HSW", "IVB", "SNB", ),
@@ -1036,6 +1044,36 @@ class Model:
                     'SKL/KBL', 'BDW', 'HSW', 'IVB', 'SNB'),
             "CMT": ("CMT","GRT"),
         }
+        ratio_column = {
+            'LNL/ARL': 'LNL/ARL;MTL;ADL/RPL;TGL;RKL;ICL;KBLR/CFL/CML;SKL/KBL;BDW;HSW;IVB;SNB'.split(';'),
+            'GNR': 'GNR;MTL;SPR-HBM;SPR/EMR;ADL/RPL;TGL;RKL;ICX;ICL;CPX;CLX;KBLR/CFL/CML;SKX;SKL/KBL;BDX;BDW;HSX;HSW;IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
+            'MTL': 'MTL;ADL/RPL;TGL;RKL;ICL;KBLR/CFL/CML;SKL/KBL;BDW;HSW;IVB;SNB'.split(';'),
+            'SPR/EMR': 'SPR/EMR;ADL/RPL;TGL;RKL;ICX;ICL;CPX;CLX;KBLR/CFL/CML;SKX;SKL/KBL;BDX;BDW;HSX;HSW;IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
+            'ADL/RPL': 'ADL/RPL;TGL;RKL;ICL;KBLR/CFL/CML;SKL/KBL;BDW;HSW;IVB;SNB'.split(';'),
+            'TGL': 'TGL;RKL;ICL;KBLR/CFL/CML;SKL/KBL;BDW;HSW;IVB;SNB'.split(';'),
+            'RKL': 'RKL;ICL;KBLR/CFL/CML;SKL/KBL;BDW;HSW;IVB;SNB'.split(';'),
+            'ICX': 'ICX;ICL;CPX;CLX;KBLR/CFL/CML;SKX;SKL/KBL;BDX;BDW;HSX;HSW;IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
+            'ICL': 'ICL;KBLR/CFL/CML;SKL/KBL;BDW;HSW;IVB;SNB'.split(';'),
+            'CPX': 'CPX;CLX;KBLR/CFL/CML;SKX;SKL/KBL;BDX;BDW;HSX;HSW;IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
+            'CLX': 'CLX;KBLR/CFL/CML;SKX;SKL/KBL;BDX;BDW;HSX;HSW;IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
+            'KBLR/CFL/CML': 'KBLR/CFL/CML;SKL/KBL;BDW;HSW;IVB;SNB'.split(';'),
+            'SKX': 'SKX;SKL/KBL;BDX;BDW;HSX;HSW;IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
+            'SKL/KBL': 'SKL/KBL;BDW;HSW;IVB;SNB'.split(';'),
+            'BDX': 'BDX;BDW;HSX;HSW;IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
+            'BDW': 'BDW;HSW;IVB;SNB'.split(';'),
+            'HSX': 'HSX;HSW;IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
+            'HSW': 'HSW;IVB;SNB'.split(';'),
+            'IVT': 'IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
+            'IVB': 'IVB;SNB'.split(';'),
+            'JKT/SNB-EP': 'JKT/SNB-EP;SNB'.split(';'),
+            'SNB': 'SNB'.split(';'),
+            "GRT": ["GRT",],
+            "CMT": ["CMT", "GRT"],
+            'LNL-SKT': ['LNL-SKT', 'CMT', 'GRT'],
+            'ARL-SKT': ['ARL-SKT', 'LNL-SKT', 'CMT', 'GRT'],
+        }
+        if csvfile.readline().startswith('TMA,Version,4.7-full'):
+            ratio_column = ratio_column4
         tma_cpu = None
         if self.shortname == 'BDW-DE':
             tma_cpu = 'BDW'
@@ -1043,7 +1081,7 @@ class Model:
             tma_cpu = 'GRT'
         else:
             for key in ratio_column.keys():
-                if self.shortname in key:
+                if self.shortname in key.split('/'):
                     tma_cpu = key
                     break
         if not tma_cpu:
@@ -1097,14 +1135,19 @@ class Model:
                 if tma_cpu not in col_heading:
                     if tma_cpu == 'ADL/RPL' and 'GRT' in col_heading:
                         tma_cpu = 'GRT'
-                    if tma_cpu == 'MTL' and 'CMT' in col_heading:
+                    elif tma_cpu == 'MTL' and 'CMT' in col_heading:
                         tma_cpu = 'CMT'
+                    elif self.shortname == 'LNL' and 'LNL-SKT' in col_heading:
+                        tma_cpu = 'LNL-SKT'
+                    elif self.shortname == 'ARL' and 'ARL-SKT' in col_heading:
+                        tma_cpu = 'ARL-SKT'
                 _verboseprint3(f'Columns: {col_heading}. Levels: {levels}')
             elif not found_key:
                 continue
 
             def field(x: str) -> str:
                 """Given the name of a column, return the value in the current line of it."""
+                assert x in col_heading, f"Expected {x} in {col_heading}"
                 return l[col_heading[x]].strip()
 
             def find_form() -> Optional[str]:
@@ -1240,7 +1283,8 @@ class Model:
                 ))
                 infoname[metric_name] = form
                 tma_metric_names[metric_name] = tma_metric_name
-            elif l[0].startswith('Info'):
+                _verboseprint3(f'Found topdown formula {tma_metric_name} on CPU {self.shortname} -> {form}')
+            elif l[0].startswith('Info') or l[0].startswith('Bottleneck'):
                 metric_name = field('Level1')
                 form = find_form()
                 if metric_name == 'CORE_CLKS':
@@ -1280,19 +1324,16 @@ class Model:
                     ))
                     infoname[metric_name] = form
                     tma_metric_names[metric_name] = tma_metric_name
+                    _verboseprint3(f'Found info formula {tma_metric_name} on CPU {self.shortname} -> {form}')
             elif l[0].startswith('Aux'):
                 form = find_form()
                 if form and form != '#NA':
                     aux_name = field('Level1')
-                    assert aux_name.startswith('#') or aux_name == 'Num_CPUs'
+                    assert aux_name.startswith('#') or aux_name == 'Num_CPUs' or aux_name == 'Dependent_Loads_Weight'
                     aux[aux_name] = form
                     _verboseprint3(f'Adding aux {aux_name}: {form}')
 
         for i in info:
-            if i.name in ignore:
-                _verboseprint2(f'Skipping {i.name}')
-                continue
-
             form = i.form
             if form is None or form == '#NA' or form == 'N/A':
                 _verboseprint2(f'No formula for {i.name} on {tma_cpu}')
@@ -1323,9 +1364,22 @@ class Model:
                          r'UNC_C_TOR_INSERTS.MISS_OPCODE@filter_opc\=0x182@'),
                         ('UNC_C_CLOCKTICKS:one_unit', r'cbox_0@event\=0x0@'),
                     ]
+                    power_uncore_fixups = [
+                        ('UNC_PKG_ENERGY_STATUS', 'power@energy\-pkg@'),
+                        ('FREERUN_PKG_ENERGY_STATUS', 'power@energy\-pkg@'),
+                        ('FREERUN_DRAM_ENERGY_STATUS', 'power@energy\-ram@'),
+                    ]
                     arch_fixups = {
                         'ADL': td_event_fixups + [
                             ('UNC_ARB_DAT_OCCUPANCY.RD:c1', r'UNC_ARB_DAT_OCCUPANCY.RD@cmask\=1@'),
+                        ],
+                        'ARL': td_event_fixups + [
+                            ('IDQ.MITE_UOPS:c8:i1:eq1',
+                             r'cpu@IDQ.MITE_UOPS\,cmask\=0x8\,inv\=0x1@'),
+                            ('IDQ.DSB_UOPS:c8:i1:eq1',
+                             r'cpu@IDQ.DSB_UOPS\,cmask\=0x8\,inv\=0x1@'),
+                            ('LSD.UOPS:c8:i1:eq1',
+                             r'cpu@LSD.UOPS\,cmask\=0x8\,inv\=0x1@'),
                         ],
                         'BDW-DE': hsx_uncore_fixups,
                         'BDX': hsx_uncore_fixups,
@@ -1335,9 +1389,25 @@ class Model:
                             ('UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD:c1',
                              r'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
                         ],
+                        'EMR': [
+                            ('OCR.DEMAND_RFO.L3_MISS:ocr_msr_val=0x103b800002',
+                             'OCR.DEMAND_RFO.L3_MISS@offcore_rsp\\=0x103b800002@'),
+                            ('UNC_CHA_CLOCKTICKS:one_unit', r'uncore_cha_0@event\=0x1@'),
+                            ('UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD:c1',
+                             r'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
+                        ] + td_event_fixups,
+                        'GNR': [
+                            ('OCR.DEMAND_RFO.L3_MISS:ocr_msr_val=0x103b800002',
+                             'OCR.DEMAND_RFO.L3_MISS@offcore_rsp\\=0x103b800002@'),
+                            ('UNC_CHA_CLOCKTICKS:one_unit', r'uncore_cha_0@event\=0x1@'),
+                            ('UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD:c1',
+                             r'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
+                        ] + td_event_fixups,
                         'HSX': hsx_uncore_fixups,
                         'ICL': td_event_fixups,
                         'ICX': [
+                            ('OCR.DEMAND_RFO.L3_MISS:ocr_msr_val=0x103b800002',
+                             'OCR.DEMAND_RFO.L3_MISS@offcore_rsp\\=0x103b800002@'),
                             ('UNC_CHA_CLOCKTICKS:one_unit', r'cha_0@event\=0x0@'),
                             ('UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD:c1',
                              r'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
@@ -1360,6 +1430,15 @@ class Model:
                              r'UNC_C_TOR_OCCUPANCY.MISS_OPCODE@filter_opc\=0x182\,thresh\=1@'),
                             ('UNC_C_CLOCKTICKS:one_unit', r'cbox_0@event\=0x0@'),
                         ],
+                        'LNL': td_event_fixups + [
+                            ('UNC_ARB_DAT_OCCUPANCY.RD:c1', r'UNC_ARB_DAT_OCCUPANCY.RD@cmask\=1@'),
+                            ('IDQ.MITE_UOPS:c8:i1:eq1',
+                             r'cpu_core@IDQ.MITE_UOPS\,cmask\=0x8\,inv\=0x1@'),
+                            ('IDQ.DSB_UOPS:c8:i1:eq1',
+                             r'cpu_core@IDQ.DSB_UOPS\,cmask\=0x8\,inv\=0x1@'),
+                            ('LSD.UOPS:c8:i1:eq1',
+                             r'cpu_core@LSD.UOPS\,cmask\=0x8\,inv\=0x1@'),
+                        ],
                         'MTL': td_event_fixups + [
                             ('UNC_ARB_DAT_OCCUPANCY.RD:c1', r'UNC_ARB_DAT_OCCUPANCY.RD@cmask\=1@'),
                         ],
@@ -1376,27 +1455,31 @@ class Model:
                             ('UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD:c1',
                              r'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
                         ],
+                        'SNB' :[
+                            ('MEM_LOAD_UOPS_RETIRED.LLC_MISS', 'MEM_LOAD_UOPS_MISC_RETIRED.LLC_MISS'),
+                        ],
                         'SPR': [
                             ('UNC_CHA_CLOCKTICKS:one_unit', r'uncore_cha_0@event\=0x1@'),
                             ('UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD:c1',
                              r'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
+                            ('OCR.DEMAND_RFO.L3_MISS:ocr_msr_val=0x103b800002',
+                             'OCR.DEMAND_RFO.L3_MISS@offcore_rsp\\=0x103b800002@'),
                         ] + td_event_fixups,
                         'TGL': [
-                            ('UNC_ARB_COH_TRK_REQUESTS.ALL', r'arb@event\=0x84\,umask\=0x1@'),
                             ('UNC_ARB_DAT_OCCUPANCY.RD:c1', r'UNC_ARB_DAT_OCCUPANCY.RD@cmask\=1@'),
-                            ('UNC_ARB_TRK_REQUESTS.ALL', r'arb@event\=0x81\,umask\=0x1@'),
                         ] + td_event_fixups,
                     }
 
-                    if self.shortname in arch_fixups:
-                        for j, r in arch_fixups[self.shortname]:
-                            for i in range(0, len(r)):
-                                if r[i] in ['-', '=', ',']:
-                                    assert i == 0 or r[i - 1] == '\\', r
-                            if pmu_prefix != 'cpu' and r.startswith(r'topdown\-'):
-                                r = rf'{pmu_prefix}@{r}@'
+                    fixups = arch_fixups[self.shortname]  if self.shortname in arch_fixups else []
+                    fixups = fixups + power_uncore_fixups
+                    for j, r in fixups:
+                        for i in range(0, len(r)):
+                            if r[i] in ['-', '=', ',']:
+                                assert i == 0 or r[i - 1] == '\\', r
+                        if pmu_prefix != 'cpu' and r.startswith(r'topdown\-'):
+                            r = rf'{pmu_prefix}@{r}@'
 
-                            form = form.replace(j, r)
+                        form = form.replace(j, r)
 
                     form = form.replace('_PS', '')
                     form = re.sub(r':USER', ':u', form, re.IGNORECASE)
@@ -1501,10 +1584,6 @@ class Model:
                 def resolve_info(v: str) -> str:
                     if expand_metrics and v in infoname:
                         return bracket(fixup(infoname[v]))
-                    if v in ignore:
-                        # If metric will be ignored in the output it must
-                        # be expanded.
-                        return bracket(fixup(infoname[ignore[v]]))
                     if v in infoname:
                         form = infoname[v]
                         if form == '#NA':
@@ -1555,7 +1634,11 @@ class Model:
 
             threshold = None
             if i.threshold:
-                threshold = f'{i.name} {i.threshold}'
+                # Handle MUX specially:
+                if i.threshold == '( > 1.1 | < 0.9 )':
+                    threshold = f'{i.name} > 1.1 | {i.name} < 0.9'
+                else:
+                    threshold = f'{i.name} {i.threshold}'
                 _verboseprint2(f'{i.name}/{i.form} -> {threshold}')
                 t = []
                 if '|' in threshold:
@@ -1583,36 +1666,22 @@ class Model:
     def extract_extra_metrics(self, pmu_prefix: str, events: Dict[str, PerfmonJsonEvent],
                               saved_formulas: list[Dict[str, str]]):
         if 'extra metrics' in self.files:
-            with open(self.files['extra metrics'], 'r') as extra_json:
-                ignore = {
-                    'tma_info_system_mux': 'MUX',
-                    'tma_info_system_power': 'Power',
-                    'tma_info_system_time': 'Time',
-                }
-                broken_metrics = {
-                    'EMR': {
-                        # Missing event: UNC_UPI_TXL_FLITS.ALL_DATA
-                        'tma_info_system_upi_data_transmit_bw',
-                    },
-                }
-                skip = broken_metrics.get(self.shortname)
-                if not skip:
-                    skip = {}
-                for em in json.load(extra_json):
-                    if em['MetricName'] in skip:
-                        continue
-                    if em['MetricName'] in ignore:
-                        _verboseprint2(f"Skipping {em['MetricName']}")
-                        continue
-                    dups = [m for m in saved_formulas if m['MetricName'] == em['MetricName']]
-                    if dups:
-                        _verboseprint3(f'Not replacing:\n\t{dups[0]["MetricExpr"]}\nwith:\n\t{em["MetricExpr"]}')
-                        continue
-                    self.save_form(em['MetricName'], em['MetricGroup'], em['MetricExpr'],
-                                   em['BriefDescription'], None, em.get('ScaleUnit'),
-                                   em.get('MetricThreshold'), [], pmu_prefix, events,
-                                   infoname={}, aux={}, issue_to_metrics={},
-                                   saved_formulas=saved_formulas)
+            for file in self.files['extra metrics']:
+                _verboseprint2(f'Extracting metrics from {file}')
+                with open(file, 'r') as extra_json:
+                    for em in json.load(extra_json):
+                        dups = [m for m in saved_formulas if m['MetricName'] == em['MetricName']]
+                        if dups:
+                            _verboseprint3(f'Replacing:\n\t{dups[0]["MetricExpr"]}\nwith:\n\t{em["MetricExpr"]}')
+
+                        desc = em['PublicDescription'] if 'PublicDescription' in em else em['BriefDescription']
+                        if desc[-1:] == '.':
+                            desc = desc[:-1]
+                        self.save_form(em['MetricName'], em['MetricGroup'], em['MetricExpr'],
+                                       desc, None, em.get('ScaleUnit'),
+                                       em.get('MetricThreshold'), [], pmu_prefix, events,
+                                       infoname={}, aux={}, issue_to_metrics={},
+                                       saved_formulas=saved_formulas)
 
         if any(m['MetricName'] == 'tma_info_system_socket_clks' for m in saved_formulas):
             form = 'tma_info_system_socket_clks / #num_dies / duration_time / 1000000000'
@@ -1707,8 +1776,8 @@ class Model:
                     if per_pkg:
                         dict_event['PerPkg'] = per_pkg
                     pmon_topic_events[event.topic].append(dict_event)
-                    dict_events[event.event_name] = dict_event
-                    events[event.event_name] = event
+                    dict_events[event.event_name.upper()] = dict_event
+                    events[event.event_name.upper()] = event
                 self.count_counters(event_type, pmon_events)
 
         if 'uncore csv' in self.files:
@@ -1742,7 +1811,7 @@ class Model:
                         old_event = dict_events[name]
                         new_event = old_event.copy()
                         new_event['EventName'] = newname
-                        dict_events[newname] = new_event
+                        dict_events[newname.upper()] = new_event
                         pmon_topic_events[topic].append(new_event)
                         if desc:
                             desc += f'. Derived from {name.lower()}'
@@ -1968,9 +2037,9 @@ class Mapfile:
             if 'atom' in files[shortname]:
                 files[shortname]['e-core tma metrics'] = Path(base_path, 'E-core_TMA_Metrics.csv')
 
-            cpu_metrics_path = Path(base_path, shortname, 'metrics', 'perf',
-                                    f'{longname.lower()}_metrics_perf.json')
-            if cpu_metrics_path.is_file():
+            cpu_metrics_dir = Path(base_path, shortname, 'metrics', 'perf')
+            cpu_metrics_path = sorted(cpu_metrics_dir.glob(f'{longname.lower()}_metrics_*perf.json'))
+            if len(cpu_metrics_path) > 0:
                 _verboseprint2(f'Found {cpu_metrics_path}')
                 files[shortname]['extra metrics'] = cpu_metrics_path
             else:
@@ -2001,7 +2070,10 @@ class Mapfile:
             modeldir = Path(outdir, model.longname)
             _verboseprint(f'Creating event json for {model.shortname} in {modeldir}')
             modeldir.mkdir(exist_ok=True)
-            model.to_perf_json(modeldir)
+            try:
+                model.to_perf_json(modeldir)
+            except Exception as e:
+                raise RuntimeError(f'Failure in model \'{model}\'') from e
 
 
 def main():
