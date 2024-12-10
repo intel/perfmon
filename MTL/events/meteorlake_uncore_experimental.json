@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Core(TM) processors based on Meteor Lake performance hybrid architecture - V1.11",
-    "DatePublished": "08/19/2024",
-    "Version": "1.11",
+    "Info": "Performance Monitoring Events for Intel(R) Core(TM) processors based on Meteor Lake performance hybrid architecture - V1.12",
+    "DatePublished": "11/19/2024",
+    "Version": "1.12",
     "Legend": ""
   },
   "Events": [
