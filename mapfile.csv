@@ -216,3 +216,4 @@ GenuineIntel-6-C5,V1.06,/ARL/events/arrowlake_uncore.json,uncore,,,
 GenuineIntel-6-C6,V1.06,/ARL/events/arrowlake_skymont_core.json,hybridcore,0x20,0x000003,Atom
 GenuineIntel-6-C6,V1.06,/ARL/events/arrowlake_lioncove_core.json,hybridcore,0x40,0x000003,Core
 GenuineIntel-6-C6,V1.06,/ARL/events/arrowlake_uncore.json,uncore,,,
+GenuineIntel-6-DD,V1.00,/CWF/events/clearwaterforest_core.json,core,,,
