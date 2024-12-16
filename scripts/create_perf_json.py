@@ -1365,9 +1365,9 @@ class Model:
                         ('UNC_C_CLOCKTICKS:one_unit', r'cbox_0@event\=0x0@'),
                     ]
                     power_uncore_fixups = [
-                        ('UNC_PKG_ENERGY_STATUS', 'power@energy\-pkg@'),
-                        ('FREERUN_PKG_ENERGY_STATUS', 'power@energy\-pkg@'),
-                        ('FREERUN_DRAM_ENERGY_STATUS', 'power@energy\-ram@'),
+                        ('UNC_PKG_ENERGY_STATUS', r'power@energy\-pkg@'),
+                        ('FREERUN_PKG_ENERGY_STATUS', r'power@energy\-pkg@'),
+                        ('FREERUN_DRAM_ENERGY_STATUS', r'power@energy\-ram@'),
                     ]
                     arch_fixups = {
                         'ADL': td_event_fixups + [
