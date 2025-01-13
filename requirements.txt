@@ -1,1 +1,1 @@
-bandit[sarif]==1.8.0
+bandit[sarif]==1.8.2
