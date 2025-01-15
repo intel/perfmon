@@ -20,7 +20,7 @@
     },
     {
         "BriefDescription": "Total pipeline cost of instruction fetch bandwidth related bottlenecks (when the front-end could not sustain operations delivery to the back-end)",
-        "MetricExpr": "100 * ( tma_frontend_bound - ( 1 - ( 10 * tma_microcode_sequencer * tma_other_mispredicts / tma_branch_mispredicts ) ) * tma_fetch_latency * tma_mispredicts_resteers / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) - ( ( 1 - INST_RETIRED.REP_ITERATION / cpu@UOPS_RETIRED.MS\\,cmask\\=0x1@ ) * ( tma_fetch_latency * ( tma_ms_switches + tma_branch_resteers * ( tma_clears_resteers + tma_mispredicts_resteers * tma_other_mispredicts / tma_branch_mispredicts ) / ( tma_mispredicts_resteers + tma_clears_resteers + tma_unknown_branches ) ) / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) + tma_fetch_bandwidth * tma_ms / ( tma_mite + tma_dsb + tma_lsd + tma_ms ) ) ) ) - tma_bottleneck_big_code",
+        "MetricExpr": "100 * ( tma_frontend_bound - ( 1 - ( 10 * tma_microcode_sequencer * tma_other_mispredicts / tma_branch_mispredicts ) ) * tma_fetch_latency * tma_mispredicts_resteers / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) - ( ( 1 - INST_RETIRED.REP_ITERATION / cpu_core@UOPS_RETIRED.MS\\,cmask\\=0x1@ ) * ( tma_fetch_latency * ( tma_ms_switches + tma_branch_resteers * ( tma_clears_resteers + tma_mispredicts_resteers * tma_other_mispredicts / tma_branch_mispredicts ) / ( tma_mispredicts_resteers + tma_clears_resteers + tma_unknown_branches ) ) / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) + tma_fetch_bandwidth * tma_ms / ( tma_mite + tma_dsb + tma_lsd + tma_ms ) ) ) ) - tma_bottleneck_big_code",
         "MetricGroup": "BvFB;Fed;FetchBW;Frontend;TopdownL1;tma_L1_group;Default;Scaled_Slots",
         "MetricName": "tma_bottleneck_instruction_fetch_bw",
         "MetricThreshold": "tma_bottleneck_instruction_fetch_bw > 20",
@@ -49,7 +49,7 @@
     },
     {
         "BriefDescription": "Total pipeline cost of irregular execution (e.g",
-        "MetricExpr": "100 * ( ( ( 1 - INST_RETIRED.REP_ITERATION / cpu@UOPS_RETIRED.MS\\,cmask\\=0x1@ ) * ( tma_fetch_latency * ( tma_ms_switches + tma_branch_resteers * ( tma_clears_resteers + tma_mispredicts_resteers * tma_other_mispredicts / tma_branch_mispredicts ) / ( tma_mispredicts_resteers + tma_clears_resteers + tma_unknown_branches ) ) / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) + tma_fetch_bandwidth * tma_ms / ( tma_mite + tma_dsb + tma_lsd + tma_ms ) ) ) + ( 10 * tma_microcode_sequencer * tma_other_mispredicts / tma_branch_mispredicts ) * tma_branch_mispredicts + ( tma_machine_clears * tma_other_nukes / ( tma_other_nukes ) ) + ( tma_core_bound * ( tma_serializing_operation + RS.EMPTY_RESOURCE / tma_info_thread_clks * tma_ports_utilized_0 ) / ( tma_divider + tma_serializing_operation + tma_ports_utilization ) ) + ( ( ( tma_microcode_sequencer / ( tma_microcode_sequencer + max( 0 , tma_heavy_operations - tma_microcode_sequencer ) ) ) * ( ( ( 99 *3 + 63 + 30 ) / 5 ) * ASSISTS.ANY / tma_info_thread_slots / tma_microcode_sequencer ) ) * tma_heavy_operations ) )",
+        "MetricExpr": "100 * ( ( ( 1 - INST_RETIRED.REP_ITERATION / cpu_core@UOPS_RETIRED.MS\\,cmask\\=0x1@ ) * ( tma_fetch_latency * ( tma_ms_switches + tma_branch_resteers * ( tma_clears_resteers + tma_mispredicts_resteers * tma_other_mispredicts / tma_branch_mispredicts ) / ( tma_mispredicts_resteers + tma_clears_resteers + tma_unknown_branches ) ) / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) + tma_fetch_bandwidth * tma_ms / ( tma_mite + tma_dsb + tma_lsd + tma_ms ) ) ) + ( 10 * tma_microcode_sequencer * tma_other_mispredicts / tma_branch_mispredicts ) * tma_branch_mispredicts + ( tma_machine_clears * tma_other_nukes / ( tma_other_nukes ) ) + ( tma_core_bound * ( tma_serializing_operation + RS.EMPTY_RESOURCE / tma_info_thread_clks * tma_ports_utilized_0 ) / ( tma_divider + tma_serializing_operation + tma_ports_utilization ) ) + ( ( ( tma_microcode_sequencer / ( tma_microcode_sequencer + max( 0 , tma_heavy_operations - tma_microcode_sequencer ) ) ) * ( ( ( 99 *3 + 63 + 30 ) / 5 ) * ASSISTS.ANY / tma_info_thread_slots / tma_microcode_sequencer ) ) * tma_heavy_operations ) )",
         "MetricGroup": "Bad;BvIO;Cor;Ret;TopdownL1;tma_L1_group;Default;Scaled_Slots;tma_issueMS",
         "MetricName": "tma_bottleneck_irregular_overhead",
         "MetricThreshold": "tma_bottleneck_irregular_overhead > 10",
@@ -240,7 +240,7 @@
     },
     {
         "BriefDescription": "This metric represents Core fraction of cycles in which CPU was likely limited due to the MITE pipeline (the legacy decode pipeline)",
-        "MetricExpr": "( cpu@IDQ.MITE_UOPS\\,cmask\\=0x8\\,inv\\=0x1@ / tma_info_thread_clks + IDQ.MITE_UOPS / ( IDQ.DSB_UOPS + IDQ.MITE_UOPS ) * ( IDQ_BUBBLES.CYCLES_0_UOPS_DELIV.CORE - IDQ_BUBBLES.FETCH_LATENCY ) ) / tma_info_thread_clks",
+        "MetricExpr": "( cpu_core@IDQ.MITE_UOPS\\,cmask\\=0x8\\,inv\\=0x1@ / tma_info_thread_clks + IDQ.MITE_UOPS / ( IDQ.DSB_UOPS + IDQ.MITE_UOPS ) * ( IDQ_BUBBLES.CYCLES_0_UOPS_DELIV.CORE - IDQ_BUBBLES.FETCH_LATENCY ) ) / tma_info_thread_clks",
         "MetricGroup": "DSBmiss;FetchBW;TopdownL3;tma_L3_group;tma_fetch_bandwidth_group;Slots_Estimated",
         "MetricName": "tma_mite",
         "ScaleUnit": "100%",
@@ -249,7 +249,7 @@
     },
     {
         "BriefDescription": "This metric represents Core fraction of cycles in which CPU was likely limited due to DSB (decoded uop cache) fetch pipeline",
-        "MetricExpr": "( cpu@IDQ.DSB_UOPS\\,cmask\\=0x8\\,inv\\=0x1@ + IDQ.DSB_UOPS / ( IDQ.DSB_UOPS + IDQ.MITE_UOPS ) * ( IDQ_BUBBLES.CYCLES_0_UOPS_DELIV.CORE - IDQ_BUBBLES.FETCH_LATENCY ) ) / tma_info_thread_clks",
+        "MetricExpr": "( cpu_core@IDQ.DSB_UOPS\\,cmask\\=0x8\\,inv\\=0x1@ + IDQ.DSB_UOPS / ( IDQ.DSB_UOPS + IDQ.MITE_UOPS ) * ( IDQ_BUBBLES.CYCLES_0_UOPS_DELIV.CORE - IDQ_BUBBLES.FETCH_LATENCY ) ) / tma_info_thread_clks",
         "MetricGroup": "DSB;FetchBW;TopdownL3;tma_L3_group;tma_fetch_bandwidth_group;Slots_Estimated",
         "MetricName": "tma_dsb",
         "ScaleUnit": "100%",
@@ -258,7 +258,7 @@
     },
     {
         "BriefDescription": "This metric represents Core fraction of cycles in which CPU was likely limited due to LSD (Loop Stream Detector) unit",
-        "MetricExpr": "cpu@LSD.UOPS\\,cmask\\=0x8\\,inv\\=0x1@ / tma_info_thread_clks",
+        "MetricExpr": "cpu_core@LSD.UOPS\\,cmask\\=0x8\\,inv\\=0x1@ / tma_info_thread_clks",
         "MetricGroup": "FetchBW;LSD;TopdownL3;tma_L3_group;tma_fetch_bandwidth_group;Slots_Estimated",
         "MetricName": "tma_lsd",
         "ScaleUnit": "100%",
@@ -577,7 +577,7 @@
     },
     {
         "BriefDescription": "This metric estimates fraction of cycles where the core's performance was likely hurt due to approaching bandwidth limits of external memory - DRAM ([SPR-HBM] and/or HBM)",
-        "MetricExpr": "( min( CPU_CLK_UNHALTED.THREAD , cpu@OFFCORE_REQUESTS_OUTSTANDING.DATA_RD\\,cmask\\=0x4@ ) ) / tma_info_thread_clks",
+        "MetricExpr": "( min( CPU_CLK_UNHALTED.THREAD , cpu_core@OFFCORE_REQUESTS_OUTSTANDING.DATA_RD\\,cmask\\=0x4@ ) ) / tma_info_thread_clks",
         "MetricGroup": "BvMB;MemoryBW;Offcore;TopdownL4;tma_L4_group;tma_dram_bound_group;Clocks;tma_issueBW",
         "MetricName": "tma_mem_bandwidth",
         "ScaleUnit": "100%",
@@ -905,7 +905,7 @@
     },
     {
         "BriefDescription": "This metric approximates arithmetic FP vector uops fraction the CPU has retired for 256-bit wide vectors",
-        "MetricExpr": "cpu@FP_ARITH_INST_RETIRED.VECTOR\\,umask\\=0x30@ / ( tma_retiring * tma_info_thread_slots )",
+        "MetricExpr": "cpu_core@FP_ARITH_INST_RETIRED.VECTOR\\,umask\\=0x30@ / ( tma_retiring * tma_info_thread_slots )",
         "MetricGroup": "Compute;Flops;TopdownL5;tma_L5_group;tma_fp_vector_group;Uops;tma_issue2P",
         "MetricName": "tma_fp_vector_256b",
         "ScaleUnit": "100%",
@@ -1126,7 +1126,7 @@
     },
     {
         "BriefDescription": "Instruction-Level-Parallelism (average number of uops executed when there is execution) per thread (logical-processor)",
-        "MetricExpr": "UOPS_EXECUTED.THREAD / cpu@UOPS_EXECUTED.THREAD\\,cmask\\=0x1@",
+        "MetricExpr": "UOPS_EXECUTED.THREAD / cpu_core@UOPS_EXECUTED.THREAD\\,cmask\\=0x1@",
         "MetricGroup": "Backend;Cor;Pipeline;PortsUtil;Metric",
         "MetricName": "tma_info_core_ilp"
     },
@@ -1247,13 +1247,13 @@
     },
     {
         "BriefDescription": "Average number of Uops retired in cycles where at least one uop has retired",
-        "MetricExpr": "( tma_retiring * tma_info_thread_slots ) / cpu@UOPS_RETIRED.SLOTS\\,cmask\\=0x1@",
+        "MetricExpr": "( tma_retiring * tma_info_thread_slots ) / cpu_core@UOPS_RETIRED.SLOTS\\,cmask\\=0x1@",
         "MetricGroup": "Pipeline;Ret;Metric",
         "MetricName": "tma_info_pipeline_retire"
     },
     {
         "BriefDescription": "Estimated fraction of retirement-cycles dealing with repeat instructions",
-        "MetricExpr": "INST_RETIRED.REP_ITERATION / cpu@UOPS_RETIRED.SLOTS\\,cmask\\=0x1@",
+        "MetricExpr": "INST_RETIRED.REP_ITERATION / cpu_core@UOPS_RETIRED.SLOTS\\,cmask\\=0x1@",
         "MetricGroup": "MicroSeq;Pipeline;Ret;Metric",
         "MetricName": "tma_info_pipeline_strings_cycles",
         "MetricThreshold": "tma_info_pipeline_strings_cycles > 0.1"
@@ -1286,7 +1286,7 @@
     },
     {
         "BriefDescription": "Average number of Uops issued by front-end when it issued something",
-        "MetricExpr": "UOPS_ISSUED.ANY / cpu@UOPS_ISSUED.ANY\\,cmask\\=0x1@",
+        "MetricExpr": "UOPS_ISSUED.ANY / cpu_core@UOPS_ISSUED.ANY\\,cmask\\=0x1@",
         "MetricGroup": "Fed;FetchBW;Metric",
         "MetricName": "tma_info_frontend_fetch_upc"
     },
@@ -1306,14 +1306,14 @@
     },
     {
         "BriefDescription": "Average number of cycles the front-end was delayed due to an Unknown Branch detection",
-        "MetricExpr": "INT_MISC.UNKNOWN_BRANCH_CYCLES / cpu@INT_MISC.UNKNOWN_BRANCH_CYCLES\\,cmask\\=0x1\\,edge\\=0x1@",
+        "MetricExpr": "INT_MISC.UNKNOWN_BRANCH_CYCLES / cpu_core@INT_MISC.UNKNOWN_BRANCH_CYCLES\\,cmask\\=0x1\\,edge\\=0x1@",
         "MetricGroup": "Fed;Metric",
         "MetricName": "tma_info_frontend_unknown_branch_cost",
         "PublicDescription": "Average number of cycles the front-end was delayed due to an Unknown Branch detection. See Unknown_Branches node."
     },
     {
         "BriefDescription": "Average number of cycles of a switch from the DSB fetch-unit to MITE fetch unit - see DSB_Switches tree node for details",
-        "MetricExpr": "DSB2MITE_SWITCHES.PENALTY_CYCLES / cpu@DSB2MITE_SWITCHES.PENALTY_CYCLES\\,cmask\\=0x1\\,edge\\=0x1@",
+        "MetricExpr": "DSB2MITE_SWITCHES.PENALTY_CYCLES / cpu_core@DSB2MITE_SWITCHES.PENALTY_CYCLES\\,cmask\\=0x1\\,edge\\=0x1@",
         "MetricGroup": "DSBmiss;Metric",
         "MetricName": "tma_info_frontend_dsb_switch_cost"
     },
@@ -1646,7 +1646,7 @@
     },
     {
         "BriefDescription": "Average Parallel L2 cache miss demand Loads",
-        "MetricExpr": "OFFCORE_REQUESTS_OUTSTANDING.DEMAND_DATA_RD / cpu@OFFCORE_REQUESTS_OUTSTANDING.DEMAND_DATA_RD\\,cmask\\=0x1@",
+        "MetricExpr": "OFFCORE_REQUESTS_OUTSTANDING.DEMAND_DATA_RD / cpu_core@OFFCORE_REQUESTS_OUTSTANDING.DEMAND_DATA_RD\\,cmask\\=0x1@",
         "MetricGroup": "Memory_BW;Offcore;Metric",
         "MetricName": "tma_info_memory_latency_load_l2_mlp"
     },
