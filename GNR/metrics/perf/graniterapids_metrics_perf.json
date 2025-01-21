@@ -314,14 +314,14 @@
         "BriefDescription": "Percent of time that cores are in cstate C0 as observed by the power control unit (PCU)",
         "MetricExpr": "100 * ((UNC_P_POWER_STATE_OCCUPANCY_CORES_C0 / (pcu_0@UNC_P_CLOCKTICKS@ / #num_packages ) ) / ( #num_cores / #num_packages * #num_packages ) )",
         "MetricGroup": "cpu_cstate",
-        "MetricName": "cpu_cstate_c0"
+        "MetricName": "cpu_cstate_c0",
 	"ScaleUnit": "100%"
     },
     {
         "BriefDescription": "Percent of time that cores are in cstate C6 as observed by the power control unit (PCU)",
         "MetricExpr": "100 * ((UNC_P_POWER_STATE_OCCUPANCY_CORES_C6 / (pcu_0@UNC_P_CLOCKTICKS@ / #num_packages ) ) / ( #num_cores / #num_packages * #num_packages ) )",
         "MetricGroup": "cpu_cstate",
-        "MetricName": "cpu_cstate_c6"
+        "MetricName": "cpu_cstate_c6",
 	"ScaleUnit": "100%"
     },
     {
