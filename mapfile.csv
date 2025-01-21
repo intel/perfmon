@@ -209,11 +209,13 @@ GenuineIntel-6-B6,V0,/GRR/metrics/grandridge_metrics.json,metrics,,,
 GenuineIntel-6-BD,V1.10,/LNL/events/lunarlake_skymont_core.json,hybridcore,0x20,0x000003,Atom
 GenuineIntel-6-BD,V1.10,/LNL/events/lunarlake_lioncove_core.json,hybridcore,0x40,0x000003,Core
 GenuineIntel-6-BD,V1.10,/LNL/events/lunarlake_uncore.json,uncore,,,
-GenuineIntel-6-C5,V1.06,/ARL/events/arrowlake_skymont_core.json,hybridcore,0x20,0x000003,Atom
-GenuineIntel-6-C5,V1.06,/ARL/events/arrowlake_crestmont_core.json,hybridcore,0x20,0x000002,LowPower_Atom
-GenuineIntel-6-C5,V1.06,/ARL/events/arrowlake_lioncove_core.json,hybridcore,0x40,0x000003,Core
-GenuineIntel-6-C5,V1.06,/ARL/events/arrowlake_uncore.json,uncore,,,
-GenuineIntel-6-C6,V1.06,/ARL/events/arrowlake_skymont_core.json,hybridcore,0x20,0x000003,Atom
-GenuineIntel-6-C6,V1.06,/ARL/events/arrowlake_lioncove_core.json,hybridcore,0x40,0x000003,Core
-GenuineIntel-6-C6,V1.06,/ARL/events/arrowlake_uncore.json,uncore,,,
+GenuineIntel-6-C5,V1.07,/ARL/events/arrowlake_skymont_core.json,hybridcore,0x20,0x000003,Atom
+GenuineIntel-6-C5,V1.07,/ARL/events/arrowlake_crestmont_core.json,hybridcore,0x20,0x000002,LowPower_Atom
+GenuineIntel-6-C5,V1.07,/ARL/events/arrowlake_lioncove_core.json,hybridcore,0x40,0x000003,Core
+GenuineIntel-6-C5,V1.07,/ARL/events/arrowlake_uncore.json,uncore,,,
+GenuineIntel-6-C5,V1.07,/ARL/events/arrowlake_uncore_experimental.json,uncore experimental,,,
+GenuineIntel-6-C6,V1.07,/ARL/events/arrowlake_skymont_core.json,hybridcore,0x20,0x000003,Atom
+GenuineIntel-6-C6,V1.07,/ARL/events/arrowlake_lioncove_core.json,hybridcore,0x40,0x000003,Core
+GenuineIntel-6-C6,V1.07,/ARL/events/arrowlake_uncore.json,uncore,,,
+GenuineIntel-6-C6,V1.07,/ARL/events/arrowlake_uncore_experimental.json,uncore experimental,,,
 GenuineIntel-6-DD,V1.00,/CWF/events/clearwaterforest_core.json,core,,,
