@@ -49,7 +49,7 @@
     },
     {
         "BriefDescription": "Total pipeline cost of irregular execution (e.g",
-        "MetricExpr": "100 * ( ( ( 1 - cpu_core@INST_RETIRED.REP_ITERATION@ / cpu_core@UOPS_RETIRED.MS\\,cmask\\=0x1@ ) * ( tma_fetch_latency * ( tma_ms_switches + tma_branch_resteers * ( tma_clears_resteers + tma_mispredicts_resteers * tma_other_mispredicts / tma_branch_mispredicts ) / ( tma_mispredicts_resteers + tma_clears_resteers + tma_unknown_branches ) ) / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) + tma_fetch_bandwidth * tma_ms / ( tma_mite + tma_dsb + tma_lsd + tma_ms ) ) ) + ( 10 * tma_microcode_sequencer * tma_other_mispredicts / tma_branch_mispredicts ) * tma_branch_mispredicts + ( tma_machine_clears * tma_other_nukes / ( tma_other_nukes ) ) + ( tma_core_bound * ( tma_serializing_operation + cpu_core@RS.EMPTY_RESOURCE@ / tma_info_thread_clks * tma_ports_utilized_0 ) / ( tma_divider + tma_serializing_operation + tma_ports_utilization ) ) + ( ( ( tma_microcode_sequencer / ( tma_microcode_sequencer + max( 0 , tma_heavy_operations - tma_microcode_sequencer ) ) ) * ( ( ( 99 cpu_core@*3@ + 63 + 30 ) / 5 ) * cpu_core@ASSISTS.ANY@ / tma_info_thread_slots / tma_microcode_sequencer ) ) * tma_heavy_operations ) )",
+        "MetricExpr": "100 * ( ( ( 1 - cpu_core@INST_RETIRED.REP_ITERATION@ / cpu_core@UOPS_RETIRED.MS\\,cmask\\=0x1@ ) * ( tma_fetch_latency * ( tma_ms_switches + tma_branch_resteers * ( tma_clears_resteers + tma_mispredicts_resteers * tma_other_mispredicts / tma_branch_mispredicts ) / ( tma_mispredicts_resteers + tma_clears_resteers + tma_unknown_branches ) ) / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) + tma_fetch_bandwidth * tma_ms / ( tma_mite + tma_dsb + tma_lsd + tma_ms ) ) ) + ( 10 * tma_microcode_sequencer * tma_other_mispredicts / tma_branch_mispredicts ) * tma_branch_mispredicts + ( tma_machine_clears * tma_other_nukes / ( tma_other_nukes ) ) + ( tma_core_bound * ( tma_serializing_operation + cpu_core@RS.EMPTY_RESOURCE@ / tma_info_thread_clks * tma_ports_utilized_0 ) / ( tma_divider + tma_serializing_operation + tma_ports_utilization ) ) + ( ( ( tma_microcode_sequencer / ( tma_microcode_sequencer + max( 0 , tma_heavy_operations - tma_microcode_sequencer ) ) ) * ( ( ( 99 *3 + 63 + 30 ) / 5 ) * cpu_core@ASSISTS.ANY@ / tma_info_thread_slots / tma_microcode_sequencer ) ) * tma_heavy_operations ) )",
         "MetricGroup": "Bad;BvIO;Cor;Ret;TopdownL1;tma_L1_group;Default;Scaled_Slots;tma_issueMS",
         "MetricName": "tma_bottleneck_irregular_overhead",
         "MetricThreshold": "tma_bottleneck_irregular_overhead > 10",
@@ -69,7 +69,7 @@
     },
     {
         "BriefDescription": "Total pipeline cost of \"useful operations\" - the portion of Retiring category not covered by Branching_Overhead nor Irregular_Overhead",
-        "MetricExpr": "100 * ( tma_retiring - ( ( cpu_core@BR_INST_RETIRED.ALL_BRANCHES@ + 2 * cpu_core@BR_INST_RETIRED.NEAR_CALL@ + cpu_core@INST_RETIRED.NOP@ ) / tma_info_thread_slots ) - ( ( ( tma_microcode_sequencer / ( tma_microcode_sequencer + max( 0 , tma_heavy_operations - tma_microcode_sequencer ) ) ) * ( ( ( 99 cpu_core@*3@ + 63 + 30 ) / 5 ) * cpu_core@ASSISTS.ANY@ / tma_info_thread_slots / tma_microcode_sequencer ) ) * tma_heavy_operations ) )",
+        "MetricExpr": "100 * ( tma_retiring - ( ( cpu_core@BR_INST_RETIRED.ALL_BRANCHES@ + 2 * cpu_core@BR_INST_RETIRED.NEAR_CALL@ + cpu_core@INST_RETIRED.NOP@ ) / tma_info_thread_slots ) - ( ( ( tma_microcode_sequencer / ( tma_microcode_sequencer + max( 0 , tma_heavy_operations - tma_microcode_sequencer ) ) ) * ( ( ( 99 *3 + 63 + 30 ) / 5 ) * cpu_core@ASSISTS.ANY@ / tma_info_thread_slots / tma_microcode_sequencer ) ) * tma_heavy_operations ) )",
         "MetricGroup": "BvUW;Ret;TopdownL1;tma_L1_group;Default;Scaled_Slots",
         "MetricName": "tma_bottleneck_useful_work",
         "MetricThreshold": "tma_bottleneck_useful_work > 20",
@@ -1023,7 +1023,7 @@
     },
     {
         "BriefDescription": "This metric estimates fraction of slots the CPU retired uops delivered by the Microcode_Sequencer as a result of Assists",
-        "MetricExpr": "( ( 99 cpu_core@*3@ + 63 + 30 ) / 5 ) * cpu_core@ASSISTS.ANY@ / tma_info_thread_slots",
+        "MetricExpr": "( ( 99 *3 + 63 + 30 ) / 5 ) * cpu_core@ASSISTS.ANY@ / tma_info_thread_slots",
         "MetricGroup": "BvIO;TopdownL4;tma_L4_group;tma_microcode_sequencer_group;Slots_Estimated",
         "MetricName": "tma_assists",
         "ScaleUnit": "100%",

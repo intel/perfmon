@@ -1052,7 +1052,7 @@
     },
     {
         "BriefDescription": "This metric estimates fraction of slots the CPU retired uops delivered by the Microcode_Sequencer as a result of Assists",
-        "MetricExpr": "( ( 99 cpu_core@*3@ + 63 + 30 ) / 5 ) * cpu_core@ASSISTS.ANY@ / tma_info_thread_slots",
+        "MetricExpr": "( ( 99 *3 + 63 + 30 ) / 5 ) * cpu_core@ASSISTS.ANY@ / tma_info_thread_slots",
         "MetricGroup": "BvIO;TopdownL4;tma_L4_group;tma_microcode_sequencer_group;Slots_Estimated",
         "MetricName": "tma_assists",
         "ScaleUnit": "100%",
