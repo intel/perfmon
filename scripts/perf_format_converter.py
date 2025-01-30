@@ -162,7 +162,8 @@ class PerfFormatConverter:
         self.metric_assoc_replacement_dict = None
         self.metric_source_event_dict = None
         self.scale_unit_replacement_dict = None
-        self.association_option_replacement_dict = None
+        self.core_option_translation_dict = None
+        self.uncore_option_translation_dict = None
         self.platforms = None
         self.init_dictionaries()
 
@@ -190,9 +191,10 @@ class PerfFormatConverter:
         try:
             self.metric_name_replacement_dict = config_dict["metric_name_replacements"]
             self.metric_assoc_replacement_dict = config_dict["metric_association_replacements"]
+            self.core_option_translation_dict = config_dict["core_option_translations"]
+            self.uncore_option_translation_dict = config_dict["uncore_option_translations"]
             self.metric_source_event_dict = config_dict["metric_source_events"]
             self.scale_unit_replacement_dict = config_dict["scale_unit_replacements"]
-            self.association_option_replacement_dict = config_dict["association_option_replacements"]
         except KeyError as e:
             sys.exit(f"[ERROR] - Error in config JSON format {str(e)}. Exiting")
 
@@ -281,7 +283,7 @@ class PerfFormatConverter:
                         # Term is not an operator or a numeric value
                         if "tma_" not in term:
                             # Translate any event names
-                            expression_list[i] = self.translate_metric_event(term.upper(), platform)
+                            expression_list[i] = self.translate_metric_event(term, platform)
                 
                 # Combine into formula
                 expression = " ".join(expression_list).strip()
@@ -420,70 +422,136 @@ class PerfFormatConverter:
         @param event_name: string containing event name
         @returns: string containing un-aliased expression
         """
+        translated_event = None
+
+        # Get prefix
+        prefix = None
+        if platform["IsHybrid"]:    # Hybrid
+            if platform["CoreType"] == "P-core":
+                prefix = "cpu_core"
+            elif platform["CoreType"] == "E-core":
+                prefix = "cpu_atom"
+        else:
+            if self.is_core_event(event_name):
+                prefix = "cpu"
+            else:
+                if "unc_cha_" in event_name.lower():
+                    prefix = "cha"
+                elif "unc_c_" in event_name.lower():
+                    prefix = "cbox"
+
         # Check if association has 1:1 replacement
         for replacement in self.metric_assoc_replacement_dict:
-            if re.match(replacement, event_name):
-                return self.metric_assoc_replacement_dict[replacement]
+            if re.match(replacement, event_name.upper()):
+                print(f"\tTRANSLATED EVENT: {self.metric_assoc_replacement_dict[replacement.upper()]}")
+                return self.metric_assoc_replacement_dict[replacement.upper()]
         
-        # Check for retire latency option
-        if ":retire_latency" in event_name.lower():
-            split = event_name.split(":")
-            if platform["IsHybrid"]:
-                if platform["CoreType"] == "P-core":
-                    return f"cpu_core@{split[0]}@R"
-                elif platform["CoreType"] == "E-core":
-                    return f"cpu_atom@{split[0]}@R"
-            else:
-                return split[0] + ":R"
+        # Translate other events
+        if ":" in event_name.lower(): 
+            if ":retire_latency" in event_name.lower(): # Check for retire latency option
+                split = event_name.split(":")
+                if platform["IsHybrid"]:
+                    translated_event = f"{prefix}@{split[0]}@R"
+                else:
+                    translated_event = split[0] + ":R"
+            else: # Check for other event option
+                split = event_name.split(":")
+                base_event = split[0]   # Base event
+                event_options = split[1:]   # Event options
+                print(f"\t EVENT: {base_event} \t OPTIONS: {event_options}")
 
-        # Check for other event option
-        if ":" in event_name and "TOPDOWN" not in event_name:
-            for row in self.association_option_replacement_dict:
-                for event in row["events"]:
-                    if event in event_name:
-                        split = event_name.split(":")
-                        return self.translate_event_options(split, row)
-            print("[ERROR] - Event with no option translations: " + event_name)
+            
+                translated_options = []
+                for option in event_options:
+                    if self.translate_event_option(option, self.is_core_event(base_event)):
+                        translated_options.append(self.translate_event_option(option, self.is_core_event(base_event)))
+
+                if prefix:
+                    translated_event = f"{prefix}@{base_event.upper()}\\,{"\\\\,".join(translated_options)}@"
+                else:
+                    translated_event = f"{base_event.upper()}@{"\\\\,".join(translated_options)}@"
+                    print("!!!!!!!!!NO PREFIX. SOMETHING IS WRONG!!!!!!!!!!!!!")
+        else: # No event options
+            if prefix and self.is_core_event(event_name) and platform["IsHybrid"]:
+                translated_event = f"{prefix}@{event_name.upper()}@"
+            else:
+                translated_event = event_name.upper()
+        
+        print(f"\tTRANSLATED EVENT: {translated_event.replace("TXL", "TxL")}")
+        return translated_event.replace("RXL", "RxL")
+
+    def is_core_event(self, event):
+        if "unc_" in event.lower():
+            return False
+        return True
     
-        return event_name.replace("RXL", "RxL")
-
-
-    def translate_event_options(self, split, event_info):
-        """
-        Takes info about an event with options and translates the options
-        into a perf compatible format
-
-        @param split: list of options as strings
-        @param event_info: info on how to translate options
-        @returns: string containing translated event
-        """
-        translation = event_info["unit"] + "@" + split[0]
-        for option in split[1:]:
-            if "=" in option:
-                split = [s.lower() for s in option.split("=")]
-                if split[0] in event_info["translations"]:
-                    if "x" in split[1] or "X" in split[1]:
-                        translation += "\\," + event_info["translations"][split[0]] + "\\=" + split[1]
-                    else:
-                        translation += "\\," + event_info["translations"][split[0]] + "\\=" + (int(split[1]) * event_info["scale"])
-            elif "0x" in option:
-                split = option.split("0x")
-                if split[0] in event_info["translations"]:
-                    translation += "\\," + event_info["translations"][split[0]] + "\\=" + "0x" + split[1]
-                else:
-                    print(f"ERROR - {split[0]} not in event translations...")
-            elif "0X" in option:
-                split = option.split("0X")
-                if split[0].lower() in event_info["translations"]:
-                    translation += "\\," + event_info["translations"][split[0].lower()] + "\\=" + "0x" + split[1]
-                else:
-                    print(f"ERROR - {split[0]} not in event translations...")
+    def translate_event_option(self, full_option, is_core_event):
+        if "=" in full_option:
+            split = full_option.split("=")
+            option = split[0]
+            value = split[1]
+            print(f"\t\t\tOPTION: {option}\tVALUE: {value}")
+        elif "0x" in full_option.lower():
+            split = full_option.lower().split("0x")
+            option = split[0]
+            value = split[1]
+            print(f"\t\t\tOPTION: {option}\tVALUE: {value}")
+        else:
+            match = re.match(r"([a-zA-Z]+)([\d]+)", full_option.lower())
+            if match:
+                option = match[1]
+                value = match[2]
+                print(f"\t\t\tOPTION: {option}\tVALUE: {value}")
             else:
-                match = re.match(r"([a-zA-Z]+)([\d]+)", option.lower())
-                if match:
-                    if match[1] in event_info["translations"]:
-                        translation += "\\,"+ event_info["translations"][match[1]] + "\\=" + "0x" + match[2]
-        return translation + "@"
+                print("ERROR COULD NOT FIND OPTION")
+        
+        if not option:
+            return None
+        
+        try:
+            if is_core_event:
+                return f"{self.core_option_translation_dict[option.lower()]}\\=0x{value}"
+            else:
+                return f"{self.uncore_option_translation_dict[option.lower()]}\\=0x{value}"
+        except KeyError:
+            return None
+
+    # def translate_event_options(self, split, event_info):
+    #     """
+    #     Takes info about an event with options and translates the options
+    #     into a perf compatible format
+
+    #     @param split: list of options as strings
+    #     @param event_info: info on how to translate options
+    #     @returns: string containing translated event
+    #     """
+    #     translation = event_info["unit"] + "@" + split[0]
+    #     for option in split[1:]:
+    #         if "=" in option:
+    #             split = [s.lower() for s in option.split("=")]
+    #             if split[0] in event_info["translations"]:
+    #                 if "x" in split[1] or "X" in split[1]:
+    #                     translation += "\\," + event_info["translations"][split[0]] + "\\=" + split[1]
+    #                 else:
+    #                     translation += "\\," + event_info["translations"][split[0]] + "\\=" + (int(split[1]) * event_info["scale"])
+    #         elif "0x" in option:
+    #             split = option.split("0x")
+    #             if split[0] in event_info["translations"]:
+    #                 translation += "\\," + event_info["translations"][split[0]] + "\\=" + "0x" + split[1]
+    #             else:
+    #                 print(f"ERROR - {split[0]} not in event translations...")
+    #         elif "0X" in option:
+    #             split = option.split("0X")
+    #             if split[0].lower() in event_info["translations"]:
+    #                 translation += "\\," + event_info["translations"][split[0].lower()] + "\\=" + "0x" + split[1]
+    #             else:
+    #                 print(f"ERROR - {split[0]} not in event translations...")
+    #         else:
+    #             match = re.match(r"([a-zA-Z]+)([\d]+)", option.lower())
+    #             if match:
+    #                 if match[1] in event_info["translations"]:
+    #                     translation += "\\,"+ event_info["translations"][match[1]] + "\\=" + "0x" + match[2]
+    #     return translation + "@"
 
 
     def translate_metric_constant(self, constant_name, metric):

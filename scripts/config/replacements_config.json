@@ -48,39 +48,6 @@
         "CHAS_PER_SOCKET":"UNC_CHA([^\\s]*)",
         "CORES_PER_SOCKET":"UNC_C_([^\\s]*)"
     },
-    "association_option_replacements": [
-        {
-            "events": ["ICACHE_", "INT_MISC", "UOPS_", "IDQ", "OFFCORE_", 
-                "L1D_", "DTLB_", "AMX_", "ITLB_", "EXE_", "INST_", "ASSISTS",
-                "SW_", "RS", "DSB2MITE_", "ARB_", "LSD"],
-            "unit":"cpu",
-            "translations":{
-                "c":"cmask",
-                "u":"umask",
-                "i":"inv",
-                "e":"edge"
-            },
-            "scale":1
-        },
-        {
-            "events": ["UNC_CHA_"],
-            "unit":"cha",
-            "translations":{
-                "filter1":"config1",
-                "c":"thresh"
-            },
-            "scale":100000000
-        },
-        {
-            "events":["UNC_C_"],
-            "unit":"cbox",
-            "translations":{
-                "opc":"filter_opc",
-                "tid":"filter_tid"
-            },
-            "scale":1
-        }
-    ],
     "scale_unit_replacements": {
         "per instruction":"per_instr",
         "per second":"per_sec",
@@ -90,5 +57,18 @@
         "MB/sec":"MB/s",
         "GT/sec":"GT/s",
         "Watts":"Watts"
+    },
+    "core_option_translations": {
+        "c":"cmask",
+        "u":"umask",
+        "i":"inv",
+        "e":"edge",
+        "eq": null
+    },
+    "uncore_option_translations": {
+        "filter1":"config1",
+        "c":"thresh",
+        "opc":"filter_opc",
+        "tid":"filter_tid"
     }
 }
