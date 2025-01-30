@@ -279,7 +279,7 @@ class PerfFormatConverter:
             if "BaseFormula" in metric and metric["BaseFormula"] != "":
                 expression_list = [a.strip() for a in metric["BaseFormula"].split(" ") if a != ""]
                 for i, term in enumerate(expression_list):
-                    if term not in OPERATORS and not isNum(term):
+                    if term not in OPERATORS and not isNum(term) and not term.startswith("*"):
                         # Term is not an operator or a numeric value
                         if "tma_" not in term:
                             # Translate any event names
