@@ -403,7 +403,7 @@
     },
     {
         "BriefDescription": "This metric roughly estimates the fraction of cycles where the Data TLB (DTLB) was missed by load accesses",
-        "MetricExpr": "( min( ( cpu_core@MEM_INST_RETIRED.STLB_HIT_LOADS@ * cpu_core@mem_inst_retired.stlb_hit_loads@R ) , cpu_core@MEM_INST_RETIRED.STLB_HIT_LOADS@ * ( 7 ) ) if ( cpu_core@mem_inst_retired.stlb_hit_loads@R cpu_core@>=@ 0 ) else ( cpu_core@MEM_INST_RETIRED.STLB_HIT_LOADS@ * ( 7 ) ) ) / tma_info_thread_clks + tma_load_stlb_miss",
+        "MetricExpr": "( min( ( cpu_core@MEM_INST_RETIRED.STLB_HIT_LOADS@ * cpu_core@mem_inst_retired.stlb_hit_loads@R ) , cpu_core@MEM_INST_RETIRED.STLB_HIT_LOADS@ * ( 7 ) ) if ( cpu_core@mem_inst_retired.stlb_hit_loads@R >= 0 ) else ( cpu_core@MEM_INST_RETIRED.STLB_HIT_LOADS@ * ( 7 ) ) ) / tma_info_thread_clks + tma_load_stlb_miss",
         "MetricGroup": "BvMT;MemoryTLB;TopdownL4;tma_L4_group;tma_l1_bound_group;Clocks_Estimated;tma_issueTLB",
         "MetricName": "tma_dtlb_load",
         "ScaleUnit": "100%",
@@ -470,7 +470,7 @@
     },
     {
         "BriefDescription": "This metric estimates fraction of cycles with demand load accesses that hit Level 1 after missing Level 0 within the L1D cache",
-        "MetricExpr": "( min( ( cpu_core@MEM_LOAD_RETIRED.L1_HIT_L1@ * cpu_core@mem_load_retired.l1_hit_l1@R ) , cpu_core@MEM_LOAD_RETIRED.L1_HIT_L1@ * 9 ) if ( cpu_core@mem_load_retired.l1_hit_l1@R cpu_core@>=@ 0 ) else ( cpu_core@MEM_LOAD_RETIRED.L1_HIT_L1@ * 9 ) ) / tma_info_thread_clks",
+        "MetricExpr": "( min( ( cpu_core@MEM_LOAD_RETIRED.L1_HIT_L1@ * cpu_core@mem_load_retired.l1_hit_l1@R ) , cpu_core@MEM_LOAD_RETIRED.L1_HIT_L1@ * 9 ) if ( cpu_core@mem_load_retired.l1_hit_l1@R >= 0 ) else ( cpu_core@MEM_LOAD_RETIRED.L1_HIT_L1@ * 9 ) ) / tma_info_thread_clks",
         "MetricGroup": "BvML;MemoryLat;TopdownL4;tma_L4_group;tma_l1_bound_group;Clocks_Retired",
         "MetricName": "tma_l1_latency_capacity",
         "ScaleUnit": "100%",
@@ -487,7 +487,7 @@
     },
     {
         "BriefDescription": "This metric estimates fraction of cycles handling memory load split accesses - load that cross 64-byte cache line boundary",
-        "MetricExpr": "( min( ( cpu_core@MEM_INST_RETIRED.SPLIT_LOADS@ * cpu_core@mem_inst_retired.split_loads@R ) , cpu_core@MEM_INST_RETIRED.SPLIT_LOADS@ * tma_info_memory_load_miss_real_latency ) if ( cpu_core@mem_inst_retired.split_loads@R cpu_core@>=@ 0 ) else ( cpu_core@MEM_INST_RETIRED.SPLIT_LOADS@ * tma_info_memory_load_miss_real_latency ) ) / tma_info_thread_clks",
+        "MetricExpr": "( min( ( cpu_core@MEM_INST_RETIRED.SPLIT_LOADS@ * cpu_core@mem_inst_retired.split_loads@R ) , cpu_core@MEM_INST_RETIRED.SPLIT_LOADS@ * tma_info_memory_load_miss_real_latency ) if ( cpu_core@mem_inst_retired.split_loads@R >= 0 ) else ( cpu_core@MEM_INST_RETIRED.SPLIT_LOADS@ * tma_info_memory_load_miss_real_latency ) ) / tma_info_thread_clks",
         "MetricGroup": "TopdownL4;tma_L4_group;tma_l1_bound_group;Clocks_Calculated",
         "MetricName": "tma_split_loads",
         "ScaleUnit": "100%",
@@ -514,7 +514,7 @@
     },
     {
         "BriefDescription": "This metric represents fraction of cycles with demand load accesses that hit the L2 cache under unloaded scenarios (possibly L2 latency limited)",
-        "MetricExpr": "( min( ( cpu_core@MEM_LOAD_RETIRED.L2_HIT@ * cpu_core@mem_load_retired.l2_hit@R ) , cpu_core@MEM_LOAD_RETIRED.L2_HIT@ * ( 3 * tma_info_system_core_frequency ) ) if ( cpu_core@mem_load_retired.l2_hit@R cpu_core@>=@ 0 ) else ( cpu_core@MEM_LOAD_RETIRED.L2_HIT@ * ( 3 * tma_info_system_core_frequency ) ) ) * ( 1 + ( cpu_core@MEM_LOAD_RETIRED.FB_HIT@ / cpu_core@MEM_LOAD_RETIRED.L1_MISS@ ) / 2 ) / tma_info_thread_clks",
+        "MetricExpr": "( min( ( cpu_core@MEM_LOAD_RETIRED.L2_HIT@ * cpu_core@mem_load_retired.l2_hit@R ) , cpu_core@MEM_LOAD_RETIRED.L2_HIT@ * ( 3 * tma_info_system_core_frequency ) ) if ( cpu_core@mem_load_retired.l2_hit@R >= 0 ) else ( cpu_core@MEM_LOAD_RETIRED.L2_HIT@ * ( 3 * tma_info_system_core_frequency ) ) ) * ( 1 + ( cpu_core@MEM_LOAD_RETIRED.FB_HIT@ / cpu_core@MEM_LOAD_RETIRED.L1_MISS@ ) / 2 ) / tma_info_thread_clks",
         "MetricGroup": "MemoryLat;TopdownL4;tma_L4_group;tma_l2_bound_group;Clocks_Retired",
         "MetricName": "tma_l2_hit_latency",
         "ScaleUnit": "100%",
@@ -532,7 +532,7 @@
     },
     {
         "BriefDescription": "This metric estimates fraction of cycles while the memory subsystem was handling synchronizations due to contested accesses",
-        "MetricExpr": "( ( min( ( cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS@ * cpu_core@mem_load_l3_hit_retired.xsnp_miss@R ) , cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS@ * ( 27 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) if ( cpu_core@mem_load_l3_hit_retired.xsnp_miss@R cpu_core@>=@ 0 ) else ( cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS@ * ( 27 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) ) + ( min( ( cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_HITM@ * cpu_core@mem_load_l3_hit_retired.xsnp_hitm@R ) , cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_HITM@ * ( 28 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) if ( cpu_core@mem_load_l3_hit_retired.xsnp_hitm@R cpu_core@>=@ 0 ) else ( cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_HITM@ * ( 28 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) ) ) * ( 1 + ( cpu_core@MEM_LOAD_RETIRED.FB_HIT@ / cpu_core@MEM_LOAD_RETIRED.L1_MISS@ ) / 2 ) / tma_info_thread_clks",
+        "MetricExpr": "( ( min( ( cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS@ * cpu_core@mem_load_l3_hit_retired.xsnp_miss@R ) , cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS@ * ( 27 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) if ( cpu_core@mem_load_l3_hit_retired.xsnp_miss@R >= 0 ) else ( cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS@ * ( 27 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) ) + ( min( ( cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_HITM@ * cpu_core@mem_load_l3_hit_retired.xsnp_hitm@R ) , cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_HITM@ * ( 28 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) if ( cpu_core@mem_load_l3_hit_retired.xsnp_hitm@R >= 0 ) else ( cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_HITM@ * ( 28 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) ) ) * ( 1 + ( cpu_core@MEM_LOAD_RETIRED.FB_HIT@ / cpu_core@MEM_LOAD_RETIRED.L1_MISS@ ) / 2 ) / tma_info_thread_clks",
         "MetricGroup": "BvMS;DataSharing;LockCont;Offcore;Snoop;TopdownL4;tma_L4_group;tma_l3_bound_group;Clocks_Estimated;tma_issueSyncxn",
         "MetricName": "tma_contested_accesses",
         "ScaleUnit": "100%",
@@ -541,7 +541,7 @@
     },
     {
         "BriefDescription": "This metric estimates fraction of cycles while the memory subsystem was handling synchronizations due to data-sharing accesses",
-        "MetricExpr": "( ( min( ( cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_NO_FWD@ * cpu_core@mem_load_l3_hit_retired.xsnp_no_fwd@R ) , cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_NO_FWD@ * ( 27 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) if ( cpu_core@mem_load_l3_hit_retired.xsnp_no_fwd@R cpu_core@>=@ 0 ) else ( cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_NO_FWD@ * ( 27 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) ) + ( min( ( cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_FWD@ * cpu_core@mem_load_l3_hit_retired.xsnp_fwd@R ) , cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_FWD@ * ( 28 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) if ( cpu_core@mem_load_l3_hit_retired.xsnp_fwd@R cpu_core@>=@ 0 ) else ( cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_FWD@ * ( 28 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) ) ) * ( 1 + ( cpu_core@MEM_LOAD_RETIRED.FB_HIT@ / cpu_core@MEM_LOAD_RETIRED.L1_MISS@ ) / 2 ) / tma_info_thread_clks",
+        "MetricExpr": "( ( min( ( cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_NO_FWD@ * cpu_core@mem_load_l3_hit_retired.xsnp_no_fwd@R ) , cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_NO_FWD@ * ( 27 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) if ( cpu_core@mem_load_l3_hit_retired.xsnp_no_fwd@R >= 0 ) else ( cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_NO_FWD@ * ( 27 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) ) + ( min( ( cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_FWD@ * cpu_core@mem_load_l3_hit_retired.xsnp_fwd@R ) , cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_FWD@ * ( 28 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) if ( cpu_core@mem_load_l3_hit_retired.xsnp_fwd@R >= 0 ) else ( cpu_core@MEM_LOAD_L3_HIT_RETIRED.XSNP_FWD@ * ( 28 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) ) ) * ( 1 + ( cpu_core@MEM_LOAD_RETIRED.FB_HIT@ / cpu_core@MEM_LOAD_RETIRED.L1_MISS@ ) / 2 ) / tma_info_thread_clks",
         "MetricGroup": "BvMS;Offcore;Snoop;TopdownL4;tma_L4_group;tma_l3_bound_group;Clocks_Estimated;tma_issueSyncxn",
         "MetricName": "tma_data_sharing",
         "ScaleUnit": "100%",
@@ -550,7 +550,7 @@
     },
     {
         "BriefDescription": "This metric estimates fraction of cycles with demand load accesses that hit the L3 cache under unloaded scenarios (possibly L3 latency limited)",
-        "MetricExpr": "( min( ( cpu_core@MEM_LOAD_RETIRED.L3_HIT@ * cpu_core@mem_load_retired.l3_hit@R ) , cpu_core@MEM_LOAD_RETIRED.L3_HIT@ * ( 12 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) if ( cpu_core@mem_load_retired.l3_hit@R cpu_core@>=@ 0 ) else ( cpu_core@MEM_LOAD_RETIRED.L3_HIT@ * ( 12 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) ) * ( 1 + ( cpu_core@MEM_LOAD_RETIRED.FB_HIT@ / cpu_core@MEM_LOAD_RETIRED.L1_MISS@ ) / 2 ) / tma_info_thread_clks",
+        "MetricExpr": "( min( ( cpu_core@MEM_LOAD_RETIRED.L3_HIT@ * cpu_core@mem_load_retired.l3_hit@R ) , cpu_core@MEM_LOAD_RETIRED.L3_HIT@ * ( 12 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) if ( cpu_core@mem_load_retired.l3_hit@R >= 0 ) else ( cpu_core@MEM_LOAD_RETIRED.L3_HIT@ * ( 12 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) ) * ( 1 + ( cpu_core@MEM_LOAD_RETIRED.FB_HIT@ / cpu_core@MEM_LOAD_RETIRED.L1_MISS@ ) / 2 ) / tma_info_thread_clks",
         "MetricGroup": "BvML;MemoryLat;TopdownL4;tma_L4_group;tma_l3_bound_group;Clocks_Estimated;tma_issueLat;tma_overlap",
         "MetricName": "tma_l3_hit_latency",
         "ScaleUnit": "100%",
@@ -613,7 +613,7 @@
     },
     {
         "BriefDescription": "This metric represents rate of split store accesses",
-        "MetricExpr": "( min( ( cpu_core@MEM_INST_RETIRED.SPLIT_STORES@ * cpu_core@mem_inst_retired.split_stores@R ) , cpu_core@MEM_INST_RETIRED.SPLIT_STORES@ * 1 ) if ( cpu_core@mem_inst_retired.split_stores@R cpu_core@>=@ 0 ) else ( cpu_core@MEM_INST_RETIRED.SPLIT_STORES@ * 1 ) ) / tma_info_thread_clks",
+        "MetricExpr": "( min( ( cpu_core@MEM_INST_RETIRED.SPLIT_STORES@ * cpu_core@mem_inst_retired.split_stores@R ) , cpu_core@MEM_INST_RETIRED.SPLIT_STORES@ * 1 ) if ( cpu_core@mem_inst_retired.split_stores@R >= 0 ) else ( cpu_core@MEM_INST_RETIRED.SPLIT_STORES@ * 1 ) ) / tma_info_thread_clks",
         "MetricGroup": "TopdownL4;tma_L4_group;tma_store_bound_group;Core_Utilization;tma_issueSpSt",
         "MetricName": "tma_split_stores",
         "ScaleUnit": "100%",
@@ -631,7 +631,7 @@
     },
     {
         "BriefDescription": "This metric roughly estimates the fraction of cycles spent handling first-level data TLB store misses",
-        "MetricExpr": "( min( ( cpu_core@MEM_INST_RETIRED.STLB_HIT_STORES@ * cpu_core@mem_inst_retired.stlb_hit_stores@R ) , cpu_core@MEM_INST_RETIRED.STLB_HIT_STORES@ * ( 7 ) ) if ( cpu_core@mem_inst_retired.stlb_hit_stores@R cpu_core@>=@ 0 ) else ( cpu_core@MEM_INST_RETIRED.STLB_HIT_STORES@ * ( 7 ) ) ) / tma_info_thread_clks + tma_store_stlb_miss",
+        "MetricExpr": "( min( ( cpu_core@MEM_INST_RETIRED.STLB_HIT_STORES@ * cpu_core@mem_inst_retired.stlb_hit_stores@R ) , cpu_core@MEM_INST_RETIRED.STLB_HIT_STORES@ * ( 7 ) ) if ( cpu_core@mem_inst_retired.stlb_hit_stores@R >= 0 ) else ( cpu_core@MEM_INST_RETIRED.STLB_HIT_STORES@ * ( 7 ) ) ) / tma_info_thread_clks + tma_store_stlb_miss",
         "MetricGroup": "BvMT;MemoryTLB;TopdownL4;tma_L4_group;tma_store_bound_group;Clocks_Estimated;tma_issueTLB",
         "MetricName": "tma_dtlb_store",
         "ScaleUnit": "100%",
