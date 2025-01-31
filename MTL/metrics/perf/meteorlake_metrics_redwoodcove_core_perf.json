@@ -242,7 +242,7 @@
     },
     {
         "BriefDescription": "This metric estimates the fraction of cycles when the CPU was stalled due to switches of uop delivery to the Microcode Sequencer (MS)",
-        "MetricExpr": "( 3 ) * cpu_core@UOPS_RETIRED.MS\\,cmask\\=0x1\\\\,edge\\=0x1@ / ( cpu_core@UOPS_RETIRED.SLOTS@ / cpu_core@UOPS_ISSUED.ANY@ ) / tma_info_thread_clks",
+        "MetricExpr": "( 3 ) * cpu_core@UOPS_RETIRED.MS\\,cmask\\=0x1\\,edge\\=0x1@ / ( cpu_core@UOPS_RETIRED.SLOTS@ / cpu_core@UOPS_ISSUED.ANY@ ) / tma_info_thread_clks",
         "MetricGroup": "FetchLat;MicroSeq;TopdownL3;tma_L3_group;tma_fetch_latency_group;Clocks_Estimated;tma_issueMC;tma_issueMS;tma_issueMV;tma_issueSO",
         "MetricName": "tma_ms_switches",
         "ScaleUnit": "100%",
@@ -1406,14 +1406,14 @@
     },
     {
         "BriefDescription": "Average number of cycles the front-end was delayed due to an Unknown Branch detection",
-        "MetricExpr": "cpu_core@INT_MISC.UNKNOWN_BRANCH_CYCLES@ / cpu_core@INT_MISC.UNKNOWN_BRANCH_CYCLES\\,cmask\\=0x1\\\\,edge\\=0x1@",
+        "MetricExpr": "cpu_core@INT_MISC.UNKNOWN_BRANCH_CYCLES@ / cpu_core@INT_MISC.UNKNOWN_BRANCH_CYCLES\\,cmask\\=0x1\\,edge\\=0x1@",
         "MetricGroup": "Fed;Metric",
         "MetricName": "tma_info_frontend_unknown_branch_cost",
         "PublicDescription": "Average number of cycles the front-end was delayed due to an Unknown Branch detection. See Unknown_Branches node."
     },
     {
         "BriefDescription": "Average number of cycles of a switch from the DSB fetch-unit to MITE fetch unit - see DSB_Switches tree node for details",
-        "MetricExpr": "cpu_core@DSB2MITE_SWITCHES.PENALTY_CYCLES@ / cpu_core@DSB2MITE_SWITCHES.PENALTY_CYCLES\\,cmask\\=0x1\\\\,edge\\=0x1@",
+        "MetricExpr": "cpu_core@DSB2MITE_SWITCHES.PENALTY_CYCLES@ / cpu_core@DSB2MITE_SWITCHES.PENALTY_CYCLES\\,cmask\\=0x1\\,edge\\=0x1@",
         "MetricGroup": "DSBmiss;Metric",
         "MetricName": "tma_info_frontend_dsb_switch_cost"
     },

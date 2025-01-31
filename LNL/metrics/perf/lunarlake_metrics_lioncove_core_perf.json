@@ -280,7 +280,7 @@
     },
     {
         "BriefDescription": "This metric represents Core fraction of cycles in which CPU was likely limited due to the MITE pipeline (the legacy decode pipeline)",
-        "MetricExpr": "( cpu_core@IDQ.MITE_UOPS\\,cmask\\=0x8\\\\,inv\\=0x1\\\\,None\\=0x1@ / tma_info_thread_clks + cpu_core@IDQ.MITE_UOPS@ / ( cpu_core@IDQ.DSB_UOPS@ + cpu_core@IDQ.MITE_UOPS@ ) * ( cpu_core@IDQ_BUBBLES.CYCLES_0_UOPS_DELIV.CORE@ - cpu_core@IDQ_BUBBLES.FETCH_LATENCY@ ) ) / tma_info_thread_clks",
+        "MetricExpr": "( cpu_core@IDQ.MITE_UOPS\\,cmask\\=0x8\\,inv\\=0x1@ / tma_info_thread_clks + cpu_core@IDQ.MITE_UOPS@ / ( cpu_core@IDQ.DSB_UOPS@ + cpu_core@IDQ.MITE_UOPS@ ) * ( cpu_core@IDQ_BUBBLES.CYCLES_0_UOPS_DELIV.CORE@ - cpu_core@IDQ_BUBBLES.FETCH_LATENCY@ ) ) / tma_info_thread_clks",
         "MetricGroup": "DSBmiss;FetchBW;TopdownL3;tma_L3_group;tma_fetch_bandwidth_group;Slots_Estimated",
         "MetricName": "tma_mite",
         "ScaleUnit": "100%",
@@ -289,7 +289,7 @@
     },
     {
         "BriefDescription": "This metric represents Core fraction of cycles in which CPU was likely limited due to DSB (decoded uop cache) fetch pipeline",
-        "MetricExpr": "( cpu_core@IDQ.DSB_UOPS\\,cmask\\=0x8\\\\,inv\\=0x1\\\\,None\\=0x1@ + cpu_core@IDQ.DSB_UOPS@ / ( cpu_core@IDQ.DSB_UOPS@ + cpu_core@IDQ.MITE_UOPS@ ) * ( cpu_core@IDQ_BUBBLES.CYCLES_0_UOPS_DELIV.CORE@ - cpu_core@IDQ_BUBBLES.FETCH_LATENCY@ ) ) / tma_info_thread_clks",
+        "MetricExpr": "( cpu_core@IDQ.DSB_UOPS\\,cmask\\=0x8\\,inv\\=0x1@ + cpu_core@IDQ.DSB_UOPS@ / ( cpu_core@IDQ.DSB_UOPS@ + cpu_core@IDQ.MITE_UOPS@ ) * ( cpu_core@IDQ_BUBBLES.CYCLES_0_UOPS_DELIV.CORE@ - cpu_core@IDQ_BUBBLES.FETCH_LATENCY@ ) ) / tma_info_thread_clks",
         "MetricGroup": "DSB;FetchBW;TopdownL3;tma_L3_group;tma_fetch_bandwidth_group;Slots_Estimated",
         "MetricName": "tma_dsb",
         "ScaleUnit": "100%",
@@ -298,7 +298,7 @@
     },
     {
         "BriefDescription": "This metric represents Core fraction of cycles in which CPU was likely limited due to LSD (Loop Stream Detector) unit",
-        "MetricExpr": "cpu_core@LSD.UOPS\\,cmask\\=0x8\\\\,inv\\=0x1\\\\,None\\=0x1@ / tma_info_thread_clks",
+        "MetricExpr": "cpu_core@LSD.UOPS\\,cmask\\=0x8\\,inv\\=0x1@ / tma_info_thread_clks",
         "MetricGroup": "FetchBW;LSD;TopdownL3;tma_L3_group;tma_fetch_bandwidth_group;Slots_Estimated",
         "MetricName": "tma_lsd",
         "ScaleUnit": "100%",
@@ -1355,14 +1355,14 @@
     },
     {
         "BriefDescription": "Average number of cycles the front-end was delayed due to an Unknown Branch detection",
-        "MetricExpr": "cpu_core@INT_MISC.UNKNOWN_BRANCH_CYCLES@ / cpu_core@INT_MISC.UNKNOWN_BRANCH_CYCLES\\,cmask\\=0x1\\\\,edge\\=0x1@",
+        "MetricExpr": "cpu_core@INT_MISC.UNKNOWN_BRANCH_CYCLES@ / cpu_core@INT_MISC.UNKNOWN_BRANCH_CYCLES\\,cmask\\=0x1\\,edge\\=0x1@",
         "MetricGroup": "Fed;Metric",
         "MetricName": "tma_info_frontend_unknown_branch_cost",
         "PublicDescription": "Average number of cycles the front-end was delayed due to an Unknown Branch detection. See Unknown_Branches node."
     },
     {
         "BriefDescription": "Average number of cycles of a switch from the DSB fetch-unit to MITE fetch unit - see DSB_Switches tree node for details",
-        "MetricExpr": "cpu_core@DSB2MITE_SWITCHES.PENALTY_CYCLES@ / cpu_core@DSB2MITE_SWITCHES.PENALTY_CYCLES\\,cmask\\=0x1\\\\,edge\\=0x1@",
+        "MetricExpr": "cpu_core@DSB2MITE_SWITCHES.PENALTY_CYCLES@ / cpu_core@DSB2MITE_SWITCHES.PENALTY_CYCLES\\,cmask\\=0x1\\,edge\\=0x1@",
         "MetricGroup": "DSBmiss;Metric",
         "MetricName": "tma_info_frontend_dsb_switch_cost"
     },
