@@ -34,7 +34,7 @@ OUTPUT_DIR_PATH = Path("./outputs/")
 PERSISTENT_FIELDS = ["MetricGroup", "BriefDescription"]
 
 # Operators
-OPERATORS = ["+", "-", "/", "*", "(", ")", "max(", "min(", "if", "<", ">", ",", "else"]
+OPERATORS = ["+", "-", "/", "*", "(", ")", "max(", "min(", "if", "<", ">", ",", "else", "<=", ">="]
 
 def main():
     # Get file pointers from args
