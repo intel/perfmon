@@ -469,7 +469,7 @@ class PerfFormatConverter:
                 if prefix:
                     translated_event = f"{prefix}@{base_event.upper()}\\,{"\\\\,".join(translated_options)}@"
                 else:
-                    translated_event = f"{base_event.upper()}@{"\\\\,".join(translated_options)}@"
+                    translated_event = f"{base_event.upper()}@{"\\,".join(translated_options)}@"
                     print("!!!!!!!!!NO PREFIX. SOMETHING IS WRONG!!!!!!!!!!!!!")
         else: # No event options
             if prefix and self.is_core_event(event_name) and platform["IsHybrid"]:
