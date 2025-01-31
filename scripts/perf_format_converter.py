@@ -443,7 +443,6 @@ class PerfFormatConverter:
         # Check if association has 1:1 replacement
         for replacement in self.metric_assoc_replacement_dict:
             if re.match(replacement, event_name.upper()):
-                print(f"\tTRANSLATED EVENT: {self.metric_assoc_replacement_dict[replacement.upper()]}")
                 return self.metric_assoc_replacement_dict[replacement.upper()]
         
         # Translate other events
@@ -463,9 +462,9 @@ class PerfFormatConverter:
             
                 translated_options = []
                 for option in event_options:
-                    if self.translate_event_option(option, self.is_core_event(base_event)):
-                        translated_options.append(self.translate_event_option(option, self.is_core_event(base_event)))
-
+                    translated_option = self.translate_event_option(option, self.is_core_event(base_event))
+                    if translated_option is not None:
+                        translated_options.append(translated_option)
                 if prefix:
                     translated_event = f"{prefix}@{base_event.upper()}\\,{"\\\\,".join(translated_options)}@"
                 else:
@@ -477,7 +476,6 @@ class PerfFormatConverter:
             else:
                 translated_event = event_name.upper()
         
-        print(f"\tTRANSLATED EVENT: {translated_event.replace("TXL", "TxL")}")
         return translated_event.replace("RXL", "RxL")
 
     def is_core_event(self, event):
@@ -505,16 +503,18 @@ class PerfFormatConverter:
             else:
                 print("ERROR COULD NOT FIND OPTION")
         
-        if not option:
-            return None
-        
+        translated_option = option
         try:
             if is_core_event:
-                return f"{self.core_option_translation_dict[option.lower()]}\\=0x{value}"
+                translated_option = self.core_option_translation_dict[option.lower()]
             else:
-                return f"{self.uncore_option_translation_dict[option.lower()]}\\=0x{value}"
+                translated_option = self.uncore_option_translation_dict[option.lower()]
         except KeyError:
             return None
+        
+        if translated_option is None or translated_option == "None":
+            return None
+        return f"{translated_option}\\=0x{value}"
 
     # def translate_event_options(self, split, event_info):
     #     """
