@@ -428,9 +428,11 @@ class PerfFormatConverter:
         prefix = None
         if platform["IsHybrid"]:    # Hybrid
             if platform["CoreType"] == "P-core":
-                prefix = "cpu_core"
+                if self.is_core_event(event_name):
+                    prefix = "cpu_core"
             elif platform["CoreType"] == "E-core":
-                prefix = "cpu_atom"
+                if self.is_core_event(event_name):
+                    prefix = "cpu_atom"
         else:
             if self.is_core_event(event_name):
                 prefix = "cpu"
