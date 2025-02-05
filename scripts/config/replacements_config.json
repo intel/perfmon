@@ -41,46 +41,12 @@
         "UNC_DRAM_ENERGY_STATUS":"power@energy\\-ram@",
         "INST_RETIRED.ANY_P:SUP":"INST_RETIRED.ANY_P:k",
         "BR_INST_RETIRED.FAR_BRANCH:USER":"BR_INST_RETIRED.FAR_BRANCH:u",
-        "OCR.DEMAND_RFO.L3_MISS:OCR_MSR_VAL=0X103B800002":"cpu@OCR.DEMAND_RFO.L3_MISS\\,offcore_rsp\\=0x103b800002@",
-        "UNC_ARB_TRK_OCCUPANCY.DATA_READ:c1":"UNC_ARB_TRK_OCCUPANCY.DATA_READ@cmask\\=0x1@"
+        "OCR.DEMAND_RFO.L3_MISS:OCR_MSR_VAL=0X103B800002":"cpu@OCR.DEMAND_RFO.L3_MISS\\,offcore_rsp\\=0x103b800002@"
     },
     "metric_source_events":{
         "CHAS_PER_SOCKET":"UNC_CHA([^\\s]*)",
         "CORES_PER_SOCKET":"UNC_C_([^\\s]*)"
     },
-    "association_option_replacements": [
-        {
-            "events": ["ICACHE_", "INT_MISC", "UOPS_", "IDQ", "OFFCORE_", 
-                "L1D_", "DTLB_", "AMX_", "ITLB_", "EXE_", "INST_", "ASSISTS",
-                "SW_", "RS", "DSB2MITE_", "ARB_", "LSD"],
-            "unit":"cpu",
-            "translations":{
-                "c":"cmask",
-                "u":"umask",
-                "i":"inv",
-                "e":"edge"
-            },
-            "scale":1
-        },
-        {
-            "events": ["UNC_CHA_"],
-            "unit":"cha",
-            "translations":{
-                "filter1":"config1",
-                "c":"thresh"
-            },
-            "scale":100000000
-        },
-        {
-            "events":["UNC_C_"],
-            "unit":"cbox",
-            "translations":{
-                "opc":"filter_opc",
-                "tid":"filter_tid"
-            },
-            "scale":1
-        }
-    ],
     "scale_unit_replacements": {
         "per instruction":"per_instr",
         "per second":"per_sec",
@@ -90,5 +56,18 @@
         "MB/sec":"MB/s",
         "GT/sec":"GT/s",
         "Watts":"Watts"
+    },
+    "core_option_translations": {
+        "c":"cmask",
+        "u":"umask",
+        "i":"inv",
+        "e":"edge",
+        "eq": null
+    },
+    "uncore_option_translations": {
+        "filter1":"config1",
+        "c":"thresh",
+        "opc":"filter_opc",
+        "tid":"filter_tid"
     }
 }
