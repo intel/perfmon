@@ -1731,13 +1731,13 @@
     },
     {
         "BriefDescription": "Average number of utilized CPUs",
-        "MetricExpr": "cpu_core@CPU_CLK_UNHALTED.REF_TSC@ / cpu_core@TSC@",
+        "MetricExpr": "cpu_core@CPU_CLK_UNHALTED.REF_TSC@ / tsc",
         "MetricGroup": "Summary;Metric",
         "MetricName": "tma_info_system_cpus_utilized"
     },
     {
         "BriefDescription": "Measured Average Core Frequency for unhalted processors [GHz]",
-        "MetricExpr": "tma_info_system_turbo_utilization * cpu_core@TSC@ / ( 1000000000 ) / tma_info_system_time",
+        "MetricExpr": "tma_info_system_turbo_utilization * tsc / ( 1000000000 ) / tma_info_system_time",
         "MetricGroup": "Summary;Power;System_Metric",
         "MetricName": "tma_info_system_core_frequency"
     },
