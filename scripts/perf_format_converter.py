@@ -447,6 +447,10 @@ class PerfFormatConverter:
             if re.match(replacement, event_name.upper()):
                 return self.metric_assoc_replacement_dict[replacement.upper()]
         
+        # Check for ignored events
+        if event_name.lower() == "tsc":
+            return event_name
+
         # Translate other events
         if ":" in event_name.lower(): 
             if ":retire_latency" in event_name.lower(): # Check for retire latency option
