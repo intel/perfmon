@@ -459,8 +459,6 @@ class PerfFormatConverter:
                 split = event_name.split(":")
                 base_event = split[0]   # Base event
                 event_options = split[1:]   # Event options
-                print(f"\t EVENT: {base_event} \t OPTIONS: {event_options}")
-
             
                 translated_options = []
                 for option in event_options:
@@ -471,7 +469,6 @@ class PerfFormatConverter:
                     translated_event = f"{prefix}@{base_event.upper()}\\,{"\\,".join(translated_options)}@"
                 else:
                     translated_event = f"{base_event.upper()}@{"\\,".join(translated_options)}@"
-                    print("!!!!!!!!!NO PREFIX. SOMETHING IS WRONG!!!!!!!!!!!!!")
         else: # No event options
             if prefix and self.is_core_event(event_name) and platform["IsHybrid"]:
                 translated_event = f"{prefix}@{event_name.upper()}@"
@@ -490,20 +487,15 @@ class PerfFormatConverter:
             split = full_option.split("=")
             option = split[0]
             value = split[1]
-            print(f"\t\t\tOPTION: {option}\tVALUE: {value}")
         elif "0x" in full_option.lower():
             split = full_option.lower().split("0x")
             option = split[0]
             value = split[1]
-            print(f"\t\t\tOPTION: {option}\tVALUE: {value}")
         else:
             match = re.match(r"([a-zA-Z]+)([\d]+)", full_option.lower())
             if match:
                 option = match[1]
                 value = match[2]
-                print(f"\t\t\tOPTION: {option}\tVALUE: {value}")
-            else:
-                print("ERROR COULD NOT FIND OPTION")
         
         translated_option = option
         try:
