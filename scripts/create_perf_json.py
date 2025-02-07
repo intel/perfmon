@@ -728,7 +728,10 @@ class Model:
                 if e in form and e not in events:
                     _verboseprint3(f'Dropping {self.shortname} metric {name} due to missing event {e}')
                     return
-
+        if pmu_prefix == 'cpu_atom':
+            assert 'cpu_core' not in form
+        if pmu_prefix == 'cpu_core':
+            assert 'cpu_atom' not in form
         # Make 'TmaL1' group names more consistent with the 'tma_'
         # prefix and '_group' suffix.
         if group:
@@ -1891,7 +1894,8 @@ class Model:
             with open(self.files[metric_csv_key], 'r') as metric_csv:
                 csv_metrics = []
                 self.extract_tma_metrics(metric_csv, pmu_prefix, events, csv_metrics)
-                self.extract_extra_metrics(pmu_prefix, events, csv_metrics)
+                if unit == 'cpu_core':
+                    self.extract_extra_metrics(pmu_prefix, events, csv_metrics)
                 csv_metrics = sorted(csv_metrics,
                                      key=lambda m: (m['Unit'] if 'Unit' in m else 'cpu',
                                                     m['MetricName'])
