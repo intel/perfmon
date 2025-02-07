@@ -1249,12 +1249,16 @@ class Model:
                     mgroups.append(group)
                     if group not in self.metricgroups:
                         self.metricgroups[group] = f'Metrics for top-down breakdown at level {level}'
-                tma_perf_metric_l1_performance_cores = ['ICL', 'ICX', 'RKL', 'TGL', 'ADL/RPL', 'GRT', 'SPR']
-                if level == 1 and tma_cpu in tma_perf_metric_l1_performance_cores:
+                tma_perf_metric_l1_default_excludes = ['BDW' , 'BDW-DE', 'BDX',
+                                                       'CLX', 'GRR', 'HSW', 'HSX',
+                                                       'IVB', 'IVT', 'JKT', 'SNB',
+                                                       'SRF', 'SKL', 'SKX']
+                if level == 1 and self.shortname not in tma_perf_metric_l1_default_excludes:
                     mgroups.append('Default')
-                tma_perf_metric_l2_performance_cores = ['SPR']
-                if level == 2 and tma_cpu in tma_perf_metric_l2_performance_cores:
+                tma_perf_metric_l2_performance_cores = ['SPR', 'EMR', 'GNR']
+                if level == 2 and self.shortname in tma_perf_metric_l2_performance_cores:
                     mgroups.append('Default')
+
                 csv_groups = metric_group(metric_name)
                 if csv_groups:
                     for group in csv_groups.split(';'):
