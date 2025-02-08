@@ -1225,6 +1225,18 @@ class Model:
                 topdown_keys = ['BE', 'BAD', 'RET', 'FE']
                 return any(key.startswith(td_key) for td_key in topdown_keys)
 
+            def tma_metric_name(name: str) -> str:
+                """Convert regular metric name to the perf json name"""
+                return f'tma_{name.replace(".","_").replace(" ","").lower()}'
+
+            def tma_issue_name(name: str) -> str:
+                """Convert regular threshold issue name to the perf json name"""
+
+                # Remove leading '$' and keep capitalization for
+                # readability.
+                return f'tma_{name[1:].replace(".","_").replace(" ","")}'
+
+
             if is_topdown_row(l[0]):
                 for j in levels:
                     metric_name = field(j)
@@ -1269,17 +1281,17 @@ class Model:
                             self.metricgroups[group] = 'Grouping from Top-down Microarchitecture Analysis Metrics spreadsheet'
                 parent_metric = None
                 if level > 1:
-                    parent_metric = f'tma_{parents[-2].lower()}'
+                    parent_metric = tma_metric_name(parents[-2])
                     group = f'{parent_metric}_group'
                     mgroups.append(group)
                     if group not in self.metricgroups:
                         self.metricgroups[group] = f'Metrics contributing to {parent_metric} category'
                     children[parents[-2]].add(parents[-1])
-                tma_metric_name = f'tma_{metric_name.lower()}'
+                tma_metric_name = tma_metric_name(metric_name)
                 issues = issues()
                 for issue in issues:
                     issue_to_metrics[issue].add(tma_metric_name)
-                    group = f'tma_{issue[1:]}'
+                    group = tma_issue_name(issue)
                     mgroups.append(group)
                     if group not in self.metricgroups:
                         self.metricgroups[group] = f'Metrics related by the issue {issue}'
@@ -1301,7 +1313,7 @@ class Model:
                         # Substitute the #EBS mode formula as perf allows thread/process monitoring.
                         form = "((CPU_CLK_UNHALTED.THREAD / 2) * (1 + CPU_CLK_UNHALTED.ONE_THREAD_ACTIVE / CPU_CLK_UNHALTED.REF_XCLK)) if #EBS_Mode else (CPU_CLK_UNHALTED.THREAD_ANY / 2) if #SMT_on else CLKS"
                 if form:
-                    tma_metric_name = f'tma_{l[0].lower().replace(".","_")}_{metric_name.lower()}'
+                    tma_metric_name = tma_metric_name(f'{l[0]}_{metric_name}')
                     mgroups = []
                     csv_groups = metric_group(metric_name)
                     if csv_groups:
@@ -1314,7 +1326,7 @@ class Model:
                     issues = issues()
                     for issue in issues:
                         issue_to_metrics[issue].add(tma_metric_name)
-                        group = f'tma_{issue[1:]}'
+                        group = tma_issue_name(issue)
                         mgroups.append(group)
                         if group not in self.metricgroups:
                             self.metricgroups[group] = f'Metrics related by the issue {issue}'
