@@ -449,7 +449,7 @@ class PerfFormatConverter:
         
         # Check for ignored events
         if event_name.lower() == "tsc":
-            return event_name
+            return event_name.upper()
 
         # Translate other events
         if ":" in event_name.lower(): 
