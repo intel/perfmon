@@ -212,6 +212,7 @@ def topic(event_name: str, unit: str) -> str:
             'm2hbm': 'Uncore-Memory',
             'mchbm': 'Uncore-Memory',
             'clock': 'Uncore-Other',
+            'cncu': 'Uncore-Other',
             'pcu': 'Uncore-Power',
         }
         if unit.lower() not in  unit_to_topic:
@@ -350,7 +351,12 @@ class PerfmonJsonEvent:
             if self.unit in unit_fixups:
                 self.unit = unit_fixups[self.unit]
             elif self.unit == "NCU" and self.event_name == "UNC_CLOCK.SOCKET":
-                self.unit = "cbox_0" if shortname in ['BDW', 'HSW', 'SKL'] else "CLOCK"
+                if shortname in ['BDW', 'HSW', 'SKL']:
+                    self.unit = "cbox_0"
+                elif shortname in['MTL', 'ARL']:
+                    self.unit = "CNCU"
+                else:
+                    self.unit = "CLOCK"
             elif self.event_name.startswith("UNC_P_POWER_STATE_OCCUPANCY"):
                 # Older uncore_pcu PMUs don't have a umask, fix to occ_sel.
                 assert self.unit == "PCU"
