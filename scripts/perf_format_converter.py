@@ -40,6 +40,9 @@ def main():
     # Get file pointers from args
     arg_input_file = get_args()
 
+    # Check that intput/output dirs exists
+    ensure_directories()
+
     # Check for input file arg
     if arg_input_file:
         # If input file given, convert just input file
@@ -50,6 +53,15 @@ def main():
         for file in glob:
             convert_file(file)
 
+def ensure_directories():
+    # Check that intput/output dirs exists
+    try:
+        if not Path(FILE_PATH, INPUT_DIR_PATH).exists():
+            Path(FILE_PATH, INPUT_DIR_PATH).mkdir(parents=True, exist_ok=True)
+        if not Path(FILE_PATH, OUTPUT_DIR_PATH).exists():
+            Path(FILE_PATH, OUTPUT_DIR_PATH).mkdir(parents=True, exist_ok=True)
+    except IOError as e:
+        sys.exit(f"[ERROR] - Error setting up inpur/output dirs {str(e)}. Exiting")
 
 def convert_file(file_path):
     """
