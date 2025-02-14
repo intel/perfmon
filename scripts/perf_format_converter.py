@@ -38,7 +38,7 @@ OPERATORS = ["+", "-", "/", "*", "(", ")", "max(", "min(", "if", "<", ">", ",", 
 
 def main():
     # Get file pointers from args
-    arg_input_file = get_args()
+    arg_input_file, args_tma = get_args()
 
     # Check that intput/output dirs exists
     ensure_directories()
@@ -46,12 +46,12 @@ def main():
     # Check for input file arg
     if arg_input_file:
         # If input file given, convert just input file
-        convert_file(arg_input_file)
+        convert_file(arg_input_file, args_tma)
     else:
         # If no input file, convert all files in input dir
         glob = Path(FILE_PATH, INPUT_DIR_PATH).glob("*.json")
         for file in glob:
-            convert_file(file)
+            convert_file(file, args_tma)
 
 def ensure_directories():
     # Check that intput/output dirs exists
@@ -63,7 +63,7 @@ def ensure_directories():
     except IOError as e:
         sys.exit(f"[ERROR] - Error setting up inpur/output dirs {str(e)}. Exiting")
 
-def convert_file(file_path):
+def convert_file(file_path, output_tma):
     """
     Takes a standard json file and outputs a converted perf file
 
@@ -87,7 +87,7 @@ def convert_file(file_path):
         format_converter.populate_issue_dict()
 
         # Convert the dictionary to list of Perf format metric objects
-        perf_metrics = format_converter.convert_to_perf_metrics(platform)
+        perf_metrics = format_converter.convert_to_perf_metrics(platform, output_tma)
         if not perf_metrics:
             return
 
@@ -110,11 +110,13 @@ def get_args():
     # Arguments
     parser.add_argument("-i", "--finput", type=Path,
                         help="Path of input json file", required=False)
-
+    parser.add_argument("-t", "--tma", type=bool,
+                       help="Output TMA metrics [true/false]", required=False)
+    
     # Get arguments
     args = parser.parse_args()
 
-    return args.finput
+    return args.finput, args.tma
 
 
 def get_output_file(path):
@@ -284,7 +286,7 @@ class PerfFormatConverter:
                     else:
                         self.issue_dict[issue].append(self.translate_metric_name(metric))
 
-    def convert_to_perf_metrics(self, platform):
+    def convert_to_perf_metrics(self, platform, output_tma):
         """
         Converts the json dictionary read into the script to a list of
         metric objects in PERF format.
@@ -296,6 +298,11 @@ class PerfFormatConverter:
 
         try:
             for metric in self.input_data["Metrics"]:
+                # Check if outputting TMA metrics
+                if not output_tma:
+                    if "TMA" in metric["Category"]:
+                        continue
+                
                 # Add new metric object for each metric dictionary
                 new_metric = Metric(
                     public_description=self.get_public_description(metric),
