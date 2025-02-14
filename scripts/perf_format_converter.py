@@ -38,20 +38,32 @@ OPERATORS = ["+", "-", "/", "*", "(", ")", "max(", "min(", "if", "<", ">", ",", 
 
 def main():
     # Get file pointers from args
-    arg_input_file = get_args()
+    arg_input_file, args_tma = get_args()
+
+    # Check that intput/output dirs exists
+    ensure_directories()
 
     # Check for input file arg
     if arg_input_file:
         # If input file given, convert just input file
-        convert_file(arg_input_file)
+        convert_file(arg_input_file, args_tma)
     else:
         # If no input file, convert all files in input dir
         glob = Path(FILE_PATH, INPUT_DIR_PATH).glob("*.json")
         for file in glob:
-            convert_file(file)
+            convert_file(file, args_tma)
 
+def ensure_directories():
+    # Check that intput/output dirs exists
+    try:
+        if not Path(FILE_PATH, INPUT_DIR_PATH).exists():
+            Path(FILE_PATH, INPUT_DIR_PATH).mkdir(parents=True, exist_ok=True)
+        if not Path(FILE_PATH, OUTPUT_DIR_PATH).exists():
+            Path(FILE_PATH, OUTPUT_DIR_PATH).mkdir(parents=True, exist_ok=True)
+    except IOError as e:
+        sys.exit(f"[ERROR] - Error setting up inpur/output dirs {str(e)}. Exiting")
 
-def convert_file(file_path):
+def convert_file(file_path, output_tma):
     """
     Takes a standard json file and outputs a converted perf file
 
@@ -75,7 +87,7 @@ def convert_file(file_path):
         format_converter.populate_issue_dict()
 
         # Convert the dictionary to list of Perf format metric objects
-        perf_metrics = format_converter.convert_to_perf_metrics(platform)
+        perf_metrics = format_converter.convert_to_perf_metrics(platform, output_tma)
         if not perf_metrics:
             return
 
@@ -98,11 +110,13 @@ def get_args():
     # Arguments
     parser.add_argument("-i", "--finput", type=Path,
                         help="Path of input json file", required=False)
-
+    parser.add_argument("-t", "--tma", type=bool,
+                       help="Output TMA metrics [true/false]", required=False)
+    
     # Get arguments
     args = parser.parse_args()
 
-    return args.finput
+    return args.finput, args.tma
 
 
 def get_output_file(path):
@@ -144,9 +158,43 @@ def isNum(string):
     return False
 
 def fixPercentages(string):
+    """
+    Takes an inputted string containing a percentage value in % format, and
+    changed it to decimal format.
+    eg. 60 -> 0.6
+
+    @param string: string containing percentages to fix
+    @returns: string with fixed percentages
+    """
     splits = string.split(" ")
     fixed = [str(float(split) / 100) if isNum(split) else split for split in splits]
     return " ".join(fixed)
+
+def fixSpacing(string):
+    """
+    Takes an inputted formula as a string and fixes the spacing in the formula.
+    eg. (a / b) -> ( a / b )
+
+    @param string: formula to fix
+    @returns: fixed formula
+    """
+    fixed = string
+
+    # Fix instances of " (x"
+    regex = r"(^|[\s])(\()([^\s])"
+    match = re.search(regex, fixed)
+    while(match):
+        fixed = fixed.replace(match.group(0), f" {match.group(2)} {match.group(3)}")
+        match = re.search(regex, fixed)
+
+    # Fix instances of "x) "
+    regex = r"([^\s])(\))($|[\s])"
+    match = re.search(regex, fixed)
+    while(match):
+        fixed = fixed.replace(match.group(0), f"{match.group(1)} {match.group(2)} ")
+        match = re.search(regex, fixed)
+
+    return fixed.strip()
 
 class PerfFormatConverter:
     """
@@ -238,7 +286,7 @@ class PerfFormatConverter:
                     else:
                         self.issue_dict[issue].append(self.translate_metric_name(metric))
 
-    def convert_to_perf_metrics(self, platform):
+    def convert_to_perf_metrics(self, platform, output_tma):
         """
         Converts the json dictionary read into the script to a list of
         metric objects in PERF format.
@@ -250,6 +298,11 @@ class PerfFormatConverter:
 
         try:
             for metric in self.input_data["Metrics"]:
+                # Check if outputting TMA metrics
+                if not output_tma:
+                    if "TMA" in metric["Category"]:
+                        continue
+                
                 # Add new metric object for each metric dictionary
                 new_metric = Metric(
                     public_description=self.get_public_description(metric),
@@ -274,60 +327,54 @@ class PerfFormatConverter:
         @param metric: metric data as a dictionary
         @returns: string containing un-aliased expression
         """
-        # TMA metric
-        if "TMA" in metric["Category"]:
-            if "BaseFormula" in metric and metric["BaseFormula"] != "":
-                expression_list = [a.strip() for a in metric["BaseFormula"].split(" ") if a != ""]
-                for i, term in enumerate(expression_list):
-                    if (term not in OPERATORS) and (not isNum(term)) and (not term.startswith("*")):
-                        # Term is not an operator or a numeric value
-                        if "tma_" not in term:
-                            # Translate any event names
-                            expression_list[i] = self.translate_metric_event(term, platform)
-                
-                # Combine into formula
-                expression = " ".join(expression_list).strip()
-
-                # Add slots to metrics that have topdown events but not slots
-                if "topdown" in expression and "slots" not in expression:
-                        expression = "( " + expression + " ) + ( 0 * slots )"
-                
-                return expression.replace("TXL", "TxL")
+        try:
+            # TMA metric
+            if "TMA" in metric["Category"]:
+                if "BaseFormula" in metric and metric["BaseFormula"] != "":
+                    base_formula = metric["BaseFormula"]
+                else:
+                    print("Error: TMA metric without base formula found")
+            # Non TMA metric
             else:
-                print("Error: TMA metric without base formula found")
-        # Non TMA metric
-        else:
-            try:
+                # Seperate operators with spaces
+                aliased_formula = fixSpacing(metric["Formula"])
+
                 # Get formula and events for conversion
-                base_formula = metric["Formula"].replace("DURATIONTIMEINSECONDS", "duration_time")
-                if base_formula.startswith("100 *") and metric["UnitOfMeasure"] == "percent":
-                    base_formula = base_formula.replace("100 *", "")
+                if aliased_formula.startswith("100 *") and metric["UnitOfMeasure"] == "percent":
+                    aliased_formula = aliased_formula.replace("100 *", "")
                 events = metric["Events"]
                 constants = metric["Constants"]
 
                 # Replace event/const aliases with names
-                expression = base_formula.lower()
+                base_formula = aliased_formula.lower()
                 for event in events:
                     reg = r"((?<=[\s+\-*\/\(\)])|(?<=^))({})((?=[\s+\-*\/\(\)\[])|(?=$))".format(event["Alias"].lower())
-                    expression = re.sub(reg,
-                                        self.translate_metric_event(event["Name"], platform),
-                                        expression)
+                    base_formula = re.sub(reg, event["Name"], base_formula)
                 for const in constants:
                     reg = r"((?<=[\s+\-*\/\(\)])|(?<=^))({})((?=[\s+\-*\/\(\)])|(?=$))".format(const["Alias"].lower())
-                    expression = re.sub(reg,
-                                        pad(self.translate_metric_constant(const["Name"], metric)),
-                                        expression)
+                    base_formula = re.sub(reg, pad(const["Name"]), base_formula)
 
-                # Add slots to metrics that have topdown events but not slots
-                if any(event["Name"] for event in events if "PERF_METRICS" in event["Name"]):
-                    if not any(event["Name"] for event in events if "SLOTS" in event["Name"]):
-                        expression = "( " + expression + " ) + ( 0 * slots )"
+            # Take base formula and translate all events
+            expression_list = [a.strip() for a in base_formula.split(" ") if a != ""]
+            for i, term in enumerate(expression_list):
+                if (term not in OPERATORS) and (not isNum(term)) and (not term.startswith("*")):
+                    # Term is not an operator or a numeric value
+                    if "tma_" not in term:
+                        # Translate any event names
+                        expression_list[i] = self.translate_metric_event(term, metric, platform)
+            
+            # Combine into formula
+            expression = " ".join(expression_list).strip()
 
-            except KeyError as error:
-                sys.exit("Error in input JSON format during get_expressions(): " + str(error) + ". Exiting")
-
-            # Remove any extra spaces in expression
+            # Add slots to metrics that have topdown events but not slots
+            if "topdown" in expression and "slots" not in expression:
+                    expression = "( " + expression + " ) + ( 0 * slots )"
+            
             return re.sub(r"[\s]{2,}", " ", expression.strip()).replace("TXL", "TxL")
+        
+        except KeyError as error:
+            sys.exit("Error in input JSON format during get_expressions(): " + str(error) + ". Exiting")
+
 
     def get_public_description(self, metric):
         """
@@ -413,7 +460,7 @@ class PerfFormatConverter:
                 return "tma_" + metric["MetricName"].replace(" ", "_").lower()
             return metric["MetricName"]
 
-    def translate_metric_event(self, event_name, platform):
+    def translate_metric_event(self, event_name, metric, platform):
         """
         Replaces the event name with a replacement found in the metric
         association replacements json file. (An "association" is either an event
@@ -443,10 +490,18 @@ class PerfFormatConverter:
                     prefix = "cbox"
 
         # Check if association has 1:1 replacement
-        for replacement in self.metric_assoc_replacement_dict:
-            if re.match(replacement, event_name.upper()):
-                return self.metric_assoc_replacement_dict[replacement.upper()]
+        if event_name in self.metric_assoc_replacement_dict:
+            return self.metric_assoc_replacement_dict[event_name]
+        elif event_name.upper() in self.metric_assoc_replacement_dict:
+            return self.metric_assoc_replacement_dict[event_name.upper()]
         
+        # Check for source_count() constant
+        for replacement in self.metric_source_event_dict:
+            if re.match(replacement, event_name):
+                for event in metric["Events"]:
+                    if re.match(self.metric_source_event_dict[replacement], event["Name"]) and ":" not in event["Name"]:
+                        return "source_count(" + event["Name"].split(":")[0] + ")"
+
         # Check for ignored events
         if event_name.lower() == "tsc":
             return event_name.upper()
@@ -512,70 +567,11 @@ class PerfFormatConverter:
         
         if translated_option is None or translated_option == "None":
             return None
-        return f"{translated_option}\\=0x{value}"
-
-    # def translate_event_options(self, split, event_info):
-    #     """
-    #     Takes info about an event with options and translates the options
-    #     into a perf compatible format
-
-    #     @param split: list of options as strings
-    #     @param event_info: info on how to translate options
-    #     @returns: string containing translated event
-    #     """
-    #     translation = event_info["unit"] + "@" + split[0]
-    #     for option in split[1:]:
-    #         if "=" in option:
-    #             split = [s.lower() for s in option.split("=")]
-    #             if split[0] in event_info["translations"]:
-    #                 if "x" in split[1] or "X" in split[1]:
-    #                     translation += "\\," + event_info["translations"][split[0]] + "\\=" + split[1]
-    #                 else:
-    #                     translation += "\\," + event_info["translations"][split[0]] + "\\=" + (int(split[1]) * event_info["scale"])
-    #         elif "0x" in option:
-    #             split = option.split("0x")
-    #             if split[0] in event_info["translations"]:
-    #                 translation += "\\," + event_info["translations"][split[0]] + "\\=" + "0x" + split[1]
-    #             else:
-    #                 print(f"ERROR - {split[0]} not in event translations...")
-    #         elif "0X" in option:
-    #             split = option.split("0X")
-    #             if split[0].lower() in event_info["translations"]:
-    #                 translation += "\\," + event_info["translations"][split[0].lower()] + "\\=" + "0x" + split[1]
-    #             else:
-    #                 print(f"ERROR - {split[0]} not in event translations...")
-    #         else:
-    #             match = re.match(r"([a-zA-Z]+)([\d]+)", option.lower())
-    #             if match:
-    #                 if match[1] in event_info["translations"]:
-    #                     translation += "\\,"+ event_info["translations"][match[1]] + "\\=" + "0x" + match[2]
-    #     return translation + "@"
-
-
-    def translate_metric_constant(self, constant_name, metric):
-        """
-        Replaces the constant name with a replacement found in the metric
-        association replacements json file. Also handles the source_count()
-        formatting for specific constants using the config file.
-
-        @param constant_name: string containing constant name
-        @param metric: metric data as a dictionary
-        @returns: string containing un-aliased expression
-        """
-        # Check if association has replacement
-
-        for replacement in self.metric_assoc_replacement_dict:
-            if re.match(replacement, constant_name):
-                return self.metric_assoc_replacement_dict[replacement]
-
-        for replacement in self.metric_source_event_dict:
-            # source_count() formatting
-            if re.match(replacement, constant_name):
-                for event in metric["Events"]:
-                    if re.match(self.metric_source_event_dict[replacement], event["Name"]) and ":" not in event["Name"]:
-                        return "source_count(" + event["Name"].split(":")[0] + ")"
-
-        return "#" + constant_name
+        
+        if "0x" not in value:
+            value = f"0x{value}"
+            
+        return f"{translated_option}\\={value}"
 
     def serialize_output(self, perf_metrics, output_fp):
         """
