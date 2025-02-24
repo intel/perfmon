@@ -20,7 +20,7 @@
             },
             "EventType" : {
                 "type": "string",
-                "pattern": "^(core|fp_arith_inst|hybridcore|metrics|offcore|uncore|uncore experimental)$"
+                "pattern": "^(core|fp_arith_inst|hybridcore|metrics|offcore|uncore|uncore experimental|retire latency)$"
             },
             "Core Type" : {
                 "type": "string",

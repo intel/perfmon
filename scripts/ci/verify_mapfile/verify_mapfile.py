@@ -88,6 +88,10 @@ def verify_event_file_versions(perfmon_repo_path: Path):
     logger.info('Checking mapfile.csv version matches event file version.')
 
     for line_number, row in enumerate(load_mapfile(perfmon_repo_path), 2):
+        # TODO(ebaker): Remove if version information is added to retire latency.
+        if row['Filename'].endswith('retire_latency.json'):
+            continue
+
         # Trim V from Version column
         mapfile_version = version_re.match(row['Version'])
         if not mapfile_version:
@@ -120,6 +124,7 @@ def verify_event_type_matches_file(perfmon_repo_path: Path):
         skylake_fp_arith_inst.json -> fp_arith_inst
         alderlake_gracemont_core.json -> hybridcore (except for ADL-N)
         sierraforest_metrics.json -> metrics
+        graniterapids_retire_latency.json -> retire latency
     """
     # Certain model IDs have unique comparisons. As an example, ADL-N is not listed in the
     # mapfile as a hybridcore. Use the default otherwise.
@@ -130,6 +135,7 @@ def verify_event_type_matches_file(perfmon_repo_path: Path):
                     (re.compile(r'.*_uncore_experimental\.json'), 'uncore experimental'),
                     (re.compile(r'.*_matrix\.json'), 'offcore'),
                     (re.compile(r'.*_metrics\.json'), 'metrics'),
+                    (re.compile(r'.*_retire_latency\.json'), 'retire latency'),
                     (re.compile(r'.*_fp_arith_inst\.json'), 'fp_arith_inst')],
         'GenuineIntel-6-BE': [(re.compile(r'.*/[a-z]*_[a-z]*_core\.json'), 'core'),
                               (re.compile(r'.*uncore\.json'), 'uncore'),
@@ -301,10 +307,11 @@ def verify_mapfile_model_event_versions(perfmon_repo_path: Path):
 
     for model in get_unique_mapfile_models(mapfile_data):
         # Extract file versions for rows with a matching model.
+        skip_types = ['metrics', 'retire latency'] # Not event file rows
         event_file_versions = [
             x['Version']
             for x in mapfile_data
-            if x['Family-model'] == model and x['EventType'] != 'metrics'
+            if x['Family-model'] == model and x['EventType'] not in skip_types
         ]
         event_file_versions = set(event_file_versions)
 
