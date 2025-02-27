@@ -1991,7 +1991,7 @@ class Mapfile:
 
                 # Skip mapfile metrics entries metrics/*_metrics.json. This utility uses
                 # metrics/perf/*metrics_perf.json files.
-                if event_type == 'metrics':
+                if event_type == 'metrics' or event_type == 'retire latency':
                     continue
 
                 # From path compute the shortname (like SKL) and the

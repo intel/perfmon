@@ -4,13 +4,13 @@
 [![License](https://img.shields.io/badge/License-BSD--3-blue)](https://github.com/intel/perfmon/blob/master/LICENSE)
 
 # Outline
-* [Perfmon Metrics](#perfmon-metrics)
+* [Perfmon Metrics](#metrics)
 * [Top-down Microarchitecture Analysis (TMA)](#top-down-microarchitecture-analysis-tma)
 * [Perfmon Events](#performance-monitoring-events)
 * [How to Contribute](#how-to-contribute)
 * [Support](#support)
 
-# perfmon-metrics
+# Metrics
 
 Perfmon Metrics is a set of metric files and scripts used to perform performance analysis of systems. This repo has three parts
 
@@ -127,6 +127,27 @@ In this repository there are three, related, metrics file types.
 | `{platform}/metrics` | JSON formatted metrics intended for performance monitoring tools. Full description in the previous documentation section. |
 
 [^vtune_footnote]: Intel, the Intel logo and VTune are trademarks of Intel Corporation or its subsidiaries.
+
+## Timed Processor Event Based Sampling (TPEBS) - Retire Latency
+
+Retire latency is available in the basic group of PEBS records.
+
+> Retire Latency field, bits `15:0` – Indicates the elapsed cycles between the retirement of the
+architecturally visible instruction that caused PEBS and the prior instruction retirement. The
+measurement reflects core unhalted cycles (at the pace of Fixed-Function Counter 1) and is reported
+for any PEBS, regardless of whether precise or non-precise events are programmed. The count
+saturates at 216-1. [^retire_latency_footnote]
+
+TMA metrics such as `DRAM Bound / MEM_Latency / Local_Mem` depend on a retire latency value. These
+metrics can either use a default value or one collected during analysis. Default values are
+provided in this repo in `*/metrics/*_retire_latency.json`.
+
+### References
+
+* [Intel&reg; Architecture Instruction Set Extensions Programming Reference](https://cdrdv2.intel.com/v1/dl/getContent/671368)
+* [TPEBS Technical Article](https://www.intel.com/content/www/us/en/developer/articles/technical/timed-process-event-based-sampling-tpebs.html)
+
+[^retire_latency_footnote]: Intel&reg; Architecture Instruction Set Extensions Programming Reference section `11.4.1`.
 
 # Performance Monitoring Events
 
