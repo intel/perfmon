@@ -420,6 +420,11 @@ class PerfmonJsonEvent:
         if not self.public_description:
             self.public_description = get('Description')
 
+        if "PDISTCounter" in jd:
+            pdist_counter = jd.get('PDISTCounter').strip()
+            if pdist_counter != 'NA':
+                self.public_description += " Available PDIST counters: " + pdist_counter
+
         # The public description is the longer, if it is already
         # contained within or equals the brief description then it is
         # redundant.
