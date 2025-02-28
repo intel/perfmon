@@ -389,6 +389,11 @@ class PerfmonJsonEvent:
             self.event_code = "0xff"
             self.umask = None
 
+        if "PDISTCounter" in jd:
+           self.pdist_counter = jd.get('PDISTCounter').strip()
+        else:
+           self.pdist_counter = "NA"
+
         if self.filter:
             remove_filter_start = [
                 "cbofilter",
@@ -489,6 +494,7 @@ class PerfmonJsonEvent:
         add_to_result('UMask', self.umask)
         add_to_result('Unit', self.unit)
         add_to_result('Counter', self.counter)
+        add_to_result('PDISTCounter', self.pdist_counter)
         if self.experimental:
             add_to_result("Experimental", '1')
         return result
