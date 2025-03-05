@@ -7444,7 +7444,7 @@
     {
       "MetricName": "Serializing_Operation",
       "LegacyName": "metric_TMA_....Serializing_Operation(%)",
-      "ParentCategory": "Ports_Utilized_0",
+      "ParentCategory": "Core_Bound",
       "Level": 3,
       "BriefDescription": "This metric represents fraction of cycles the CPU issue-pipeline was stalled due to serializing operations. Instructions like CPUID; WRMSR or LFENCE serialize the out-of-order execution which may limit performance.",
       "UnitOfMeasure": "percent",
@@ -7689,7 +7689,7 @@
     {
       "MetricName": "AMX_Busy",
       "LegacyName": "metric_TMA_....AMX_Busy(%)",
-      "ParentCategory": "Ports_Utilized_0",
+      "ParentCategory": "Core_Bound",
       "Level": 3,
       "BriefDescription": "This metric estimates fraction of cycles where the Advanced Matrix eXtensions (AMX) execution engine was busy with tile (arithmetic) operations",
       "UnitOfMeasure": "percent",
