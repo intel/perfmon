@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2025 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) 6 Processor with P-cores - V1.07",
-    "DatePublished": "02/25/2025",
-    "Version": "1.07",
+    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) 6 Processor with P-cores - V1.08",
+    "DatePublished": "03/17/2025",
+    "Version": "1.08",
     "Legend": ""
   },
   "Events": [
@@ -3795,7 +3795,7 @@
       "FCMask": "0x00",
       "UMaskExt": "0x00000000",
       "EventName": "UNC_CHA_SF_EVICTION.M_STATE",
-      "BriefDescription": "Counts snoop filter capacity evictions for entries tracking modified lines in the cores? cache.? Snoop filter capacity evictions occur when the snoop filter is full and evicts an existing entry to track a new entry.? Does not count clean evictions such as when a core?s cache replaces a tracked cacheline with a new cacheline.",
+      "BriefDescription": "Counts snoop filter capacity evictions for entries tracking modified lines in the core's cache. Snoop filter capacity evictions occur when the snoop filter is full and evicts an existing entry to track a new entry. Does not count clean evictions such as when a core's cache replaces a tracked cacheline with a new cacheline.",
       "PublicDescription": "Snoop Filter Capacity Evictions : M state",
       "Counter": "0,1,2,3",
       "ELLC": "0",
