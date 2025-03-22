@@ -1821,6 +1821,17 @@ class Model:
                     pmon_topic_events[event.topic].append(dict_event)
                     dict_events[event.event_name.upper()] = dict_event
                     events[event.event_name.upper()] = event
+                if 'retire latency' in self.files:
+                    with open(self.files['retire latency'], 'r') as latency_json:
+                        event_and_latencies = json.load(latency_json)['Data']
+                        for lat_event in event_and_latencies.keys():
+                            assert lat_event in dict_events
+                            dict_events[lat_event]['RetirementLatencyMean'] = \
+                                event_and_latencies[lat_event]['MEAN']
+                            dict_events[lat_event]['RetirementLatencyMin'] = \
+                                event_and_latencies[lat_event]['MIN']
+                            dict_events[lat_event]['RetirementLatencyMax'] = \
+                                event_and_latencies[lat_event]['MAX']
                 self.count_counters(event_type, pmon_events)
 
         if 'uncore csv' in self.files:
@@ -1918,6 +1929,7 @@ class Model:
                 json.dump(events_, perf_json, sort_keys=True, indent=4,
                           separators=(',', ': '))
                 perf_json.write('\n')
+
         # Skip hybrid because event grouping does not support it well yet
         if self.shortname not in ['ADL', 'ADLN', 'ARL', 'LNL', 'MTL']:
             # Write units and counters data to counter.json file
@@ -2009,7 +2021,7 @@ class Mapfile:
 
                 # Skip mapfile metrics entries metrics/*_metrics.json. This utility uses
                 # metrics/perf/*metrics_perf.json files.
-                if event_type == 'metrics' or event_type == 'retire latency':
+                if event_type == 'metrics':
                     continue
 
                 # From path compute the shortname (like SKL) and the
@@ -2048,6 +2060,10 @@ class Mapfile:
                     # the longnames. We don't want the KNM shortname
                     # but do want the family_model.
                     models['KNL'].add(family_model)
+                    continue
+
+                if event_type == 'retire latency':
+                    files[shortname][event_type] = filepath
                     continue
 
                 # Remember the state for this mapfile line.
