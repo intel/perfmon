@@ -1029,7 +1029,7 @@ class Model:
         if parsed_threshold:
             formula['MetricThreshold'] = parsed_threshold
         elif threshold:
-            formula['MetricThreshold'] = threshold
+            formula['MetricThreshold'] = metric.ParsePerfJson(threshold).Simplify().ToPerfJson()
 
         saved_formulas.append(formula)
 
