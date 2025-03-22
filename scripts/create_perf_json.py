@@ -177,6 +177,9 @@ _topics: Dict[str, Set[tuple[str, int]]] = {
     }
 }
 
+# List of strange aux names that don't start with # in expressions.
+_aux_names = ['Num_CPUs', 'Dependent_Loads_Weight', 'DurationTimeInMilliSeconds']
+
 # Sort the matches with the highest priority first to allow the loop
 # to exit early when a lower priority match to the current is found.
 for topic in _topics.keys():
@@ -1372,7 +1375,7 @@ class Model:
                 form = find_form()
                 if form and form != '#NA':
                     aux_name = field('Level1')
-                    assert aux_name.startswith('#') or aux_name == 'Num_CPUs' or aux_name == 'Dependent_Loads_Weight'
+                    assert aux_name.startswith('#') or aux_name in _aux_names
                     aux[aux_name] = form
                     _verboseprint3(f'Adding aux {aux_name}: {form}')
 
@@ -1650,7 +1653,7 @@ class Model:
                         return expand_hhq(v[3:])
                     if v.startswith('##'):
                         return expand_hh(v[2:])
-                    if v.startswith('#') or v == 'Num_CPUs':
+                    if v.startswith('#') or v in _aux_names:
                         return resolve_aux(v)
                     return resolve_info(v)
 
