@@ -1107,8 +1107,10 @@ class Model:
         tma_cpu = None
         if self.shortname == 'BDW-DE':
             tma_cpu = 'BDW'
-        if self.shortname == 'ADLN':
+        elif self.shortname == 'ADLN':
             tma_cpu = 'GRT'
+        elif self.shortname == 'SRF':
+            tma_cpu = 'CMT'
         else:
             for key in ratio_column.keys():
                 if self.shortname in key.split('/'):
@@ -1934,7 +1936,7 @@ class Model:
                 perf_json.write('\n')
 
         # Skip hybrid because event grouping does not support it well yet
-        if self.shortname not in ['ADL', 'ADLN', 'ARL', 'LNL', 'MTL']:
+        if self.shortname not in ['ADL', 'ADLN', 'ARL', 'LNL', 'MTL', 'SRF']:
             # Write units and counters data to counter.json file
             output_counters = Path(outdir, 'counter.json')
             with open(output_counters, 'w', encoding='ascii') as cnt_json:
@@ -2095,7 +2097,7 @@ class Mapfile:
 
             # Add metric files that will be used for each model.
             files[shortname]['tma metrics'] = Path(base_path, 'TMA_Metrics-full.csv')
-            if shortname == 'ADLN':
+            if shortname in ['ADLN', 'SRF']:
                 files[shortname]['tma metrics'] = Path(base_path, 'E-core_TMA_Metrics.csv')
             if 'atom' in files[shortname]:
                 files[shortname]['e-core tma metrics'] = Path(base_path, 'E-core_TMA_Metrics.csv')
