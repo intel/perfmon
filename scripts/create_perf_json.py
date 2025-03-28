@@ -961,6 +961,10 @@ class Model:
             # Metrics with more events than counters.
             'tma_info_system_mem_read_latency': no_group,
             'tma_info_system_mem_request_latency': no_group,
+            'tma_l2_hit_latency': no_group,
+            'tma_l3_hit_latency': no_group,
+            'tma_data_sharing': no_group,
+            'tma_contested_accesses': no_group,
             # Metrics that would fit were the NMI watchdog disabled.
             'tma_ports_utilized_2': nmi,
             'tma_ports_utilized_3m': nmi,
