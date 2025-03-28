@@ -42,14 +42,27 @@ _topics: Dict[str, Set[tuple[str, int]]] = {
     'Cache': {
         (r'.*CACHE.*', 3),
         (r'CORE_REJECT_L2Q.*', 1),
+        (r'CORE_SNOOP.*', 1),
         (r'DL1.*', 1),
+        (r'IDI_MISC.*', 1),
         (r'L1D.*', 1),
         (r'L1D_.*', 1),
+        (r'L1I.*', 1),
         (r'L2.*', 1),
+        (r'LLC.*', 1),
         (r'LONGEST_LAT_CACHE.*', 1),
         (r'MEM_.+', 3),
         (r'MEM_LOAD_UOPS.*', 1),
         (r'OCR.*L3_HIT.*', 1),
+        (r'OCR.CORE.*', 1),
+        (r'OCR.DEMAND.*', 1),
+        (r'OCR.HWPF.*', 1),
+        (r'OCR.ITOM.*', 1),
+        (r'OCR.L1WB.*', 1),
+        (r'OCR.L2WB.*', 1),
+        (r'OCR.MODIFIED.*', 1),
+        (r'OCR.READS.*', 1),
+        (r'OCR.SWPF.*', 1),
         (r'OFFCORE_REQUESTS.*', 1),
         (r'OFFCORE_RESPONSE.*', 1),
         (r'REHABQ.*', 1),
@@ -77,6 +90,7 @@ _topics: Dict[str, Set[tuple[str, int]]] = {
         (r'FRONTEND.*', 3),
         (r'ICACHE.*', 4),
         (r'IDQ.*', 3),
+        (r'INSTS_WRITTEN.*', 1),
         (r'MACRO_INSTS.*', 1),
         (r'MS_DECODED.*', 1),
         (r'TWO_UOP_INSTS_DECODED.*', 1),
@@ -89,8 +103,11 @@ _topics: Dict[str, Set[tuple[str, int]]] = {
         (r'HLE.*', 3),
         (r'LD_HEAD.*', 1),
         (r'MEMORY_ACTIVITY.*', 1),
+        (r'MEMORY_STALLS.*', 1),
         (r'MEM_TRANS_RETIRED.*', 3),
         (r'MISALIGN_MEM_REF.*', 1),
+        (r'OCR.*DRAM.*', 1),
+        (r'OCR.*MEMORY.*', 1),
         (r'OFFCORE_RESPONSE.*DDR.*', 1),
         (r'OFFCORE_RESPONSE.*DRAM.*', 1),
         (r'OFFCORE_RESPONSE.*MCDRAM.*', 1),
@@ -107,6 +124,7 @@ _topics: Dict[str, Set[tuple[str, int]]] = {
         (r'ARITH.*', 1),
         (r'ASSISTS.ANY.*', 1),
         (r'BACLEAR.*', 1),
+        (r'BE_STALLS.*', 1),
         (r'BOGUS_BR.*', 1),
         (r'BPU_.*', 1),
         (r'BR_.*', 1),
@@ -114,34 +132,33 @@ _topics: Dict[str, Set[tuple[str, int]]] = {
         (r'CPU_CLK.*', 1),
         (r'CYCLES_DIV_BUSY.*', 1),
         (r'CYCLE_ACTIVITY.*', 1),
+        (r'DEPENDENT_LOADS.*', 1),
+        (r'DISPATCH_BLOCKED.*', 1),
         (r'DIV.*', 1),
-        (r'EXE_ACTIVITY.*', 1),
+        (r'EXE.*', 1),
         (r'IDQ.*', 1),
         (r'ILD.*', 1),
         (r'INST_.*', 1),
         (r'INT_MISC.*', 1),
-        (r'INT_MISC.*', 1),
+        (r'INT_UOPS.*', 1),
         (r'ISSUE_SLOTS_NOT_CONSUMED.*', 1),
         (r'LD_BLOCKS.*', 1),
         (r'LOAD_HIT_PRE.*', 1),
         (r'LSD.*', 1),
         (r'MACHINE_CLEARS.*', 1),
+        (r'MEMORY_STALLS.*', 1),
         (r'MOVE_ELIMINATION.*', 1),
         (r'MUL.*', 1),
         (r'NO_ALLOC_CYCLES.*', 1),
         (r'OTHER_ASSISTS.*', 1),
         (r'PARTIAL_RAT_STALLS.*', 1),
-        (r'PARTIAL_RAT_STALLS.*', 1),
         (r'RAT_STALLS.*', 1),
         (r'RECYCLEQ.*', 1),
         (r'REISSUE.*', 1),
-        (r'REISSUE.*', 1),
-        (r'RESOURCE_STALLS.*', 1),
         (r'RESOURCE_STALLS.*', 1),
         (r'ROB_MISC_EVENTS.*', 1),
-        (r'RS_EVENTS.*', 1),
-        (r'RS_FULL.*', 1),
-        (r'SERIALIZATION.NON_C01_MS_SCB.*', 1),
+        (r'RS.*', 1),
+        (r'SERIALIZATION.*', 1),
         (r'STORE_FORWARD.*', 1),
         (r'TOPDOWN.*', 1),
         (r'UOPS_.*', 1),
@@ -154,10 +171,14 @@ _topics: Dict[str, Set[tuple[str, int]]] = {
         (r'DATA_TLB.*', 1),
         (r'EPT.*', 1),
         (r'ITLB.*', 3),
+        (r'LARGE_ITLB.*', 1),
         (r'PAGE_WALK.*', 1),
         (r'TLB_FLUSH.*', 1),
     }
 }
+
+# List of strange aux names that don't start with # in expressions.
+_aux_names = ['Num_CPUs', 'Dependent_Loads_Weight', 'DurationTimeInMilliSeconds']
 
 # Sort the matches with the highest priority first to allow the loop
 # to exit early when a lower priority match to the current is found.
@@ -1011,7 +1032,7 @@ class Model:
         if parsed_threshold:
             formula['MetricThreshold'] = parsed_threshold
         elif threshold:
-            formula['MetricThreshold'] = threshold
+            formula['MetricThreshold'] = metric.ParsePerfJson(threshold).Simplify().ToPerfJson()
 
         saved_formulas.append(formula)
 
@@ -1086,8 +1107,10 @@ class Model:
         tma_cpu = None
         if self.shortname == 'BDW-DE':
             tma_cpu = 'BDW'
-        if self.shortname == 'ADLN':
+        elif self.shortname == 'ADLN':
             tma_cpu = 'GRT'
+        elif self.shortname in ['SRF', 'GRR']:
+            tma_cpu = 'CMT'
         else:
             for key in ratio_column.keys():
                 if self.shortname in key.split('/'):
@@ -1354,7 +1377,7 @@ class Model:
                 form = find_form()
                 if form and form != '#NA':
                     aux_name = field('Level1')
-                    assert aux_name.startswith('#') or aux_name == 'Num_CPUs' or aux_name == 'Dependent_Loads_Weight'
+                    assert aux_name.startswith('#') or aux_name in _aux_names
                     aux[aux_name] = form
                     _verboseprint3(f'Adding aux {aux_name}: {form}')
 
@@ -1400,11 +1423,11 @@ class Model:
                         ],
                         'ARL': td_event_fixups + [
                             ('IDQ.MITE_UOPS:c8:i1:eq1',
-                             r'cpu@IDQ.MITE_UOPS\,cmask\=0x8\,inv\=0x1@'),
+                             r'cpu_core@IDQ.MITE_UOPS\,cmask\=0x8\,inv\=0x1@'),
                             ('IDQ.DSB_UOPS:c8:i1:eq1',
-                             r'cpu@IDQ.DSB_UOPS\,cmask\=0x8\,inv\=0x1@'),
+                             r'cpu_core@IDQ.DSB_UOPS\,cmask\=0x8\,inv\=0x1@'),
                             ('LSD.UOPS:c8:i1:eq1',
-                             r'cpu@LSD.UOPS\,cmask\=0x8\,inv\=0x1@'),
+                             r'cpu_core@LSD.UOPS\,cmask\=0x8\,inv\=0x1@'),
                         ],
                         'BDW-DE': hsx_uncore_fixups,
                         'BDX': hsx_uncore_fixups,
@@ -1632,7 +1655,7 @@ class Model:
                         return expand_hhq(v[3:])
                     if v.startswith('##'):
                         return expand_hh(v[2:])
-                    if v.startswith('#') or v == 'Num_CPUs':
+                    if v.startswith('#') or v in _aux_names:
                         return resolve_aux(v)
                     return resolve_info(v)
 
@@ -1803,6 +1826,17 @@ class Model:
                     pmon_topic_events[event.topic].append(dict_event)
                     dict_events[event.event_name.upper()] = dict_event
                     events[event.event_name.upper()] = event
+                if 'retire latency' in self.files:
+                    with open(self.files['retire latency'], 'r') as latency_json:
+                        event_and_latencies = json.load(latency_json)['Data']
+                        for lat_event in event_and_latencies.keys():
+                            assert lat_event in dict_events
+                            dict_events[lat_event]['RetirementLatencyMean'] = \
+                                event_and_latencies[lat_event]['MEAN']
+                            dict_events[lat_event]['RetirementLatencyMin'] = \
+                                event_and_latencies[lat_event]['MIN']
+                            dict_events[lat_event]['RetirementLatencyMax'] = \
+                                event_and_latencies[lat_event]['MAX']
                 self.count_counters(event_type, pmon_events)
 
         if 'uncore csv' in self.files:
@@ -1900,8 +1934,9 @@ class Model:
                 json.dump(events_, perf_json, sort_keys=True, indent=4,
                           separators=(',', ': '))
                 perf_json.write('\n')
+
         # Skip hybrid because event grouping does not support it well yet
-        if self.shortname not in ['ADL', 'ADLN', 'ARL', 'LNL', 'MTL']:
+        if self.shortname not in ['ADL', 'ADLN', 'ARL', 'LNL', 'MTL', 'SRF', 'GRR']:
             # Write units and counters data to counter.json file
             output_counters = Path(outdir, 'counter.json')
             with open(output_counters, 'w', encoding='ascii') as cnt_json:
@@ -1991,7 +2026,7 @@ class Mapfile:
 
                 # Skip mapfile metrics entries metrics/*_metrics.json. This utility uses
                 # metrics/perf/*metrics_perf.json files.
-                if event_type == 'metrics' or event_type == 'retire latency':
+                if event_type == 'metrics':
                     continue
 
                 # From path compute the shortname (like SKL) and the
@@ -2032,6 +2067,10 @@ class Mapfile:
                     models['KNL'].add(family_model)
                     continue
 
+                if event_type == 'retire latency':
+                    files[shortname][event_type] = filepath
+                    continue
+
                 # Remember the state for this mapfile line.
                 if shortname not in longnames:
                     longnames[shortname] = longname
@@ -2058,7 +2097,7 @@ class Mapfile:
 
             # Add metric files that will be used for each model.
             files[shortname]['tma metrics'] = Path(base_path, 'TMA_Metrics-full.csv')
-            if shortname == 'ADLN':
+            if shortname in ['ADLN', 'SRF', 'GRR']:
                 files[shortname]['tma metrics'] = Path(base_path, 'E-core_TMA_Metrics.csv')
             if 'atom' in files[shortname]:
                 files[shortname]['e-core tma metrics'] = Path(base_path, 'E-core_TMA_Metrics.csv')
