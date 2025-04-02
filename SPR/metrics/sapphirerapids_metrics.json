@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
+    "Copyright": "Copyright (c) 2001 - 2025 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for 4th Generation Intel(R) Xeon(R) Processor Scalable Family based on Sapphire Rapids microarchitecture0",
-    "DatePublished": "12/02/2024",
-    "Version": "1.0",
+    "DatePublished": "03/31/2025",
+    "Version": "1.01",
     "Legend": "",
     "TmaVersion": "5.01",
     "TmaFlavor": "Full"
@@ -7444,7 +7444,7 @@
     {
       "MetricName": "Serializing_Operation",
       "LegacyName": "metric_TMA_....Serializing_Operation(%)",
-      "ParentCategory": "Ports_Utilized_0",
+      "ParentCategory": "Core_Bound",
       "Level": 3,
       "BriefDescription": "This metric represents fraction of cycles the CPU issue-pipeline was stalled due to serializing operations. Instructions like CPUID; WRMSR or LFENCE serialize the out-of-order execution which may limit performance.",
       "UnitOfMeasure": "percent",
@@ -7689,7 +7689,7 @@
     {
       "MetricName": "AMX_Busy",
       "LegacyName": "metric_TMA_....AMX_Busy(%)",
-      "ParentCategory": "Ports_Utilized_0",
+      "ParentCategory": "Core_Bound",
       "Level": 3,
       "BriefDescription": "This metric estimates fraction of cycles where the Advanced Matrix eXtensions (AMX) execution engine was busy with tile (arithmetic) operations",
       "UnitOfMeasure": "percent",
@@ -9492,7 +9492,7 @@
     {
       "MetricName": "Nop_Instructions",
       "LegacyName": "metric_TMA_......Nop_Instructions(%)",
-      "ParentCategory": "Light_Operations",
+      "ParentCategory": "Other_Light_Ops",
       "Level": 4,
       "BriefDescription": "This metric represents fraction of slots where the CPU was retiring NOP (no op) instructions. Compilers often use NOPs for certain address alignments - e.g. start address of a function or loop body.",
       "UnitOfMeasure": "percent",
@@ -9557,7 +9557,7 @@
     {
       "MetricName": "Shuffles_256b",
       "LegacyName": "metric_TMA_......Shuffles_256b(%)",
-      "ParentCategory": "Int_Operations",
+      "ParentCategory": "Other_Light_Ops",
       "Level": 4,
       "BriefDescription": "This metric represents fraction of slots where the CPU was retiring Shuffle operations of 256-bit vector size (FP or Integer). Shuffles may incur slow cross \"vector lane\" data transfers.",
       "UnitOfMeasure": "percent",
