@@ -334,15 +334,20 @@ This field lists the known bugs that apply to the events. For the latest errata 
 | Platform | Specification Updates / Errata Documentation |
 | --- | --- |
 | ADL | [12th Generation Intel&reg; Core&trade; Processor Specification Update (Doc. #682436)](https://cdrdv2.intel.com/v1/dl/getContent/682436?explicitVersion=true) |
+| ARL | [Intel&reg; Core&trade; Ultra Processors (Series 2) Specification Update (Doc. #834774)](https://cdrdv2.intel.com/v1/dl/getContent/834774?explicitVersion=true) |
 | CLX | [2nd Gen Intel&reg; Xeon&reg; Scalable Processors Specification Update (Doc. #338848)](https://cdrdv2.intel.com/v1/dl/getContent/338848?explicitVersion=true) |
-| HSX | [Intel&reg; Xeon&reg; Processor E5 v3 Product Family Specification Update (Doc. #330785)](https://cdrdv2.intel.com/v1/dl/getContent/330785?explicitVersion=true)
+| EMR | [5th Gen Intel&reg; Xeon&reg; Processor Codename Emerald Rapids Specification Update (Doc. #793902)](https://cdrdv2.intel.com/v1/dl/getContent/793902?explicitVersion=true) |
+| GNR | [Intel&reg; Xeon&reg; 6900/6700/6500-Series with P-Cores Specification Update (Doc. #835486)](https://cdrdv2.intel.com/v1/dl/getContent/835486?explicitVersion=true) |
+| HSX | [Intel&reg; Xeon&reg; Processor E5 v3 Product Family Specification Update (Doc. #330785)](https://cdrdv2.intel.com/v1/dl/getContent/330785?explicitVersion=true) |
 | ICL | [10th Generation Intel&reg; Core&trade; Processor Specification Update (Doc. #341079)](https://cdrdv2.intel.com/v1/dl/getContent/341079?explicitVersion=true) |
 | ICX | [3rd Gen Intel&reg; Xeon&reg; Scalable Processors, Codename Ice Lake Specification Update (Doc. #637780)](https://cdrdv2.intel.com/v1/dl/getContent/637780?explicitVersion=true) |
 | IVB | [Desktop 3rd Generation Intel&reg; Core&trade; Processor Family Specification Update (Doc. #326766)](https://www.intel.com/content/dam/www/public/us/en/documents/specification-updates/3rd-gen-core-desktop-specification-update.pdf) |
+| LNL | [Intel&reg; Core&trade; Ultra 200V Series Processors Specification Update (Doc. #827538)](https://cdrdv2.intel.com/v1/dl/getContent/827538?explicitVersion=true) |
 | MTL | [Intel&reg; Core&trade; Ultra Processor Specification Update (Doc. #792254)](https://cdrdv2.intel.com/v1/dl/getContent/792254?explicitVersion=true) |
 | RPL[^rpl_footnote] | [13th Generation Intel&reg; Core&trade;, 14th Generation Intel&reg; Core&trade; Processor Specification Update (Doc. #740518)](https://cdrdv2.intel.com/v1/dl/getContent/740518?explicitVersion=true) |
-| SPR | [4th Gen Intel&reg; Xeon&reg; Scalable Processors Codename Sapphire Rapids Specification Update (Doc. #772415)](https://cdrdv2.intel.com/v1/dl/getContent/772415?explicitVersion=true) |
 | SKX | [Intel&reg; Xeon&reg; Processor Scalable Family Specification Update (Doc. #336065)](https://cdrdv2.intel.com/v1/dl/getContent/336065?explicitVersion=true) |
+| SPR | [4th Gen Intel&reg; Xeon&reg; Processor Scalable Family Specification Update (Doc. #772415)](https://cdrdv2.intel.com/v1/dl/getContent/772415?explicitVersion=true) |
+| SRF | [Intel&reg; Xeon&reg; 6700-Series Processor with E-Cores Specification Update (Doc. #820922)](https://cdrdv2.intel.com/v1/dl/getContent/820922?explicitVersion=true) |
 | TGL | [11th Generation Intel&reg; Core&trade; Processor Specification Update (Doc. #631123)](https://cdrdv2.intel.com/v1/dl/getContent/631123?explicitVersion=true) |
 
 [^rpl_footnote]: Raptor Lake device IDs are mapped to Alder Lake event files. See `mapfile.csv`.
