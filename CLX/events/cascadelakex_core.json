@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 2nd Generation Intel(R) Xeon(R) Processor Scalable Family based on Cascade Lake product - V1.23",
-    "DatePublished": "08/09/2024",
-    "Version": "1.23",
+    "Copyright": "Copyright (c) 2001 - 2025 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for 2nd Generation Intel(R) Xeon(R) Processor Scalable Family based on Cascade Lake product - V1.24",
+    "DatePublished": "03/26/2025",
+    "Version": "1.24",
     "Legend": ""
   },
   "Events": [
@@ -6780,7 +6780,7 @@
       "UMask": "0x20",
       "EventName": "FP_ARITH_INST_RETIRED2.128BIT_PACKED_BF16",
       "BriefDescription": "Intel AVX-512 computational 512-bit packed BFloat16 instructions retired.",
-      "PublicDescription": "Counts once for each Intel AVX-512 computational 512-bit packed BFloat16 floating-point instruction retired. Applies to the ZMM based VDPBF16PS instruction.  Each count represents 64 computation operations. This event is only supported on products formerly named Cooper Lake and is not supported on products formerly named Cascade Lake.",
+      "PublicDescription": "Counts once for each Intel AVX-512 computational 128-bit packed BFloat16 floating-point instruction retired. Applies to the XMM based VDPBF16PS instruction. Each count represents 16 computation operations. This event is only supported on products formerly named Cooper Lake and is not supported on products formerly named Cascade Lake.",
       "Counter": "0,1,2,3",
       "CounterHTOff": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "2000003",
@@ -6804,7 +6804,7 @@
       "UMask": "0x40",
       "EventName": "FP_ARITH_INST_RETIRED2.256BIT_PACKED_BF16",
       "BriefDescription": "Intel AVX-512 computational 128-bit packed BFloat16 instructions retired.",
-      "PublicDescription": "Counts once for each Intel AVX-512 computational 128-bit packed BFloat16 floating-point instruction retired. Applies to the XMM based VDPBF16PS instruction. Each count represents 16 computation operations. This event is only supported on products formerly named Cooper Lake and is not supported on products formerly named Cascade Lake.",
+      "PublicDescription": "Counts once for each Intel AVX-512 computational 256-bit packed BFloat16 floating-point instruction retired. Applies to the YMM based VDPBF16PS instruction.  Each count represents 32 computation operations. This event is only supported on products formerly named Cooper Lake and is not supported on products formerly named Cascade Lake.",
       "Counter": "0,1,2,3",
       "CounterHTOff": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "2000003",
@@ -6828,7 +6828,7 @@
       "UMask": "0x80",
       "EventName": "FP_ARITH_INST_RETIRED2.512BIT_PACKED_BF16",
       "BriefDescription": "Intel AVX-512 computational 256-bit packed BFloat16 instructions retired.",
-      "PublicDescription": "Counts once for each Intel AVX-512 computational 256-bit packed BFloat16 floating-point instruction retired. Applies to the YMM based VDPBF16PS instruction.  Each count represents 32 computation operations. This event is only supported on products formerly named Cooper Lake and is not supported on products formerly named Cascade Lake.",
+      "PublicDescription": "Counts once for each Intel AVX-512 computational 512-bit packed BFloat16 floating-point instruction retired. Applies to the ZMM based VDPBF16PS instruction.  Each count represents 64 computation operations. This event is only supported on products formerly named Cooper Lake and is not supported on products formerly named Cascade Lake.",
       "Counter": "0,1,2,3",
       "CounterHTOff": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "2000003",
