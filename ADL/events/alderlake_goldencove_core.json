@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2025 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 12th and 13th Generation Intel(R) Core(TM) Processor - V1.29",
-    "DatePublished": "01/29/2025",
-    "Version": "1.29",
+    "Info": "Performance Monitoring Events for 12th and 13th Generation Intel(R) Core(TM) Processor - V1.30",
+    "DatePublished": "04/01/2025",
+    "Version": "1.30",
     "Legend": ""
   },
   "Events": [
@@ -811,8 +811,8 @@
       "EventCode": "0x20",
       "UMask": "0x04",
       "EventName": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO",
-      "BriefDescription": "For every cycle where the core is waiting on at least 1 outstanding Demand RFO request, increments by 1.",
-      "PublicDescription": "OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO",
+      "BriefDescription": "Cycles with offcore outstanding demand rfo reads transactions in SuperQueue (SQ), queue to uncore.",
+      "PublicDescription": "Counts the number of offcore outstanding demand rfo Reads transactions in the super queue every cycle. The 'Offcore outstanding' state of the transaction lasts from the L2 miss until the sending transaction completion to requestor (SQ deallocation). See the corresponding Umask under OFFCORE_REQUESTS.",
       "Counter": "0,1,2,3",
       "PEBScounters": "0,1,2,3",
       "SampleAfterValue": "1000003",
