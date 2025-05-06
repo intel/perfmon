@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) Processor Scalable Family based on Skylake microarchitecture - V1.36",
-    "DatePublished": "08/09/2024",
-    "Version": "1.36",
+    "Copyright": "Copyright (c) 2001 - 2025 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) Processor Scalable Family based on Skylake microarchitecture - V1.37",
+    "DatePublished": "04/18/2025",
+    "Version": "1.37",
     "Legend": ""
   },
   "Events": [
@@ -1764,7 +1764,7 @@
       "UMask": "0x01",
       "EventName": "LOAD_HIT_PRE.SW_PF",
       "BriefDescription": "Demand load dispatches that hit L1D fill buffer (FB) allocated for software prefetch.",
-      "PublicDescription": "Counts all not software-prefetch load dispatches that hit the fill buffer (FB) allocated for the software prefetch. It can also be incremented by some lock instructions. So it should only be used with profiling so that the locks can be excluded by ASM (Assembly File) inspection of the nearby instructions.",
+      "PublicDescription": "Counts all software-prefetch load dispatches that hit the fill buffer (FB) allocated for the software prefetch. It can also be incremented by some lock instructions. So it should only be used with profiling so that the locks can be excluded by ASM (Assembly File) inspection of the nearby instructions.",
       "Counter": "0,1,2,3",
       "CounterHTOff": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "100003",
