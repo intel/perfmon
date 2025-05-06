@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 5th Generation Intel(R) Xeon(R) Processor Scalable Family - V1.11",
-    "DatePublished": "10/29/2024",
-    "Version": "1.11",
+    "Copyright": "Copyright (c) 2001 - 2025 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for 5th Generation Intel(R) Xeon(R) Processor Scalable Family - V1.13",
+    "DatePublished": "04/18/2025",
+    "Version": "1.13",
     "Legend": ""
   },
   "Events": [
@@ -36054,6 +36054,24 @@
       "BriefDescription": "TOR Occupancy : ItoMCacheNears, indicating a partial write request, from IO Devices that missed the LLC and targets local memory",
       "PublicDescription": "For each cycle, this event accumulates the number of valid entries in the TOR that match qualifications specified by the subevent.     Does not include addressless requests such as locks and interrupts.",
       "Counter": "0",
+      "ELLC": "0",
+      "Filter": "na",
+      "ExtSel": "0",
+      "Deprecated": "0",
+      "FILTER_VALUE": "0",
+      "CounterType": "PGMABLE"
+    },
+    {
+      "Unit": "IIO",
+      "EventCode": "0x8e",
+      "UMask": "0x04",
+      "PortMask": "0x00FF",
+      "FCMask": "0x01",
+      "UMaskExt": "0x00000000",
+      "EventName": "UNC_IIO_NUM_REQ_OF_CPU_BY_TGT.UBOX_POSTED",
+      "BriefDescription": "Posted requests sent by the integrated IO (IIO) controller to the Ubox, useful for counting message signaled interrupts (MSI).",
+      "PublicDescription": "Posted requests sent by the integrated IO (IIO) controller to the Ubox, useful for counting message signaled interrupts (MSI).",
+      "Counter": "0,1,2,3",
       "ELLC": "0",
       "Filter": "na",
       "ExtSel": "0",
