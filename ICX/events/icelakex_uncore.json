@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 3rd Generation Intel(R) Xeon(R) Processor Scalable Family based on Ice Lake microarchitecture - V1.27",
-    "DatePublished": "10/10/2024",
-    "Version": "1.27",
+    "Copyright": "Copyright (c) 2001 - 2025 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for 3rd Generation Intel(R) Xeon(R) Processor Scalable Family based on Ice Lake microarchitecture - V1.28",
+    "DatePublished": "04/18/2025",
+    "Version": "1.28",
     "Legend": ""
   },
   "Events": [
@@ -737,6 +737,24 @@
       "EventName": "UNC_CHA_TOR_INSERTS.IO_MISS_ITOM",
       "BriefDescription": "TOR Inserts : ItoMs issued by IO Devices that missed the LLC",
       "PublicDescription": "TOR Inserts : ItoMs issued by IO Devices that missed the LLC : Counts the number of entries successfully inserted into the TOR that match qualifications specified by the subevent.   Does not include addressless requests such as locks and interrupts.",
+      "Counter": "0,1,2,3",
+      "ELLC": "0",
+      "Filter": "na",
+      "ExtSel": "0",
+      "Deprecated": "0",
+      "FILTER_VALUE": "0",
+      "CounterType": "PGMABLE"
+    },
+    {
+      "Unit": "CHA",
+      "EventCode": "0x35",
+      "UMask": "0x04",
+      "PortMask": "0x00",
+      "FCMask": "0x00",
+      "UMaskExt": "0xc803fe",
+      "EventName": "UNC_CHA_TOR_INSERTS.IO_MISS_RFO",
+      "BriefDescription": "TOR Inserts : RFOs issued by IO Devices that missed the LLC",
+      "PublicDescription": "TOR Inserts : RFOs issued by IO Devices that missed the LLC : Counts the number of entries successfully inserted into the TOR that match qualifications specified by the subevent.   Does not include addressless requests such as locks and interrupts.",
       "Counter": "0,1,2,3",
       "ELLC": "0",
       "Filter": "na",
@@ -3300,6 +3318,24 @@
       "Deprecated": "0",
       "FILTER_VALUE": "0",
       "CounterType": "FIXED"
+    },
+    {
+      "Unit": "CHA",
+      "EventCode": "0x35",
+      "UMask": "0x04",
+      "PortMask": "0x00",
+      "FCMask": "0x00",
+      "UMaskExt": "0xC803FF",
+      "EventName": "UNC_CHA_TOR_INSERTS.IO_RFO",
+      "BriefDescription": "TOR Inserts : RFOs issued by IO Devices",
+      "PublicDescription": "TOR Inserts : RFOs issued by IO Devices : Counts the number of entries successfully inserted into the TOR that match qualifications specified by the subevent.   Does not include addressless requests such as locks and interrupts.",
+      "Counter": "0,1,2,3",
+      "ELLC": "0",
+      "Filter": "na",
+      "ExtSel": "0",
+      "Deprecated": "0",
+      "FILTER_VALUE": "0",
+      "CounterType": "PGMABLE"
     },
     {
       "Unit": "CHA",
