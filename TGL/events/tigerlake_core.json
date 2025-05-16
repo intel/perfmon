@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 11th Generation Intel(R) Core(TM) Processor - V1.17",
-    "DatePublished": "10/10/2024",
-    "Version": "1.17",
+    "Copyright": "Copyright (c) 2001 - 2025 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for 11th Generation Intel(R) Core(TM) Processor - V1.18",
+    "DatePublished": "05/06/2025",
+    "Version": "1.18",
     "Legend": ""
   },
   "Events": [
@@ -1524,7 +1524,7 @@
       "UMask": "0x01",
       "EventName": "LOAD_HIT_PREFETCH.SWPF",
       "BriefDescription": "Counts the number of demand load dispatches that hit L1D fill buffer (FB) allocated for software prefetch.",
-      "PublicDescription": "Counts all not software-prefetch load dispatches that hit the fill buffer (FB) allocated for the software prefetch. It can also be incremented by some lock instructions. So it should only be used with profiling so that the locks can be excluded by ASM (Assembly File) inspection of the nearby instructions.",
+      "PublicDescription": "Counts all software-prefetch load dispatches that hit the fill buffer (FB) allocated for the software prefetch. It can also be incremented by some lock instructions. So it should only be used with profiling so that the locks can be excluded by ASM (Assembly File) inspection of the nearby instructions.",
       "Counter": "0,1,2,3",
       "PEBScounters": "0,1,2,3",
       "SampleAfterValue": "100003",
