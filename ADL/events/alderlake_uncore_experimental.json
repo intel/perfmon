@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2025 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 12th and 13th Generation Intel(R) Core(TM) Processor - V1.30",
-    "DatePublished": "04/01/2025",
-    "Version": "1.30",
+    "Info": "Performance Monitoring Events for 12th and 13th Generation Intel(R) Core(TM) Processor - V1.31",
+    "DatePublished": "05/06/2025",
+    "Version": "1.31",
     "Legend": ""
   },
   "Events": [
