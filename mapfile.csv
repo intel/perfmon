@@ -202,9 +202,9 @@ GenuineIntel-6-AF,V1.10,/SRF/events/sierraforest_core.json,core,,,
 GenuineIntel-6-AF,V1.10,/SRF/events/sierraforest_uncore.json,uncore,,,
 GenuineIntel-6-AF,V1.10,/SRF/events/sierraforest_uncore_experimental.json,uncore experimental,,,
 GenuineIntel-6-AF,V0,/SRF/metrics/sierraforest_metrics.json,metrics,,,
-GenuineIntel-6-B6,V1.08,/GRR/events/grandridge_core.json,core,,,
-GenuineIntel-6-B6,V1.08,/GRR/events/grandridge_uncore.json,uncore,,,
-GenuineIntel-6-B6,V1.08,/GRR/events/grandridge_uncore_experimental.json,uncore experimental,,,
+GenuineIntel-6-B6,V1.09,/GRR/events/grandridge_core.json,core,,,
+GenuineIntel-6-B6,V1.09,/GRR/events/grandridge_uncore.json,uncore,,,
+GenuineIntel-6-B6,V1.09,/GRR/events/grandridge_uncore_experimental.json,uncore experimental,,,
 GenuineIntel-6-B6,V0,/GRR/metrics/grandridge_metrics.json,metrics,,,
 GenuineIntel-6-BD,V1.14,/LNL/events/lunarlake_skymont_core.json,hybridcore,0x20,0x000003,Atom
 GenuineIntel-6-BD,V1.14,/LNL/events/lunarlake_lioncove_core.json,hybridcore,0x40,0x000003,Core
