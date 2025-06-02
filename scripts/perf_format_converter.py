@@ -23,6 +23,40 @@ import json
 import argparse
 from pathlib import Path
 
+class Metric:
+    """
+    Metric class. Only used to store data to be serialized into json
+    """
+
+    def __init__(self, brief_description, metric_expr,
+                 metric_group, metric_name, scale_unit, 
+                 metric_threshold, public_description):
+        self.BriefDescription = brief_description
+        self.MetricExpr = metric_expr
+        self.MetricGroup = metric_group
+        self.MetricName = metric_name
+        self.ScaleUnit = scale_unit
+        self.MetricThreshold = metric_threshold
+        self.PublicDescription = public_description
+        self.MetricgroupNoGroup = None
+        self.DefaultMetricgroupName = None
+
+    def apply_extra_properties(self, platform):
+        if platform["DefaultLevel"] > 0:
+            if self.MetricGroup and "info" not in self.MetricName:
+                if "TopdownL1" in self.MetricGroup:
+                    if "Default" in self.MetricGroup:
+                        self.MetricGroupnoGroup = "TopdownL1;Default"
+                        self.DefaultMetricgroupName = "TopdownL1"
+                    else:
+                        self.MetricgroupNoGroup = "TopdownL1"
+                elif "TopdownL2" in self.MetricGroup:
+                    if "Default" in self.MetricGroup:
+                        self.MetricGroupnoGroup = "TopdownL2;Default"
+                        self.DefaultMetricgroupName = "TopdownL2"
+                    else:
+                        self.MetricgroupNoGroup = "TopdownL2"
+
 # File locations
 FILE_PATH = Path(__file__).parent.resolve()
 REPLACEMENT_CONFIG_PATH = Path("./config/replacements_config.json")
@@ -63,11 +97,12 @@ def ensure_directories():
     except IOError as e:
         sys.exit(f"[ERROR] - Error setting up inpur/output dirs {str(e)}. Exiting")
 
-def convert_file(file_path, output_tma):
+def convert_file(file_path: Path, output_tma: bool):
     """
     Takes a standard json file and outputs a converted perf file
 
     @param file_path: path to standard json file
+    @param output_tma: boolean representing if tma metrics will be outputted
     """
     with open(file_path) as input_file:
         # Initialize converter with input file
@@ -119,7 +154,7 @@ def get_args():
     return args.finput, args.tma
 
 
-def get_output_file(path):
+def get_output_file(path: str) -> Path:
     """
     Takes the path to the input file and converts it to the output file path.
     eg. inputs/input_file.json -> outputs/input_file_perf.json
@@ -131,7 +166,7 @@ def get_output_file(path):
     return Path(FILE_PATH, OUTPUT_DIR_PATH, file_name)
 
 
-def pad(string):
+def pad(string: str) -> str:
     """
     Adds a one space padding to an inputted string
 
@@ -141,7 +176,7 @@ def pad(string):
     return " " + string.strip() + " "
 
 
-def isNum(string):
+def isNum(string: str) -> str:
     """
     Takes an inputted string and outputs if the string is a num.
     eg. 1.0, 1e9, 29
@@ -157,7 +192,7 @@ def isNum(string):
         return True
     return False
 
-def fixPercentages(string):
+def fixPercentages(string: str) -> str:
     """
     Takes an inputted string containing a percentage value in % format, and
     changed it to decimal format.
@@ -170,13 +205,13 @@ def fixPercentages(string):
     fixed = [str(float(split) / 100) if isNum(split) else split for split in splits]
     return " ".join(fixed)
 
-def fixSpacing(string):
+def fixSpacing(string: str) -> str:
     """
     Takes an inputted formula as a string and fixes the spacing in the formula.
     eg. (a / b) -> ( a / b )
 
-    @param string: formula to fix
-    @returns: fixed formula
+    @param string: string containing formula to fix
+    @returns: string containing fixed formula
     """
     fixed = string
 
@@ -246,10 +281,11 @@ class PerfFormatConverter:
         except KeyError as e:
             sys.exit(f"[ERROR] - Error in config JSON format {str(e)}. Exiting")
 
-    def get_platform(self, file_name):
+    def get_platform(self, file_name: str) -> dict:
         """
         Determines the platform of the inputted file. Uses platform_config.json
 
+        @param file_name: string containing the name of the file to get the platform from
         @returns: dictionary containing the platform info or None if not found
         """
         for platform in self.platforms:
@@ -286,12 +322,13 @@ class PerfFormatConverter:
                     else:
                         self.issue_dict[issue].append(self.translate_metric_name(metric))
 
-    def convert_to_perf_metrics(self, platform, output_tma):
+    def convert_to_perf_metrics(self, platform: str, output_tma: bool) -> list[Metric]:
         """
         Converts the json dictionary read into the script to a list of
         metric objects in PERF format.
 
         @param platform: platform of the file
+        @param output_tma: boolean representing if tma metrics will be outputted
         @returns: list of perf metric objects
         """
         metrics = []
@@ -319,12 +356,13 @@ class PerfFormatConverter:
             return None
         return metrics
 
-    def get_expression(self, metric, platform):
+    def get_expression(self, metric: dict, platform: dict) -> str:
         """
         Converts the aliased formulas and events/constants into
         un-aliased expressions.
 
         @param metric: metric data as a dictionary
+        @param platform: dictonary with platform info
         @returns: string containing un-aliased expression
         """
         try:
@@ -376,7 +414,7 @@ class PerfFormatConverter:
             sys.exit("Error in input JSON format during get_expressions(): " + str(error) + ". Exiting")
 
 
-    def get_public_description(self, metric):
+    def get_public_description(self, metric: dict) -> str:
         """
         Takes a base description and adds the extra "Related metrics" and "Sample with"
         blurbs to the end.
@@ -396,7 +434,7 @@ class PerfFormatConverter:
             events = metric["LocateWith"].split(";")
             events = [event.strip() for event in events if event.strip() != "#NA"]
             if len(events) >= 1:
-                description += f"Sample with: {", ".join(events)}" + ". "
+                description += f"Sample with: {', '.join(events)}" + ". "
 
         # Add "Related metrics:" blurb
         related_metrics = []
@@ -409,7 +447,7 @@ class PerfFormatConverter:
             related_metrics = sorted(set([m for m in related_metrics if m != self.translate_metric_name(metric)]))
             
             if len(related_metrics) >= 1:
-                description += f"Related metrics: {", ".join(related_metrics)}" + ". "
+                description += f"Related metrics: {', '.join(related_metrics)}" + ". "
         
         # Make sure description is more than one sentence
         elif description.count(". ") == 1 and description.strip().endswith("."):
@@ -417,7 +455,7 @@ class PerfFormatConverter:
         
         return description.strip()
     
-    def get_brief_description(self, metric):
+    def get_brief_description(self, metric: dict) -> str:
         """
         Takes a base description and shortens it to a single sentence
 
@@ -447,8 +485,8 @@ class PerfFormatConverter:
 
         return description.replace("ie:", "i.e.").strip()
 
-    def translate_metric_name(self, metric):
-        """
+    def translate_metric_name(self, metric: dict) -> str:
+        """ 
         Replaces the metric name with a replacement found in the metric 
         name replacements json file
         """
@@ -460,7 +498,7 @@ class PerfFormatConverter:
                 return "tma_" + metric["MetricName"].replace(" ", "_").lower()
             return metric["MetricName"]
 
-    def translate_metric_event(self, event_name, metric, platform):
+    def translate_metric_event(self, event_name: str, metric: dict, platform: dict) -> str:
         """
         Replaces the event name with a replacement found in the metric
         association replacements json file. (An "association" is either an event
@@ -525,9 +563,12 @@ class PerfFormatConverter:
                     if translated_option is not None:
                         translated_options.append(translated_option)
                 if prefix:
-                    translated_event = f"{prefix}@{base_event.upper()}\\,{"\\,".join(translated_options)}@"
+                    # translated_event = f"{prefix}@{base_event.upper()}\\\\,{'\\\\,'.join(translated_options)}@"
+                    translated_event = "{}@{}\\,{}@".format(prefix, base_event.upper(), "\\,".join(translated_options))
+
                 else:
-                    translated_event = f"{base_event.upper()}@{"\\,".join(translated_options)}@"
+                    # translated_event = f"{base_event.upper()}@{'\\,'.join(translated_options)}@"
+                    translated_event = "{}@{}@".format(base_event.upper(), "\\,").join(translated_options)
         else: # No event options
             if prefix and self.is_core_event(event_name) and platform["IsHybrid"]:
                 translated_event = f"{prefix}@{event_name.upper()}@"
@@ -536,12 +577,12 @@ class PerfFormatConverter:
         
         return translated_event.replace("RXL", "RxL")
 
-    def is_core_event(self, event):
+    def is_core_event(self, event: str) -> bool:
         if "unc_" in event.lower():
             return False
         return True
     
-    def translate_event_option(self, full_option, is_core_event):
+    def translate_event_option(self, full_option: str, is_core_event: bool) -> str:
         if "=" in full_option:
             split = full_option.split("=")
             option = split[0]
@@ -573,7 +614,7 @@ class PerfFormatConverter:
             
         return f"{translated_option}\\={value}"
 
-    def serialize_output(self, perf_metrics, output_fp):
+    def serialize_output(self, perf_metrics: list, output_fp):
         """
         Serializes the list of perf metrics into a json file output.
         """
@@ -586,7 +627,7 @@ class PerfFormatConverter:
                   ensure_ascii=True,
                   indent=4)
 
-    def get_scale_unit(self, metric):
+    def get_scale_unit(self, metric: dict) -> str:
         """
         Converts a metrics unit of measure field into a scale unit. Scale unit
         is formatted as a scale factor x and a unit. Eg. 1ns, 10Ghz, etc
@@ -606,7 +647,7 @@ class PerfFormatConverter:
         else:
             return None
 
-    def get_groups(self, metric, platform):
+    def get_groups(self, metric: dict, platform: dict) -> str:
         """
         Converts a metrics group field delimited by commas to a new list
         delimited by semi-colons
@@ -625,16 +666,19 @@ class PerfFormatConverter:
             #new_groups = [g.strip() for g in groups.split(";") if not g.isspace() and g != ""]
             new_groups = [g.strip() for g in re.split(";|,", groups) if not g.isspace() and g != ""]
 
-        # Add level and parent groups
-        if metric["Category"] == "TMA" and ("Info" not in metric["MetricName"] or "TmaL1" in metric["MetricGroup"]):
-            new_groups.append("TopdownL" + str(metric["Level"]))
-            new_groups.append("tma_L" + str(metric["Level"]) + "_group")
-            if "ParentCategory" in metric:
-                new_groups.append("tma_" + metric["ParentCategory"].lower().replace(" ", "_") + "_group")
-        
-        # Add default group for levels 1 & 2
-        if metric["Level"] <= platform["DefaultLevel"] and "info" not in metric["MetricName"].lower():
-            new_groups.append("Default")
+        # TMA metrics
+        if metric["Category"] == "TMA":
+
+            # Add level and parent groups
+            if "Info" not in metric["MetricName"] or "TmaL1" in metric["MetricGroup"]:
+                new_groups.append("TopdownL" + str(metric["Level"]))
+                new_groups.append("tma_L" + str(metric["Level"]) + "_group")
+                if "ParentCategory" in metric:
+                    new_groups.append("tma_" + metric["ParentCategory"].lower().replace(" ", "_") + "_group")
+            
+            # Add default group for levels 1 & 2
+            if metric["Level"] <= platform["DefaultLevel"] and "info" not in metric["MetricName"].lower():
+                new_groups.append("Default")
 
         # Add count domain
         if "CountDomain" in metric and metric["CountDomain"] != "":
@@ -642,12 +686,12 @@ class PerfFormatConverter:
 
         # Add Threshold issues
         if "Threshold" in metric and "ThresholdIssues" in metric["Threshold"] and metric["Threshold"]["ThresholdIssues"] != "":
-            threshold_issues = [f"tma_{issue.replace("$", "").replace("~", "").strip()}" for issue in metric["Threshold"]["ThresholdIssues"].split(",")]
+            threshold_issues = [f"tma_{issue.replace('$', '').replace('~', '').strip()}" for issue in metric["Threshold"]["ThresholdIssues"].split(",")]
             new_groups.extend(threshold_issues)
 
         return ";".join(new_groups) if new_groups.count != 0 else ""
 
-    def get_threshold(self, metric):
+    def get_threshold(self, metric: dict):
         if "Threshold" in metric:
             if "BaseFormula" in metric["Threshold"]:
                 threshold = metric["Threshold"]["BaseFormula"].replace("&&", "&").replace("||", "|")
@@ -659,43 +703,8 @@ class PerfFormatConverter:
                 threshold = metric["Threshold"]["Formula"].replace("&&", "&").replace("||", "|")
                 return self.clean_metric_names(threshold)
 
-    def clean_metric_names(self, formula):
+    def clean_metric_names(self, formula: str):
         return re.sub(r'\([^\(\)]+\)', "", formula).lower().replace("metric_","").replace("..", "")
-
-
-class Metric:
-    """
-    Metric class. Only used to store data to be serialized into json
-    """
-
-    def __init__(self, brief_description, metric_expr,
-                 metric_group, metric_name, scale_unit, 
-                 metric_threshold, public_description):
-        self.BriefDescription = brief_description
-        self.MetricExpr = metric_expr
-        self.MetricGroup = metric_group
-        self.MetricName = metric_name
-        self.ScaleUnit = scale_unit
-        self.MetricThreshold = metric_threshold
-        self.PublicDescription = public_description
-        self.MetricgroupNoGroup = None
-        self.DefaultMetricgroupName = None
-
-    def apply_extra_properties(self, platform):
-        if platform["DefaultLevel"] > 0:
-            if self.MetricGroup and "info" not in self.MetricName:
-                if "TopdownL1" in self.MetricGroup:
-                    if "Default" in self.MetricGroup:
-                        self.MetricGroupnoGroup = "TopdownL1;Default"
-                        self.DefaultMetricgroupName = "TopdownL1"
-                    else:
-                        self.MetricgroupNoGroup = "TopdownL1"
-                elif "TopdownL2" in self.MetricGroup:
-                    if "Default" in self.MetricGroup:
-                        self.MetricGroupnoGroup = "TopdownL2;Default"
-                        self.DefaultMetricgroupName = "TopdownL2"
-                    else:
-                        self.MetricgroupNoGroup = "TopdownL2"
 
 
 if __name__ == "__main__":
