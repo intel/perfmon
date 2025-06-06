@@ -8,3 +8,4 @@ scripts/outputs
 scripts/perf
 scripts/*.bat
 bandit_scan_results.sarif
+/scripts/.vscode
