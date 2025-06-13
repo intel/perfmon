@@ -236,6 +236,75 @@ def verify_family_model_maps_to_event_files(perfmon_repo_path: Path):
                 raise RuntimeError(msg)
 
 
+def verify_family_model_maps_to_metric_files(perfmon_repo_path: Path):
+    """
+    For each Family-Model verify that all metric files are mentioned in mapfile.csv
+
+    Failing example:
+        mapfile.csv:
+            <snip>
+            GenuineIntel-6-AD,V1.10,/GNR/events/graniterapids_core.json,core,,,
+            GenuineIntel-6-AD,V1.10,/GNR/events/graniterapids_uncore.json,uncore,,,
+            GenuineIntel-6-AD,V1.10,/GNR/events/graniterapids_uncore_experimental.json,uncore experimental,,,
+            GenuineIntel-6-AD,V1.02,/GNR/metrics/graniterapids_metrics.json,metrics,,,
+            GenuineIntel-6-AD,V1.08,/GNR/metrics/graniterapids_retire_latency.json,retire latency,,,
+            GenuineIntel-6-AE,V1.10,/GNR/events/graniterapids_core.json,core,,,
+            GenuineIntel-6-AE,V1.10,/GNR/events/graniterapids_uncore.json,uncore,,,
+            GenuineIntel-6-AE,V1.10,/GNR/events/graniterapids_uncore_experimental.json,uncore experimental,,,
+            GenuineIntel-6-AE,V1.02,/GNR/metrics/graniterapids_metrics.json,metrics,,,
+            <snip>
+        Files in GNR/metrics/:
+            graniterapids_metrics.json
+            graniterapids_retire_latency.json
+        Failure:
+            Family-Model 0xAE is missing graniterapids_retire_latency.json.
+    """
+    # Known exceptions. Do not flag these combinations of models and files as issues.
+    exceptions = {}
+
+    logger.info('Checking mapfile.csv for missing metric files.')
+
+    mapfile_data = load_mapfile(perfmon_repo_path)
+
+    # With the set of unique models compare mapfile.csv rows to actual event files.
+    for model in get_unique_mapfile_models(mapfile_data):
+        # Filter for any rows with a matching model.
+        mapfile_model_rows = [x for x in mapfile_data if x['Family-model'] == model]
+        # Then extract file paths that are mentioned. The Filename column includes a leading slash
+        # which is trimmed before combining with the repository path.
+        mapfile_model_files = [
+            Path(perfmon_repo_path, x['Filename'][1:]) for x in mapfile_model_rows
+        ]
+
+        # Platforms should only reference metric files in one directory. Platform ABC should only
+        # use metrics files in ABC/metrics. ABC using events in ABC/metrics and XYZ/metrics is likely
+        # a typo or a mistake.
+        mapfile_metrics_dir = set([x.parent for x in mapfile_model_files])
+        mapfile_metrics_dir = [x for x in mapfile_metrics_dir if x.name == 'metrics']
+        if len(mapfile_metrics_dir) > 1:
+            msg = (f'Family-model {model} references multiple metric directories.\n'
+                   f'{mapfile_metrics_dir}')
+            raise RuntimeError(msg)
+
+        # Verify that all metric files are mentioned in the mapfile for this specific model.
+        model_metrics_dir = Path(mapfile_model_files[0].parents[1], 'metrics')
+        metric_files = sorted(model_metrics_dir.glob('*.json'))
+        for metric_file in metric_files:
+            logging.error(f'Checking {metric_file.name} for {model}')
+            if metric_file not in mapfile_model_files:
+                # First check known exceptions before flagging as an actual issue.
+                if model in exceptions and metric_file.name in exceptions[model]:
+                    logger.warning('\tmapfile.csv %s missing row for %s. Known exception, OK.',
+                                   model, metric_file.name)
+                    continue
+
+                metric_files_msg = '\n  '.join([x.name for x in metric_files])
+                msg = (f'Metric file {metric_file.name} is not referenced by {model}.\n'
+                       f'mapfile.csv\n{json.dumps(mapfile_model_rows, indent=2)}\n'
+                       f'Files in {model_metrics_dir}\n  {metric_files_msg}')
+                raise RuntimeError(msg)
+
+
 def verify_mapfile_duplicate_types(perfmon_repo_path: Path):
     """
     Per Family-Model verify that there is only one instance of each event file type.
@@ -307,7 +376,7 @@ def verify_mapfile_model_event_versions(perfmon_repo_path: Path):
 
     for model in get_unique_mapfile_models(mapfile_data):
         # Extract file versions for rows with a matching model.
-        skip_types = ['metrics', 'retire latency'] # Not event file rows
+        skip_types = ['metrics', 'retire latency']  # Not event file rows
         event_file_versions = [
             x['Version']
             for x in mapfile_data
@@ -336,6 +405,7 @@ if __name__ == '__main__':
         verify_event_file_versions,
         verify_event_type_matches_file,
         verify_family_model_maps_to_event_files,
+        verify_family_model_maps_to_metric_files,
         verify_mapfile_duplicate_types,
         verify_mapfile_model_event_versions,
     ]
