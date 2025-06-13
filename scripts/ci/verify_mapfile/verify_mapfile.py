@@ -260,7 +260,10 @@ def verify_family_model_maps_to_metric_files(perfmon_repo_path: Path):
             Family-Model 0xAE is missing graniterapids_retire_latency.json.
     """
     # Known exceptions. Do not flag these combinations of models and files as issues.
-    exceptions = {}
+    exceptions = {
+        # SPR-HBM metrics are not included in mapfile.csv
+        'GenuineIntel-6-8F': ['sapphirerapidshbm_metrics.json'],
+    }
 
     logger.info('Checking mapfile.csv for missing metric files.')
 
