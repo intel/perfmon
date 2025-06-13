@@ -1539,8 +1539,8 @@ class Model:
                         form = form.replace(j, r)
 
                     form = form.replace('_PS', '')
-                    form = re.sub(r':USER', ':u', form, re.IGNORECASE)
-                    form = re.sub(r':SUP', ':k', form, re.IGNORECASE)
+                    form = re.sub(r':USER', ':u', form, flags=re.IGNORECASE)
+                    form = re.sub(r':SUP', ':k', form, flags=re.IGNORECASE)
                     form = form.replace('(0 + ', '(')
                     form = form.replace(' + 0)', ')')
                     form = form.replace('+ 0 +', '+')
@@ -1584,7 +1584,7 @@ class Model:
                              rf'{pmu_prefix}@\1\\,edge@'),
                         ]:
                             new_form = re.sub(match, replacement, form,
-                                              re.IGNORECASE)
+                                              flags=re.IGNORECASE)
                             changed = changed or new_form != form
                             form = new_form
 
@@ -1593,10 +1593,10 @@ class Model:
                             if events[name].unit.startswith('cpu') and name in form:
                                 form = re.sub(rf'(^|[^@]){name}:([a-zA-Z])',
                                               rf'\1{pmu_prefix}@{name}@\2',
-                                              form, re.IGNORECASE)
+                                              form, flags=re.IGNORECASE)
                                 form = re.sub(rf'(^|[^@]){name}([^a-zA-Z0-9_]|$)',
                                               rf'\1{pmu_prefix}@{name}@\2',
-                                              form, re.IGNORECASE)
+                                              form, flags=re.IGNORECASE)
 
                     changed = True
                     while changed:
