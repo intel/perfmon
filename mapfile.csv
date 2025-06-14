@@ -228,10 +228,12 @@ GenuineIntel-6-C5,V1.09,/ARL/events/arrowlake_crestmont_core.json,hybridcore,0x2
 GenuineIntel-6-C5,V1.09,/ARL/events/arrowlake_lioncove_core.json,hybridcore,0x40,0x000003,Core
 GenuineIntel-6-C5,V1.09,/ARL/events/arrowlake_uncore.json,uncore,,,
 GenuineIntel-6-C5,V1.09,/ARL/events/arrowlake_uncore_experimental.json,uncore experimental,,,
+GenuineIntel-6-C5,V1.0,/ARL/metrics/arrowlake_metrics_lioncove_core.json,metrics,,,
 GenuineIntel-6-C6,V1.09,/ARL/events/arrowlake_skymont_core.json,hybridcore,0x20,0x000003,Atom
 GenuineIntel-6-C6,V1.09,/ARL/events/arrowlake_lioncove_core.json,hybridcore,0x40,0x000003,Core
 GenuineIntel-6-C6,V1.09,/ARL/events/arrowlake_uncore.json,uncore,,,
 GenuineIntel-6-C6,V1.09,/ARL/events/arrowlake_uncore_experimental.json,uncore experimental,,,
+GenuineIntel-6-C6,V1.0,/ARL/metrics/arrowlake_metrics_lioncove_core.json,metrics,,,
 GenuineIntel-6-CC,V1.00,/PTL/events/pantherlake_darkmont_core.json,hybridcore,0x20,0x000004,Atom
 GenuineIntel-6-CC,V1.00,/PTL/events/pantherlake_cougarcove_core.json,hybridcore,0x40,0x000004,Core
 GenuineIntel-6-DD,V1.00,/CWF/events/clearwaterforest_core.json,core,,,
