@@ -124,6 +124,7 @@ def verify_event_type_matches_file(perfmon_repo_path: Path):
         skylake_fp_arith_inst.json -> fp_arith_inst
         alderlake_gracemont_core.json -> hybridcore (except for ADL-N)
         sierraforest_metrics.json -> metrics
+        alderlake_metrics_goldencove_core.json -> metrics
         graniterapids_retire_latency.json -> retire latency
     """
     # Certain model IDs have unique comparisons. As an example, ADL-N is not listed in the
@@ -134,7 +135,7 @@ def verify_event_type_matches_file(perfmon_repo_path: Path):
                     (re.compile(r'.*_uncore\.json'), 'uncore'),
                     (re.compile(r'.*_uncore_experimental\.json'), 'uncore experimental'),
                     (re.compile(r'.*_matrix\.json'), 'offcore'),
-                    (re.compile(r'.*_metrics\.json'), 'metrics'),
+                    (re.compile(r'.*_metrics(_.*_core)?\.json'), 'metrics'),
                     (re.compile(r'.*_retire_latency\.json'), 'retire latency'),
                     (re.compile(r'.*_fp_arith_inst\.json'), 'fp_arith_inst')],
         'GenuineIntel-6-BE': [(re.compile(r'.*/[a-z]*_[a-z]*_core\.json'), 'core'),
@@ -263,6 +264,9 @@ def verify_family_model_maps_to_metric_files(perfmon_repo_path: Path):
     exceptions = {
         # SPR-HBM metrics are not included in mapfile.csv
         'GenuineIntel-6-8F': ['sapphirerapidshbm_metrics.json'],
+        # ADL-N is an E-Core only product. Refer to Table 1 in
+        # https://cdrdv2.intel.com/v1/dl/getContent/759603
+        'GenuineIntel-6-BE': ['alderlake_metrics_goldencove_core.json'],
     }
 
     logger.info('Checking mapfile.csv for missing metric files.')
