@@ -112,6 +112,23 @@ class TestVerifyFamilyModelMapsToEventFiles(unittest.TestCase):
         self.assertRegex(str(assertion_context.exception), r'Event file .* is not referenced')
 
 
+class TestVerifyFamilyModelMapsToMetricFiles(unittest.TestCase):
+
+    def test_mapfile_missing_metric_file_reference(self):
+        perfmon_repo_dir = Path(_test_data_dir, '14_mapfile_missing_latency_file_reference')
+
+        with self.assertRaises(RuntimeError) as assertion_context:
+            verify_family_model_maps_to_metric_files(perfmon_repo_dir)
+        self.assertRegex(str(assertion_context.exception), r'Metric file .* is not referenced')
+
+    def test_platform_referencing_multiple_metric_directories(self):
+        perfmon_repo_dir = Path(_test_data_dir, '15_platform_referencing_multiple_metric_dirs')
+
+        with self.assertRaises(RuntimeError) as assertion_context:
+            verify_family_model_maps_to_metric_files(perfmon_repo_dir)
+        self.assertIn('references multiple metric directories', str(assertion_context.exception))
+
+
 class TestVerifyMapfileDuplicateTypes(unittest.TestCase):
 
     def test_duplicate_event_file_type(self):
