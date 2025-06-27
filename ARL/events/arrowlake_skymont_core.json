@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2025 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Core(TM) processors based on Arrow Lake performance hybrid architecture - V1.09",
-    "DatePublished": "04/08/2025",
-    "Version": "1.09",
+    "Info": "Performance Monitoring Events for Intel(R) Core(TM) processors based on Arrow Lake performance hybrid architecture - V1.11",
+    "DatePublished": "06/10/2025",
+    "Version": "1.11",
     "Legend": ""
   },
   "Events": [
@@ -122,7 +122,7 @@
       "EventName": "TOPDOWN_FE_BOUND.ALL",
       "BriefDescription": "Fixed Counter: Counts the number of retirement slots not consumed due to front end stalls.",
       "PublicDescription": "Fixed Counter: Counts the number of retirement slots not consumed due to front end stalls.",
-      "Counter": "37",
+      "Counter": "Fixed counter 5",
       "PEBScounters": "37",
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
@@ -149,7 +149,7 @@
       "EventName": "TOPDOWN_RETIRING.ALL",
       "BriefDescription": "Fixed Counter: Counts the number of consumed retirement slots.",
       "PublicDescription": "Fixed Counter: Counts the number of consumed retirement slots.",
-      "Counter": "38",
+      "Counter": "Fixed counter 6",
       "PEBScounters": "38",
       "SampleAfterValue": "1000003",
       "MSRIndex": "0x00",
