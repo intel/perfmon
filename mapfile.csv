@@ -189,17 +189,17 @@ GenuineIntel-6-AA,V1.16,/MTL/events/meteorlake_crestmont_core.json,hybridcore,0x
 GenuineIntel-6-AA,V1.16,/MTL/events/meteorlake_redwoodcove_core.json,hybridcore,0x40,0x000002,Core
 GenuineIntel-6-AA,V1.16,/MTL/events/meteorlake_uncore.json,uncore,,,
 GenuineIntel-6-AA,V1.16,/MTL/events/meteorlake_uncore_experimental.json,uncore experimental,,,
-GenuineIntel-6-AA,V1.0,/MTL/metrics/meteorlake_metrics_redwoodcove_core.json,metrics,0x40,0x000002,Core
+GenuineIntel-6-AA,V1.1,/MTL/metrics/meteorlake_metrics_redwoodcove_core.json,metrics,0x40,0x000002,Core
 GenuineIntel-6-AC,V1.16,/MTL/events/meteorlake_crestmont_core.json,hybridcore,0x20,0x000002,Atom
 GenuineIntel-6-AC,V1.16,/MTL/events/meteorlake_redwoodcove_core.json,hybridcore,0x40,0x000002,Core
 GenuineIntel-6-AC,V1.16,/MTL/events/meteorlake_uncore.json,uncore,,,
 GenuineIntel-6-AC,V1.16,/MTL/events/meteorlake_uncore_experimental.json,uncore experimental,,,
-GenuineIntel-6-AC,V1.0,/MTL/metrics/meteorlake_metrics_redwoodcove_core.json,metrics,0x40,0x000002,Core
+GenuineIntel-6-AC,V1.1,/MTL/metrics/meteorlake_metrics_redwoodcove_core.json,metrics,0x40,0x000002,Core
 GenuineIntel-6-B5,V1.16,/MTL/events/meteorlake_crestmont_core.json,hybridcore,0x20,0x000002,Atom
 GenuineIntel-6-B5,V1.16,/MTL/events/meteorlake_redwoodcove_core.json,hybridcore,0x40,0x000002,Core
 GenuineIntel-6-B5,V1.16,/MTL/events/meteorlake_uncore.json,uncore,,,
 GenuineIntel-6-B5,V1.16,/MTL/events/meteorlake_uncore_experimental.json,uncore experimental,,,
-GenuineIntel-6-B5,V1.0,/MTL/metrics/meteorlake_metrics_redwoodcove_core.json,metrics,0x40,0x000002,Core
+GenuineIntel-6-B5,V1.1,/MTL/metrics/meteorlake_metrics_redwoodcove_core.json,metrics,0x40,0x000002,Core
 GenuineIntel-6-AD,V1.12,/GNR/events/graniterapids_core.json,core,,,
 GenuineIntel-6-AD,V1.12,/GNR/events/graniterapids_uncore.json,uncore,,,
 GenuineIntel-6-AD,V1.12,/GNR/events/graniterapids_uncore_experimental.json,uncore experimental,,,
