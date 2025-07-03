@@ -1,11 +1,11 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
+    "Copyright": "Copyright (c) 2001 - 2025 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for Intel(R) Core(TM) processors based on Arrow Lake performance hybrid architecture0",
-    "DatePublished": "12/02/2024",
-    "Version": "1.0",
+    "DatePublished": "06/17/2025",
+    "Version": "1.1",
     "Legend": "",
-    "TmaVersion": "5.01",
+    "TmaVersion": "5.1",
     "TmaFlavor": "Full"
   },
   "Metrics": [
@@ -95,7 +95,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( 1 - ( 10 * ( a / ( b ) ) * ( max( ( c / ( d + e + f + g ) ) * ( 1 - h / ( i - j ) ) , 0.0001 ) ) / ( c / ( d + e + f + g ) ) ) ) * ( ( c / ( d + e + f + g ) ) + ( k / ( d + e + f + g ) ) * ( ( ( c / ( d + e + f + g ) ) / ( e / ( d + e + f + g ) ) ) * l / ( m ) ) / ( ( n / ( m ) ) + ( o / ( m ) ) + ( l / ( m ) + ( p / ( m ) ) ) + ( ( 3 ) * q / ( m ) ) + ( r / ( m ) ) + ( s / ( m ) ) ) )",
-      "BaseFormula": " 100 * ( 1 - ( 10 * tma_microcode_sequencer * tma_other_mispredicts / tma_branch_mispredicts ) ) * ( tma_branch_mispredicts + tma_fetch_latency * tma_mispredicts_resteers / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) )",
+      "BaseFormula": "100 * ( 1 - ( 10 * tma_microcode_sequencer * tma_other_mispredicts / tma_branch_mispredicts ) ) * ( tma_branch_mispredicts + tma_fetch_latency * tma_mispredicts_resteers / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) )",
       "Category": "TMA",
       "CountDomain": "Scaled_Slots",
       "Threshold": {
@@ -175,7 +175,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b + c + d + e ) ) * ( ( f / ( g ) ) + ( h / ( g ) ) + ( i / ( g ) ) ) / ( ( h / ( g ) ) + ( f / ( g ) ) + ( j / ( g ) + ( i / ( g ) ) ) + ( ( 3 ) * k / ( g ) ) + ( l / ( g ) ) + ( m / ( g ) ) )",
-      "BaseFormula": " 100 * tma_fetch_latency * ( tma_itlb_misses + tma_icache_misses + tma_unknown_branches ) / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches )",
+      "BaseFormula": "100 * tma_fetch_latency * ( tma_itlb_misses + tma_icache_misses + tma_unknown_branches ) / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches )",
       "Category": "TMA",
       "CountDomain": "Scaled_Slots",
       "Threshold": {
@@ -203,18 +203,6 @@
         {
           "Name": "PERF_METRICS.FRONTEND_BOUND",
           "Alias": "a"
-        },
-        {
-          "Name": "IDQ_BUBBLES.FETCH_LATENCY",
-          "Alias": "a_a"
-        },
-        {
-          "Name": "IDQ.DSB_UOPS:c8:i1:eq1",
-          "Alias": "a_b"
-        },
-        {
-          "Name": "LSD.UOPS:c8:i1:eq1",
-          "Alias": "a_c"
         },
         {
           "Name": "PERF_METRICS.BAD_SPECULATION",
@@ -299,27 +287,11 @@
         {
           "Name": "IDQ.MS_CYCLES_ANY",
           "Alias": "v"
-        },
-        {
-          "Name": "IDQ.MITE_UOPS:c8:i1:eq1",
-          "Alias": "w"
-        },
-        {
-          "Name": "IDQ.MITE_UOPS",
-          "Alias": "x"
-        },
-        {
-          "Name": "IDQ.DSB_UOPS",
-          "Alias": "y"
-        },
-        {
-          "Name": "IDQ_BUBBLES.CYCLES_0_UOPS_DELIV.CORE",
-          "Alias": "z"
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( ( a / ( a + b + c + d ) ) - ( 1 - ( 10 * ( e / ( f ) ) * ( max( ( g / ( a + b + c + d ) ) * ( 1 - h / ( i - j ) ) , 0.0001 ) ) / ( g / ( a + b + c + d ) ) ) ) * ( k / ( a + b + c + d ) ) * ( ( ( g / ( a + b + c + d ) ) / ( b / ( a + b + c + d ) ) ) * l / ( m ) ) / ( ( n / ( m ) ) + ( o / ( m ) ) + ( l / ( m ) + ( p / ( m ) ) ) + ( ( 3 ) * q / ( m ) ) + ( r / ( m ) ) + ( s / ( m ) ) ) - ( ( 1 - t / u ) * ( ( k / ( a + b + c + d ) ) * ( ( ( 3 ) * q / ( m ) ) + ( l / ( m ) + ( p / ( m ) ) ) * ( ( ( 1 - ( ( g / ( a + b + c + d ) ) / ( b / ( a + b + c + d ) ) ) ) * l / ( m ) ) + ( ( ( g / ( a + b + c + d ) ) / ( b / ( a + b + c + d ) ) ) * l / ( m ) ) * ( max( ( g / ( a + b + c + d ) ) * ( 1 - h / ( i - j ) ) , 0.0001 ) ) / ( g / ( a + b + c + d ) ) ) / ( ( ( ( g / ( a + b + c + d ) ) / ( b / ( a + b + c + d ) ) ) * l / ( m ) ) + ( ( 1 - ( ( g / ( a + b + c + d ) ) / ( b / ( a + b + c + d ) ) ) ) * l / ( m ) ) + ( p / ( m ) ) ) ) / ( ( n / ( m ) ) + ( o / ( m ) ) + ( l / ( m ) + ( p / ( m ) ) ) + ( ( 3 ) * q / ( m ) ) + ( r / ( m ) ) + ( s / ( m ) ) ) + ( max( 0 , ( a / ( a + b + c + d ) ) - ( k / ( a + b + c + d ) ) ) ) * ( v / ( m ) ) / ( ( ( w / ( m ) + x / ( y + x ) * ( z - a_a ) ) / ( m ) ) + ( ( a_b + y / ( y + x ) * ( z - a_a ) ) / ( m ) ) + ( a_c / ( m ) ) + ( v / ( m ) ) ) ) ) ) - ( 100 * ( k / ( a + b + c + d ) ) * ( ( o / ( m ) ) + ( n / ( m ) ) + ( p / ( m ) ) ) / ( ( n / ( m ) ) + ( o / ( m ) ) + ( l / ( m ) + ( p / ( m ) ) ) + ( ( 3 ) * q / ( m ) ) + ( r / ( m ) ) + ( s / ( m ) ) ) )",
-      "BaseFormula": " 100 * ( tma_frontend_bound - ( 1 - ( 10 * tma_microcode_sequencer * tma_other_mispredicts / tma_branch_mispredicts ) ) * tma_fetch_latency * tma_mispredicts_resteers / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) - ( ( 1 - inst_retired.rep_iteration / uops_retired.ms:c1 ) * ( tma_fetch_latency * ( tma_ms_switches + tma_branch_resteers * ( tma_clears_resteers + tma_mispredicts_resteers * tma_other_mispredicts / tma_branch_mispredicts ) / ( tma_mispredicts_resteers + tma_clears_resteers + tma_unknown_branches ) ) / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) + tma_fetch_bandwidth * tma_ms / ( tma_mite + tma_dsb + tma_lsd + tma_ms ) ) ) ) - tma_bottleneck_big_code",
+      "Formula": "100 * ( ( a / ( a + b + c + d ) ) - ( 1 - ( 10 * ( e / ( f ) ) * ( max( ( g / ( a + b + c + d ) ) * ( 1 - h / ( i - j ) ) , 0.0001 ) ) / ( g / ( a + b + c + d ) ) ) ) * ( k / ( a + b + c + d ) ) * ( ( ( g / ( a + b + c + d ) ) / ( b / ( a + b + c + d ) ) ) * l / ( m ) ) / ( ( n / ( m ) ) + ( o / ( m ) ) + ( l / ( m ) + ( p / ( m ) ) ) + ( ( 3 ) * q / ( m ) ) + ( r / ( m ) ) + ( s / ( m ) ) ) - ( ( 1 - t / u ) * ( ( k / ( a + b + c + d ) ) * ( ( ( 3 ) * q / ( m ) ) + ( l / ( m ) + ( p / ( m ) ) ) * ( ( ( 1 - ( ( g / ( a + b + c + d ) ) / ( b / ( a + b + c + d ) ) ) ) * l / ( m ) ) + ( ( ( g / ( a + b + c + d ) ) / ( b / ( a + b + c + d ) ) ) * l / ( m ) ) * ( max( ( g / ( a + b + c + d ) ) * ( 1 - h / ( i - j ) ) , 0.0001 ) ) / ( g / ( a + b + c + d ) ) ) / ( ( ( ( g / ( a + b + c + d ) ) / ( b / ( a + b + c + d ) ) ) * l / ( m ) ) + ( ( 1 - ( ( g / ( a + b + c + d ) ) / ( b / ( a + b + c + d ) ) ) ) * l / ( m ) ) + ( p / ( m ) ) ) ) / ( ( n / ( m ) ) + ( o / ( m ) ) + ( l / ( m ) + ( p / ( m ) ) ) + ( ( 3 ) * q / ( m ) ) + ( r / ( m ) ) + ( s / ( m ) ) ) + ( v / ( m ) / 1.8 ) ) ) ) - ( 100 * ( k / ( a + b + c + d ) ) * ( ( o / ( m ) ) + ( n / ( m ) ) + ( p / ( m ) ) ) / ( ( n / ( m ) ) + ( o / ( m ) ) + ( l / ( m ) + ( p / ( m ) ) ) + ( ( 3 ) * q / ( m ) ) + ( r / ( m ) ) + ( s / ( m ) ) ) )",
+      "BaseFormula": "100 * ( tma_frontend_bound - ( 1 - ( 10 * tma_microcode_sequencer * tma_other_mispredicts / tma_branch_mispredicts ) ) * tma_fetch_latency * tma_mispredicts_resteers / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) - ( ( 1 - inst_retired.rep_iteration / uops_retired.ms:c1 ) * ( tma_fetch_latency * ( tma_ms_switches + tma_branch_resteers * ( tma_clears_resteers + tma_mispredicts_resteers * tma_other_mispredicts / tma_branch_mispredicts ) / ( tma_mispredicts_resteers + tma_clears_resteers + tma_unknown_branches ) ) / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) + tma_ms ) ) ) - tma_bottleneck_big_code",
       "Category": "TMA",
       "CountDomain": "Scaled_Slots",
       "Threshold": {
@@ -338,8 +310,8 @@
       "LocateWith": ""
     },
     {
-      "MetricName": "Bottleneck_Cache_Memory_Bandwidth",
-      "LegacyName": "metric_TMA_Bottleneck_Cache_Memory_Bandwidth",
+      "MetricName": "Bottleneck_Data_Cache_Memory_Bandwidth",
+      "LegacyName": "metric_TMA_Bottleneck_Data_Cache_Memory_Bandwidth",
       "Level": 1,
       "BriefDescription": "Total pipeline cost of external Memory- or Cache-Bandwidth related bottlenecks",
       "UnitOfMeasure": "",
@@ -385,40 +357,44 @@
           "Alias": "a_i"
         },
         {
-          "Name": "DEPENDENT_LOADS.ANY",
+          "Name": "LD_BLOCKS.STORE_EARLY:c1",
           "Alias": "a_j"
         },
         {
-          "Name": "MEM_LOAD_RETIRED.L1_HIT_L1",
+          "Name": "DEPENDENT_LOADS.ANY:c1",
           "Alias": "a_k"
         },
         {
-          "Name": "MEM_LOAD_RETIRED.L1_HIT_L1:retire_latency",
+          "Name": "MEM_LOAD_RETIRED.L1_HIT_L1",
           "Alias": "a_l"
         },
         {
-          "Name": "MEM_INST_RETIRED.LOCK_LOADS",
+          "Name": "MEM_LOAD_RETIRED.L1_HIT_L1:retire_latency",
           "Alias": "a_m"
         },
         {
-          "Name": "MEM_INST_RETIRED.LOCK_LOADS:retire_latency",
+          "Name": "MEM_INST_RETIRED.LOCK_LOADS",
           "Alias": "a_n"
         },
         {
-          "Name": "MEM_INST_RETIRED.SPLIT_LOADS",
+          "Name": "MEM_INST_RETIRED.LOCK_LOADS:retire_latency",
           "Alias": "a_o"
         },
         {
-          "Name": "MEM_INST_RETIRED.SPLIT_LOADS:retire_latency",
+          "Name": "MEM_INST_RETIRED.SPLIT_LOADS",
           "Alias": "a_p"
         },
         {
-          "Name": "L1D_PENDING.LOAD",
+          "Name": "MEM_INST_RETIRED.SPLIT_LOADS:retire_latency",
           "Alias": "a_q"
         },
         {
-          "Name": "L1D_MISS.LOAD",
+          "Name": "L1D_PENDING.LOAD",
           "Alias": "a_r"
+        },
+        {
+          "Name": "L1D_MISS.LOAD",
+          "Alias": "a_s"
         },
         {
           "Name": "PERF_METRICS.FRONTEND_BOUND",
@@ -523,19 +499,19 @@
           "Alias": "s"
         }
       ],
-      "Formula": "100 * ( ( ( a / ( b + c + d + e ) ) * ( ( ( f / ( g ) ) ) / ( ( h / ( g ) ) + ( i / ( g ) ) + ( j / ( g ) ) + ( ( f / ( g ) ) ) + ( k / ( g ) ) ) ) * ( ( ( min( g , l ) ) / ( g ) ) / ( ( ( min( g , l ) ) / ( g ) ) + ( ( min( g , m ) ) / ( g ) - ( ( min( g , l ) ) / ( g ) ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( j / ( g ) ) / ( ( h / ( g ) ) + ( i / ( g ) ) + ( j / ( g ) ) + ( ( f / ( g ) ) ) + ( k / ( g ) ) ) ) * ( ( ( n + o ) / ( g ) ) / ( ( ( ( min( ( p * q ) , p * ( 27 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) if ( q > = 0 ) else ( p * ( 27 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) ) + ( min( ( u * v ) , u * ( 28 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) if ( v > = 0 ) else ( u * ( 28 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) ) ) * ( 1 + ( w / x ) / 2 ) / ( g ) ) + ( ( ( min( ( y * z ) , y * ( 27 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) if ( z > = 0 ) else ( y * ( 27 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) ) + ( min( ( a_a * a_b ) , a_a * ( 28 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) if ( a_b > = 0 ) else ( a_a * ( 28 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) ) ) * ( 1 + ( w / x ) / 2 ) / ( g ) ) + ( ( min( ( a_c * a_d ) , a_c * ( 12 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) if ( a_d > = 0 ) else ( a_c * ( 12 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) ) * ( 1 + ( w / x ) / 2 ) / ( g ) ) + ( ( n + o ) / ( g ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( h / ( g ) ) / ( ( h / ( g ) ) + ( i / ( g ) ) + ( j / ( g ) ) + ( ( f / ( g ) ) ) + ( k / ( g ) ) ) ) * ( ( a_e / ( g ) ) / ( ( ( min( ( a_f * a_g ) , a_f * ( 7 ) ) if ( a_g > = 0 ) else ( a_f * ( 7 ) ) ) / ( g ) + ( a_h / ( g ) ) ) + ( 13 * a_i / ( g ) ) + ( 4 * a_j / ( g ) ) + ( ( min( ( a_k * a_l ) , a_k * 9 ) if ( a_l > = 0 ) else ( a_k * 9 ) ) / ( g ) ) + ( ( a_m * a_n ) / ( g ) ) + ( ( min( ( a_o * a_p ) , a_o * ( a_q / a_r ) ) if ( a_p > = 0 ) else ( a_o * ( a_q / a_r ) ) ) / ( g ) ) + ( a_e / ( g ) ) ) ) ) )",
-      "BaseFormula": " 100 * ( ( tma_memory_bound * ( tma_dram_bound / ( tma_l1_bound + tma_l2_bound + tma_l3_bound + tma_dram_bound + tma_store_bound ) ) * ( tma_mem_bandwidth / ( tma_mem_bandwidth + tma_mem_latency ) ) ) + ( tma_memory_bound * ( tma_l3_bound / ( tma_l1_bound + tma_l2_bound + tma_l3_bound + tma_dram_bound + tma_store_bound ) ) * ( tma_sq_full / ( tma_contested_accesses + tma_data_sharing + tma_l3_hit_latency + tma_sq_full ) ) ) + ( tma_memory_bound * ( tma_l1_bound / ( tma_l1_bound + tma_l2_bound + tma_l3_bound + tma_dram_bound + tma_store_bound ) ) * ( tma_fb_full / ( tma_dtlb_load + tma_store_fwd_blk + tma_l1_latency_dependency + tma_l1_latency_capacity + tma_lock_latency + tma_split_loads + tma_fb_full ) ) ) )",
+      "Formula": "100 * ( ( ( a / ( b + c + d + e ) ) * ( ( ( f / ( g ) ) ) / ( ( h / ( g ) ) + ( i / ( g ) ) + ( j / ( g ) ) + ( ( f / ( g ) ) ) + ( k / ( g ) ) ) ) * ( ( ( min( g , l ) ) / ( g ) ) / ( ( ( min( g , l ) ) / ( g ) ) + ( ( min( g , m ) ) / ( g ) - ( ( min( g , l ) ) / ( g ) ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( j / ( g ) ) / ( ( h / ( g ) ) + ( i / ( g ) ) + ( j / ( g ) ) + ( ( f / ( g ) ) ) + ( k / ( g ) ) ) ) * ( ( ( n + o ) / ( g ) ) / ( ( ( ( min( ( p * q ) , p * ( 27 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) if ( q > = 0 ) else ( p * ( 27 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) ) + ( min( ( u * v ) , u * ( 28 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) if ( v > = 0 ) else ( u * ( 28 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) ) ) * ( 1 + ( w / x ) / 2 ) / ( g ) ) + ( ( ( min( ( y * z ) , y * ( 27 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) if ( z > = 0 ) else ( y * ( 27 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) ) + ( min( ( a_a * a_b ) , a_a * ( 28 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) if ( a_b > = 0 ) else ( a_a * ( 28 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) ) ) * ( 1 + ( w / x ) / 2 ) / ( g ) ) + ( ( min( ( a_c * a_d ) , a_c * ( 12 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) if ( a_d > = 0 ) else ( a_c * ( 12 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( g ) / r ) * s / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) ) * ( 1 + ( w / x ) / 2 ) / ( g ) ) + ( ( n + o ) / ( g ) ) ) ) ) + ( ( a / ( b + c + d + e ) ) * ( ( h / ( g ) ) / ( ( h / ( g ) ) + ( i / ( g ) ) + ( j / ( g ) ) + ( ( f / ( g ) ) ) + ( k / ( g ) ) ) ) * ( ( a_e / ( g ) ) / ( ( ( min( ( a_f * a_g ) , a_f * ( 7 ) ) if ( a_g > = 0 ) else ( a_f * ( 7 ) ) ) / ( g ) + ( a_h / ( g ) ) ) + ( 13 * a_i / ( g ) ) + ( 7 * a_j / ( g ) ) + ( 4 * a_k / ( g ) ) + ( ( min( ( a_l * a_m ) , a_l * 9 ) if ( a_m > = 0 ) else ( a_l * 9 ) ) / ( g ) ) + ( ( a_n * a_o ) / ( g ) ) + ( ( min( ( a_p * a_q ) , a_p * ( a_r / a_s ) ) if ( a_q > = 0 ) else ( a_p * ( a_r / a_s ) ) ) / ( g ) ) + ( a_e / ( g ) ) ) ) ) )",
+      "BaseFormula": "100 * ( ( tma_memory_bound * ( tma_dram_bound / ( tma_l1_bound + tma_l2_bound + tma_l3_bound + tma_dram_bound + tma_store_bound ) ) * ( tma_mem_bandwidth / ( tma_mem_bandwidth + tma_mem_latency ) ) ) + ( tma_memory_bound * ( tma_l3_bound / ( tma_l1_bound + tma_l2_bound + tma_l3_bound + tma_dram_bound + tma_store_bound ) ) * ( tma_sq_full / ( tma_contested_accesses + tma_data_sharing + tma_l3_hit_latency + tma_sq_full ) ) ) + ( tma_memory_bound * ( tma_l1_bound / ( tma_l1_bound + tma_l2_bound + tma_l3_bound + tma_dram_bound + tma_store_bound ) ) * ( tma_fb_full / ( tma_dtlb_load + tma_store_fwd_blk + tma_store_early_blk + tma_l1_latency_dependency + tma_l1_latency_capacity + tma_lock_latency + tma_split_loads + tma_fb_full ) ) ) )",
       "Category": "TMA",
       "CountDomain": "Scaled_Slots",
       "Threshold": {
         "ThresholdMetrics": [
           {
             "Alias": "a",
-            "Value": "metric_TMA_Bottleneck_Cache_Memory_Bandwidth"
+            "Value": "metric_TMA_Bottleneck_Data_Cache_Memory_Bandwidth"
           }
         ],
         "Formula": "a > 20",
-        "BaseFormula": "metric_TMA_Bottleneck_Cache_Memory_Bandwidth > 20",
+        "BaseFormula": "metric_TMA_Bottleneck_Data_Cache_Memory_Bandwidth > 20",
         "ThresholdIssues": "$issueBW"
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
@@ -616,7 +592,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) * ( f / ( g ) ) / ( ( f / ( g ) ) + ( ( h + i ) / ( g ) ) + ( ( j + ( k + ( d / ( b + c + d + a ) ) * l ) ) / ( g ) if ( f < ( m - n ) ) else ( k + ( d / ( b + c + d + a ) ) * l ) / ( g ) ) ) ) + ( ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) ) * ( ( ( j + ( k + ( d / ( b + c + d + a ) ) * l ) ) / ( g ) if ( f < ( m - n ) ) else ( k + ( d / ( b + c + d + a ) ) * l ) / ( g ) ) / ( ( f / ( g ) ) + ( ( h + i ) / ( g ) ) + ( ( j + ( k + ( d / ( b + c + d + a ) ) * l ) ) / ( g ) if ( f < ( m - n ) ) else ( k + ( d / ( b + c + d + a ) ) * l ) / ( g ) ) ) ) * ( ( o / ( g ) ) / ( ( j / ( g ) ) + ( k / ( g ) ) + ( p / ( g ) ) + ( o / ( g ) ) ) ) ) )",
-      "BaseFormula": " 100 * ( ( tma_core_bound * tma_divider / ( tma_divider + tma_serializing_operation + tma_ports_utilization ) ) + ( tma_core_bound * ( tma_ports_utilization / ( tma_divider + tma_serializing_operation + tma_ports_utilization ) ) * ( tma_ports_utilized_3m / ( tma_ports_utilized_0 + tma_ports_utilized_1 + tma_ports_utilized_2 + tma_ports_utilized_3m ) ) ) )",
+      "BaseFormula": "100 * ( ( tma_core_bound * tma_divider / ( tma_divider + tma_serializing_operation + tma_ports_utilization ) ) + ( tma_core_bound * ( tma_ports_utilization / ( tma_divider + tma_serializing_operation + tma_ports_utilization ) ) * ( tma_ports_utilized_3m / ( tma_ports_utilized_0 + tma_ports_utilized_1 + tma_ports_utilized_2 + tma_ports_utilized_3m ) ) ) )",
       "Category": "TMA",
       "CountDomain": "Scaled_Slots",
       "Threshold": {
@@ -646,68 +622,40 @@
           "Alias": "a"
         },
         {
-          "Name": "LSD.UOPS:c8:i1:eq1",
+          "Name": "RS.EMPTY_RESOURCE",
           "Alias": "a_a"
         },
         {
-          "Name": "UOPS_RETIRED.MS",
+          "Name": "EXE_ACTIVITY.EXE_BOUND_0_PORTS",
           "Alias": "a_b"
         },
         {
-          "Name": "TOPDOWN.SLOTS:perf_metrics",
+          "Name": "ARITH.DIV_ACTIVE",
           "Alias": "a_c"
         },
         {
-          "Name": "MACHINE_CLEARS.MEMORY_ORDERING",
+          "Name": "EXE_ACTIVITY.1_PORTS_UTIL",
           "Alias": "a_d"
         },
         {
-          "Name": "PERF_METRICS.MEMORY_BOUND",
+          "Name": "EXE_ACTIVITY.2_3_PORTS_UTIL",
           "Alias": "a_e"
         },
         {
-          "Name": "BE_STALLS.SCOREBOARD",
+          "Name": "CYCLE_ACTIVITY.STALLS_TOTAL",
           "Alias": "a_f"
         },
         {
-          "Name": "CPU_CLK_UNHALTED.C02",
+          "Name": "EXE_ACTIVITY.BOUND_ON_LOADS",
           "Alias": "a_g"
         },
         {
-          "Name": "RS.EMPTY_RESOURCE",
+          "Name": "PERF_METRICS.HEAVY_OPERATIONS",
           "Alias": "a_h"
         },
         {
-          "Name": "EXE_ACTIVITY.EXE_BOUND_0_PORTS",
-          "Alias": "a_i"
-        },
-        {
-          "Name": "ARITH.DIV_ACTIVE",
-          "Alias": "a_j"
-        },
-        {
-          "Name": "EXE_ACTIVITY.1_PORTS_UTIL",
-          "Alias": "a_k"
-        },
-        {
-          "Name": "EXE_ACTIVITY.2_3_PORTS_UTIL",
-          "Alias": "a_l"
-        },
-        {
-          "Name": "CYCLE_ACTIVITY.STALLS_TOTAL",
-          "Alias": "a_m"
-        },
-        {
-          "Name": "EXE_ACTIVITY.BOUND_ON_LOADS",
-          "Alias": "a_n"
-        },
-        {
-          "Name": "PERF_METRICS.HEAVY_OPERATIONS",
-          "Alias": "a_o"
-        },
-        {
           "Name": "ASSISTS.ANY",
-          "Alias": "a_p"
+          "Alias": "a_i"
         },
         {
           "Name": "UOPS_RETIRED.MS:c1",
@@ -786,33 +734,33 @@
           "Alias": "t"
         },
         {
-          "Name": "IDQ.MITE_UOPS:c8:i1:eq1",
+          "Name": "UOPS_RETIRED.MS",
           "Alias": "u"
         },
         {
-          "Name": "IDQ.MITE_UOPS",
+          "Name": "TOPDOWN.SLOTS:perf_metrics",
           "Alias": "v"
         },
         {
-          "Name": "IDQ.DSB_UOPS",
+          "Name": "MACHINE_CLEARS.MEMORY_ORDERING",
           "Alias": "w"
         },
         {
-          "Name": "IDQ_BUBBLES.CYCLES_0_UOPS_DELIV.CORE",
+          "Name": "PERF_METRICS.MEMORY_BOUND",
           "Alias": "x"
         },
         {
-          "Name": "IDQ_BUBBLES.FETCH_LATENCY",
+          "Name": "BE_STALLS.SCOREBOARD",
           "Alias": "y"
         },
         {
-          "Name": "IDQ.DSB_UOPS:c8:i1:eq1",
+          "Name": "CPU_CLK_UNHALTED.C02",
           "Alias": "z"
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( ( ( 1 - a / b ) * ( ( c / ( d + e + f + g ) ) * ( ( ( 3 ) * h / ( i ) ) + ( j / ( i ) + ( k / ( i ) ) ) * ( ( ( 1 - ( ( l / ( d + e + f + g ) ) / ( e / ( d + e + f + g ) ) ) ) * j / ( i ) ) + ( ( ( l / ( d + e + f + g ) ) / ( e / ( d + e + f + g ) ) ) * j / ( i ) ) * ( max( ( l / ( d + e + f + g ) ) * ( 1 - m / ( n - o ) ) , 0.0001 ) ) / ( l / ( d + e + f + g ) ) ) / ( ( ( ( l / ( d + e + f + g ) ) / ( e / ( d + e + f + g ) ) ) * j / ( i ) ) + ( ( 1 - ( ( l / ( d + e + f + g ) ) / ( e / ( d + e + f + g ) ) ) ) * j / ( i ) ) + ( k / ( i ) ) ) ) / ( ( p / ( i ) ) + ( q / ( i ) ) + ( j / ( i ) + ( k / ( i ) ) ) + ( ( 3 ) * h / ( i ) ) + ( r / ( i ) ) + ( s / ( i ) ) ) + ( max( 0 , ( d / ( d + e + f + g ) ) - ( c / ( d + e + f + g ) ) ) ) * ( t / ( i ) ) / ( ( ( u / ( i ) + v / ( w + v ) * ( x - y ) ) / ( i ) ) + ( ( z + w / ( w + v ) * ( x - y ) ) / ( i ) ) + ( a_a / ( i ) ) + ( t / ( i ) ) ) ) ) + ( 10 * ( a_b / ( a_c ) ) * ( max( ( l / ( d + e + f + g ) ) * ( 1 - m / ( n - o ) ) , 0.0001 ) ) / ( l / ( d + e + f + g ) ) ) * ( l / ( d + e + f + g ) ) + ( ( max( 0 , ( e / ( d + e + f + g ) ) - ( l / ( d + e + f + g ) ) ) ) * ( max( ( max( 0 , ( e / ( d + e + f + g ) ) - ( l / ( d + e + f + g ) ) ) ) * ( 1 - a_d / o ) , 0.0001 ) ) / ( ( max( ( max( 0 , ( e / ( d + e + f + g ) ) - ( l / ( d + e + f + g ) ) ) ) * ( 1 - a_d / o ) , 0.0001 ) ) ) ) + ( ( max( 0 , ( g / ( d + e + f + g ) ) - ( a_e / ( d + e + f + g ) ) ) ) * ( ( ( a_f + a_g ) / ( i ) ) + a_h / ( i ) * ( a_i / ( i ) ) ) / ( ( a_j / ( i ) ) + ( ( a_f + a_g ) / ( i ) ) + ( ( a_i + ( a_k + ( f / ( d + e + f + g ) ) * a_l ) ) / ( i ) if ( a_j < ( a_m - a_n ) ) else ( a_k + ( f / ( d + e + f + g ) ) * a_l ) / ( i ) ) ) ) + ( ( ( ( a_b / ( a_c ) ) / ( ( a_b / ( a_c ) ) + max( 0 , ( a_o / ( d + e + f + g ) ) - ( a_b / ( a_c ) ) ) ) ) * ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * a_p / ( a_c ) / ( a_b / ( a_c ) ) ) ) * ( a_o / ( d + e + f + g ) ) ) )",
-      "BaseFormula": " 100 * ( ( ( 1 - inst_retired.rep_iteration / uops_retired.ms:c1 ) * ( tma_fetch_latency * ( tma_ms_switches + tma_branch_resteers * ( tma_clears_resteers + tma_mispredicts_resteers * tma_other_mispredicts / tma_branch_mispredicts ) / ( tma_mispredicts_resteers + tma_clears_resteers + tma_unknown_branches ) ) / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) + tma_fetch_bandwidth * tma_ms / ( tma_mite + tma_dsb + tma_lsd + tma_ms ) ) ) + ( 10 * tma_microcode_sequencer * tma_other_mispredicts / tma_branch_mispredicts ) * tma_branch_mispredicts + ( tma_machine_clears * tma_other_nukes / ( tma_other_nukes ) ) + ( tma_core_bound * ( tma_serializing_operation + rs.empty_resource / tma_info_thread_clks * tma_ports_utilized_0 ) / ( tma_divider + tma_serializing_operation + tma_ports_utilization ) ) + ( ( ( tma_microcode_sequencer / ( tma_microcode_sequencer + max( 0 , tma_heavy_operations - tma_microcode_sequencer ) ) ) * ( ( ( 99 *3 + 63 + 30 ) / 5 ) * assists.any / tma_info_thread_slots / tma_microcode_sequencer ) ) * tma_heavy_operations ) )",
+      "Formula": "100 * ( ( ( 1 - a / b ) * ( ( c / ( d + e + f + g ) ) * ( ( ( 3 ) * h / ( i ) ) + ( j / ( i ) + ( k / ( i ) ) ) * ( ( ( 1 - ( ( l / ( d + e + f + g ) ) / ( e / ( d + e + f + g ) ) ) ) * j / ( i ) ) + ( ( ( l / ( d + e + f + g ) ) / ( e / ( d + e + f + g ) ) ) * j / ( i ) ) * ( max( ( l / ( d + e + f + g ) ) * ( 1 - m / ( n - o ) ) , 0.0001 ) ) / ( l / ( d + e + f + g ) ) ) / ( ( ( ( l / ( d + e + f + g ) ) / ( e / ( d + e + f + g ) ) ) * j / ( i ) ) + ( ( 1 - ( ( l / ( d + e + f + g ) ) / ( e / ( d + e + f + g ) ) ) ) * j / ( i ) ) + ( k / ( i ) ) ) ) / ( ( p / ( i ) ) + ( q / ( i ) ) + ( j / ( i ) + ( k / ( i ) ) ) + ( ( 3 ) * h / ( i ) ) + ( r / ( i ) ) + ( s / ( i ) ) ) + ( t / ( i ) / 1.8 ) ) ) + ( 10 * ( u / ( v ) ) * ( max( ( l / ( d + e + f + g ) ) * ( 1 - m / ( n - o ) ) , 0.0001 ) ) / ( l / ( d + e + f + g ) ) ) * ( l / ( d + e + f + g ) ) + ( ( max( 0 , ( e / ( d + e + f + g ) ) - ( l / ( d + e + f + g ) ) ) ) * ( max( ( max( 0 , ( e / ( d + e + f + g ) ) - ( l / ( d + e + f + g ) ) ) ) * ( 1 - w / o ) , 0.0001 ) ) / ( ( max( ( max( 0 , ( e / ( d + e + f + g ) ) - ( l / ( d + e + f + g ) ) ) ) * ( 1 - w / o ) , 0.0001 ) ) ) ) + ( ( max( 0 , ( g / ( d + e + f + g ) ) - ( x / ( d + e + f + g ) ) ) ) * ( ( ( y + z ) / ( i ) ) + a_a / ( i ) * ( a_b / ( i ) ) ) / ( ( a_c / ( i ) ) + ( ( y + z ) / ( i ) ) + ( ( a_b + ( a_d + ( f / ( d + e + f + g ) ) * a_e ) ) / ( i ) if ( a_c < ( a_f - a_g ) ) else ( a_d + ( f / ( d + e + f + g ) ) * a_e ) / ( i ) ) ) ) + ( ( ( ( u / ( v ) ) / ( ( u / ( v ) ) + max( 0 , ( a_h / ( d + e + f + g ) ) - ( u / ( v ) ) ) ) ) * ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * a_i / ( v ) / ( u / ( v ) ) ) ) * ( a_h / ( d + e + f + g ) ) ) )",
+      "BaseFormula": "100 * ( ( ( 1 - inst_retired.rep_iteration / uops_retired.ms:c1 ) * ( tma_fetch_latency * ( tma_ms_switches + tma_branch_resteers * ( tma_clears_resteers + tma_mispredicts_resteers * tma_other_mispredicts / tma_branch_mispredicts ) / ( tma_mispredicts_resteers + tma_clears_resteers + tma_unknown_branches ) ) / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) + tma_ms ) ) + ( 10 * tma_microcode_sequencer * tma_other_mispredicts / tma_branch_mispredicts ) * tma_branch_mispredicts + ( tma_machine_clears * tma_other_nukes / ( tma_other_nukes ) ) + ( tma_core_bound * ( tma_serializing_operation + rs.empty_resource / tma_info_thread_clks * tma_ports_utilized_0 ) / ( tma_divider + tma_serializing_operation + tma_ports_utilization ) ) + ( ( ( tma_microcode_sequencer / ( tma_microcode_sequencer + max( 0 , tma_heavy_operations - tma_microcode_sequencer ) ) ) * ( ( ( 99 *3 + 63 + 30 ) / 5 ) * assists.any / tma_info_thread_slots / tma_microcode_sequencer ) ) * tma_heavy_operations ) )",
       "Category": "TMA",
       "CountDomain": "Scaled_Slots",
       "Threshold": {
@@ -856,7 +804,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a + 2 * b + c ) / ( d ) )",
-      "BaseFormula": " 100 * ( ( br_inst_retired.all_branches + 2 * br_inst_retired.near_call + inst_retired.nop ) / tma_info_thread_slots )",
+      "BaseFormula": "100 * ( ( br_inst_retired.all_branches + 2 * br_inst_retired.near_call + inst_retired.nop ) / tma_info_thread_slots )",
       "Category": "TMA",
       "CountDomain": "Scaled_Slots",
       "Threshold": {
@@ -928,7 +876,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a / ( b + c + a + d ) ) - ( ( e + 2 * f + g ) / ( h ) ) - ( ( ( ( i / ( h ) ) / ( ( i / ( h ) ) + max( 0 , ( j / ( b + c + a + d ) ) - ( i / ( h ) ) ) ) ) * ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * k / ( h ) / ( i / ( h ) ) ) ) * ( j / ( b + c + a + d ) ) ) )",
-      "BaseFormula": " 100 * ( tma_retiring - ( ( br_inst_retired.all_branches + 2 * br_inst_retired.near_call + inst_retired.nop ) / tma_info_thread_slots ) - ( ( ( tma_microcode_sequencer / ( tma_microcode_sequencer + max( 0 , tma_heavy_operations - tma_microcode_sequencer ) ) ) * ( ( ( 99 *3 + 63 + 30 ) / 5 ) * assists.any / tma_info_thread_slots / tma_microcode_sequencer ) ) * tma_heavy_operations ) )",
+      "BaseFormula": "100 * ( tma_retiring - ( ( br_inst_retired.all_branches + 2 * br_inst_retired.near_call + inst_retired.nop ) / tma_info_thread_slots ) - ( ( ( tma_microcode_sequencer / ( tma_microcode_sequencer + max( 0 , tma_heavy_operations - tma_microcode_sequencer ) ) ) * ( ( ( 99 *3 + 63 + 30 ) / 5 ) * assists.any / tma_info_thread_slots / tma_microcode_sequencer ) ) * tma_heavy_operations ) )",
       "Category": "TMA",
       "CountDomain": "Scaled_Slots",
       "Threshold": {
@@ -972,7 +920,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( a + b + c + d ) )",
-      "BaseFormula": " perf_metrics.frontend_bound / ( perf_metrics.frontend_bound + perf_metrics.bad_speculation + perf_metrics.retiring + perf_metrics.backend_bound )",
+      "BaseFormula": "perf_metrics.frontend_bound / ( perf_metrics.frontend_bound + perf_metrics.bad_speculation + perf_metrics.retiring + perf_metrics.backend_bound )",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
@@ -988,7 +936,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "BvFB;BvIO;TmaL1;PGO",
-      "LocateWith": " #NA "
+      "LocateWith": "#NA"
     },
     {
       "MetricName": "Fetch_Latency",
@@ -1021,7 +969,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b + c + d + e ) )",
-      "BaseFormula": " perf_metrics.fetch_latency / ( perf_metrics.frontend_bound + perf_metrics.bad_speculation + perf_metrics.retiring + perf_metrics.backend_bound )",
+      "BaseFormula": "perf_metrics.fetch_latency / ( perf_metrics.frontend_bound + perf_metrics.bad_speculation + perf_metrics.retiring + perf_metrics.backend_bound )",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
@@ -1041,7 +989,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "Frontend;TmaL2",
-      "LocateWith": " FRONTEND_RETIRED.LATENCY_GE_16;FRONTEND_RETIRED.LATENCY_GE_8"
+      "LocateWith": "FRONTEND_RETIRED.LATENCY_GE_16;FRONTEND_RETIRED.LATENCY_GE_8"
     },
     {
       "MetricName": "ICache_Misses",
@@ -1062,7 +1010,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b ) )",
-      "BaseFormula": " icache_data.stalls / tma_info_thread_clks",
+      "BaseFormula": "icache_data.stalls / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -1086,7 +1034,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "BigFootprint;BvBC;FetchLat;IcMiss",
-      "LocateWith": " FRONTEND_RETIRED.L2_MISS;FRONTEND_RETIRED.L1I_MISS"
+      "LocateWith": "FRONTEND_RETIRED.L2_MISS;FRONTEND_RETIRED.L1I_MISS"
     },
     {
       "MetricName": "Code_L2_Hit",
@@ -1119,7 +1067,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( max( 0 , ( a * b ) / ( c ) - ( ( d * e ) / ( c ) ) ) )",
-      "BaseFormula": " max( 0 , ( frontend_retired.l1i_miss * frontend_retired.l1i_miss:retire_latency ) / tma_info_thread_clks - tma_code_l2_miss )",
+      "BaseFormula": "max( 0 , ( frontend_retired.l1i_miss * frontend_retired.l1i_miss:retire_latency ) / tma_info_thread_clks - tma_code_l2_miss )",
       "Category": "TMA",
       "CountDomain": "Clocks_Retired",
       "Threshold": {
@@ -1172,7 +1120,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a * b ) / ( c ) )",
-      "BaseFormula": " ( frontend_retired.l2_miss * frontend_retired.l2_miss:retire_latency ) / tma_info_thread_clks",
+      "BaseFormula": "( frontend_retired.l2_miss * frontend_retired.l2_miss:retire_latency ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Retired",
       "Threshold": {
@@ -1221,7 +1169,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b ) )",
-      "BaseFormula": " icache_tag.stalls / tma_info_thread_clks",
+      "BaseFormula": "icache_tag.stalls / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -1245,7 +1193,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "BigFootprint;BvBC;FetchLat;MemoryTLB",
-      "LocateWith": " FRONTEND_RETIRED.STLB_MISS;FRONTEND_RETIRED.ITLB_MISS"
+      "LocateWith": "FRONTEND_RETIRED.STLB_MISS;FRONTEND_RETIRED.ITLB_MISS"
     },
     {
       "MetricName": "Code_STLB_Hit",
@@ -1278,7 +1226,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( max( 0 , ( a * b ) / ( c ) - ( ( d * e ) / ( c ) ) ) )",
-      "BaseFormula": " max( 0 , ( frontend_retired.itlb_miss * frontend_retired.itlb_miss:retire_latency ) / tma_info_thread_clks - tma_code_stlb_miss )",
+      "BaseFormula": "max( 0 , ( frontend_retired.itlb_miss * frontend_retired.itlb_miss:retire_latency ) / tma_info_thread_clks - tma_code_stlb_miss )",
       "Category": "TMA",
       "CountDomain": "Clocks_Retired",
       "Threshold": {
@@ -1331,7 +1279,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a * b ) / ( c ) )",
-      "BaseFormula": " ( frontend_retired.stlb_miss * frontend_retired.stlb_miss:retire_latency ) / tma_info_thread_clks",
+      "BaseFormula": "( frontend_retired.stlb_miss * frontend_retired.stlb_miss:retire_latency ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Retired",
       "Threshold": {
@@ -1388,7 +1336,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b ) * c / ( c + d ) )",
-      "BaseFormula": " itlb_misses.walk_active / tma_info_thread_clks * itlb_misses.walk_completed_4k / ( itlb_misses.walk_completed_4k + itlb_misses.walk_completed_2m_4m )",
+      "BaseFormula": "itlb_misses.walk_active / tma_info_thread_clks * itlb_misses.walk_completed_4k / ( itlb_misses.walk_completed_4k + itlb_misses.walk_completed_2m_4m )",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -1449,7 +1397,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b ) * c / ( d + c ) )",
-      "BaseFormula": " itlb_misses.walk_active / tma_info_thread_clks * itlb_misses.walk_completed_2m_4m / ( itlb_misses.walk_completed_4k + itlb_misses.walk_completed_2m_4m )",
+      "BaseFormula": "itlb_misses.walk_active / tma_info_thread_clks * itlb_misses.walk_completed_2m_4m / ( itlb_misses.walk_completed_4k + itlb_misses.walk_completed_2m_4m )",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -1506,7 +1454,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b ) + ( c / ( b ) ) )",
-      "BaseFormula": " int_misc.clear_resteer_cycles / tma_info_thread_clks + tma_unknown_branches",
+      "BaseFormula": "int_misc.clear_resteer_cycles / tma_info_thread_clks + tma_unknown_branches",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -1537,7 +1485,7 @@
       "LegacyName": "metric_TMA_......Mispredicts_Resteers(%)",
       "ParentCategory": "Branch_Resteers",
       "Level": 4,
-      "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to Branch Resteers as a result of Branch Misprediction at execution stage. ",
+      "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to Branch Resteers as a result of Branch Misprediction at execution stage.",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -1571,7 +1519,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( ( a / ( b + c + d + e ) ) / ( c / ( b + c + d + e ) ) ) * f / ( g ) )",
-      "BaseFormula": " ( tma_branch_mispredicts / tma_bad_speculation ) * int_misc.clear_resteer_cycles / tma_info_thread_clks",
+      "BaseFormula": "( tma_branch_mispredicts / tma_bad_speculation ) * int_misc.clear_resteer_cycles / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -1599,14 +1547,14 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "BadSpec;BrMispredicts;BvMP",
-      "LocateWith": " INT_MISC.CLEAR_RESTEER_CYCLES"
+      "LocateWith": "INT_MISC.CLEAR_RESTEER_CYCLES"
     },
     {
       "MetricName": "Clears_Resteers",
       "LegacyName": "metric_TMA_......Clears_Resteers(%)",
       "ParentCategory": "Branch_Resteers",
       "Level": 4,
-      "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to Branch Resteers as a result of Machine Clears. ",
+      "BriefDescription": "This metric represents fraction of cycles the CPU was stalled due to Branch Resteers as a result of Machine Clears.",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -1640,7 +1588,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( 1 - ( ( a / ( b + c + d + e ) ) / ( c / ( b + c + d + e ) ) ) ) * f / ( g ) )",
-      "BaseFormula": " ( 1 - ( tma_branch_mispredicts / tma_bad_speculation ) ) * int_misc.clear_resteer_cycles / tma_info_thread_clks",
+      "BaseFormula": "( 1 - ( tma_branch_mispredicts / tma_bad_speculation ) ) * int_misc.clear_resteer_cycles / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -1668,7 +1616,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "BadSpec;MachineClears",
-      "LocateWith": " INT_MISC.CLEAR_RESTEER_CYCLES"
+      "LocateWith": "INT_MISC.CLEAR_RESTEER_CYCLES"
     },
     {
       "MetricName": "Unknown_Branches",
@@ -1689,7 +1637,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b ) )",
-      "BaseFormula": " int_misc.unknown_branch_cycles / tma_info_thread_clks",
+      "BaseFormula": "int_misc.unknown_branch_cycles / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -1717,7 +1665,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "BigFootprint;BvBC;FetchLat",
-      "LocateWith": " FRONTEND_RETIRED.UNKNOWN_BRANCH"
+      "LocateWith": "FRONTEND_RETIRED.UNKNOWN_BRANCH"
     },
     {
       "MetricName": "MS_Switches",
@@ -1738,7 +1686,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( 3 ) * a / ( b ) )",
-      "BaseFormula": " ( 3 ) * idq.ms_switches / tma_info_thread_clks",
+      "BaseFormula": "( 3 ) * idq.ms_switches / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -1762,14 +1710,14 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "FetchLat;MicroSeq",
-      "LocateWith": " IDQ.MS_SWITCHES"
+      "LocateWith": "IDQ.MS_SWITCHES"
     },
     {
       "MetricName": "LCP",
       "LegacyName": "metric_TMA_....LCP(%)",
       "ParentCategory": "Fetch_Latency",
       "Level": 3,
-      "BriefDescription": "This metric represents fraction of cycles CPU was stalled due to Length Changing Prefixes (LCPs). Using proper compiler flags or Intel Compiler by default will certainly avoid this. ",
+      "BriefDescription": "This metric represents fraction of cycles CPU was stalled due to Length Changing Prefixes (LCPs). Using proper compiler flags or Intel Compiler by default will certainly avoid this.",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -1783,7 +1731,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b ) )",
-      "BaseFormula": " decode.lcp / tma_info_thread_clks",
+      "BaseFormula": "decode.lcp / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -1828,7 +1776,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b ) )",
-      "BaseFormula": " dsb2mite_switches.penalty_cycles / tma_info_thread_clks",
+      "BaseFormula": "dsb2mite_switches.penalty_cycles / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -1852,7 +1800,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "DSBmiss;FetchLat",
-      "LocateWith": " FRONTEND_RETIRED.DSB_MISS"
+      "LocateWith": "FRONTEND_RETIRED.DSB_MISS"
     },
     {
       "MetricName": "Fetch_Bandwidth",
@@ -1885,7 +1833,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( max( 0 , ( a / ( a + b + c + d ) ) - ( e / ( a + b + c + d ) ) ) )",
-      "BaseFormula": " max( 0 , tma_frontend_bound - tma_fetch_latency )",
+      "BaseFormula": "max( 0 , tma_frontend_bound - tma_fetch_latency )",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
@@ -1901,7 +1849,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "FetchBW;Frontend;TmaL2",
-      "LocateWith": " #NA "
+      "LocateWith": "#NA"
     },
     {
       "MetricName": "MITE",
@@ -1916,29 +1864,29 @@
           "Alias": "a"
         },
         {
-          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Name": "IDQ.MITE_UOPS",
           "Alias": "b"
         },
         {
-          "Name": "IDQ.MITE_UOPS",
+          "Name": "IDQ.DSB_UOPS",
           "Alias": "c"
         },
         {
-          "Name": "IDQ.DSB_UOPS",
+          "Name": "IDQ_BUBBLES.STARVATION_CYCLES",
           "Alias": "d"
         },
         {
-          "Name": "IDQ_BUBBLES.CYCLES_0_UOPS_DELIV.CORE",
+          "Name": "IDQ_BUBBLES.FETCH_LATENCY",
           "Alias": "e"
         },
         {
-          "Name": "IDQ_BUBBLES.FETCH_LATENCY",
+          "Name": "CPU_CLK_UNHALTED.THREAD",
           "Alias": "f"
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( ( a / ( b ) + c / ( d + c ) * ( e - f ) ) / ( b ) )",
-      "BaseFormula": " ( idq.mite_uops:c8:i1:eq1 / tma_info_thread_clks + idq.mite_uops / ( idq.dsb_uops + idq.mite_uops ) * ( idq_bubbles.cycles_0_uops_deliv.core - idq_bubbles.fetch_latency ) ) / tma_info_thread_clks",
+      "Formula": "100 * ( ( a / 2 + b / ( c + b ) * ( d - e ) ) / ( f ) )",
+      "BaseFormula": "( idq.mite_uops:c8:i1:eq1 / 2 + idq.mite_uops / ( idq.dsb_uops + idq.mite_uops ) * ( idq_bubbles.starvation_cycles - idq_bubbles.fetch_latency ) ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Slots_Estimated",
       "Threshold": {
@@ -1958,7 +1906,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "DSBmiss;FetchBW",
-      "LocateWith": " FRONTEND_RETIRED.ANY_DSB_MISS"
+      "LocateWith": "FRONTEND_RETIRED.ANY_DSB_MISS"
     },
     {
       "MetricName": "DSB",
@@ -1981,7 +1929,7 @@
           "Alias": "c"
         },
         {
-          "Name": "IDQ_BUBBLES.CYCLES_0_UOPS_DELIV.CORE",
+          "Name": "IDQ_BUBBLES.STARVATION_CYCLES",
           "Alias": "d"
         },
         {
@@ -1994,8 +1942,8 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( ( a + b / ( b + c ) * ( d - e ) ) / ( f ) )",
-      "BaseFormula": " ( idq.dsb_uops:c8:i1:eq1 + idq.dsb_uops / ( idq.dsb_uops + idq.mite_uops ) * ( idq_bubbles.cycles_0_uops_deliv.core - idq_bubbles.fetch_latency ) ) / tma_info_thread_clks",
+      "Formula": "100 * ( ( a / 2 + b / ( b + c ) * ( d - e ) ) / ( f ) )",
+      "BaseFormula": "( idq.dsb_uops:c8:i1:eq1 / 2 + idq.dsb_uops / ( idq.dsb_uops + idq.mite_uops ) * ( idq_bubbles.starvation_cycles - idq_bubbles.fetch_latency ) ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Slots_Estimated",
       "Threshold": {
@@ -2035,8 +1983,8 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( a / ( b ) )",
-      "BaseFormula": " lsd.uops:c8:i1:eq1 / tma_info_thread_clks",
+      "Formula": "100 * ( a / ( b ) / 2 )",
+      "BaseFormula": "lsd.uops:c8:i1:eq1 / tma_info_thread_clks / 2",
       "Category": "TMA",
       "CountDomain": "Slots_Estimated",
       "Threshold": {
@@ -2076,8 +2024,8 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( a / ( b ) )",
-      "BaseFormula": " idq.ms_cycles_any / tma_info_thread_clks",
+      "Formula": "100 * ( a / ( b ) / 1.8 )",
+      "BaseFormula": "idq.ms_cycles_any / tma_info_thread_clks / 1.8",
       "Category": "TMA",
       "CountDomain": "Slots_Estimated",
       "Threshold": {
@@ -2125,7 +2073,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b + a + c + d ) )",
-      "BaseFormula": " perf_metrics.bad_speculation / ( perf_metrics.frontend_bound + perf_metrics.bad_speculation + perf_metrics.retiring + perf_metrics.backend_bound )",
+      "BaseFormula": "perf_metrics.bad_speculation / ( perf_metrics.frontend_bound + perf_metrics.bad_speculation + perf_metrics.retiring + perf_metrics.backend_bound )",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
@@ -2174,7 +2122,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b + c + d + e ) )",
-      "BaseFormula": " perf_metrics.branch_mispredicts / ( perf_metrics.frontend_bound + perf_metrics.bad_speculation + perf_metrics.retiring + perf_metrics.backend_bound )",
+      "BaseFormula": "perf_metrics.branch_mispredicts / ( perf_metrics.frontend_bound + perf_metrics.bad_speculation + perf_metrics.retiring + perf_metrics.backend_bound )",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
@@ -2194,7 +2142,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "BadSpec;BrMispredicts;BvMP;TmaL2",
-      "LocateWith": " TOPDOWN.BR_MISPREDICT_SLOTS"
+      "LocateWith": "TOPDOWN.BR_MISPREDICT_SLOTS"
     },
     {
       "MetricName": "Cond_NT_Mispredicts",
@@ -2219,7 +2167,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a * b ) / ( c ) )",
-      "BaseFormula": " ( br_misp_retired.cond_ntaken_cost * br_misp_retired.cond_ntaken_cost:retire_latency ) / tma_info_thread_clks",
+      "BaseFormula": "( br_misp_retired.cond_ntaken_cost * br_misp_retired.cond_ntaken_cost:retire_latency ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Retired",
       "Threshold": {
@@ -2268,7 +2216,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a * b ) / ( c ) )",
-      "BaseFormula": " ( br_misp_retired.cond_taken_bwd_cost * br_misp_retired.cond_taken_bwd_cost:retire_latency ) / tma_info_thread_clks",
+      "BaseFormula": "( br_misp_retired.cond_taken_bwd_cost * br_misp_retired.cond_taken_bwd_cost:retire_latency ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Retired",
       "Threshold": {
@@ -2317,7 +2265,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a * b ) / ( c ) )",
-      "BaseFormula": " ( br_misp_retired.cond_taken_fwd_cost * br_misp_retired.cond_taken_fwd_cost:retire_latency ) / tma_info_thread_clks",
+      "BaseFormula": "( br_misp_retired.cond_taken_fwd_cost * br_misp_retired.cond_taken_fwd_cost:retire_latency ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Retired",
       "Threshold": {
@@ -2366,7 +2314,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a * b ) / ( c ) )",
-      "BaseFormula": " ( br_misp_retired.indirect_call_cost * br_misp_retired.indirect_call_cost:retire_latency ) / tma_info_thread_clks",
+      "BaseFormula": "( br_misp_retired.indirect_call_cost * br_misp_retired.indirect_call_cost:retire_latency ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Retired",
       "Threshold": {
@@ -2423,7 +2371,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( max( ( ( a * b ) - ( c * d ) ) / ( e ) , 0 ) )",
-      "BaseFormula": " max( ( ( br_misp_retired.indirect_cost * br_misp_retired.indirect_cost:retire_latency ) - ( br_misp_retired.indirect_call_cost * br_misp_retired.indirect_call_cost:retire_latency ) ) / tma_info_thread_clks , 0 )",
+      "BaseFormula": "max( ( ( br_misp_retired.indirect_cost * br_misp_retired.indirect_cost:retire_latency ) - ( br_misp_retired.indirect_call_cost * br_misp_retired.indirect_call_cost:retire_latency ) ) / tma_info_thread_clks , 0 )",
       "Category": "TMA",
       "CountDomain": "Clocks_Retired",
       "Threshold": {
@@ -2472,7 +2420,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a * b ) / ( c ) )",
-      "BaseFormula": " ( br_misp_retired.ret_cost * br_misp_retired.ret_cost:retire_latency ) / tma_info_thread_clks",
+      "BaseFormula": "( br_misp_retired.ret_cost * br_misp_retired.ret_cost:retire_latency ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Retired",
       "Threshold": {
@@ -2541,7 +2489,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( max( ( a / ( b + c + d + e ) ) * ( 1 - f / ( g - h ) ) , 0.0001 ) )",
-      "BaseFormula": " max( tma_branch_mispredicts * ( 1 - br_misp_retired.all_branches / ( int_misc.clears_count - machine_clears.count ) ) , 0.0001 )",
+      "BaseFormula": "max( tma_branch_mispredicts * ( 1 - br_misp_retired.all_branches / ( int_misc.clears_count - machine_clears.count ) ) , 0.0001 )",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
@@ -2598,7 +2546,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( max( 0 , ( a / ( b + a + c + d ) ) - ( e / ( b + a + c + d ) ) ) )",
-      "BaseFormula": " max( 0 , tma_bad_speculation - tma_branch_mispredicts )",
+      "BaseFormula": "max( 0 , tma_bad_speculation - tma_branch_mispredicts )",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
@@ -2659,7 +2607,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( max( ( max( 0 , ( a / ( b + a + c + d ) ) - ( e / ( b + a + c + d ) ) ) ) * ( 1 - f / g ) , 0.0001 ) )",
-      "BaseFormula": " max( tma_machine_clears * ( 1 - machine_clears.memory_ordering / machine_clears.count ) , 0.0001 )",
+      "BaseFormula": "max( tma_machine_clears * ( 1 - machine_clears.memory_ordering / machine_clears.count ) , 0.0001 )",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
@@ -2711,7 +2659,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b + c + d + a ) )",
-      "BaseFormula": " perf_metrics.backend_bound / ( perf_metrics.frontend_bound + perf_metrics.bad_speculation + perf_metrics.retiring + perf_metrics.backend_bound )",
+      "BaseFormula": "perf_metrics.backend_bound / ( perf_metrics.frontend_bound + perf_metrics.bad_speculation + perf_metrics.retiring + perf_metrics.backend_bound )",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
@@ -2727,7 +2675,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "BvOB;TmaL1",
-      "LocateWith": " TOPDOWN.BACKEND_BOUND_SLOTS"
+      "LocateWith": "TOPDOWN.BACKEND_BOUND_SLOTS"
     },
     {
       "MetricName": "Memory_Bound",
@@ -2760,7 +2708,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b + c + d + e ) )",
-      "BaseFormula": " perf_metrics.memory_bound / ( perf_metrics.frontend_bound + perf_metrics.bad_speculation + perf_metrics.retiring + perf_metrics.backend_bound )",
+      "BaseFormula": "perf_metrics.memory_bound / ( perf_metrics.frontend_bound + perf_metrics.bad_speculation + perf_metrics.retiring + perf_metrics.backend_bound )",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
@@ -2801,7 +2749,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b ) )",
-      "BaseFormula": " memory_stalls.l1 / tma_info_thread_clks",
+      "BaseFormula": "memory_stalls.l1 / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Stalls",
       "Threshold": {
@@ -2825,7 +2773,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "CacheHits;MemoryBound;TmaL3mem",
-      "LocateWith": " MEM_LOAD_RETIRED.L1_HIT"
+      "LocateWith": "MEM_LOAD_RETIRED.L1_HIT"
     },
     {
       "MetricName": "DTLB_Load",
@@ -2854,7 +2802,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( min( ( a * b ) , a * ( 7 ) ) if ( b > = 0 ) else ( a * ( 7 ) ) ) / ( c ) + ( d / ( c ) ) )",
-      "BaseFormula": " ( min( ( mem_inst_retired.stlb_hit_loads * mem_inst_retired.stlb_hit_loads:retire_latency ) , mem_inst_retired.stlb_hit_loads * ( 7 ) ) if ( mem_inst_retired.stlb_hit_loads:retire_latency >= 0 ) else ( mem_inst_retired.stlb_hit_loads * ( 7 ) ) ) / tma_info_thread_clks + tma_load_stlb_miss",
+      "BaseFormula": "( min( ( mem_inst_retired.stlb_hit_loads * mem_inst_retired.stlb_hit_loads:retire_latency ) , mem_inst_retired.stlb_hit_loads * ( 7 ) ) if ( mem_inst_retired.stlb_hit_loads:retire_latency >= 0 ) else ( mem_inst_retired.stlb_hit_loads * ( 7 ) ) ) / tma_info_thread_clks + tma_load_stlb_miss",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -2882,7 +2830,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "BvMT;MemoryTLB",
-      "LocateWith": " MEM_INST_RETIRED.STLB_MISS_LOADS"
+      "LocateWith": "MEM_INST_RETIRED.STLB_MISS_LOADS"
     },
     {
       "MetricName": "Load_STLB_Hit",
@@ -2911,7 +2859,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( max( 0 , ( ( min( ( a * b ) , a * ( 7 ) ) if ( b > = 0 ) else ( a * ( 7 ) ) ) / ( c ) + ( d / ( c ) ) ) - ( d / ( c ) ) ) )",
-      "BaseFormula": " max( 0 , tma_dtlb_load - tma_load_stlb_miss )",
+      "BaseFormula": "max( 0 , tma_dtlb_load - tma_load_stlb_miss )",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -2964,7 +2912,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b ) )",
-      "BaseFormula": " dtlb_load_misses.walk_active / tma_info_thread_clks",
+      "BaseFormula": "dtlb_load_misses.walk_active / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Calculated",
       "Threshold": {
@@ -3029,7 +2977,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a / ( b ) ) * c / ( c + d + e ) )",
-      "BaseFormula": " tma_load_stlb_miss * dtlb_load_misses.walk_completed_4k / ( dtlb_load_misses.walk_completed_4k + dtlb_load_misses.walk_completed_2m_4m + dtlb_load_misses.walk_completed_1g )",
+      "BaseFormula": "tma_load_stlb_miss * dtlb_load_misses.walk_completed_4k / ( dtlb_load_misses.walk_completed_4k + dtlb_load_misses.walk_completed_2m_4m + dtlb_load_misses.walk_completed_1g )",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -3098,7 +3046,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a / ( b ) ) * c / ( d + c + e ) )",
-      "BaseFormula": " tma_load_stlb_miss * dtlb_load_misses.walk_completed_2m_4m / ( dtlb_load_misses.walk_completed_4k + dtlb_load_misses.walk_completed_2m_4m + dtlb_load_misses.walk_completed_1g )",
+      "BaseFormula": "tma_load_stlb_miss * dtlb_load_misses.walk_completed_2m_4m / ( dtlb_load_misses.walk_completed_4k + dtlb_load_misses.walk_completed_2m_4m + dtlb_load_misses.walk_completed_1g )",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -3167,7 +3115,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a / ( b ) ) * c / ( d + e + c ) )",
-      "BaseFormula": " tma_load_stlb_miss * dtlb_load_misses.walk_completed_1g / ( dtlb_load_misses.walk_completed_4k + dtlb_load_misses.walk_completed_2m_4m + dtlb_load_misses.walk_completed_1g )",
+      "BaseFormula": "tma_load_stlb_miss * dtlb_load_misses.walk_completed_1g / ( dtlb_load_misses.walk_completed_4k + dtlb_load_misses.walk_completed_2m_4m + dtlb_load_misses.walk_completed_1g )",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -3224,7 +3172,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( 13 * a / ( b ) )",
-      "BaseFormula": " 13 * ld_blocks.store_forward / tma_info_thread_clks",
+      "BaseFormula": "13 * ld_blocks.store_forward / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -3255,15 +3203,52 @@
       "LocateWith": ""
     },
     {
+      "MetricName": "Store_Early_Blk",
+      "LegacyName": "metric_TMA_......Store_Early_Blk(%)",
+      "ParentCategory": "L1_Bound",
+      "Level": 4,
+      "BriefDescription": "This metric estimates clocks wasted due to loads blocked due to unknown store address (did not do memory disambiguation) or due to unknown store data",
+      "UnitOfMeasure": "percent",
+      "Events": [
+        {
+          "Name": "LD_BLOCKS.STORE_EARLY:c1",
+          "Alias": "a"
+        },
+        {
+          "Name": "CPU_CLK_UNHALTED.THREAD",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "100 * ( 7 * a / ( b ) )",
+      "BaseFormula": "7 * ld_blocks.store_early:c1 / tma_info_thread_clks",
+      "Category": "TMA",
+      "CountDomain": "Clocks_Estimated",
+      "Threshold": {
+        "ThresholdMetrics": [
+          {
+            "Alias": "a",
+            "Value": "metric_TMA_......Store_Early_Blk(%)"
+          }
+        ],
+        "Formula": "a > 20",
+        "BaseFormula": "metric_TMA_......Store_Early_Blk(%) > 20",
+        "ThresholdIssues": ""
+      },
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "",
+      "LocateWith": ""
+    },
+    {
       "MetricName": "L1_Latency_Dependency",
       "LegacyName": "metric_TMA_......L1_Latency_Dependency(%)",
       "ParentCategory": "L1_Bound",
       "Level": 4,
-      "BriefDescription": "This metric([SKL+] roughly; [LNL]) estimates fraction of cycles with demand load accesses that hit the L1D cache. The short latency of the L1D cache may be exposed in pointer-chasing memory access patterns as an example.",
+      "BriefDescription": "This metric ([SKL+] roughly; [LNL]) estimates fraction of cycles with demand load accesses that hit the L1D cache. The short latency of the L1D cache may be exposed in pointer-chasing memory access patterns as an example.",
       "UnitOfMeasure": "percent",
       "Events": [
         {
-          "Name": "DEPENDENT_LOADS.ANY",
+          "Name": "DEPENDENT_LOADS.ANY:c1",
           "Alias": "a"
         },
         {
@@ -3273,7 +3258,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( 4 * a / ( b ) )",
-      "BaseFormula": " 4 * dependent_loads.any / tma_info_thread_clks",
+      "BaseFormula": "4 * dependent_loads.any:c1 / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -3301,7 +3286,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "BvML;MemoryLat",
-      "LocateWith": " DEPENDENT_LOADS.ANY "
+      "LocateWith": "DEPENDENT_LOADS.ANY"
     },
     {
       "MetricName": "L1_Latency_Capacity",
@@ -3326,7 +3311,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( min( ( a * b ) , a * 9 ) if ( b > = 0 ) else ( a * 9 ) ) / ( c ) )",
-      "BaseFormula": " ( min( ( mem_load_retired.l1_hit_l1 * mem_load_retired.l1_hit_l1:retire_latency ) , mem_load_retired.l1_hit_l1 * 9 ) if ( mem_load_retired.l1_hit_l1:retire_latency >= 0 ) else ( mem_load_retired.l1_hit_l1 * 9 ) ) / tma_info_thread_clks",
+      "BaseFormula": "( min( ( mem_load_retired.l1_hit_l1 * mem_load_retired.l1_hit_l1:retire_latency ) , mem_load_retired.l1_hit_l1 * 9 ) if ( mem_load_retired.l1_hit_l1:retire_latency >= 0 ) else ( mem_load_retired.l1_hit_l1 * 9 ) ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Retired",
       "Threshold": {
@@ -3379,7 +3364,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a * b ) / ( c ) )",
-      "BaseFormula": " ( mem_inst_retired.lock_loads * mem_inst_retired.lock_loads:retire_latency ) / tma_info_thread_clks",
+      "BaseFormula": "( mem_inst_retired.lock_loads * mem_inst_retired.lock_loads:retire_latency ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -3407,14 +3392,14 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "LockCont;Offcore",
-      "LocateWith": " MEM_INST_RETIRED.LOCK_LOADS"
+      "LocateWith": "MEM_INST_RETIRED.LOCK_LOADS"
     },
     {
       "MetricName": "Split_Loads",
       "LegacyName": "metric_TMA_......Split_Loads(%)",
       "ParentCategory": "L1_Bound",
       "Level": 4,
-      "BriefDescription": "This metric estimates fraction of cycles handling memory load split accesses - load that cross 64-byte cache line boundary. ",
+      "BriefDescription": "This metric estimates fraction of cycles handling memory load split accesses - load that cross 64-byte cache line boundary.",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -3440,7 +3425,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( min( ( a * b ) , a * ( c / d ) ) if ( b > = 0 ) else ( a * ( c / d ) ) ) / ( e ) )",
-      "BaseFormula": " ( min( ( mem_inst_retired.split_loads * mem_inst_retired.split_loads:retire_latency ) , mem_inst_retired.split_loads * tma_info_memory_load_miss_real_latency ) if ( mem_inst_retired.split_loads:retire_latency >= 0 ) else ( mem_inst_retired.split_loads * tma_info_memory_load_miss_real_latency ) ) / tma_info_thread_clks",
+      "BaseFormula": "( min( ( mem_inst_retired.split_loads * mem_inst_retired.split_loads:retire_latency ) , mem_inst_retired.split_loads * tma_info_memory_load_miss_real_latency ) if ( mem_inst_retired.split_loads:retire_latency >= 0 ) else ( mem_inst_retired.split_loads * tma_info_memory_load_miss_real_latency ) ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Calculated",
       "Threshold": {
@@ -3456,7 +3441,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "",
-      "LocateWith": " MEM_INST_RETIRED.SPLIT_LOADS"
+      "LocateWith": "MEM_INST_RETIRED.SPLIT_LOADS"
     },
     {
       "MetricName": "FB_Full",
@@ -3477,7 +3462,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b ) )",
-      "BaseFormula": " l1d_miss.fb_full / tma_info_thread_clks",
+      "BaseFormula": "l1d_miss.fb_full / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Calculated",
       "Threshold": {
@@ -3514,7 +3499,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b ) )",
-      "BaseFormula": " memory_stalls.l2 / tma_info_thread_clks",
+      "BaseFormula": "memory_stalls.l2 / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Stalls",
       "Threshold": {
@@ -3538,7 +3523,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "BvML;CacheHits;MemoryBound;TmaL3mem",
-      "LocateWith": " MEM_LOAD_RETIRED.L2_HIT"
+      "LocateWith": "MEM_LOAD_RETIRED.L2_HIT"
     },
     {
       "MetricName": "L2_Hit_Latency",
@@ -3584,7 +3569,7 @@
         }
       ],
       "Formula": "100 * ( ( min( ( a * b ) , a * ( 3 * ( ( ( c ) / d ) * e / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) if ( b > = 0 ) else ( a * ( 3 * ( ( ( c ) / d ) * e / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) ) * ( 1 + ( g / h ) / 2 ) / ( c ) )",
-      "BaseFormula": " ( min( ( mem_load_retired.l2_hit * mem_load_retired.l2_hit:retire_latency ) , mem_load_retired.l2_hit * ( 3 * tma_info_system_core_frequency ) ) if ( mem_load_retired.l2_hit:retire_latency >= 0 ) else ( mem_load_retired.l2_hit * ( 3 * tma_info_system_core_frequency ) ) ) * ( 1 + ( mem_load_retired.fb_hit / mem_load_retired.l1_miss ) / 2 ) / tma_info_thread_clks",
+      "BaseFormula": "( min( ( mem_load_retired.l2_hit * mem_load_retired.l2_hit:retire_latency ) , mem_load_retired.l2_hit * ( 3 * tma_info_system_core_frequency ) ) if ( mem_load_retired.l2_hit:retire_latency >= 0 ) else ( mem_load_retired.l2_hit * ( 3 * tma_info_system_core_frequency ) ) ) * ( 1 + ( mem_load_retired.fb_hit / mem_load_retired.l1_miss ) / 2 ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Retired",
       "Threshold": {
@@ -3612,7 +3597,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "MemoryLat",
-      "LocateWith": " MEM_LOAD_RETIRED.L2_HIT"
+      "LocateWith": "MEM_LOAD_RETIRED.L2_HIT"
     },
     {
       "MetricName": "L3_Bound",
@@ -3633,7 +3618,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b ) )",
-      "BaseFormula": " memory_stalls.l3 / tma_info_thread_clks",
+      "BaseFormula": "memory_stalls.l3 / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Stalls",
       "Threshold": {
@@ -3657,7 +3642,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "CacheHits;MemoryBound;TmaL3mem",
-      "LocateWith": " MEM_LOAD_RETIRED.L3_HIT"
+      "LocateWith": "MEM_LOAD_RETIRED.L3_HIT"
     },
     {
       "MetricName": "Contested_Accesses",
@@ -3711,7 +3696,7 @@
         }
       ],
       "Formula": "100 * ( ( ( min( ( a * b ) , a * ( 27 * ( ( ( c ) / d ) * e / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( c ) / d ) * e / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) if ( b > = 0 ) else ( a * ( 27 * ( ( ( c ) / d ) * e / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( c ) / d ) * e / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) ) + ( min( ( g * h ) , g * ( 28 * ( ( ( c ) / d ) * e / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( c ) / d ) * e / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) if ( h > = 0 ) else ( g * ( 28 * ( ( ( c ) / d ) * e / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( c ) / d ) * e / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) ) ) * ( 1 + ( i / j ) / 2 ) / ( c ) )",
-      "BaseFormula": " ( ( min( ( mem_load_l3_hit_retired.xsnp_miss * mem_load_l3_hit_retired.xsnp_miss:retire_latency ) , mem_load_l3_hit_retired.xsnp_miss * ( 27 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) if ( mem_load_l3_hit_retired.xsnp_miss:retire_latency >= 0 ) else ( mem_load_l3_hit_retired.xsnp_miss * ( 27 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) ) + ( min( ( mem_load_l3_hit_retired.xsnp_hitm * mem_load_l3_hit_retired.xsnp_hitm:retire_latency ) , mem_load_l3_hit_retired.xsnp_hitm * ( 28 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) if ( mem_load_l3_hit_retired.xsnp_hitm:retire_latency >= 0 ) else ( mem_load_l3_hit_retired.xsnp_hitm * ( 28 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) ) ) * ( 1 + ( mem_load_retired.fb_hit / mem_load_retired.l1_miss ) / 2 ) / tma_info_thread_clks",
+      "BaseFormula": "( ( min( ( mem_load_l3_hit_retired.xsnp_miss * mem_load_l3_hit_retired.xsnp_miss:retire_latency ) , mem_load_l3_hit_retired.xsnp_miss * ( 27 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) if ( mem_load_l3_hit_retired.xsnp_miss:retire_latency >= 0 ) else ( mem_load_l3_hit_retired.xsnp_miss * ( 27 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) ) + ( min( ( mem_load_l3_hit_retired.xsnp_hitm * mem_load_l3_hit_retired.xsnp_hitm:retire_latency ) , mem_load_l3_hit_retired.xsnp_hitm * ( 28 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) if ( mem_load_l3_hit_retired.xsnp_hitm:retire_latency >= 0 ) else ( mem_load_l3_hit_retired.xsnp_hitm * ( 28 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) ) ) * ( 1 + ( mem_load_retired.fb_hit / mem_load_retired.l1_miss ) / 2 ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -3739,7 +3724,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "BvMS;DataSharing;LockCont;Offcore;Snoop",
-      "LocateWith": " MEM_LOAD_L3_HIT_RETIRED.XSNP_FWD;MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS"
+      "LocateWith": "MEM_LOAD_L3_HIT_RETIRED.XSNP_FWD;MEM_LOAD_L3_HIT_RETIRED.XSNP_MISS"
     },
     {
       "MetricName": "Data_Sharing",
@@ -3793,7 +3778,7 @@
         }
       ],
       "Formula": "100 * ( ( ( min( ( a * b ) , a * ( 27 * ( ( ( c ) / d ) * e / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( c ) / d ) * e / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) if ( b > = 0 ) else ( a * ( 27 * ( ( ( c ) / d ) * e / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( c ) / d ) * e / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) ) + ( min( ( g * h ) , g * ( 28 * ( ( ( c ) / d ) * e / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( c ) / d ) * e / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) if ( h > = 0 ) else ( g * ( 28 * ( ( ( c ) / d ) * e / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( c ) / d ) * e / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) ) ) * ( 1 + ( i / j ) / 2 ) / ( c ) )",
-      "BaseFormula": " ( ( min( ( mem_load_l3_hit_retired.xsnp_no_fwd * mem_load_l3_hit_retired.xsnp_no_fwd:retire_latency ) , mem_load_l3_hit_retired.xsnp_no_fwd * ( 27 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) if ( mem_load_l3_hit_retired.xsnp_no_fwd:retire_latency >= 0 ) else ( mem_load_l3_hit_retired.xsnp_no_fwd * ( 27 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) ) + ( min( ( mem_load_l3_hit_retired.xsnp_fwd * mem_load_l3_hit_retired.xsnp_fwd:retire_latency ) , mem_load_l3_hit_retired.xsnp_fwd * ( 28 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) if ( mem_load_l3_hit_retired.xsnp_fwd:retire_latency >= 0 ) else ( mem_load_l3_hit_retired.xsnp_fwd * ( 28 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) ) ) * ( 1 + ( mem_load_retired.fb_hit / mem_load_retired.l1_miss ) / 2 ) / tma_info_thread_clks",
+      "BaseFormula": "( ( min( ( mem_load_l3_hit_retired.xsnp_no_fwd * mem_load_l3_hit_retired.xsnp_no_fwd:retire_latency ) , mem_load_l3_hit_retired.xsnp_no_fwd * ( 27 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) if ( mem_load_l3_hit_retired.xsnp_no_fwd:retire_latency >= 0 ) else ( mem_load_l3_hit_retired.xsnp_no_fwd * ( 27 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) ) + ( min( ( mem_load_l3_hit_retired.xsnp_fwd * mem_load_l3_hit_retired.xsnp_fwd:retire_latency ) , mem_load_l3_hit_retired.xsnp_fwd * ( 28 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) if ( mem_load_l3_hit_retired.xsnp_fwd:retire_latency >= 0 ) else ( mem_load_l3_hit_retired.xsnp_fwd * ( 28 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) ) ) * ( 1 + ( mem_load_retired.fb_hit / mem_load_retired.l1_miss ) / 2 ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -3821,7 +3806,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "BvMS;Offcore;Snoop",
-      "LocateWith": " MEM_LOAD_L3_HIT_RETIRED.XSNP_NO_FWD"
+      "LocateWith": "MEM_LOAD_L3_HIT_RETIRED.XSNP_NO_FWD"
     },
     {
       "MetricName": "L3_Hit_Latency",
@@ -3867,7 +3852,7 @@
         }
       ],
       "Formula": "100 * ( ( min( ( a * b ) , a * ( 12 * ( ( ( c ) / d ) * e / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( c ) / d ) * e / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) if ( b > = 0 ) else ( a * ( 12 * ( ( ( c ) / d ) * e / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) - ( 3 * ( ( ( c ) / d ) * e / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) ) ) ) ) ) * ( 1 + ( g / h ) / 2 ) / ( c ) )",
-      "BaseFormula": " ( min( ( mem_load_retired.l3_hit * mem_load_retired.l3_hit:retire_latency ) , mem_load_retired.l3_hit * ( 12 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) if ( mem_load_retired.l3_hit:retire_latency >= 0 ) else ( mem_load_retired.l3_hit * ( 12 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) ) * ( 1 + ( mem_load_retired.fb_hit / mem_load_retired.l1_miss ) / 2 ) / tma_info_thread_clks",
+      "BaseFormula": "( min( ( mem_load_retired.l3_hit * mem_load_retired.l3_hit:retire_latency ) , mem_load_retired.l3_hit * ( 12 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) if ( mem_load_retired.l3_hit:retire_latency >= 0 ) else ( mem_load_retired.l3_hit * ( 12 * tma_info_system_core_frequency ) - ( 3 * tma_info_system_core_frequency ) ) ) * ( 1 + ( mem_load_retired.fb_hit / mem_load_retired.l1_miss ) / 2 ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -3895,7 +3880,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "BvML;MemoryLat",
-      "LocateWith": " MEM_LOAD_RETIRED.L3_HIT"
+      "LocateWith": "MEM_LOAD_RETIRED.L3_HIT"
     },
     {
       "MetricName": "SQ_Full",
@@ -3920,7 +3905,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a + b ) / ( c ) )",
-      "BaseFormula": " ( xq.full + l1d_miss.l2_stalls ) / tma_info_thread_clks",
+      "BaseFormula": "( xq.full + l1d_miss.l2_stalls ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -3969,7 +3954,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a / ( b ) ) )",
-      "BaseFormula": " ( memory_stalls.mem / tma_info_thread_clks )",
+      "BaseFormula": "( memory_stalls.mem / tma_info_thread_clks )",
       "Category": "TMA",
       "CountDomain": "Stalls",
       "Threshold": {
@@ -3993,7 +3978,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "MemoryBound;TmaL3mem",
-      "LocateWith": " MEM_LOAD_RETIRED.L3_MISS"
+      "LocateWith": "MEM_LOAD_RETIRED.L3_MISS"
     },
     {
       "MetricName": "MEM_Bandwidth",
@@ -4014,7 +3999,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( min( a , b ) ) / ( a ) )",
-      "BaseFormula": " ( min( cpu_clk_unhalted.thread , offcore_requests_outstanding.data_rd:c4 ) ) / tma_info_thread_clks",
+      "BaseFormula": "( min( cpu_clk_unhalted.thread , offcore_requests_outstanding.data_rd:c4 ) ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -4067,7 +4052,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( min( a , b ) ) / ( a ) - ( ( min( a , c ) ) / ( a ) ) )",
-      "BaseFormula": " ( min( cpu_clk_unhalted.thread , offcore_requests_outstanding.cycles_with_data_rd ) ) / tma_info_thread_clks - tma_mem_bandwidth",
+      "BaseFormula": "( min( cpu_clk_unhalted.thread , offcore_requests_outstanding.cycles_with_data_rd ) ) / tma_info_thread_clks - tma_mem_bandwidth",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -4116,7 +4101,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b ) )",
-      "BaseFormula": " exe_activity.bound_on_stores / tma_info_thread_clks",
+      "BaseFormula": "exe_activity.bound_on_stores / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Stalls",
       "Threshold": {
@@ -4140,7 +4125,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "MemoryBound;TmaL3mem",
-      "LocateWith": " MEM_INST_RETIRED.ALL_STORES"
+      "LocateWith": "MEM_INST_RETIRED.ALL_STORES"
     },
     {
       "MetricName": "Store_Latency",
@@ -4173,7 +4158,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( ( a * ( 10 ) * ( 1 - ( b / c ) ) ) + ( 1 - ( b / c ) ) * ( min( d , e ) ) ) / ( d ) )",
-      "BaseFormula": " ( ( mem_store_retired.l2_hit * ( 10 ) * ( 1 - ( mem_inst_retired.lock_loads / mem_inst_retired.all_stores ) ) ) + ( 1 - ( mem_inst_retired.lock_loads / mem_inst_retired.all_stores ) ) * ( min( cpu_clk_unhalted.thread , offcore_requests_outstanding.cycles_with_demand_rfo ) ) ) / tma_info_thread_clks",
+      "BaseFormula": "( ( mem_store_retired.l2_hit * ( 10 ) * ( 1 - ( mem_inst_retired.lock_loads / mem_inst_retired.all_stores ) ) ) + ( 1 - ( mem_inst_retired.lock_loads / mem_inst_retired.all_stores ) ) * ( min( cpu_clk_unhalted.thread , offcore_requests_outstanding.cycles_with_demand_rfo ) ) ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -4226,7 +4211,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( min( ( a * b ) , a * 1 ) if ( b > = 0 ) else ( a * 1 ) ) / ( c ) )",
-      "BaseFormula": " ( min( ( mem_inst_retired.split_stores * mem_inst_retired.split_stores:retire_latency ) , mem_inst_retired.split_stores * 1 ) if ( mem_inst_retired.split_stores:retire_latency >= 0 ) else ( mem_inst_retired.split_stores * 1 ) ) / tma_info_thread_clks",
+      "BaseFormula": "( min( ( mem_inst_retired.split_stores * mem_inst_retired.split_stores:retire_latency ) , mem_inst_retired.split_stores * 1 ) if ( mem_inst_retired.split_stores:retire_latency >= 0 ) else ( mem_inst_retired.split_stores * 1 ) ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Core_Utilization",
       "Threshold": {
@@ -4254,7 +4239,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "",
-      "LocateWith": " MEM_INST_RETIRED.SPLIT_STORES"
+      "LocateWith": "MEM_INST_RETIRED.SPLIT_STORES"
     },
     {
       "MetricName": "Streaming_Stores",
@@ -4275,7 +4260,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( 9 * a / ( b ) )",
-      "BaseFormula": " 9 * ocr.streaming_wr.any_response / tma_info_thread_clks",
+      "BaseFormula": "9 * ocr.streaming_wr.any_response / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -4303,7 +4288,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "MemoryBW;Offcore",
-      "LocateWith": " OCR.STREAMING_WR.ANY_RESPONSE"
+      "LocateWith": "OCR.STREAMING_WR.ANY_RESPONSE"
     },
     {
       "MetricName": "DTLB_Store",
@@ -4332,7 +4317,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( min( ( a * b ) , a * ( 7 ) ) if ( b > = 0 ) else ( a * ( 7 ) ) ) / ( c ) + ( d / ( c ) ) )",
-      "BaseFormula": " ( min( ( mem_inst_retired.stlb_hit_stores * mem_inst_retired.stlb_hit_stores:retire_latency ) , mem_inst_retired.stlb_hit_stores * ( 7 ) ) if ( mem_inst_retired.stlb_hit_stores:retire_latency >= 0 ) else ( mem_inst_retired.stlb_hit_stores * ( 7 ) ) ) / tma_info_thread_clks + tma_store_stlb_miss",
+      "BaseFormula": "( min( ( mem_inst_retired.stlb_hit_stores * mem_inst_retired.stlb_hit_stores:retire_latency ) , mem_inst_retired.stlb_hit_stores * ( 7 ) ) if ( mem_inst_retired.stlb_hit_stores:retire_latency >= 0 ) else ( mem_inst_retired.stlb_hit_stores * ( 7 ) ) ) / tma_info_thread_clks + tma_store_stlb_miss",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -4360,7 +4345,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "BvMT;MemoryTLB",
-      "LocateWith": " MEM_INST_RETIRED.STLB_MISS_STORES"
+      "LocateWith": "MEM_INST_RETIRED.STLB_MISS_STORES"
     },
     {
       "MetricName": "Store_STLB_Hit",
@@ -4389,7 +4374,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( max( 0 , ( ( min( ( a * b ) , a * ( 7 ) ) if ( b > = 0 ) else ( a * ( 7 ) ) ) / ( c ) + ( d / ( c ) ) ) - ( d / ( c ) ) ) )",
-      "BaseFormula": " max( 0 , tma_dtlb_store - tma_store_stlb_miss )",
+      "BaseFormula": "max( 0 , tma_dtlb_store - tma_store_stlb_miss )",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -4442,7 +4427,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b ) )",
-      "BaseFormula": " dtlb_store_misses.walk_active / tma_info_thread_clks",
+      "BaseFormula": "dtlb_store_misses.walk_active / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Calculated",
       "Threshold": {
@@ -4507,7 +4492,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a / ( b ) ) * c / ( c + d + e ) )",
-      "BaseFormula": " tma_store_stlb_miss * dtlb_store_misses.walk_completed_4k / ( dtlb_store_misses.walk_completed_4k + dtlb_store_misses.walk_completed_2m_4m + dtlb_store_misses.walk_completed_1g )",
+      "BaseFormula": "tma_store_stlb_miss * dtlb_store_misses.walk_completed_4k / ( dtlb_store_misses.walk_completed_4k + dtlb_store_misses.walk_completed_2m_4m + dtlb_store_misses.walk_completed_1g )",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -4576,7 +4561,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a / ( b ) ) * c / ( d + c + e ) )",
-      "BaseFormula": " tma_store_stlb_miss * dtlb_store_misses.walk_completed_2m_4m / ( dtlb_store_misses.walk_completed_4k + dtlb_store_misses.walk_completed_2m_4m + dtlb_store_misses.walk_completed_1g )",
+      "BaseFormula": "tma_store_stlb_miss * dtlb_store_misses.walk_completed_2m_4m / ( dtlb_store_misses.walk_completed_4k + dtlb_store_misses.walk_completed_2m_4m + dtlb_store_misses.walk_completed_1g )",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -4645,7 +4630,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a / ( b ) ) * c / ( d + e + c ) )",
-      "BaseFormula": " tma_store_stlb_miss * dtlb_store_misses.walk_completed_1g / ( dtlb_store_misses.walk_completed_4k + dtlb_store_misses.walk_completed_2m_4m + dtlb_store_misses.walk_completed_1g )",
+      "BaseFormula": "tma_store_stlb_miss * dtlb_store_misses.walk_completed_1g / ( dtlb_store_misses.walk_completed_4k + dtlb_store_misses.walk_completed_2m_4m + dtlb_store_misses.walk_completed_1g )",
       "Category": "TMA",
       "CountDomain": "Clocks_Estimated",
       "Threshold": {
@@ -4714,7 +4699,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( max( 0 , ( a / ( b + c + d + a ) ) - ( e / ( b + c + d + a ) ) ) )",
-      "BaseFormula": " max( 0 , tma_backend_bound - tma_memory_bound )",
+      "BaseFormula": "max( 0 , tma_backend_bound - tma_memory_bound )",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
@@ -4755,7 +4740,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b ) )",
-      "BaseFormula": " arith.div_active / tma_info_thread_clks",
+      "BaseFormula": "arith.div_active / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -4779,7 +4764,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "BvCB",
-      "LocateWith": " ARITH.DIV_ACTIVE"
+      "LocateWith": "ARITH.DIV_ACTIVE"
     },
     {
       "MetricName": "FP_Divider",
@@ -4800,7 +4785,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b ) )",
-      "BaseFormula": " arith.fpdiv_active / tma_info_thread_clks",
+      "BaseFormula": "arith.fpdiv_active / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -4853,7 +4838,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a / ( b ) ) - ( c / ( b ) ) )",
-      "BaseFormula": " tma_divider - tma_fp_divider",
+      "BaseFormula": "tma_divider - tma_fp_divider",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -4906,7 +4891,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a + b ) / ( c ) )",
-      "BaseFormula": " ( be_stalls.scoreboard + cpu_clk_unhalted.c02 ) / tma_info_thread_clks",
+      "BaseFormula": "( be_stalls.scoreboard + cpu_clk_unhalted.c02 ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -4930,7 +4915,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "BvIO;PortsUtil",
-      "LocateWith": " BE_STALLS.SCOREBOARD "
+      "LocateWith": "BE_STALLS.SCOREBOARD"
     },
     {
       "MetricName": "Slow_Pause",
@@ -4951,7 +4936,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b ) )",
-      "BaseFormula": " cpu_clk_unhalted.pause / tma_info_thread_clks",
+      "BaseFormula": "cpu_clk_unhalted.pause / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -4979,7 +4964,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "",
-      "LocateWith": " CPU_CLK_UNHALTED.PAUSE_INST"
+      "LocateWith": "CPU_CLK_UNHALTED.PAUSE_INST"
     },
     {
       "MetricName": "C01_Wait",
@@ -5000,7 +4985,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b ) )",
-      "BaseFormula": " cpu_clk_unhalted.c01 / tma_info_thread_clks",
+      "BaseFormula": "cpu_clk_unhalted.c01 / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -5049,7 +5034,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b ) )",
-      "BaseFormula": " cpu_clk_unhalted.c02 / tma_info_thread_clks",
+      "BaseFormula": "cpu_clk_unhalted.c02 / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -5098,7 +5083,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( 13 * a / ( b ) )",
-      "BaseFormula": " 13 * misc2_retired.lfence / tma_info_thread_clks",
+      "BaseFormula": "13 * misc2_retired.lfence / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -5183,7 +5168,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a + ( b + ( c / ( d + e + c + f ) ) * g ) ) / ( h ) if ( i < ( j - k ) ) else ( b + ( c / ( d + e + c + f ) ) * g ) / ( h ) )",
-      "BaseFormula": " ( exe_activity.exe_bound_0_ports + ( exe_activity.1_ports_util + tma_retiring * exe_activity.2_3_ports_util ) ) / tma_info_thread_clks if ( arith.div_active < ( cycle_activity.stalls_total - exe_activity.bound_on_loads ) ) else ( exe_activity.1_ports_util + tma_retiring * exe_activity.2_3_ports_util ) / tma_info_thread_clks",
+      "BaseFormula": "( exe_activity.exe_bound_0_ports + ( exe_activity.1_ports_util + tma_retiring * exe_activity.2_3_ports_util ) ) / tma_info_thread_clks if ( arith.div_active < ( cycle_activity.stalls_total - exe_activity.bound_on_loads ) ) else ( exe_activity.1_ports_util + tma_retiring * exe_activity.2_3_ports_util ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -5228,7 +5213,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b ) )",
-      "BaseFormula": " exe_activity.exe_bound_0_ports / tma_info_thread_clks",
+      "BaseFormula": "exe_activity.exe_bound_0_ports / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -5277,7 +5262,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( 160 * a / ( b ) )",
-      "BaseFormula": " 160 * assists.sse_avx_mix / tma_info_thread_clks",
+      "BaseFormula": "160 * assists.sse_avx_mix / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -5314,7 +5299,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b ) )",
-      "BaseFormula": " exe_activity.1_ports_util / tma_info_thread_clks",
+      "BaseFormula": "exe_activity.1_ports_util / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -5342,7 +5327,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "PortsUtil",
-      "LocateWith": " EXE_ACTIVITY.1_PORTS_UTIL"
+      "LocateWith": "EXE_ACTIVITY.1_PORTS_UTIL"
     },
     {
       "MetricName": "Ports_Utilized_2",
@@ -5363,7 +5348,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b ) )",
-      "BaseFormula": " exe_activity.2_ports_util / tma_info_thread_clks",
+      "BaseFormula": "exe_activity.2_ports_util / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -5391,7 +5376,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "PortsUtil",
-      "LocateWith": " EXE_ACTIVITY.2_PORTS_UTIL"
+      "LocateWith": "EXE_ACTIVITY.2_PORTS_UTIL"
     },
     {
       "MetricName": "Ports_Utilized_3m",
@@ -5412,7 +5397,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b ) )",
-      "BaseFormula": " uops_executed.cycles_ge_3 / tma_info_thread_clks",
+      "BaseFormula": "uops_executed.cycles_ge_3 / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -5440,7 +5425,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "BvCB;PortsUtil",
-      "LocateWith": " UOPS_EXECUTED.CYCLES_GE_3"
+      "LocateWith": "UOPS_EXECUTED.CYCLES_GE_3"
     },
     {
       "MetricName": "ALU_Op_Utilization",
@@ -5461,7 +5446,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( 6 * ( b ) ) )",
-      "BaseFormula": " uops_dispatched.alu / ( 6 * tma_info_thread_clks )",
+      "BaseFormula": "uops_dispatched.alu / ( 6 * tma_info_thread_clks )",
       "Category": "TMA",
       "CountDomain": "Core_Execution",
       "Threshold": {
@@ -5498,7 +5483,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( 3 * ( b ) ) )",
-      "BaseFormula": " uops_dispatched.load / ( 3 * tma_info_thread_clks )",
+      "BaseFormula": "uops_dispatched.load / ( 3 * tma_info_thread_clks )",
       "Category": "TMA",
       "CountDomain": "Core_Execution",
       "Threshold": {
@@ -5514,7 +5499,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "",
-      "LocateWith": " UOPS_DISPATCHED.LOAD "
+      "LocateWith": "UOPS_DISPATCHED.LOAD"
     },
     {
       "MetricName": "Store_Op_Utilization",
@@ -5539,7 +5524,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a + b ) / ( 7 * ( c ) ) )",
-      "BaseFormula": " ( uops_dispatched.std + uops_dispatched.sta ) / ( 7 * tma_info_thread_clks )",
+      "BaseFormula": "( uops_dispatched.std + uops_dispatched.sta ) / ( 7 * tma_info_thread_clks )",
       "Category": "TMA",
       "CountDomain": "Core_Execution",
       "Threshold": {
@@ -5555,13 +5540,13 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "",
-      "LocateWith": " UOPS_DISPATCHED.STD;UOPS_DISPATCHED.STA "
+      "LocateWith": "UOPS_DISPATCHED.STD;UOPS_DISPATCHED.STA"
     },
     {
       "MetricName": "Retiring",
       "LegacyName": "metric_TMA_Retiring(%)",
       "Level": 1,
-      "BriefDescription": "This category represents fraction of slots utilized by useful work i.e. issued uops that eventually get retired. Ideally; all pipeline slots would be attributed to the Retiring category.  Retiring of 100% would indicate the maximum Pipeline_Width throughput was achieved.  Maximizing Retiring typically increases the Instructions-per-cycle (see IPC metric). Note that a high Retiring value does not necessary mean there is no room for more performance.  For example; Heavy-operations or Microcode Assists are categorized under Retiring. They often indicate suboptimal performance and can often be optimized or avoided. ",
+      "BriefDescription": "This category represents fraction of slots utilized by useful work i.e. issued uops that eventually get retired. Ideally; all pipeline slots would be attributed to the Retiring category.  Retiring of 100% would indicate the maximum Pipeline_Width throughput was achieved.  Maximizing Retiring typically increases the Instructions-per-cycle (see IPC metric). Note that a high Retiring value does not necessary mean there is no room for more performance.  For example; Heavy-operations or Microcode Assists are categorized under Retiring. They often indicate suboptimal performance and can often be optimized or avoided.",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -5583,7 +5568,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b + c + a + d ) )",
-      "BaseFormula": " perf_metrics.retiring / ( perf_metrics.frontend_bound + perf_metrics.bad_speculation + perf_metrics.retiring + perf_metrics.backend_bound )",
+      "BaseFormula": "perf_metrics.retiring / ( perf_metrics.frontend_bound + perf_metrics.bad_speculation + perf_metrics.retiring + perf_metrics.backend_bound )",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
@@ -5603,7 +5588,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "BvUW;TmaL1",
-      "LocateWith": " UOPS_RETIRED.SLOTS"
+      "LocateWith": "UOPS_RETIRED.SLOTS"
     },
     {
       "MetricName": "Light_Operations",
@@ -5636,7 +5621,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) )",
-      "BaseFormula": " max( 0 , tma_retiring - tma_heavy_operations )",
+      "BaseFormula": "max( 0 , tma_retiring - tma_heavy_operations )",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
@@ -5687,7 +5672,7 @@
           "Alias": "f"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.SCALAR",
+          "Name": "FP_ARITH_OPS_RETIRED.SCALAR",
           "Alias": "g"
         },
         {
@@ -5695,13 +5680,13 @@
           "Alias": "h"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.VECTOR",
+          "Name": "FP_ARITH_OPS_RETIRED.VECTOR",
           "Alias": "i"
         }
       ],
       "Constants": [],
       "Formula": "100 * ( ( ( a / ( b + c + a + d ) ) * e / f ) + ( ( g ) / ( ( a / ( b + c + a + d ) ) * ( h ) ) ) + ( ( i ) / ( ( a / ( b + c + a + d ) ) * ( h ) ) ) )",
-      "BaseFormula": " tma_x87_use + tma_fp_scalar + tma_fp_vector",
+      "BaseFormula": "tma_x87_use + tma_fp_scalar + tma_fp_vector",
       "Category": "TMA",
       "CountDomain": "Uops",
       "Threshold": {
@@ -5758,7 +5743,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a / ( b + c + a + d ) ) * e / f )",
-      "BaseFormula": " tma_retiring * uops_executed.x87 / uops_executed.thread",
+      "BaseFormula": "tma_retiring * uops_executed.x87 / uops_executed.thread",
       "Category": "TMA",
       "CountDomain": "Uops",
       "Threshold": {
@@ -5793,7 +5778,7 @@
       "UnitOfMeasure": "percent",
       "Events": [
         {
-          "Name": "FP_ARITH_INST_RETIRED.SCALAR",
+          "Name": "FP_ARITH_OPS_RETIRED.SCALAR",
           "Alias": "a"
         },
         {
@@ -5819,7 +5804,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a ) / ( ( b / ( c + d + b + e ) ) * ( f ) ) )",
-      "BaseFormula": " ( fp_arith_inst_retired.scalar ) / ( tma_retiring * tma_info_thread_slots )",
+      "BaseFormula": "( fp_arith_ops_retired.scalar ) / ( tma_retiring * tma_info_thread_slots )",
       "Category": "TMA",
       "CountDomain": "Uops",
       "Threshold": {
@@ -5854,7 +5839,7 @@
       "UnitOfMeasure": "percent",
       "Events": [
         {
-          "Name": "FP_ARITH_INST_RETIRED.VECTOR",
+          "Name": "FP_ARITH_OPS_RETIRED.VECTOR",
           "Alias": "a"
         },
         {
@@ -5880,7 +5865,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a ) / ( ( b / ( c + d + b + e ) ) * ( f ) ) )",
-      "BaseFormula": " ( fp_arith_inst_retired.vector ) / ( tma_retiring * tma_info_thread_slots )",
+      "BaseFormula": "( fp_arith_ops_retired.vector ) / ( tma_retiring * tma_info_thread_slots )",
       "Category": "TMA",
       "CountDomain": "Uops",
       "Threshold": {
@@ -5915,11 +5900,11 @@
       "UnitOfMeasure": "percent",
       "Events": [
         {
-          "Name": "FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE",
+          "Name": "FP_ARITH_OPS_RETIRED.128B_PACKED_DOUBLE",
           "Alias": "a"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.128B_PACKED_SINGLE",
+          "Name": "FP_ARITH_OPS_RETIRED.128B_PACKED_SINGLE",
           "Alias": "b"
         },
         {
@@ -5945,7 +5930,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a + b ) / ( ( c / ( d + e + c + f ) ) * ( g ) ) )",
-      "BaseFormula": " ( fp_arith_inst_retired.128b_packed_double + fp_arith_inst_retired.128b_packed_single ) / ( tma_retiring * tma_info_thread_slots )",
+      "BaseFormula": "( fp_arith_ops_retired.128b_packed_double + fp_arith_ops_retired.128b_packed_single ) / ( tma_retiring * tma_info_thread_slots )",
       "Category": "TMA",
       "CountDomain": "Uops",
       "Threshold": {
@@ -5984,7 +5969,7 @@
       "UnitOfMeasure": "percent",
       "Events": [
         {
-          "Name": "FP_ARITH_INST_RETIRED.VECTOR:u0x30",
+          "Name": "FP_ARITH_OPS_RETIRED.VECTOR:u0x30",
           "Alias": "a"
         },
         {
@@ -6010,7 +5995,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( ( b / ( c + d + b + e ) ) * ( f ) ) )",
-      "BaseFormula": " fp_arith_inst_retired.vector:u0x30 / ( tma_retiring * tma_info_thread_slots )",
+      "BaseFormula": "fp_arith_ops_retired.vector:u0x30 / ( tma_retiring * tma_info_thread_slots )",
       "Category": "TMA",
       "CountDomain": "Uops",
       "Threshold": {
@@ -6079,7 +6064,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a / ( ( b / ( c + d + b + e ) ) * ( f ) ) ) + ( g / ( ( b / ( c + d + b + e ) ) * ( f ) ) ) )",
-      "BaseFormula": " tma_int_vector_128b + tma_int_vector_256b",
+      "BaseFormula": "tma_int_vector_128b + tma_int_vector_256b",
       "Category": "TMA",
       "CountDomain": "Uops",
       "Threshold": {
@@ -6136,7 +6121,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( ( b / ( c + d + b + e ) ) * ( f ) ) )",
-      "BaseFormula": " int_vec_retired.128bit / ( tma_retiring * tma_info_thread_slots )",
+      "BaseFormula": "int_vec_retired.128bit / ( tma_retiring * tma_info_thread_slots )",
       "Category": "TMA",
       "CountDomain": "Uops",
       "Threshold": {
@@ -6197,7 +6182,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( ( b / ( c + d + b + e ) ) * ( f ) ) )",
-      "BaseFormula": " int_vec_retired.256bit / ( tma_retiring * tma_info_thread_slots )",
+      "BaseFormula": "int_vec_retired.256bit / ( tma_retiring * tma_info_thread_slots )",
       "Category": "TMA",
       "CountDomain": "Uops",
       "Threshold": {
@@ -6262,7 +6247,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * f / ( ( a / ( b + c + a + d ) ) * ( g ) ) )",
-      "BaseFormula": " tma_light_operations * mem_uop_retired.any / ( tma_retiring * tma_info_thread_slots )",
+      "BaseFormula": "tma_light_operations * mem_uop_retired.any / ( tma_retiring * tma_info_thread_slots )",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
@@ -6323,7 +6308,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * f / ( ( a / ( b + c + a + d ) ) * ( g ) ) )",
-      "BaseFormula": " tma_light_operations * inst_retired.macro_fused / ( tma_retiring * tma_info_thread_slots )",
+      "BaseFormula": "tma_light_operations * inst_retired.macro_fused / ( tma_retiring * tma_info_thread_slots )",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
@@ -6388,7 +6373,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * ( f - g ) / ( ( a / ( b + c + a + d ) ) * ( h ) ) )",
-      "BaseFormula": " tma_light_operations * ( br_inst_retired.all_branches - inst_retired.br_fused ) / ( tma_retiring * tma_info_thread_slots )",
+      "BaseFormula": "tma_light_operations * ( br_inst_retired.all_branches - inst_retired.br_fused ) / ( tma_retiring * tma_info_thread_slots )",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
@@ -6447,11 +6432,11 @@
           "Alias": "g"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.SCALAR",
+          "Name": "FP_ARITH_OPS_RETIRED.SCALAR",
           "Alias": "h"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.VECTOR",
+          "Name": "FP_ARITH_OPS_RETIRED.VECTOR",
           "Alias": "i"
         },
         {
@@ -6497,7 +6482,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( max( 0 , ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) - ( ( a / ( b + c + a + d ) ) * f / g + ( ( h ) + ( i ) ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) + ( k + l + m + n + o ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * p / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * q / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) + ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * ( r - s ) / ( ( a / ( b + c + a + d ) ) * ( j ) ) ) ) ) )",
-      "BaseFormula": " max( 0 , tma_light_operations - ( tma_retiring * uops_executed.x87 / uops_executed.thread + ( ( fp_arith_inst_retired.scalar ) + ( fp_arith_inst_retired.vector ) ) / ( tma_retiring * tma_info_thread_slots ) + ( int_vec_retired.add_128 + int_vec_retired.vnni_128 + int_vec_retired.add_256 + int_vec_retired.mul_256 + int_vec_retired.vnni_256 ) / ( tma_retiring * tma_info_thread_slots ) + tma_memory_operations + tma_fused_instructions + tma_non_fused_branches ) )",
+      "BaseFormula": "max( 0 , tma_light_operations - ( tma_retiring * uops_executed.x87 / uops_executed.thread + ( ( fp_arith_ops_retired.scalar ) + ( fp_arith_ops_retired.vector ) ) / ( tma_retiring * tma_info_thread_slots ) + ( int_vec_retired.add_128 + int_vec_retired.vnni_128 + int_vec_retired.add_256 + int_vec_retired.mul_256 + int_vec_retired.vnni_256 ) / ( tma_retiring * tma_info_thread_slots ) + tma_memory_operations + tma_fused_instructions + tma_non_fused_branches ) )",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
@@ -6558,7 +6543,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * f / ( ( a / ( b + c + a + d ) ) * ( g ) ) )",
-      "BaseFormula": " tma_light_operations * inst_retired.nop / ( tma_retiring * tma_info_thread_slots )",
+      "BaseFormula": "tma_light_operations * inst_retired.nop / ( tma_retiring * tma_info_thread_slots )",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
@@ -6582,7 +6567,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "BvBO;Pipeline",
-      "LocateWith": " INST_RETIRED.NOP"
+      "LocateWith": "INST_RETIRED.NOP"
     },
     {
       "MetricName": "Shuffles_256b",
@@ -6623,7 +6608,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( max( 0 , ( a / ( b + c + a + d ) ) - ( e / ( b + c + a + d ) ) ) ) * f / ( ( a / ( b + c + a + d ) ) * ( g ) ) )",
-      "BaseFormula": " tma_light_operations * int_vec_retired.shuffles / ( tma_retiring * tma_info_thread_slots )",
+      "BaseFormula": "tma_light_operations * int_vec_retired.shuffles / ( tma_retiring * tma_info_thread_slots )",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
@@ -6680,7 +6665,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b + c + d + e ) )",
-      "BaseFormula": " perf_metrics.heavy_operations / ( perf_metrics.frontend_bound + perf_metrics.bad_speculation + perf_metrics.retiring + perf_metrics.backend_bound )",
+      "BaseFormula": "perf_metrics.heavy_operations / ( perf_metrics.frontend_bound + perf_metrics.bad_speculation + perf_metrics.retiring + perf_metrics.backend_bound )",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
@@ -6696,7 +6681,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "Retire;TmaL2",
-      "LocateWith": " UOPS_RETIRED.HEAVY"
+      "LocateWith": "UOPS_RETIRED.HEAVY"
     },
     {
       "MetricName": "Few_Uops_Instructions",
@@ -6737,7 +6722,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( max( 0 , ( a / ( b + c + d + e ) ) - ( f / ( g ) ) ) )",
-      "BaseFormula": " max( 0 , tma_heavy_operations - tma_microcode_sequencer )",
+      "BaseFormula": "max( 0 , tma_heavy_operations - tma_microcode_sequencer )",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
@@ -6778,7 +6763,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( a / ( b ) )",
-      "BaseFormula": " uops_retired.ms / tma_info_thread_slots",
+      "BaseFormula": "uops_retired.ms / tma_info_thread_slots",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
@@ -6798,7 +6783,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "MicroSeq",
-      "LocateWith": " UOPS_RETIRED.MS"
+      "LocateWith": "UOPS_RETIRED.MS"
     },
     {
       "MetricName": "Assists",
@@ -6819,7 +6804,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * a / ( b ) )",
-      "BaseFormula": " ( ( 99 *3 + 63 + 30 ) / 5 ) * assists.any / tma_info_thread_slots",
+      "BaseFormula": "( ( 99 *3 + 63 + 30 ) / 5 ) * assists.any / tma_info_thread_slots",
       "Category": "TMA",
       "CountDomain": "Slots_Estimated",
       "Threshold": {
@@ -6843,7 +6828,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "BvIO",
-      "LocateWith": " ASSISTS.ANY"
+      "LocateWith": "ASSISTS.ANY"
     },
     {
       "MetricName": "Page_Faults",
@@ -6864,7 +6849,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( 99 * a / ( b ) )",
-      "BaseFormula": " 99 * assists.page_fault / tma_info_thread_slots",
+      "BaseFormula": "99 * assists.page_fault / tma_info_thread_slots",
       "Category": "TMA",
       "CountDomain": "Slots_Estimated",
       "Threshold": {
@@ -6901,7 +6886,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( 30 * a / ( b ) )",
-      "BaseFormula": " 30 * assists.fp / tma_info_thread_slots",
+      "BaseFormula": "30 * assists.fp / tma_info_thread_slots",
       "Category": "TMA",
       "CountDomain": "Slots_Estimated",
       "Threshold": {
@@ -6924,7 +6909,7 @@
       "LegacyName": "metric_TMA_........AVX_Assists(%)",
       "ParentCategory": "Assists",
       "Level": 5,
-      "BriefDescription": "This metric estimates fraction of slots the CPU retired uops as a result of handing SSE to AVX* or AVX* to SSE transition Assists. ",
+      "BriefDescription": "This metric estimates fraction of slots the CPU retired uops as a result of handing SSE to AVX* or AVX* to SSE transition Assists.",
       "UnitOfMeasure": "percent",
       "Events": [
         {
@@ -6938,7 +6923,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( 63 * a / ( b ) )",
-      "BaseFormula": " 63 * assists.sse_avx_mix / tma_info_thread_slots",
+      "BaseFormula": "63 * assists.sse_avx_mix / tma_info_thread_slots",
       "Category": "TMA",
       "CountDomain": "Slots_Estimated",
       "Threshold": {
@@ -6979,7 +6964,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( max( 0 , ( a / ( b ) ) - ( ( ( 99 * 3 + 63 + 30 ) / 5 ) * c / ( b ) ) ) )",
-      "BaseFormula": " max( 0 , tma_microcode_sequencer - tma_assists )",
+      "BaseFormula": "max( 0 , tma_microcode_sequencer - tma_assists )",
       "Category": "TMA",
       "CountDomain": "Slots",
       "Threshold": {
@@ -7003,7 +6988,7 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "",
-      "LocateWith": " #NA"
+      "LocateWith": "#NA"
     },
     {
       "MetricName": "Info_Thread_IPC",
@@ -7023,7 +7008,7 @@
       ],
       "Constants": [],
       "Formula": "a / ( b )",
-      "BaseFormula": " inst_retired.any / tma_info_thread_clks",
+      "BaseFormula": "inst_retired.any / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -7069,7 +7054,7 @@
       ],
       "Constants": [],
       "Formula": "( ( a / ( b + c + a + d ) ) * ( e ) ) / f",
-      "BaseFormula": " ( tma_retiring * tma_info_thread_slots ) / inst_retired.any",
+      "BaseFormula": "( tma_retiring * tma_info_thread_slots ) / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -7121,7 +7106,7 @@
       ],
       "Constants": [],
       "Formula": "( ( a / ( b + c + a + d ) ) * ( e ) ) / f",
-      "BaseFormula": " ( tma_retiring * tma_info_thread_slots ) / br_inst_retired.near_taken",
+      "BaseFormula": "( tma_retiring * tma_info_thread_slots ) / br_inst_retired.near_taken",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -7157,7 +7142,7 @@
       ],
       "Constants": [],
       "Formula": "1 / ( a / ( b ) )",
-      "BaseFormula": " 1 / tma_info_thread_ipc",
+      "BaseFormula": "1 / tma_info_thread_ipc",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -7183,7 +7168,7 @@
       ],
       "Constants": [],
       "Formula": "a",
-      "BaseFormula": " cpu_clk_unhalted.thread",
+      "BaseFormula": "cpu_clk_unhalted.thread",
       "Category": "TMA",
       "CountDomain": "Count",
       "Threshold": {
@@ -7209,7 +7194,7 @@
       ],
       "Constants": [],
       "Formula": "a",
-      "BaseFormula": " topdown.slots:perf_metrics",
+      "BaseFormula": "topdown.slots:perf_metrics",
       "Category": "TMA",
       "CountDomain": "Count",
       "Threshold": {
@@ -7239,7 +7224,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " uops_executed.thread / uops_issued.any",
+      "BaseFormula": "uops_executed.thread / uops_issued.any",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -7259,19 +7244,19 @@
       "UnitOfMeasure": "",
       "Events": [
         {
-          "Name": "FP_ARITH_INST_RETIRED.SCALAR",
+          "Name": "FP_ARITH_OPS_RETIRED.SCALAR",
           "Alias": "a"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE",
+          "Name": "FP_ARITH_OPS_RETIRED.128B_PACKED_DOUBLE",
           "Alias": "b"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.4_FLOPS",
+          "Name": "FP_ARITH_OPS_RETIRED.4_FLOPS",
           "Alias": "c"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.256B_PACKED_SINGLE",
+          "Name": "FP_ARITH_OPS_RETIRED.256B_PACKED_SINGLE",
           "Alias": "d"
         },
         {
@@ -7281,7 +7266,7 @@
       ],
       "Constants": [],
       "Formula": "( a + 2 * b + 4 * c + 8 * d ) / ( e )",
-      "BaseFormula": " ( fp_arith_inst_retired.scalar + 2 * fp_arith_inst_retired.128b_packed_double + 4 * fp_arith_inst_retired.4_flops + 8 * fp_arith_inst_retired.256b_packed_single ) / tma_info_thread_clks",
+      "BaseFormula": "( fp_arith_ops_retired.scalar + 2 * fp_arith_ops_retired.128b_packed_double + 4 * fp_arith_ops_retired.4_flops + 8 * fp_arith_ops_retired.256b_packed_single ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Core_Metric",
       "Threshold": {
@@ -7323,7 +7308,7 @@
       ],
       "Constants": [],
       "Formula": "( a + b + c + d ) / ( 4 * ( e ) )",
-      "BaseFormula": " ( fp_arith_dispatched.v0 + fp_arith_dispatched.v1 + fp_arith_dispatched.v2 + fp_arith_dispatched.v3 ) / ( 4 * tma_info_thread_clks )",
+      "BaseFormula": "( fp_arith_dispatched.v0 + fp_arith_dispatched.v1 + fp_arith_dispatched.v2 + fp_arith_dispatched.v3 ) / ( 4 * tma_info_thread_clks )",
       "Category": "TMA",
       "CountDomain": "Core_Metric",
       "Threshold": {
@@ -7353,7 +7338,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " uops_executed.thread / uops_executed.thread:c1",
+      "BaseFormula": "uops_executed.thread / uops_executed.thread:c1",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -7383,7 +7368,7 @@
       ],
       "Constants": [],
       "Formula": "a / ( b )",
-      "BaseFormula": " uops_executed.thread / tma_info_thread_clks",
+      "BaseFormula": "uops_executed.thread / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -7413,7 +7398,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " inst_retired.any / mem_inst_retired.all_loads",
+      "BaseFormula": "inst_retired.any / mem_inst_retired.all_loads",
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
@@ -7449,7 +7434,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " inst_retired.any / mem_inst_retired.all_stores",
+      "BaseFormula": "inst_retired.any / mem_inst_retired.all_stores",
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
@@ -7485,7 +7470,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " inst_retired.any / br_inst_retired.all_branches",
+      "BaseFormula": "inst_retired.any / br_inst_retired.all_branches",
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
@@ -7521,7 +7506,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " inst_retired.any / br_inst_retired.near_call",
+      "BaseFormula": "inst_retired.any / br_inst_retired.near_call",
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
@@ -7557,7 +7542,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " inst_retired.any / br_inst_retired.near_taken",
+      "BaseFormula": "inst_retired.any / br_inst_retired.near_taken",
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
@@ -7579,7 +7564,7 @@
       "MetricName": "Info_Inst_Mix_BpTkBranch",
       "LegacyName": "metric_TMA_Info_Inst_Mix_BpTkBranch",
       "Level": 1,
-      "BriefDescription": "Branch instructions per taken branch. ",
+      "BriefDescription": "Branch instructions per taken branch.",
       "UnitOfMeasure": "",
       "Events": [
         {
@@ -7593,7 +7578,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " br_inst_retired.all_branches / br_inst_retired.near_taken",
+      "BaseFormula": "br_inst_retired.all_branches / br_inst_retired.near_taken",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -7617,25 +7602,25 @@
           "Alias": "a"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.SCALAR",
+          "Name": "FP_ARITH_OPS_RETIRED.SCALAR",
           "Alias": "b"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE",
+          "Name": "FP_ARITH_OPS_RETIRED.128B_PACKED_DOUBLE",
           "Alias": "c"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.4_FLOPS",
+          "Name": "FP_ARITH_OPS_RETIRED.4_FLOPS",
           "Alias": "d"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.256B_PACKED_SINGLE",
+          "Name": "FP_ARITH_OPS_RETIRED.256B_PACKED_SINGLE",
           "Alias": "e"
         }
       ],
       "Constants": [],
       "Formula": "a / ( b + 2 * c + 4 * d + 8 * e )",
-      "BaseFormula": " inst_retired.any / ( fp_arith_inst_retired.scalar + 2 * fp_arith_inst_retired.128b_packed_double + 4 * fp_arith_inst_retired.4_flops + 8 * fp_arith_inst_retired.256b_packed_single )",
+      "BaseFormula": "inst_retired.any / ( fp_arith_ops_retired.scalar + 2 * fp_arith_ops_retired.128b_packed_double + 4 * fp_arith_ops_retired.4_flops + 8 * fp_arith_ops_retired.256b_packed_single )",
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
@@ -7665,17 +7650,17 @@
           "Alias": "a"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.SCALAR",
+          "Name": "FP_ARITH_OPS_RETIRED.SCALAR",
           "Alias": "b"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.VECTOR",
+          "Name": "FP_ARITH_OPS_RETIRED.VECTOR",
           "Alias": "c"
         }
       ],
       "Constants": [],
       "Formula": "a / ( ( b ) + ( c ) )",
-      "BaseFormula": " inst_retired.any / ( ( fp_arith_inst_retired.scalar ) + ( fp_arith_inst_retired.vector ) )",
+      "BaseFormula": "inst_retired.any / ( ( fp_arith_ops_retired.scalar ) + ( fp_arith_ops_retired.vector ) )",
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
@@ -7705,13 +7690,13 @@
           "Alias": "a"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.SCALAR_SINGLE",
+          "Name": "FP_ARITH_OPS_RETIRED.SCALAR_SINGLE",
           "Alias": "b"
         }
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " inst_retired.any / fp_arith_inst_retired.scalar_single",
+      "BaseFormula": "inst_retired.any / fp_arith_ops_retired.scalar_single",
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
@@ -7741,13 +7726,13 @@
           "Alias": "a"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.SCALAR_DOUBLE",
+          "Name": "FP_ARITH_OPS_RETIRED.SCALAR_DOUBLE",
           "Alias": "b"
         }
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " inst_retired.any / fp_arith_inst_retired.scalar_double",
+      "BaseFormula": "inst_retired.any / fp_arith_ops_retired.scalar_double",
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
@@ -7777,17 +7762,17 @@
           "Alias": "a"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE",
+          "Name": "FP_ARITH_OPS_RETIRED.128B_PACKED_DOUBLE",
           "Alias": "b"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.128B_PACKED_SINGLE",
+          "Name": "FP_ARITH_OPS_RETIRED.128B_PACKED_SINGLE",
           "Alias": "c"
         }
       ],
       "Constants": [],
       "Formula": "a / ( b + c )",
-      "BaseFormula": " inst_retired.any / ( fp_arith_inst_retired.128b_packed_double + fp_arith_inst_retired.128b_packed_single )",
+      "BaseFormula": "inst_retired.any / ( fp_arith_ops_retired.128b_packed_double + fp_arith_ops_retired.128b_packed_single )",
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
@@ -7817,17 +7802,17 @@
           "Alias": "a"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.256B_PACKED_DOUBLE",
+          "Name": "FP_ARITH_OPS_RETIRED.256B_PACKED_DOUBLE",
           "Alias": "b"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.256B_PACKED_SINGLE",
+          "Name": "FP_ARITH_OPS_RETIRED.256B_PACKED_SINGLE",
           "Alias": "c"
         }
       ],
       "Constants": [],
       "Formula": "a / ( b + c )",
-      "BaseFormula": " inst_retired.any / ( fp_arith_inst_retired.256b_packed_double + fp_arith_inst_retired.256b_packed_single )",
+      "BaseFormula": "inst_retired.any / ( fp_arith_ops_retired.256b_packed_double + fp_arith_ops_retired.256b_packed_single )",
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
@@ -7863,7 +7848,7 @@
       ],
       "Constants": [],
       "Formula": "( a ) / b",
-      "BaseFormula": " tma_info_inst_mix_instructions / cpu_clk_unhalted.pause_inst",
+      "BaseFormula": "tma_info_inst_mix_instructions / cpu_clk_unhalted.pause_inst",
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
@@ -7893,7 +7878,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " inst_retired.any / mem_inst_retired.all_swpf",
+      "BaseFormula": "inst_retired.any / mem_inst_retired.all_swpf",
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
@@ -7925,7 +7910,7 @@
       ],
       "Constants": [],
       "Formula": "a",
-      "BaseFormula": " inst_retired.any",
+      "BaseFormula": "inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Count",
       "Threshold": {
@@ -7971,7 +7956,7 @@
       ],
       "Constants": [],
       "Formula": "( ( a / ( b + c + a + d ) ) * ( e ) ) / f",
-      "BaseFormula": " ( tma_retiring * tma_info_thread_slots ) / uops_retired.slots:c1",
+      "BaseFormula": "( tma_retiring * tma_info_thread_slots ) / uops_retired.slots:c1",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -8001,7 +7986,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " inst_retired.rep_iteration / uops_retired.slots:c1",
+      "BaseFormula": "inst_retired.rep_iteration / uops_retired.slots:c1",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -8037,7 +8022,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " inst_retired.any / assists.any",
+      "BaseFormula": "inst_retired.any / assists.any",
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
@@ -8073,7 +8058,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " lsd.uops / lsd.cycles_active",
+      "BaseFormula": "lsd.uops / lsd.cycles_active",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -8103,7 +8088,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " idq.dsb_uops / idq.dsb_cycles_any",
+      "BaseFormula": "idq.dsb_uops / idq.dsb_cycles_any",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -8133,7 +8118,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " idq.mite_uops / idq.mite_cycles_any",
+      "BaseFormula": "idq.mite_uops / idq.mite_cycles_any",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -8143,6 +8128,36 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "Fed;FetchBW",
+      "LocateWith": ""
+    },
+    {
+      "MetricName": "Info_Pipeline_Fetch_MS",
+      "LegacyName": "metric_TMA_Info_Pipeline_Fetch_MS",
+      "Level": 1,
+      "BriefDescription": "Average number of uops fetched from MS per cycle",
+      "UnitOfMeasure": "",
+      "Events": [
+        {
+          "Name": "IDQ.MS_UOPS",
+          "Alias": "a"
+        },
+        {
+          "Name": "IDQ.MS_UOPS:c1",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [],
+      "Formula": "a / b",
+      "BaseFormula": "idq.ms_uops / idq.ms_uops:c1",
+      "Category": "TMA",
+      "CountDomain": "Metric",
+      "Threshold": {
+        "Formula": "",
+        "BaseFormula": "",
+        "ThresholdIssues": ""
+      },
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Fed;FetchLat;MicroSeq",
       "LocateWith": ""
     },
     {
@@ -8163,7 +8178,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " uops_issued.any / uops_issued.any:c1",
+      "BaseFormula": "uops_issued.any / uops_issued.any:c1",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -8193,7 +8208,7 @@
       ],
       "Constants": [],
       "Formula": "a / ( b )",
-      "BaseFormula": " lsd.uops / ( uops_issued.any )",
+      "BaseFormula": "lsd.uops / ( uops_issued.any )",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -8223,7 +8238,7 @@
       ],
       "Constants": [],
       "Formula": "a / ( b )",
-      "BaseFormula": " idq.dsb_uops / ( uops_issued.any )",
+      "BaseFormula": "idq.dsb_uops / ( uops_issued.any )",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -8263,7 +8278,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " int_misc.unknown_branch_cycles / int_misc.unknown_branch_cycles:c1:e1",
+      "BaseFormula": "int_misc.unknown_branch_cycles / int_misc.unknown_branch_cycles:c1:e1",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -8293,7 +8308,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " dsb2mite_switches.penalty_cycles / dsb2mite_switches.penalty_cycles:c1:e1",
+      "BaseFormula": "dsb2mite_switches.penalty_cycles / dsb2mite_switches.penalty_cycles:c1:e1",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -8323,7 +8338,7 @@
       ],
       "Constants": [],
       "Formula": "a / ( b )",
-      "BaseFormula": " br_inst_retired.near_taken / tma_info_thread_clks",
+      "BaseFormula": "br_inst_retired.near_taken / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -8357,7 +8372,7 @@
       ],
       "Constants": [],
       "Formula": "( a * b ) / ( c )",
-      "BaseFormula": " ( frontend_retired.any_dsb_miss * frontend_retired.any_dsb_miss:retire_latency ) / tma_info_thread_clks",
+      "BaseFormula": "( frontend_retired.any_dsb_miss * frontend_retired.any_dsb_miss:retire_latency ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Retired",
       "Threshold": {
@@ -8397,7 +8412,7 @@
       ],
       "Constants": [],
       "Formula": "( a * b ) / ( c )",
-      "BaseFormula": " ( frontend_retired.ms_flows * frontend_retired.ms_flows:retire_latency ) / tma_info_thread_clks",
+      "BaseFormula": "( frontend_retired.ms_flows * frontend_retired.ms_flows:retire_latency ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Retired",
       "Threshold": {
@@ -8437,7 +8452,7 @@
       ],
       "Constants": [],
       "Formula": "( a * b ) / ( c )",
-      "BaseFormula": " ( frontend_retired.unknown_branch * frontend_retired.unknown_branch:retire_latency ) / tma_info_thread_clks",
+      "BaseFormula": "( frontend_retired.unknown_branch * frontend_retired.unknown_branch:retire_latency ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Retired",
       "Threshold": {
@@ -8467,7 +8482,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " icache_data.stalls / icache_data.stall_periods",
+      "BaseFormula": "icache_data.stalls / icache_data.stall_periods",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -8497,7 +8512,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " inst_retired.any / frontend_retired.any_dsb_miss",
+      "BaseFormula": "inst_retired.any / frontend_retired.any_dsb_miss",
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
@@ -8533,7 +8548,7 @@
       ],
       "Constants": [],
       "Formula": "( a ) / b",
-      "BaseFormula": " tma_info_inst_mix_instructions / baclears.any",
+      "BaseFormula": "tma_info_inst_mix_instructions / baclears.any",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -8549,7 +8564,7 @@
       "MetricName": "Info_Frontend_L2MPKI_Code",
       "LegacyName": "metric_TMA_Info_Frontend_L2MPKI_Code",
       "Level": 1,
-      "BriefDescription": "L2 cache true code cacheline misses per kilo instruction ",
+      "BriefDescription": "L2 cache true code cacheline misses per kilo instruction",
       "UnitOfMeasure": "",
       "Events": [
         {
@@ -8563,7 +8578,7 @@
       ],
       "Constants": [],
       "Formula": "1000 * a / b",
-      "BaseFormula": " 1000 * frontend_retired.l2_miss / inst_retired.any",
+      "BaseFormula": "1000 * frontend_retired.l2_miss / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -8579,7 +8594,7 @@
       "MetricName": "Info_Frontend_L2MPKI_Code_All",
       "LegacyName": "metric_TMA_Info_Frontend_L2MPKI_Code_All",
       "Level": 1,
-      "BriefDescription": "L2 cache speculative code cacheline misses per kilo instruction ",
+      "BriefDescription": "L2 cache speculative code cacheline misses per kilo instruction",
       "UnitOfMeasure": "",
       "Events": [
         {
@@ -8593,7 +8608,7 @@
       ],
       "Constants": [],
       "Formula": "1000 * a / b",
-      "BaseFormula": " 1000 * l2_rqsts.code_rd_miss / inst_retired.any",
+      "BaseFormula": "1000 * l2_rqsts.code_rd_miss / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -8677,7 +8692,7 @@
           "Alias": "p"
         },
         {
-          "Name": "IDQ_BUBBLES.CYCLES_0_UOPS_DELIV.CORE",
+          "Name": "IDQ_BUBBLES.STARVATION_CYCLES",
           "Alias": "q"
         },
         {
@@ -8698,8 +8713,8 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( ( a / ( b + c + d + e ) ) * ( f / ( g ) ) / ( ( h / ( g ) ) + ( i / ( g ) ) + ( j / ( g ) + ( k / ( g ) ) ) + ( ( 3 ) * l / ( g ) ) + ( m / ( g ) ) + ( f / ( g ) ) ) + ( max( 0 , ( b / ( b + c + d + e ) ) - ( a / ( b + c + d + e ) ) ) ) * ( ( n / ( g ) + o / ( p + o ) * ( q - r ) ) / ( g ) ) / ( ( ( n / ( g ) + o / ( p + o ) * ( q - r ) ) / ( g ) ) + ( ( s + p / ( p + o ) * ( q - r ) ) / ( g ) ) + ( t / ( g ) ) + ( u / ( g ) ) ) )",
-      "BaseFormula": " 100 * ( tma_fetch_latency * tma_dsb_switches / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) + tma_fetch_bandwidth * tma_mite / ( tma_mite + tma_dsb + tma_lsd + tma_ms ) )",
+      "Formula": "100 * ( ( a / ( b + c + d + e ) ) * ( f / ( g ) ) / ( ( h / ( g ) ) + ( i / ( g ) ) + ( j / ( g ) + ( k / ( g ) ) ) + ( ( 3 ) * l / ( g ) ) + ( m / ( g ) ) + ( f / ( g ) ) ) + ( max( 0 , ( b / ( b + c + d + e ) ) - ( a / ( b + c + d + e ) ) ) ) * ( ( n / 2 + o / ( p + o ) * ( q - r ) ) / ( g ) ) / ( ( ( n / 2 + o / ( p + o ) * ( q - r ) ) / ( g ) ) + ( ( s / 2 + p / ( p + o ) * ( q - r ) ) / ( g ) ) + ( t / ( g ) / 2 ) + ( u / ( g ) / 1.8 ) ) )",
+      "BaseFormula": "100 * ( tma_fetch_latency * tma_dsb_switches / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) + tma_fetch_bandwidth * tma_mite / ( tma_mite + tma_dsb + tma_lsd + tma_ms ) )",
       "Category": "TMA",
       "CountDomain": "Scaled_Slots",
       "Threshold": {
@@ -8757,7 +8772,7 @@
           "Alias": "h"
         },
         {
-          "Name": "IDQ_BUBBLES.CYCLES_0_UOPS_DELIV.CORE",
+          "Name": "IDQ_BUBBLES.STARVATION_CYCLES",
           "Alias": "i"
         },
         {
@@ -8782,8 +8797,8 @@
         }
       ],
       "Constants": [],
-      "Formula": "100 * ( ( a / ( a + b + c + d ) ) * ( ( max( 0 , ( a / ( a + b + c + d ) ) - ( e / ( a + b + c + d ) ) ) ) / ( ( e / ( a + b + c + d ) ) + ( max( 0 , ( a / ( a + b + c + d ) ) - ( e / ( a + b + c + d ) ) ) ) ) ) * ( ( ( f + g / ( g + h ) * ( i - j ) ) / ( k ) ) / ( ( ( l / ( k ) + h / ( g + h ) * ( i - j ) ) / ( k ) ) + ( ( f + g / ( g + h ) * ( i - j ) ) / ( k ) ) + ( m / ( k ) ) + ( n / ( k ) ) ) ) )",
-      "BaseFormula": " 100 * ( tma_frontend_bound * ( tma_fetch_bandwidth / ( tma_fetch_latency + tma_fetch_bandwidth ) ) * ( tma_dsb / ( tma_mite + tma_dsb + tma_lsd + tma_ms ) ) )",
+      "Formula": "100 * ( ( a / ( a + b + c + d ) ) * ( ( max( 0 , ( a / ( a + b + c + d ) ) - ( e / ( a + b + c + d ) ) ) ) / ( ( e / ( a + b + c + d ) ) + ( max( 0 , ( a / ( a + b + c + d ) ) - ( e / ( a + b + c + d ) ) ) ) ) ) * ( ( ( f / 2 + g / ( g + h ) * ( i - j ) ) / ( k ) ) / ( ( ( l / 2 + h / ( g + h ) * ( i - j ) ) / ( k ) ) + ( ( f / 2 + g / ( g + h ) * ( i - j ) ) / ( k ) ) + ( m / ( k ) / 2 ) + ( n / ( k ) / 1.8 ) ) ) )",
+      "BaseFormula": "100 * ( tma_frontend_bound * ( tma_fetch_bandwidth / ( tma_fetch_latency + tma_fetch_bandwidth ) ) * ( tma_dsb / ( tma_mite + tma_dsb + tma_lsd + tma_ms ) ) )",
       "Category": "TMA",
       "CountDomain": "Scaled_Slots",
       "Threshold": {
@@ -8863,7 +8878,7 @@
       ],
       "Constants": [],
       "Formula": "100 * ( ( a / ( b + c + d + e ) ) * ( f / ( g ) ) / ( ( f / ( g ) ) + ( h / ( g ) ) + ( i / ( g ) + ( j / ( g ) ) ) + ( ( 3 ) * k / ( g ) ) + ( l / ( g ) ) + ( m / ( g ) ) ) )",
-      "BaseFormula": " 100 * ( tma_fetch_latency * tma_icache_misses / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) )",
+      "BaseFormula": "100 * ( tma_fetch_latency * tma_icache_misses / ( tma_icache_misses + tma_itlb_misses + tma_branch_resteers + tma_ms_switches + tma_lcp + tma_dsb_switches ) )",
       "Category": "TMA",
       "CountDomain": "Scaled_Slots",
       "Threshold": {
@@ -8899,7 +8914,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " inst_retired.any / br_misp_retired.all_branches",
+      "BaseFormula": "inst_retired.any / br_misp_retired.all_branches",
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
@@ -8935,7 +8950,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " inst_retired.any / br_misp_retired.cond_ntaken",
+      "BaseFormula": "inst_retired.any / br_misp_retired.cond_ntaken",
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
@@ -8971,7 +8986,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " inst_retired.any / br_misp_retired.cond_taken_bwd",
+      "BaseFormula": "inst_retired.any / br_misp_retired.cond_taken_bwd",
       "Category": "TMA",
       "CountDomain": "",
       "Threshold": {
@@ -9001,7 +9016,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " inst_retired.any / br_misp_retired.cond_taken_fwd",
+      "BaseFormula": "inst_retired.any / br_misp_retired.cond_taken_fwd",
       "Category": "TMA",
       "CountDomain": "",
       "Threshold": {
@@ -9031,7 +9046,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " inst_retired.any / br_misp_retired.ret",
+      "BaseFormula": "inst_retired.any / br_misp_retired.ret",
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
@@ -9067,7 +9082,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " inst_retired.any / br_misp_retired.indirect",
+      "BaseFormula": "inst_retired.any / br_misp_retired.indirect",
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
@@ -9171,7 +9186,7 @@
       ],
       "Constants": [],
       "Formula": "( 100 * ( 1 - ( 10 * ( a / ( b ) ) * ( max( ( c / ( d + e + f + g ) ) * ( 1 - h / ( i - j ) ) , 0.0001 ) ) / ( c / ( d + e + f + g ) ) ) ) * ( ( c / ( d + e + f + g ) ) + ( k / ( d + e + f + g ) ) * ( ( ( c / ( d + e + f + g ) ) / ( e / ( d + e + f + g ) ) ) * l / ( m ) ) / ( ( n / ( m ) ) + ( o / ( m ) ) + ( l / ( m ) + ( p / ( m ) ) ) + ( ( 3 ) * q / ( m ) ) + ( r / ( m ) ) + ( s / ( m ) ) ) ) ) * ( b ) / ( 8 ) / h / 100",
-      "BaseFormula": " tma_bottleneck_mispredictions * tma_info_thread_slots / ( 8 ) / br_misp_retired.all_branches / 100",
+      "BaseFormula": "tma_bottleneck_mispredictions * tma_info_thread_slots / ( 8 ) / br_misp_retired.all_branches / 100",
       "Category": "TMA",
       "CountDomain": "Core_Metric",
       "Threshold": {
@@ -9205,7 +9220,7 @@
       ],
       "Constants": [],
       "Formula": "a / ( b + c )",
-      "BaseFormula": " int_misc.clears_count / ( br_misp_retired.all_branches + machine_clears.count )",
+      "BaseFormula": "int_misc.clears_count / ( br_misp_retired.all_branches + machine_clears.count )",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -9235,7 +9250,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " br_inst_retired.cond_ntaken / br_inst_retired.all_branches",
+      "BaseFormula": "br_inst_retired.cond_ntaken / br_inst_retired.all_branches",
       "Category": "TMA",
       "CountDomain": "Fraction",
       "Threshold": {
@@ -9265,7 +9280,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " br_inst_retired.cond_taken_bwd / br_inst_retired.all_branches",
+      "BaseFormula": "br_inst_retired.cond_taken_bwd / br_inst_retired.all_branches",
       "Category": "TMA",
       "CountDomain": "Fraction",
       "Threshold": {
@@ -9301,7 +9316,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " br_inst_retired.cond_taken_fwd / br_inst_retired.all_branches",
+      "BaseFormula": "br_inst_retired.cond_taken_fwd / br_inst_retired.all_branches",
       "Category": "TMA",
       "CountDomain": "Fraction",
       "Threshold": {
@@ -9341,7 +9356,7 @@
       ],
       "Constants": [],
       "Formula": "( a + b ) / c",
-      "BaseFormula": " ( br_inst_retired.near_call + br_inst_retired.near_return ) / br_inst_retired.all_branches",
+      "BaseFormula": "( br_inst_retired.near_call + br_inst_retired.near_return ) / br_inst_retired.all_branches",
       "Category": "TMA",
       "CountDomain": "Fraction",
       "Threshold": {
@@ -9383,7 +9398,7 @@
       ],
       "Constants": [],
       "Formula": "( a - b - c - 2 * d ) / e",
-      "BaseFormula": " ( br_inst_retired.near_taken - br_inst_retired.cond_taken_bwd - br_inst_retired.cond_taken_fwd - 2 * br_inst_retired.near_call ) / br_inst_retired.all_branches",
+      "BaseFormula": "( br_inst_retired.near_taken - br_inst_retired.cond_taken_bwd - br_inst_retired.cond_taken_fwd - 2 * br_inst_retired.near_call ) / br_inst_retired.all_branches",
       "Category": "TMA",
       "CountDomain": "Fraction",
       "Threshold": {
@@ -9433,7 +9448,7 @@
       ],
       "Constants": [],
       "Formula": "1 - ( ( a / b ) + ( c / b ) + ( d / b ) + ( ( e + f ) / b ) + ( ( g - c - d - 2 * e ) / b ) )",
-      "BaseFormula": " 1 - ( tma_info_branches_cond_nt + tma_info_branches_cond_tk_bwd + tma_info_branches_cond_tk_fwd + tma_info_branches_callret + tma_info_branches_jump )",
+      "BaseFormula": "1 - ( tma_info_branches_cond_nt + tma_info_branches_cond_tk_bwd + tma_info_branches_cond_tk_fwd + tma_info_branches_callret + tma_info_branches_jump )",
       "Category": "TMA",
       "CountDomain": "Fraction",
       "Threshold": {
@@ -9463,7 +9478,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " l1d_pending.load / l1d_miss.load",
+      "BaseFormula": "l1d_pending.load / l1d_miss.load",
       "Category": "TMA",
       "CountDomain": "Clocks_Latency",
       "Threshold": {
@@ -9493,7 +9508,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " l1d_pending.load / l1d_pending.load_cycles",
+      "BaseFormula": "l1d_pending.load / l1d_pending.load_cycles",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -9503,6 +9518,40 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "Mem;MemoryBound;MemoryBW",
+      "LocateWith": ""
+    },
+    {
+      "MetricName": "Info_Memory_L1DL0_MPKI",
+      "LegacyName": "metric_TMA_Info_Memory_L1DL0_MPKI",
+      "Level": 1,
+      "BriefDescription": "L0 cache true misses per kilo instruction for retired demand loads",
+      "UnitOfMeasure": "",
+      "Events": [
+        {
+          "Name": "MEM_LOAD_RETIRED.L1_MISS",
+          "Alias": "a"
+        },
+        {
+          "Name": "MEM_LOAD_RETIRED.L1_HIT_L1",
+          "Alias": "b"
+        },
+        {
+          "Name": "INST_RETIRED.ANY",
+          "Alias": "c"
+        }
+      ],
+      "Constants": [],
+      "Formula": "1000 * ( a + b ) / c",
+      "BaseFormula": "1000 * ( mem_load_retired.l1_miss + mem_load_retired.l1_hit_l1 ) / inst_retired.any",
+      "Category": "TMA",
+      "CountDomain": "Metric",
+      "Threshold": {
+        "Formula": "",
+        "BaseFormula": "",
+        "ThresholdIssues": ""
+      },
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "CacheHits;Mem",
       "LocateWith": ""
     },
     {
@@ -9523,7 +9572,7 @@
       ],
       "Constants": [],
       "Formula": "1000 * a / b",
-      "BaseFormula": " 1000 * mem_load_retired.l1_miss / inst_retired.any",
+      "BaseFormula": "1000 * mem_load_retired.l1_miss / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -9553,7 +9602,7 @@
       ],
       "Constants": [],
       "Formula": "1000 * a / b",
-      "BaseFormula": " 1000 * l2_rqsts.all_demand_data_rd / inst_retired.any",
+      "BaseFormula": "1000 * l2_rqsts.all_demand_data_rd / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -9583,7 +9632,7 @@
       ],
       "Constants": [],
       "Formula": "1000 * a / b",
-      "BaseFormula": " 1000 * mem_load_retired.l2_miss / inst_retired.any",
+      "BaseFormula": "1000 * mem_load_retired.l2_miss / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -9613,7 +9662,7 @@
       ],
       "Constants": [],
       "Formula": "1000 * a / b",
-      "BaseFormula": " 1000 * l2_rqsts.miss / inst_retired.any",
+      "BaseFormula": "1000 * l2_rqsts.miss / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -9643,7 +9692,7 @@
       ],
       "Constants": [],
       "Formula": "1000 * a / b",
-      "BaseFormula": " 1000 * l2_rqsts.demand_data_rd_miss / inst_retired.any",
+      "BaseFormula": "1000 * l2_rqsts.demand_data_rd_miss / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -9673,7 +9722,7 @@
       ],
       "Constants": [],
       "Formula": "1000 * a / b",
-      "BaseFormula": " 1000 * l2_rqsts.rfo_miss / inst_retired.any",
+      "BaseFormula": "1000 * l2_rqsts.rfo_miss / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -9707,7 +9756,7 @@
       ],
       "Constants": [],
       "Formula": "1000 * ( a - b ) / c",
-      "BaseFormula": " 1000 * ( l2_rqsts.references - l2_rqsts.miss ) / inst_retired.any",
+      "BaseFormula": "1000 * ( l2_rqsts.references - l2_rqsts.miss ) / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -9737,7 +9786,7 @@
       ],
       "Constants": [],
       "Formula": "1000 * a / b",
-      "BaseFormula": " 1000 * l2_rqsts.demand_data_rd_hit / inst_retired.any",
+      "BaseFormula": "1000 * l2_rqsts.demand_data_rd_hit / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -9767,7 +9816,7 @@
       ],
       "Constants": [],
       "Formula": "1000 * a / b",
-      "BaseFormula": " 1000 * mem_load_retired.l3_miss / inst_retired.any",
+      "BaseFormula": "1000 * mem_load_retired.l3_miss / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -9797,7 +9846,7 @@
       ],
       "Constants": [],
       "Formula": "1000 * a / b",
-      "BaseFormula": " 1000 * mem_load_retired.fb_hit / inst_retired.any",
+      "BaseFormula": "1000 * mem_load_retired.fb_hit / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -9828,7 +9877,38 @@
         }
       ],
       "Formula": "64 * a / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) )",
-      "BaseFormula": " 64 * l1d.l0_replacement / ( 1000000000 ) / tma_info_system_time",
+      "BaseFormula": "64 * l1d.l0_replacement / ( 1000000000 ) / tma_info_system_time",
+      "Category": "TMA",
+      "CountDomain": "Metric",
+      "Threshold": {
+        "Formula": "",
+        "BaseFormula": "",
+        "ThresholdIssues": ""
+      },
+      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
+      "MetricGroup": "Mem;MemoryBW",
+      "LocateWith": ""
+    },
+    {
+      "MetricName": "Info_Memory_L1D_Cache_Fill_BW",
+      "LegacyName": "metric_TMA_Info_Memory_L1D_Cache_Fill_BW",
+      "Level": 1,
+      "BriefDescription": "Average per-thread data fill bandwidth to the L1 data cache [GB / sec]",
+      "UnitOfMeasure": "",
+      "Events": [
+        {
+          "Name": "L1D.L1_REPLACEMENT",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [
+        {
+          "Name": "DURATIONTIMEINMILLISECONDS",
+          "Alias": "durationtimeinmilliseconds"
+        }
+      ],
+      "Formula": "64 * a / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) )",
+      "BaseFormula": "64 * l1d.l1_replacement / ( 1000000000 ) / tma_info_system_time",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -9859,7 +9939,7 @@
         }
       ],
       "Formula": "64 * a / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) )",
-      "BaseFormula": " 64 * l2_lines_in.all / ( 1000000000 ) / tma_info_system_time",
+      "BaseFormula": "64 * l2_lines_in.all / ( 1000000000 ) / tma_info_system_time",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -9890,7 +9970,7 @@
         }
       ],
       "Formula": "64 * a / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) )",
-      "BaseFormula": " 64 * longest_lat_cache.miss / ( 1000000000 ) / tma_info_system_time",
+      "BaseFormula": "64 * longest_lat_cache.miss / ( 1000000000 ) / tma_info_system_time",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -9921,7 +10001,7 @@
         }
       ],
       "Formula": "64 * a / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) )",
-      "BaseFormula": " 64 * offcore_requests.all_requests / ( 1000000000 ) / tma_info_system_time",
+      "BaseFormula": "64 * offcore_requests.all_requests / ( 1000000000 ) / tma_info_system_time",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -9959,7 +10039,7 @@
       ],
       "Constants": [],
       "Formula": "( a + b + c ) / ( 4 * ( d ) )",
-      "BaseFormula": " ( itlb_misses.walk_pending + dtlb_load_misses.walk_pending + dtlb_store_misses.walk_pending ) / ( 4 * tma_info_thread_clks )",
+      "BaseFormula": "( itlb_misses.walk_pending + dtlb_load_misses.walk_pending + dtlb_store_misses.walk_pending ) / ( 4 * tma_info_thread_clks )",
       "Category": "TMA",
       "CountDomain": "Core_Metric",
       "Threshold": {
@@ -9995,7 +10075,7 @@
       ],
       "Constants": [],
       "Formula": "1000 * a / b",
-      "BaseFormula": " 1000 * itlb_misses.walk_completed / inst_retired.any",
+      "BaseFormula": "1000 * itlb_misses.walk_completed / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -10025,7 +10105,7 @@
       ],
       "Constants": [],
       "Formula": "1000 * a / b",
-      "BaseFormula": " 1000 * dtlb_load_misses.walk_completed / inst_retired.any",
+      "BaseFormula": "1000 * dtlb_load_misses.walk_completed / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -10055,7 +10135,7 @@
       ],
       "Constants": [],
       "Formula": "1000 * a / b",
-      "BaseFormula": " 1000 * dtlb_store_misses.walk_completed / inst_retired.any",
+      "BaseFormula": "1000 * dtlb_store_misses.walk_completed / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -10089,7 +10169,7 @@
       ],
       "Constants": [],
       "Formula": "( a * b ) / ( c )",
-      "BaseFormula": " ( mem_inst_retired.stlb_miss_loads * mem_inst_retired.stlb_miss_loads:retire_latency ) / tma_info_thread_clks",
+      "BaseFormula": "( mem_inst_retired.stlb_miss_loads * mem_inst_retired.stlb_miss_loads:retire_latency ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Retired",
       "Threshold": {
@@ -10129,7 +10209,7 @@
       ],
       "Constants": [],
       "Formula": "( a * b ) / ( c )",
-      "BaseFormula": " ( mem_inst_retired.stlb_miss_stores * mem_inst_retired.stlb_miss_stores:retire_latency ) / tma_info_thread_clks",
+      "BaseFormula": "( mem_inst_retired.stlb_miss_stores * mem_inst_retired.stlb_miss_stores:retire_latency ) / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Clocks_Retired",
       "Threshold": {
@@ -10169,7 +10249,7 @@
       ],
       "Constants": [],
       "Formula": "a / ( b + c )",
-      "BaseFormula": " l2_lines_out.useless_hwpf / ( l2_lines_out.silent + l2_lines_out.non_silent )",
+      "BaseFormula": "l2_lines_out.useless_hwpf / ( l2_lines_out.silent + l2_lines_out.non_silent )",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -10205,7 +10285,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " offcore_requests_outstanding.demand_data_rd / offcore_requests.demand_data_rd",
+      "BaseFormula": "offcore_requests_outstanding.demand_data_rd / offcore_requests.demand_data_rd",
       "Category": "TMA",
       "CountDomain": "Clocks_Latency",
       "Threshold": {
@@ -10235,7 +10315,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " offcore_requests_outstanding.l3_miss_demand_data_rd / offcore_requests.l3_miss_demand_data_rd",
+      "BaseFormula": "offcore_requests_outstanding.l3_miss_demand_data_rd / offcore_requests.l3_miss_demand_data_rd",
       "Category": "TMA",
       "CountDomain": "Clocks_Latency",
       "Threshold": {
@@ -10265,7 +10345,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " offcore_requests_outstanding.demand_data_rd / offcore_requests_outstanding.demand_data_rd:c1",
+      "BaseFormula": "offcore_requests_outstanding.demand_data_rd / offcore_requests_outstanding.demand_data_rd:c1",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -10295,7 +10375,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " offcore_requests_outstanding.data_rd / offcore_requests_outstanding.cycles_with_data_rd",
+      "BaseFormula": "offcore_requests_outstanding.data_rd / offcore_requests_outstanding.cycles_with_data_rd",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -10325,7 +10405,7 @@
       ],
       "Constants": [],
       "Formula": "1000 * a / b",
-      "BaseFormula": " 1000 * mem_load_misc_retired.uc / inst_retired.any",
+      "BaseFormula": "1000 * mem_load_misc_retired.uc / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -10355,7 +10435,7 @@
       ],
       "Constants": [],
       "Formula": "1000 * a / b",
-      "BaseFormula": " 1000 * sq_misc.bus_lock / inst_retired.any",
+      "BaseFormula": "1000 * sq_misc.bus_lock / inst_retired.any",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -10390,7 +10470,7 @@
         }
       ],
       "Formula": "( a / b ) / c",
-      "BaseFormula": " tma_info_system_cpus_utilized / num_cpus",
+      "BaseFormula": "tma_info_system_cpus_utilized / num_cpus",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -10421,7 +10501,7 @@
         }
       ],
       "Formula": "a / b",
-      "BaseFormula": " cpu_clk_unhalted.ref_tsc / tsc",
+      "BaseFormula": "cpu_clk_unhalted.ref_tsc / tsc",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -10460,7 +10540,7 @@
         }
       ],
       "Formula": "( ( a ) / b ) * c / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) )",
-      "BaseFormula": " tma_info_system_turbo_utilization * tsc / ( 1000000000 ) / tma_info_system_time",
+      "BaseFormula": "tma_info_system_turbo_utilization * tsc / ( 1000000000 ) / tma_info_system_time",
       "Category": "TMA",
       "CountDomain": "System_Metric",
       "Threshold": {
@@ -10473,6 +10553,37 @@
       "LocateWith": ""
     },
     {
+      "MetricName": "Info_System_Uncore_Frequency",
+      "LegacyName": "metric_TMA_Info_System_Uncore_Frequency",
+      "Level": 1,
+      "BriefDescription": "Measured Average Uncore Frequency for the SoC [GHz]",
+      "UnitOfMeasure": "",
+      "Events": [
+        {
+          "Name": "UNC_CLOCK.SOCKET",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [
+        {
+          "Name": "DURATIONTIMEINMILLISECONDS",
+          "Alias": "durationtimeinmilliseconds"
+        }
+      ],
+      "Formula": "( a ) / 1e9 / ( ( durationtimeinmilliseconds / 1000 ) )",
+      "BaseFormula": "tma_info_system_socket_clks / 1e9 / tma_info_system_time",
+      "Category": "TMA",
+      "CountDomain": "System_Metric",
+      "Threshold": {
+        "Formula": "",
+        "BaseFormula": "",
+        "ThresholdIssues": ""
+      },
+      "ResolutionLevels": "CLOCK",
+      "MetricGroup": "SoC",
+      "LocateWith": ""
+    },
+    {
       "MetricName": "Info_System_GFLOPs",
       "LegacyName": "metric_TMA_Info_System_GFLOPs",
       "Level": 1,
@@ -10480,19 +10591,19 @@
       "UnitOfMeasure": "",
       "Events": [
         {
-          "Name": "FP_ARITH_INST_RETIRED.SCALAR",
+          "Name": "FP_ARITH_OPS_RETIRED.SCALAR",
           "Alias": "a"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE",
+          "Name": "FP_ARITH_OPS_RETIRED.128B_PACKED_DOUBLE",
           "Alias": "b"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.4_FLOPS",
+          "Name": "FP_ARITH_OPS_RETIRED.4_FLOPS",
           "Alias": "c"
         },
         {
-          "Name": "FP_ARITH_INST_RETIRED.256B_PACKED_SINGLE",
+          "Name": "FP_ARITH_OPS_RETIRED.256B_PACKED_SINGLE",
           "Alias": "d"
         }
       ],
@@ -10503,7 +10614,7 @@
         }
       ],
       "Formula": "( ( a + 2 * b + 4 * c + 8 * d ) / ( 1000000000 ) ) / ( ( durationtimeinmilliseconds / 1000 ) )",
-      "BaseFormula": " ( ( fp_arith_inst_retired.scalar + 2 * fp_arith_inst_retired.128b_packed_double + 4 * fp_arith_inst_retired.4_flops + 8 * fp_arith_inst_retired.256b_packed_single ) / ( 1000000000 ) ) / tma_info_system_time",
+      "BaseFormula": "( ( fp_arith_ops_retired.scalar + 2 * fp_arith_ops_retired.128b_packed_double + 4 * fp_arith_ops_retired.4_flops + 8 * fp_arith_ops_retired.256b_packed_single ) / ( 1000000000 ) ) / tma_info_system_time",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -10533,7 +10644,7 @@
       ],
       "Constants": [],
       "Formula": "( a ) / b",
-      "BaseFormula": " tma_info_thread_clks / cpu_clk_unhalted.ref_tsc",
+      "BaseFormula": "tma_info_thread_clks / cpu_clk_unhalted.ref_tsc",
       "Category": "TMA",
       "CountDomain": "Core_Metric",
       "Threshold": {
@@ -10563,7 +10674,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " cpu_clk_unhalted.thread_p:sup / cpu_clk_unhalted.thread",
+      "BaseFormula": "cpu_clk_unhalted.thread_p:sup / cpu_clk_unhalted.thread",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -10599,7 +10710,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " cpu_clk_unhalted.thread_p:sup / inst_retired.any_p:sup",
+      "BaseFormula": "cpu_clk_unhalted.thread_p:sup / inst_retired.any_p:sup",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -10629,7 +10740,7 @@
       ],
       "Constants": [],
       "Formula": "a / ( b )",
-      "BaseFormula": " cpu_clk_unhalted.c0_wait / tma_info_thread_clks",
+      "BaseFormula": "cpu_clk_unhalted.c0_wait / tma_info_thread_clks",
       "Category": "TMA",
       "CountDomain": "Metric",
       "Threshold": {
@@ -10645,6 +10756,37 @@
       },
       "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
       "MetricGroup": "C0Wait",
+      "LocateWith": ""
+    },
+    {
+      "MetricName": "Info_System_DRAM_BW_Use",
+      "LegacyName": "metric_TMA_Info_System_DRAM_BW_Use",
+      "Level": 1,
+      "BriefDescription": "Average external Memory Bandwidth Use for reads and writes [GB / sec]",
+      "UnitOfMeasure": "",
+      "Events": [
+        {
+          "Name": "UNC_M_TOTAL_DATA",
+          "Alias": "a"
+        }
+      ],
+      "Constants": [
+        {
+          "Name": "DURATIONTIMEINMILLISECONDS",
+          "Alias": "durationtimeinmilliseconds"
+        }
+      ],
+      "Formula": "32 * a / ( 1000000000 ) / ( ( durationtimeinmilliseconds / 1000 ) )",
+      "BaseFormula": "32 * unc_m_total_data / ( 1000000000 ) / tma_info_system_time",
+      "Category": "TMA",
+      "CountDomain": "GB/sec",
+      "Threshold": {
+        "Formula": "",
+        "BaseFormula": "",
+        "ThresholdIssues": "$issueBW"
+      },
+      "ResolutionLevels": "ARB",
+      "MetricGroup": "HPC;MemOffcore;MemoryBW;SoC",
       "LocateWith": ""
     },
     {
@@ -10666,7 +10808,7 @@
         }
       ],
       "Formula": "a * ( 61 ) / ( ( ( durationtimeinmilliseconds / 1000 ) ) * ( 1000000 ) )",
-      "BaseFormula": " unc_pkg_energy_status * ( 61 ) / ( tma_info_system_time * ( 1000000 ) )",
+      "BaseFormula": "unc_pkg_energy_status * ( 61 ) / ( tma_info_system_time * ( 1000000 ) )",
       "Category": "TMA",
       "CountDomain": "System_Metric",
       "Threshold": {
@@ -10692,7 +10834,7 @@
         }
       ],
       "Formula": "( durationtimeinmilliseconds / 1000 )",
-      "BaseFormula": " duration_time",
+      "BaseFormula": "duration_time",
       "Category": "TMA",
       "CountDomain": "Seconds",
       "Threshold": {
@@ -10728,7 +10870,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " cpu_clk_unhalted.thread_p / cpu_clk_unhalted.thread",
+      "BaseFormula": "cpu_clk_unhalted.thread_p / cpu_clk_unhalted.thread",
       "Category": "TMA",
       "CountDomain": "Clocks",
       "Threshold": {
@@ -10760,7 +10902,7 @@
       ],
       "Constants": [],
       "Formula": "a",
-      "BaseFormula": " unc_clock.socket",
+      "BaseFormula": "unc_clock.socket",
       "Category": "TMA",
       "CountDomain": "Count",
       "Threshold": {
@@ -10790,7 +10932,7 @@
       ],
       "Constants": [],
       "Formula": "a / b",
-      "BaseFormula": " inst_retired.any / br_inst_retired.far_branch:user",
+      "BaseFormula": "inst_retired.any / br_inst_retired.far_branch:user",
       "Category": "TMA",
       "CountDomain": "Inst_Metric",
       "Threshold": {
