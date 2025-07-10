@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2025 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Core(TM) processors based on Lunar Lake performance hybrid architecture - V1.15",
-    "DatePublished": "06/10/2025",
-    "Version": "1.15",
+    "Info": "Performance Monitoring Events for Intel(R) Core(TM) processors based on Lunar Lake performance hybrid architecture - V1.17",
+    "DatePublished": "07/09/2025",
+    "Version": "1.17",
     "Legend": ""
   },
   "Events": [
@@ -5331,8 +5331,8 @@
       "UMask": "0xc0",
       "UMaskExt": "0x00",
       "EventName": "BR_INST_RETIRED.NEAR_TAKEN",
-      "BriefDescription": "Counts the number of taken branch instructions retired",
-      "PublicDescription": "Counts the number of taken branch instructions retired",
+      "BriefDescription": "Counts the number of near taken branch instructions retired",
+      "PublicDescription": "Counts the number of near taken branch instructions retired",
       "Counter": "0,1,2,3,4,5,6,7",
       "PEBScounters": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "200003",

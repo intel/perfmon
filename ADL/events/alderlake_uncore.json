@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2025 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 12th and 13th Generation Intel(R) Core(TM) Processor - V1.32",
-    "DatePublished": "06/10/2025",
-    "Version": "1.32",
+    "Info": "Performance Monitoring Events for 12th and 13th Generation Intel(R) Core(TM) Processor - V1.33",
+    "DatePublished": "07/03/2025",
+    "Version": "1.33",
     "Legend": ""
   },
   "Events": [
@@ -14,6 +14,20 @@
       "EventName": "UNC_ARB_TRK_REQUESTS.ALL",
       "BriefDescription": "Counts the number of coherent and in-coherent requests initiated by IA cores, processor graphic units, or LLC.",
       "PublicDescription": "Counts the number of coherent and in-coherent requests initiated by IA cores, processor graphic units, or LLC.",
+      "Counter": "0,1",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "Deprecated": "0",
+      "CounterType": "PGMABLE"
+    },
+    {
+      "Unit": "ARB",
+      "EventCode": "0x81",
+      "UMask": "0x02",
+      "EventName": "UNC_ARB_REQ_TRK_REQUEST.DRD",
+      "BriefDescription": "Number of all coherent Data Read entries. Doesn't include prefetches [This event is alias to UNC_ARB_TRK_REQUESTS.RD]",
+      "PublicDescription": "Number of all coherent Data Read entries. Doesn't include prefetches [This event is alias to UNC_ARB_TRK_REQUESTS.RD]",
       "Counter": "0,1",
       "CounterMask": "0",
       "Invert": "0",
@@ -407,6 +421,20 @@
       "BriefDescription": "Each cycle counts number of all outgoing valid entries in ReqTrk. Such entry is defined as valid from its allocation in ReqTrk till deallocation. Accounts for Coherent and non-coherent traffic.",
       "PublicDescription": "Each cycle counts number of all outgoing valid entries in ReqTrk. Such entry is defined as valid from its allocation in ReqTrk till deallocation. Accounts for Coherent and non-coherent traffic.",
       "Counter": "0",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "Deprecated": "0",
+      "CounterType": "PGMABLE"
+    },
+    {
+      "Unit": "ARB",
+      "EventCode": "0x81",
+      "UMask": "0x02",
+      "EventName": "UNC_ARB_TRK_REQUESTS.RD",
+      "BriefDescription": "Number of all coherent Data Read entries. Doesn't include prefetches [This event is alias to UNC_ARB_REQ_TRK_REQUEST.DRD]",
+      "PublicDescription": "Number of all coherent Data Read entries. Doesn't include prefetches [This event is alias to UNC_ARB_REQ_TRK_REQUEST.DRD]",
+      "Counter": "0,1",
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
