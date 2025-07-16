@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2025 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Core(TM) processors based on Lunar Lake performance hybrid architecture - V1.15",
-    "DatePublished": "06/10/2025",
-    "Version": "1.15",
+    "Info": "Performance Monitoring Events for Intel(R) Core(TM) processors based on Lunar Lake performance hybrid architecture - V1.17",
+    "DatePublished": "07/09/2025",
+    "Version": "1.17",
     "Legend": ""
   },
   "Events": [
@@ -51,6 +51,21 @@
       "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
+    },
+    {
+      "Unit": "SANTA",
+      "EventCode": "0x00",
+      "UMask": "0x01",
+      "UMaskExt": "0x00",
+      "EventName": "UNC_CLOCK.SOCKET",
+      "BriefDescription": "This 48-bit fixed counter counts the UCLK cycles.",
+      "PublicDescription": "This 48-bit fixed counter counts the UCLK cycles.",
+      "Counter": "FIXED",
+      "CounterMask": "0",
+      "Invert": "0",
+      "EdgeDetect": "0",
+      "Deprecated": "0",
+      "CounterType": "FIXED"
     }
   ]
 }

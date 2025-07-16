@@ -214,6 +214,7 @@ def topic(event_name: str, unit: str) -> str:
             'mdf': 'Uncore-Interconnect',
             'r3qpi': 'Uncore-Interconnect',
             'qpi': 'Uncore-Interconnect',
+            'santa': 'Uncore-Interconnect',
             'sbox': 'Uncore-Interconnect',
             'ubox': 'Uncore-Interconnect',
             'upi': 'Uncore-Interconnect',
