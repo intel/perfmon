@@ -1086,9 +1086,11 @@ class Model:
         }
         ratio_column = {
             'LNL/ARL': 'LNL/ARL;MTL;ADL/RPL;TGL;RKL;ICL;KBLR/CFL/CML;SKL/KBL;BDW;HSW;IVB;SNB'.split(';'),
-            'GNR': 'GNR;MTL;SPR-HBM;SPR/EMR;ADL/RPL;TGL;RKL;ICX;ICL;CPX;CLX;KBLR/CFL/CML;SKX;SKL/KBL;BDX;BDW;HSX;HSW;IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
+            'GNR': 'GNR;MTL;EMR;SPR-HBM;SPR;ADL/RPL;TGL;RKL;ICX;ICL;CPX;CLX;KBLR/CFL/CML;SKX;SKL/KBL;BDX;BDW;HSX;HSW;IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
             'MTL': 'MTL;ADL/RPL;TGL;RKL;ICL;KBLR/CFL/CML;SKL/KBL;BDW;HSW;IVB;SNB'.split(';'),
-            'SPR/EMR': 'SPR/EMR;ADL/RPL;TGL;RKL;ICX;ICL;CPX;CLX;KBLR/CFL/CML;SKX;SKL/KBL;BDX;BDW;HSX;HSW;IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
+            'SPR': 'SPR;ADL/RPL;TGL;RKL;ICX;ICL;CPX;CLX;KBLR/CFL/CML;SKX;SKL/KBL;BDX;BDW;HSX;HSW;IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
+            'SPR-HBM': 'SP-HBM;SPR;ADL/RPL;TGL;RKL;ICX;ICL;CPX;CLX;KBLR/CFL/CML;SKX;SKL/KBL;BDX;BDW;HSX;HSW;IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
+            'EMR': 'EMR;SPR-HBM;SPR;ADL/RPL;TGL;RKL;ICX;ICL;CPX;CLX;KBLR/CFL/CML;SKX;SKL/KBL;BDX;BDW;HSX;HSW;IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
             'ADL/RPL': 'ADL/RPL;TGL;RKL;ICL;KBLR/CFL/CML;SKL/KBL;BDW;HSW;IVB;SNB'.split(';'),
             'TGL': 'TGL;RKL;ICL;KBLR/CFL/CML;SKL/KBL;BDW;HSW;IVB;SNB'.split(';'),
             'RKL': 'RKL;ICL;KBLR/CFL/CML;SKL/KBL;BDW;HSW;IVB;SNB'.split(';'),
@@ -1612,10 +1614,7 @@ class Model:
 
                 def bracket(expr):
                     if any([x in expr for x in ['/', '*', '+', '-', 'if']]):
-                        if expr.startswith('(') and expr.endswith(')'):
-                            return expr
-                        else:
-                            return '(' + expr + ')'
+                        return '(' + expr + ')'
                     return expr
 
                 def resolve_aux(v: str) -> str:
