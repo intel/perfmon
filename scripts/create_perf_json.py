@@ -1971,6 +1971,18 @@ class Model:
 
         if len(metrics) > 0:
             metrics.extend(self.cstate_json())
+
+            for m in metrics:
+                form = m['MetricExpr']
+                if "TSC" in form:
+                    if 'Unit' in m:
+                        unit = m['Unit']
+                        tsc_pmu_suffix = rf"\,cpu={unit}@"
+                    else:
+                        tsc_pmu_suffix = "@"
+                    form = re.sub(r"\bTSC\b", "msr@tsc" + tsc_pmu_suffix, form)
+                    m['MetricExpr'] = form
+
             mg = self.tsx_json()
             if mg:
                 metrics.extend(json.loads(mg.ToPerfJson()))
