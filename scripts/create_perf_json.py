@@ -1680,15 +1680,6 @@ class Model:
                 return form
 
             form = resolve_all(form, expand_metrics=False)
-            needs_slots = r'topdown\-' in form and 'tma_info_thread_slots' not in form
-            if needs_slots:
-                # topdown events must always be grouped with a
-                # TOPDOWN.SLOTS event. Detect when this is missing in a
-                # metric and insert a dummy value. Metrics using other
-                # metrics with topdown events will get a TOPDOWN.SLOTS
-                # event from them.
-                form = f'{form} + 0*tma_info_thread_slots'
-
             threshold = None
             if i.threshold:
                 # Handle MUX specially:
