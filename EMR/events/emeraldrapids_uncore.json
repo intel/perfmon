@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2025 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 5th Generation Intel(R) Xeon(R) Processor Scalable Family - V1.16",
-    "DatePublished": "07/03/2025",
-    "Version": "1.16",
+    "Info": "Performance Monitoring Events for 5th Generation Intel(R) Xeon(R) Processor Scalable Family - V1.19",
+    "DatePublished": "07/28/2025",
+    "Version": "1.19",
     "Legend": ""
   },
   "Events": [
