@@ -395,5 +395,17 @@
         "MetricGroup": "",
         "MetricName": "io_bandwidth_write_l3_miss",
         "ScaleUnit": "1MB/s"
+    },
+    {
+        "BriefDescription": "The average number of cores that are in cstate C0 as observed by the power control unit (PCU)",
+        "MetricExpr": "( UNC_P_POWER_STATE_OCCUPANCY_CORES_C0 / pcu_0@UNC_P_CLOCKTICKS@ ) * #num_packages",
+        "MetricGroup": "cpu_cstate",
+        "MetricName": "cpu_cstate_c0"
+    },
+    {
+        "BriefDescription": "The average number of cores are in cstate C6 as observed by the power control unit (PCU)",
+        "MetricExpr": "( UNC_P_POWER_STATE_OCCUPANCY_CORES_C6 / pcu_0@UNC_P_CLOCKTICKS@ ) * #num_packages",
+        "MetricGroup": "cpu_cstate",
+        "MetricName": "cpu_cstate_c6"
     }
 ]

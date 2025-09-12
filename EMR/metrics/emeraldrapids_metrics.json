@@ -2,8 +2,8 @@
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2025 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for 5th Generation Intel(R) Xeon(R) Processor Scalable Family0",
-    "DatePublished": "06/17/2025",
-    "Version": "1.1",
+    "DatePublished": "09/12/2025",
+    "Version": "1.2",
     "Legend": "",
     "TmaVersion": "5.1",
     "TmaFlavor": "Full"
@@ -1092,6 +1092,60 @@
       "Category": "IO",
       "ResolutionLevels": "CHA, SOCKET, SYSTEM",
       "MetricGroup": ""
+    },
+    {
+      "MetricName": "cpu_cstate_c0",
+      "LegacyName": "metric_CPU_cstate_C0",
+      "Level": 1,
+      "BriefDescription": "The average number of cores that are in cstate C0 as observed by the power control unit (PCU).",
+      "UnitOfMeasure": "",
+      "Events": [
+        {
+          "Name": "UNC_P_CLOCKTICKS",
+          "Alias": "a"
+        },
+        {
+          "Name": "UNC_P_POWER_STATE_OCCUPANCY_CORES_C0",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [
+        {
+          "Name": "SOCKET_COUNT",
+          "Alias": "socket_count"
+        }
+      ],
+      "Formula": "(b / a[0]) * socket_count",
+      "Category": "Power",
+      "ResolutionLevels": "SOCKET, SYSTEM",
+      "MetricGroup": "cpu_cstate"
+    },
+    {
+      "MetricName": "cpu_cstate_c6",
+      "LegacyName": "metric_CPU_cstate_C6",
+      "Level": 1,
+      "BriefDescription": "The average number of cores are in cstate C6 as observed by the power control unit (PCU).",
+      "UnitOfMeasure": "",
+      "Events": [
+        {
+          "Name": "UNC_P_CLOCKTICKS",
+          "Alias": "a"
+        },
+        {
+          "Name": "UNC_P_POWER_STATE_OCCUPANCY_CORES_C6",
+          "Alias": "b"
+        }
+      ],
+      "Constants": [
+        {
+          "Name": "SOCKET_COUNT",
+          "Alias": "socket_count"
+        }
+      ],
+      "Formula": "(b / a[0]) * socket_count",
+      "Category": "Power",
+      "ResolutionLevels": "SOCKET, SYSTEM",
+      "MetricGroup": "cpu_cstate"
     },
     {
       "MetricName": "Bottleneck_Mispredictions",
