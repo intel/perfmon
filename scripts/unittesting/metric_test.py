@@ -159,11 +159,6 @@ class TestMetricExpressions(unittest.TestCase):
     after = 'a'
     self.assertEqual(ParsePerfJson(before).Simplify().ToPerfJson(), after)
 
-    # Pattern used to add a slots event to metrics that require it.
-    before = '0 * SLOTS'
-    after = '0 * SLOTS'
-    self.assertEqual(ParsePerfJson(before).Simplify().ToPerfJson(), after)
-
   def test_RewriteMetricsInTermsOfOthers(self):
     Expression.__eq__ = lambda e1, e2: e1.Equals(e2)
     before = [('m1', ParsePerfJson('a + b + c + d')),

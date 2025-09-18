@@ -867,7 +867,11 @@ class Model:
         # the erratas SNB: BJ122, IVB: BV98, HSW: HSD29, as well as when
         # EBS_Mode causes additional events to be required.
         smt = 'NO_GROUP_EVENTS_SMT'
-
+        # If SMT is enabled or the NMI watchdog, don't group.
+        nmi_smt = 'NO_GROUP_EVENTS_SMT_OR_NMI'
+        # Inform perf not to group if thresholds are enabled and the
+        # NMI watchdog also is.
+        nmi_threshold = 'NO_THRESHOLD_AND_NMI'
         sandybridge_constraints = {
             # Metrics with more events than counters.
             'tma_branch_mispredicts': no_group,
@@ -875,107 +879,122 @@ class Model:
             'tma_core_bound': no_group,
             'tma_data_sharing': no_group,
             'tma_fb_full': no_group,
+            'tma_info_memory_load_miss_real_latency': no_group,
+            'tma_info_memory_mlp': no_group,
+            'tma_info_system_mem_parallel_reads': no_group,
             'tma_l3_hit_latency': no_group,
-            'tma_local_dram': no_group,
+            'tma_local_mem': no_group,
             'tma_lock_latency': no_group,
             'tma_machine_clears': no_group,
             'tma_memory_bound': no_group,
             'tma_ports_utilization': no_group,
             'tma_remote_cache': no_group,
-            'tma_remote_dram': no_group,
+            'tma_remote_mem': no_group,
             'tma_split_loads': no_group,
             'tma_store_latency': no_group,
-            'tma_info_memory_load_miss_real_latency': no_group,
-            'tma_info_memory_mlp': no_group,
-            # Metrics that would fit were the NMI watchdog disabled.
-            'tma_alu_op_utilization': nmi,
-            'tma_backend_bound': nmi,
-            'tma_cisc': nmi,
-            'tma_load_op_utilization': nmi,
             # SMT errata workarounds.
             'tma_dram_bound': smt,
             'tma_l3_bound': smt,
         }
         skylake_constraints = {
             # Metrics with more events than counters.
+            'tma_bottleneck_big_code': no_group,
+            'tma_bottleneck_compute_bound_est': no_group,
+            'tma_bottleneck_data_cache_memory_bandwidth': no_group,
+            'tma_bottleneck_data_cache_memory_latency': no_group,
+            'tma_bottleneck_instruction_fetch_bw': no_group,
+            'tma_bottleneck_irregular_overhead': no_group,
+            'tma_bottleneck_memory_data_tlbs': no_group,
+            'tma_bottleneck_memory_synchronization': no_group,
+            'tma_bottleneck_mispredictions': no_group,
+            'tma_bottleneck_other_bottlenecks': no_group,
+            'tma_bottleneck_useful_work': no_group,
             'tma_branch_mispredicts': no_group,
+            'tma_cisc': no_group,
             'tma_contested_accesses': no_group,
             'tma_core_bound': no_group,
             'tma_data_sharing': no_group,
             'tma_dram_bound': no_group,
             'tma_false_sharing': no_group,
             'tma_fp_arith': no_group,
-            'tma_fp_vector': no_group,
-            'tma_l2_bound': no_group,
-            'tma_machine_clears': no_group,
-            'tma_memory_bound': no_group,
-            'tma_pmm_bound': no_group,
+            'tma_info_bad_spec_branch_misprediction_cost': no_group,
             'tma_info_botlnk_l0_core_bound_likely': no_group,
+            'tma_info_botlnk_l2_dsb_bandwidth': no_group,
             'tma_info_botlnk_l2_dsb_misses': no_group,
-            'tma_info_bottleneck_big_code': no_group,
-            'tma_info_bottleneck_instruction_fetch_bw': no_group,
-            'tma_info_bottleneck_memory_bandwidth': no_group,
-            'tma_info_bottleneck_memory_data_tlbs': no_group,
-            'tma_info_bottleneck_memory_latency': no_group,
-            'tma_info_bottleneck_mispredictions': no_group,
+            'tma_info_botlnk_l2_ic_misses': no_group,
             'tma_info_branches_jump': no_group,
             'tma_info_core_flopc': no_group,
-            'tma_info_fp_arith_utilization': no_group,
-            'tma_info_inst_mix_iparith': no_group,
             'tma_info_inst_mix_ipflop': no_group,
             'tma_info_system_gflops': no_group,
+            'tma_l1_latency_dependency': no_group,
+            'tma_l2_bound': no_group,
+            'tma_lock_latency': no_group,
+            'tma_machine_clears': no_group,
+            'tma_memory_bound': no_group,
+            'tma_mispredicts_resteers': no_group,
+            'tma_other_light_ops': no_group,
+            'tma_other_mispredicts': no_group,
+            'tma_other_nukes': no_group,
+            'tma_ports_utilization': no_group,
             # Metrics that would fit were the NMI watchdog disabled.
+            'tma_alu_op_utilization': nmi,
             'tma_dtlb_load': nmi,
             'tma_fb_full': nmi,
             'tma_few_uops_instructions': nmi,
+            'tma_info_memory_tlb_page_walks_utilization': nmi,
+            'tma_load_op_utilization': nmi,
             'tma_load_stlb_hit': nmi,
-            'tma_microcode_sequencer': nmi,
+            'tma_load_stlb_miss_1g': nmi,
+            'tma_load_stlb_miss_2m': nmi,
+            'tma_load_stlb_miss_4k': nmi,
             'tma_remote_cache': nmi,
             'tma_split_loads': nmi,
             'tma_store_latency': nmi,
-            'tma_info_memory_tlb_page_walks_utilization': nmi,
+            'tma_store_stlb_miss_1g': nmi,
+            'tma_store_stlb_miss_2m': nmi,
+            'tma_store_stlb_miss_4k': nmi,
         }
         icelake_constraints = {
             # Metrics with more events than counters.
+            'tma_bottleneck_big_code': no_group,
+            'tma_bottleneck_compute_bound_est': no_group,
+            'tma_bottleneck_data_cache_memory_bandwidth': no_group,
+            'tma_bottleneck_data_cache_memory_latency': no_group,
+            'tma_bottleneck_instruction_fetch_bw': no_group,
+            'tma_bottleneck_irregular_overhead': no_group,
+            'tma_bottleneck_memory_data_tlbs': no_group,
+            'tma_bottleneck_memory_synchronization': no_group,
+            'tma_bottleneck_mispredictions': no_group,
+            'tma_bottleneck_other_bottlenecks': no_group,
+            'tma_bottleneck_useful_work': no_group,
             'tma_contested_accesses': no_group,
             'tma_data_sharing': no_group,
             'tma_dram_bound': no_group,
+            'tma_info_bad_spec_branch_misprediction_cost': no_group,
+            'tma_info_botlnk_l0_core_bound_likely': no_group,
+            'tma_info_botlnk_l2_dsb_bandwidth': no_group,
+            'tma_info_botlnk_l2_dsb_misses': no_group,
+            'tma_info_botlnk_l2_ic_misses': no_group,
+            'tma_info_system_mem_parallel_reads': no_group,
             'tma_l2_bound': no_group,
             'tma_lock_latency': no_group,
             'tma_memory_operations': no_group,
             'tma_other_light_ops': no_group,
-            'tma_info_bad_spec_branch_misprediction_cost': no_group,
-            'tma_info_botlnk_l0_core_bound_likely': no_group,
-            'tma_info_botlnk_l2_dsb_misses': no_group,
-            'tma_info_botlnk_l2_dsb_misses': no_group,
-            'tma_info_botlnk_l2_ic_misses': no_group,
-            'tma_info_bottleneck_big_code': no_group,
-            'tma_info_bottleneck_instruction_fetch_bw': no_group,
-            'tma_info_bottleneck_memory_bandwidth': no_group,
-            'tma_info_bottleneck_memory_data_tlbs': no_group,
-            'tma_info_bottleneck_memory_latency': no_group,
-            'tma_info_bottleneck_mispredictions': no_group,
-            # Metrics that would fit were the NMI watchdog disabled.
-            'tma_l3_bound': nmi,
-            'tma_4k_aliasing': nmi,
-            'tma_split_stores': nmi,
-            'tma_store_fwd_blk': nmi,
         }
         # Alderlake/sapphirerapids add topdown l2 events
         # meaning fewer events and triggering NMI issues.
         alderlake_constraints = {
-            # Metrics with more events than counters.
-            'tma_info_system_mem_read_latency': no_group,
-            'tma_info_system_mem_request_latency': no_group,
-            'tma_l2_hit_latency': no_group,
-            'tma_l3_hit_latency': no_group,
+            # Metrics with more events than counters, computed with
+            # threshold disabled.
+            'tma_other_light_ops': no_group,
+            'tma_lock_latency': no_group,
             'tma_data_sharing': no_group,
-            'tma_contested_accesses': no_group,
             # Metrics that would fit were the NMI watchdog disabled.
-            'tma_ports_utilized_2': nmi,
-            'tma_ports_utilized_3m': nmi,
-            'tma_memory_fence': nmi,
-            'tma_slow_pause': nmi,
+            'tma_ports_utilization': nmi,
+            # Metrics that would fit were the NMI watchdog disabled or
+            # if metric thresholds aren't used.
+            'tma_ports_utilized_0': nmi_threshold,
+            'tma_ports_utilized_1': nmi_threshold,
         }
         errata_constraints = {
             # 4 programmable, 3 fixed counters per HT
@@ -1680,15 +1699,6 @@ class Model:
                 return form
 
             form = resolve_all(form, expand_metrics=False)
-            needs_slots = r'topdown\-' in form and 'tma_info_thread_slots' not in form
-            if needs_slots:
-                # topdown events must always be grouped with a
-                # TOPDOWN.SLOTS event. Detect when this is missing in a
-                # metric and insert a dummy value. Metrics using other
-                # metrics with topdown events will get a TOPDOWN.SLOTS
-                # event from them.
-                form = f'{form} + 0*tma_info_thread_slots'
-
             threshold = None
             if i.threshold:
                 # Handle MUX specially:
@@ -1971,6 +1981,18 @@ class Model:
 
         if len(metrics) > 0:
             metrics.extend(self.cstate_json())
+
+            for m in metrics:
+                form = m['MetricExpr']
+                if "TSC" in form:
+                    if 'Unit' in m:
+                        unit = m['Unit']
+                        tsc_pmu_suffix = rf"\,cpu={unit}@"
+                    else:
+                        tsc_pmu_suffix = "@"
+                    form = re.sub(r"\bTSC\b", "msr@tsc" + tsc_pmu_suffix, form)
+                    m['MetricExpr'] = form
+
             mg = self.tsx_json()
             if mg:
                 metrics.extend(json.loads(mg.ToPerfJson()))

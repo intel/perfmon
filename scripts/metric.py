@@ -175,10 +175,7 @@ class Operator(Expression):
       if self.operator in ('+', '|') and lhs.value == '0':
         return rhs
 
-      # Simplify multiplication by 0 except for the slot event which
-      # is deliberately introduced using this pattern.
-      if self.operator == '*' and lhs.value == '0' and (
-          not isinstance(rhs, Event) or 'slots' not in rhs.name.lower()):
+      if self.operator == '*' and lhs.value == '0':
         return Constant(0)
 
       if self.operator == '*' and lhs.value == '1':
