@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2025 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) 6 Processor with P-cores - V1.13",
-    "DatePublished": "07/28/2025",
-    "Version": "1.13",
+    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) 6 Processor with P-cores - V1.15",
+    "DatePublished": "08/28/2025",
+    "Version": "1.15",
     "Legend": ""
   },
   "Events": [
@@ -4085,24 +4085,6 @@
       "EventName": "UNC_I_MISC0.FAST_REJ",
       "BriefDescription": "Counts Timeouts - Set 0 : Fastpath Rejects",
       "PublicDescription": "Counts Timeouts - Set 0 : Fastpath Rejects",
-      "Counter": "0,1,2,3",
-      "ELLC": "0",
-      "Filter": "na",
-      "ExtSel": "0",
-      "Deprecated": "0",
-      "FILTER_VALUE": "0",
-      "CounterType": "PGMABLE"
-    },
-    {
-      "Unit": "IRP",
-      "EventCode": "0x1F",
-      "UMask": "0x10",
-      "PortMask": "0x00",
-      "FCMask": "0x00",
-      "UMaskExt": "0x00000000",
-      "EventName": "UNC_I_MISC1.LOST_FWD",
-      "BriefDescription": "Misc Events - Set 1 : Lost Forward : Snoop pulled away ownership before a write was committed",
-      "PublicDescription": "Misc Events - Set 1 : Lost Forward : Snoop pulled away ownership before a write was committed",
       "Counter": "0,1,2,3",
       "ELLC": "0",
       "Filter": "na",
