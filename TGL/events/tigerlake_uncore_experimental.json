@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2025 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 11th Generation Intel(R) Core(TM) Processor - V1.18",
-    "DatePublished": "05/06/2025",
-    "Version": "1.18",
+    "Info": "Performance Monitoring Events for 11th Generation Intel(R) Core(TM) Processor - V1.19",
+    "DatePublished": "08/27/2025",
+    "Version": "1.19",
     "Legend": ""
   },
   "Events": [
@@ -15,9 +15,6 @@
       "BriefDescription": "Each cycle count number of 'valid' coherent Data Read entries . Such entry is defined as valid when it is allocated till deallocation. Doesn't include prefetches [This event is alias to UNC_ARB_TRK_OCCUPANCY.RD]",
       "PublicDescription": "Each cycle count number of 'valid' coherent Data Read entries . Such entry is defined as valid when it is allocated till deallocation. Doesn't include prefetches [This event is alias to UNC_ARB_TRK_OCCUPANCY.RD]",
       "Counter": "0",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
@@ -29,9 +26,6 @@
       "BriefDescription": "Number of all coherent Data Read entries. Doesn't include prefetches [This event is alias to UNC_ARB_TRK_REQUESTS.RD]",
       "PublicDescription": "Number of all coherent Data Read entries. Doesn't include prefetches [This event is alias to UNC_ARB_TRK_REQUESTS.RD]",
       "Counter": "0,1",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
@@ -43,9 +37,6 @@
       "BriefDescription": "This event is deprecated. Refer to new event UNC_ARB_DAT_OCCUPANCY.ALL",
       "PublicDescription": "This event is deprecated. Refer to new event UNC_ARB_DAT_OCCUPANCY.ALL",
       "Counter": "0",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "1",
       "CounterType": "PGMABLE"
     },
@@ -57,9 +48,6 @@
       "BriefDescription": "Each cycle counts number of coherent reads pending on data return from memory controller that were issued by any core.",
       "PublicDescription": "Each cycle counts number of coherent reads pending on data return from memory controller that were issued by any core.",
       "Counter": "0",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
@@ -71,9 +59,6 @@
       "BriefDescription": "Each cycle counts number of any coherent request at memory controller that were issued by any core.",
       "PublicDescription": "Each cycle counts number of any coherent request at memory controller that were issued by any core.",
       "Counter": "0",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
@@ -85,9 +70,6 @@
       "BriefDescription": "This event is deprecated. Refer to new event UNC_ARB_REQ_TRK_REQUEST.DRD",
       "PublicDescription": "This event is deprecated. Refer to new event UNC_ARB_REQ_TRK_REQUEST.DRD",
       "Counter": "0,1",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "1",
       "CounterType": "PGMABLE"
     },
@@ -99,9 +81,6 @@
       "BriefDescription": "Each cycle count number of 'valid' coherent Data Read entries . Such entry is defined as valid when it is allocated till deallocation. Doesn't include prefetches [This event is alias to UNC_ARB_REQ_TRK_OCCUPANCY.DRD]",
       "PublicDescription": "Each cycle count number of 'valid' coherent Data Read entries . Such entry is defined as valid when it is allocated till deallocation. Doesn't include prefetches [This event is alias to UNC_ARB_REQ_TRK_OCCUPANCY.DRD]",
       "Counter": "0",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
@@ -113,9 +92,6 @@
       "BriefDescription": "Number of all coherent Data Read entries. Doesn't include prefetches [This event is alias to UNC_ARB_REQ_TRK_REQUEST.DRD]",
       "PublicDescription": "Number of all coherent Data Read entries. Doesn't include prefetches [This event is alias to UNC_ARB_REQ_TRK_REQUEST.DRD]",
       "Counter": "0,1",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
     }
