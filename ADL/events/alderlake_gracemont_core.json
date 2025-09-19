@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2025 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 12th and 13th Generation Intel(R) Core(TM) Processor - V1.33",
-    "DatePublished": "07/03/2025",
-    "Version": "1.33",
+    "Info": "Performance Monitoring Events for 12th and 13th Generation Intel(R) Core(TM) Processor - V1.34",
+    "DatePublished": "08/29/2025",
+    "Version": "1.34",
     "Legend": ""
   },
   "Events": [
@@ -3995,7 +3995,7 @@
       "MSRValue": "0x00",
       "Precise": "1",
       "CollectPEBSRecord": "2",
-      "TakenAlone": "0",
+      "TakenAlone": "1",
       "CounterMask": "0",
       "Invert": "0",
       "EdgeDetect": "0",
