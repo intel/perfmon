@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2025 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Grand Ridge Base Transceiver Station Family - V1.09",
-    "DatePublished": "05/16/2025",
-    "Version": "1.09",
+    "Info": "Performance Monitoring Events for Intel(R) Grand Ridge Base Transceiver Station Family - V1.10",
+    "DatePublished": "08/28/2025",
+    "Version": "1.10",
     "Legend": ""
   },
   "Events": [
