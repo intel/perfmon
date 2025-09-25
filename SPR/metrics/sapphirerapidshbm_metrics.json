@@ -1334,7 +1334,7 @@
           "Alias": "socket_count"
         }
       ],
-      "Formula": "(b / a[0]) * socket_count",
+      "Formula": "(b / a) * socket_count",
       "Category": "Power",
       "ResolutionLevels": "SOCKET, SYSTEM",
       "MetricGroup": "cpu_cstate"
@@ -1361,7 +1361,7 @@
           "Alias": "socket_count"
         }
       ],
-      "Formula": "(b / a[0]) * socket_count",
+      "Formula": "(b / a) * socket_count",
       "Category": "Power",
       "ResolutionLevels": "SOCKET, SYSTEM",
       "MetricGroup": "cpu_cstate"
