@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2025 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) 6 Processor with P-cores - V1.15",
-    "DatePublished": "08/28/2025",
-    "Version": "1.15",
+    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) 6 Processor with P-cores - V1.16",
+    "DatePublished": "10/17/2025",
+    "Version": "1.16",
     "Legend": ""
   },
   "Events": [
@@ -7961,8 +7961,8 @@
       "EventCode": "0xd3",
       "UMask": "0x01",
       "EventName": "MEM_LOAD_L3_MISS_RETIRED.LOCAL_DRAM",
-      "BriefDescription": "Retired load instructions which data sources missed L3 but serviced from local dram",
-      "PublicDescription": "Retired load instructions which data sources missed L3 but serviced from local DRAM.",
+      "BriefDescription": "Retired load instructions which data sources missed L3 but serviced from dram homed in the local socket",
+      "PublicDescription": "Retired load instructions which data sources missed L3 but serviced from DRAM homed in the local socket.",
       "Counter": "0,1,2,3",
       "PEBScounters": "0,1,2,3",
       "SampleAfterValue": "100007",

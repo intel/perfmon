@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2025 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) 6 Processor with P-cores - V1.15",
-    "DatePublished": "08/28/2025",
-    "Version": "1.15",
+    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) 6 Processor with P-cores - V1.16",
+    "DatePublished": "10/17/2025",
+    "Version": "1.16",
     "Legend": ""
   },
   "Events": [

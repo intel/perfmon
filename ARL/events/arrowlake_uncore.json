@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2025 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Core(TM) processors based on Arrow Lake performance hybrid architecture - V1.13",
-    "DatePublished": "08/05/2025",
-    "Version": "1.13",
+    "Info": "Performance Monitoring Events for Intel(R) Core(TM) processors based on Arrow Lake performance hybrid architecture - V1.14",
+    "DatePublished": "10/17/2025",
+    "Version": "1.14",
     "Legend": ""
   },
   "Events": [
@@ -16,9 +16,6 @@
       "BriefDescription": "Read CAS command sent to DRAM",
       "PublicDescription": "Read CAS command sent to DRAM",
       "Counter": "0,1,2,3,4",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
@@ -31,9 +28,6 @@
       "BriefDescription": "Write CAS command sent to DRAM",
       "PublicDescription": "Write CAS command sent to DRAM",
       "Counter": "0,1,2,3,4",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
@@ -46,9 +40,6 @@
       "BriefDescription": "ACT command for a read request sent to DRAM",
       "PublicDescription": "ACT command for a read request sent to DRAM",
       "Counter": "0,1,2,3,4",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
@@ -61,9 +52,6 @@
       "BriefDescription": "ACT command for a write request sent to DRAM",
       "PublicDescription": "ACT command for a write request sent to DRAM",
       "Counter": "0,1,2,3,4",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
@@ -76,9 +64,6 @@
       "BriefDescription": "ACT command sent to DRAM",
       "PublicDescription": "ACT command sent to DRAM",
       "Counter": "0,1,2,3,4",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
@@ -91,9 +76,6 @@
       "BriefDescription": "PRE command sent to DRAM for a read/write request",
       "PublicDescription": "PRE command sent to DRAM for a read/write request",
       "Counter": "0,1,2,3,4",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
@@ -106,9 +88,6 @@
       "BriefDescription": "PRE command sent to DRAM due to page table idle timer expiration",
       "PublicDescription": "PRE command sent to DRAM due to page table idle timer expiration",
       "Counter": "0,1,2,3,4",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
@@ -121,9 +100,6 @@
       "BriefDescription": "Counts every read and write request entering the Memory Controller 0.",
       "PublicDescription": "Counts every read and write request entering the Memory Controller 0 (sum of all channels). All requests are counted as one, whether they are 32B or 64B Read/Write or partial/full line writes. Some write requests to the same address may merge to a single write command to DRAM. Therefore, the total request count may be higher than total DRAM BW.",
       "Counter": "2",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "FREERUN"
     },
@@ -136,9 +112,6 @@
       "BriefDescription": "Counts every read and write request entering the Memory Controller 1.",
       "PublicDescription": "Counts every read and write request entering the Memory Controller 1 (sum of all channels). All requests are counted as one, whether they are 32B or 64B Read/Write or partial/full line writes. Some write requests to the same address may merge to a single write command to DRAM. Therefore, the total request count may be higher than total DRAM BW.",
       "Counter": "5",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "FREERUN"
     },
@@ -151,9 +124,6 @@
       "BriefDescription": "Counts every CAS read command sent from the Memory Controller 0 to DRAM (sum of all channels).",
       "PublicDescription": "Counts every CAS read command sent from the Memory Controller 0 to DRAM (sum of all channels). Each CAS commands can be for 32B or 64B of data.",
       "Counter": "0",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "FREERUN"
     },
@@ -166,9 +136,6 @@
       "BriefDescription": "Counts every CAS read command sent from the Memory Controller 1 to DRAM (sum of all channels).",
       "PublicDescription": "Counts every CAS read command sent from the Memory Controller 1 to DRAM (sum of all channels). Each CAS commands can be for 32B or 64B of data.",
       "Counter": "3",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "FREERUN"
     },
@@ -181,9 +148,6 @@
       "BriefDescription": "Counts every CAS write command sent from the Memory Controller 0 to DRAM (sum of all channels).",
       "PublicDescription": "Counts every CAS write command sent from the Memory Controller 0 to DRAM (sum of all channels).  Each CAS commands can be for 32B or 64B of data.",
       "Counter": "1",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "FREERUN"
     },
@@ -196,9 +160,6 @@
       "BriefDescription": "Counts every CAS write command sent from the Memory Controller 1 to DRAM (sum of all channels).",
       "PublicDescription": "Counts every CAS write command sent from the Memory Controller 1 to DRAM (sum of all channels).  Each CAS commands can be for 32B or 64B of data.",
       "Counter": "4",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "FREERUN"
     },
@@ -211,9 +172,6 @@
       "BriefDescription": "Total number of read and write byte transfers to/from DRAM, in 32B chunks. Counter increments by 1 after sending or receiving 32B chunk data.",
       "PublicDescription": "Total number of read and write byte transfers to/from DRAM, in 32B chunks. Counter increments by 1 after sending or receiving 32B chunk data.",
       "Counter": "0,1,2,3,4",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
@@ -226,9 +184,6 @@
       "BriefDescription": "Number of bytes written to DRAM, in 32B chunks. Counter increments by 1 after sending 32B chunk data.",
       "PublicDescription": "Number of bytes written to DRAM, in 32B chunks. Counter increments by 1 after sending 32B chunk data.",
       "Counter": "0,1,2,3,4",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
@@ -241,9 +196,6 @@
       "BriefDescription": "Number of bytes read from DRAM, in 32B chunks. Counter increments by 1 after receiving 32B chunk data.",
       "PublicDescription": "Number of bytes read from DRAM, in 32B chunks. Counter increments by 1 after receiving 32B chunk data.",
       "Counter": "0,1,2,3,4",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
@@ -256,9 +208,6 @@
       "BriefDescription": "Total number of all outgoing entries allocated. Accounts for Coherent and non-coherent traffic.",
       "PublicDescription": "Total number of all outgoing entries allocated. Accounts for Coherent and non-coherent traffic.",
       "Counter": "0,1",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
@@ -271,9 +220,6 @@
       "BriefDescription": "Number of all coherent Data Read entries. Doesn't include prefetches",
       "PublicDescription": "Number of all coherent Data Read entries. Doesn't include prefetches",
       "Counter": "0,1",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
@@ -286,9 +232,6 @@
       "BriefDescription": "Number of all CMI transactions",
       "PublicDescription": "Number of all CMI transactions",
       "Counter": "0,1",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
@@ -301,9 +244,6 @@
       "BriefDescription": "Number of all CMI reads",
       "PublicDescription": "Number of all CMI reads",
       "Counter": "0,1",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
@@ -316,9 +256,6 @@
       "BriefDescription": "Number of all CMI writes not including Mflush",
       "PublicDescription": "Number of all CMI writes not including Mflush",
       "Counter": "0,1",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
@@ -331,9 +268,6 @@
       "BriefDescription": "Asserted on coherent DRD + DRdPref  allocations into the queue. Cacheable only",
       "PublicDescription": "Asserted on coherent DRD + DRdPref  allocations into the queue. Cacheable only",
       "Counter": "0,1",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
@@ -346,9 +280,6 @@
       "BriefDescription": "Number of all entries allocated. Includes also retries.",
       "PublicDescription": "Number of all entries allocated. Includes also retries.",
       "Counter": "0,1",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
     },
@@ -361,9 +292,6 @@
       "BriefDescription": "This 48-bit fixed counter counts the UCLK cycles.",
       "PublicDescription": "This 48-bit fixed counter counts the UCLK cycles.",
       "Counter": "FIXED",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0",
       "CounterType": "FIXED"
     }
