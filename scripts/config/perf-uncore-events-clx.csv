@@ -1,3 +1,4 @@
+name,new_name,description,filter,scale,formula,comment
 UNC_M2M_BYPASS_M2M_Egress.NOT_TAKEN,,,,,,
 UNC_M2M_DIRECT2CORE_NOT_TAKEN_DIRSTATE,,,,,,
 UNC_M2M_DIRECT2CORE_TAKEN,,,,,,
@@ -62,7 +63,7 @@ UNC_M_PMM_RPQ_OCCUPANCY.ALL,,Read Pending Queue Occupancy of all read requests f
 UNC_M_PMM_RPQ_OCCUPANCY.ALL,UNC_M_PMM_READ_LATENCY,Intel Optane DC persistent memory read latency (ns),,6000000000(ns),UNC_M_PMM_RPQ_OCCUPANCY.ALL / UNC_M_PMM_RPQ_INSERTS / UNC_M_CLOCKTICKS,
 UNC_M_PMM_RPQ_INSERTS,,Write requests allocated in the PMM Write Pending Queue for Intel Optane DC persistent memory,,,,
 UNC_M_PMM_RPQ_INSERTS,UNC_M_PMM_BANDWIDTH.READ,Intel Optane DC persistent memory bandwidth read (MB/sec),,6.103515625E-5(MB/sec),,
-UNC_M_PMM_RPQ_INSERTS,UNC_M_PMM_BANDWIDTH.TOTAL,Intel Optane DC persistent memory bandwidth total (MB/sec),,6.103515625E-5(MB/sec),UNC_M_PMM_RPQ_INSERTS + UNC_M_PMM_WPQ_INSERTS
+UNC_M_PMM_RPQ_INSERTS,UNC_M_PMM_BANDWIDTH.TOTAL,Intel Optane DC persistent memory bandwidth total (MB/sec),,6.103515625E-5(MB/sec),UNC_M_PMM_RPQ_INSERTS + UNC_M_PMM_WPQ_INSERTS,
 UNC_M_PMM_CMD1.ALL,,,,,,
 UNC_M_PMM_CMD1.RD,,,,,,
 UNC_M_PMM_CMD1.WR,,,,,,
@@ -113,7 +114,7 @@ UNC_CHA_TOR_INSERTS.IO_MISS,,,,,,
 UNC_CHA_TOR_INSERTS.IA,,,,,,
 UNC_CHA_TOR_INSERTS.IA_HIT,,,,,,
 UNC_CHA_TOR_INSERTS.IA_MISS,,,,,,
-UNC_CHA_TOR_INSERTS.IA_MISS,LLC_MISSES.UNCACHEABLE,LLC misses - Uncacheable reads (from cpu) ,:filter1=0x40e33,,,
+UNC_CHA_TOR_INSERTS.IA_MISS,LLC_MISSES.UNCACHEABLE,LLC misses - Uncacheable reads (from cpu),:filter1=0x40e33,,,
 UNC_CHA_TOR_INSERTS.IA_MISS,LLC_MISSES.MMIO_READ,MMIO reads,:filter1=0x40040e33,,,There was a typo that I fixed
 UNC_CHA_TOR_INSERTS.IA_MISS,LLC_MISSES.MMIO_WRITE,MMIO writes,:filter1=0x40041e33,,,
 UNC_CHA_TOR_INSERTS.IA_MISS,LLC_REFERENCES.STREAMING_FULL,Streaming stores (full cache line),:filter1=0x41833,64,,

@@ -1,3 +1,4 @@
+name,new_name,description,filter,scale,formula,comment
 UNC_CHA_CLOCKTICKS,,Uncore cache clock ticks,,,,
 UNC_CHA_IMC_READS_COUNT.NORMAL,,,,,,
 UNC_CHA_IMC_WRITES_COUNT.FULL,,,,,,
