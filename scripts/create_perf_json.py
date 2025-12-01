@@ -1861,11 +1861,14 @@ class Model:
         if 'uncore csv' in self.files:
             _verboseprint2(f'Rewriting events with {self.files["uncore csv"]}')
             with open(self.files['uncore csv'], 'r') as uncore_csv:
-                csvfile = csv.reader(uncore_csv)
+                csvfile = csv.DictReader(uncore_csv)
                 for l in csvfile:
-                    while len(l) < 7:
-                        l.append('')
-                    name, newname, desc, filter, scale, formula, comment = l
+                    name = l['name']
+                    newname = l['new_name']
+                    desc = l['description']
+                    filter = l['filter']
+                    scale = l['scale']
+                    formula = l['formula']
 
                     umask = None
                     if ":" in name:
