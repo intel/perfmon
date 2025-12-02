@@ -232,5 +232,14 @@
         "CoreType":"E-core",
         "IsHybrid":true,
         "DefaultLevel":2
+    },
+    {
+        "Name": "Diamond Rapids",
+        "ShortName": "DMR",
+        "FileName": "DiamondRapids",
+        "Core": "PantherCove",
+        "CoreType": "P-core",
+        "IsHybrid": false,
+        "DefaultLevel": 2
     }
 ]
