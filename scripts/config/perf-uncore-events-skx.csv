@@ -1,3 +1,4 @@
+name,new_name,description,filter,scale,formula,comment
 UNC_C_CLOCKTICKS,,,,,,
 UNC_H_CORE_SNP.CORE_GTONE,,,,,,
 UNC_H_CORE_SNP.EVICT_GTONE,,,,,,
