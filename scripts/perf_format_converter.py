@@ -7,6 +7,7 @@
 #
 # perf_format_converter.py
 # -i (--finput) <Path to Input File> (optional)
+# -t (--tma)    <Enable TMA conversion> (optional)
 #
 # ASSUMES: That the script is being run in the scripts folder of the repo and that all files
 #          are JSON format
@@ -64,7 +65,7 @@ PLATFORM_CONFIG_PATH = Path("./config/platform_config.json")
 INPUT_DIR_PATH = Path("./inputs/")
 OUTPUT_DIR_PATH = Path("./outputs/")
 
-# Fields to always display event if empty
+# Fields to always display even if empty
 PERSISTENT_FIELDS = ["MetricGroup", "BriefDescription"]
 
 # Operators
@@ -124,6 +125,7 @@ def convert_file(file_path: Path, output_tma: bool):
         # Convert the dictionary to list of Perf format metric objects
         perf_metrics = format_converter.convert_to_perf_metrics(platform, output_tma)
         if not perf_metrics:
+            print(f"[ERROR] - Could not convert metrics or file is empty: <{str(file_path.name)}> Skipping...")
             return
 
         # Get the output file
@@ -145,7 +147,7 @@ def get_args():
     # Arguments
     parser.add_argument("-i", "--finput", type=Path,
                         help="Path of input json file", required=False)
-    parser.add_argument("-t", "--tma", type=bool,
+    parser.add_argument("-t", "--tma", type=bool, default=False,
                        help="Output TMA metrics [true/false]", required=False)
     
     # Get arguments
