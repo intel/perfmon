@@ -199,8 +199,18 @@ is defined architecturally. Each value corresponds to an event logic unit and sh
 mask value to obtain an architectural performance event.
 
 ### UMask
-This field maps to the Unit Mask filed in the `IA32_PERFEVTSELx[15:8]` MSRs. It further qualifies the event logic
+This field maps to the Unit Mask field in the `IA32_PERFEVTSELx[15:8]` MSRs. It further qualifies the event logic
 unit selected in the event select field to detect a specific micro-architectural condition.
+
+### UMaskExt (Core events)
+This field maps to the Unit Mask 2 field in the `IA32_PERFEVTSELx[47:40]` MSRs. First introduced with architectural
+performance monitoring version 6.
+
+> These bits qualify the condition that the selected event logic unit detects. Valid UMASK2 values for each
+event logic unit are specific to the unit. The new UMASK2 field may also be used in conjunction with UMASK.
+
+:warning: `UMaskExt` will be renamed to `UMask2` to align with the Intel&reg; SDM. Please refer to
+https://github.com/intel/perfmon/issues/357 for additional information.
 
 ### EventName
 It is a string of characters to identify the programming of an event.
