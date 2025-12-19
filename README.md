@@ -247,7 +247,7 @@ This is useful in event-based sampling. This field gives a recommended default o
 workload or tool preference.
 
 ### MSRIndex
-Additional MSRs may be required for programming certain events. This field gives the address of such MSRS.
+Additional MSRs may be required for programming certain events. This field gives the address of such MSRs.
 Examples include:
 * 0x3F6: MSR_PEBS_LD_LAT - used to configure the Load Latency Performance Monitoring Facility
 * 0x1A6/0x1A7: MSR_OFFCORE_RSP_X - used to configure the offcore response events
@@ -263,7 +263,7 @@ Applies to processors that support both precise and non-precise events in **Proc
 0. The event cannot be programmed to collect a PEBS record.
 1. The event may be programmed to collect a PEBS record, but caution is advised. For instance, PEBS collection of this event may consume limited PEBS resources whereas interrupt-based sampling may be sufficient for the usage model.
 2. The event may be programmed to collect a PEBS record, and due to the nature of the event, PEBS collection may be preferred. For instance,
-PEBS collection of Goldmont's `HW_INTERUPTS.RECIEVED` event is recommended because the hardware interrupt being counted may lead to the masking of
+PEBS collection of Goldmont's `HW_INTERRUPTS.RECEIVED` event is recommended because the hardware interrupt being counted may lead to the masking of
 interrupts which would interfere with interrupt-based sampling.
 3. The event must be programmed to collect a PEBS record.
 
