@@ -315,7 +315,7 @@
     },
     {
         "BriefDescription": "The number of times per second that ownership of a cacheline was stolen from the integrated IO controller before it was able to write back the modified line",
-        "MetricExpr": "( UNC_I_MISC1.SEC_RCVD_INVLD + B ) / duration_time",
+        "MetricExpr": "( UNC_I_MISC1.LOST_FWD + UNC_I_MISC1.SEC_RCVD_INVLD ) / duration_time",
         "MetricGroup": "",
         "MetricName": "io_lost_fwd",
         "ScaleUnit": "1per_sec"
