@@ -392,28 +392,6 @@
       "MetricGroup": ""
     },
     {
-      "MetricName": "l2_demand_code_mpi",
-      "LegacyName": "metric_L2 demand code MPI",
-      "Level": 1,
-      "BriefDescription": "Ratio of number of code read request missing L2 cache to the total number of completed instructions",
-      "UnitOfMeasure": "per instruction",
-      "Events": [
-        {
-          "Name": "OCR.DEMAND_CODE_RD.ANY_RESPONSE",
-          "Alias": "a"
-        },
-        {
-          "Name": "INST_RETIRED.ANY",
-          "Alias": "b"
-        }
-      ],
-      "Constants": [],
-      "Formula": "a / b",
-      "Category": "MPI, I-side",
-      "ResolutionLevels": "THREAD, CORE, SOCKET, SYSTEM",
-      "MetricGroup": ""
-    },
-    {
       "MetricName": "llc_data_read_mpi_demand_plus_prefetch",
       "LegacyName": "metric_LLC data read MPI (demand+prefetch)",
       "Level": 1,
