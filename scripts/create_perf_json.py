@@ -1032,6 +1032,7 @@ class Model:
             'GRR': alderlake_constraints,
             'GNR': alderlake_constraints,
             'SRF': alderlake_constraints,
+            'CWF': alderlake_constraints,
             'ARL': alderlake_constraints,
             'LNL': alderlake_constraints,
         }
