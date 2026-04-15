@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2026 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) 6+ (codenamed Clearwater Forest) - V1.01",
-    "DatePublished": "02/26/2026",
-    "Version": "1.01",
+    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) 6+ (codenamed Clearwater Forest) - V1.02",
+    "DatePublished": "04/09/2026",
+    "Version": "1.02",
     "Legend": ""
   },
   "Events": [
