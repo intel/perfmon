@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2026 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) 6 Processor with P-cores - V1.18",
-    "DatePublished": "04/09/2026",
-    "Version": "1.18",
+    "Info": "Performance Monitoring Events for Intel(R) Xeon(R) 6 Processor with P-cores - V1.19",
+    "DatePublished": "04/23/2026",
+    "Version": "1.19",
     "Legend": ""
   },
   "Events": [
@@ -4085,6 +4085,24 @@
       "EventName": "UNC_I_MISC0.FAST_REJ",
       "BriefDescription": "Counts Timeouts - Set 0 : Fastpath Rejects",
       "PublicDescription": "Counts Timeouts - Set 0 : Fastpath Rejects",
+      "Counter": "0,1,2,3",
+      "ELLC": "0",
+      "Filter": "na",
+      "ExtSel": "0",
+      "Deprecated": "0",
+      "FILTER_VALUE": "0",
+      "CounterType": "PGMABLE"
+    },
+    {
+      "Unit": "IRP",
+      "EventCode": "0x1E",
+      "UMask": "0x08",
+      "PortMask": "0x00",
+      "FCMask": "0x00",
+      "UMaskExt": "0x00000000",
+      "EventName": "UNC_I_MISC0.2ND_WR_INSERT",
+      "BriefDescription": "Counts Timeouts - Set 0 : Cache Inserts of Write Transactions as Secondary",
+      "PublicDescription": "Counts Timeouts - Set 0 : Cache Inserts of Write Transactions as Secondary",
       "Counter": "0,1,2,3",
       "ELLC": "0",
       "Filter": "na",
