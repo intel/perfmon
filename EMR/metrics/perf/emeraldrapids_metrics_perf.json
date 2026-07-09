@@ -306,6 +306,55 @@
         "ScaleUnit": "1MB/s"
     },
     {
+        "BriefDescription": "Bandwidth (MB/sec) of read requests that miss the last level cache (LLC) and go to local memory",
+        "MetricExpr": "( UNC_CHA_REQUESTS.READS_LOCAL * 64 / 1000000 ) / duration_time",
+        "MetricGroup": "",
+        "MetricName": "llc_miss_local_memory_bandwidth_read",
+        "ScaleUnit": "1MB/s"
+    },
+    {
+        "BriefDescription": "Bandwidth (MB/sec) of write requests that miss the last level cache (LLC) and go to local memory",
+        "MetricExpr": "( UNC_CHA_REQUESTS.WRITES_LOCAL * 64 / 1000000 ) / duration_time",
+        "MetricGroup": "",
+        "MetricName": "llc_miss_local_memory_bandwidth_write",
+        "ScaleUnit": "1MB/s"
+    },
+    {
+        "BriefDescription": "Bandwidth (MB/sec) of read requests that miss the last level cache (LLC) and go to remote memory",
+        "MetricExpr": "( UNC_CHA_REQUESTS.READS_REMOTE * 64 / 1000000 ) / duration_time",
+        "MetricGroup": "",
+        "MetricName": "llc_miss_remote_memory_bandwidth_read",
+        "ScaleUnit": "1MB/s"
+    },
+    {
+        "BriefDescription": "Bandwidth (MB/sec) of write requests that miss the last level cache (LLC) and go to remote memory",
+        "MetricExpr": "( UNC_CHA_REQUESTS.WRITES_REMOTE * 64 / 1000000 ) / duration_time",
+        "MetricGroup": "",
+        "MetricName": "llc_miss_remote_memory_bandwidth_write",
+        "ScaleUnit": "1MB/s"
+    },
+    {
+        "BriefDescription": "Intel(R) Ultra Path Interconnect (UPI) data receive bandwidth (MB/sec)",
+        "MetricExpr": "( UNC_UPI_RxL_FLITS.ALL_DATA * ( 64 / 9.0 ) / 1000000 ) / duration_time",
+        "MetricGroup": "",
+        "MetricName": "upi_data_receive_bw",
+        "ScaleUnit": "1MB/s"
+    },
+    {
+        "BriefDescription": "Bandwidth observed by the integrated I/O traffic controller (IIO) of IO reads that are initiated by end device controllers that are requesting memory from the CPU",
+        "MetricExpr": "( UNC_IIO_DATA_REQ_OF_CPU.MEM_READ.ALL_PARTS * 4 / 1000000 ) / duration_time",
+        "MetricGroup": "",
+        "MetricName": "iio_bandwidth_read",
+        "ScaleUnit": "1MB/s"
+    },
+    {
+        "BriefDescription": "Bandwidth observed by the integrated I/O traffic controller (IIO) of IO writes that are initiated by end device controllers that are writing memory to the CPU",
+        "MetricExpr": "( UNC_IIO_DATA_REQ_OF_CPU.MEM_WRITE.ALL_PARTS * 4 / 1000000 ) / duration_time",
+        "MetricGroup": "",
+        "MetricName": "iio_bandwidth_write",
+        "ScaleUnit": "1MB/s"
+    },
+    {
         "BriefDescription": "Bandwidth of inbound IO reads that are initiated by end device controllers that are requesting memory from the CPU and miss the L3 cache",
         "MetricExpr": "( UNC_CHA_TOR_INSERTS.IO_MISS_PCIRDCUR * 64 / 1000000 ) / duration_time",
         "MetricGroup": "",
