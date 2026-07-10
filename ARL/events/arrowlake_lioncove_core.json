@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2026 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Core(TM) processors based on Arrow Lake performance hybrid architecture - V1.19",
-    "DatePublished": "04/17/2026",
-    "Version": "1.19",
+    "Info": "Performance Monitoring Events for Intel(R) Core(TM) processors based on Arrow Lake performance hybrid architecture - V1.20",
+    "DatePublished": "05/27/2026",
+    "Version": "1.20",
     "Legend": ""
   },
   "Events": [
@@ -4954,7 +4954,7 @@
       "UMaskExt": "0x00",
       "EventName": "INST_RETIRED.REP_ITERATION",
       "BriefDescription": "Iterations of Repeat string retired instructions.",
-      "PublicDescription": "Number of iterations of Repeat (REP) string retired instructions such as MOVS, CMPS, and SCAS. Each has a byte, word, and doubleword version and string instructions can be repeated using a repetition prefix, REP, that allows their architectural execution to be repeated a number of times as specified by the RCX register. Note the number of iterations is implementation-dependent.",
+      "PublicDescription": "Number of iterations of Repeat (REP) string retired instructions such as MOVS, CMPS, and SCAS. Each has a byte, word, and doubleword version and string instructions can be repeated using a repetition prefix, REP, that allows their architectural execution to be repeated a number of times as specified by the RCX register. Note: Since the number of iterations within a REP instruction can be significantly affected by fast strings, this event may vary run to run and not match the architectural number of iterations (specified by RCX)",
       "Counter": "0,1,2,3,4,5,6,7,8,9",
       "PEBScounters": "0,1,2,3,4,5,6,7,8,9",
       "SampleAfterValue": "2000003",
