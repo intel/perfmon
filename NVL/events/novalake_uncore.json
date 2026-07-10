@@ -1,0 +1,71 @@
+{
+  "Header": {
+    "Copyright": "Copyright (c) 2001 - 2026 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for Intel(R) Core(TM) Processor - V1.00",
+    "DatePublished": "07/09/2026",
+    "Version": "1.00",
+    "Legend": ""
+  },
+  "Events": [
+    {
+      "Unit": "iMC",
+      "EventCode": "0x22",
+      "UMask": "0x00",
+      "UMaskExt": "0x00",
+      "EventName": "UNC_M_CAS_COUNT_RD",
+      "BriefDescription": "Read CAS command sent to DRAM (including Read CAS with auto precharge)",
+      "PublicDescription": "Read CAS command sent to DRAM (including Read CAS with auto precharge)",
+      "Counter": "0,1,2,3,4",
+      "Deprecated": "0",
+      "CounterType": "PGMABLE"
+    },
+    {
+      "Unit": "iMC",
+      "EventCode": "0x23",
+      "UMask": "0x00",
+      "UMaskExt": "0x00",
+      "EventName": "UNC_M_CAS_COUNT_WR",
+      "BriefDescription": "Write CAS command sent to DRAM (including Write CAS with auto precharge)",
+      "PublicDescription": "Write CAS command sent to DRAM (including Write CAS with auto precharge)",
+      "Counter": "0,1,2,3,4",
+      "Deprecated": "0",
+      "CounterType": "PGMABLE"
+    },
+    {
+      "Unit": "iMC",
+      "EventCode": "0x3A",
+      "UMask": "0x00",
+      "UMaskExt": "0x00",
+      "EventName": "UNC_M_RD_DATA",
+      "BriefDescription": "This counter counts number of bytes read, in 32B chunk, per DDR channel. Counter increments by 1 after receiving 32B chunk data. Note this includes data from mode register accesses",
+      "PublicDescription": "This counter counts number of bytes read, in 32B chunk, per DDR channel. Counter increments by 1 after receiving 32B chunk data. Note this includes data from mode register accesses",
+      "Counter": "0,1,2,3,4",
+      "Deprecated": "0",
+      "CounterType": "PGMABLE"
+    },
+    {
+      "Unit": "iMC",
+      "EventCode": "0x3B",
+      "UMask": "0x00",
+      "UMaskExt": "0x00",
+      "EventName": "UNC_M_WR_DATA",
+      "BriefDescription": "This counter counts number of bytes written, in 32B chunk, per DDR channel. Counter increments by 1 after sending 32B chunk data.",
+      "PublicDescription": "This counter counts number of bytes written, in 32B chunk, per DDR channel. Counter increments by 1 after sending 32B chunk data.",
+      "Counter": "0,1,2,3,4",
+      "Deprecated": "0",
+      "CounterType": "PGMABLE"
+    },
+    {
+      "Unit": "iMC",
+      "EventCode": "0x3C",
+      "UMask": "0x00",
+      "UMaskExt": "0x00",
+      "EventName": "UNC_M_TOTAL_DATA",
+      "BriefDescription": "Total number of read and write byte transfers to/from DRAM, in 32B chunk, per DDR channel. Counter increments by 1 after sending or receiving 32B chunk data. Note this includes data from mode register accesses. Does not support channel masking",
+      "PublicDescription": "Total number of read and write byte transfers to/from DRAM, in 32B chunk, per DDR channel. Counter increments by 1 after sending or receiving 32B chunk data. Note this includes data from mode register accesses. Does not support channel masking",
+      "Counter": "0,1,2,3,4",
+      "Deprecated": "0",
+      "CounterType": "PGMABLE"
+    }
+  ]
+}
