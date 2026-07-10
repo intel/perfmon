@@ -8,7 +8,7 @@
         "properties" : {
             "Family-model" : {
                 "type": "string",
-                "pattern": "^GenuineIntel-6-[A-F0-9]{2}(-\\[[A-F0-9]+\\])?$"
+                "pattern": "^GenuineIntel-(6|18)-[A-F0-9]{2}(-\\[[A-F0-9]+\\])?$"
             },
             "Version" : {
                 "type": "string",
