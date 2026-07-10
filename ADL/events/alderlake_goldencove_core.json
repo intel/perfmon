@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2026 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 12th and 13th Generation Intel(R) Core(TM) Processor - V1.39",
-    "DatePublished": "03/24/2026",
-    "Version": "1.39",
+    "Info": "Performance Monitoring Events for 12th and 13th Generation Intel(R) Core(TM) Processor - V1.40",
+    "DatePublished": "05/27/2026",
+    "Version": "1.40",
     "Legend": ""
   },
   "Events": [
@@ -5212,7 +5212,7 @@
       "UMask": "0x08",
       "EventName": "INST_RETIRED.REP_ITERATION",
       "BriefDescription": "Iterations of Repeat string retired instructions.",
-      "PublicDescription": "Number of iterations of Repeat (REP) string retired instructions such as MOVS, CMPS, and SCAS. Each has a byte, word, and doubleword version and string instructions can be repeated using a repetition prefix, REP, that allows their architectural execution to be repeated a number of times as specified by the RCX register. Note the number of iterations is implementation-dependent.",
+      "PublicDescription": "Number of iterations of Repeat (REP) string retired instructions such as MOVS, CMPS, and SCAS. Each has a byte, word, and doubleword version and string instructions can be repeated using a repetition prefix, REP, that allows their architectural execution to be repeated a number of times as specified by the RCX register. Note: Since the number of iterations within a REP instruction can be significantly affected by fast strings, this event may vary run to run and not match the architectural number of iterations (specified by RCX)",
       "Counter": "0,1,2,3,4,5,6,7",
       "PEBScounters": "1,2,3,4,5,6,7",
       "SampleAfterValue": "2000003",
@@ -5911,8 +5911,8 @@
       "EventCode": "0xc5",
       "UMask": "0x08",
       "EventName": "BR_MISP_RETIRED.RET",
-      "BriefDescription": "This event counts the number of mispredicted ret instructions retired. Non PEBS",
-      "PublicDescription": "This is a non-precise version (that is, does not use PEBS) of the event that counts mispredicted return instructions retired.",
+      "BriefDescription": "This event counts the number of mispredicted ret instructions retired.",
+      "PublicDescription": "This event counts the number of mispredicted ret instructions retired.",
       "Counter": "0,1,2,3,4,5,6,7",
       "PEBScounters": "0,1,2,3,4,5,6,7",
       "SampleAfterValue": "100007",
