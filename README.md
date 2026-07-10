@@ -236,6 +236,34 @@ disabled.
 
 [^counterhtoff_footnote]: See **NOTE** in the Intel&reg; SDM section, "Architectural Performance Monitoring Version 3".
 
+### CounterType
+
+Helps distinguish how the event counter must be configured and used.
+
+* `FIXED`: Fixed counters support a specific usage and have minimal reconfiguration support. They are typically programmed via the
+           `FIXED_CTR_CTRL` or `UNCORE_FIXED_CTR_CTRL` MSRs. Core event examples are instructions retired and unhalted core cycles.
+* `PGMABLE`: Programmable counters are general purpose and can be programmed to count one of several events. This is typically
+             achieved by configuring MSRs such as `IA32_PERFEVTSEL` or `UNCORE_PERFEVTSEL`.
+* `FREERUN`: Free running counters are always on and monotonically increase. Typically these counters are used by measuring the delta
+             between two counts.
+
+### ProgrammingRestriction
+
+Certain events do not follow the basic programming paradigm for the given `CounterType`. `ProgrammingRestriction` indicates
+how to use the provided event attributes to program the event for collection.
+
+* `None`: The event follows the basic programming paradigm for the given `CounterType`. For Core `FIXED` events,
+  `FIXED_CTR_CTRL` MSRs must be used. For Core `PGMABLE` events, `PERFEVTSEL` must be used, and so on.
+* `MSRIndex-UMask`: Applicable only to `PGMABLE` events. In addition to the normal `PGMABLE` programming constraints,
+  there is an additional MSR (indicated in `MSRIndex`) which must be configured with the value in `MSRValue`. If
+  there are several `UMask` entries, then `UMask[N]` and `MSRIndex[N]` are used to select which UMask to program, and
+  which MSR is written. Any of the `MSRIndex` entries is compatible with counters listed in counter fields.
+* `MSRIndex-UMask-Counter`: Applicable only to `PGMABLE` events. In addition to the normal `PGMABLE` programming
+  constraints, there is an additional MSR (indicated in `MSRIndex`) which must be configured with the value in
+  `MSRValue`. While the `Counter` field may list multiple compatible GP counters, the `MSRIndex` and `UMask` are
+  strictly tied to which GP counter is being programmed. The `N`th GP counter must use `UMask[N]`, and write
+  `MSRValue` to `MSRIndex[N]`.
+
 ### PEBScounters
 This field is only relevant to PEBS events. It lists the counters where the event can be sampled when it is programmed as a PEBS event.
 
