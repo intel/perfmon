@@ -256,8 +256,9 @@ how to use the provided event attributes to program the event for collection.
   `FIXED_CTR_CTRL` MSRs must be used. For Core `PGMABLE` events, `PERFEVTSEL` must be used, and so on.
 * `MSRIndex-UMask`: Applicable only to `PGMABLE` events. In addition to the normal `PGMABLE` programming constraints,
   there is an additional MSR (indicated in `MSRIndex`) which must be configured with the value in `MSRValue`. If
-  there are several `UMask` entries, then `UMask[N]` and `MSRIndex[N]` are used to select which UMask to program, and
-  which MSR is written. Any of the `MSRIndex` entries is compatible with counters listed in counter fields.
+  there are multiple `UMask` entries, then `UMask` and `MSRIndex` should be used paired in their specified order.
+  An event configured with the `N`th UMask, `UMask[N]` must write `MSRValue` to the MSR indicated at the `N`th MSRIndex, `MSRIndex[N]` .
+  Any of the `MSRIndex` entries is compatible with counters listed in counter fields.
 * `MSRIndex-UMask-Counter`: Applicable only to `PGMABLE` events. In addition to the normal `PGMABLE` programming
   constraints, there is an additional MSR (indicated in `MSRIndex`) which must be configured with the value in
   `MSRValue`. While the `Counter` field may list multiple compatible GP counters, the `MSRIndex` and `UMask` are
