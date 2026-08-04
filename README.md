@@ -265,6 +265,71 @@ how to use the provided event attributes to program the event for collection.
   strictly tied to which GP counter is being programmed. The `N`th GP counter must use `UMask[N]`, and write
   `MSRValue` to `MSRIndex[N]`.
 
+#### Examples
+
+```mermaid
+flowchart
+    %% Example showcasing MSRIndex-UMask programming restriction.
+    MUX(MSRIndex-UMask
+    UMask: A,B
+    MSRIndex: C,D
+    Counter: 0,1)
+
+    MUX_valid_1[<b>Valid Programming</b>
+    UMask: A
+    MSRIndex: C
+    Counter: 0,1]
+
+    MUX_valid_2[<b>Valid Programming</b>
+    UMask: B
+    MSRIndex: D
+    Counter: 0,1]
+
+    MUX_invalid[<b>Invalid Programming</b>
+    UMask: A
+    MSRIndex: D
+    Counter: 0,1]
+
+    MUX --> MUX_valid_1
+    MUX --> MUX_valid_2
+    MUX -.-> MUX_invalid
+
+    %% Example showcasing MSRIndex-UMask-Counter programming restriction.
+    MUCX(MSRIndex-UMask-Counter
+    UMask: A,B
+    MSRIndex: C,D
+    Counter: 0,1)
+
+    MUCX_valid_1[<b>Valid Programming</b>
+    UMask: A
+    MSRIndex: C
+    Counter: 0]
+
+    MUCX_valid_2[<b>Valid Programming</b>
+    UMask: B
+    MSRIndex: D
+    Counter: 1]
+
+    MUCX_invalid[<b>Invalid Programming</b>
+    UMask: A
+    MSRIndex: C
+    Counter: 1]
+
+    MUCX --> MUCX_valid_1
+    MUCX --> MUCX_valid_2
+    MUCX -.-> MUCX_invalid
+
+    %% Style nodes for JSON event content, valid programming, and invalid programming. Colors are
+    %% from https://github.com/yeun/open-color.
+    classDef json stroke:#495057,stroke-width:2px
+    classDef valid stroke:#0ca678,stroke-width:2px
+    classDef invalid stroke:#f03e3e,stroke-width:2px
+
+    class MUX,MUCX json
+    class MUX_valid_1,MUX_valid_2,MUCX_valid_1,MUCX_valid_2 valid
+    class MUX_invalid,MUCX_invalid invalid
+```
+
 ### PEBScounters
 This field is only relevant to PEBS events. It lists the counters where the event can be sampled when it is programmed as a PEBS event.
 
