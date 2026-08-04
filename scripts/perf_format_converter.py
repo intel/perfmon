@@ -75,7 +75,7 @@ def main():
     # Get file pointers from args
     arg_input_file, args_tma = get_args()
 
-    # Check that intput/output dirs exists
+    # Check that input/output dirs exists
     ensure_directories()
 
     # Check for input file arg
@@ -89,7 +89,7 @@ def main():
             convert_file(file, args_tma)
 
 def ensure_directories():
-    # Check that intput/output dirs exists
+    """Check that input/output dirs exists"""
     try:
         if not Path(FILE_PATH, INPUT_DIR_PATH).exists():
             Path(FILE_PATH, INPUT_DIR_PATH).mkdir(parents=True, exist_ok=True)
@@ -364,7 +364,7 @@ class PerfFormatConverter:
         un-aliased expressions.
 
         @param metric: metric data as a dictionary
-        @param platform: dictonary with platform info
+        @param platform: dictionary with platform info
         @returns: string containing un-aliased expression
         """
         try:
@@ -376,7 +376,7 @@ class PerfFormatConverter:
                     print("Error: TMA metric without base formula found")
             # Non TMA metric
             else:
-                # Seperate operators with spaces
+                # Separate operators with spaces
                 aliased_formula = fixSpacing(metric["Formula"])
 
                 # Get formula and events for conversion
