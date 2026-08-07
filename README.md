@@ -249,21 +249,18 @@ Helps distinguish how the event counter must be configured and used.
 
 ### ProgrammingRestriction
 
-Certain events do not follow the basic programming paradigm for the given `CounterType`. `ProgrammingRestriction` indicates
-how to use the provided event attributes to program the event for collection.
+Certain events do not follow the basic programming paradigm for the given `CounterType`. `ProgrammingRestriction`
+indicates how to use the provided event attributes to program the event for collection.
 
-* `None`: The event follows the basic programming paradigm for the given `CounterType`. For Core `FIXED` events,
-  `FIXED_CTR_CTRL` MSRs must be used. For Core `PGMABLE` events, `PERFEVTSEL` must be used, and so on.
-* `MSRIndex-UMask`: Applicable only to `PGMABLE` events. In addition to the normal `PGMABLE` programming constraints,
-  there is an additional MSR (indicated in `MSRIndex`) which must be configured with the value in `MSRValue`. If
-  there are multiple `UMask` entries, then `UMask` and `MSRIndex` should be used paired in their specified order.
-  An event configured with the `N`th UMask, `UMask[N]` must write `MSRValue` to the MSR indicated at the `N`th MSRIndex, `MSRIndex[N]` .
-  Any of the `MSRIndex` entries is compatible with counters listed in counter fields.
-* `MSRIndex-UMask-Counter`: Applicable only to `PGMABLE` events. In addition to the normal `PGMABLE` programming
-  constraints, there is an additional MSR (indicated in `MSRIndex`) which must be configured with the value in
-  `MSRValue`. While the `Counter` field may list multiple compatible GP counters, the `MSRIndex` and `UMask` are
-  strictly tied to which GP counter is being programmed. The `N`th GP counter must use `UMask[N]`, and write
-  `MSRValue` to `MSRIndex[N]`.
+* `None`: The event follows the basic programming paradigm for its `CounterType`. For example, Core `FIXED` events
+  are configured through `FIXED_CTR_CTRL` MSRs, while Core `PGMABLE` events are configured through `PERFEVTSEL` MSRs.
+* `MSRIndex-UMask`: Applies only to `PGMABLE` events. In addition to standard `PGMABLE` programming requirements, write
+   the `MSRValue` to the extra MSR specified in `MSRIndex` based on the `UMask`. `UMask`, and `MSRIndex` entries
+   correspond by position; programming UMask[N] requires programming MSRIndex[N] with `MSRValue`.
+* `MSRIndex-UMask-Counter`: Applies only to `PGMABLE` events. In addition to standard `PGMABLE` programming
+  requirements, write the `MSRValue` to the extra MSR specified in `MSRIndex` based on the chosen `Counter`. `Counter`,
+  `UMask`, and `MSRIndex` entries correspond by position. Program the Nth `Counter` with UMask[N], and MSRIndex[N] with
+  `MSRValue`.
 
 #### Examples
 
