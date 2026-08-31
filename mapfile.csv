@@ -250,9 +250,9 @@ GenuineIntel-6-DD,V1.04,/CWF/events/clearwaterforest_core.json,core,,,
 GenuineIntel-6-DD,V1.04,/CWF/events/clearwaterforest_uncore.json,uncore,,,
 GenuineIntel-6-DD,V1.04,/CWF/events/clearwaterforest_uncore_experimental.json,uncore experimental,,,
 GenuineIntel-6-DD,V1.0,/CWF/metrics/clearwaterforest_metrics.json,metrics,,,
-GenuineIntel-18-1,V1.03,/NVL/events/novalake_arcticwolf_core.json,hybridcore,0x20,0x000005,Atom
-GenuineIntel-18-1,V1.03,/NVL/events/novalake_coyotecove_core.json,hybridcore,0x40,0x000005,Core
-GenuineIntel-18-1,V1.03,/NVL/events/novalake_uncore.json,uncore,,,
-GenuineIntel-18-3,V1.03,/NVL/events/novalake_arcticwolf_core.json,hybridcore,0x20,0x000005,Atom
-GenuineIntel-18-3,V1.03,/NVL/events/novalake_coyotecove_core.json,hybridcore,0x40,0x000005,Core
-GenuineIntel-18-3,V1.03,/NVL/events/novalake_uncore.json,uncore,,,
+GenuineIntel-18-1,V1.04,/NVL/events/novalake_arcticwolf_core.json,hybridcore,0x20,0x000005,Atom
+GenuineIntel-18-1,V1.04,/NVL/events/novalake_coyotecove_core.json,hybridcore,0x40,0x000005,Core
+GenuineIntel-18-1,V1.04,/NVL/events/novalake_uncore.json,uncore,,,
+GenuineIntel-18-3,V1.04,/NVL/events/novalake_arcticwolf_core.json,hybridcore,0x20,0x000005,Atom
+GenuineIntel-18-3,V1.04,/NVL/events/novalake_coyotecove_core.json,hybridcore,0x40,0x000005,Core
+GenuineIntel-18-3,V1.04,/NVL/events/novalake_uncore.json,uncore,,,
