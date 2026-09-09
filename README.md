@@ -236,6 +236,97 @@ disabled.
 
 [^counterhtoff_footnote]: See **NOTE** in the Intel&reg; SDM section, "Architectural Performance Monitoring Version 3".
 
+### CounterType
+
+Helps distinguish how the event counter must be configured and used.
+
+* `FIXED`: Fixed counters support a specific usage and have minimal reconfiguration support. They are typically programmed via the
+           `FIXED_CTR_CTRL` or `UNCORE_FIXED_CTR_CTRL` MSRs. Core event examples are instructions retired and unhalted core cycles.
+* `PGMABLE`: Programmable counters are general purpose and can be programmed to count one of several events. This is typically
+             achieved by configuring MSRs such as `IA32_PERFEVTSEL` or `UNCORE_PERFEVTSEL`.
+* `FREERUN`: Free running counters are always on and monotonically increase. Typically these counters are used by measuring the delta
+             between two counts.
+
+### ProgrammingRestriction
+
+Certain events do not follow the basic programming paradigm for the given `CounterType`. `ProgrammingRestriction`
+indicates how to use the provided event attributes to program the event for collection.
+
+* `None`: The event follows the basic programming paradigm for its `CounterType`. For example, Core `FIXED` events
+  are configured through `FIXED_CTR_CTRL` MSRs, while Core `PGMABLE` events are configured through `PERFEVTSEL` MSRs.
+* `MSRIndex-UMask`: Applies only to `PGMABLE` events. In addition to standard `PGMABLE` programming requirements, write
+   the `MSRValue` to the extra MSR specified in `MSRIndex` based on the `UMask`. `UMask`, and `MSRIndex` entries
+   correspond by position; programming UMask[N] requires programming MSRIndex[N] with `MSRValue`.
+* `MSRIndex-UMask-Counter`: Applies only to `PGMABLE` events. In addition to standard `PGMABLE` programming
+  requirements, write the `MSRValue` to the extra MSR specified in `MSRIndex` based on the chosen `Counter`. `Counter`,
+  `UMask`, and `MSRIndex` entries correspond by position. Program the Nth `Counter` with UMask[N], and MSRIndex[N] with
+  `MSRValue`.
+
+#### Examples
+
+```mermaid
+flowchart
+    %% Example showcasing MSRIndex-UMask programming restriction.
+    MUX(MSRIndex-UMask
+    UMask: A,B
+    MSRIndex: C,D
+    Counter: 0,1)
+
+    MUX_valid_1[<b>Valid Programming</b>
+    UMask: A
+    MSRIndex: C
+    Counter: 0,1]
+
+    MUX_valid_2[<b>Valid Programming</b>
+    UMask: B
+    MSRIndex: D
+    Counter: 0,1]
+
+    MUX_invalid[<b>Invalid Programming</b>
+    UMask: A
+    MSRIndex: D
+    Counter: 0,1]
+
+    MUX --> MUX_valid_1
+    MUX --> MUX_valid_2
+    MUX -.-> MUX_invalid
+
+    %% Example showcasing MSRIndex-UMask-Counter programming restriction.
+    MUCX(MSRIndex-UMask-Counter
+    UMask: A,B
+    MSRIndex: C,D
+    Counter: 0,1)
+
+    MUCX_valid_1[<b>Valid Programming</b>
+    UMask: A
+    MSRIndex: C
+    Counter: 0]
+
+    MUCX_valid_2[<b>Valid Programming</b>
+    UMask: B
+    MSRIndex: D
+    Counter: 1]
+
+    MUCX_invalid[<b>Invalid Programming</b>
+    UMask: A
+    MSRIndex: C
+    Counter: 1]
+
+    MUCX --> MUCX_valid_1
+    MUCX --> MUCX_valid_2
+    MUCX -.-> MUCX_invalid
+
+    %% Style nodes for JSON event content, valid programming, and invalid programming. Colors are
+    %% from https://github.com/yeun/open-color.
+    classDef json stroke:#495057,stroke-width:2px
+    classDef valid stroke:#0ca678,stroke-width:2px
+    classDef invalid stroke:#f03e3e,stroke-width:2px
+
+    class MUX,MUCX json
+    class MUX_valid_1,MUX_valid_2,MUCX_valid_1,MUCX_valid_2 valid
+    class MUX_invalid,MUCX_invalid invalid
+```
+
 ### PEBScounters
 This field is only relevant to PEBS events. It lists the counters where the event can be sampled when it is programmed as a PEBS event.
 

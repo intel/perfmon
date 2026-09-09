@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2024 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 10th Generation Intel(R) Core(TM) Processor - V1.24",
-    "DatePublished": "10/10/2024",
-    "Version": "1.24",
+    "Copyright": "Copyright (c) 2001 - 2026 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for 10th Generation Intel(R) Core(TM) Processor - V1.25",
+    "DatePublished": "08/27/2026",
+    "Version": "1.25",
     "Legend": ""
   },
   "Events": [
@@ -15,9 +15,6 @@
       "BriefDescription": "Total number of all outgoing entries allocated. Accounts for Coherent and non-coherent traffic.",
       "PublicDescription": "Total number of all outgoing entries allocated. Accounts for Coherent and non-coherent traffic.",
       "Counter": "1",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0"
     },
     {
@@ -28,9 +25,6 @@
       "BriefDescription": "Number of entries allocated. Account for Any type: e.g. Snoop,  etc.",
       "PublicDescription": "Number of entries allocated. Account for Any type: e.g. Snoop,  etc.",
       "Counter": "1",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0"
     },
     {
@@ -41,9 +35,6 @@
       "BriefDescription": "This 48-bit fixed counter counts the UCLK cycles.",
       "PublicDescription": "This 48-bit fixed counter counts the UCLK cycles.",
       "Counter": "FIXED",
-      "CounterMask": "0",
-      "Invert": "0",
-      "EdgeDetect": "0",
       "Deprecated": "0"
     }
   ]

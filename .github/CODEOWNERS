@@ -11,7 +11,7 @@ E-core_TMA* @claudiaromo @rpmclaug
 **/metrics @1perrytaylor @calebbiggers @kshiprab
 
 # Platform events.
-**/events @edwarddavidbaker @kshiprab
+**/events @edwarddavidbaker
 
 # Create Perf JSON scripting. 
 scripts/create_perf_json.py @captain5050 @tlfalcon @dapeng-mi
