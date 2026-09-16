@@ -1,9 +1,9 @@
 {
   "Header": {
-    "Copyright": "Copyright (c) 2001 - 2025 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for 3rd Generation Intel(R) Xeon(R) Processor Scalable Family based on Ice Lake microarchitecture - V1.30",
-    "DatePublished": "10/13/2025",
-    "Version": "1.30",
+    "Copyright": "Copyright (c) 2001 - 2026 Intel Corporation. All rights reserved.",
+    "Info": "Performance Monitoring Events for 3rd Generation Intel(R) Xeon(R) Processor Scalable Family based on Ice Lake microarchitecture - V1.31",
+    "DatePublished": "09/03/2026",
+    "Version": "1.31",
     "Legend": ""
   },
   "Events": [
