@@ -25,3 +25,9 @@ updates:
       # does not prevent security updates.
       - dependency-name: "*"
         update-types: ["version-update:semver-patch"]
+    groups:
+      # CodeQL actions should be updated together. Otherwise, dependabot was trying to update codeql-action/analyze
+      # without also updating codeql-action/init.
+      codeql-actions:
+        patterns:
+          - "github/codeql-action"
