@@ -2069,6 +2069,13 @@ class Mapfile:
                     first_row = False
                     continue
 
+                # perf matches the regex against a CPUID string printed
+                # with "%s-%u-%X-%X" (vendor-family-model-stepping), so the
+                # model has no leading zeros. Drop any zero padding, like
+                # in GenuineIntel-18-01, or the entry never matches.
+                family_model = re.sub(r'^(GenuineIntel-\d+-)0+(?=[0-9A-F])',
+                                      r'\1', family_model)
+
                 # Skip mapfile metrics entries metrics/*_metrics.json. This utility uses
                 # metrics/perf/*metrics_perf.json files.
                 if event_type == 'metrics':
