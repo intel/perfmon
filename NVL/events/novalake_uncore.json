@@ -1,9 +1,9 @@
 {
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2026 Intel Corporation. All rights reserved.",
-    "Info": "Performance Monitoring Events for Intel(R) Core(TM) Processor - V1.04",
-    "DatePublished": "08/31/2026",
-    "Version": "1.04",
+    "Info": "Performance Monitoring Events for Intel(R) Core(TM) Processor - V1.05",
+    "DatePublished": "10/02/2026",
+    "Version": "1.05",
     "Legend": ""
   },
   "Events": [
@@ -64,6 +64,18 @@
       "BriefDescription": "Total number of read and write byte transfers to/from DRAM, in 32B chunk, per DDR channel. Counter increments by 1 after sending or receiving 32B chunk data. Note this includes data from mode register accesses. Does not support channel masking",
       "PublicDescription": "Total number of read and write byte transfers to/from DRAM, in 32B chunk, per DDR channel. Counter increments by 1 after sending or receiving 32B chunk data. Note this includes data from mode register accesses. Does not support channel masking",
       "Counter": "0,1,2,3,4",
+      "Deprecated": "0",
+      "CounterType": "PGMABLE"
+    },
+    {
+      "Unit": "CBO",
+      "EventCode": "0x2d",
+      "UMask": "0x02",
+      "UMaskExt": "0x00",
+      "EventName": "UNC_CBO_SBO_UCLK_CYCLES.UNGATED",
+      "BriefDescription": "Counts UCLK ungated cycles.",
+      "PublicDescription": "Counts UCLK ungated cycles.",
+      "Counter": "0,1",
       "Deprecated": "0",
       "CounterType": "PGMABLE"
     }

@@ -346,20 +346,30 @@ class PerfmonJsonEvent:
         assert 'PerPkg' not in jd
         assert 'ScaleUnit' not in jd
 
-        # Fix ups.
+        # Fix up the umask.
+        # Drop additional umasks.
         if self.umask:
             self.umask = self.umask.split(",")[0]
-            umask_ext = get('UMaskExt')
-            # Unset UMaskExt if PortMask or FCMask are set. For future platforms
-            # PortMask and FCMask won't be present and only UMaskExt will be available.
-            if umask_ext and int(umask_ext, 16):
-                if (self.port_mask and int(self.port_mask, 16)) or (self.fc_mask and int(self.fc_mask, 16)):
-                    umask_ext = None
 
-            if umask_ext:
-                self.umask = umask_ext + self.umask[2:]
+        # Unset UMaskExt if PortMask or FCMask are set. For future platforms
+        # PortMask and FCMask won't be present and only UMaskExt will be available.
+        umask_ext = get('UMaskExt')
+        if umask_ext is not None and int(umask_ext, 16):
+            if (self.port_mask and int(self.port_mask, 16)) or (self.fc_mask and int(self.fc_mask, 16)):
+                umask_ext = None
+
+        # Combine the umask with the umask_ext. We don't know the
+        # width of the umask as we concatenate the strings, removing
+        # "0x"
+        if umask_ext:
+            self.umask = umask_ext + self.umask[2:] if self.umask else umask_ext + "00"
+        # Normalize the umask integer.
+        if self.umask:
             self.umask = f'0x{int(self.umask, 16):x}'
+        if self.umask == "0x0":
+            self.umask = None
 
+        # PMU (unit) fix ups.
         if self.unit is None:
             if unit != 'cpu':
                 self.unit = unit
