@@ -256,3 +256,6 @@ GenuineIntel-18-1,V1.05,/NVL/events/novalake_uncore.json,uncore,,,
 GenuineIntel-18-3,V1.05,/NVL/events/novalake_arcticwolf_core.json,hybridcore,0x20,0x000005,Atom
 GenuineIntel-18-3,V1.05,/NVL/events/novalake_coyotecove_core.json,hybridcore,0x40,0x000005,Core
 GenuineIntel-18-3,V1.05,/NVL/events/novalake_uncore.json,uncore,,,
+GenuineIntel-19-1,V1.00,/DMR/events/diamondrapids_core.json,core,,,
+GenuineIntel-19-1,V1.00,/DMR/events/diamondrapids_uncore.json,uncore,,,
+GenuineIntel-19-1,V1.00,/DMR/events/diamondrapids_uncore_experimental.json,uncore experimental,,,
