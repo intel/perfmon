@@ -2,8 +2,8 @@
   "Header": {
     "Copyright": "Copyright (c) 2001 - 2026 Intel Corporation. All rights reserved.",
     "Info": "Performance Monitoring Metrics for 5th Generation Intel(R) Xeon(R) Processor Scalable Family0",
-    "DatePublished": "07/09/2026",
-    "Version": "1.4",
+    "DatePublished": "11/18/2026",
+    "Version": "1.5",
     "Legend": "",
     "TmaVersion": "5.2",
     "TmaFlavor": "Full"
@@ -1058,7 +1058,7 @@
       "LegacyName": "metric_llc_miss_local_memory_bandwidth_read_MB/s",
       "Level": 1,
       "BriefDescription": "Bandwidth (MB/sec) of read requests that miss the last level cache (LLC) and go to local memory",
-      "UnitOfMeasure": "",
+      "UnitOfMeasure": "MB/sec",
       "Events": [
         {
           "Name": "UNC_CHA_REQUESTS.READS_LOCAL",
@@ -1067,7 +1067,7 @@
       ],
       "Constants": [],
       "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
-      "Category": "",
+      "Category": "BW",
       "ResolutionLevels": "CHA, SOCKET, SYSTEM",
       "MetricGroup": ""
     },
@@ -1076,7 +1076,7 @@
       "LegacyName": "metric_llc_miss_local_memory_bandwidth_write_MB/s",
       "Level": 1,
       "BriefDescription": "Bandwidth (MB/sec) of write requests that miss the last level cache (LLC) and go to local memory",
-      "UnitOfMeasure": "",
+      "UnitOfMeasure": "MB/sec",
       "Events": [
         {
           "Name": "UNC_CHA_REQUESTS.WRITES_LOCAL",
@@ -1085,7 +1085,7 @@
       ],
       "Constants": [],
       "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
-      "Category": "",
+      "Category": "BW",
       "ResolutionLevels": "CHA, SOCKET, SYSTEM",
       "MetricGroup": ""
     },
@@ -1094,7 +1094,7 @@
       "LegacyName": "metric_llc_miss_remote_memory_bandwidth_read_MB/s",
       "Level": 1,
       "BriefDescription": "Bandwidth (MB/sec) of read requests that miss the last level cache (LLC) and go to remote memory",
-      "UnitOfMeasure": "",
+      "UnitOfMeasure": "MB/sec",
       "Events": [
         {
           "Name": "UNC_CHA_REQUESTS.READS_REMOTE",
@@ -1103,7 +1103,7 @@
       ],
       "Constants": [],
       "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
-      "Category": "",
+      "Category": "BW",
       "ResolutionLevels": "CHA, SOCKET, SYSTEM",
       "MetricGroup": ""
     },
@@ -1112,7 +1112,7 @@
       "LegacyName": "metric_llc_miss_remote_memory_bandwidth_write_MB/s",
       "Level": 1,
       "BriefDescription": "Bandwidth (MB/sec) of write requests that miss the last level cache (LLC) and go to remote memory",
-      "UnitOfMeasure": "",
+      "UnitOfMeasure": "MB/sec",
       "Events": [
         {
           "Name": "UNC_CHA_REQUESTS.WRITES_REMOTE",
@@ -1121,7 +1121,7 @@
       ],
       "Constants": [],
       "Formula": "(a * 64 / 1000000) / DURATIONTIMEINSECONDS",
-      "Category": "",
+      "Category": "BW",
       "ResolutionLevels": "CHA, SOCKET, SYSTEM",
       "MetricGroup": ""
     },
@@ -1130,7 +1130,7 @@
       "LegacyName": "metric_UPI Data receive BW (MB/sec) (only data)",
       "Level": 1,
       "BriefDescription": "Intel(R) Ultra Path Interconnect (UPI) data receive bandwidth (MB/sec)",
-      "UnitOfMeasure": "",
+      "UnitOfMeasure": "MB/sec",
       "Events": [
         {
           "Name": "UNC_UPI_RxL_FLITS.ALL_DATA",
@@ -1139,7 +1139,7 @@
       ],
       "Constants": [],
       "Formula": "(a * (64 / 9.0) / 1000000) / DURATIONTIMEINSECONDS",
-      "Category": "",
+      "Category": "BW",
       "ResolutionLevels": "UPI, SOCKET, SYSTEM",
       "MetricGroup": ""
     },
@@ -1148,7 +1148,7 @@
       "LegacyName": "metric_IIO_bandwidth_read (MB/sec)",
       "Level": 1,
       "BriefDescription": "Bandwidth observed by the integrated I/O traffic controller (IIO) of IO reads that are initiated by end device controllers that are requesting memory from the CPU",
-      "UnitOfMeasure": "",
+      "UnitOfMeasure": "MB/sec",
       "Events": [
         {
           "Name": "UNC_IIO_DATA_REQ_OF_CPU.MEM_READ.ALL_PARTS",
@@ -1157,7 +1157,7 @@
       ],
       "Constants": [],
       "Formula": "(a * 4 / 1000000) / DURATIONTIMEINSECONDS",
-      "Category": "",
+      "Category": "IO, BW",
       "ResolutionLevels": "IIO, SOCKET, SYSTEM",
       "MetricGroup": ""
     },
@@ -1166,7 +1166,7 @@
       "LegacyName": "metric_IIO_bandwidth_write (MB/sec)",
       "Level": 1,
       "BriefDescription": "Bandwidth observed by the integrated I/O traffic controller (IIO) of IO writes that are initiated by end device controllers that are writing memory to the CPU",
-      "UnitOfMeasure": "",
+      "UnitOfMeasure": "MB/sec",
       "Events": [
         {
           "Name": "UNC_IIO_DATA_REQ_OF_CPU.MEM_WRITE.ALL_PARTS",
@@ -1175,7 +1175,7 @@
       ],
       "Constants": [],
       "Formula": "(a * 4 / 1000000) / DURATIONTIMEINSECONDS",
-      "Category": "",
+      "Category": "IO, BW",
       "ResolutionLevels": "IIO, SOCKET, SYSTEM",
       "MetricGroup": ""
     },
