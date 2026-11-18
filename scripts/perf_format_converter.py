@@ -47,13 +47,13 @@ class Metric:
             if self.MetricGroup and "info" not in self.MetricName:
                 if "TopdownL1" in self.MetricGroup:
                     if "Default" in self.MetricGroup:
-                        self.MetricGroupnoGroup = "TopdownL1;Default"
+                        self.MetricgroupNoGroup = "TopdownL1;Default"
                         self.DefaultMetricgroupName = "TopdownL1"
                     else:
                         self.MetricgroupNoGroup = "TopdownL1"
                 elif "TopdownL2" in self.MetricGroup:
                     if "Default" in self.MetricGroup:
-                        self.MetricGroupnoGroup = "TopdownL2;Default"
+                        self.MetricgroupNoGroup = "TopdownL2;Default"
                         self.DefaultMetricgroupName = "TopdownL2"
                     else:
                         self.MetricgroupNoGroup = "TopdownL2"
