@@ -8,7 +8,7 @@ Atom_TMA* @claudiaromo @rpmclaug
 E-core_TMA* @claudiaromo @rpmclaug
 
 # Platform metrics.
-**/metrics @1perrytaylor @calebbiggers @kshiprab
+**/metrics @1perrytaylor
 
 # Platform events.
 **/events @edwarddavidbaker
@@ -20,6 +20,6 @@ scripts/config/perf*.csv @captain5050 @tlfalcon @dapeng-mi
 scripts/unittesting/metric_test.py @captain5050 @tlfalcon @dapeng-mi
 
 # Perf converter scripting.
-scripts/perf_format_converter.py @1perrytaylor @calebbiggers
-scripts/config/replacements_config.json @1perrytaylor @calebbiggers
-scripts/unittesting/test_perf_format_converter.py @1perrytaylor @calebbiggers
+scripts/perf_format_converter.py @1perrytaylor
+scripts/config/replacements_config.json @1perrytaylor
+scripts/unittesting/test_perf_format_converter.py @1perrytaylor
