@@ -406,6 +406,10 @@ class PerfFormatConverter:
             # Combine into formula
             expression = " ".join(expression_list).strip()
 
+            # Make socket-scaling terms follow the aggregation level (non TMA only)
+            if "TMA" not in metric["Category"]:
+                expression = self.apply_socket_aggregation_rules(expression, metric)
+
             # Add slots to metrics that have topdown events but not slots
             if "topdown" in expression and "slots" not in expression:
                     expression = "( " + expression + " ) + ( 0 * slots )"
@@ -415,6 +419,40 @@ class PerfFormatConverter:
         except KeyError as error:
             sys.exit("Error in input JSON format during get_expressions(): " + str(error) + ". Exiting")
 
+
+    def apply_socket_aggregation_rules(self, expression: str, metric: dict) -> str:
+        """
+        '#num_packages' is a fixed global in perf, so metrics that scale by it
+        are wrong when perf aggregates per socket. 'aggr_nr(event)' instead
+        counts the units of 'event' in the current aggregation.
+
+        Rule 1: '( source_count(X) * #num_packages )' -> 'aggr_nr(X)'
+        Rule 2: a bare '#num_packages' in a metric using UNC_P_* events ->
+                'aggr_nr(<the metric's own UNC_P_CLOCKTICKS term>)'
+
+        Anything else is left unchanged (SOCKET_COUNT remains '#num_packages').
+
+        @param expression: translated expression
+        @param metric: metric data as a dictionary
+        @returns: expression with the rules applied
+        """
+        # Rule 1
+        expression = re.sub(
+            r"\(\s*source_count\(([^()\s]+)\)\s*\*\s*#num_packages\s*\)",
+            r"aggr_nr(\1)", expression)
+
+        # Rule 2
+        if "#num_packages" in expression and \
+                any(event["Name"].startswith("UNC_P_") for event in metric["Events"]):
+            pcu_terms = set(re.findall(r"\S*UNC_P_CLOCKTICKS\S*", expression))
+            if len(pcu_terms) == 1:
+                expression = expression.replace(
+                    "#num_packages", "aggr_nr(" + pcu_terms.pop() + ")")
+            else:
+                print(f"Warning: {metric['MetricName']}: expected exactly one UNC_P_CLOCKTICKS "
+                      f"term, found {len(pcu_terms)}; leaving #num_packages unchanged")
+
+        return expression
 
     def get_public_description(self, metric: dict) -> str:
         """

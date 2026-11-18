@@ -8,7 +8,7 @@
     },
     {
         "BriefDescription": "Uncore operating frequency in GHz",
-        "MetricExpr": "( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_CLOCKTICKS) * #num_packages ) / 1000000000 ) / duration_time",
+        "MetricExpr": "( UNC_CHA_CLOCKTICKS / aggr_nr(UNC_CHA_CLOCKTICKS) / 1000000000 ) / duration_time",
         "MetricGroup": "",
         "MetricName": "uncore_frequency",
         "ScaleUnit": "1GHz"
