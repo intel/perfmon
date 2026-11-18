@@ -69,6 +69,22 @@ class TestMetricExpressions(unittest.TestCase):
     after = before
     self.assertEqual(ParsePerfJson(before).ToPerfJson(), after)
 
+  def test_ParseAggrNr(self):
+    # aggr_nr(event) is the number of units of 'event' in the current
+    # aggregation. It must parse as a function, not as an event named
+    # 'aggr_nr', and be written back unchanged.
+    before = 'aggr_nr(UNC_CHA_CLOCKTICKS)'
+    self.assertEqual(ParsePerfJson(before).ToPerfJson(), before)
+
+    # Pinned PMU form used for per-socket scaling of the PCU metrics.
+    before = 'a / pcu_0@UNC_P_CLOCKTICKS@ * aggr_nr(pcu_0@UNC_P_CLOCKTICKS@)'
+    self.assertEqual(ParsePerfJson(before).ToPerfJson(), before)
+
+    # As a divisor, as in the uncore frequency and LLC latency metrics.
+    before = 'a / (b / aggr_nr(c))'
+    self.assertEqual(ParsePerfJson(before).ToPerfJson(), before)
+
+
   def test_IfElseTests(self):
     # if-else needs rewriting to Select and back.
     before = r'Event1 if #smt_on else Event2'

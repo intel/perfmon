@@ -801,7 +801,7 @@ class Model:
                      'imc_0', 'uncore_cha_0', 'cbox_0', 'arb', 'cbox',
                      'num_packages', 'num_cores', 'SYSTEM_TSC_FREQ',
                      'filter_tid', 'TSC', 'cha', 'config1',
-                     'source_count', 'slots', 'thresh', 'has_pmem',
+                     'source_count', 'aggr_nr', 'slots', 'thresh', 'has_pmem',
                      'num_dies', 'num_cpus_online', 'PEBS', 'pcu_0', 'R',
                      'offcore_rsp', 'power', 'energy\\-pkg', 'energy\\-ram']:
                 continue
