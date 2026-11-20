@@ -410,6 +410,12 @@ def source_count(event: Event) -> Function:
   return Function('source_count', event)
 
 
+def aggr_nr(event: Event) -> Function:
+  # pylint: disable=redefined-builtin
+  # pylint: disable=invalid-name
+  return Function('aggr_nr', event)
+
+
 def has_event(event: Event) -> Function:
   # pylint: disable=redefined-builtin
   # pylint: disable=invalid-name
@@ -553,7 +559,7 @@ def ParsePerfJson(orig: str) -> Expression:
   py = re.sub(r'([0-9]+)Event\(r"(e[0-9]+)"\)', r'\1\2', py)
   # Workaround Valkyrie perf json metric bug.
   py = py.replace('#( ', '(')
-  keywords = ['if', 'else', 'min', 'max', 'd_ratio', 'source_count', 'has_event']
+  keywords = ['if', 'else', 'min', 'max', 'd_ratio', 'source_count', 'aggr_nr', 'has_event']
   for kw in keywords:
     py = re.sub(rf'Event\(r"{kw}"\)', kw, py)
 
