@@ -197,6 +197,7 @@ def topic(event_name: str, unit: str) -> str:
         unit_to_topic = {
             'cha': 'Uncore-Cache',
             'chacms': 'Uncore-Cache',
+            'cbo': 'Uncore-Cache',
             'cbox': 'Uncore-Cache',
             'cbox_0': 'Uncore-Cache',
             'ha': 'Uncore-Cache',
@@ -386,7 +387,10 @@ class PerfmonJsonEvent:
                 'QPI LL': 'QPI',
                 'UPI LL': 'UPI',
             }
-            if self.unit in unit_fixups:
+            if self.unit == 'CBO' and shortname == 'DMR':
+                # DMR kernel PMU is uncore_cbo_*.
+                self.unit = 'cbo'
+            elif self.unit in unit_fixups:
                 self.unit = unit_fixups[self.unit]
             elif self.unit == "NCU" and self.event_name == "UNC_CLOCK.SOCKET":
                 if shortname in ['BDW', 'HSW', 'SKL']:
@@ -798,7 +802,7 @@ class Model:
                      'SMT_on', 'duration_time', 'cmask', 'umask',
                      'u', 'k', 'cpu', 'cpu_atom', 'cpu_core', 'edge',
                      'inv', 'TSC', 'filter_opc', 'cha_0', 'event',
-                     'imc_0', 'uncore_cha_0', 'cbox_0', 'arb', 'cbox',
+                     'imc_0', 'uncore_cha_0', 'uncore_cbo_0', 'cbox_0', 'arb', 'cbox',
                      'num_packages', 'num_cores', 'SYSTEM_TSC_FREQ',
                      'filter_tid', 'TSC', 'cha', 'config1',
                      'source_count', 'aggr_nr', 'slots', 'thresh', 'has_pmem',
@@ -1041,6 +1045,7 @@ class Model:
             # As above but l2 topdown counters
             'ADL': alderlake_constraints,
             'ADLN': alderlake_constraints,
+            'DMR': alderlake_constraints,
             'RPL': alderlake_constraints,
             'SPR': alderlake_constraints,
             'EMR': alderlake_constraints,
@@ -1121,6 +1126,7 @@ class Model:
             "CMT": ("CMT","GRT"),
         }
         ratio_column = {
+            'DMR': 'DMR;NVL;PTL;LNL/ARL;GNR;MTL;EMR;SPR-HBM;SPR;ADL/RPL;TGL;RKL;ICX;ICL;CPX;CLX;KBLR/CFL/CML;SKX;SKL/KBL;BDX;BDW;HSX;HSW;IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
             'LNL/ARL': 'LNL/ARL;MTL;ADL/RPL;TGL;RKL;ICL;KBLR/CFL/CML;SKL/KBL;BDW;HSW;IVB;SNB'.split(';'),
             'GNR': 'GNR;MTL;EMR;SPR-HBM;SPR;ADL/RPL;TGL;RKL;ICX;ICL;CPX;CLX;KBLR/CFL/CML;SKX;SKL/KBL;BDX;BDW;HSX;HSW;IVT;IVB;JKT/SNB-EP;SNB'.split(';'),
             'MTL': 'MTL;ADL/RPL;TGL;RKL;ICL;KBLR/CFL/CML;SKL/KBL;BDW;HSW;IVB;SNB'.split(';'),
@@ -1491,6 +1497,19 @@ class Model:
                             ('UNC_CHA_CLOCKTICKS:one_unit', r'uncore_cha_0@event\=0x1@'),
                             ('UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD:c1',
                              r'UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD@thresh\=1@'),
+                        ] + td_event_fixups,
+                        'DMR': [
+                            ('IDQ.MITE_UOPS:c10:i1:eq1',
+                             r'cpu@IDQ.MITE_UOPS\,cmask\=0xa\,inv\=0x1@'),
+                            ('IDQ.DSB_UOPS:c10:i1:eq1',
+                             r'cpu@IDQ.DSB_UOPS\,cmask\=0xa\,inv\=0x1@'),
+                            ('LSD.UOPS:c10:i1:eq1',
+                             r'cpu@LSD.UOPS\,cmask\=0xa\,inv\=0x1@'),
+                            ('AMX_OPS_RETIRED.BF16:u0x1e:c1',
+                             r'cpu@AMX_OPS_RETIRED.BF16\,umask\=0x1e\,cmask\=0x1@'),
+                            ('UNC_CHA_CLOCKTICKS:one_unit', r'uncore_cha_0@event\=0x1@'),
+                            ('UNC_CBO_CLOCKTICKS:one_unit', r'uncore_cbo_0@event\=0x1\,umask\=0x1@'),
+                            ('UNC_CBO_TOR_OCCUPANCY.MISS_DRD_OPT:c1', r'UNC_CBO_TOR_OCCUPANCY.MISS_DRD_OPT@thresh\=1@'),
                         ] + td_event_fixups,
                         'GNR': [
                             ('OCR.DEMAND_RFO.L3_MISS:ocr_msr_val=0x103b800002',
