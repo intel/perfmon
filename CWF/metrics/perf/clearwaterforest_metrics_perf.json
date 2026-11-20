@@ -8,7 +8,7 @@
     },
     {
         "BriefDescription": "Uncore operating frequency in GHz",
-        "MetricExpr": "( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_CLOCKTICKS) * #num_packages ) / 1000000000 ) / duration_time",
+        "MetricExpr": "( UNC_CHA_CLOCKTICKS / aggr_nr(UNC_CHA_CLOCKTICKS) / 1000000000 ) / duration_time",
         "MetricGroup": "",
         "MetricName": "uncore_frequency",
         "ScaleUnit": "1GHz"
@@ -127,7 +127,7 @@
     },
     {
         "BriefDescription": "Average latency of a last level cache (LLC) demand data read miss (read memory access) in nano seconds",
-        "MetricExpr": "( 1000000000 * ( UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_OPT / UNC_CHA_TOR_INSERTS.IA_MISS_DRD_OPT ) / ( UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_OPT) * #num_packages ) ) ) * duration_time",
+        "MetricExpr": "( 1000000000 * ( UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_OPT / UNC_CHA_TOR_INSERTS.IA_MISS_DRD_OPT ) / ( UNC_CHA_CLOCKTICKS / aggr_nr(UNC_CHA_TOR_OCCUPANCY.IA_MISS_DRD_OPT) ) ) * duration_time",
         "MetricGroup": "",
         "MetricName": "llc_demand_data_read_miss_latency",
         "ScaleUnit": "1ns"
@@ -284,13 +284,13 @@
     },
     {
         "BriefDescription": "The average number of cores that are in cstate C0 as observed by the power control unit (PCU)",
-        "MetricExpr": "( UNC_P_POWER_STATE_OCCUPANCY_CORES_C0 / pcu_0@UNC_P_CLOCKTICKS@ ) * #num_packages",
+        "MetricExpr": "( UNC_P_POWER_STATE_OCCUPANCY_CORES_C0 / pcu_0@UNC_P_CLOCKTICKS@ ) * aggr_nr(pcu_0@UNC_P_CLOCKTICKS@)",
         "MetricGroup": "",
         "MetricName": "cpu_cstate_c0"
     },
     {
         "BriefDescription": "The average number of cores are in cstate C6 as observed by the power control unit (PCU)",
-        "MetricExpr": "( UNC_P_POWER_STATE_OCCUPANCY_CORES_C6 / pcu_0@UNC_P_CLOCKTICKS@ ) * #num_packages",
+        "MetricExpr": "( UNC_P_POWER_STATE_OCCUPANCY_CORES_C6 / pcu_0@UNC_P_CLOCKTICKS@ ) * aggr_nr(pcu_0@UNC_P_CLOCKTICKS@)",
         "MetricGroup": "",
         "MetricName": "cpu_cstate_c6"
     },

@@ -41,6 +41,75 @@ class Testing(unittest.TestCase):
         self.assertEqual(perf_format_converter.input_data[0]["Name"],
                          "test_metric_1")
 
+    @staticmethod
+    def _metric(*event_names):
+        return {"MetricName": "test_metric",
+                "Events": [{"Name": name} for name in event_names]}
+
+    def test_socket_rule_1_source_count(self):
+        converter = PerfFormatConverter(None)
+        metric = self._metric("UNC_CHA_CLOCKTICKS")
+
+        expression = "UNC_CHA_CLOCKTICKS / ( source_count(UNC_CHA_CLOCKTICKS) * #num_packages )"
+
+        # Rule 1: the source_count * #num_packages product becomes aggr_nr
+        self.assertEqual(
+            converter.apply_socket_aggregation_rules(expression, metric),
+            "UNC_CHA_CLOCKTICKS / aggr_nr(UNC_CHA_CLOCKTICKS)")
+
+    def test_socket_rule_2_pinned_pcu(self):
+        converter = PerfFormatConverter(None)
+        metric = self._metric("UNC_P_POWER_STATE_OCCUPANCY_CORES_C0",
+                              "UNC_P_CLOCKTICKS")
+
+        expression = ("( UNC_P_POWER_STATE_OCCUPANCY_CORES_C0 / pcu_0@UNC_P_CLOCKTICKS@ )"
+                      " * #num_packages")
+
+        # Rule 2 reuses the metric's own (pinned) PCU term
+        self.assertEqual(
+            converter.apply_socket_aggregation_rules(expression, metric),
+            "( UNC_P_POWER_STATE_OCCUPANCY_CORES_C0 / pcu_0@UNC_P_CLOCKTICKS@ )"
+            " * aggr_nr(pcu_0@UNC_P_CLOCKTICKS@)")
+
+    def test_socket_rule_2_bare_pcu(self):
+        converter = PerfFormatConverter(None)
+        metric = self._metric("UNC_P_POWER_STATE_OCCUPANCY_CORES_C6",
+                              "UNC_P_CLOCKTICKS")
+
+        expression = "( UNC_P_POWER_STATE_OCCUPANCY_CORES_C6 / UNC_P_CLOCKTICKS ) * #num_packages"
+
+        self.assertEqual(
+            converter.apply_socket_aggregation_rules(expression, metric),
+            "( UNC_P_POWER_STATE_OCCUPANCY_CORES_C6 / UNC_P_CLOCKTICKS )"
+            " * aggr_nr(UNC_P_CLOCKTICKS)")
+
+    def test_socket_rules_leave_other_expressions_unchanged(self):
+        converter = PerfFormatConverter(None)
+
+        # Legacy platforms: fixed core count, no source_count; must be untouched
+        legacy = "UNC_C_CLOCKTICKS / ( #num_cores / #num_packages * #num_packages )"
+        self.assertEqual(
+            converter.apply_socket_aggregation_rules(
+                legacy, self._metric("UNC_C_CLOCKTICKS")),
+            legacy)
+
+        # #num_packages without UNC_P_* events and without source_count: untouched
+        other = "INST_RETIRED.ANY * #num_packages"
+        self.assertEqual(
+            converter.apply_socket_aggregation_rules(
+                other, self._metric("INST_RETIRED.ANY")),
+            other)
+
+    def test_socket_rule_2_ambiguous_pcu_term_unchanged(self):
+        converter = PerfFormatConverter(None)
+        metric = self._metric("UNC_P_CLOCKTICKS")
+
+        # Two different PCU terms: no safe anchor, so leave #num_packages as is
+        expression = "( pcu_0@UNC_P_CLOCKTICKS@ + UNC_P_CLOCKTICKS ) * #num_packages"
+        self.assertEqual(
+            converter.apply_socket_aggregation_rules(expression, metric),
+            expression)
+
 
 if __name__ == "__main__":
     unittest.main()
