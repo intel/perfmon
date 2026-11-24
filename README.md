@@ -437,6 +437,7 @@ This field lists the known bugs that apply to the events. For the latest errata 
 | ADL | [12th Generation Intel&reg; Core&trade; Processor Specification Update (Doc. #682436)](https://cdrdv2.intel.com/v1/dl/getContent/682436?explicitVersion=true) |
 | ARL | [Intel&reg; Core&trade; Ultra Processors (Series 2) Specification Update (Doc. #834774)](https://cdrdv2.intel.com/v1/dl/getContent/834774?explicitVersion=true) |
 | CLX | [2nd Gen Intel&reg; Xeon&reg; Scalable Processors Specification Update (Doc. #338848)](https://cdrdv2.intel.com/v1/dl/getContent/338848?explicitVersion=true) |
+| CWF | [Intel&reg; Xeon&reg; 6900E+ Series Processors Specification Update (Doc. #917802)](https://edc.intel.com/content/www/us/en/design/products-and-solutions/processors-and-chipsets/birch-stream/xeon-6900e-series-processors-specification-update) |
 | EMR | [5th Gen Intel&reg; Xeon&reg; Processor Codename Emerald Rapids Specification Update (Doc. #793902)](https://cdrdv2.intel.com/v1/dl/getContent/793902?explicitVersion=true) |
 | GNR | [Intel&reg; Xeon&reg; 6900/6700/6500-Series with P-Cores Specification Update (Doc. #835486)](https://cdrdv2.intel.com/v1/dl/getContent/835486?explicitVersion=true) |
 | HSX | [Intel&reg; Xeon&reg; Processor E5 v3 Product Family Specification Update (Doc. #330785)](https://cdrdv2.intel.com/v1/dl/getContent/330785?explicitVersion=true) |
