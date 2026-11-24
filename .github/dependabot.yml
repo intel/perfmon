@@ -30,4 +30,4 @@ updates:
       # without also updating codeql-action/init.
       codeql-actions:
         patterns:
-          - "github/codeql-action"
+          - "github/codeql-action*"
